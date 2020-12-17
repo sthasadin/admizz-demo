@@ -1,0 +1,61 @@
+.about-country {
+  padding: 40px 40px 60px;
+  margin: 36px 15px;
+  width: calc(100% - 30px);
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  text-align: center;
+  @media (min-width: 768px) {
+    width: 720px;
+    margin: 36px auto;
+  }
+  @media (min-width: 1024px) {
+    width: 940px;
+  }
+  @media (min-width: 1200px) {
+    width: 1170px;
+  }
+  @media (min-width: 1360px) {
+    width: 1240px;
+  }
+  &__heading {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 33px;
+  }
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 53px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  &__desc {
+    font-size: 14px;
+    color: $gray-2;
+    line-height: 20px;
+    margin: 0 auto;
+    margin-bottom: 32px;
+    width: 700px;
+  }
+  &__info {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+    line-height: 24px;
+    margin-bottom: 33px;
+    span {
+      color: $secondary-color;
+    }
+  }
+  &__thumbnail-wrap {
+    margin: 0 65px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
+}

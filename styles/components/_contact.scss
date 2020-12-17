@@ -1,0 +1,27 @@
+.contact {
+  display: flex;
+  align-items: center;
+
+  &__icon {
+    color: $secondary-color;
+    display: inline-block;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    &:last-child {
+      margin-left: 24px;
+    }
+  }
+
+  &__title,
+  &__info {
+    color: #fff;
+  }
+
+  &__info {
+    font-weight: 700;
+    padding-left: 12px;
+  }
+}

@@ -1,0 +1,36 @@
+nav.navigation {
+  overflow: hidden;
+  position: relative;
+  ul.menu {
+    display: flex;
+    align-items: center;
+    text-decoration-style: none;
+    li.menu-item {
+      list-style-type: none;
+      margin: 0 5px;
+      a {
+        padding: 0 10px;
+        display: inline-block;
+        font-size: 16px;
+        color: $gray-3;
+        line-height: 80px;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          display: block;
+          bottom: 0;
+          left: 0;
+          height: 4px;
+          width: 0px;
+          transition: width 500ms;
+          background-color: $secondary-color;
+        }
+        &:hover::after {
+          width: 100%;
+          transition: width 500ms;
+        }
+      }
+    }
+  }
+}

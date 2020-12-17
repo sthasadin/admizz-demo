@@ -1,0 +1,26 @@
+.topbar {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $primary-color;
+  position: relative;
+  font-size: 14px;
+  padding: 0 100px;
+  color: #fff;
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__country {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+    span {
+      margin-right: 12px;
+    }
+  }
+}

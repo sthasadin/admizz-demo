@@ -1,0 +1,13 @@
+.signup {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &__text {
+    margin-left: 6px;
+  }
+
+  &__icon {
+    color: $secondary-color;
+    display: inline-block;
+  }
+}

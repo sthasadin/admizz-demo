@@ -11,4 +11,9 @@
     color: $primary-color;
     background-color: #fff;
   }
+  &--light {
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+  }
 }

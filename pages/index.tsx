@@ -2,6 +2,7 @@ import { Button } from "@material-ui/core";
 import Head from "next/head";
 import React from "react";
 import { About } from "../components/About";
+import { Merits } from "../components/mertis";
 import { Navbar } from "../layouts/navbar";
 import { Topbar } from "../layouts/topbar";
 
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
       <main className="main">
         <About />
+        <Merits />
         <Button variant="contained" color="primary">
           Name
         </Button>

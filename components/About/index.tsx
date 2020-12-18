@@ -4,8 +4,10 @@ import { Card1 } from "../card/card1";
 const About = () => {
   return (
     <div className="about-country">
-      <div className="about-country__heading">about india</div>
-      <div className="about-country__title">learn something about india</div>
+      <div className="about-country__heading block-heading">about india</div>
+      <div className="about-country__title block-title">
+        learn something about india
+      </div>
       <div className="about-country__desc">
         <p>
           India has traditionally been seen as a country that sends rather than

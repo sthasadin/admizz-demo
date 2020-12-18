@@ -1,0 +1,14 @@
+.btn {
+  border: 1px solid $primary-color;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  &--block {
+    padding: 15px 36px;
+    text-transform: capitalize;
+    color: $primary-color;
+    background-color: #fff;
+  }
+}

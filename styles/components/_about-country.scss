@@ -1,6 +1,6 @@
 .about-country {
   padding: 40px 40px 60px;
-  margin: 36px 15px;
+  margin: 36px 15px 42px;
   width: calc(100% - 30px);
   background-color: #f2f2f2;
   border-radius: 5px;
@@ -17,21 +17,6 @@
   }
   @media (min-width: 1360px) {
     width: 1240px;
-  }
-  &__heading {
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    font-weight: 500;
-    line-height: 33px;
-  }
-  &__title {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 53px;
-    text-align: center;
-    text-transform: capitalize;
   }
   &__desc {
     font-size: 14px;

@@ -12,10 +12,34 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
-    padding: 36px 38px 38px 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
+    &__inner {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 36px 38px 38px 0;
+      @media (min-width: 768px) {
+        width: 360px;
+        margin-left: auto;
+        margin-right: 0;
+      }
+      @media (min-width: 1024px) {
+        width: 470px;
+        margin-left: auto;
+        margin-right: 0;
+      }
+      @media (min-width: 1200px) {
+        width: 585px;
+        margin-left: auto;
+        margin-right: 0;
+      }
+      @media (min-width: 1360px) {
+        width: 620px;
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
   }
 
   &__right {
@@ -29,7 +53,7 @@
       background-position: center center;
       background-size: cover;
       background-repeat: no-repeat;
-      padding: 36px 100px 32px 24px;
+      padding: 36px 0px 32px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;

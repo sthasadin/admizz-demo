@@ -6,17 +6,19 @@ const Us = () => {
     <div className="us">
       <div className="us__inner">
         <div className="us__left">
-          <div className="us__title">Why Choose Admizz?</div>
-          <div className="us__desc">
-            Kickstart your career by starting early. Admizz helps you join the
-            right diploma course right after 10th grade so you’re always a step
-            ahead of others.
-          </div>
-          <div className="us__feature">
-            <Feature />
-          </div>
-          <div className="us__btn">
-            <button className="btn btn--block btn--light">Learn More</button>
+          <div className="us__left__inner">
+            <div className="us__title">Why Choose Admizz?</div>
+            <div className="us__desc">
+              Kickstart your career by starting early. Admizz helps you join the
+              right diploma course right after 10th grade so you’re always a
+              step ahead of others.
+            </div>
+            <div className="us__feature">
+              <Feature />
+            </div>
+            <div className="us__btn">
+              <button className="btn btn--block btn--light">Learn More</button>
+            </div>
           </div>
         </div>
         <div className="us__right">

@@ -14,7 +14,7 @@ export default function Home() {
       <Head>
         <Topbar />
         <title>Admizz - Home</title>
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="favicon.svg" />
         <Navbar />
       </Head>
       <main className="main">

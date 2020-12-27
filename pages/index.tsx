@@ -1,4 +1,3 @@
-import { Button } from "@material-ui/core";
 import Head from "next/head";
 import React from "react";
 import { About } from "../components/About";
@@ -7,6 +6,7 @@ import { CollegeFinder } from "../components/collegeFinder";
 import { CollegesBlock } from "../components/collegesBlock";
 import { Merits } from "../components/mertis";
 import { Statistics } from "../components/statistics";
+import { Teams } from "../components/Teams";
 import { Us } from "../components/why-us";
 import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";
@@ -29,9 +29,7 @@ export default function Home() {
         <CollegesBlock />
         <CollegeFinder />
         <BlogList />
-        <Button variant="contained" color="primary">
-          Name
-        </Button>
+        <Teams />
       </main>
       <Footer />
     </div>

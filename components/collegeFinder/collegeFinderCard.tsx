@@ -2,7 +2,7 @@ import React from "react";
 
 const CollegeFinderCard = (props: any) => {
   return (
-    <div className="course-card">
+    <div className={`course-card ${props.className ? props.className : ""}`}>
       <div className="course-card__inner">
         <div className="course-card__icon">
           <svg

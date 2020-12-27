@@ -1,8 +1,8 @@
-.collegesBlock {
-  margin: 40px 0;
+.collegeFinder {
+  margin: 80px 0;
   &__inner {
     width: calc(100% - 30px);
-    margin: 0 15px;
+    margin: 40px 15px;
     @media (min-width: 768px) {
       width: 720px;
       margin: 0 auto;
@@ -17,20 +17,23 @@
       width: 1200px;
     }
   }
+  &__titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
   &__heading {
     margin-bottom: 12px;
+    text-align: left;
   }
   &__title {
-    max-width: 410px;
-    margin: 0 auto;
-    margin-bottom: 39px;
-    span {
-      color: $secondary-color;
-    }
+    max-width: 464px;
+    text-align: left;
   }
   &__list {
     display: grid;
-    grid-template-columns: 295px 295px 295px 295px;
-    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 2px;
   }
 }

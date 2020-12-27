@@ -1,4 +1,5 @@
 import React from "react";
+import { CallToAction } from "../Button/callToAction";
 import { CollegeFinderCard } from "./collegeFinderCard";
 
 const CollegeFinder = () => {
@@ -15,7 +16,7 @@ const CollegeFinder = () => {
             </div>
           </div>
           <div className="collegeFinder__right">
-            <div className="cta"></div>
+            <CallToAction>explre all categories</CallToAction>
           </div>
         </div>
         <div className="collegeFinder__list">
@@ -26,7 +27,7 @@ const CollegeFinder = () => {
           <CollegeFinderCard name="Art, Design and Architecture" count="1259" />
           <CollegeFinderCard name="Computers" count="1259" />
           <CollegeFinderCard name="Management" count="1259" />
-          <CollegeFinderCard name="Commerce" count="1259" />
+          <CollegeFinderCard name="Commerce" count="1259" className="active" />
           <CollegeFinderCard name="Law" count="1259" />
           <CollegeFinderCard name="Engineering" count="1259" />
           <CollegeFinderCard name="Travel & Tourism" count="1259" />

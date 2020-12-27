@@ -8,6 +8,7 @@ import { CollegesBlock } from "../components/collegesBlock";
 import { Merits } from "../components/mertis";
 import { Statistics } from "../components/statistics";
 import { Us } from "../components/why-us";
+import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";
 import { Topbar } from "../layouts/topbar";
 
@@ -32,7 +33,7 @@ export default function Home() {
           Name
         </Button>
       </main>
-      <footer className="footer"></footer>
+      <Footer />
     </div>
   );
 }

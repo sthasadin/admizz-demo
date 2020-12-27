@@ -14,7 +14,7 @@
       width: 1170px;
     }
     @media (min-width: 1360px) {
-      width: 1200px;
+      width: 1240px;
     }
   }
   &__heading {
@@ -30,7 +30,7 @@
   }
   &__list {
     display: grid;
-    grid-template-columns: 295px 295px 295px 295px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
   }
 }

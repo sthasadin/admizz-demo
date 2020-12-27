@@ -2,6 +2,7 @@ import { Button } from "@material-ui/core";
 import Head from "next/head";
 import React from "react";
 import { About } from "../components/About";
+import { CollegesBlock } from "../components/collegesBlock";
 import { Merits } from "../components/mertis";
 import { Statistics } from "../components/statistics";
 import { Us } from "../components/why-us";
@@ -22,6 +23,7 @@ export default function Home() {
         <Merits />
         <Us />
         <Statistics />
+        <CollegesBlock />
         <Button variant="contained" color="primary">
           Name
         </Button>

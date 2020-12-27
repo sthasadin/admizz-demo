@@ -1,0 +1,102 @@
+.colleges-card {
+  &__thumbnail {
+    height: 173px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    width: 295px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__title-wrap {
+    position: absolute;
+    bottom: 5px;
+    left: 11px;
+    z-index: 1;
+    max-width: 254px;
+  }
+  &__title {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 22px;
+    margin-bottom: 4px;
+  }
+  &__location {
+    font-size: 14px;
+    line-height: 21px;
+    color: #f2f2f2;
+  }
+  &__details {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 0px 0px 5px 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 14px 17px 11px;
+    position: relative;
+  }
+  &__key-value-wrap {
+    display: flex;
+    align-items: center;
+  }
+  &__key-value-wrap.lg {
+    justify-content: space-between;
+  }
+  &__key-value {
+    display: flex;
+    align-items: center;
+    width: 77px;
+  }
+  &__key-value.lg {
+    width: auto;
+  }
+  &__key,
+  &__value {
+    font-size: 10px;
+    line-height: 15px;
+    color: #828282;
+  }
+  &__key.lg,
+  &__value.lg {
+    font-size: 12px;
+    line-height: 18px;
+    color: #828282;
+  }
+  &__value {
+    font-weight: 700;
+    margin-left: 3px;
+  }
+  &__logo {
+    position: absolute;
+    bottom: 11px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    right: 14px;
+    img {
+      object-fit: cover;
+      height: 64px;
+      width: 64px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+  }
+  &__bottom {
+    padding: 14px 0 0 0;
+    margin: 0 12px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  &__course {
+    margin: 0 23px 20px 0px;
+  }
+}

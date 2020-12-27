@@ -1,0 +1,36 @@
+.collegesBlock {
+  margin-top: 25px;
+  &__inner {
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    @media (min-width: 768px) {
+      width: 720px;
+      margin: 0 auto;
+    }
+    @media (min-width: 1024px) {
+      width: 940px;
+    }
+    @media (min-width: 1200px) {
+      width: 1170px;
+    }
+    @media (min-width: 1360px) {
+      width: 1200px;
+    }
+  }
+  &__heading {
+    margin-bottom: 12px;
+  }
+  &__title {
+    max-width: 410px;
+    margin: 0 auto;
+    margin-bottom: 39px;
+    span {
+      color: $secondary-color;
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: 295px 295px 295px 295px;
+    grid-gap: 20px;
+  }
+}

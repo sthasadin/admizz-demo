@@ -1,0 +1,27 @@
+.college-course {
+  &__title {
+    font-size: 14px;
+    color: #4f4f4f;
+    line-height: 21px;
+    margin-bottom: 9px;
+    margin-top: 13px;
+  }
+  &__item-wrap {
+    display: flex;
+    align-items: center;
+  }
+  &__item {
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: #4f4f4f;
+    font-weight: 500;
+    background-color: #e0e0e0;
+    margin-right: 4px;
+    font-size: 10px;
+  }
+  &__pagination {
+    margin-left: 10px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+}

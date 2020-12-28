@@ -1,10 +1,14 @@
-import { Button } from "@material-ui/core";
 import Head from "next/head";
 import React from "react";
 import { About } from "../components/About";
+import { BlogList } from "../components/BlogList";
+import { CollegeFinder } from "../components/collegeFinder";
+import { CollegesBlock } from "../components/collegesBlock";
 import { Merits } from "../components/mertis";
 import { Statistics } from "../components/statistics";
+import { Teams } from "../components/Teams";
 import { Us } from "../components/why-us";
+import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";
 import { Topbar } from "../layouts/topbar";
 
@@ -22,11 +26,12 @@ export default function Home() {
         <Merits />
         <Us />
         <Statistics />
-        <Button variant="contained" color="primary">
-          Name
-        </Button>
+        <CollegesBlock />
+        <CollegeFinder />
+        <BlogList />
+        <Teams />
       </main>
-      <footer className="footer"></footer>
+      <Footer />
     </div>
   );
 }

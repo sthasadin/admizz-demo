@@ -1,0 +1,41 @@
+.course-card {
+  &__inner {
+    height: 142px;
+    width: 100%;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__icon {
+    height: 42px;
+    width: 42px;
+  }
+  &__title {
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #333;
+  }
+  &__count {
+    margin-top: 7px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #828282;
+  }
+}
+
+.course-card.active {
+  .course-card__title {
+    color: #fff;
+  }
+  .course-card__inner {
+    background-color: $primary-color;
+  }
+  .course-card__count {
+    color: #e0e0e0;
+  }
+}

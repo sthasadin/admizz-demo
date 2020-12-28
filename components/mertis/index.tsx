@@ -1,4 +1,5 @@
 import React from "react";
+import { CallToAction } from "../Button/callToAction";
 
 const Merits = () => {
   return (
@@ -41,7 +42,7 @@ const Merits = () => {
               </div>
             </div>
           </div>
-          <button className="btn btn--block">Learn More</button>
+          <CallToAction>Learn More</CallToAction>
         </div>
         <div className="merit__right">
           <div className="merti__right__inner">

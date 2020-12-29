@@ -8,5 +8,16 @@
   border: 1px solid #5f1802;
   background-color: #fff;
   cursor: pointer;
+  white-space: nowrap;
   font-weight: 700;
+}
+
+.cta-button.filled {
+  color: #f2f2f2;
+  background-color: $primary-color;
+  border: none;
+}
+
+.cta-button.login {
+  width: 292px;
 }

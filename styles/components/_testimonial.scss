@@ -1,0 +1,79 @@
+.testimonial {
+  margin: 80px 0;
+  background-image: url("../../public/testimonial-background.svg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &__inner {
+    display: grid;
+    place-items: center;
+    padding: 80px 0;
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    &__thumbnail {
+      &:nth-child(3) {
+        margin-top: 135px;
+      }
+      &:nth-child(1) {
+        margin-top: 210px;
+      }
+    }
+  }
+  &__center {
+    height: 304px;
+    width: 304px;
+    border-radius: 50%;
+    border: 3px dashed $primary-color;
+    padding: 18px;
+    position: relative;
+    box-sizing: content-box;
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    &__thumbnail {
+      &:nth-child(1) {
+        margin-top: 80px;
+      }
+    }
+  }
+  &__item-wrap {
+    display: flex;
+    align-items: center;
+  }
+  &__play-icon {
+    position: absolute;
+    right: -15px;
+    bottom: 15px;
+  }
+  &__text {
+    font-family: "Noticia Text", serif;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 42.5px;
+    text-align: center;
+    margin-bottom: 17px;
+    max-width: 750px;
+  }
+  &__quote {
+    position: absolute;
+    left: 55px;
+    bottom: 15px;
+  }
+
+  &__author {
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    span {
+      font-weight: 700;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Review } from "../Review";
 import { RatingItem } from "./ratingItem";
 
 const RatingAndReview = (props: any) => {
@@ -47,6 +48,10 @@ const RatingAndReview = (props: any) => {
           </div>
         </div>
       </div>
+
+      <Review />
+      <Review />
+      <Review />
     </div>
   );
 };

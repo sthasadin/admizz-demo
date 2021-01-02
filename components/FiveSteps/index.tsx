@@ -145,8 +145,8 @@ const FiveSteps = (props: any) => {
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M6 22.5V21C9 21 9 20.1 9 19.5H2.25L1.5 18.75V3.75L2.25 3H21.75L22.5 3.75V17.61L21 16.11V4.5H3V18H11.595L10.845 18.75L14.595 22.5H6ZM17.79 22.5L21.54 18.75L20.475 17.7L18 20.175V10.5H16.5V20.16L14.04 17.685L12.975 18.75L16.725 22.5H17.79Z"
                         fill="#FFA200"
                       />

@@ -2,6 +2,7 @@ import React from "react";
 import { CollegeDetailsBlock } from "../CollegeDetailsBlock";
 import { FeeStructure } from "../CollegeFeeStructure";
 import { CollegeOverview } from "../CollegeOverview";
+import { RatingAndReview } from "../CollegeRatingAndReviews";
 import { Newsletter } from "../Newsletter";
 import { Sidebar } from "../Sidebar";
 
@@ -14,6 +15,7 @@ const SidebarContainer = (props: any) => {
           <CollegeOverview />
           <FeeStructure />
           <Newsletter />
+          <RatingAndReview />
         </div>
         <Sidebar />
       </div>

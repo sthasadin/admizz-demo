@@ -1,0 +1,29 @@
+.fee-structure {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  &__title-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 800;
+    color: $secondary-color;
+  }
+  &__cta {
+    font-size: 14px;
+    line-height: 21px;
+    color: $primary-color;
+  }
+  &__level {
+    margin-bottom: 25px;
+  }
+  &__courses {
+    margin-bottom: 16px;
+  }
+}

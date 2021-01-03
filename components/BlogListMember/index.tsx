@@ -1,5 +1,6 @@
 import React from "react";
 import { SingleBlogCard } from "../SingleBlogCard";
+import { SingleListPostWithImage } from "../SingleListPostWithImage";
 
 const BlogListMember = () => {
   return (
@@ -36,7 +37,9 @@ const BlogListMember = () => {
         </div>
       </div>
       <div className="blog-list-member__postList">
-        PostList
+        <SingleListPostWithImage />
+        <SingleListPostWithImage />
+        <SingleListPostWithImage />
       </div>
     </div>
   );

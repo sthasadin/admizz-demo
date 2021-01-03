@@ -1,19 +1,11 @@
-.single-list-post-with-image {
+.single-list-post {
   width: 100%;
   margin: 0px 0px 10px 0px;
   &__container {
     display: flex;
   }
-  &__imageContainer {
-    width: 40%;
-    height: 150px;
-    background-image: url(../../public/memberPost01.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 5px;
-  }
   &__DetailContainer {
-    width: 60%;
+    width: 100%;
     padding: 10px 10px;
   }
   &__AutherTimeContainer {

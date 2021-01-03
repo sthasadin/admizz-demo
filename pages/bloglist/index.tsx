@@ -6,6 +6,7 @@ import { Topbar } from "../../layouts/topbar";
 import { BlogListBanner } from "../../components/BlogListBanner";
 import { SectionTitle } from "../../components/SectionTitle";
 import { BlogListMember } from "../../components/BlogListMember";
+import { BlogListLatestPost } from "../../components/BlogListLatestPost";
 
 const blogList = () => {
   return (
@@ -21,6 +22,8 @@ const blogList = () => {
           <BlogListBanner /> 
           <SectionTitle title="Featured For Members" />
           <BlogListMember />
+          <SectionTitle title="Latest Posts" />
+          <BlogListLatestPost />
         </div>
       </main>
       <Footer />

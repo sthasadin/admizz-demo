@@ -1,0 +1,8 @@
+.college-list {
+  display: flex;
+  justify-content: center;
+  &__container {
+    width: 1080px;
+    background-color: blue;
+  }
+}

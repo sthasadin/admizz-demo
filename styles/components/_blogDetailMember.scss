@@ -1,0 +1,67 @@
+.blog-detail-member {
+  width: 1200px;
+  &__memberTitle {
+    width: 200px;
+    border: 0px solid;
+    border-bottom-color:#5F1802;    ;
+    border-bottom-width: 4px;
+  }
+  &__memberTitleText {
+    padding: 20px 20px;
+  }
+  &__memberList {
+    display: flex;
+    margin: 20px 0px;
+  }
+  &__memberPost {
+    margin-right: 20px;
+    background-color: red;
+  }
+  &__inner {
+    background-image: url(../../public/memberPost01.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    width: 280px;
+    height: 250px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  &__catagoryContainer {
+    display: flex;
+    height: 100%;
+    align-items: flex-start;
+  }
+  &__category {
+    font-size: 10px;
+    letter-spacing: 10%;
+    font-weight: 700;
+    line-height: 14px;
+    margin: 10px 10px;
+    padding: 7px 7px;
+    background-color: $primary-color;
+    text-transform: uppercase;
+    border-radius: 5px;
+    display: inline-flex;
+    color: #fff;
+    align-items: flex-start;
+    width: 100px;
+  }
+  &__details {
+    background-color: green;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-top: 29px;
+    padding: 0px 20px 20px 20px;
+    background: linear-gradient(
+      180deg,
+      rgba(1, 1, 1, 0) 0%,
+      rgba(2, 2, 2, 0.4) 45.31%,
+      rgba(3, 3, 3, 0.77) 100%
+    );
+  }
+}

@@ -4,6 +4,7 @@ import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
 import { BlogDetailHeader } from "../../components/BlogDetailHeader";
+import { BlogDetailContent } from "../../components/BlogDetailContent";
 import BlogImage from "../../public/blog.png";
 
 const blogDetail = () => {
@@ -20,7 +21,33 @@ const blogDetail = () => {
           <div className="blog-detail__main">
             <BlogDetailHeader />
           </div>
-          <img className="blog-detail__image" src={BlogImage} />
+          <div className="blog-detail__imageContainer">
+            <img className="blog-detail__image" src={BlogImage} />
+            <div className="blog-detail__postDetail">
+              <div className="blog-detail__postValueContainer">
+                <div className="blog-detail__postValue">
+                  <b>Posted by: Stacy James</b>
+                </div>
+                <div className="blog-detail__postValue">
+                  <b>50</b> Views
+                </div>
+                <div className="blog-detail__postValue">
+                  <b>60</b> Comments
+                </div>
+              </div>
+              <div className="blog-detail__shareInfoContainer">
+                <div className="blog-detail__button">
+                  Share Button
+                </div>
+                <div className="blog-detail__sharetitle">
+                  <p className="blog-detail__sharetext">Share This Article</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="blog-detail__main">
+            <BlogDetailContent />
+          </div>
         </div>
       </main>
       <Footer />

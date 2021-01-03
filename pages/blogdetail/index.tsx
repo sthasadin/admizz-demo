@@ -7,7 +7,7 @@ import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 import { BlogDetailContent } from "../../components/BlogDetailContent";
 import { BlogDetailMember } from "../../components/BlogDetailMember";
 import BlogImage from "../../public/blog.png";
-
+import { Button } from "../../components";
 const blogDetail = () => {
   return (
     <div className="container">
@@ -37,8 +37,8 @@ const blogDetail = () => {
                 </div>
               </div>
               <div className="blog-detail__shareInfoContainer">
-                <div className="blog-detail__button">
-                  Share Button
+                <div className="blog-detail__buttonContainer">
+                  <Button className="blog-detail__button">TECHNOLOGY</Button>
                 </div>
                 <div className="blog-detail__sharetitle">
                   <p className="blog-detail__sharetext">Share This Article</p>

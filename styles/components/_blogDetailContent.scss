@@ -12,6 +12,9 @@
   &__autherContainer {
     display: flex;
   }
+  &__autherImage {
+    height: 70px;
+  }
   &__autherTextContainer {
     padding: 10px 30px;
   }
@@ -29,5 +32,20 @@
     font-weight: 500;
     line-height: 19px;
     letter-spacing: 0em;
+  }
+  &__commentContainer {
+    margin: 20px 0px;
+  }
+  &__commentText {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+  }
+  &__textareaValue {
+    margin: 10px 0px;
+    width: 100%;
+    line-height: 3;
   }
 }

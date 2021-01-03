@@ -69,11 +69,15 @@ const BlogDetailContent = () => {
       </div>
       <hr className="blog-detail-content__horizontalLine" />
       <div className="blog-detail-content__autherContainer">
-        <img src={ ImageAuther } />
+        <img className="blog-detail-content__autherImage" src={ ImageAuther } />
         <div className="blog-detail-content__autherTextContainer">  
           <p className="blog-detail-content__autherName">Ram Sharma</p>
           <p className="blog-detail-content__autherTitle">Software Engineer</p>
         </div>
+      </div>
+      <div className="blog-detail-content__commentContainer"> 
+          <p className="blog-detail-content__commentTitle">Leave A Comment</p>
+          <textarea className="blog-detail-content__textareaValue" placeholder="Enter your comment here."></textarea>
       </div>
     </div>
   );

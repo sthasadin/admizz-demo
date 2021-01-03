@@ -1,0 +1,19 @@
+.blog-list-random-blog {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  &__highlightPost {
+    width: 65%;
+  }
+  &__topPost {
+    margin: 0px;
+  }
+  &__secondaryPostContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__postList {
+    width: 33%;
+  }
+
+}

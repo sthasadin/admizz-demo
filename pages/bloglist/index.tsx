@@ -7,6 +7,7 @@ import { BlogListBanner } from "../../components/BlogListBanner";
 import { SectionTitle } from "../../components/SectionTitle";
 import { BlogListMember } from "../../components/BlogListMember";
 import { BlogListLatestPost } from "../../components/BlogListLatestPost";
+import { BlogListRandomBlog } from "../../components/BlogListRandomBlog";
 
 const blogList = () => {
   return (
@@ -24,6 +25,8 @@ const blogList = () => {
           <BlogListMember />
           <SectionTitle title="Latest Posts" />
           <BlogListLatestPost />
+          <SectionTitle title="Random Blogs" />
+          <BlogListRandomBlog />
         </div>
       </main>
       <Footer />

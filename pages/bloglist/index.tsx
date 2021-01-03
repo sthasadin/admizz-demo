@@ -4,6 +4,7 @@ import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
 import { BlogListBanner } from "../../components/BlogListBanner";
+import { SectionTitle } from "../../components/SectionTitle";
 
 const blogList = () => {
   return (
@@ -17,6 +18,7 @@ const blogList = () => {
       <main className="blog-list">
         <div className="blog-list__container">
           <BlogListBanner /> 
+          <SectionTitle title="Featured For Members" />
         </div>
       </main>
       <Footer />

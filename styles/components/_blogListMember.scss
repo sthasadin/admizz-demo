@@ -1,0 +1,22 @@
+.blog-list-member {
+  display: flex;
+  width: 100%;
+  background-color: red;
+  justify-content: space-between;
+  &__highlightPost {
+    width: 65%;
+    background-color: blue;
+  }
+  &__topPost {
+    background-color: green;
+  }
+  &__secondaryPostContainer {
+    display: flex;
+    justify-content: space-between;
+    background-color: yellow;
+  }
+  &__postList {
+    width: 33%;
+  }
+
+}

@@ -5,6 +5,7 @@ import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
 import { BlogListBanner } from "../../components/BlogListBanner";
 import { SectionTitle } from "../../components/SectionTitle";
+import { BlogListMember } from "../../components/BlogListMember";
 
 const blogList = () => {
   return (
@@ -19,6 +20,7 @@ const blogList = () => {
         <div className="blog-list__container">
           <BlogListBanner /> 
           <SectionTitle title="Featured For Members" />
+          <BlogListMember />
         </div>
       </main>
       <Footer />

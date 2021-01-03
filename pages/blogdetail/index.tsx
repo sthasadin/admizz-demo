@@ -5,7 +5,7 @@ import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
 import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 
-const homepage = () => {
+const blogDetail = () => {
   return (
     <div className="container">
       <Head>
@@ -14,7 +14,7 @@ const homepage = () => {
         <link rel="icon" href="favicon.svg" />
         <Navbar />
       </Head>
-      <main className="main">
+      <main className="blog-detail-main">
         <BlogDetailHeader />
       </main>
       <Footer />
@@ -22,4 +22,4 @@ const homepage = () => {
   );
 };
 
-export default homepage;
+export default blogDetail;

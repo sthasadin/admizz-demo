@@ -4,27 +4,18 @@ import { BlogCard } from "../BlogList/blogListCard";
 
 const BlogDetailHeader = () => {
   return (
-    <div className="blog-list">
-      <div className="blog-list__inner">
-        <div className="blog-list__titlebar">
-          <div className="blog-list__left">
-            <div className="blog-list__heading block-heading">
-              Blog/article/news
-            </div>
-            <div className="blog-list__title block-title">
-              Our Latest News/Article/Blog
-            </div>
-          </div>
-          <div className="blog-list__right">
-            <CallToAction>view all blogs</CallToAction>
-          </div>
-        </div>
-        <div className="blog-list__list">
-          <BlogCard />
-        </div>
+    <div className="blog-detail-header">
+      <div className="blog-detail-header__title">
+        <h1>How I got my job in Google with the help of Admizz - Ind-SAT Upadates</h1>
+      </div>
+      <div className="blog-detail-header__subtitle">
+        Get the right career advice for you and earn your best career certificates.
+      </div>
+      <div className="blog-detail-header__keyword">
+        
       </div>
     </div>
   );
-};
+}; 
 
 export { BlogDetailHeader };

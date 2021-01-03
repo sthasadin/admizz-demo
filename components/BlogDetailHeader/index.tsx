@@ -1,6 +1,5 @@
 import React from "react";
-import { CallToAction } from "../Button/callToAction";
-import { BlogCard } from "../BlogList/blogListCard";
+import BlogImage from "../../public/blog.png";
 
 const BlogDetailHeader = () => {
   return (
@@ -12,7 +11,26 @@ const BlogDetailHeader = () => {
         Get the right career advice for you and earn your best career certificates.
       </div>
       <div className="blog-detail-header__keyword">
-        
+        <div className="blog-detail-header__keybutton">
+          <p className="blog-detail-header__keybuttontext">
+            Technology
+          </p>
+        </div>
+        <div className="blog-detail-header__keybutton">
+          <p className="blog-detail-header__keybuttontext">
+            Technology
+          </p>
+        </div>
+        <div className="blog-detail-header__keybutton">
+          <p className="blog-detail-header__keybuttontext">
+            Technology
+          </p>
+        </div>
+        <div className="blog-detail-header__keybutton">
+          <p className="blog-detail-header__keybuttontext">
+            Technology
+          </p>
+        </div>
       </div>
     </div>
   );

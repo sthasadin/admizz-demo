@@ -37,9 +37,24 @@ const BlogListMember = () => {
         </div>
       </div>
       <div className="blog-list-member__postList">
-        <SingleListPostWithImage />
-        <SingleListPostWithImage />
-        <SingleListPostWithImage />
+        <SingleListPostWithImage
+          author="Stacy james"
+          time="5 min read"
+          title="IIT Bombay Campus to be Opened to a Few UG ..."
+          desc="Get the right career advice for you and earn your best..."
+        />
+        <SingleListPostWithImage
+          author="Jimmy Stews"
+          time="5 min read"
+          title="IIT Bombay Campus to be Opened to a Few UG ..."
+          desc="Get the right career advice for you and earn your best..."
+        />
+        <SingleListPostWithImage
+          author="Robert Brown"
+          time="5 min read"
+          title="IIT Bombay Campus to be Opened to a Few UG ..."
+          desc="Get the right career advice for you and earn your best..."
+        />
       </div>
     </div>
   );

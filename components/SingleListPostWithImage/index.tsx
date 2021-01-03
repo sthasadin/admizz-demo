@@ -5,23 +5,21 @@ const SingleListPostWithImage = (props: any) => {
     <div className="single-list-post-with-image">
       <div className="single-list-post-with-image__container">
         <div className="single-list-post-with-image__imageContainer">
-          Image Here
         </div>
         <div className="single-list-post-with-image__DetailContainer">
           <div className="single-list-post-with-image__AutherTimeContainer">
-            Auther Time
+            {props.author} - {props.time}
           </div>
           <div className="single-list-post-with-image__Title">
-            Title
+          {props.title}
           </div>
           <div className="single-list-post-with-image__Description">
-            Description
+          {props.desc}
           </div>
         </div>
-        hello
       </div>
     </div>
   );
 };
 
-export { SingleListPostWithImage };
+export { SingleListPostWithImage }; 

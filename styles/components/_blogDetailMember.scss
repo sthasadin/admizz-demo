@@ -1,0 +1,12 @@
+.blog-detail-member {
+  width: 1200px;
+  &__memberTitle {
+    width: 200px;
+    border: 0px solid;
+    border-bottom-color:#5F1802;    ;
+    border-bottom-width: 4px;
+  }
+  &__memberTitleText {
+    padding: 20px 20px;
+  }
+}

@@ -5,6 +5,7 @@ import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
 import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 import { BlogDetailContent } from "../../components/BlogDetailContent";
+import { BlogDetailMember } from "../../components/BlogDetailMember";
 import BlogImage from "../../public/blog.png";
 
 const blogDetail = () => {
@@ -47,6 +48,9 @@ const blogDetail = () => {
           </div>
           <div className="blog-detail__main">
             <BlogDetailContent />
+          </div>
+          <div className="blog-detail__imageContainer">
+            <BlogDetailMember />
           </div>
         </div>
       </main>

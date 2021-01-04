@@ -9,8 +9,9 @@ const CollegeListSelectedFilter = () => {
         <p className="college-list-selected-filter__filterAdd">+</p>
       </div>
       <div className="college-list-selected-filter__filterKeyContainer">
-        <FilterKeyword />
-        <FilterKeyword />
+        <FilterKeyword title="MANAGEMENT" />
+        <FilterKeyword title="ART" />
+        <FilterKeyword title="ART" />
       </div>
     </div>
   );

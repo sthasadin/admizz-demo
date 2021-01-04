@@ -25,10 +25,24 @@ const CollegeListResult = () => {
         </div>
       </div>
       <div className="college-list-result__resultContainer">
-        <CollegesCard />
-        <CollegesCard />  
-        <CollegesCard />
-        <CollegesCard />
+        <div className="college-list-result__cardContainer">
+          <CollegesCard />
+        </div>
+        <div className="college-list-result__cardContainer">
+          <CollegesCard />
+        </div>
+        <div className="college-list-result__cardContainer">
+          <CollegesCard />
+        </div>
+        <div className="college-list-result__cardContainer">
+          <CollegesCard />
+        </div>
+        <div className="college-list-result__cardContainer">
+          <CollegesCard />
+        </div>
+        <div className="college-list-result__cardContainer">
+          <CollegesCard />
+        </div>
       </div>
     </div>
   );

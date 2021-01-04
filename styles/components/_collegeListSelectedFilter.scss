@@ -1,0 +1,13 @@
+.college-list-selected-filter {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px 10px;
+  &__filterTitleContainer {
+    display: flex;
+    justify-content: space-between;
+    background-color: yellow;
+  }
+  &__filterKeyContainer {
+    background-color: purple;
+  }
+}

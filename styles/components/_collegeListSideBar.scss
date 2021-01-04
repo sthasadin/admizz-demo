@@ -1,0 +1,24 @@
+.college-list-side-bar {
+  &__titleContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__titleText {
+    font-family: Mplus 1p;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: #4F4F4F;
+  }
+  &__resetTitle {
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    color: #FFA200;
+  }
+}

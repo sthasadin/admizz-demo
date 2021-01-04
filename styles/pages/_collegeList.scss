@@ -5,4 +5,13 @@
     width: 1080px;
     background-color: blue;
   }
+  &__listContainer {
+    display: flex;
+  }
+  &__sideBarContainer {
+    width: 30%;
+  }
+  &__collegeResultContainer {
+    width: 70%;
+  }
 }

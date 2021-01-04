@@ -1,5 +1,7 @@
 import React from "react";
-import { FilterKeyword } from "../FilterKeyword";
+import { Input } from "../Input";
+import MailIcon from '@material-ui/icons/Mail';
+import { Button } from "../Button";
 
 const SideBarNewsLetter = () => {
   return (
@@ -8,10 +10,10 @@ const SideBarNewsLetter = () => {
         Subscribe to news letter
       </div>
       <div className="side-bar-news-letter__input">
-        Subscribe to news letter
+        <Input placeholder={"Email Address"} margin={"0px 0px 16px 0px"} fullWidth icon={MailIcon} />
       </div>
       <div className="side-bar-news-letter__button">
-        Subscribe to news letter
+        <Button className="contact-form__send-message" >Send Message</Button>
       </div>
     </div>
   );

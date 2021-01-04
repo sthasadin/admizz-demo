@@ -4,6 +4,7 @@ import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
 import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
+import { CollegeListResult } from "../../components/CollegeListResult";
 
 const collegeList = () => {
   return (
@@ -24,7 +25,7 @@ const collegeList = () => {
               <CollegeListSideBar />
           </div>
             <div className="college-list__collegeResultContainer">
-              College Result
+              <CollegeListResult />
           </div>
           </div>
         </div>

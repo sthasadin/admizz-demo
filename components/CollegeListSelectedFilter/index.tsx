@@ -1,4 +1,5 @@
 import React from "react";
+import { FilterKeyword } from "../FilterKeyword";
 
 const CollegeListSelectedFilter = () => {
   return (
@@ -8,7 +9,8 @@ const CollegeListSelectedFilter = () => {
         <p className="college-list-selected-filter__filterAdd">+</p>
       </div>
       <div className="college-list-selected-filter__filterKeyContainer">
-        Key
+        <FilterKeyword />
+        <FilterKeyword />
       </div>
     </div>
   );

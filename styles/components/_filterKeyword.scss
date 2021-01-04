@@ -1,0 +1,26 @@
+.filter-keyword {
+  display: flex;
+  border: 1px solid;
+  padding: 5px 15px;
+  border-radius: 18px;
+  margin: 2px 4px;
+  justify-content: space-between;
+  &__checkContainer {
+    margin: 0px 10px 0px 0px;
+  }
+  &__keywordText {
+    display: flex;
+    align-items: center;
+    color:#FFA200;
+    font-family: Mplus 1p;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 0em;
+  }
+  &__imageContainer {
+    margin: 0px 0px 0px 10px;
+  }
+
+}

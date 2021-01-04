@@ -1,11 +1,8 @@
 import React from "react";
 import Head from "next/head";
-import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
-import { Topbar } from "../../layouts/topbar";
-import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
-import { CollegeListResult } from "../../components/CollegeListResult";
 import { DashboardSidebar } from "../../components/DashboardSidebar";
+import { DashboardWelcomeCard } from "../../components/DashboardWelcomeCard";
 
 const collegeList = () => {
   return (
@@ -20,8 +17,8 @@ const collegeList = () => {
           <DashboardSidebar />
         </div>
         <div className="student-dashboard-main__mainpage">
-          <div className="student-dashboard-main__completeApplication">
-            Complete Application
+          <div className="student-dashboard-main__welcomeCard">
+            <DashboardWelcomeCard />
           </div>
           <div className="student-dashboard-main__detailInfo">
             Detail Info

@@ -1,5 +1,6 @@
 import React from "react";
 import { CollegeListSelectedFilter } from "../CollegeListSelectedFilter";
+import { SideBarNewsLetter } from "../SideBarNewsLetter";
 
 const CollegeListSideBar = () => {
   return (
@@ -9,6 +10,7 @@ const CollegeListSideBar = () => {
         <p className="college-list-side-bar__resetTitle">Reset Filter</p>
       </div>
       <CollegeListSelectedFilter />
+      <SideBarNewsLetter />
     </div>
   );
 }; 

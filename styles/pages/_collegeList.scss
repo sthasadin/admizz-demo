@@ -1,9 +1,9 @@
 .college-list {
   display: flex;
   justify-content: center;
+  background-color: #E5E5E5;
   &__container {
     width: 1080px;
-    background-color: blue;
   }
   &__listContainer {
     display: flex;

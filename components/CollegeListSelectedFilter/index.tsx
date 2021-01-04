@@ -11,7 +11,8 @@ const CollegeListSelectedFilter = () => {
       <div className="college-list-selected-filter__filterKeyContainer">
         <FilterKeyword title="MANAGEMENT" />
         <FilterKeyword title="ART" />
-        <FilterKeyword title="ART" />
+        <FilterKeyword title="DESIGN" />
+        <FilterKeyword title="INFORMATION TECHNOLOGY" />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 .college-list-result {
-  background-color: white;
   border-radius: 5px;
   &__titleContainer {
     display: flex;
+    background-color: white;
     justify-content: space-between;
     padding: 10px 10px;
   }
@@ -52,5 +52,12 @@
     text-align: center;
     color: #828282;
     ;
+  }
+  &__resultContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__cardContainer {
+    width: 200px;
   }
 }

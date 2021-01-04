@@ -1,5 +1,6 @@
 import React from "react";
 import SortImage from "../../public/SortImage.png";
+import { CollegesCard } from "../collegesBlock/collegesCard";
 
 const CollegeListResult = () => {
   return (
@@ -22,6 +23,12 @@ const CollegeListResult = () => {
             Fees <img src={SortImage} />
           </p>
         </div>
+      </div>
+      <div className="college-list-result__resultContainer">
+        <CollegesCard />
+        <CollegesCard />  
+        <CollegesCard />
+        <CollegesCard />
       </div>
     </div>
   );

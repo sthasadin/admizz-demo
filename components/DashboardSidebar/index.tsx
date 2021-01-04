@@ -9,6 +9,9 @@ const DashboardSidebar = () => {
       <DashboardSidebarTab title="Result" />
       <DashboardSidebarTab title="Latest Update" />
       <DashboardSidebarTab title="Application Status" />
+      <div className="dashboard-sidebar__logout">
+        LogOut
+      </div>
     </div>
   );
 }; 

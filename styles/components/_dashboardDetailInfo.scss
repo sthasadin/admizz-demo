@@ -72,21 +72,4 @@
     line-height: 21px;
     letter-spacing: 0em;
   }
-  &__cardRowReference {
-    display: flex;
-    padding: 4px 0px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-  &__valueTextReference {
-    width: 30%;
-    color: #333333;
-    font-family: Mplus 1p;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 21px;
-    letter-spacing: 0em;
-    text-align: right;
-  }
 }

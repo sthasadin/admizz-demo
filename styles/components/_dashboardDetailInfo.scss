@@ -1,13 +1,13 @@
 .dashboard-detail-info {
   display: flex;
   justify-content: space-between;
-  background-color: red;
+  margin: 50px 0px;
   &__detailCard {
     width: 32%;
-    background-color: blue;
   }
   &__detailCardTitle {
     color: #333333;
+    margin-bottom: 20px;
     font-family: Mplus 1p;
     font-size: 20px;
     font-style: normal;
@@ -19,7 +19,7 @@
   &__detailCardInfo {
     background-color: white;
     border-radius: 5px;
-    padding: 5px 13px;
+    padding: 8px 15px;
   }
   &__cardRow {
     display: flex;
@@ -29,7 +29,7 @@
     width: 50%;
     color: #828282;
     font-family: Mplus 1p;
-    font-size: 14px;
+    font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 21px;
@@ -40,7 +40,49 @@
     width: 50%;
     color: #333333;
     font-family: Mplus 1p;
-    font-size: 14px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: right;
+  }
+  &__cardRowButton {
+    display: flex;
+    justify-content: flex-end;
+    padding: 4px 0px;
+    margin-top: 15px;
+  }
+  &__viewText {
+    color: #FFA200;
+    font-family: Mplus 1p;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+  }
+  &__editText {
+    margin-left: 30px;
+    color: #5F1802;
+    font-family: Mplus 1p;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+  }
+  &__cardRowReference {
+    display: flex;
+    padding: 4px 0px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  &__valueTextReference {
+    width: 30%;
+    color: #333333;
+    font-family: Mplus 1p;
+    font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: 21px;

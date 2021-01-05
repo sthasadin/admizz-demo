@@ -1,0 +1,41 @@
+.dashboard-basic-info {
+  width: 100%;
+  &__sectionContainer {
+    margin: 20px 0px;
+  }
+  &__pageTitle {
+    color: #BDBDBD;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  &__sectionTitle {
+    padding: 10px 0px;
+    color: #333333;
+    font-family: Mplus 1p;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  &__formContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+  }
+  &__inputContainer {
+    width: 45%;
+  }
+  &__inputContainerSmall {
+    width: 30%;
+  }
+}

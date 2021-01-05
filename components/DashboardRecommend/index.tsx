@@ -11,7 +11,7 @@ const DashboardRecommend = () => {
         <CollegesCard />
         <CollegesCard />
         <CollegesCard />
-        <CollegesCard />
+        <CollegesCard />  
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { Navbar } from "../../layouts/navbar";
 import { DashboardSidebar } from "../../components/DashboardSidebar";
 import { DashboardWelcomeCard } from "../../components/DashboardWelcomeCard";
 import { DashboardDetailInfo } from "../../components/DashboardDetailInfo";
+import { DashboardRecommend } from "../../components/DashboardRecommend";
 
 const collegeList = () => {
   return (
@@ -25,7 +26,7 @@ const collegeList = () => {
             <DashboardDetailInfo />
           </div>
           <div className="student-dashboard-main__recommendation">
-            Recommendation
+            <DashboardRecommend />
           </div>
         </div>
       </main>

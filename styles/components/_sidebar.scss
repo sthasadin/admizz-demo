@@ -1,3 +1,12 @@
 .sidebar {
   width: 330px;
+  &__cta {
+    margin: 16px 0;
+  }
+  &__title {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 500;
+    color: #333;
+  }
 }

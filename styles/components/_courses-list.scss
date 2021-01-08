@@ -1,0 +1,21 @@
+.courses-list {
+  display: flex;
+  align-items: center;
+
+  &__title {
+    margin-right: 32px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 800;
+    color: #333;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: 32px;
+    }
+    font-size: 16px;
+    line-height: 24px;
+    color: #828288;
+    font-weight: 500;
+  }
+}

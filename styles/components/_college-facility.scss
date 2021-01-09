@@ -1,0 +1,14 @@
+.college-facility {
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  &__inner {
+    padding: 20px;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,17 @@
+.scholarship-item {
+  display: grid;
+  place-items: center;
+  &__logo {
+    img {
+      height: auto;
+      object-fit: cover;
+    }
+  }
+  &__title {
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 21px;
+    color: #4f4f4f;
+    margin-top: 8px;
+  }
+}

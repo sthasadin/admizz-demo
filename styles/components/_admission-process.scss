@@ -1,0 +1,43 @@
+.admission-process {
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 16px;
+  &__title {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 800;
+    color: $secondary-color;
+    margin-bottom: 15px;
+  }
+  &__heading {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  &__start {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #333;
+    span {
+      font-weight: 800;
+    }
+  }
+  &__desc {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  &__list {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}

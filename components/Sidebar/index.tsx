@@ -1,6 +1,11 @@
 import React from "react";
+import { AdmissionProcess } from "../AdmissionProcess";
 import { CallToAction } from "../Button/callToAction";
+import CollegeFacility from "../FacilitiesOnCollege";
 import FacultyInformation from "../FacultyInformation";
+import InternationalCollaboration from "../InternationalCollaboration";
+import NewsOnCollege from "../NewsOnCollege";
+import { TrendingCourses } from "../TrendingCourses";
 
 const Sidebar = (props: any) => {
   return (
@@ -12,6 +17,10 @@ const Sidebar = (props: any) => {
         </CallToAction>
       </div>
       <FacultyInformation />
+      <TrendingCourses />
+      <NewsOnCollege />
+      <CollegeFacility />
+      <InternationalCollaboration />
     </aside>
   );
 };

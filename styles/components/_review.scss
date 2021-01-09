@@ -3,7 +3,11 @@
     padding-top: 24px;
     display: flex;
     padding-bottom: 40px;
-    border-bottom: 1px solid #e0e0e0;
+    border-top: 1px solid $border-color;
+    &__left {
+      display: flex;
+      align-items: center;
+    }
     &__avatar {
       height: 54px;
       width: 54px;
@@ -45,6 +49,9 @@
       &__item {
         display: flex;
         align-items: center;
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
       }
       &__icon {
         height: 16px;
@@ -64,4 +71,8 @@
       color: $primary-color;
     }
   }
+}
+
+.review.reply {
+  margin-left: 70px;
 }

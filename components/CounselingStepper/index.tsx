@@ -4,6 +4,8 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
 import { ConfirmDateTime } from "./ConfirmDateTime";
+import { StudentInfo } from './StudentInfo';
+import ConfirmBook from './ConfirmSection';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -20,6 +22,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
         },
         stepper: {
+            '& .MuiStepLabel-label': {
+                fontFamily: `"M PLUS 1p"`,
+                fontWeight: 500,
+            },
             '& .MuiStepIcon-active': {
                 color: '#FFA200'
             },
@@ -32,18 +38,18 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-function getStepContent(step: number) {
-    switch (step) {
-        case 0:
-            return <ConfirmDateTime />
-        case 1:
-            return 'Step 2: What is an ad group anyways?';
-        case 2:
-            return 'Step 3: This is the bit I really care about!';
-        default:
-            return 'Unknown step';
-    }
-}
+// function getStepContent(step: number) {
+//     switch (step) {
+//         case 0:
+//             return <ConfirmDateTime />
+//         case 1:
+//             return 'Step 2: What is an ad group anyways?';
+//         case 2:
+//             return 'Step 3: This is the bit I really care about!';
+//         default:
+//             return 'Unknown step';
+//     }
+// }
 
 const CounselingStepper = () => {
     const classes = useStyles();
@@ -67,6 +73,10 @@ const CounselingStepper = () => {
         return completedSteps() === totalSteps();
     };
 
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+
     const handleNext = () => {
         const newActiveStep =
             isLastStep() && !allStepsCompleted()
@@ -76,6 +86,19 @@ const CounselingStepper = () => {
                 : activeStep + 1;
         setActiveStep(newActiveStep);
     };
+
+    const getStepContent = (step: number) => {
+        switch (step) {
+            case 0:
+                return <ConfirmDateTime handleNext={handleNext} />
+            case 1:
+                return <StudentInfo handleNext={handleNext} handleBack={handleBack} />;
+            case 2:
+                return <ConfirmBook handleBack={handleBack} />;
+            default:
+                return 'Unknown step';
+        }
+    }
 
     return (
         <div className={classes.root}>

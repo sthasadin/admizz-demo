@@ -46,7 +46,9 @@ const FacultyInformation = (props: any) => {
           </div>
         </div>
 
-        <div className="faculty-information__cta">View All Members</div>
+        <a href="#" className="faculty-information__cta">
+          View All Members
+        </a>
       </div>
     </div>
   );

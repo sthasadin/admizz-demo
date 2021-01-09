@@ -1,0 +1,42 @@
+.thumbnail-text {
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+  &:not(:last-child) {
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 16px;
+  }
+  &__thumbnail {
+    margin-right: 22px;
+    img {
+      height: 59px;
+      width: 56px;
+      object-fit: cover;
+    }
+  }
+  &__text {
+    h3 {
+      a {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        color: $primary-color;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  &__date {
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: 500;
+    color: #828282;
+  }
+}

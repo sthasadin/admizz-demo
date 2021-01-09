@@ -30,7 +30,7 @@
   }
   &__details {
     background: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: 1px solid $border-color;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 5px 5px;
     border-bottom-left-radius: 5px;
@@ -91,7 +91,7 @@
   &__bottom {
     padding: 14px 0 0 0;
     margin: 0 12px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid $border-color;
   }
 
   &__course {

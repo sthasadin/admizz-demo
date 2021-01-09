@@ -2,6 +2,7 @@
   padding: 25px;
   border-radius: 5px;
   background-color: #fff;
+  margin-bottom: 16px;
   &__title-wrap {
     display: flex;
     align-items: center;
@@ -43,7 +44,6 @@
     &__header.border-bottom {
       margin: 0;
       padding-bottom: 26px;
-      border-bottom: 1px solid #e0e0e0;
     }
     &__title {
       font-size: 18px;
@@ -69,6 +69,7 @@
       align-items: center;
       width: 33%;
       margin-bottom: 40px;
+
       &__icon {
         height: 40px;
         width: 40px;

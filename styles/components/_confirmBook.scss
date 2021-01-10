@@ -1,0 +1,81 @@
+.confirm-section {
+	font-family: 'M PLUS 1p';
+	padding-left: 35px;
+	position: relative;
+	&__header {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 24px;
+		margin-bottom: 40px;
+		margin-top: 36px;
+	}
+	&__confirm-details {
+		padding: 34px 44px;
+		background: #f2f2f2;
+		border-radius: 5px;
+		margin-bottom: 52px;
+	}
+	&__details-head {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 24px;
+		color: $gray-3;
+		min-width: 133px;
+		margin-right: 13px;
+	}
+	&_detail-info {
+		font-weight: 800;
+		font-size: 16px;
+		line-height: 24px;
+	}
+	&__row {
+		display: flex;
+		align-items: center;
+		margin-bottom: 16px;
+	}
+	&__row:last-child {
+		margin-bottom: 0px;
+	}
+	&__medium {
+		padding: 6px;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		border: 1px solid #af8b80;
+		background: #ffa200;
+		border-radius: 5px;
+		span {
+			margin-left: 5px;
+			font-size: 10px;
+			line-height: 15px;
+		}
+	}
+	&__background {
+		position: absolute;
+		top: 62px;
+		right: 100px;
+		width: 208px;
+	}
+	&__agreement {
+		font-size: 14px;
+        line-height: 21px;
+        margin-bottom: 32px;
+		span {
+			color: #2f80ed;
+			cursor: pointer;
+		}
+    }
+    &__action-buttons {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 23px;
+		align-items: center;
+		div {
+			cursor: pointer;
+			font-weight: 800;
+			font-size: 16px;
+			line-height: 24px;
+			color: $gray-4;
+		}
+	}
+}

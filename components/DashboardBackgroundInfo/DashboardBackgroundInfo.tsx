@@ -2,33 +2,11 @@ import React from "react";
 import { Select } from "../Select";
 import { Input } from "../Input";
 import { Grid } from '@material-ui/core';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import { Button } from '../Button';
 
-const DashboardBasicInfo = (props) => {
+const DashboardBackgroundInfo = (props) => {
   return (
     <div className="dashboard-basic-info">
-      {/* Apply For */}
-      <div className="dashboard-basic-info__sectionContainer">
-        <div className="dashboard-basic-info__pageTitle">
-          Dashboard > Apply
-        </div>
-        <div className="dashboard-basic-info__sectionTitle">
-          Applying For
-        </div>
-        <div className="dashboard-basic-info__formContainer">
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Select title="Select Stream" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Select title="Choose Catagory" />
-              </Grid>
-            </Grid>
-        </div>
-      </div>
-
       {/* Personal Detail */}
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__sectionTitle">
@@ -131,11 +109,6 @@ const DashboardBasicInfo = (props) => {
               </Grid>
               <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
               </Grid>
-              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} >
-                  <FormControlLabel className="dashboard-basic-info__checkboxLabel" control={<Checkbox name="checked" />} label="Permanent address is same as residential address" />
-                </Grid>
-              </Grid>
             </Grid>
           </form>
         </div>
@@ -187,4 +160,4 @@ const DashboardBasicInfo = (props) => {
   );
 };
 
-export { DashboardBasicInfo };
+export { DashboardBackgroundInfo };

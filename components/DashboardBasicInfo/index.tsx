@@ -16,12 +16,14 @@ const DashboardBasicInfo = () => {
           Applying For
         </div>
         <div className="dashboard-basic-info__formContainer">
-          <div className="dashboard-basic-info__inputContainer">
-            <Select title="Select Stream" />
-          </div>
-          <div className="dashboard-basic-info__inputContainer">
-            <Select title="Choose Catagory" />
-          </div>
+            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+                <Select title="Select Stream" />
+              </Grid>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+                <Select title="Choose Catagory" />
+              </Grid>
+            </Grid>
         </div>
       </div>
 

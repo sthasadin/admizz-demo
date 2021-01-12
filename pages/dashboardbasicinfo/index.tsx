@@ -8,6 +8,7 @@ import { Navbar } from "../../layouts/navbar";
 import { DashboardSidebar } from "../../components/DashboardSidebar";
 import { DashboardBasicInfo } from "../../components/DashboardBasicInfo";
 import { DashboardBackgroundInfo } from "../../components/DashboardBackgroundInfo/DashboardBackgroundInfo";
+import { DashboardAcademicInfo } from "../../components/DashboardAcademicInfo/DashboardAcademicInfo";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -78,7 +79,7 @@ const DashboardBasicInfoPage = () => {
       case 1:
         return <DashboardBackgroundInfo handleNext={handleNext} handleBack={handleBack}/>;
       case 2:
-        return <DashboardBasicInfo handleBack={handleBack} />;
+        return <DashboardAcademicInfo handleBack={handleBack} />;
       default:
         return 'Unknown step';
     }

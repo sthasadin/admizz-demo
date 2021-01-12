@@ -339,8 +339,8 @@ const DashboardAcademicInfo = (props) => {
               <Grid item sm={12} md={1}>
               </Grid>
               <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  SAT
+                <div className="dashboard-basic-info__formTitleSecond">
+                  Listening
                 </div>
                 <Input
                   className={'dashboard-basic-info__input'}
@@ -348,8 +348,8 @@ const DashboardAcademicInfo = (props) => {
                   placeholder="eg: 50.50" />
               </Grid>
               <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  SAT
+                <div className="dashboard-basic-info__formTitleSecond">
+                  Writing
                 </div>
                 <Input
                   className={'dashboard-basic-info__input'}
@@ -357,8 +357,8 @@ const DashboardAcademicInfo = (props) => {
                   placeholder="eg: 50.50" />
               </Grid>
               <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  SAT
+                <div className="dashboard-basic-info__formTitleSecond">
+                  Reading
                 </div>
                 <Input
                   className={'dashboard-basic-info__input'}
@@ -366,8 +366,8 @@ const DashboardAcademicInfo = (props) => {
                   placeholder="eg: 50.50" />
               </Grid>
               <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  SAT
+                <div className="dashboard-basic-info__formTitleSecond">
+                  Speaking
                 </div>
                 <Input
                   className={'dashboard-basic-info__input'}

@@ -63,6 +63,18 @@
     align-items: center;
     height: 100%;
   }
+  &__formTitleSecond {
+    display: flex;
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #4F4F4F;
+    align-items: center;
+  }
   &__buttonContainer {
     display: flex;
     justify-content: flex-end;

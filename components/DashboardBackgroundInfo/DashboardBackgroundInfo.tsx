@@ -122,7 +122,7 @@ const DashboardBackgroundInfo = (props) => {
                   <UploadButton>
                     Upload button
                   </UploadButton>
-                </label>;
+                </label>
 
               </Grid>
             </Grid>
@@ -130,75 +130,76 @@ const DashboardBackgroundInfo = (props) => {
         </div>
       </div>
 
-      {/* Address Detail */}
+      {/* Reference Information */}
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__sectionTitle">
-          Address Detail
+          Reference Information
         </div>
         <div className="dashboard-basic-info__formContainer">
           <div className="dashboard-basic-info__formTitle">
-            Residential Address
+            At least 2 references
           </div>
           <form>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
-                  placeholder="Address Line 1" />
+                  placeholder="Full Name" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Select title="Country" />
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <div className={'student-info__phone-input'}>
+                  <div className={'student-info__phone-separator'}>
+                    +977
+                  </div>
+                  <Input
+                    className={'student-info__input student-info__phone'}
+                    fullWidth
+                    placeholder="Phone Number" />
+                </div>
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Select title="State" />
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Input
+                  className={'dashboard-basic-info__input'}
+                  fullWidth
+                  placeholder="Email Address" />
+              </Grid>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Input
+                  className={'dashboard-basic-info__input'}
+                  fullWidth
+                  placeholder="Address" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Select title="City" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
-                  placeholder="Zip Code" />
+                  placeholder="Full Name" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <div className={'student-info__phone-input'}>
+                  <div className={'student-info__phone-separator'}>
+                    +977
+                  </div>
+                  <Input
+                    className={'student-info__input student-info__phone'}
+                    fullWidth
+                    placeholder="Phone Number" />
+                </div>
               </Grid>
-            </Grid>
-          </form>
-        </div>
-        <div className="dashboard-basic-info__formContainer">
-          <div className="dashboard-basic-info__formTitle">
-            Permanent Address
-          </div>
-          <form>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
-                  placeholder="Address Line 1" />
+                  placeholder="Email Address" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Select title="Country" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Select title="State" />
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Select title="City" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
-                  placeholder="Zip Code" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                  placeholder="Address" />
               </Grid>
             </Grid>
           </form>
@@ -209,7 +210,7 @@ const DashboardBackgroundInfo = (props) => {
           </div>
           <Button
             onClick={props.handleNext}>
-            Continue
+            Save And Continue
           </Button>
         </div>
       </div>

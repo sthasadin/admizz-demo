@@ -5,6 +5,7 @@ import { DashboardSidebar } from "../../components/DashboardSidebar";
 import { DashboardWelcomeCard } from "../../components/DashboardWelcomeCard";
 import { DashboardDetailInfo } from "../../components/DashboardDetailInfo";
 import { DashboardRecommend } from "../../components/DashboardRecommend";
+import { DashboardNavbar } from "../../layouts/dashboardnavbar";
 
 const collegeList = () => {
   return (
@@ -12,7 +13,7 @@ const collegeList = () => {
       <Head>
         <title>Admizz - Home</title>
         <link rel="icon" href="favicon.svg" />
-        <Navbar />
+        <DashboardNavbar />
       </Head>
       <main className="student-dashboard-main">
         <div className="student-dashboard-main__sidebar">

@@ -11,6 +11,7 @@ import { DashboardBackgroundInfo } from "../../components/DashboardBackgroundInf
 import { DashboardAcademicInfo } from "../../components/DashboardAcademicInfo/DashboardAcademicInfo";
 import { DashboardChoiceFilling } from "../../components/DashboardChoiceFilling";
 import { DashboardReviewConfirm } from "../../components/DashboardReviewConfirm";
+import { DashboardNavbar } from "../../layouts/dashboardnavbar";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -96,7 +97,7 @@ const DashboardBasicInfoPage = () => {
       <Head>
         <title>Admizz - Home</title>
         <link rel="icon" href="favicon.svg" />
-        <Navbar />
+        <DashboardNavbar />
       </Head>
       <main className="dashboard-basic-info-page">
         <div className="dashboard-basic-info-page__sidebar">

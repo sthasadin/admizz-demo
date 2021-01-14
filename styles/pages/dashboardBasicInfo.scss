@@ -29,6 +29,7 @@
     width: 100%;
     background-color: white;
     border-radius: 5px;
+    margin-top: 10px;
   }
   &__inputContainer {
     width: 45%;
@@ -38,7 +39,11 @@
     background-color: red;
 	}
 	&__grid {
-		padding-left: 15px;
+    padding-left: 15px;
+	}
+	&__gridNoPadding {
+    padding-left: 10px;    
+    background-color: #F3F6F9;
 	}
 	&__grid:first-child {
 		padding-left: 0;
@@ -124,5 +129,63 @@
     height: 100%;
     align-items: center;
     margin-left: 10px;
+  }
+  &__viewText {
+    color: #FFA200;
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+  }
+  &__editText {
+    margin-left: 30px;
+    color: #5F1802;
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+  }
+  &__tableTitle {
+    display: flex;
+    background-color: #F3F6F9;
+    width: 100%;
+    min-height: 40px;
+    align-items: center;
+    font-family: Mplus 1p;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.03em;
+    text-align: left;
+  }
+  &__tableText {
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #464E5F;
+  }
+  &__tableSubText {
+    font-family: Mplus 1p;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #B5B5C3;
+  }
+  &__imageCell {
+    height: 50px;
+    min-width: 20px;
+    background-color: #F3F6F9;
   }
 }

@@ -23,6 +23,7 @@ const DashboardReviewConfirm = (props) => {
                 <div className="dashboard-basic-info__formTitle">
                   Basic Information
               </div>
+              <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
@@ -37,6 +38,7 @@ const DashboardReviewConfirm = (props) => {
                 <div className="dashboard-basic-info__formTitle">
                   Background Information
               </div>
+              <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
@@ -51,6 +53,7 @@ const DashboardReviewConfirm = (props) => {
                 <div className="dashboard-basic-info__formTitle">
                   Academic Information
               </div>
+              <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
@@ -65,6 +68,7 @@ const DashboardReviewConfirm = (props) => {
                 <div className="dashboard-basic-info__formTitle">
                   Choice Filing
               </div>
+              <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
@@ -79,6 +83,7 @@ const DashboardReviewConfirm = (props) => {
                 <div className="dashboard-basic-info__formTitle">
                   Personal Identification and AcademicsDocuments
               </div>
+              <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >

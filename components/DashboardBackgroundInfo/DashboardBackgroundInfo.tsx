@@ -140,6 +140,7 @@ const DashboardBackgroundInfo = (props) => {
             <div className="dashboard-basic-info__formTitle">
               At least 2 references
             </div>
+            <hr className="dashboard-basic-info__horizontalLine" />
             <form>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
                 <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>

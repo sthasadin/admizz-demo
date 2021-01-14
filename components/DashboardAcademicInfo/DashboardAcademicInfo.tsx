@@ -16,6 +16,7 @@ const DashboardAcademicInfo = (props) => {
         <div className="dashboard-basic-info__sectionTitle">
           Academic Information
         </div>
+        <hr className="dashboard-basic-info__horizontalLine" />
         <div className="dashboard-basic-info__formContainer">
           <form>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
@@ -23,6 +24,7 @@ const DashboardAcademicInfo = (props) => {
                 <div className="dashboard-basic-info__formTitle">
                   Academics Scores
               </div>
+              <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
@@ -88,37 +90,15 @@ const DashboardAcademicInfo = (props) => {
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
               <Grid item sm={12} md={12}>
                 <div className="dashboard-basic-info__formText">
-                  Personal Identification
+                  Academic Identification
                 </div>
+                <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
               <Grid item sm={12} md={5}>
                 <div className="dashboard-basic-info__subformTitle">
-                  Passport/Citizenship/National ID
-                </div>
-              </Grid>
-              <Grid item sm={12} md={7}>
-
-                <label htmlFor="upload-photo">
-                  <input
-                    style={{ display: 'none' }}
-                    id="upload-photo"
-                    name="upload-photo"
-                    type="file"
-                  />
-
-                  <UploadButton>
-                    Upload button
-                  </UploadButton>
-                </label>
-
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
-                <div className="dashboard-basic-info__subformTitle">
-                  Passport/Citizenship/National ID
+                  School Certificate
                 </div>
               </Grid>
               <Grid item sm={12} md={7}>
@@ -141,7 +121,7 @@ const DashboardAcademicInfo = (props) => {
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
               <Grid item sm={12} md={5}>
                 <div className="dashboard-basic-info__subformTitle">
-                  Passport/Citizenship/National ID
+                  High School Marks
                 </div>
               </Grid>
               <Grid item sm={12} md={7}>
@@ -164,7 +144,30 @@ const DashboardAcademicInfo = (props) => {
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
               <Grid item sm={12} md={5}>
                 <div className="dashboard-basic-info__subformTitle">
-                  Passport/Citizenship/National ID
+                  Under Graduate Marks
+                </div>
+              </Grid>
+              <Grid item sm={12} md={7}>
+
+                <label htmlFor="upload-photo">
+                  <input
+                    style={{ display: 'none' }}
+                    id="upload-photo"
+                    name="upload-photo"
+                    type="file"
+                  />
+
+                  <UploadButton>
+                    Upload button
+                  </UploadButton>
+                </label>
+
+              </Grid>
+            </Grid>
+            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+              <Grid item sm={12} md={5}>
+                <div className="dashboard-basic-info__subformTitle">
+                  Post Graduate Marks
                 </div>
               </Grid>
               <Grid item sm={12} md={7}>
@@ -187,7 +190,7 @@ const DashboardAcademicInfo = (props) => {
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
               <Grid item sm={12} md={4}>
                 <div className="dashboard-basic-info__subformTitle">
-                  Passport/Citizenship/National ID
+                  Other Certificates
                 </div>
               </Grid>
               <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
@@ -220,162 +223,165 @@ const DashboardAcademicInfo = (props) => {
       {/* Reference Information */}
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__formContainer">
-          <div className="dashboard-basic-info__formTitle">
-            Exam Scores
+          <div className="dashboard-basic-info__marginContainer">
+            <div className="dashboard-basic-info__formTitle">
+              Exam Scores
           </div>
-          <form>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  GRE
+          <hr className="dashboard-basic-info__horizontalLine" />
+            <form>
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitle">
+                    GRE
               </div>
-              </Grid>
-              <Grid item sm={12} md={4}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
-                </RadioGroup>
-              </Grid>
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  SAT
+                </Grid>
+                <Grid item sm={12} md={4}>
+                  <RadioGroup aria-label="passport" name="passport1" row>
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  </RadioGroup>
+                </Grid>
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitle">
+                    SAT
               </div>
+                </Grid>
+                <Grid item sm={12} md={4}>
+                  <RadioGroup aria-label="passport" name="passport1" row>
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  </RadioGroup>
+                </Grid>
               </Grid>
-              <Grid item sm={12} md={4}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
-                </RadioGroup>
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  GMAT
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitle">
+                    GMAT
               </div>
-              </Grid>
-              <Grid item sm={12} md={4}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
-                </RadioGroup>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  placeholder="eg: 50" />
-              </Grid>
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  SAT II
+                </Grid>
+                <Grid item sm={12} md={4}>
+                  <RadioGroup aria-label="passport" name="passport1" row>
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  </RadioGroup>
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    placeholder="eg: 50" />
+                </Grid>
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitle">
+                    SAT II
               </div>
+                </Grid>
+                <Grid item sm={12} md={4}>
+                  <RadioGroup aria-label="passport" name="passport1" row>
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  </RadioGroup>
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    fullWidth
+                    placeholder="eg: 50.50" />
+                </Grid>
               </Grid>
-              <Grid item sm={12} md={4}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
-                </RadioGroup>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="eg: 50.50" />
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  GRE
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitle">
+                    GRE
               </div>
-              </Grid>
-              <Grid item sm={12} md={4}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
-                </RadioGroup>
-              </Grid>
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  SAT
+                </Grid>
+                <Grid item sm={12} md={4}>
+                  <RadioGroup aria-label="passport" name="passport1" row>
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  </RadioGroup>
+                </Grid>
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitle">
+                    SAT
               </div>
+                </Grid>
+                <Grid item sm={12} md={4}>
+                  <RadioGroup aria-label="passport" name="passport1" row>
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  </RadioGroup>
+                </Grid>
               </Grid>
-              <Grid item sm={12} md={4}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
-                </RadioGroup>
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  GMAT
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitle">
+                    GMAT
               </div>
-              </Grid>
-              <Grid item sm={12} md={4}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
-                </RadioGroup>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  placeholder="eg: 50" />
-              </Grid>
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitle">
-                  SAT II
+                </Grid>
+                <Grid item sm={12} md={4}>
+                  <RadioGroup aria-label="passport" name="passport1" row>
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  </RadioGroup>
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    placeholder="eg: 50" />
+                </Grid>
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitle">
+                    SAT II
               </div>
+                </Grid>
+                <Grid item sm={12} md={4}>
+                  <RadioGroup aria-label="passport" name="passport1" row>
+                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel value="no" control={<Radio />} label="No" />
+                  </RadioGroup>
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    fullWidth
+                    placeholder="eg: 50.50" />
+                </Grid>
               </Grid>
-              <Grid item sm={12} md={4}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
-                </RadioGroup>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="eg: 50.50" />
-              </Grid>
-            </Grid>
 
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={1}>
-              </Grid>
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitleSecond">
-                  Listening
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid item sm={12} md={1}>
+                </Grid>
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitleSecond">
+                    Listening
                 </div>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="eg: 50.50" />
-              </Grid>
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitleSecond">
-                  Writing
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    fullWidth
+                    placeholder="eg: 50.50" />
+                </Grid>
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitleSecond">
+                    Writing
                 </div>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="eg: 50.50" />
-              </Grid>
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitleSecond">
-                  Reading
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    fullWidth
+                    placeholder="eg: 50.50" />
+                </Grid>
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitleSecond">
+                    Reading
                 </div>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="eg: 50.50" />
-              </Grid>
-              <Grid item sm={12} md={2}>
-                <div className="dashboard-basic-info__formTitleSecond">
-                  Speaking
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    fullWidth
+                    placeholder="eg: 50.50" />
+                </Grid>
+                <Grid item sm={12} md={2}>
+                  <div className="dashboard-basic-info__formTitleSecond">
+                    Speaking
                 </div>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="eg: 50.50" />
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    fullWidth
+                    placeholder="eg: 50.50" />
+                </Grid>
               </Grid>
-            </Grid>
-          </form>
+            </form>
+          </div>
         </div>
         <div className="dashboard-basic-info__buttonContainer">
           <div className="dashboard-basic-info__backContainer">

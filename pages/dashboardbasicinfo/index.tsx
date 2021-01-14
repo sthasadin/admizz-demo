@@ -98,15 +98,15 @@ const DashboardBasicInfoPage = () => {
         <link rel="icon" href="favicon.svg" />
         <Navbar />
       </Head>
-      <main className="student-dashboard-main">
-        <div className="student-dashboard-main__sidebar">
+      <main className="dashboard-basic-info-page">
+        <div className="dashboard-basic-info-page__sidebar">
           <DashboardSidebar />
         </div>
-        <div className="student-dashboard-main__mainpage">
+        <div className="dashboard-basic-info-page__mainpage">
           {getStepContent(activeStep)}
         </div>
-        <div className="student-dashboard-main__stepperContainer">
-          <div className="student-dashboard-main__stepperTitle">
+        <div className="dashboard-basic-info-page__stepperContainer">
+          <div className="dashboard-basic-info-page__stepperTitle">
             Application Steps
           </div>
           <Stepper nonLinear activeStep={activeStep} orientation="vertical">

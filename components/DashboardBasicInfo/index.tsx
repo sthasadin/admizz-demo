@@ -12,20 +12,20 @@ const DashboardBasicInfo = (props) => {
       {/* Apply For */}
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__pageTitle">
-          Dashboard > Apply
+          {"Dashboard > "}<p className="dashboard-basic-info__pageTitleHighlight">Apply</p>
         </div>
         <div className="dashboard-basic-info__sectionTitle">
           Applying For
         </div>
         <div className="dashboard-basic-info__formContainer">
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Select title="Select Stream" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Select title="Choose Catagory" />
-              </Grid>
+          <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+            <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Select title="Select Stream" />
             </Grid>
+            <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Select title="Choose Catagory" />
+            </Grid>
+          </Grid>
         </div>
       </div>
 
@@ -101,48 +101,50 @@ const DashboardBasicInfo = (props) => {
           Address Detail
         </div>
         <div className="dashboard-basic-info__formContainer">
-          <div className="dashboard-basic-info__formTitle">
-            Residential Address
-          </div>
-          <form>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="Address Line 1" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Select title="Country" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Select title="State" />
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Select title="City" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="Zip Code" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-              </Grid>
+          <div className="dashboard-basic-info__marginContainer">
+            <div className="dashboard-basic-info__formTitle">
+              Residential Address
+            </div>
+            <hr className="dashboard-basic-info__horizontalLine" />
+            <form>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} >
-                  <FormControlLabel className="dashboard-basic-info__checkboxLabel" control={<Checkbox name="checked" />} label="Permanent address is same as residential address" />
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    fullWidth
+                    placeholder="Address Line 1" />
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                  <Select title="Country" />
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                  <Select title="State" />
                 </Grid>
               </Grid>
-            </Grid>
-          </form>
-        </div>
-        <div className="dashboard-basic-info__formContainer">
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                  <Select title="City" />
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                  <Input
+                    className={'dashboard-basic-info__input'}
+                    fullWidth
+                    placeholder="Zip Code" />
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                </Grid>
+                <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                  <Grid className={'dashboard-basic-info__grid'} item sm={12} >
+                    <FormControlLabel className="dashboard-basic-info__checkboxLabel" control={<Checkbox name="checked" />} label="Permanent address is same as residential address" />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </form>
+          </div>
           <div className="dashboard-basic-info__formTitle">
             Permanent Address
           </div>
+          <hr className="dashboard-basic-info__horizontalLine" />
           <form>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
               <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
@@ -175,11 +177,11 @@ const DashboardBasicInfo = (props) => {
         </div>
         <div className="dashboard-basic-info__buttonContainer">
           <div className="dashboard-basic-info__backContainer">
-              Back
+            Cancel
           </div>
           <Button
-              onClick={props.handleNext}>
-              Continue
+            onClick={props.handleNext}>
+            {'Save & Continue'}
           </Button>
         </div>
       </div>

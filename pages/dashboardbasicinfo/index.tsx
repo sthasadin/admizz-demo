@@ -10,6 +10,7 @@ import { DashboardBasicInfo } from "../../components/DashboardBasicInfo";
 import { DashboardBackgroundInfo } from "../../components/DashboardBackgroundInfo/DashboardBackgroundInfo";
 import { DashboardAcademicInfo } from "../../components/DashboardAcademicInfo/DashboardAcademicInfo";
 import { DashboardChoiceFilling } from "../../components/DashboardChoiceFilling";
+import { DashboardReviewConfirm } from "../../components/DashboardReviewConfirm";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -84,7 +85,7 @@ const DashboardBasicInfoPage = () => {
       case 3:
       return <DashboardChoiceFilling handleNext={handleNext}  handleBack={handleBack} />;
       case 4:
-        return <DashboardAcademicInfo handleBack={handleBack} />;
+        return <DashboardReviewConfirm handleBack={handleBack} />;
       default:
         return 'Unknown step';
     }

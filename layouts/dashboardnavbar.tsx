@@ -9,7 +9,6 @@ const DashboardNavbar = () => {
       <div className="navbar__logo">
         <div className="logo">
           <img src="/logo.png" alt="" />
-          Basic
         </div>
       </div>
       <div className="navbar__right">

@@ -1,0 +1,27 @@
+.dashboard-basic-info-page{
+  display: flex;
+  width: 100%;
+  background-color: #E5E5E5;
+  &__sidebar {
+    width: 20%;
+  }
+  &__mainpage {
+    width: 60%;
+    padding: 10px 15px;
+  }
+  &__stepperContainer {
+    width: 20%;
+    margin: 100px 10px;
+    border-radius: 10px;
+  }
+  &__stepperTitle {
+    font-family: Mplus 1p;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin: 0px 0px 20px 0px;
+  }
+}

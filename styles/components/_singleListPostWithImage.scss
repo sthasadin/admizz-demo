@@ -1,0 +1,49 @@
+.single-list-post-with-image {
+  width: 100%;
+  margin: 0px 0px 10px 0px;
+  &__container {
+    display: flex;
+  }
+  &__imageContainer {
+    width: 40%;
+    height: 150px;
+    background-image: url(../../public/memberPost01.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+  }
+  &__DetailContainer {
+    width: 60%;
+    padding: 10px 10px;
+  }
+  &__AutherTimeContainer {
+      color: #828282;
+      font-family: Mplus 1p;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14px;
+      letter-spacing: 0em;
+      text-align: left;
+      
+  }
+  &__Title {
+    font-family: Mplus 1p;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  &__Description {
+    color: #828282;
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+}

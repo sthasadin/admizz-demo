@@ -76,9 +76,9 @@ const Button: React.FC<Props> = ({
           background: ({ type }: Props) => {
             switch (type) {
               case "default":
-                return "#9C27B0";
-              case "primary":
                 return "#009688";
+              case "primary":
+                return "#5F1802";
               default:
                 return "#009688";
             }

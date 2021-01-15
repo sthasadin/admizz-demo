@@ -1,0 +1,115 @@
+.college-header {
+  width: 100%;
+  margin: 0;
+  background-image: url(/college-background.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 28px 0;
+  &__inner {
+    width: calc(100% - 30px);
+    margin: 0px 15px;
+    @media (min-width: 768px) {
+      width: 720px;
+      margin: 0px auto;
+    }
+    @media (min-width: 1024px) {
+      width: 940px;
+    }
+    @media (min-width: 1200px) {
+      width: 1170px;
+    }
+    @media (min-width: 1360px) {
+      width: 1240px;
+    }
+  }
+  &__rating-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 35px;
+  }
+  &__college {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+  &__logo {
+    margin-right: 12px;
+    height: 130px;
+    width: 130px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+  }
+  &__estd {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-bottom: 5px;
+  }
+  &__name {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 45px;
+    margin-bottom: 4px;
+  }
+  &__meta {
+    display: flex;
+    align-items: center;
+    &__item {
+      display: flex;
+      align-items: center;
+      &::after {
+        margin: 0 35px;
+        content: "";
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        background-color: #fff;
+      }
+    }
+    &__logo {
+      margin-right: 8px;
+    }
+    &__title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 21px;
+    }
+  }
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__task {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 25px;
+  }
+}
+.task {
+  &__logo {
+    font-size: 22px;
+    margin-right: 10px;
+  }
+  &__title {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,39 @@
+.college-details-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 12px;
+  margin-bottom: 17px;
+}
+.info-block {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  padding: 25px 0;
+  &__icon {
+    height: 34px;
+    width: 34px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__heading {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+    color: #bdbdbd;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 27px;
+    color: #4f4f4f;
+    text-align: center;
+  }
+  &__extra {
+    margin-top: 6px;
+    span {
+      color: $secondary-color;
+    }
+  }
+}

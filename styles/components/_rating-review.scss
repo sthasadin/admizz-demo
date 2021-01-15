@@ -1,0 +1,104 @@
+.rating-review {
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 16px;
+  &__title-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+  }
+  &__title {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 800;
+    color: $secondary-color;
+  }
+  &__cta {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 800;
+    color: $primary-color;
+    span {
+      font-weight: 400;
+      margin-right: 5px;
+    }
+  }
+  &__rating {
+    font-size: 14px;
+    line-height: 21px;
+
+    span {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 33px;
+      color: $secondary-color;
+    }
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 55px;
+    }
+    &__header.border-bottom {
+      margin: 0;
+      padding-bottom: 26px;
+    }
+    &__title {
+      font-size: 18px;
+      line-height: 27px;
+      font-weight: 800;
+      color: #333;
+      margin-bottom: 2px;
+    }
+    &__subheading {
+      font-size: 14px;
+      color: #828282;
+      span {
+        color: $secondary-color;
+      }
+    }
+    &__heading {
+      font-size: 12px;
+      line-height: 18px;
+      color: #bdbdbd;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      width: 33%;
+      margin-bottom: 40px;
+
+      &__icon {
+        height: 40px;
+        width: 40px;
+        margin-right: 10px;
+      }
+      &__rating {
+        font-size: 14px;
+        line-height: 21px;
+
+        span {
+          font-size: 22px;
+          font-weight: 800;
+          line-height: 33px;
+          color: $secondary-color;
+        }
+      }
+      &__title {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 21px;
+        color: #4f4f4f;
+      }
+    }
+  }
+  &__rating-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 50px 15px 50px;
+  }
+}

@@ -1,0 +1,23 @@
+.rating-block {
+  text-align: center;
+  color: #fff;
+  &__title {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  &__rating-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__rating {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 30px;
+  }
+  &__total {
+    font-size: 15px;
+    margin-left: 4px;
+  }
+}

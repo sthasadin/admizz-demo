@@ -1,0 +1,14 @@
+.scholarship-item {
+  &__logo {
+    img {
+      height: auto;
+      object-fit: cover;
+    }
+  }
+  &__title {
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 800;
+    margin-top: 8px;
+  }
+}

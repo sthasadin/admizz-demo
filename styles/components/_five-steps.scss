@@ -11,7 +11,7 @@
     height: 765px;
     border-radius: 50%;
     background: transparent;
-    border: 2px dashed #e0e0e0;
+    border: 2px dashed $border-color;
     position: relative;
     margin: 17px 0;
     margin-right: -10%;
@@ -22,7 +22,7 @@
       height: calc(100% + 30%);
       display: block;
       background: transparent;
-      border: 2px dashed #e0e0e0;
+      border: 2px dashed $border-color;
       border-radius: 50%;
       left: -15%;
       top: -15%;
@@ -35,7 +35,7 @@
       height: calc(100% + 50%);
       display: block;
       background: transparent;
-      border: 2px dashed #e0e0e0;
+      border: 2px dashed $border-color;
       border-radius: 50%;
       left: -25%;
       top: -25%;
@@ -60,7 +60,7 @@
       height: calc(100% + 26%);
       display: block;
       background: transparent;
-      border: 2px dashed #e0e0e0;
+      border: 2px dashed $border-color;
       border-radius: 50%;
       left: -13%;
       top: -13%;
@@ -69,7 +69,7 @@
     &__heading {
       font-size: 16px;
       letter-spacing: 2px;
-      color: #e0e0e0;
+      color: $border-color;
       font-weight: 700;
       margin-bottom: 14px;
     }

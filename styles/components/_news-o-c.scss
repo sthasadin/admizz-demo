@@ -1,0 +1,17 @@
+.news-o-c {
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  &__inner {
+    padding: 20px;
+  }
+  &__cta {
+    font-size: 14px;
+    text-align: center;
+    padding-top: 12px;
+    color: $primary-color;
+    border-top: 1px solid $border-color;
+    margin-top: 18px;
+    display: block;
+  }
+}

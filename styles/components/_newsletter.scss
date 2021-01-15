@@ -1,0 +1,56 @@
+.newsletter {
+  background-color: $primary-color;
+  border-radius: 5px;
+  padding: 35px 40px;
+  margin-bottom: 16px;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    width: 35%;
+    max-width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+    width: 65%;
+  }
+  &__input {
+    width: calc(50% - 8px);
+    margin-right: 8px;
+    input[type="text"] {
+      padding: 0px 40px;
+      background: transparent;
+      border-radius: 5px;
+      border: 1px solid $border-color;
+      font-size: 12px;
+      color: #fff;
+      width: 100%;
+      line-height: 40px;
+      &::placeholder {
+        font-size: 12px;
+        color: #fff;
+      }
+    }
+  }
+  &__btn {
+    line-height: 40px;
+    width: 50%;
+    background-color: $secondary-color;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 800;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}

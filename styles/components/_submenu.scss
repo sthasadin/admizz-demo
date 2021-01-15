@@ -1,0 +1,33 @@
+.submenu-bar {
+  background: $border-color;
+  height: 45px;
+}
+
+.submenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  &__item {
+    list-style-type: none;
+    position: relative;
+    margin: 0;
+    a {
+      line-height: 45px;
+      color: $primary-color;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  &__item.active {
+    &::after {
+      content: "";
+      height: 3px;
+      width: 100%;
+      position: absolute;
+      background-color: $secondary-color;
+      bottom: 2px;
+      left: 0;
+    }
+  }
+}

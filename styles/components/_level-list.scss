@@ -1,0 +1,22 @@
+.level-list {
+  display: flex;
+  align-items: center;
+  &__item {
+    padding: 9px 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: #828282;
+    font-weight: 500;
+    border: 1px solid #828282;
+    border-radius: 20px;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+  &__item.active {
+    border-color: $secondary-color;
+    background-color: $secondary-color;
+    color: #fff;
+  }
+}

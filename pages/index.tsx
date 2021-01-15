@@ -1,8 +1,17 @@
 import Head from "next/head";
 import React from "react";
-import { CollegeHeader } from "../components/CollegeHeader";
-import { Submenu } from "../components/Submenu";
-import { SidebarContainer } from "../components/SidebarContainer";
+import { About } from "../components/About";
+import { BlogList } from "../components/BlogList";
+import { CollegeFinder } from "../components/collegeFinder";
+import { CollegesBlock } from "../components/collegesBlock";
+import { FiveSteps } from "../components/FiveSteps";
+import { Login } from "../components/Login";
+import { Merits } from "../components/mertis";
+import { Register } from "../components/register";
+import { Statistics } from "../components/statistics";
+import { Teams } from "../components/Teams";
+import { Testimonial } from "../components/Testimonial";
+import { Us } from "../components/why-us";
 import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";
 import { Topbar } from "../layouts/topbar";
@@ -22,9 +31,18 @@ export default function Home() {
         <Navbar />
       </Head>
       <main className="main">
-        <CollegeHeader />
-        <Submenu />
-        <SidebarContainer />
+        <About />
+        <Merits />
+        <Us />
+        <Testimonial />
+        <Statistics />
+        <FiveSteps />
+        <CollegesBlock />
+        <CollegeFinder />
+        <BlogList />
+        <Teams />
+        <Register />
+        <Login />
       </main>
       <Footer />
     </div>

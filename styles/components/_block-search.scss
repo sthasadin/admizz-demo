@@ -1,0 +1,35 @@
+.block-search {
+  &__inner {
+    display: flex;
+    height: 68px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    align-items: center;
+    border-right: none;
+  }
+  &__icon {
+    padding: 0 27px;
+  }
+  input[type="text"] {
+    border: 0;
+    outline: none;
+    width: 85%;
+    font-size: 16px;
+    &::placeholder {
+      color: #bdbdbd;
+    }
+  }
+  &__btn {
+    padding: 0 35px;
+    background-color: $secondary-color;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 17px;
+    line-height: 68px;
+    cursor: pointer;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}

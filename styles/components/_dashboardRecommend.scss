@@ -1,0 +1,18 @@
+.dashboard-recommend {
+  &__title {
+    color: #333333;
+    margin-bottom: 20px;
+    font-family: Mplus 1p;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  &__collegeList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+}

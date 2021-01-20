@@ -8,6 +8,9 @@
     justify-content: space-between;
     padding: 5px 5px;
   }
+  &__filterAdd {
+    cursor: pointer;
+  }
   &__filterKeyContainer {
     display: flex;
     flex-wrap: wrap;

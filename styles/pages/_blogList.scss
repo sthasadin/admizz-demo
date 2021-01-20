@@ -1,0 +1,7 @@
+.blog-list {
+  display: flex;
+  justify-content: center;
+  &__container {
+    width: 1080px;
+  }
+}

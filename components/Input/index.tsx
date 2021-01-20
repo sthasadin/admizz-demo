@@ -14,6 +14,7 @@ interface Props {
   className?: any;
   type?: string;
   multiline?: boolean;
+  label?: string;
 }
 
 
@@ -22,12 +23,11 @@ const Input = (props: Props) => {
     input: {
       '& .MuiOutlinedInput-root': {
         borderRadius: '5px',
-        border: '1px solid #BDBDBD',
         outline: 'none',
         margin: (props: Props) => {
           return props.margin && props.margin;
         },
-        fontFamily: 'M PLUS 1p',
+        fontFamily: "'M PLUS 1p'",
         fontWeight: 400,
         fontSize: 14,
         lineHeight: "20.79px",
@@ -36,7 +36,7 @@ const Input = (props: Props) => {
             return props.multiline ? " 30px" : !props.icon && '40px'
           },
         }
-      }
+      },
     },
   }));
   const classes = useStyles(props);
@@ -59,6 +59,7 @@ const Input = (props: Props) => {
       multiline={props.multiline}
       rows={props.multiline && 3}
       rowsMax={props.multiline && 8}
+      label={props.label}
       InputProps={Icon && {
         startAdornment: (
           <InputAdornment position="start">

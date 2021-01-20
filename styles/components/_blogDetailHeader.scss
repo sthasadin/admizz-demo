@@ -1,0 +1,39 @@
+.blog-detail-header {
+  display: flex;
+  margin: 30px 30px;
+  align-items: center;
+  flex-direction: column;
+  &__title {
+    margin: 10px 0px;
+    text-align: center;
+    width: 550px;
+    color: #333333;
+    font-style: normal;
+    font-weight: 800;
+    text-align: center;
+  }
+  &__subtitle {
+    margin: 10px 0px;
+    color: #828282;
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center; 
+  }
+  &__keyword {
+    display: flex;
+  }
+  &__keybutton {
+    background-color: #F2F2F2;
+    margin: 0px 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+  &__keybuttontext {
+    color: #BDBDBD;
+    font-weight: 800;
+  }
+}

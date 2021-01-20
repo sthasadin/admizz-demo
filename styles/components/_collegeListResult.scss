@@ -1,0 +1,66 @@
+.college-list-result {
+  border-radius: 5px;
+  &__titleContainer {
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    padding: 10px 10px;
+  }
+  &__titleText {
+    display: flex;
+    color: #4F4F4F;
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+  }
+  &__titleTextNumber {
+    padding: 0px 5px;
+    color:#FFA200;    ;
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+  }
+  &__sortContainer {
+    display: flex;
+  }
+  &__sortItemTitle {
+    padding: 0px 5px;
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #828282;
+    ;
+  }
+  &__sortItem {
+    padding: 0px 5px;
+    font-family: Mplus 1p;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #828282;
+    ;
+  }
+  &__resultContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 0px;
+  }
+  &__cardContainer {
+    margin: 5px 0px 0px 0px;
+    width: 32%;
+  }
+}

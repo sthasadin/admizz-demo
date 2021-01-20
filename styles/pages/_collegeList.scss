@@ -1,0 +1,18 @@
+.college-list {
+  display: flex;
+  justify-content: center;
+  background-color: #E5E5E5;
+  &__container {
+    width: 1080px;
+  }
+  &__listContainer {
+    display: flex;
+  }
+  &__sideBarContainer {
+    width: 30%;
+  }
+  &__collegeResultContainer {
+    padding: 0px 10px;
+    width: 70%;
+  }
+}

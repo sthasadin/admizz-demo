@@ -11,7 +11,7 @@ const BlogDetailMember = () => {
       </div>
       <hr />
       <div className="blog-detail-member__memberList">
-        <div className="memberPost">
+        <div className="blog-detail-member__memberPost">
           <div className="blog-detail-member__inner">
             <div className="blog-detail-member__catagoryContainer">
               <div className="blog-detail-member__category">technology</div>

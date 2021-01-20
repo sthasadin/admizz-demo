@@ -34,8 +34,18 @@
   &__shareInfoContainer {
     display: flex;
   }
+  &__buttonContainer {
+    display: flex;
+    margin: 0px 30px;
+    align-items: center;
+  }
   &__button {
-    padding: 20px 20px;
+    &.makeStyles-button-2{
+      padding: 10px 50px;
+      border-radius: 8px;
+      background-color: #FFA200;
+      ;
+    }
   }
   &__sharetitle {
     padding: 20px 20px;

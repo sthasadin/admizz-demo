@@ -5,9 +5,10 @@ import { BlogList } from "../components/BlogList";
 import { CollegeFinder } from "../components/collegeFinder";
 import { CollegesBlock } from "../components/collegesBlock";
 import { FiveSteps } from "../components/FiveSteps";
-import { Login } from "../components/Login";
+import { Introduction } from "../components/Introduction";
+// import { Login } from "../components/Login";
 import { Merits } from "../components/mertis";
-import { Register } from "../components/register";
+// import { Register } from "../components/register";
 import { Statistics } from "../components/statistics";
 import { Teams } from "../components/Teams";
 import { Testimonial } from "../components/Testimonial";
@@ -31,6 +32,7 @@ export default function Home() {
         <Navbar />
       </Head>
       <main className="main">
+        <Introduction />
         <About />
         <Merits />
         <Us />
@@ -41,8 +43,8 @@ export default function Home() {
         <CollegeFinder />
         <BlogList />
         <Teams />
-        <Register />
-        <Login />
+        {/* <Register />
+        <Login /> */}
       </main>
       <Footer />
     </div>

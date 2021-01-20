@@ -6,7 +6,6 @@ import { Topbar } from "../../layouts/topbar";
 import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
 import { CollegeListResult } from "../../components/CollegeListResult";
 import { Input } from "../../components/Input";
-import { Button } from "../../components/Button";
 import SearchIcon from '@material-ui/icons/Search';
 
 const collegeList = () => {

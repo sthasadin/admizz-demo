@@ -1,17 +1,21 @@
 import Head from "next/head";
 import React from "react";
+import { About } from "../components/About";
+import { BlogList } from "../components/BlogList";
+import { CollegeFinder } from "../components/collegeFinder";
+import { CollegesBlock } from "../components/collegesBlock";
+import { FiveSteps } from "../components/FiveSteps";
+// import { Login } from "../components/Login";
+import { Merits } from "../components/mertis";
+// import { Register } from "../components/register";
+import { Statistics } from "../components/statistics";
+import { Teams } from "../components/Teams";
+import { Testimonial } from "../components/Testimonial";
+import { Us } from "../components/why-us";
 import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";
 import { Topbar } from "../layouts/topbar";
 import { Introduction } from "../components/Introduction";
-import { About } from "../components/About";
-import { Merits } from "../components/mertis";
-import { Statistics } from "../components/statistics";
-import { FiveSteps } from "../components/FiveSteps";
-import { CollegeFinder } from "../components/collegeFinder";
-import { Testimonial } from "../components/Testimonial";
-import { BlogList } from "../components/BlogList";
-import { Teams } from "../components/Teams";
 
 export default function Home() {
   return (
@@ -27,16 +31,21 @@ export default function Home() {
         />
         <Navbar />
       </Head>
-      <Introduction />
-      <About />
-      <Merits />
-      <Statistics />
-      <FiveSteps />
-      <CollegeFinder />
-      <Testimonial />
-      <BlogList />
-      <Teams />
-      <main className="main"></main>
+      <main className="main">
+        <Introduction />
+        <About />
+        <Merits />
+        <Us />
+        <Testimonial />
+        <Statistics />
+        <FiveSteps />
+        <CollegesBlock />
+        <CollegeFinder />
+        <BlogList />
+        <Teams />
+        {/* <Register />
+        <Login /> */}
+      </main>
       <Footer />
     </div>
   );

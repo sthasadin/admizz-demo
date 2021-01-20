@@ -17,16 +17,14 @@ const collegeList = () => {
       </Head>
       <main className="college-list">
         <div className="college-list__container">
-          <div className="college-list__searchContainer">
-            Search Bar
-          </div>
+          <div className="college-list__searchContainer">Search Bar</div>
           <div className="college-list__listContainer">
             <div className="college-list__sideBarContainer">
               <CollegeListSideBar />
-          </div>
+            </div>
             <div className="college-list__collegeResultContainer">
               <CollegeListResult />
-          </div>
+            </div>
           </div>
         </div>
       </main>

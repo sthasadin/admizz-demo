@@ -20,7 +20,7 @@ const blogList = () => {
       </Head>
       <main className="blog-list">
         <div className="blog-list__container">
-          <BlogListBanner /> 
+          <BlogListBanner />
           <SectionTitle title="Featured For Members" />
           <BlogListMember />
           <SectionTitle title="Latest Posts" />

@@ -1,4 +1,4 @@
-.student-dashboard-main{
+.dashboard-basic-info-page{
   display: flex;
   width: 100%;
   background-color: #E5E5E5;
@@ -6,8 +6,13 @@
     width: 20%;
   }
   &__mainpage {
-    width: 80%;
+    width: 60%;
     padding: 10px 15px;
+  }
+  &__stepperContainer {
+    width: 20%;
+    margin: 100px 10px;
+    border-radius: 10px;
   }
   &__stepperTitle {
     font-family: Mplus 1p;

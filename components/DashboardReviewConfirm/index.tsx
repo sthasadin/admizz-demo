@@ -99,7 +99,7 @@ const DashboardReviewConfirm = (props) => {
 
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__buttonContainer">
-          <div className="dashboard-basic-info__backContainer">
+          <div className="dashboard-basic-info__backContainer" onClick={props.handleBack}>
             Back
           </div>
           <Button

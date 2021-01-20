@@ -1,0 +1,50 @@
+.banner {
+	background-color: #ffa200;
+	height: 482px;
+	position: relative;
+	padding-left: 10%;
+	padding-top: 113px;
+}
+.banner-opacity {
+	height: 361px;
+	background-image: url(../../public//map.png);
+	position: absolute;
+	right: 10px;
+    width: 30%;
+    top: 71px;
+}
+.banner-head {
+	font-family: 'M PLUS 1p';
+	font-weight: 800;
+	line-height: 53px;
+    font-size: 36px;
+    color: $gray;
+    width: fit-content;
+}
+.banner-content {
+    width: 540px;
+    font-family: 'M PLUS 1p';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    color: white;
+}
+.banner-image {
+	background: radial-gradient(50.14% 50.14% at 50.1% 49.86%, rgba(255, 162, 0, 0.46) 0%, #ffa200 100%);
+	height: 361px;
+	position: relative;
+	img {
+		position: absolute;
+		left: 120px;
+		bottom: 180px;
+	}
+}
+.form-wrapper {
+	margin-top: -150px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding-bottom: 81px;
+	position: relative;
+	z-index: 2;
+}

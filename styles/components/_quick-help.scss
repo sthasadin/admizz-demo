@@ -1,0 +1,27 @@
+.quick-help {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 40px 36px;
+  &__icon {
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+  }
+  &__title {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 23px;
+    color: #4f4f4f;
+    max-width: 190px;
+    margin: 0 auto;
+    margin-top: 12px;
+    text-align: center;
+  }
+  &__desc {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    color: #828282;
+    margin-top: 12px;
+  }
+}

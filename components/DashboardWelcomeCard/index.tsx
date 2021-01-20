@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../Button";
+import Link from "next/link";
 
 const DashboardWelcomeCard = () => {
   return (
@@ -16,7 +17,9 @@ const DashboardWelcomeCard = () => {
         </div>
       </div>
       <div className="dashboard-welcome-card__ButtonContainer">
-        <Button className="contact-form__send-message">Complete Application</Button>
+        <Link href="/dashboardbasicinfo">
+          <Button className="contact-form__send-message">Complete Application</Button>
+        </Link>
       </div>
     </div>
   );

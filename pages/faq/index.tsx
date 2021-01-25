@@ -4,6 +4,7 @@ import { CallToAction } from "../../components/Button/callToAction";
 import { Questions } from "../../components/FAQ/questions";
 import QuickHelp from "../../components/FAQ/quick-help";
 import { Footer } from "../../layouts/footer";
+import { FAQAccordian } from "../../components/FAQ/accordian";
 
 const FAQ = () => {
   return (
@@ -22,8 +23,8 @@ const FAQ = () => {
           <div className="faq__title">Frequently Asked Questions</div>
           <div className="faq__accordian">
             <div className="faq__accordian__item-wrap">
-              <Questions />
-              <Questions open />
+              <FAQAccordian />
+              <FAQAccordian />
             </div>
             <div className="faq__accordian__item-wrap">
               <Questions />

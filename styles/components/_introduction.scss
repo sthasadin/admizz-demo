@@ -66,6 +66,11 @@
       color: #828282;
     }
   }
+  &__modalContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   &__meta {
     margin-top: 60px;
     &__title {

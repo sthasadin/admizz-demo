@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 
 const Footer = () => {
   return (
@@ -78,13 +79,13 @@ const Footer = () => {
               About Admix
             </a>
             <a href="#" className="footer__col__item">
-              Contact Us
+              <Link href="/contact-us">Contact Us</Link>
             </a>
             <a href="#" className="footer__col__item">
               Careers
             </a>
             <a href="#" className="footer__col__item">
-              FAQs
+              <Link href="/faq">FAQs</Link>
             </a>
             <a href="#" className="footer__col__item">
               Terms & Condition

@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import ReactPlayer from "react-player"
+import Link from 'next/link'
 
 const Introduction = () => {
 
@@ -32,9 +33,11 @@ const Introduction = () => {
             ahead of others.
           </div>
           <div className="u-align-center">
-            <CallToAction className="filled">
-              Book counseling session
-            </CallToAction>
+            <Link href="/free-counseling" passHref>
+              <CallToAction className="filled">
+                Book counseling session
+              </CallToAction>
+            </Link>
             <div className="introduction__watch">
               <div className="introduction__watch__icon" onClick={handleOpen}>
                 <svg

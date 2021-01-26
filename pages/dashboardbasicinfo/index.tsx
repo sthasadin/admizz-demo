@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Head from "next/head";
+import StickyBox from "react-sticky-box";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepButton from "@material-ui/core/StepButton";
@@ -76,8 +77,8 @@ const DashboardBasicInfoPage = () => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
         ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
+        // find the first step that has been completed
+        steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1;
     setActiveStep(newActiveStep);
   };
@@ -128,23 +129,27 @@ const DashboardBasicInfoPage = () => {
         <div className="dashboard-basic-info-page__mainpage">
           {getStepContent(activeStep)}
         </div>
+
         <div className="dashboard-basic-info-page__stepperContainer">
-          <div className="dashboard-basic-info-page__stepperTitle">
-            Application Steps
-          </div>
-          <Stepper nonLinear activeStep={activeStep} orientation="vertical">
-            {steps.map((label, index) => (
-              <Step key={label}>
-                <StepButton
-                  className={classes.stepper}
-                  completed={completed[index]}
-                >
-                  {label}
-                </StepButton>
-              </Step>
-            ))}
-          </Stepper>
+          <StickyBox>
+            <div className="dashboard-basic-info-page__stepperTitle">
+              Application Steps
+            </div>
+            <Stepper nonLinear activeStep={activeStep} orientation="vertical">
+              {steps.map((label, index) => (
+                <Step key={label}>
+                  <StepButton
+                    className={classes.stepper}
+                    completed={completed[index]}
+                  >
+                    {label}
+                  </StepButton>
+                </Step>
+              ))}
+            </Stepper>
+          </StickyBox>
         </div>
+
       </main>
     </div>
   );

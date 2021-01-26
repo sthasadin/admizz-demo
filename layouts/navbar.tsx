@@ -6,7 +6,9 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar__logo">
         <div className="logo">
-          <img src="/logo.png" alt="" />
+          <Link href="/">
+            <img src="/logo.png" alt="" />
+          </Link>
         </div>
       </div>
       <div className="navbar__right">
@@ -14,13 +16,13 @@ const Navbar = () => {
           <nav className="navigation">
             <ul className="menu">
               <li className="menu-item">
-                <a href="#">Home</a>
+                <Link href="/">Home</Link>
               </li>
               <li className="menu-item">
-                <a href="#">Colleges</a>
+                <Link href="/collegelist">Colleges</Link>
               </li>
               <li className="menu-item">
-                <a href="#">Blogs</a>
+                <Link href="/bloglist">Blogs</Link>
               </li>
               <li className="menu-item">
                 <Link href="/contact-us">Contact</Link>

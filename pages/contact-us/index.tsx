@@ -1,4 +1,6 @@
 import React from "react";
+import Head from "next/head";
+import { Topbar } from "../../layouts/topbar";
 import { ContactForm, BookCounseling } from "../../components";
 import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
@@ -7,7 +9,12 @@ import marker from "../../public/marker.png";
 const ContactUs = () => {
   return (
     <div>
-      <Navbar />
+      <Head>
+        <Topbar />
+        <title>Admizz - Home</title>
+        <link rel="icon" href="favicon.svg" />
+        <Navbar />
+      </Head>
       <div className="banner">
         <div className="banner-head">Get In Touch</div>
         <div className="banner-content">

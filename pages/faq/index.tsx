@@ -27,10 +27,10 @@ const FAQ = () => {
               <FAQAccordian />
             </div>
             <div className="faq__accordian__item-wrap">
-              <Questions />
-              <Questions />
-              <Questions />
-              <Questions />
+              <FAQAccordian />
+              <FAQAccordian />
+              <FAQAccordian />
+              <FAQAccordian />
             </div>
           </div>
           <div className="faq__title">Quick Help Topics</div>

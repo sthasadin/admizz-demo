@@ -1,4 +1,7 @@
 import React from "react";
+import Head from "next/head";
+import { Topbar } from "../../layouts/topbar";
+import { Navbar } from "../../layouts/navbar";
 import { BlockSearch } from "../../components/BlockSearch";
 import { CallToAction } from "../../components/Button/callToAction";
 import { Questions } from "../../components/FAQ/questions";
@@ -10,6 +13,12 @@ const FAQ = () => {
   return (
     <>
       <div className="faq">
+        <Head>
+          <Topbar />
+          <title>Admizz - Home</title>
+          <link rel="icon" href="favicon.svg" />
+          <Navbar />
+        </Head>
         <div className="faq__header">
           <div className="faq__header__title">What can we help you? FAQs</div>
           <div className="faq__header__search">

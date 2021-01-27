@@ -1,89 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import { Select } from "../Select";
-import { Input } from "../Input";
 import { Grid } from '@material-ui/core';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Button } from '../Button';
-import { UploadButton } from '../Button/uploadButton';
+
+const Choice = (props) => {
+  return (
+    <div className="dashboard-basic-info__formContainer">
+      <form>
+        <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+          <Grid item sm={12} md={12}>
+            <div className="dashboard-basic-info__formTitle">
+              Choice # {props.choiceNumber}
+          </div>
+          </Grid>
+        </Grid>
+        <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+          <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+            <Select title="eg: 50.50" />
+          </Grid>
+          <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+            <Select title="eg: 50.50" />
+          </Grid>
+        </Grid>
+        <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+          <Grid className={'dashboard-basic-info__grid'} item sm={12} md={12}>
+            <Select title="eg: 50.50" />
+          </Grid>
+        </Grid>
+        <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+          <div className="dashboard-basic-info__buttonContainer">
+            <div className="dashboard-basic-info__viewText">
+              Save Choice
+            </div>
+            <div className="dashboard-basic-info__editText" onClick={() => props.onClickAddChoice() }>
+              Add More Choice
+            </div>
+          </div>
+        </Grid>
+      </form>
+    </div>
+  )
+}
 
 const DashboardChoiceFilling = (props) => {
+  const [choicesArray, setChoicesArray] = useState([]);
+  const [choiceNumber, setChoiceNumber] = useState(2);
+  
+  const onClickAddChoice = () => {
+    setChoiceNumber( choiceNumber + 1)
+    setChoicesArray( choicesArray => [...choicesArray, choiceNumber ] )
+  }
+
   return (
     <div className="dashboard-basic-info">
       {/* Background Information */}
       <div className="dashboard-basic-info__sectionContainer">
-        <div className="dashboard-basic-info__sectionTitle">
+        <div className="dashboard-basic-info__sectionTitle" >
           Choice Filling
         </div>
-        <div className="dashboard-basic-info__formContainer">
-          <form>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={12}>
-                <div className="dashboard-basic-info__formTitle">
-                  Choice #1
-              </div>
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Select title="eg: 50.50" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Select title="eg: 50.50" />
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={12}>
-                <Select title="eg: 50.50" />
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <div className="dashboard-basic-info__buttonContainer">
-                <div className="dashboard-basic-info__viewText">
-                  Save Choice
-                </div>
-                <div className="dashboard-basic-info__editText">
-                  Add More Choice
-                </div>
-              </div>
-            </Grid>
-          </form>
-        </div>
-        <div className="dashboard-basic-info__formContainer">
-          <form>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={12}>
-                <div className="dashboard-basic-info__formTitle">
-                  Choice #1
-              </div>
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Select title="eg: 50.50" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Select title="eg: 50.50" />
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={12}>
-                <Select title="eg: 50.50" />
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <div className="dashboard-basic-info__buttonContainer">
-                <div className="dashboard-basic-info__viewText">
-                  Save Choice
-                </div>
-                <div className="dashboard-basic-info__editText">
-                  Add More Choice
-                </div>
-              </div>
-            </Grid>
-          </form>
-        </div>
+        <Choice onClickAddChoice={() => onClickAddChoice()} choiceNumber={1} />
+        {choicesArray.map( choiceNumber => (
+          <Choice onClickAddChoice={() => onClickAddChoice()} choiceNumber={choiceNumber} />
+        ) )}
       </div>
 
       {/* Applied College */}

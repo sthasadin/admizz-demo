@@ -29,9 +29,9 @@ export default function Home() {
           href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@800&display=swap"
           rel="stylesheet"
         />
-        <Navbar />
       </Head>
       <main className="main">
+        <Navbar />
         <Introduction />
         <About />
         <Merits />

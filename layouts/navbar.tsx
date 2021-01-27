@@ -1,14 +1,14 @@
 import React from "react";
-import Link from 'next/link'
+import Link from 'next/link';
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
+  const router = useRouter();
   return (
     <div className="navbar">
       <div className="navbar__logo">
-        <div className="logo">
-          <Link href="/">
-            <img src="/logo.png" alt="" />
-          </Link>
+        <div className="logo" onClick={() => router.push('/')}>
+          <img src="/logo.png" alt="" />
         </div>
       </div>
       <div className="navbar__right">

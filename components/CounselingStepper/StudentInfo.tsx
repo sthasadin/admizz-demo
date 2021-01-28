@@ -86,10 +86,12 @@ const StudentInfo: React.FC<Props> = ({ handleNext, handleBack }) => {
                         </div>
                     </Grid>
                     <Grid item md={3}>
-                        <Input
-                            fullWidth
-                            label={"Enter Facebook ID"}
-                        />
+                      {selectedMedium === 'messenger' && 
+                          <Input
+                              fullWidth
+                              label={"Enter Facebook ID"}
+                          />
+                      }
                     </Grid>
                     <Grid className={'student-info__grid'} item sm={12} md={6}>
                         <Input

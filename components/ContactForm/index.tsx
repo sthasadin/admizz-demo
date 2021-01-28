@@ -11,6 +11,8 @@ import { Button } from "../Button";
 import Facebook from "../../public/facebook.png";
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
+import SubjectIcon from '@material-ui/icons/Subject';
+import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 
 const ContactForm = () => {
     return (
@@ -78,14 +80,8 @@ const ContactForm = () => {
                  </div>
                 <Input placeholder={"Full Name"} fullWidth margin={"25px 0px 16px 0px"} icon={PersonIcon} />
                 <Input placeholder={"Email Address"} margin={"0px 0px 16px 0px"} fullWidth icon={MailIcon} />
-                <Input placeholder={"Subject"} margin={"0px 0px 16px 0px"} fullWidth />
-                <Input multiline placeholder={"Add additional query you have"} margin={"0px 0px 16px 0px"} fullWidth />
-                <div className="contact-form__captcha-container">
-                    <div className="contact-form__captcha-code">
-                        NJVY
-                    </div>
-                    <Input placeholder={"Enter Captcha Code"} margin={"0px 0px 16px 0px"} fullWidth />
-                </div>
+                <Input placeholder={"Subject"} margin={"0px 0px 16px 0px"} fullWidth icon={SubjectIcon} />
+                <Input multiline placeholder={"Add additional query you have"} margin={"0px 0px 16px 0px"} fullWidth icon={LiveHelpIcon}/>
                 <div className="contact-form__actions">
                     <div className="contact-form__socials">
                         <div>Follow Us on:</div>

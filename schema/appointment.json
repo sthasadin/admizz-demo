@@ -1,0 +1,13 @@
+{
+    "id": "auto",
+    "date": "date",
+    "time": "time",
+    "consellor": "id",
+    "name": "Name",
+    "email": "some@one.com",
+    "country_code": "+977",
+    "phone": "9876543210",
+    "home_country": "Nepal",
+    "course": "MSc. Tech",
+    "description": "soem desc"
+}

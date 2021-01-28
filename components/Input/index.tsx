@@ -15,11 +15,17 @@ interface Props {
   type?: string;
   multiline?: boolean;
   label?: string;
+  onChange?: (e: any) => void;
+  error?: boolean;
+  errorMessage?: string;
 }
 
 
 const Input = (props: Props) => {
   const useStyles = makeStyles((theme) => ({
+    container: {
+      position: 'relative'
+    },
     input: {
       '& .MuiOutlinedInput-root': {
         borderRadius: '5px',
@@ -38,6 +44,13 @@ const Input = (props: Props) => {
         }
       },
     },
+    errorMessage: {
+      fontSize: 12,
+      color: '#FF0000',
+      position: 'absolute',
+      bottom: '-16px',
+      left: '4px'
+    }
   }));
   const classes = useStyles(props);
 
@@ -47,27 +60,32 @@ const Input = (props: Props) => {
   }
 
   return (
-    <TextField
-      type={props.type}
-      placeholder={props.placeholder}
-      value={props.value}
-      name={props.name}
-      disabled={props.disabled}
-      variant="outlined"
-      className={`${props.className} ${classes.input}`}
-      fullWidth={props.fullWidth}
-      multiline={props.multiline}
-      rows={props.multiline && 3}
-      rowsMax={props.multiline && 8}
-      label={props.label}
-      InputProps={Icon && {
-        startAdornment: (
-          <InputAdornment position="start">
-            <Icon />
-          </InputAdornment>
-        ),
-      }}
-    />
+    <div className={classes.container}>
+      <TextField
+        type={props.type}
+        placeholder={props.placeholder}
+        value={props.value}
+        name={props.name}
+        disabled={props.disabled}
+        variant="outlined"
+        className={`${props.className} ${classes.input}`}
+        fullWidth={props.fullWidth}
+        multiline={props.multiline}
+        rows={props.multiline && 3}
+        rowsMax={props.multiline && 8}
+        label={props.label}
+        onChange={props.onChange}
+        error={props.error}
+        InputProps={Icon && {
+          startAdornment: (
+            <InputAdornment position="start">
+              <Icon />
+            </InputAdornment>
+          ),
+        }}
+      />
+      {props.errorMessage && <span className={classes.errorMessage}>{props.errorMessage}</span>}
+    </div>
   );
 };
 

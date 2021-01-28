@@ -1,8 +1,80 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CallToAction } from "../Button/callToAction";
 import { Input } from "../Input";
+import PersonIcon from '@material-ui/icons/Person';
+import MailIcon from '@material-ui/icons/Mail';
+import PhoneIcon from '@material-ui/icons/Phone';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import LockIcon from '@material-ui/icons/Lock';
+import { auth } from "../../firebase";
+import * as yup from "yup";
+import { Button } from "../Button";
+
+interface signUpFormValue {
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  country: string;
+  password: string;
+  confirmPassword: string;
+  [key: string]: any;
+}
 
 const Register = () => {
+  const [formValue, setFormValue] = useState({} as signUpFormValue);
+  const [formError, setFormError] = useState({} as any);
+
+  const handleChange = (e: any) => {
+    setFormValue({ ...formValue, [e.target.name]: e.target.value })
+  }
+
+  const validationSchema = yup.object().shape<signUpFormValue>({
+    fullName: yup.string().required("Required"),
+    email: yup
+      .string()
+      .required("Required")
+      .email("Please provide a valid email"),
+    password: yup.string().required("Required"),
+    confirmPassword: yup.string().required("Required"),
+    country: yup.string().required("Required"),
+    phoneNumber: yup.string().required("Required"),
+  });
+
+  const validate = async () => {
+    try {
+      await validationSchema.validate({
+        fullName: formValue.fullName,
+        email: formValue.email,
+        password: formValue.password,
+        confirmPassword: formValue.confirmPassword,
+        country: formValue.country,
+        phoneNumber: formValue.phoneNumber
+      }, {
+        abortEarly: false
+      });
+      if (formValue.password !== formValue.confirmPassword) {
+        setFormError({ confirmPassword: "Password does not match" })
+      } else {
+        setFormError({})
+        return true;
+      }
+      return false;
+    } catch (err) {
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0]
+      })
+      setFormError({ ...errors })
+    }
+  }
+
+  const handleRegister = async () => {
+    const valid = await validate();
+    if (valid) {
+      const res = await auth.createUserWithEmailAndPassword(formValue.email, formValue.password);
+    }
+  }
+
   return (
     <div className="signin">
       <div className="signin__inner">
@@ -112,13 +184,55 @@ const Register = () => {
             eminent companies offer the most worth-while career opportunities.
           </div>
           <div className="signin__form ">
-            <form className="form grid">
-              <Input placeholder="Full Name*" type="text" />
-              <Input placeholder="Email Address*" type="text" />
-              <Input placeholder="Phone Number*" type="text" />
-              <Input placeholder="Home Country" type="text" />
-              <Input placeholder="Password" type="password" />
-              <Input placeholder="Confirm Password" type="password" />
+            <form className="form grid" >
+              <Input
+                onChange={handleChange}
+                name={"fullName"}
+                icon={PersonIcon}
+                placeholder="Full Name*"
+                error={!!formError.fullName}
+                errorMessage={formError.fullName}
+                type="text" />
+              <Input
+                onChange={handleChange}
+                name={"email"}
+                icon={MailIcon}
+                placeholder="Email Address*"
+                error={!!formError.email}
+                errorMessage={formError.email}
+                type="text" />
+              <Input
+                onChange={handleChange}
+                name={"phoneNumber"}
+                icon={PhoneIcon}
+                placeholder="Phone Number*"
+                error={!!formError.phoneNumber}
+                errorMessage={formError.phoneNumber}
+                type="text" />
+              <Input
+                onChange={handleChange}
+                name={"country"}
+                icon={LocationOnIcon}
+                placeholder="Home Country"
+                error={!!formError.country}
+                errorMessage={formError.country}
+                type="text" />
+              <Input
+                onChange={handleChange}
+                name={"password"}
+                icon={LockIcon}
+                placeholder="Password"
+                error={!!formError.password}
+                errorMessage={formError.password}
+                type="password" />
+              <Input
+                onChange={handleChange}
+                name={"confirmPassword"}
+                icon={LockIcon}
+                placeholder="Confirm Password"
+                error={!!formError.confirmPassword}
+                errorMessage={formError.confirmPassword}
+                type="password" />
             </form>
           </div>
           <div className="signin__info">
@@ -129,7 +243,8 @@ const Register = () => {
             <div className="signin__change">
               <a href="#">Already Registered? Click Here To Login.</a>
             </div>
-            <CallToAction className="filled">Register Now</CallToAction>
+            <Button onClick={handleRegister} className="filled">Register Now</Button>
+            {/* <CallToAction className="filled">Register Now</CallToAction> */}
           </div>
         </div>
       </div>

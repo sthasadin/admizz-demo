@@ -1,14 +1,23 @@
 import React from "react";
+import Head from "next/head";
+import { Topbar } from "../../layouts/topbar";
+import { Navbar } from "../../layouts/navbar";
 import { BlockSearch } from "../../components/BlockSearch";
 import { CallToAction } from "../../components/Button/callToAction";
-import { Questions } from "../../components/FAQ/questions";
 import QuickHelp from "../../components/FAQ/quick-help";
 import { Footer } from "../../layouts/footer";
+import { FAQAccordian } from "../../components/FAQ/accordian";
 
 const FAQ = () => {
   return (
     <>
       <div className="faq">
+        <Head>
+          <Topbar />
+          <title>Admizz - Home</title>
+          <link rel="icon" href="favicon.svg" />
+          <Navbar />
+        </Head>
         <div className="faq__header">
           <div className="faq__header__title">What can we help you? FAQs</div>
           <div className="faq__header__search">
@@ -22,14 +31,14 @@ const FAQ = () => {
           <div className="faq__title">Frequently Asked Questions</div>
           <div className="faq__accordian">
             <div className="faq__accordian__item-wrap">
-              <Questions />
-              <Questions open />
+              <FAQAccordian />
+              <FAQAccordian />
             </div>
             <div className="faq__accordian__item-wrap">
-              <Questions />
-              <Questions />
-              <Questions />
-              <Questions />
+              <FAQAccordian />
+              <FAQAccordian />
+              <FAQAccordian />
+              <FAQAccordian />
             </div>
           </div>
           <div className="faq__title">Quick Help Topics</div>

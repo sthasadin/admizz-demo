@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Head from "next/head";
+import StickyBox from "react-sticky-box";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepButton from "@material-ui/core/StepButton";
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
     },
     button: {
-      justifyContent: 'flex-start',
+      justifyContent: "flex-start",
       marginRight: theme.spacing(1),
     },
     completed: {
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
     instructions: {},
     stepper: {
       "& .MuiStepLabel-root": {
-        justifyContent: 'flex-start'
+        justifyContent: "flex-start",
       },
       "& .MuiStepLabel-label": {
         fontFamily: `"M PLUS 1p"`,
@@ -128,22 +129,25 @@ const DashboardBasicInfoPage = () => {
         <div className="dashboard-basic-info-page__mainpage">
           {getStepContent(activeStep)}
         </div>
+
         <div className="dashboard-basic-info-page__stepperContainer">
-          <div className="dashboard-basic-info-page__stepperTitle">
-            Application Steps
-          </div>
-          <Stepper nonLinear activeStep={activeStep} orientation="vertical">
-            {steps.map((label, index) => (
-              <Step key={label}>
-                <StepButton
-                  className={classes.stepper}
-                  completed={completed[index]}
-                >
-                  {label}
-                </StepButton>
-              </Step>
-            ))}
-          </Stepper>
+          <StickyBox>
+            <div className="dashboard-basic-info-page__stepperTitle">
+              Application Steps
+            </div>
+            <Stepper nonLinear activeStep={activeStep} orientation="vertical">
+              {steps.map((label, index) => (
+                <Step key={label}>
+                  <StepButton
+                    className={classes.stepper}
+                    completed={completed[index]}
+                  >
+                    {label}
+                  </StepButton>
+                </Step>
+              ))}
+            </Stepper>
+          </StickyBox>
         </div>
       </main>
     </div>

@@ -15,7 +15,6 @@
   }
   &__memberPost {
     margin-right: 20px;
-    background-color: red;
   }
   &__inner {
     background-image: url(../../public/memberPost01.png);
@@ -30,6 +29,7 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
+    border-radius: 5px;
   }
   &__catagoryContainer {
     display: flex;
@@ -63,5 +63,6 @@
       rgba(2, 2, 2, 0.4) 45.31%,
       rgba(3, 3, 3, 0.77) 100%
     );
+    border-radius: 5px;
   }
 }

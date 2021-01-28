@@ -75,10 +75,10 @@ const BlogDetailContent = () => {
           <p className="blog-detail-content__autherTitle">Software Engineer</p>
         </div>
       </div>
-      <div className="blog-detail-content__commentContainer"> 
+      {/* <div className="blog-detail-content__commentContainer"> 
           <p className="blog-detail-content__commentTitle">Leave A Comment</p>
           <textarea className="blog-detail-content__textareaValue" placeholder="Enter your comment here."></textarea>
-      </div>
+      </div> */}
     </div>
   );
 }; 

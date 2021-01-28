@@ -1,6 +1,21 @@
 import React from "react";
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import ReactPlayer from "react-player"
+
 
 const Testimonial = (props: any) => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="testimonial">
       <div className="testimonial__inner">
@@ -34,7 +49,7 @@ const Testimonial = (props: any) => {
                 />
               </svg>
             </div>
-            <div className="testimonial__play-icon">
+            <div className="testimonial__play-icon" onClick={handleOpen}>
               <svg
                 width="99"
                 height="99"
@@ -63,6 +78,28 @@ const Testimonial = (props: any) => {
                 />
               </svg>
             </div>
+
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                open={open}
+                onClose={handleClose}
+                className="introduction__modalContainer"
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open}>
+                  <div>
+                    <ReactPlayer
+                      url="https://www.youtube.com/watch?v=_xMXR5_CnQM"
+                    />
+                  </div>
+                </Fade>
+              </Modal>
+
           </div>
           <div className="testimonial__right">
             <div className="testimonial__right__thumbnail">

@@ -1,8 +1,24 @@
 import React from "react";
 import { CallToAction } from "../Button/callToAction";
 import intro from "../../public/intro.png";
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import ReactPlayer from "react-player"
+import Link from 'next/link'
 
 const Introduction = () => {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="introduction">
       <div className="introduction__inner">
@@ -17,11 +33,13 @@ const Introduction = () => {
             ahead of others.
           </div>
           <div className="u-align-center">
-            <CallToAction className="filled">
-              Book counseling session
-            </CallToAction>
+            <Link href="/free-counseling" passHref>
+              <CallToAction className="filled">
+                Book counseling session
+              </CallToAction>
+            </Link>
             <div className="introduction__watch">
-              <div className="introduction__watch__icon">
+              <div className="introduction__watch__icon" onClick={handleOpen}>
                 <svg
                   width="75"
                   height="75"
@@ -50,6 +68,28 @@ const Introduction = () => {
                   />
                 </svg>
               </div>
+
+              <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                open={open}
+                onClose={handleClose}
+                className="introduction__modalContainer"
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+              >
+                <Fade in={open}>
+                  <div>
+                    <ReactPlayer
+                      url="https://youtu.be/CDknjC9aFmg"
+                    />
+                  </div>
+                </Fade>
+              </Modal>
+
               <div className="introduction__watch__label">Watch Video</div>
             </div>
           </div>

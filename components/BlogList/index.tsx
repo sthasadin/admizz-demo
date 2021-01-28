@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 import { CallToAction } from "../Button/callToAction";
 import { BlogCard } from "./blogListCard";
 
@@ -16,7 +17,9 @@ const BlogList = () => {
             </div>
           </div>
           <div className="blog-list__right">
-            <CallToAction>view all blogs</CallToAction>
+            <Link href="/bloglist">
+              <CallToAction>view all blogs</CallToAction>
+            </Link>
           </div>
         </div>
         <div className="blog-list__list">

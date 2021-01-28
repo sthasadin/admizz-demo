@@ -37,69 +37,71 @@ const blogDetail = () => {
         <Topbar />
         <title>Admizz - Home</title>
         <link rel="icon" href="favicon.svg" />
-        <Navbar />
       </Head>
-      <main className="blog-detail">
-        <div className="blog-detail__container">
-          <div className="blog-detail__main">
-            <BlogDetailHeader />
-          </div>
-          <div className="blog-detail__imageContainer">
-            <img className="blog-detail__image" src={BlogImage} />
-            <div className="blog-detail__postDetail">
-              <div className="blog-detail__postValueContainer">
-                <div className="blog-detail__postValue">
-                  <b>Posted by: Stacy James</b>
+      <div>
+        <Navbar />
+        <main className="blog-detail">
+          <div className="blog-detail__container">
+            <div className="blog-detail__main">
+              <BlogDetailHeader />
+            </div>
+            <div className="blog-detail__imageContainer">
+              <img className="blog-detail__image" src={BlogImage} />
+              <div className="blog-detail__postDetail">
+                <div className="blog-detail__postValueContainer">
+                  <div className="blog-detail__postValue">
+                    <b>Posted by: Stacy James</b>
+                  </div>
+                  <div className="blog-detail__postValue">
+                    <b>50</b> Views
                 </div>
-                <div className="blog-detail__postValue">
-                  <b>50</b> Views
+                  <div className="blog-detail__postValue">
+                    <b>60</b> Comments
                 </div>
-                <div className="blog-detail__postValue">
-                  <b>60</b> Comments
                 </div>
-              </div>
-              <div className="blog-detail__shareInfoContainer">
-                <div className="blog-detail__buttonContainer">
-                  <Button className="blog-detail__button">TECHNOLOGY</Button>
-                </div>
-                <div className="blog-detail__sharetitle" onClick={handleClickOpen}>
-                  <p className="blog-detail__sharetext">Share This Article</p>
-                </div>
+                <div className="blog-detail__shareInfoContainer">
+                  <div className="blog-detail__buttonContainer">
+                    <Button className="blog-detail__button">TECHNOLOGY</Button>
+                  </div>
+                  <div className="blog-detail__sharetitle" onClick={handleClickOpen}>
+                    <p className="blog-detail__sharetext">Share This Article</p>
+                  </div>
 
-                <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-                  <DialogTitle id="simple-dialog-title">Share This Article</DialogTitle>
-                  <List className="blog-detail__listContainer">
-                    <ListItem button className="blog-detail__listItemContainer" onClick={() => console.log("Share Clicked")}>
-                      <ListItemAvatar>
-                        <Avatar>
-                          <FacebookIcon />
-                        </Avatar>
-                      </ListItemAvatar>
-                      <ListItemText primary={"Facebook"} />
-                    </ListItem>
+                  <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
+                    <DialogTitle id="simple-dialog-title">Share This Article</DialogTitle>
+                    <List className="blog-detail__listContainer">
+                      <ListItem button className="blog-detail__listItemContainer" onClick={() => console.log("Share Clicked")}>
+                        <ListItemAvatar>
+                          <Avatar>
+                            <FacebookIcon />
+                          </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText primary={"Facebook"} />
+                      </ListItem>
 
-                    <ListItem button onClick={() => console.log("Share Clicked")}>
-                      <ListItemAvatar>
-                        <Avatar>
-                          <WhatsAppIcon />
-                        </Avatar>
-                      </ListItemAvatar>
-                      <ListItemText primary={"Whatsapp"} />
-                    </ListItem>
-                  </List>
-                </Dialog>
+                      <ListItem button onClick={() => console.log("Share Clicked")}>
+                        <ListItemAvatar>
+                          <Avatar>
+                            <WhatsAppIcon />
+                          </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText primary={"Whatsapp"} />
+                      </ListItem>
+                    </List>
+                  </Dialog>
 
+                </div>
               </div>
             </div>
+            <div className="blog-detail__main">
+              <BlogDetailContent />
+            </div>
+            <div className="blog-detail__imageContainer">
+              <BlogDetailMember />
+            </div>
           </div>
-          <div className="blog-detail__main">
-            <BlogDetailContent />
-          </div>
-          <div className="blog-detail__imageContainer">
-            <BlogDetailMember />
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
       <Footer />
     </div>
   );

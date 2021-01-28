@@ -16,19 +16,21 @@ const blogList = () => {
         <Topbar />
         <title>Admizz - Home</title>
         <link rel="icon" href="favicon.svg" />
-        <Navbar />
       </Head>
-      <main className="blog-list">
-        <div className="blog-list__container">
-          <BlogListBanner />
-          <SectionTitle title="Featured For Members" />
-          <BlogListMember />
-          <SectionTitle title="Latest Posts" />
-          <BlogListLatestPost />
-          <SectionTitle title="Random Blogs" />
-          <BlogListRandomBlog />
-        </div>
-      </main>
+      <div>
+        <Navbar />
+        <main className="blog-list">
+          <div className="blog-list__container">
+            <BlogListBanner />
+            <SectionTitle title="Featured For Members" />
+            <BlogListMember />
+            <SectionTitle title="Latest Posts" />
+            <BlogListLatestPost />
+            <SectionTitle title="Random Blogs" />
+            <BlogListRandomBlog />
+          </div>
+        </main>
+      </div>
       <Footer />
     </div>
   );

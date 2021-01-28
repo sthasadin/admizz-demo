@@ -15,34 +15,36 @@ const collegeList = () => {
         <Topbar />
         <title>Admizz - Home</title>
         <link rel="icon" href="favicon.svg" />
-        <Navbar />
       </Head>
-      <main className="college-list">
-        <div className="college-list__container">
-          <div className="college-list__searchContainer">
-            <div className="college-list__headerTitle">
-              College/University Lists in India
+      <div>
+        <Navbar />
+        <main className="college-list">
+          <div className="college-list__container">
+            <div className="college-list__searchContainer">
+              <div className="college-list__headerTitle">
+                College/University Lists in India
             </div>
-            <div className="college-list__headerSearch">
-              <Input placeholder={"Enter College Name, City, State or anything here..."} margin={"0px 0px 0px 0px"} fullWidth icon={SearchIcon} />
-              <div className="college-list__searchButton">
-                Search 
+              <div className="college-list__headerSearch">
+                <Input placeholder={"Enter College Name, City, State or anything here..."} margin={"0px 0px 0px 0px"} fullWidth icon={SearchIcon} />
+                <div className="college-list__searchButton">
+                  Search
+              </div>
+              </div>
+              <div className="college-list__headerSubtitle">
+                Eg: Jain University, Manipur, BMS
+            </div>
+            </div>
+            <div className="college-list__listContainer">
+              <div className="college-list__sideBarContainer">
+                <CollegeListSideBar />
+              </div>
+              <div className="college-list__collegeResultContainer">
+                <CollegeListResult />
               </div>
             </div>
-            <div className="college-list__headerSubtitle">
-              Eg: Jain University, Manipur, BMS
-            </div>
           </div>
-          <div className="college-list__listContainer">
-            <div className="college-list__sideBarContainer">
-              <CollegeListSideBar />
-            </div>
-            <div className="college-list__collegeResultContainer">
-              <CollegeListResult />
-            </div>
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
       <Footer />
     </div>
   );

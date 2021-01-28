@@ -13,19 +13,21 @@ const ContactUs = () => {
         <Topbar />
         <title>Admizz - Home</title>
         <link rel="icon" href="favicon.svg" />
-        <Navbar />
       </Head>
-      <div className="banner">
-        <div className="banner-head">Get In Touch</div>
-        <div className="banner-content">
-          Welcome to our Website. We are glad to have you around. following
-          countries – Bangladesh, Bhutan, Ethiopia, India, Indonesia, Kenya,
-          Mauritius, Nepal, Rwanda, Sri Lanka, Tanzania, Uganda and Zambia. The
-          Ind-SAT.
+      <div>
+        <Navbar />
+        <div className="banner">
+          <div className="banner-head">Get In Touch</div>
+          <div className="banner-content">
+            Welcome to our Website. We are glad to have you around. following
+            countries – Bangladesh, Bhutan, Ethiopia, India, Indonesia, Kenya,
+            Mauritius, Nepal, Rwanda, Sri Lanka, Tanzania, Uganda and Zambia. The
+            Ind-SAT.
         </div>
-        <div className="banner-opacity">
-          <div className="banner-image">
-            <img src={marker} />
+          <div className="banner-opacity">
+            <div className="banner-image">
+              <img src={marker} />
+            </div>
           </div>
         </div>
       </div>

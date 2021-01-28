@@ -1,9 +1,11 @@
 import React from "react";
 import { CollegeCourse } from "./collegeCourse";
+import { useRouter } from 'next/router'
 
 const CollegesCard = () => {
+  const router = useRouter();
   return (
-    <div className="colleges-card">
+    <div className="colleges-card" onClick={() => router.push('/collegeprofile')}>
       <div className="colleges-card__inner">
         <div className="colleges-card__thumbnail">
           <img src="/colleges.png" alt="college" />

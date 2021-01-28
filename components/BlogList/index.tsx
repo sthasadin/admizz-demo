@@ -2,8 +2,10 @@ import React from "react";
 import Link from 'next/link'
 import { CallToAction } from "../Button/callToAction";
 import { BlogCard } from "./blogListCard";
+import { useRouter } from 'next/router'
 
 const BlogList = () => {
+  const router = useRouter();
   return (
     <div className="blog-list">
       <div className="blog-list__inner">
@@ -18,7 +20,7 @@ const BlogList = () => {
           </div>
           <div className="blog-list__right">
             <Link href="/bloglist">
-              <CallToAction>view all blogs</CallToAction>
+              <CallToAction onClick={() => router.push('/')}>view all blogs</CallToAction>
             </Link>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import React from "react";
 import { CallToAction } from "../Button/callToAction";
 import { CollegeFinderCard } from "./collegeFinderCard";
+import { useRouter } from 'next/router'
 
 const CollegeFinder = () => {
+  const router = useRouter();
   return (
     <div className="collegeFinder">
       <div className="collegeFinder__inner">
@@ -16,7 +18,7 @@ const CollegeFinder = () => {
             </div>
           </div>
           <div className="collegeFinder__right">
-            <CallToAction>explre all categories</CallToAction>
+            <CallToAction onClick={() => router.push('/collegelist')}>explre all categories</CallToAction>
           </div>
         </div>
         <div className="collegeFinder__list">

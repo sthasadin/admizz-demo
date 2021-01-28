@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from 'next/router'
 import { CallToAction } from "../Button/callToAction";
 import intro from "../../public/intro.png";
 import Modal from '@material-ui/core/Modal';
@@ -8,6 +9,7 @@ import ReactPlayer from "react-player"
 import Link from 'next/link'
 
 const Introduction = () => {
+  const router = useRouter();
 
   const [open, setOpen] = React.useState(false);
 
@@ -33,11 +35,9 @@ const Introduction = () => {
             ahead of others.
           </div>
           <div className="u-align-center">
-            <Link href="/free-counseling" passHref>
-              <CallToAction className="filled">
+              <CallToAction className="filled" onClick={() => router.push('/free-counseling')}>
                 Book counseling session
               </CallToAction>
-            </Link>
             <div className="introduction__watch">
               <div className="introduction__watch__icon" onClick={handleOpen}>
                 <svg

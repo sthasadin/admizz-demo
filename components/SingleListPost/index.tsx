@@ -5,7 +5,7 @@ const SingleListPost = (props: any) => {
   const router = useRouter();
 
   return (
-    <div className="single-list-post" onClick={() => router.push('/')}>
+    <div className="single-list-post" onClick={() => router.push('/blogdetail')}>
       <div className="single-list-post__container">
         <div className="single-list-post__DetailContainer">
           <div className="single-list-post__AutherTimeContainer">

@@ -1,7 +1,9 @@
 import React from "react";
 import { Button } from "../Button";
+import { useRouter } from 'next/router'
 
 const BookCounseling = (props: any) => {
+  const router = useRouter();
     return (
         <div className="book-counseling">
             <div className="book-counseling__header">
@@ -10,7 +12,7 @@ const BookCounseling = (props: any) => {
             <div className="book-counseling__message">
                 Get in touch with us for details on admissions and application process for scholarship processing.
             </div>
-            <Button > Book a Counseling Session</Button>
+            <Button onClick={() => router.push('/free-counseling')}>Book a Counseling Session</Button>
         </div>
     );
 };

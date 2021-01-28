@@ -2,15 +2,30 @@
   background-color: white;
   border-radius: 10px;
   padding: 10px 10px;
+  margin: 10px 0px;
   &__filterTitleContainer {
     display: flex;
     justify-content: space-between;
     padding: 5px 5px;
+  }
+  &__filterAdd {
+    cursor: pointer;
   }
   &__filterKeyContainer {
     display: flex;
     flex-wrap: wrap;
     padding: 5px 5px;
     margin-top: 10px;
+  }
+  &__searchContainer {
+    margin: 3px 0px;
+  }
+  &__filterStreamContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__checkboxLabel {
+    color: #828282;
   }
 }

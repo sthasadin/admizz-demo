@@ -300,7 +300,7 @@ const DashboardChoiceFilling = (props) => {
           </form>
         </div>
         <div className="dashboard-basic-info__buttonContainer">
-          <div className="dashboard-basic-info__backContainer">
+          <div className="dashboard-basic-info__backContainer" onClick={props.handleBack}>
             Back
           </div>
           <Button

@@ -3,16 +3,58 @@
   justify-content: center;
   background-color: #E5E5E5;
   &__container {
-    width: 1080px;
+    width: 80%;
+  }
+  &__searchContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #E5E5E5;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+  &__headerTitle {
+    font-family: Mplus 1p;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  &__headerSearch {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  &__headerSubtitle {
+    width: 80%;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #828282;
+    align-items: flex-start;
+  }
+  &__searchButton {
+    background-color:#5F1802;
+    color: white;
+    padding: 18px 30px;
+    cursor: pointer;
   }
   &__listContainer {
     display: flex;
   }
   &__sideBarContainer {
-    width: 30%;
+    width: 25%;
   }
   &__collegeResultContainer {
     padding: 0px 10px;
-    width: 70%;
+    width: 75%;
   }
 }

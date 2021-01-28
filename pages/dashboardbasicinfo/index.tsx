@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
     },
     button: {
+      justifyContent: 'flex-start',
       marginRight: theme.spacing(1),
     },
     completed: {
@@ -25,6 +26,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     instructions: {},
     stepper: {
+      "& .MuiStepLabel-root": {
+        justifyContent: 'flex-start'
+      },
       "& .MuiStepLabel-label": {
         fontFamily: `"M PLUS 1p"`,
         fontWeight: 500,

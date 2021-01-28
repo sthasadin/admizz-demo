@@ -1,8 +1,10 @@
 import React from "react";
+import { useRouter } from 'next/router'
 
 const SingleBlogCard = (props: any) => {
+  const router = useRouter();
   return (
-    <div className="single-blog-card">
+    <div className="single-blog-card" onClick={() => router.push('/blogdetail')}>
       <div className="single-blog-card__memberPost">
         <div className="single-blog-card__inner">
           <div className="single-blog-card__catagoryContainer">

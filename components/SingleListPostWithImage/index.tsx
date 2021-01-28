@@ -1,8 +1,10 @@
 import React from "react";
+import { useRouter } from 'next/router'
 
 const SingleListPostWithImage = (props: any) => {
+  const router = useRouter();
   return (
-    <div className="single-list-post-with-image">
+    <div className="single-list-post-with-image" onClick={() => router.push('/blogdetail')}>
       <div className="single-list-post-with-image__container">
         <div className="single-list-post-with-image__imageContainer">
         </div>

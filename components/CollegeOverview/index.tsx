@@ -1,6 +1,6 @@
 import React from "react";
 
-const CollegeOverview = (props: any) => {
+const CollegeOverview = ( { description } ) => {
   return (
     <div className="overview">
       <div className="overview__title-wrap">
@@ -8,14 +8,7 @@ const CollegeOverview = (props: any) => {
         <time className="overview__date">Update On: 20 Nov, 2020</time>
       </div>
       <div className="overview__desc">
-        From 1956, Thapar Institute has grown in size. Now the campus spawns
-        over 250 acres with lush green environment. Additionally, The Thapar
-        Institute of Engineering and Technology (TIET) is one of India’s oldest
-        and finest educational institutions, which provides a steady source of
-        highly skilled talent to the nation as well as overseas. Founded in 1956
-        with a campus spread across sprawling 250 acres, Thapar Institute of
-        Engineering & Technology, located in Patiala, has been a pioneer in
-        engineering education, .
+        {description}
       </div>
       <div className="overview__block-wrap">
         <div className="overview__block">

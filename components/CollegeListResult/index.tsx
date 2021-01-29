@@ -1,18 +1,25 @@
-import React from "react";
+import React, { FC } from "react";
+
 import SortImage from "../../public/SortImage.png";
 import { CollegesCard } from "../collegesBlock/collegesCard";
 
-const CollegeListResult = () => {
+interface CollegeProps {
+  collegeList: Array<any>;
+}
+
+const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
   return (
     <div className="college-list-result">
       <div className="college-list-result__titleContainer">
-        <p className="college-list-result__titleText">
-          Found <p className="college-list-result__titleTextNumber">1680</p> Colleges
-        </p>
+        <div className="college-list-result__titleText">
+          Found{" "}
+          <p className="college-list-result__titleTextNumber">
+            {collegeList && collegeList.length}
+          </p>{" "}
+          Colleges
+        </div>
         <div className="college-list-result__sortContainer">
-          <p className="college-list-result__sortItemTitle">
-            Sort By
-          </p>
+          <p className="college-list-result__sortItemTitle">Sort By</p>
           <p className="college-list-result__sortItem">
             Popularity <img src={SortImage} />
           </p>
@@ -25,7 +32,19 @@ const CollegeListResult = () => {
         </div>
       </div>
       <div className="college-list-result__resultContainer">
-        <div className="college-list-result__cardContainer">
+        {collegeList &&
+          collegeList.map((college: College, index) => {
+            return (
+              <div key={index} className="college-list-result__cardContainer">
+                <CollegesCard {...college} />
+              </div>
+            );
+          })}
+
+        {/* <div className="college-list-result__cardContainer">
+          <CollegesCard />
+        </div> */}
+        {/* <div className="college-list-result__cardContainer">
           <CollegesCard />
         </div>
         <div className="college-list-result__cardContainer">
@@ -36,13 +55,7 @@ const CollegeListResult = () => {
         </div>
         <div className="college-list-result__cardContainer">
           <CollegesCard />
-        </div>
-        <div className="college-list-result__cardContainer">
-          <CollegesCard />
-        </div>
-        <div className="college-list-result__cardContainer">
-          <CollegesCard />
-        </div>
+        </div> */}
       </div>
     </div>
   );

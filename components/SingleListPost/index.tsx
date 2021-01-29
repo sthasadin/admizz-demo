@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 
 const SingleListPost = (props: any) => {
   return (
@@ -9,7 +10,9 @@ const SingleListPost = (props: any) => {
             {props.author} - {props.time}
           </div>
           <div className="single-list-post__Title">
-          {props.title}
+            <Link href={`/blogs/${props.id}`}>
+              {props.title}
+            </Link>
           </div>
           <div className="single-list-post__Description">
           {props.desc}

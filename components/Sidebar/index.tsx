@@ -7,7 +7,7 @@ import InternationalCollaboration from "../InternationalCollaboration";
 import NewsOnCollege from "../NewsOnCollege";
 import { TrendingCourses } from "../TrendingCourses";
 
-const Sidebar = (props: any) => {
+const Sidebar = () => {
   return (
     <aside className="sidebar">
       <CallToAction className="filled full-width">Apply Now</CallToAction>

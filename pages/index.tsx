@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
 import { About } from "../components/About";
 import { BlogList } from "../components/BlogList";
 import { CollegeFinder } from "../components/collegeFinder";

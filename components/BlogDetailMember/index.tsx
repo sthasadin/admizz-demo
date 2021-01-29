@@ -1,5 +1,4 @@
 import React from "react";
-import BlogImage from "../../public/blog.png";
 
 const BlogDetailMember = () => {
   return (

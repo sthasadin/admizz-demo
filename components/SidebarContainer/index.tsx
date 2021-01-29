@@ -9,13 +9,18 @@ import { Newsletter } from "../Newsletter";
 import { Sidebar } from "../Sidebar";
 import { StudentQuestionAnswer } from "../StudentQuestionAnswer";
 
-const SidebarContainer = (props: any) => {
+const SidebarContainer = ({ totalCourse, totalStudents, description, top_courses}) => {
   return (
     <div className="sidebar-container">
       <div className="sidebar-container__inner inner">
         <div className="content-with-sidebar">
-          <CollegeDetailsBlock />
-          <CollegeOverview />
+          <CollegeDetailsBlock 
+            totalStudents = {totalStudents}
+            totalCourse = {totalCourse}
+          />
+          <CollegeOverview 
+            description = {description}
+          />
           <FeeStructure />
           <Newsletter />
           <RatingAndReview />

@@ -1,7 +1,10 @@
 import React from "react";
+import Router from "next/router";
+import Link from "next/link";
+
 import { CollegeCourse } from "./collegeCourse";
 
-const CollegesCard = () => {
+const CollegesCard = (college) => {
   return (
     <div className="colleges-card">
       <div className="colleges-card__inner">
@@ -9,9 +12,11 @@ const CollegesCard = () => {
           <img src="/colleges.png" alt="college" />
           <div className="colleges-card__title-wrap">
             <div className="colleges-card__title">
-              BMS College of Engineering (BMSCE)
+              <Link href={`colleges/${college?._id}`}>
+                <a>{college?.name}</a>
+              </Link>
             </div>
-            <div className="colleges-card__location">Bangalore</div>
+            <div className="colleges-card__location">{college?.address}</div>
           </div>
         </div>
         <div className="colleges-card__details">
@@ -19,7 +24,7 @@ const CollegesCard = () => {
             <div className="colleges-card__key-value-wrap">
               <div className="colleges-card__key-value">
                 <div className="colleges-card__key">ESTD:</div>
-                <div className="colleges-card__value">1995</div>
+                <div className="colleges-card__value">{college?.estd_year}</div>
               </div>
               <div className="colleges-card__key-value">
                 <div className="colleges-card__key">Type:</div>
@@ -27,22 +32,26 @@ const CollegesCard = () => {
               </div>
             </div>
             <div className="colleges-card__logo">
-              <img src="/college-logo.png" alt="" />
+              <img src={college?.college_logo} alt="" />
             </div>
           </div>
           <div className="colleges-card__bottom">
             <div className="colleges-card__key-value-wrap lg">
               <div className="colleges-card__key-value lg">
                 <div className="colleges-card__key lg">Total Course:</div>
-                <div className="colleges-card__value lg">500+</div>
+                <div className="colleges-card__value lg">
+                  {college?.total_course}+
+                </div>
               </div>
               <div className="colleges-card__key-value lg">
                 <div className="colleges-card__key lg">Total students:</div>
-                <div className="colleges-card__value lg">50K+</div>
+                <div className="colleges-card__value lg">
+                  {college?.total_students}+
+                </div>
               </div>
             </div>
             <div className="colleges-card__course">
-              <CollegeCourse />
+              <CollegeCourse courses={college?.top_courses} />
             </div>
           </div>
         </div>

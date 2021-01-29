@@ -1,14 +1,31 @@
-import React from "react";
+import React, { FC, useEffect } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useSelector, useDispatch } from "react-redux";
 import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
 import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 import { BlogDetailContent } from "../../components/BlogDetailContent";
 import { BlogDetailMember } from "../../components/BlogDetailMember";
-import BlogImage from "../../public/blog.png";
 import { Button } from "../../components";
+import {getBlogDetail} from "../../store/Action/blogDetails.action";
+
 const blogDetail = () => {
+  const router = useRouter();
+  const { slug } = router.query;
+  const dispatch = useDispatch();
+  console.log(slug);
+
+  useEffect(() => {
+    dispatch(getBlogDetail(slug));
+  }, []);
+
+  const { blog } = useSelector((state) => state.blogDetails);
+  useEffect(() => {
+    console.log(blog)
+  }, [blog]);
+
   return (
     <div className="container">
       <Head>
@@ -20,21 +37,27 @@ const blogDetail = () => {
       <main className="blog-detail">
         <div className="blog-detail__container">
           <div className="blog-detail__main">
-            <BlogDetailHeader />
+            <BlogDetailHeader {...blog} />
           </div>
           <div className="blog-detail__imageContainer">
-            <img className="blog-detail__image" src={BlogImage} />
+            <img className="blog-detail__image" src={blog?.blog_imageURL} />
             <div className="blog-detail__postDetail">
               <div className="blog-detail__postValueContainer">
-                <div className="blog-detail__postValue">
-                  <b>Posted by: Stacy James</b>
-                </div>
-                <div className="blog-detail__postValue">
-                  <b>50</b> Views
-                </div>
-                <div className="blog-detail__postValue">
-                  <b>60</b> Comments
-                </div>
+                {blog?.author && (
+                  <div className="blog-detail__postValue">
+                    <b>Posted by: Ashim</b>
+                  </div>
+                )}
+                {blog.views && (
+                  <div className="blog-detail__postValue">
+                    <b>50</b> Views
+                  </div>
+                )}
+                {blog.comments && (
+                  <div className="blog-detail__postValue">
+                    <b>60</b> Comments
+                  </div>
+                )}
               </div>
               <div className="blog-detail__shareInfoContainer">
                 <div className="blog-detail__buttonContainer">
@@ -47,7 +70,7 @@ const blogDetail = () => {
             </div>
           </div>
           <div className="blog-detail__main">
-            <BlogDetailContent />
+            <BlogDetailContent {...blog} />
           </div>
           <div className="blog-detail__imageContainer">
             <BlogDetailMember />

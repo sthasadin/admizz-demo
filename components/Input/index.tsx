@@ -24,15 +24,15 @@ interface Props {
 const Input = (props: Props) => {
   const useStyles = makeStyles((theme) => ({
     container: {
-      position: 'relative'
+      position: 'relative',
+      margin: (props: Props) => {
+        return props.margin && props.margin;
+      },
     },
     input: {
       '& .MuiOutlinedInput-root': {
         borderRadius: '5px',
         outline: 'none',
-        margin: (props: Props) => {
-          return props.margin && props.margin;
-        },
         fontFamily: "'M PLUS 1p'",
         fontWeight: 400,
         fontSize: 14,

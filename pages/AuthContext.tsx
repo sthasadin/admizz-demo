@@ -21,7 +21,10 @@ const AuthProvider = (props) => {
       setUser(user);
       if (user !== null) {
         setAuthenticated(true);
+      } else {
+        setAuthenticated(false);
       }
+      setLoading(false);
       //   setTokenToAPI(user);
     });
   };

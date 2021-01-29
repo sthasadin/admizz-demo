@@ -2,8 +2,9 @@ import React from "react";
 import { Login } from "../../components/Login";
 import { Navbar } from "../../layouts/navbar";
 import { Footer } from "../../layouts/footer";
+import { withRestrictedRoute } from "../../withRestrictedRoute";
 
-export default function Home() {
+const LoginPage = () => {
   return (
     <div className="container">
       <main className="main">
@@ -13,4 +14,6 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
+};
+
+export default withRestrictedRoute(LoginPage);

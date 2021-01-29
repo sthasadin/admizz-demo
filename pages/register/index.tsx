@@ -2,8 +2,9 @@ import React from "react";
 import { Register } from "../../components/register";
 import { Navbar } from "../../layouts/navbar";
 import { Footer } from "../../layouts/footer";
+import { withRestrictedRoute } from "../../withRestrictedRoute";
 
-export default function Home() {
+const RegisterPage = () => {
   return (
     <div className="container">
       <main className="main">
@@ -13,4 +14,5 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
+};
+export default withRestrictedRoute(RegisterPage);

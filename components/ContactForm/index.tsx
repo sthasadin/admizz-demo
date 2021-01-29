@@ -53,7 +53,8 @@ const ContactForm = () => {
       }, {
           abortEarly: false
         });
-      return false;
+      setFormError({})
+      return true;
     } catch (err) {
       const errors = {};
       err.inner.forEach((item: any) => {
@@ -65,7 +66,9 @@ const ContactForm = () => {
 
   const handleRegister = async () => {
     const valid = await validate();
+    console.log("OUTSIDE Valid Valid")
     if (valid) {
+      console.log("Inside Valid Valid")
       db.collection("contact").add({
         name: formValue.name,
         email: formValue.email,

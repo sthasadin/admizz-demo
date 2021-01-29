@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as yup from "yup";
-import { auth } from "../../firebase";
+import moment from 'moment';
+import { auth, db } from "../../firebase";
 import indiaOffice from "../../public/indiaOffice.png"
 import nepalOffice from "../../public/nepalOffice.png"
 import location from "../../public/location.png"
@@ -43,8 +44,8 @@ const ContactForm = () => {
         subject: formValue.subject,
         query: formValue.query
       }, {
-        abortEarly: false
-      });
+          abortEarly: false
+        });
       return false;
     } catch (err) {
       const errors = {};
@@ -57,9 +58,19 @@ const ContactForm = () => {
 
   const handleRegister = async () => {
     const valid = await validate();
-    if (valid) {
-      const res = await auth.createUserWithEmailAndPassword(formValue.email, formValue.password);
-    }
+    db.collection("contact").add({
+      name: formValue.name,
+      email: formValue.email,
+      subject: formValue.subject,
+      query: formValue.query,
+      createdAt: moment().format(),
+    })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
   }
 
   return (
@@ -124,11 +135,11 @@ const ContactForm = () => {
                  </div>
         <div className="contact-form__message">
           Please tell us a bit about you, your project, and how best to reach you. We’ll get right back to you.
-                 </div>
-        <Input name={"name"} onChange={handleChange} placeholder={"Full Name"} fullWidth margin={"25px 0px 16px 0px"} icon={PersonIcon} />
-        <Input name={"email"} onChange={handleChange} placeholder={"Email Address"} margin={"0px 0px 16px 0px"} fullWidth icon={MailIcon} />
-        <Input name={"subject"} onChange={handleChange} placeholder={"Subject"} margin={"0px 0px 16px 0px"} fullWidth icon={SubjectIcon} />
-        <Input name={"query"} onChange={handleChange} multiline placeholder={"Add additional query you have"} margin={"0px 0px 16px 0px"} fullWidth icon={LiveHelpIcon} />
+        </div>
+        <Input name={"name"} onChange={handleChange} placeholder={"Full Name"} errorMessage={formError.name} fullWidth margin={"25px 0px 16px 0px"} icon={PersonIcon} />
+        <Input name={"email"} onChange={handleChange} placeholder={"Email Address"} errorMessage={formError.email} margin={"0px 0px 16px 0px"} fullWidth icon={MailIcon} />
+        <Input name={"subject"} onChange={handleChange} placeholder={"Subject"} errorMessage={formError.subject} margin={"0px 0px 16px 0px"} fullWidth icon={SubjectIcon} />
+        <Input name={"query"} onChange={handleChange} multiline placeholder={"Add additional query you have"} errorMessage={formError.query} margin={"0px 0px 16px 0px"} fullWidth icon={LiveHelpIcon} />
         <div className="contact-form__actions">
           <div className="contact-form__socials">
             <div>Follow Us on:</div>

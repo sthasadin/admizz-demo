@@ -9,6 +9,9 @@ import LockIcon from '@material-ui/icons/Lock';
 import { auth } from "../../firebase";
 import * as yup from "yup";
 import { Button } from "../Button";
+import { ErrorMessages } from "../../utils/ErrorMessages";
+import { Snackbar } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 
 interface signUpFormValue {
   fullName: string;
@@ -23,6 +26,9 @@ interface signUpFormValue {
 const Register = () => {
   const [formValue, setFormValue] = useState({} as signUpFormValue);
   const [formError, setFormError] = useState({} as any);
+  const [loading, setLoading] = useState(false as boolean);
+  const [snackOpen, setSnackOpen] = useState(false as boolean);
+
 
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value })
@@ -68,12 +74,35 @@ const Register = () => {
     }
   }
 
-  const handleRegister = async () => {
-    const valid = await validate();
-    if (valid) {
-      const res = await auth.createUserWithEmailAndPassword(formValue.email, formValue.password);
+  const handleRegister = async (e) => {
+    try {
+      e.preventDefault()
+      setLoading(true)
+      const valid = await validate();
+      if (valid) {
+        const res = await auth.createUserWithEmailAndPassword(formValue.email, formValue.password);
+      }
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      const errorMessage = ErrorMessages[err.code];
+      handleOpenSnackbar();
+      if (errorMessage) {
+        setFormError({ ...formError, otherErrors: errorMessage })
+      } else {
+        setFormError({ ...formError, otherErrors: 'Error occurred' })
+      }
     }
   }
+
+  const handleOpenSnackbar = () => {
+    setSnackOpen(true)
+  }
+
+  const handleCloseSnackbar = () => {
+    setSnackOpen(false)
+  }
+
 
   return (
     <div className="signin">
@@ -184,7 +213,7 @@ const Register = () => {
             eminent companies offer the most worth-while career opportunities.
           </div>
           <div className="signin__form ">
-            <form className="form grid" >
+            <form className="form grid" onSubmit={handleRegister} >
               <Input
                 onChange={handleChange}
                 name={"fullName"}
@@ -233,21 +262,29 @@ const Register = () => {
                 error={!!formError.confirmPassword}
                 errorMessage={formError.confirmPassword}
                 type="password" />
-            </form>
-          </div>
-          <div className="signin__info">
-            By submitting this form, you accept and agree to our
+              <div className="signin__info">
+                By submitting this form, you accept and agree to our
             <span>Terms & Condition.</span>
-          </div>
-          <div className="signin__submit">
-            <div className="signin__change">
-              <a href="#">Already Registered? Click Here To Login.</a>
-            </div>
-            <Button onClick={handleRegister} className="filled">Register Now</Button>
-            {/* <CallToAction className="filled">Register Now</CallToAction> */}
+              </div>
+              <div className="signin__submit">
+                <div className="signin__change">
+                  <a href="#">Already Registered? Click Here To Login.</a>
+                </div>
+                <Button
+                  htmlType={"submit"}
+                  loading={loading}
+                  className="filled">Register Now</Button>
+                {/* <CallToAction className="filled">Register Now</CallToAction> */}
+              </div>
+            </form>
           </div>
         </div>
       </div>
+      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="error">
+          {formError.otherErrors}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

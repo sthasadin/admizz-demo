@@ -224,7 +224,7 @@ const Login = () => {
                 <Button loading={loading} htmlType={"submit"} fullWidth >Login</Button>
                 {/* <CallToAction className="filled login">Login</CallToAction> */}
                 <div className="signin__change login">
-                  <a href="#">New Here? Click Here To Create our Account.</a>
+                  <a href="/register">New Here? Click Here To Create our Account.</a>
                 </div>
               </div>
             </form>

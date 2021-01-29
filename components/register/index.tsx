@@ -215,6 +215,7 @@ const Register = () => {
           <div className="signin__form ">
             <form className="form grid" onSubmit={handleRegister} >
               <Input
+                fullWidth
                 onChange={handleChange}
                 name={"fullName"}
                 icon={PersonIcon}
@@ -223,6 +224,7 @@ const Register = () => {
                 errorMessage={formError.fullName}
                 type="text" />
               <Input
+                fullWidth
                 onChange={handleChange}
                 name={"email"}
                 icon={MailIcon}
@@ -231,6 +233,7 @@ const Register = () => {
                 errorMessage={formError.email}
                 type="text" />
               <Input
+                fullWidth
                 onChange={handleChange}
                 name={"phoneNumber"}
                 icon={PhoneIcon}
@@ -239,6 +242,7 @@ const Register = () => {
                 errorMessage={formError.phoneNumber}
                 type="text" />
               <Input
+                fullWidth
                 onChange={handleChange}
                 name={"country"}
                 icon={LocationOnIcon}
@@ -247,6 +251,7 @@ const Register = () => {
                 errorMessage={formError.country}
                 type="text" />
               <Input
+                fullWidth
                 onChange={handleChange}
                 name={"password"}
                 icon={LockIcon}
@@ -255,6 +260,7 @@ const Register = () => {
                 errorMessage={formError.password}
                 type="password" />
               <Input
+                fullWidth
                 onChange={handleChange}
                 name={"confirmPassword"}
                 icon={LockIcon}
@@ -268,7 +274,7 @@ const Register = () => {
               </div>
               <div className="signin__submit">
                 <div className="signin__change">
-                  <a href="#">Already Registered? Click Here To Login.</a>
+                  <a href="/login">Already Registered? Click Here To Login.</a>
                 </div>
                 <Button
                   htmlType={"submit"}

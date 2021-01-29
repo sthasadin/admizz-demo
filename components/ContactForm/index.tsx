@@ -65,19 +65,21 @@ const ContactForm = () => {
 
   const handleRegister = async () => {
     const valid = await validate();
-    db.collection("contact").add({
-      name: formValue.name,
-      email: formValue.email,
-      subject: formValue.subject,
-      query: formValue.query,
-      createdAt: moment().format(),
-    })
-      .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
+    if (valid) {
+      db.collection("contact").add({
+        name: formValue.name,
+        email: formValue.email,
+        subject: formValue.subject,
+        query: formValue.query,
+        createdAt: moment().format(),
       })
-      .catch(function (error) {
-        console.error("Error adding document: ", error);
-      });
+        .then(function (docRef) {
+          console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function (error) {
+          console.error("Error adding document: ", error);
+        });
+    }
   }
 
   return (

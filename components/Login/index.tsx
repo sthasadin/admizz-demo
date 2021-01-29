@@ -1,8 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import { CallToAction } from "../Button/callToAction";
 import { Input } from "../Input";
+import PersonIcon from '@material-ui/icons/Person';
+import LockIcon from '@material-ui/icons/Lock';
+import { Button } from "../Button";
+import * as yup from "yup";
+import { auth } from "../../firebase";
+import { ErrorMessages } from "../../utils/ErrorMessages";
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
+
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+interface signInProps {
+  email: string;
+  password: string;
+}
 
 const Login = () => {
+  const [formValue, setFormValue] = useState({} as signInProps);
+  const [formError, setFormError] = useState({} as any);
+  const [loading, setLoading] = useState(false as boolean);
+  const [snackOpen, setSnackOpen] = useState(false as boolean);
+
+  const handleChange = (e: any) => {
+    setFormValue({ ...formValue, [e.target.name]: e.target.value })
+  }
+
+  const validationSchema = yup.object().shape<signInProps>({
+    email: yup
+      .string()
+      .required("Required")
+      .email("Please provide a valid email"),
+    password: yup.string().required("Required"),
+  });
+
+  const validate = async () => {
+    try {
+      await validationSchema.validate({
+        email: formValue.email,
+        password: formValue.password,
+      }, {
+        abortEarly: false
+      });
+      setFormError({})
+      return true;
+    } catch (err) {
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0]
+      })
+      setFormError({ ...errors })
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    try {
+      e.preventDefault()
+      setLoading(true)
+      const isValid = await validate();
+      if (isValid) {
+        const res = await auth.signInWithEmailAndPassword(formValue.email, formValue.password);
+      }
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      const errorMessage = ErrorMessages[err.code];
+      handleOpenSnackbar();
+      if (errorMessage) {
+        setFormError({ ...formError, otherErrors: errorMessage })
+      } else {
+        setFormError({ ...formError, otherErrors: 'Error occurred' })
+      }
+    }
+  }
+
+  const handleOpenSnackbar = () => {
+    setSnackOpen(true)
+  }
+
+  const handleCloseSnackbar = () => {
+    setSnackOpen(false)
+  }
+
   return (
     <div className="signin">
       <div className="signin__inner">
@@ -112,30 +195,48 @@ const Login = () => {
             eminent companies offer the most worth-while career opportunities.
           </div>
           <div className="signin__form login">
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
               <Input
-                placeholder="Phone Number*"
-                className="margin-md"
+                placeholder="Email Address"
                 type="text"
+                name={"email"}
+                fullWidth
+                onChange={handleChange}
+                icon={PersonIcon}
+                margin={"0px 0px 20px 0px"}
+                error={!!formError.email}
+                errorMessage={formError.email}
               />
               <Input
+                icon={LockIcon}
+                name={"password"}
+                onChange={handleChange}
+                fullWidth
                 placeholder="Password"
-                className="margin-md"
                 type="password"
+                error={!!formError.password}
+                errorMessage={formError.password}
               />
+              <div className="signin__forgot">
+                <a href="#">Forgot Password?</a>
+              </div>
+              <div className="signin__submit column">
+                <Button loading={loading} htmlType={"submit"} fullWidth >Login</Button>
+                {/* <CallToAction className="filled login">Login</CallToAction> */}
+                <div className="signin__change login">
+                  <a href="#">New Here? Click Here To Create our Account.</a>
+                </div>
+              </div>
             </form>
-            <div className="signin__forgot">
-              <a href="#">Forgot Password?</a>
-            </div>
-          </div>
-          <div className="signin__submit column">
-            <CallToAction className="filled login">Login</CallToAction>
-            <div className="signin__change login">
-              <a href="#">New Here? Click Here To Create our Account.</a>
-            </div>
           </div>
         </div>
       </div>
+      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="error">
+          {formError.otherErrors}
+        </Alert>
+      </Snackbar>
+
     </div>
   );
 };

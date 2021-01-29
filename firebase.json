@@ -1,0 +1,48 @@
+{
+  "hosting": {
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/blogs",
+        "destination": "/blogs.html"
+      },
+      {
+        "source": "/colleges",
+        "destination": "/colleges.html"
+      },
+      {
+        "source": "/contact-us",
+        "destination": "/contact-us.html"
+      },
+      {
+        "source": "/blogdetail",
+        "destination": "/blogdetail.html"
+      },
+      {
+        "source": "/collegeprofile",
+        "destination": "/collegeprofile.html"
+      },
+      {
+        "source": "/dashboardbasicinfo",
+        "destination": "/dashboardbasicinfo.html"
+      },
+      {
+        "source": "/faq",
+        "destination": "/faq.html"
+      },
+      {
+        "source": "/free-counselling",
+        "destination": "/free-counseling.html"
+      },
+      {
+        "source": "/studentdashboardmain",
+        "destination": "/studentdashboardmain.html"
+      }
+    ]
+  }
+}

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
     },
     button: {
-      justifyContent: 'flex-start',
+      justifyContent: "flex-start",
       marginRight: theme.spacing(1),
     },
     completed: {
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
     instructions: {},
     stepper: {
       "& .MuiStepLabel-root": {
-        justifyContent: 'flex-start'
+        justifyContent: "flex-start",
       },
       "& .MuiStepLabel-label": {
         fontFamily: `"M PLUS 1p"`,
@@ -77,8 +77,8 @@ const DashboardBasicInfoPage = () => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
         ? // It's the last step, but not all steps have been completed,
-        // find the first step that has been completed
-        steps.findIndex((step, i) => !(i in completed))
+          // find the first step that has been completed
+          steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1;
     setActiveStep(newActiveStep);
   };
@@ -149,7 +149,6 @@ const DashboardBasicInfoPage = () => {
             </Stepper>
           </StickyBox>
         </div>
-
       </main>
     </div>
   );

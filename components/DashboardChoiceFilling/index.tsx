@@ -134,9 +134,8 @@ const DashboardChoiceFilling = (props) => {
               </Grid>
               <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
                 <div className="dashboard-basic-info__tableCell">
-                  <Button
-                      onClick={console.log("View Detail")}>
-                      View Detail
+                  <Button>
+                    View Detail
                   </Button>
                 </div>
               </Grid>
@@ -180,9 +179,8 @@ const DashboardChoiceFilling = (props) => {
               </Grid>
               <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
                 <div className="dashboard-basic-info__tableCell">
-                  <Button
-                      onClick={console.log("View Detail")}>
-                      View Detail
+                  <Button>
+                    View Detail
                   </Button>
                 </div>
               </Grid>
@@ -226,9 +224,8 @@ const DashboardChoiceFilling = (props) => {
               </Grid>
               <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
                 <div className="dashboard-basic-info__tableCell">
-                  <Button
-                      onClick={console.log("View Detail")}>
-                      View Detail
+                  <Button>
+                    View Detail
                   </Button>
                 </div>
               </Grid>
@@ -272,9 +269,8 @@ const DashboardChoiceFilling = (props) => {
               </Grid>
               <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
                 <div className="dashboard-basic-info__tableCell">
-                  <Button
-                      onClick={console.log("View Detail")}>
-                      View Detail
+                  <Button>
+                    View Detail
                   </Button>
                 </div>
               </Grid>

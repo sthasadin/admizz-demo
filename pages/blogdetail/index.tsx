@@ -8,27 +8,28 @@ import { BlogDetailContent } from "../../components/BlogDetailContent";
 import { BlogDetailMember } from "../../components/BlogDetailMember";
 import BlogImage from "../../public/blog.png";
 import { Button } from "../../components";
-import Avatar from '@material-ui/core/Avatar';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemText from '@material-ui/core/ListItemText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import Avatar from "@material-ui/core/Avatar";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import ListItemText from "@material-ui/core/ListItemText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Dialog from "@material-ui/core/Dialog";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 
 const blogDetail = () => {
   const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState();
+  // const [selectedValue, setSelectedValue] = React.useState();
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = (value) => {
+  const handleClose = () => {
+    // console.log(selectedValue)
     setOpen(false);
-    setSelectedValue(value);
+    // setSelectedValue(value);
   };
 
   return (
@@ -67,10 +68,20 @@ const blogDetail = () => {
                     <p className="blog-detail__sharetext">Share This Article</p>
                   </div>
 
-                  <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-                    <DialogTitle id="simple-dialog-title">Share This Article</DialogTitle>
+                  <Dialog
+                    onClose={handleClose}
+                    aria-labelledby="simple-dialog-title"
+                    open={open}
+                  >
+                    <DialogTitle id="simple-dialog-title">
+                      Share This Article
+                  </DialogTitle>
                     <List className="blog-detail__listContainer">
-                      <ListItem button className="blog-detail__listItemContainer" onClick={() => console.log("Share Clicked")}>
+                      <ListItem
+                        button
+                        className="blog-detail__listItemContainer"
+                        onClick={() => console.log("Share Clicked")}
+                      >
                         <ListItemAvatar>
                           <Avatar>
                             <FacebookIcon />
@@ -79,7 +90,10 @@ const blogDetail = () => {
                         <ListItemText primary={"Facebook"} />
                       </ListItem>
 
-                      <ListItem button onClick={() => console.log("Share Clicked")}>
+                      <ListItem
+                        button
+                        onClick={() => console.log("Share Clicked")}
+                      >
                         <ListItemAvatar>
                           <Avatar>
                             <WhatsAppIcon />
@@ -89,22 +103,21 @@ const blogDetail = () => {
                       </ListItem>
                     </List>
                   </Dialog>
-
                 </div>
               </div>
+              <div className="blog-detail__main">
+                <BlogDetailContent />
+              </div>
+              <div className="blog-detail__imageContainer">
+                <BlogDetailMember />
+              </div>
             </div>
-            <div className="blog-detail__main">
-              <BlogDetailContent />
             </div>
-            <div className="blog-detail__imageContainer">
-              <BlogDetailMember />
-            </div>
-          </div>
         </main>
       </div>
-      <Footer />
-    </div>
-  );
-};
-
-export default blogDetail;
+        <Footer />
+      </div>
+      );
+    };
+    
+    export default blogDetail;

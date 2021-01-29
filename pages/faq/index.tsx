@@ -4,7 +4,6 @@ import { Topbar } from "../../layouts/topbar";
 import { Navbar } from "../../layouts/navbar";
 import { BlockSearch } from "../../components/BlockSearch";
 import { CallToAction } from "../../components/Button/callToAction";
-import { Questions } from "../../components/FAQ/questions";
 import QuickHelp from "../../components/FAQ/quick-help";
 import { Footer } from "../../layouts/footer";
 import { FAQAccordian } from "../../components/FAQ/accordian";

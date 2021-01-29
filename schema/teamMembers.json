@@ -1,0 +1,9 @@
+{
+    "id": "someid",
+    "name": "Manish Shah",
+    "image": "https://asdasd",
+    "designation": "Managing",
+    "descripition": "Some this",
+    "email": "some@one.com",
+    "createdAt": "timestamp"
+}

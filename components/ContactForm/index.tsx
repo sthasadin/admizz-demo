@@ -29,7 +29,6 @@ const ContactForm = () => {
   const [formError, setFormError] = useState({} as any);
 
   const handleChange = (e: any) => {
-    console.log("THIS IS THE VALUE", e.target.name, e.target.value, formValue)
     setFormValue({ ...formValue, [e.target.name]: e.target.value })
   }
 
@@ -66,9 +65,7 @@ const ContactForm = () => {
 
   const handleRegister = async () => {
     const valid = await validate();
-    console.log("OUTSIDE Valid Valid")
     if (valid) {
-      console.log("Inside Valid Valid")
       db.collection("contact").add({
         name: formValue.name,
         email: formValue.email,

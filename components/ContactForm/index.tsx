@@ -17,6 +17,13 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import SubjectIcon from '@material-ui/icons/Subject';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 
+interface ContactUsFormValue {
+  name: string;
+  email: string;
+  subject: string;
+  query: string;
+}
+
 const ContactForm = () => {
   const [formValue, setFormValue] = useState({} as ContactUsFormValue);
   const [formError, setFormError] = useState({} as any);

@@ -51,19 +51,6 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-// function getStepContent(step: number) {
-//     switch (step) {
-//         case 0:
-//             return <ConfirmDateTime />
-//         case 1:
-//             return 'Step 2: What is an ad group anyways?';
-//         case 2:
-//             return 'Step 3: This is the bit I really care about!';
-//         default:
-//             return 'Unknown step';
-//     }
-// }
-
 const CounselingStepper = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -115,7 +102,7 @@ const CounselingStepper = () => {
   }
 
   const handleBook = async () => {
-    db.collection("counsellor").add({
+    db.collection("appointment").add({
       name: formValue.name,
       email: formValue.email,
       country_code: formValue.country_code,

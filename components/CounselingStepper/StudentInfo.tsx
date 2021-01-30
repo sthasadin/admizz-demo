@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import * as yup from "yup";
-import moment from 'moment';
-import { db } from "../../firebase";
 import { Grid } from '@material-ui/core';
 import { Input } from '../Input';
 import PersonIcon from '@material-ui/icons/Person';
@@ -13,92 +10,20 @@ import messenger from '../../public/messenger.png';
 import whatsapp from '../../public/whatsapp.png'
 import { Button } from '../Button';
 
+interface FormError {
+  [key: string]: string;
+}
+
 interface Props {
   handleNext: () => void;
   handleBack: () => void;
   handleChange: (e: any) => void;
   formValue: {};
-  formError: {};
+  formError: FormError
 }
-
-// interface studentInfoFormValue {
-//   name: string;
-//   email: string;
-//   country_code: number;
-//   phone: number;
-//   home_country: string;
-//   course: string;
-//   description: string;
-// }
 
 const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, formValue, formError }) => {
   const [selectedMedium, setSelectedMedium] = useState('messenger')
-
-  // const [formValue, setFormValue] = useState({} as studentInfoFormValue);
-  // const [formError, setFormError] = useState({} as any);
-
-  // const handleChange = (e: any) => {
-  //   setFormValue({ ...formValue, [e.target.name]: e.target.value, country_code: 977 })
-  // }
-
-  // const validationSchema = yup.object().shape<studentInfoFormValue>({
-  //   name: yup.string().required("Required"),
-  //   email: yup
-  //     .string()
-  //     .required("Required")
-  //     .email("Please provide a valid email"),
-  //   country_code: yup.number().required("Required"),
-  //   phone: yup.number().required("Required").typeError('Value should be number'),
-  //   home_country: yup.string().required("Required"),
-  //   course: yup.string().required("Required"),
-  //   description: yup.string().required("Required"),
-  // });
-
-  // const validate = async () => {
-  //   try {
-  //     await validationSchema.validate({
-  //       name: formValue.name,
-  //       email: formValue.email,
-  //       country_code: formValue.country_code,
-  //       phone: formValue.phone,
-  //       home_country: formValue.home_country,
-  //       course: formValue.course,
-  //       description: formValue.description
-  //     }, {
-  //         abortEarly: false
-  //       });
-  //     setFormError({})
-  //     return true;
-  //   } catch (err) {
-  //     const errors = {};
-  //     err.inner.forEach((item: any) => {
-  //       errors[item.path] = item.errors[0]
-  //     })
-  //     setFormError({ ...errors })
-  //   }
-  // }
-
-  // const handleBook = async () => {
-  //   const valid = await validate();
-  //   if (valid) {
-  //     db.collection("counsellor").add({
-  //       name: formValue.name,
-  //       email: formValue.email,
-  //       country_code: formValue.country_code,
-  //       phone: formValue.phone,
-  //       home_country: formValue.home_country,
-  //       course: formValue.course,
-  //       description: formValue.description,
-  //       createdAt: moment().format(),
-  //     })
-  //       .then(function (docRef) {
-  //         console.log("Document written with ID: ", docRef.id);
-  //       })
-  //       .catch(function (error) {
-  //         console.error("Error adding document: ", error);
-  //       });
-  //   }
-  // }
 
   return (
     <div className="student-info">

@@ -15,6 +15,7 @@ const SelectCounseler = () => {
         console.log(doc.id, " => ", doc.data());
         const data = doc.data()
         counsellor.push({
+          id: doc.id,
           name: data.name,
           country: data.country,
           image: data.image

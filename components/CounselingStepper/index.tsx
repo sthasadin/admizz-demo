@@ -115,25 +115,22 @@ const CounselingStepper = () => {
   }
 
   const handleBook = async () => {
-    const valid = await validate();
-    if (valid) {
-      db.collection("counsellor").add({
-        name: formValue.name,
-        email: formValue.email,
-        country_code: formValue.country_code,
-        phone: formValue.phone,
-        home_country: formValue.home_country,
-        course: formValue.course,
-        description: formValue.description,
-        createdAt: moment().format(),
+    db.collection("counsellor").add({
+      name: formValue.name,
+      email: formValue.email,
+      country_code: formValue.country_code,
+      phone: formValue.phone,
+      home_country: formValue.home_country,
+      course: formValue.course,
+      description: formValue.description,
+      createdAt: moment().format(),
+    })
+      .then(function (docRef) {
+        console.log("Document written with ID: ", docRef.id);
       })
-        .then(function (docRef) {
-          console.log("Document written with ID: ", docRef.id);
-        })
-        .catch(function (error) {
-          console.error("Error adding document: ", error);
-        });
-    }
+      .catch(function (error) {
+        console.error("Error adding document: ", error);
+      });
   }
 
   const steps = ["Confirm Date & Time", "Student’s Detail", "Confirm Your Session"]
@@ -168,12 +165,25 @@ const CounselingStepper = () => {
     setActiveStep(newActiveStep);
   };
 
+  const handleNextFormValidation = async () => {
+    const valid = await validate();
+    if (valid) {
+      const newActiveStep =
+        isLastStep() && !allStepsCompleted()
+          ? // It's the last step, but not all steps have been completed,
+          // find the first step that has been completed
+          steps.findIndex((step, i) => !(i in completed))
+          : activeStep + 1;
+      setActiveStep(newActiveStep);
+    }
+  };
+
   const getStepContent = (step: number) => {
     switch (step) {
       case 0:
         return <ConfirmDateTime handleNext={handleNext} />
       case 1:
-        return <StudentInfo handleNext={handleNext} handleBack={handleBack} handleChange={handleChange} formValue={formValue} formError={formError} />;
+        return <StudentInfo handleNext={handleNextFormValidation} handleBack={handleBack} handleChange={handleChange} formValue={formValue} formError={formError} />;
       case 2:
         return <ConfirmBook handleBack={handleBack} handleBook={handleBook} />;
       default:

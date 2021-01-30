@@ -16,7 +16,7 @@ import { Button } from '../Button';
 interface Props {
   handleNext: () => void;
   handleBack: () => void;
-  handleChange: () => void;
+  handleChange: (e: any) => void;
   formValue: {};
   formError: {};
 }

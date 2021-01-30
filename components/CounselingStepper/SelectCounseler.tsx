@@ -47,7 +47,7 @@ const SelectCounseler = () => {
                   {item.name}
                 </div>
                 <div className="select-counseler__counseler-nationaliy">
-                  {item.nationality} Counseler
+                  {item.country} Counseler
                 </div>
               </div>
             </div>

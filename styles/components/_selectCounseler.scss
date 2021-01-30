@@ -16,7 +16,9 @@
 	&__counseler-list {
 		display: flex;
 	}
-
+  &__counsellorImage {
+    height: 60px;
+  }
 	&__counseler-card {
 		display: flex;
 		margin-right: 16px;

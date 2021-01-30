@@ -16,7 +16,8 @@ const SelectCounseler = () => {
         const data = doc.data()
         counsellor.push({
           name: data.name,
-          country: data.country
+          country: data.country,
+          image: data.image
         })
       });
     });
@@ -39,7 +40,7 @@ const SelectCounseler = () => {
           return (
             <div onClick={() => setSelectedCounseler(item.id)}
               className={`select-counseler__counseler-card`}>
-              <img src={item.image} />
+              <img className={"select-counseler__counsellorImage"} src={item.image} />
               <div className={`select-counseler__counseler-info 
                                  ${selectedCounseler === item.id && 'select-counseler__counseler-info-selected'}`}>
                 <div className="select-counseler__counseler-name">

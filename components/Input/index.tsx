@@ -18,6 +18,7 @@ interface Props {
   onChange?: (e: any) => void;
   error?: boolean;
   errorMessage?: string;
+  borderRadius?: string;
 }
 
 
@@ -31,7 +32,9 @@ const Input = (props: Props) => {
     },
     input: {
       '& .MuiOutlinedInput-root': {
-        borderRadius: '5px',
+        borderRadius: (props: Props) => {
+          return props.borderRadius ? props.borderRadius : "5px"
+        },
         outline: 'none',
         fontFamily: "'M PLUS 1p'",
         fontWeight: 400,

@@ -1,94 +1,100 @@
 .student-info {
-	font-family: 'M PLUS 1p';
-	padding-top: 20px;
-	padding-left: 35px;
-	& .MuiSvgIcon-root {
-		width: 20px;
-	}
-	&__header {
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 24px;
-		margin-bottom: 12px;
-	}
-	&____input {
-		margin-left: 10px;
-	}
-	&__grid {
-		padding-left: 15px;
-	}
-	&__grid:first-child {
-		padding-left: 0;
-	}
-	&__phone-input {
-		display: flex;
-	}
-	&__phone {
-		& .MuiOutlinedInput-root {
-			border-top-left-radius: 0 !important;
-			border-bottom-left-radius: 0 !important;
-		}
-	}
-	&__phone-separator {
-		padding: 14px;
-		border-radius: 5px;
-		border: 1px solid #bdbdbd;
-		border-top-right-radius: 0;
-		border-bottom-right-radius: 0;
-		border-right: 0;
-		font-size: 12px;
-		display: flex;
-		align-items: center;
-		color: $gray-3;
-	}
-	&__row {
-		margin-top: 26px;
-	}
-	&__headset {
-		margin-right: 12px;
-	}
-	&__contact-medium-label {
-		display: flex;
-		font-size: 14px;
-		line-height: 21px;
-		align-items: center;
-		margin-bottom: 3px;
-	}
-	&__mediums-container {
-		display: flex;
-		padding-left: 25px;
-	}
-	&__mediums-container:first-child {
-		margin-right: 5px;
-	}
-	&__medium {
-		padding: 6px;
-		display: flex;
-		align-items: center;
-		cursor: pointer;
-		border: 1px solid white;
-		span {
-			margin-left: 5px;
-			font-size: 10px;
-			line-height: 15px;
-		}
-	}
-	&__selected-medium {
-		border: 1px solid #af8b80;
-		background: #ffa200;
-		border-radius: 5px;
-	}
-	&__action-buttons {
-		display: flex;
-		justify-content: space-between;
-		margin-top: 23px;
-		align-items: center;
-		div {
-			cursor: pointer;
-			font-weight: 800;
-			font-size: 16px;
-			line-height: 24px;
-			color: $gray-4;
-		}
-	}
+    font-family: 'M PLUS 1p';
+    padding-top: 20px;
+    padding-left: 35px;
+    & .MuiSvgIcon-root {
+        width: 20px;
+    }
+    &__header {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 12px;
+    }
+    &____input {
+        margin-left: 10px;
+    }
+    &__grid {
+        padding-left: 15px;
+    }
+    &__grid:first-child {
+        padding-left: 0;
+    }
+    &__phone-input {
+        display: flex;
+    }
+    &__phone {
+        & .MuiOutlinedInput-root {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+    }
+    &__phone-separator {
+        padding: 0 !important;
+        padding-left: 0 !important;
+        & .MuiSelect-selectMenu {
+            text-align: center;
+            font-size: 12px;
+            color: $gray-3;
+        }
+        & .MuiOutlinedInput-input {
+            padding: 17px 14px;
+        }
+        & .MuiOutlinedInput-notchedOutline {
+            border: 1px solid #bdbdbd;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border-right: 0;
+        }
+    }
+    &__row {
+        margin-top: 26px;
+    }
+    &__headset {
+        margin-right: 12px;
+    }
+    &__contact-medium-label {
+        display: flex;
+        font-size: 14px;
+        line-height: 21px;
+        align-items: center;
+        margin-bottom: 3px;
+    }
+    &__mediums-container {
+        display: flex;
+        padding-left: 25px;
+    }
+    &__mediums-container:first-child {
+        margin-right: 5px;
+    }
+    &__medium {
+        padding: 6px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        border: 1px solid white;
+        span {
+            margin-left: 5px;
+            font-size: 10px;
+            line-height: 15px;
+        }
+    }
+    &__selected-medium {
+        border: 1px solid #af8b80;
+        background: #ffa200;
+        border-radius: 5px;
+    }
+    &__action-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 23px;
+        align-items: center;
+        div {
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 16px;
+            line-height: 24px;
+            color: $gray-4;
+        }
+    }
 }

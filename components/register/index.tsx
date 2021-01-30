@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { CallToAction } from "../Button/callToAction";
 import { Input } from "../Input";
 import PersonIcon from '@material-ui/icons/Person';
 import MailIcon from '@material-ui/icons/Mail';
 import PhoneIcon from '@material-ui/icons/Phone';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import LockIcon from '@material-ui/icons/Lock';
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import * as yup from "yup";
 import { Button } from "../Button";
 import { ErrorMessages } from "../../utils/ErrorMessages";
 import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
+import { Select } from "../Select";
+import { countryList } from "../../utils/CountryLists";
 
 interface signUpFormValue {
   fullName: string;
@@ -21,10 +22,13 @@ interface signUpFormValue {
   password: string;
   confirmPassword: string;
   [key: string]: any;
+  countryCode: string;
 }
 
 const Register = () => {
-  const [formValue, setFormValue] = useState({} as signUpFormValue);
+  const [formValue, setFormValue] = useState({
+    countryCode: "+977"
+  } as signUpFormValue);
   const [formError, setFormError] = useState({} as any);
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
@@ -44,6 +48,7 @@ const Register = () => {
     confirmPassword: yup.string().required("Required"),
     country: yup.string().required("Required"),
     phoneNumber: yup.string().required("Required"),
+    countryCode: yup.string().required("Required")
   });
 
   const validate = async () => {
@@ -54,7 +59,8 @@ const Register = () => {
         password: formValue.password,
         confirmPassword: formValue.confirmPassword,
         country: formValue.country,
-        phoneNumber: formValue.phoneNumber
+        phoneNumber: formValue.phoneNumber,
+        countryCode: formValue.countryCode
       }, {
         abortEarly: false
       });
@@ -76,11 +82,17 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     try {
-      e.preventDefault()
-      setLoading(true)
+      e.preventDefault();
+      setLoading(true);
       const valid = await validate();
       if (valid) {
-        const res = await auth.createUserWithEmailAndPassword(formValue.email, formValue.password);
+        await auth.createUserWithEmailAndPassword(formValue.email, formValue.password);
+        await db.collection("users").add({
+          fullName: formValue.fullName,
+          email: formValue.email,
+          phoneNumber: formValue.countryCode + '-' + formValue.phoneNumber,
+          country: formValue.country,
+        });
       }
       setLoading(false);
     } catch (err) {
@@ -102,7 +114,6 @@ const Register = () => {
   const handleCloseSnackbar = () => {
     setSnackOpen(false)
   }
-
 
   return (
     <div className="signin">
@@ -213,26 +224,52 @@ const Register = () => {
             eminent companies offer the most worth-while career opportunities.
           </div>
           <div className="signin__form ">
-            <form className="form grid" onSubmit={handleRegister} >
-              <Input
-                fullWidth
-                onChange={handleChange}
-                name={"fullName"}
-                icon={PersonIcon}
-                placeholder="Full Name*"
-                error={!!formError.fullName}
-                errorMessage={formError.fullName}
-                type="text" />
-              <Input
-                fullWidth
-                onChange={handleChange}
-                name={"email"}
-                icon={MailIcon}
-                placeholder="Email Address*"
-                error={!!formError.email}
-                errorMessage={formError.email}
-                type="text" />
-              <Input
+            <form onSubmit={handleRegister} >
+              <div className={"signin__form-grid"}>
+
+                <Input
+                  fullWidth
+                  onChange={handleChange}
+                  name={"fullName"}
+                  icon={PersonIcon}
+                  placeholder="Full Name*"
+                  error={!!formError.fullName}
+                  errorMessage={formError.fullName}
+                  type="text" />
+                <Input
+                  fullWidth
+                  onChange={handleChange}
+                  name={"email"}
+                  icon={MailIcon}
+                  placeholder="Email Address*"
+                  error={!!formError.email}
+                  errorMessage={formError.email}
+                  type="text" />
+                <div className={'student-info__phone-input'}>
+                  <Select
+                    options={countryList}
+                    useValue
+                    minWidth={"83px"}
+                    width={"90px"}
+                    defaultValue={"+977"}
+                    name={"countryCode"}
+                    onChange={handleChange}
+                    error={!!formError.countryCode}
+                    errorMessage={formError.countryCode}
+                    className={"student-info__phone-separator"}
+                  />
+                  <Input
+                    fullWidth
+                    onChange={handleChange}
+                    name={"phoneNumber"}
+                    icon={PhoneIcon}
+                    borderRadius={"0px 5px 5px 0px"}
+                    placeholder="Phone Number*"
+                    error={!!formError.phoneNumber}
+                    errorMessage={formError.phoneNumber}
+                    type="text" />
+                </div>
+                {/* <Input
                 fullWidth
                 onChange={handleChange}
                 name={"phoneNumber"}
@@ -240,8 +277,19 @@ const Register = () => {
                 placeholder="Phone Number*"
                 error={!!formError.phoneNumber}
                 errorMessage={formError.phoneNumber}
-                type="text" />
-              <Input
+                type="text" /> */}
+                <Select
+                  useLabel
+                  options={countryList}
+                  onChange={handleChange}
+                  icon={LocationOnIcon}
+                  label={"Home Country"}
+                  name={"country"}
+                  error={!!formError.country}
+                  errorMessage={formError.country}
+                />
+
+                {/* <Input
                 fullWidth
                 onChange={handleChange}
                 name={"country"}
@@ -249,28 +297,29 @@ const Register = () => {
                 placeholder="Home Country"
                 error={!!formError.country}
                 errorMessage={formError.country}
-                type="text" />
-              <Input
-                fullWidth
-                onChange={handleChange}
-                name={"password"}
-                icon={LockIcon}
-                placeholder="Password"
-                error={!!formError.password}
-                errorMessage={formError.password}
-                type="password" />
-              <Input
-                fullWidth
-                onChange={handleChange}
-                name={"confirmPassword"}
-                icon={LockIcon}
-                placeholder="Confirm Password"
-                error={!!formError.confirmPassword}
-                errorMessage={formError.confirmPassword}
-                type="password" />
+                type="text" /> */}
+                <Input
+                  fullWidth
+                  onChange={handleChange}
+                  name={"password"}
+                  icon={LockIcon}
+                  placeholder="Password"
+                  error={!!formError.password}
+                  errorMessage={formError.password}
+                  type="password" />
+                <Input
+                  fullWidth
+                  onChange={handleChange}
+                  name={"confirmPassword"}
+                  icon={LockIcon}
+                  placeholder="Confirm Password"
+                  error={!!formError.confirmPassword}
+                  errorMessage={formError.confirmPassword}
+                  type="password" />
+              </div>
               <div className="signin__info">
                 By submitting this form, you accept and agree to our
-            <span>Terms & Condition.</span>
+                     <span>Terms & Condition.</span>
               </div>
               <div className="signin__submit">
                 <div className="signin__change">
@@ -279,7 +328,8 @@ const Register = () => {
                 <Button
                   htmlType={"submit"}
                   loading={loading}
-                  className="filled">Register Now</Button>
+                  fullWidth
+                >Register Now</Button>
                 {/* <CallToAction className="filled">Register Now</CallToAction> */}
               </div>
             </form>

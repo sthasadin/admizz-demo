@@ -5,6 +5,10 @@
         align-items: stretch;
         width: calc(100% - 30px);
         position: relative;
+        @media (max-width: 414px) {
+            display: flex;
+            flex-direction: column;
+        }
         @media (min-width: 1024px) {
             width: 940px;
             margin: 20px auto;
@@ -15,7 +19,8 @@
     }
     &__left {
         border-radius: 10px;
-        width: 458px;
+        // width: 458px;
+        width: 100%;
         padding: 72px 30px 35px 30px;
         text-align: center;
         background-position: center center;

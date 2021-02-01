@@ -16,79 +16,83 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="footer__col">
-            <div className="footer__col__title">top colleges</div>
-            <a href="#" className="footer__col__item">
-              Engineering
+          <div className="footer__mobileCol">
+            <div className="footer__col">
+              <div className="footer__col__title">top colleges</div>
+              <a href="#" className="footer__col__item">
+                Engineering
             </a>
-            <a href="#" className="footer__col__item">
-              Management
+              <a href="#" className="footer__col__item">
+                Management
             </a>
-            <a href="#" className="footer__col__item">
-              Medical
+              <a href="#" className="footer__col__item">
+                Medical
             </a>
-            <a href="#" className="footer__col__item">
-              Law
+              <a href="#" className="footer__col__item">
+                Law
             </a>
-            <a href="#" className="footer__col__item">
-              Commerce
+              <a href="#" className="footer__col__item">
+                Commerce
             </a>
-            <a href="#" className="footer__col__item">
-              Science
+              <a href="#" className="footer__col__item">
+                Science
             </a>
-            <a href="#" className="footer__col__item">
-              Arts
+              <a href="#" className="footer__col__item">
+                Arts
             </a>
+            </div>
+            <div className="footer__col">
+              <div className="footer__col__title">top courses</div>
+              <a href="#" className="footer__col__item">
+                M.B.A
+            </a>
+              <a href="#" className="footer__col__item">
+                B.Tech/B.E
+            </a>
+              <a href="#" className="footer__col__item">
+                MCA
+            </a>
+              <a href="#" className="footer__col__item">
+                M.Tech
+            </a>
+              <a href="#" className="footer__col__item">
+                MA
+            </a>
+              <a href="#" className="footer__col__item">
+                BA
+            </a>
+              <a href="#" className="footer__col__item">
+                BCA
+            </a>
+            </div>
           </div>
-          <div className="footer__col">
-            <div className="footer__col__title">top courses</div>
-            <a href="#" className="footer__col__item">
-              M.B.A
+          <div className="footer__mobileCol">
+            <div className="footer__col">
+              <div className="footer__col__title">study in</div>
+              <a href="#" className="footer__col__item">
+                India
             </a>
-            <a href="#" className="footer__col__item">
-              B.Tech/B.E
+              <a href="#" className="footer__col__item">
+                USA
             </a>
-            <a href="#" className="footer__col__item">
-              MCA
+            </div>
+            <div className="footer__col">
+              <div className="footer__col__title">other links</div>
+              <a href="#" className="footer__col__item">
+                About Admix
             </a>
-            <a href="#" className="footer__col__item">
-              M.Tech
+              <a className="footer__col__item" href="/contact-us">Contact Us</a>
+              <a className="footer__col__item" href="#" >
+                Careers
             </a>
-            <a href="#" className="footer__col__item">
-              MA
+              <a className="footer__col__item" href="/faq">FAQs</a>
+              <a href="#" className="footer__col__item">
+                Terms & Condition
             </a>
-            <a href="#" className="footer__col__item">
-              BA
+              <a href="#" className="footer__col__item">
+                Sign In/Register
             </a>
-            <a href="#" className="footer__col__item">
-              BCA
-            </a>
-          </div>
-          <div className="footer__col">
-            <div className="footer__col__title">study in</div>
-            <a href="#" className="footer__col__item">
-              India
-            </a>
-            <a href="#" className="footer__col__item">
-              USA
-            </a>
-          </div>
-          <div className="footer__col">
-            <div className="footer__col__title">other links</div>
-            <a href="#" className="footer__col__item">
-              About Admix
-            </a>
-            <a className="footer__col__item" href="/contact-us">Contact Us</a>
-            <a className="footer__col__item" href="#" >
-              Careers
-            </a>
-            <a className="footer__col__item" href="/faq">FAQs</a>
-            <a href="#" className="footer__col__item">
-              Terms & Condition
-            </a>
-            <a href="#" className="footer__col__item">
-              Sign In/Register
-            </a>
+            </div>
           </div>
         </div>
         <div className="footer__middle">

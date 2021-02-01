@@ -7,14 +7,9 @@
     position: relative;
     width: calc(100% - 30px);
     margin: 0 15px;
-    @media (max-width: 414px) {
-      display: none;
-      background-color: blue;
-    }
     @media (min-width: 768px) {
       width: 720px;
       margin: 0 auto;
-      background-color: red;
     }
     @media (min-width: 1024px) {
       width: 940px;
@@ -29,9 +24,18 @@
   &__logo {
     cursor: pointer;
   }
+  &__hamburger {
+    display: none;
+    @media (max-width: 414px) {
+      display: block;
+    }
+  }
   &__right {
     display: flex;
     align-items: center;
+    @media (max-width: 414px) {
+      display: none;
+    }
   }
   &__navImage {
     margin-right: 20px;

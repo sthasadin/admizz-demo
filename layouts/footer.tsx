@@ -78,15 +78,11 @@ const Footer = () => {
             <a href="#" className="footer__col__item">
               About Admix
             </a>
-            <a href="#" className="footer__col__item">
-              <Link href="/contact-us">Contact Us</Link>
-            </a>
-            <a href="#" className="footer__col__item">
+            <a className="footer__col__item" href="/contact-us">Contact Us</a>
+            <a className="footer__col__item" href="#" >
               Careers
             </a>
-            <a href="#" className="footer__col__item">
-              <Link href="/faq">FAQs</Link>
-            </a>
+            <a className="footer__col__item" href="/faq">FAQs</a>
             <a href="#" className="footer__col__item">
               Terms & Condition
             </a>

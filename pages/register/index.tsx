@@ -9,7 +9,7 @@ const RegisterPage = () => {
     <div className="container">
       <main className="main">
         <Navbar />
-        {/* <Register /> */}
+        <Register />
       </main>
       <Footer />
     </div>

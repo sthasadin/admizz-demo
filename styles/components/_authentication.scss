@@ -1,5 +1,10 @@
 .signin {
-    margin: 80px;
+    // margin: 80px;
+    width: 100%;
+    @media (max-width: 414px) {
+        margin: 30px 0;
+        
+    }
     &__inner {
         display: flex;
         align-items: stretch;
@@ -8,6 +13,7 @@
         @media (max-width: 414px) {
             display: flex;
             flex-direction: column;
+            margin: 0 auto;
         }
         @media (min-width: 1024px) {
             width: 940px;

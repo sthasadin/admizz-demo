@@ -1,10 +1,31 @@
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 100px;
-  position: relative;
   background-color: #fff;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    @media (max-width: 414px) {
+      display: none;
+      background-color: blue;
+    }
+    @media (min-width: 768px) {
+      width: 720px;
+      margin: 0 auto;
+      background-color: red;
+    }
+    @media (min-width: 1024px) {
+      width: 940px;
+    }
+    @media (min-width: 1200px) {
+      width: 1170px;
+    }
+    @media (min-width: 1360px) {
+      width: 1240px;
+    }
+  }
   &__logo {
     cursor: pointer;
   }

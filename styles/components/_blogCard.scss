@@ -5,11 +5,13 @@
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 5px;
-    height: 420px;
+    // height: 420px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    padding-top: 200px;
+    margin: 0px 20px;
   }
   &__category {
     font-size: 10px;

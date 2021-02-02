@@ -46,7 +46,7 @@ const blogDetail = () => {
             <div className="blog-detail__main">
               <BlogDetailHeader />
             </div>
-            <div className="blog-detail__imageContainer">
+            {/* <div className="blog-detail__imageContainer">
               <img className="blog-detail__image" src={BlogImage} />
               <div className="blog-detail__postDetail">
                 <div className="blog-detail__postValueContainer">
@@ -111,13 +111,13 @@ const blogDetail = () => {
               <div className="blog-detail__imageContainer">
                 <BlogDetailMember />
               </div>
-            </div>
-            </div>
+            </div> */}
+          </div>
         </main>
       </div>
-        <Footer />
-      </div>
-      );
-    };
-    
-    export default blogDetail;
+      <Footer />
+    </div>
+  );
+};
+
+export default blogDetail;

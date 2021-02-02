@@ -5,6 +5,9 @@
   &__memberPost {
     width: 100%;
     padding: 0px 15px 15px 0px;
+    @media (max-width: 414px) {
+      padding: 0px 0px 15px 0px;
+    }
   }
   &__inner {
     width: 100%;

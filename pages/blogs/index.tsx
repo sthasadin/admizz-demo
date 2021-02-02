@@ -22,9 +22,9 @@ const blogList = () => {
         <main className="blog-list">
           <div className="blog-list__container">
             <BlogListBanner />
-            {/* <SectionTitle title="Featured For Members" />
+            <SectionTitle title="Featured For Members" />
             <BlogListMember />
-            <SectionTitle title="Latest Posts" />
+            {/* <SectionTitle title="Latest Posts" />
             <BlogListLatestPost />
             <SectionTitle title="Random Blogs" />
             <BlogListRandomBlog /> */}

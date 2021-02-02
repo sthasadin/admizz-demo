@@ -17,12 +17,15 @@
   }
   &__image {
     display: flex;
-    width: 1240px;
+    width: 100%;
   }
   &__postDetail {
     display: flex;
     justify-content: space-between;
-    width: 1080px;
+    width: 100%;
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
   }
   &__postValueContainer {
     display: flex;

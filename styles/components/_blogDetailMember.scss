@@ -1,5 +1,5 @@
 .blog-detail-member {
-  width: 1200px;
+  width: 100%;
   &__memberTitle {
     width: 200px;
     border: 0px solid;
@@ -12,9 +12,15 @@
   &__memberList {
     display: flex;
     margin: 20px 0px;
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
   }
   &__memberPost {
     margin-right: 20px;
+    @media (max-width: 414px) {
+      margin-top: 10px;
+    }
   }
   &__inner {
     background-image: url(../../public/memberPost01.png);

@@ -1,9 +1,16 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+}
 .banner {
 	background-color: #ffa200;
 	height: 482px;
 	position: relative;
 	padding-left: 10%;
 	padding-top: 113px;
+  @media (max-width: 414px) {
+    padding-right: 10%;
+  }
 }
 .banner-opacity {
 	height: 361px;
@@ -28,6 +35,9 @@
     font-weight: 500;
     line-height: 24px;
     color: white;
+    @media (max-width: 414px) {
+      width: 100%;
+    }
 }
 .banner-image {
 	background: radial-gradient(50.14% 50.14% at 50.1% 49.86%, rgba(255, 162, 0, 0.46) 0%, #ffa200 100%);
@@ -38,6 +48,11 @@
 		left: 120px;
 		bottom: 180px;
 	}
+}
+.banner-imageValue {
+  @media (max-width: 414px) {
+    display: none;
+  }
 }
 .form-wrapper {
 	margin-top: -150px;

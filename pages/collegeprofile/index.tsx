@@ -24,8 +24,8 @@ export default function Home() {
         <Navbar />
         <main className="main">
           <CollegeHeader />
-          <Submenu />
-          <SidebarContainer />
+          {/* <Submenu />
+          <SidebarContainer /> */}
         </main>
       </div>
       <Footer />

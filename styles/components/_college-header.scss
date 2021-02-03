@@ -32,15 +32,26 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
   }
   &__left {
     display: flex;
     align-items: center;
+    width: 100%;
+    @media (max-widtH: 414px) {
+      flex-direction: column;
+    }
   }
   &__logo {
     margin-right: 12px;
     height: 130px;
     width: 130px;
+    @media (max-width: 414px) {
+      height: 100px;
+      width: 100px;
+    }
     img {
       height: 100%;
       width: 100%;
@@ -52,6 +63,7 @@
     flex-direction: column;
     justify-content: center;
     color: #fff;
+    width: 100%;
   }
   &__estd {
     font-size: 14px;

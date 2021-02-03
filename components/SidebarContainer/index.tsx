@@ -23,7 +23,7 @@ const SidebarContainer = (props: any) => {
           <AdmissionProcess />
           <StudentQuestionAnswer />
         </div>
-        {/* <Sidebar /> */}
+        <Sidebar />
       </div>
     </div>
   );

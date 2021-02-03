@@ -69,6 +69,10 @@
       line-height: 21px;
       font-weight: 500;
       color: $primary-color;
+      @media (max-width: 414px) {
+        text-align: center;
+        font-size: 10px;
+      }
     }
   }
 }

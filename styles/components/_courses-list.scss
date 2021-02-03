@@ -1,7 +1,9 @@
 .courses-list {
   display: flex;
   align-items: center;
-
+  @media (max-width: 414px) {
+    flex-direction: column;
+  }
   &__title {
     margin-right: 32px;
     font-size: 16px;
@@ -17,5 +19,10 @@
     line-height: 24px;
     color: #828288;
     font-weight: 500;
+  }
+  &__itemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
   }
 }

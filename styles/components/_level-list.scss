@@ -1,6 +1,9 @@
 .level-list {
   display: flex;
   align-items: center;
+  @media (max-width: 414px) {
+    flex-wrap: wrap;
+  }
   &__item {
     padding: 9px 30px;
     font-size: 14px;
@@ -12,6 +15,9 @@
     cursor: pointer;
     &:not(:last-child) {
       margin-right: 8px;
+    }
+    @media (max-width: 414px) {
+      margin-bottom: 10px;
     }
   }
   &__item.active {

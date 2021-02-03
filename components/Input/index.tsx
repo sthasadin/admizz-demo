@@ -26,6 +26,7 @@ const Input = (props: Props) => {
   const useStyles = makeStyles((theme) => ({
     container: {
       position: 'relative',
+      width: '100%',
       margin: (props: Props) => {
         return props.margin && props.margin;
       },

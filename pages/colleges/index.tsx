@@ -7,6 +7,7 @@ import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
 import { CollegeListResult } from "../../components/CollegeListResult";
 import { Input } from "../../components/Input";
 import SearchIcon from '@material-ui/icons/Search';
+import { SideBarNewsLetter } from "../../components/SideBarNewsLetter";
 
 const collegeList = () => {
   return (
@@ -23,16 +24,16 @@ const collegeList = () => {
             <div className="college-list__searchContainer">
               <div className="college-list__headerTitle">
                 College/University Lists in India
-            </div>
+              </div>
               <div className="college-list__headerSearch">
                 <Input placeholder={"Enter College Name, City, State or anything here..."} margin={"0px 0px 0px 0px"} fullWidth icon={SearchIcon} />
                 <div className="college-list__searchButton">
                   Search
-              </div>
+                </div>
               </div>
               <div className="college-list__headerSubtitle">
                 Eg: Jain University, Manipur, BMS
-            </div>
+              </div>
             </div>
             <div className="college-list__listContainer">
               <div className="college-list__sideBarContainer">
@@ -40,6 +41,9 @@ const collegeList = () => {
               </div>
               <div className="college-list__collegeResultContainer">
                 <CollegeListResult />
+              </div>
+              <div className="college-list__sideBarNewsletterContainer">
+                <SideBarNewsLetter />
               </div>
             </div>
           </div>

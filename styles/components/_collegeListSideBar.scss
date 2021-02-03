@@ -23,4 +23,9 @@
     color: #FFA200;
     cursor: pointer;
   }
+  &__newsletterContainer {
+    @media (max-width: 414px) {
+      display: none;
+    }
+  }
 }

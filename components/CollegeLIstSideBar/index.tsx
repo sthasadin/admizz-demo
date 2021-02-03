@@ -3,7 +3,6 @@ import { CollegeListSelectedFilter } from "../CollegeListSelectedFilter";
 import { SideBarNewsLetter } from "../SideBarNewsLetter";
 import { CollegeListSelectedStream } from "../CollegeListSelectedStream";
 
-
 const CollegeListSideBar = () => {
   return (
     <div className="college-list-side-bar">
@@ -13,8 +12,9 @@ const CollegeListSideBar = () => {
       </div>
       <CollegeListSelectedFilter />
       <CollegeListSelectedStream />
-      <CollegeListSelectedStream />
-      <SideBarNewsLetter />
+      <div className="college-list-side-bar__newsletterContainer">
+        <SideBarNewsLetter />
+      </div>
     </div>
   );
 }; 

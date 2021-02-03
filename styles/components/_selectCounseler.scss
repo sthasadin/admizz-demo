@@ -1,58 +1,68 @@
 .select-counseler {
-	padding-left: 30px;
-	&__header {
-		display: flex;
-		align-items: center;
-		margin-bottom: 15px;
-		div {
-			margin-left: 14px;
-			font-family: 'M PLUS 1p';
-			font-weight: 500;
-			font-size: 16px;
-			line-height: 24px;
-			color: $gray-2;
-		}
-	}
-	&__counseler-list {
-		display: flex;
-	}
-  &__counsellorImage {
-    height: 60px;
-  }
-	&__counseler-card {
-		display: flex;
-		margin-right: 16px;
-		font-family: "M PLUS 1p";
+    padding-left: 30px;
+    @media (max-width: 800px) {
+        padding-left: 15px;
+    }
+    &__header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        div {
+            margin-left: 14px;
+            font-family: 'M PLUS 1p';
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+            color: $gray-2;
+        }
+    }
+    &__counseler-list {
+        display: flex;
+        @media (max-width: 800px) {
+            flex-wrap: wrap;
+        }
+    }
+    &__counsellorImage {
+        height: 60px;
+    }
+    &__counseler-card {
+        display: flex;
+        margin-right: 16px;
+        font-family: "M PLUS 1p";
         cursor: pointer;
         max-width: 235px;
-	}
-	&__counseler-card:last-child {
-		margin-right: 0px;
-	}
-	&__counseler-info {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		width: fit-content;
-		padding-left: 9px;
-		padding-right: 25px;
-		border-top-right-radius: 5px;
-		border-bottom-right-radius: 5px;
-		border: 1px solid #e0e0e0;
+        @media (max-width: 800px) {
+            margin-bottom: 15px;
+        }
     }
-	&__counseler-info-selected {
+    &__counseler-card:last-child {
+        margin-right: 0px;
+    }
+    &__counseler-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: fit-content;
+        padding-left: 9px;
+        padding-right: 25px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: 1px solid #e0e0e0;
+    }
+    &__counseler-info-selected {
         background-color: $secondary-color;
-        border-left: 1px solid $secondary-color;;
-		div {
-			color: #ffffff;
-		}
-	}
-	&__counseler-name {
-		margin-bottom: 5px;
-		color: $gray-2;
-	}
-	&__counseler-nationaliy {
+        border-left: 1px solid $secondary-color;
+        ;
+        div {
+            color: #ffffff;
+        }
+    }
+    &__counseler-name {
+        margin-bottom: 5px;
+        color: $gray-2;
+    }
+    &__counseler-nationaliy {
         color: $gray-3;
         font-size: 14px;
-	}
+    }
 }

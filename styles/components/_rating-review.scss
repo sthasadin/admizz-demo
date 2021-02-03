@@ -100,5 +100,9 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 0 50px 15px 50px;
+    @media (max-width: 414px) {
+      flex-direction: column;
+      margin: 0px;
+    }
   }
 }

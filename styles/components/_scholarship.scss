@@ -1,6 +1,11 @@
 .scholarship-item {
   display: grid;
   place-items: center;
+  @media (max-width: 414px) {
+    width: 50%;
+    margin-bottom: 10px;
+    align-items: center;
+  }
   &__logo {
     img {
       height: auto;

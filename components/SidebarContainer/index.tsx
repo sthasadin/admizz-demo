@@ -18,10 +18,10 @@ const SidebarContainer = (props: any) => {
           <CollegeOverview />
           <FeeStructure />
           <Newsletter />
-          {/* <RatingAndReview />
+          <RatingAndReview />
           <CollegeGallery />
           <AdmissionProcess />
-          <StudentQuestionAnswer /> */}
+          <StudentQuestionAnswer />
         </div>
         {/* <Sidebar /> */}
       </div>

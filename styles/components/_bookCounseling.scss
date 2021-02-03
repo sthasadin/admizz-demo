@@ -8,14 +8,15 @@
 		font-weight: 800;
 		font-family: 'M PLUS 1p';
 		color: $gray-2;
-		margin-bottom: 8px;
+    margin-bottom: 8px;
 	}
 	&__message {
 		font-size: 16px;
 		line-height: 23px;
 		font-weight: 400;
-        font-family: 'M PLUS 1p';
-        color: #828282;
-        margin-bottom: 20px;
+    font-family: 'M PLUS 1p';
+    color: #828282;
+    margin-bottom: 20px;
+    text-align: center;
 	}
 }

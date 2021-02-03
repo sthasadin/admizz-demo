@@ -87,7 +87,7 @@ const ContactForm = () => {
       <div className="contact-form__contact-us">
         <div className="contact-form__header">
           Contact Details
-                </div>
+        </div>
         <div>
           <div className="contact-form__india-office-container">
             <img src={indiaOffice} />
@@ -151,7 +151,7 @@ const ContactForm = () => {
         <Input name={"query"} onChange={handleChange} multiline placeholder={"Add additional query you have"} errorMessage={formError.query} margin={"0px 0px 16px 0px"} fullWidth icon={LiveHelpIcon} />
         <div className="contact-form__actions">
           <div className="contact-form__socials">
-            <div>Follow Us on:</div>
+            <div className="contact-form__followUsText">Follow Us on:</div>
             <div className="contact-form__icons">
               <img src={Facebook} width="11px" height="23px" />
               <TwitterIcon style={{ fill: "#2F80ED", marginRight: 47, marginLeft: 47 }} />

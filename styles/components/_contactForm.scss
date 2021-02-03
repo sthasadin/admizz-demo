@@ -2,12 +2,15 @@
 	width: 80%;
 	background-color: #fff;
 	display: flex;
-    border-radius: 10px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
-    margin-bottom: 72px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 72px;
+  @media (max-width: 414px) {
+    flex-direction: column;
+  }
 	&__contact-us {
 		width: 50%;
-		padding: 27px 40px;
+    padding: 27px 40px;
 	}
 	&__header {
 		font-size: 24px;
@@ -20,8 +23,12 @@
 		width: 50%;
 		margin-left: 33px;
 		background: #f8f8f8;
-        padding: 27px 29px;
-        border-radius: 10px;
+    padding: 27px 29px;
+    border-radius: 10px;
+    @media (max-width: 414px) {
+      width: 90%;
+      margin: 10px auto;
+    }
 	}
 	&__india-office-container {
 		margin-top: 47px;
@@ -97,21 +104,29 @@
 		color: $gray-2;
 	}
 	&__actions {
-		justify-content: space-between;
-        display: flex;
-        align-items: center;
-        margin-top: 30px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    @media (max-width: 414px) {
+      flex-direction: column-reverse;
     }
-    &__socials{
-        width: 45%;
-        color: #828282;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 18px;
+  }
+  &__followUsText {
+    @media (max-width: 414px) {
+      margin-top: 20px;
     }
+  }
+  &__socials{
+    width: 45%;
+    color: #828282;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+  }
 	&__icons {
 		display: flex;
-        margin-top: 10px;
+    margin-top: 10px;
 	}
 	&__social-icons {
     }

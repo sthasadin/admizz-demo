@@ -35,7 +35,7 @@ const ContactUs = () => {
       </div>
       <div className="form-wrapper">
         <ContactForm />
-        {/* <BookCounseling /> */}
+        <BookCounseling />
       </div>
       <Footer />
     </div>

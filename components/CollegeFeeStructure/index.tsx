@@ -16,7 +16,7 @@ const FeeStructure = (props: any) => {
             <div className="level-list__item">PH.D</div>
           </div>
         </div>
-        <div className="fee-structure__courses">
+        {/* <div className="fee-structure__courses">
           <div className="courses-list">
             <div className="courses-list__title">All Courses</div>
             <div className="courses-list__item">Engineering</div>
@@ -25,8 +25,8 @@ const FeeStructure = (props: any) => {
             <div className="courses-list__item">Medical</div>
             <div className="courses-list__item">Tourism</div>
           </div>
-        </div>
-        <div className="fee-structure__course-fee">
+        </div> */}
+        {/* <div className="fee-structure__course-fee">
           <div className="course-fee">
             <div className="course-fee__item">
               <div className="course-fee__course">MBA</div>
@@ -88,7 +88,7 @@ const FeeStructure = (props: any) => {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

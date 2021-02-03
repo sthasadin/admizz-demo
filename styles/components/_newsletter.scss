@@ -7,6 +7,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
   }
   &__title {
     font-size: 16px;
@@ -23,10 +26,17 @@
     display: flex;
     align-items: center;
     width: 65%;
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
   }
   &__input {
     width: calc(50% - 8px);
     margin-right: 8px;
+    @media (max-width: 414px) {
+      width: 100%;
+      margin: 10px 0px;
+    }
     input[type="text"] {
       padding: 0px 40px;
       background: transparent;
@@ -52,5 +62,8 @@
     font-weight: 800;
     border-radius: 10px;
     cursor: pointer;
+    @media (max-width: 414px) {
+      width: 100%;
+    }
   }
 }

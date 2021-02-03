@@ -17,8 +17,8 @@ const SidebarContainer = (props: any) => {
           <CollegeDetailsBlock />
           <CollegeOverview />
           <FeeStructure />
-          {/* <Newsletter />
-          <RatingAndReview />
+          <Newsletter />
+          {/* <RatingAndReview />
           <CollegeGallery />
           <AdmissionProcess />
           <StudentQuestionAnswer /> */}

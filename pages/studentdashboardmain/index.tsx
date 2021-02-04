@@ -18,7 +18,7 @@ const collegeList = () => {
         <div className="student-dashboard-main__sidebar">
           <DashboardSidebar />
         </div>
-        {/* <div className="student-dashboard-main__mainpage">
+        <div className="student-dashboard-main__mainpage">
           <div className="student-dashboard-main__welcomeCard">
             <DashboardWelcomeCard />
           </div>
@@ -28,7 +28,7 @@ const collegeList = () => {
           <div className="student-dashboard-main__recommendation">
             <DashboardRecommend />
           </div>
-        </div> */}
+        </div>
       </main>
     </div>
   );

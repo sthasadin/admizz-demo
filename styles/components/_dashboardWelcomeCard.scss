@@ -3,11 +3,21 @@
   background-color: #CFB9B3;
   border-radius: 5px;
   padding: 15px 20px;
+  @media (max-width: 414px) {
+    flex-direction: column;
+  }
   &__percentContainer {
     width: 20%;
+    @media (max-width: 414px) {
+      width: 100%;
+    }
   }
   &__textInfoContainer {
-    width: 55%
+    width: 55%;
+    @media (max-width: 414px) {
+      width: 100%;
+      margin: 15px 0px;
+    }
   }
   &__titleText {
     color: #4F4F4F;
@@ -32,5 +42,8 @@
   &__ButtonContainer {
     width: 25%;
     align-self: center;
+    @media (max-width: 414px) {
+      width: 100%;
+    }
   }
 }

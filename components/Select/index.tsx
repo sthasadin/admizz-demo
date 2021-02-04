@@ -80,7 +80,7 @@ const Select = (props: Props) => {
         onChange={props.onChange}
         error={props.error}
       >
-        {props.options.map((item, key) => {
+        {props.options && props.options.map((item, key) => {
           return (
             <MenuItem key={key} value={props.useLabel ? item.label : item.value}>
               {props.useValue ? item.value : item.label}

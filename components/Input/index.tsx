@@ -30,6 +30,9 @@ const Input = (props: Props) => {
       margin: (props: Props) => {
         return props.margin && props.margin;
       },
+      width: (props: Props) => {
+        return props.fullWidth && "100%";
+      },
     },
     input: {
       '& .MuiOutlinedInput-root': {

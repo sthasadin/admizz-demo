@@ -54,7 +54,7 @@ const ConfirmBook: React.FC<Props> = ({ handleBack, handleBook }) => {
         <div onClick={handleBack}>
           Back
                     </div>
-        <Button onClick={handleBook} >
+        <Button className={'confirm-section__confirm-button'} onClick={handleBook} >
           Confirm and Book
                 </Button>
       </div>

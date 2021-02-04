@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as yup from "yup";
 import moment from 'moment';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
@@ -44,6 +44,17 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     stepperContainer: {
+      "@media(max-width: 510px)": {
+        flexDirection: "column !important",
+        alignItems: "start",
+        paddingLeft: 0
+
+      },
+      "& .MuiStep-horizontal": {
+        "@media(max-width: 510px)": {
+          marginTop: 15
+        },
+      },
       '& .MuiStepConnector-lineHorizontal': {
         visibility: "hidden"
       },
@@ -88,8 +99,8 @@ const CounselingStepper = () => {
         course: formValue.course,
         description: formValue.description
       }, {
-          abortEarly: false
-        });
+        abortEarly: false
+      });
       setFormError({})
       return true;
     } catch (err) {
@@ -177,6 +188,7 @@ const CounselingStepper = () => {
         return 'Unknown step';
     }
   }
+
 
   return (
     <div className={classes.root}>

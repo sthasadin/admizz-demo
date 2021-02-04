@@ -9,6 +9,8 @@ import HeadsetMicIcon from '@material-ui/icons/HeadsetMic';
 import messenger from '../../public/messenger.png';
 import whatsapp from '../../public/whatsapp.png'
 import { Button } from '../Button';
+import { Select } from '../Select';
+import { countryList } from '../../utils/CountryLists';
 
 interface FormError {
   [key: string]: string;
@@ -32,7 +34,7 @@ const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, fo
             </div>
       <form>
         <Grid container justify="space-around" direction='row' >
-          <Grid className={'student-info__grid'} item sm={12} md={6}>
+          <Grid className={'student-info__grid'} item  md={6}>
             <Input
               name={"name"}
               onChange={handleChange}
@@ -42,7 +44,7 @@ const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, fo
               icon={PersonIcon}
               placeholder="Full Name" />
           </Grid>
-          <Grid className={'student-info__grid'} item sm={12} md={6}>
+          <Grid className={'student-info__grid'} item  md={6}>
             <Input
               name={"email"}
               onChange={handleChange}
@@ -54,11 +56,23 @@ const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, fo
           </Grid>
         </Grid>
         <Grid container className={'student-info__row'} justify="space-around" direction='row' >
-          <Grid className={'student-info__grid'} item sm={12} md={6}>
+          <Grid className={'student-info__grid'} item  md={6}>
             <div className={'student-info__phone-input'}>
-              <div className={'student-info__phone-separator'}>
+              {/* <div className={'student-info__phone-separator'}>
                 +977
-              </div>
+              </div> */}
+              <Select
+                options={countryList}
+                useValue
+                minWidth={"83px"}
+                width={"90px"}
+                defaultValue={"+977"}
+                name={"countryCode"}
+                onChange={handleChange}
+                error={!!formError.countryCode}
+                errorMessage={formError.countryCode}
+                className={"student-info__phone-separator"}
+              />
               <Input
                 name={"phone"}
                 onChange={handleChange}
@@ -69,7 +83,7 @@ const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, fo
                 placeholder="Phone Number" />
             </div>
           </Grid>
-          <Grid className={'student-info__grid'} item sm={12} md={6}>
+          <Grid className={'student-info__grid'} item  md={6}>
             <Input
               name={"home_country"}
               onChange={handleChange}
@@ -82,7 +96,7 @@ const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, fo
           </Grid>
         </Grid>
         <Grid container className={'student-info__row'} justify="space-around" direction='row' >
-          <Grid className={'student-info__grid'} item sm={12} md={3}>
+          <Grid className={'student-info__grid'} item  md={3}>
             <div className={'student-info__contact-medium-label'}>
               <HeadsetMicIcon className={'student-info__headset'} />
               <div>
@@ -104,7 +118,7 @@ const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, fo
               </div>
             </div>
           </Grid>
-          <Grid item md={3}>
+          <Grid item md={3} sm={12} xs={12}>
             {selectedMedium === 'messenger' &&
               <Input
                 fullWidth
@@ -112,7 +126,7 @@ const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, fo
               />
             }
           </Grid>
-          <Grid className={'student-info__grid'} item sm={12} md={6}>
+          <Grid className={'student-info__grid'} item  md={6}>
             <Input
               name={"course"}
               onChange={handleChange}

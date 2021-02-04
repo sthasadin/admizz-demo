@@ -11,7 +11,7 @@ const Choice = (props) => {
           <Grid item sm={12} md={12} xs={12}>
             <div className="dashboard-basic-info__formTitle">
               Choice # {props.choiceNumber}
-          </div>
+            </div>
           </Grid>
         </Grid>
         <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
@@ -32,7 +32,7 @@ const Choice = (props) => {
             <div className="dashboard-basic-info__viewText">
               Save Choice
             </div>
-            <div className="dashboard-basic-info__editText" onClick={() => props.onClickAddChoice() }>
+            <div className="dashboard-basic-info__editText" onClick={() => props.onClickAddChoice()}>
               Add More Choice
             </div>
           </div>
@@ -45,10 +45,10 @@ const Choice = (props) => {
 const DashboardChoiceFilling = (props) => {
   const [choicesArray, setChoicesArray] = useState([]);
   const [choiceNumber, setChoiceNumber] = useState(2);
-  
+
   const onClickAddChoice = () => {
-    setChoiceNumber( choiceNumber + 1)
-    setChoicesArray( choicesArray => [...choicesArray, choiceNumber ] )
+    setChoiceNumber(choiceNumber + 1)
+    setChoicesArray(choicesArray => [...choicesArray, choiceNumber])
   }
 
   return (
@@ -59,9 +59,9 @@ const DashboardChoiceFilling = (props) => {
           Choice Filling
         </div>
         <Choice onClickAddChoice={() => onClickAddChoice()} choiceNumber={1} />
-        {choicesArray.map( choiceNumber => (
+        {choicesArray.map(choiceNumber => (
           <Choice onClickAddChoice={() => onClickAddChoice()} choiceNumber={choiceNumber} />
-        ) )}
+        ))}
       </div>
 
       {/* Applied College */}
@@ -78,7 +78,7 @@ const DashboardChoiceFilling = (props) => {
                 </div>
               </Grid>
             </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+            {/* <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
               <Grid className={'dashboard-basic-info__gridNoPadding'} item sm={12} md={3}>
                 <div className="dashboard-basic-info__tableTitle">
                   COLLEGE/UNIVERSITY
@@ -94,187 +94,195 @@ const DashboardChoiceFilling = (props) => {
                   SPECIALIZATION
                 </div>
               </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={1}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__imageCell">
+            </Grid> */}
+            <div className="dashboard-basic-info__rowTable">
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={1} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__imageCell">
+                    </div>
                   </div>
-                </div>
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Thaper institute
+                    </div>
+                    <div className="dashboard-basic-info__tableSubText">
+                      Address here
+                    </div>
+                  </div>
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Engineering
+                    </div>
+                    <div className="dashboard-basic-info__tableSubText">
+                      UG
+                    </div>
+                  </div>
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Computer Science
+                    </div>
+                    <div className="dashboard-basic-info__tableSubText">
+                      Web, UI/UX Design
+                    </div>
+                  </div>
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <Button>
+                      View Detail
+                    </Button>
+                  </div>
+                </Grid>
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Thaper institute
+            </div>
+            <div className="dashboard-basic-info__rowTable">
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={1} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__imageCell">
+                    </div>
                   </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    Address here
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Thaper institute
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Engineering
+                    <div className="dashboard-basic-info__tableSubText">
+                      Address here
                   </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    UG
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Computer Science
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Engineering
                   </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    Web, UI/UX Design
+                    <div className="dashboard-basic-info__tableSubText">
+                      UG
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
-                <div className="dashboard-basic-info__tableCell">
-                  <Button>
-                    View Detail
+                  </div>
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Computer Science
+                  </div>
+                    <div className="dashboard-basic-info__tableSubText">
+                      Web, UI/UX Design
+                  </div>
+                  </div>
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <Button>
+                      View Detail
                   </Button>
-                </div>
+                  </div>
+                </Grid>
               </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={1}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__imageCell">
+            </div>
+            <div className="dashboard-basic-info__rowTable">
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={1} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__imageCell">
+                    </div>
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Thaper institute
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Thaper institute
                   </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    Address here
+                    <div className="dashboard-basic-info__tableSubText">
+                      Address here
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Engineering
                   </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    UG
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Engineering
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Computer Science
+                    <div className="dashboard-basic-info__tableSubText">
+                      UG
                   </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    Web, UI/UX Design
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
-                <div className="dashboard-basic-info__tableCell">
-                  <Button>
-                    View Detail
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Computer Science
+                  </div>
+                    <div className="dashboard-basic-info__tableSubText">
+                      Web, UI/UX Design
+                  </div>
+                  </div>
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <Button>
+                      View Detail
                   </Button>
-                </div>
+                  </div>
+                </Grid>
               </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={1}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__imageCell">
+            </div>
+            <div className="dashboard-basic-info__rowTable">
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={1} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__imageCell">
+                    </div>
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Thaper institute
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Thaper institute
                   </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    Address here
+                    <div className="dashboard-basic-info__tableSubText">
+                      Address here
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Engineering
                   </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    UG
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Engineering
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Computer Science
+                    <div className="dashboard-basic-info__tableSubText">
+                      UG
                   </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    Web, UI/UX Design
                   </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
-                <div className="dashboard-basic-info__tableCell">
-                  <Button>
-                    View Detail
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <div className="dashboard-basic-info__tableText">
+                      Computer Science
+                  </div>
+                    <div className="dashboard-basic-info__tableSubText">
+                      Web, UI/UX Design
+                  </div>
+                  </div>
+                </Grid>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
+                  <div className="dashboard-basic-info__tableCell">
+                    <Button>
+                      View Detail
                   </Button>
-                </div>
+                  </div>
+                </Grid>
               </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={1}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__imageCell">
-                  </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Thaper institute
-                  </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    Address here
-                  </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={2}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Engineering
-                  </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    UG
-                  </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
-                <div className="dashboard-basic-info__tableCell">
-                  <div className="dashboard-basic-info__tableText">
-                    Computer Science
-                  </div>
-                  <div className="dashboard-basic-info__tableSubText">
-                    Web, UI/UX Design
-                  </div>
-                </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
-                <div className="dashboard-basic-info__tableCell">
-                  <Button>
-                    View Detail
-                  </Button>
-                </div>
-              </Grid>
-            </Grid>
+            </div>
           </form>
         </div>
         <div className="dashboard-basic-info__buttonContainer">

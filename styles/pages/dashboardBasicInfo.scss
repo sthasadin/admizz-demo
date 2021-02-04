@@ -61,6 +61,11 @@
       margin: 0px;
     }
   }
+  &__rowTable {
+    @media (max-width: 414px) {
+      margin-bottom: 50px;
+    }
+  }
   & .MuiOutlinedInput-root {
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;

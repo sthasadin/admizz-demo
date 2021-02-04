@@ -19,12 +19,12 @@ const DashboardBackgroundInfo = (props) => {
         <div className="dashboard-basic-info__formContainer">
           <form>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
+              <Grid item sm={12} md={5} xs={12}>
                 <div className="dashboard-basic-info__formTitle">
                   Do you have a passport?
               </div>
               </Grid>
-              <Grid item sm={12} md={7}>
+              <Grid item sm={12} md={7} xs={12}>
                 <RadioGroup aria-label="passport" name="passport1" row>
                   <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                   <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -32,13 +32,13 @@ const DashboardBackgroundInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
                   placeholder="Name On Passport" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
@@ -46,13 +46,13 @@ const DashboardBackgroundInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
                   placeholder="Issuing Authority" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
@@ -60,19 +60,19 @@ const DashboardBackgroundInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <Select title="Issuing Country" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
+              <Grid item sm={12} md={5} xs={12}>
                 <div className="dashboard-basic-info__formTitle">
                   Have you applied for Passport?
                 </div>
               </Grid>
-              <Grid item sm={12} md={7}>
+              <Grid item sm={12} md={7} xs={12}>
                 <RadioGroup aria-label="passport" name="passport1" row>
                   <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                   <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -80,36 +80,36 @@ const DashboardBackgroundInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={12}>
+              <Grid item sm={12} md={12} xs={12}>
                 <div className="dashboard-basic-info__formTitle">
                   Enter your Citizenship / National ID
                 </div>
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
                   placeholder="Citizenship ID / National ID" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={12}>
+              <Grid item sm={12} md={12} xs={12}>
                 <div className="dashboard-basic-info__formTitle">
                   Personal Identification
                 </div>
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
+              <Grid item sm={12} md={5} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   Passport/Citizenship/National ID
                 </div>
               </Grid>
-              <Grid item sm={12} md={7}>
+              <Grid item sm={12} md={7} xs={12}>
 
                 <label htmlFor="upload-photo">
                   <input
@@ -143,13 +143,13 @@ const DashboardBackgroundInfo = (props) => {
             <hr className="dashboard-basic-info__horizontalLine" />
             <form>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
                   <Input
                     className={'dashboard-basic-info__input'}
                     fullWidth
                     placeholder="Full Name" />
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
                   <div className={'student-info__phone-input'}>
                     <div className={'student-info__phone-separator'}>
                       +977
@@ -160,13 +160,13 @@ const DashboardBackgroundInfo = (props) => {
                       placeholder="Phone Number" />
                   </div>
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
                   <Input
                     className={'dashboard-basic-info__input'}
                     fullWidth
                     placeholder="Email Address" />
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
                   <Input
                     className={'dashboard-basic-info__input'}
                     fullWidth
@@ -174,13 +174,13 @@ const DashboardBackgroundInfo = (props) => {
                 </Grid>
               </Grid>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
                   <Input
                     className={'dashboard-basic-info__input'}
                     fullWidth
                     placeholder="Full Name" />
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
                   <div className={'student-info__phone-input'}>
                     <div className={'student-info__phone-separator'}>
                       +977
@@ -191,13 +191,13 @@ const DashboardBackgroundInfo = (props) => {
                       placeholder="Phone Number" />
                   </div>
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
                   <Input
                     className={'dashboard-basic-info__input'}
                     fullWidth
                     placeholder="Email Address" />
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3} xs={12}>
                   <Input
                     className={'dashboard-basic-info__input'}
                     fullWidth

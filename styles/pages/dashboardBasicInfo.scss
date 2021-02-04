@@ -61,6 +61,11 @@
       margin: 0px;
     }
   }
+  &__rowTableTitle {
+    @media (max-width: 414px) {
+      display: none;
+    }
+  }
   &__rowTable {
     @media (max-width: 414px) {
       margin-bottom: 50px;

@@ -78,23 +78,25 @@ const DashboardChoiceFilling = (props) => {
                 </div>
               </Grid>
             </Grid>
-            {/* <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__gridNoPadding'} item sm={12} md={3}>
-                <div className="dashboard-basic-info__tableTitle">
-                  COLLEGE/UNIVERSITY
+            <div className="dashboard-basic-info__rowTableTitle">
+              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
+                <Grid className={'dashboard-basic-info__gridNoPadding'} item sm={12} md={3}>
+                  <div className="dashboard-basic-info__tableTitle">
+                    COLLEGE/UNIVERSITY
                 </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__gridNoPadding'} item sm={12} md={2}>
-                <div className="dashboard-basic-info__tableTitle">
-                  STREAM
+                </Grid>
+                <Grid className={'dashboard-basic-info__gridNoPadding'} item sm={12} md={2}>
+                  <div className="dashboard-basic-info__tableTitle">
+                    STREAM
                 </div>
-              </Grid>
-              <Grid className={'dashboard-basic-info__gridNoPadding'} item sm={12} md={7}>
-                <div className="dashboard-basic-info__tableTitle">
-                  SPECIALIZATION
+                </Grid>
+                <Grid className={'dashboard-basic-info__gridNoPadding'} item sm={12} md={7}>
+                  <div className="dashboard-basic-info__tableTitle">
+                    SPECIALIZATION
                 </div>
+                </Grid>
               </Grid>
-            </Grid> */}
+            </div>
             <div className="dashboard-basic-info__rowTable">
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
                 <Grid className={'dashboard-basic-info__grid'} item sm={12} md={1} xs={12}>

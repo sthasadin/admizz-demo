@@ -1,113 +1,116 @@
 .teams-list {
-  margin: 80px 0;
-  background: #f6f6f6;
-  padding-top: 50px;
-  &__inner {
-    width: calc(100% - 30px);
-    margin: 40px 15px;
-    @media (min-width: 768px) {
-      width: 720px;
-      margin: 0 auto;
-    }
-    @media (min-width: 1024px) {
-      width: 940px;
-    }
-    @media (min-width: 1200px) {
-      width: 1170px;
-    }
-    @media (min-width: 1360px) {
-      width: 1240px;
-    }
-  }
-  &__heading {
-    margin-bottom: 12px;
-  }
-  &__title {
-    margin-bottom: 50px;
-  }
-  &__details {
-    display: flex;
-    align-items: flex-end;
-  }
-  &__left {
-    padding-right: 3px;
-    flex: 1;
-  }
-  &__thumbnail.lead {
-    width: 100%;
-    height: auto;
-    img {
-      width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
-  }
-  &__right {
-    flex: 2;
-  }
-  &__md {
-    margin-left: 50px;
-    &__name {
-      font-size: 30px;
-      letter-spacing: 2px;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      span {
-        color: $secondary-color;
-      }
-    }
-  }
-  &__designation {
-    font-size: 12px;
-    font-weight: 500;
-    color: #828282;
-    span {
-      &:not(:last-child) {
-        &::after {
-          content: "";
-          height: 4px;
-          width: 4px;
-          border-radius: 50%;
-          background-color: $secondary-color;
-          display: block;
-          margin: 0 17px;
+    margin: 80px 0;
+    background: #f6f6f6;
+    padding-top: 50px;
+    &__inner {
+        width: calc(100% - 30px);
+        margin: 40px 15px;
+        @media (min-width: 768px) {
+            width: 720px;
+            margin: 0 auto;
         }
-      }
+        @media (min-width: 1024px) {
+            width: 940px;
+        }
+        @media (min-width: 1200px) {
+            width: 1170px;
+        }
+        @media (min-width: 1360px) {
+            width: 1240px;
+        }
     }
-  }
-  &__desc {
-    margin-top: 30px;
-    font-size: 16px;
-    line-height: 24px;
-    color: #4f4f4f;
-    width: 85%;
-  }
-  &__contact {
-    margin: 20px 0 46px 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  &__email {
-    display: flex;
-    align-items: center;
-    color: $secondary-color;
-    &__address {
-      font-size: 14px;
+    &__heading {
+        margin-bottom: 12px;
     }
-  }
-  &__full-team {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 3px;
-    &__thumbnail {
-      height: auto;
-      width: 100%;
-      img {
+    &__title {
+        margin-bottom: 50px;
+    }
+    &__details {
+        display: flex;
+        align-items: flex-end;
+        @media (max-width: 1024px) {
+            flex-direction: column;
+        }
+    }
+    &__left {
+        padding-right: 3px;
+        flex: 1;
+    }
+    &__thumbnail.lead {
         width: 100%;
         height: auto;
-      }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
     }
-  }
+    &__right {
+        flex: 2;
+    }
+    &__md {
+        margin-left: 50px;
+        &__name {
+            font-size: 30px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            span {
+                color: $secondary-color;
+            }
+        }
+    }
+    &__designation {
+        font-size: 12px;
+        font-weight: 500;
+        color: #828282;
+        span {
+            &:not(:last-child) {
+                &::after {
+                    content: "";
+                    height: 4px;
+                    width: 4px;
+                    border-radius: 50%;
+                    background-color: $secondary-color;
+                    display: block;
+                    margin: 0 17px;
+                }
+            }
+        }
+    }
+    &__desc {
+        margin-top: 30px;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4f4f4f;
+        width: 85%;
+    }
+    &__contact {
+        margin: 20px 0 46px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__email {
+        display: flex;
+        align-items: center;
+        color: $secondary-color;
+        &__address {
+            font-size: 14px;
+        }
+    }
+    &__full-team {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 3px;
+        &__thumbnail {
+            height: auto;
+            width: 100%;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
 }

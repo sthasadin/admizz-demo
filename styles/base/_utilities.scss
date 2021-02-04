@@ -1,4 +1,7 @@
 .u-align-center {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+    @media (max-width: 760px) {
+        flex-wrap: wrap;
+    }
 }

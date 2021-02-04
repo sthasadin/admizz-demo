@@ -8,22 +8,22 @@ const Choice = (props) => {
     <div className="dashboard-basic-info__formContainer">
       <form>
         <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-          <Grid item sm={12} md={12}>
+          <Grid item sm={12} md={12} xs={12}>
             <div className="dashboard-basic-info__formTitle">
               Choice # {props.choiceNumber}
           </div>
           </Grid>
         </Grid>
         <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-          <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+          <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
             <Select title="eg: 50.50" />
           </Grid>
-          <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+          <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
             <Select title="eg: 50.50" />
           </Grid>
         </Grid>
         <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-          <Grid className={'dashboard-basic-info__grid'} item sm={12} md={12}>
+          <Grid className={'dashboard-basic-info__grid'} item sm={12} md={12} xs={12}>
             <Select title="eg: 50.50" />
           </Grid>
         </Grid>

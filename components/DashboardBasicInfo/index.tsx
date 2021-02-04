@@ -19,10 +19,10 @@ const DashboardBasicInfo = (props) => {
         </div>
         <div className="dashboard-basic-info__formContainer">
           <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-            <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+            <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
               <Select title="Select Stream" />
             </Grid>
-            <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+            <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
               <Select title="Choose Catagory" />
             </Grid>
           </Grid>
@@ -37,19 +37,19 @@ const DashboardBasicInfo = (props) => {
         <div className="dashboard-basic-info__formContainer">
           <form>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
                   placeholder="Full Name" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
                   placeholder="Middle Name" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
@@ -57,7 +57,7 @@ const DashboardBasicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <div className={'student-info__phone-input'}>
                   <div className={'student-info__phone-separator'}>
                     +977
@@ -68,27 +68,27 @@ const DashboardBasicInfo = (props) => {
                     placeholder="Phone Number" />
                 </div>
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
                   placeholder="Email Address" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Select title="Nationality" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Input
                   className={'student-info__input student-info__phone'}
                   fullWidth
                   placeholder="Date Of Birth" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Select title="Gender" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
               </Grid>
             </Grid>
           </form>
@@ -108,33 +108,33 @@ const DashboardBasicInfo = (props) => {
             <hr className="dashboard-basic-info__horizontalLine" />
             <form>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                   <Input
                     className={'dashboard-basic-info__input'}
                     fullWidth
                     placeholder="Address Line 1" />
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                   <Select title="Country" />
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                   <Select title="State" />
                 </Grid>
               </Grid>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                   <Select title="City" />
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                   <Input
                     className={'dashboard-basic-info__input'}
                     fullWidth
                     placeholder="Zip Code" />
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 </Grid>
                 <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                  <Grid className={'dashboard-basic-info__grid'} item sm={12} >
+                  <Grid className={'dashboard-basic-info__grid'} item sm={12} xs={12}>
                     <FormControlLabel className="dashboard-basic-info__checkboxLabel" control={<Checkbox name="checked" />} label="Permanent address is same as residential address" />
                   </Grid>
                 </Grid>
@@ -147,30 +147,30 @@ const DashboardBasicInfo = (props) => {
           <hr className="dashboard-basic-info__horizontalLine" />
           <form>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
                   placeholder="Address Line 1" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Select title="Country" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Select title="State" />
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Select title="City" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
                   placeholder="Zip Code" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
               </Grid>
             </Grid>
           </form>

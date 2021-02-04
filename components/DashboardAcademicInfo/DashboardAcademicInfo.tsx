@@ -20,7 +20,7 @@ const DashboardAcademicInfo = (props) => {
         <div className="dashboard-basic-info__formContainer">
           <form>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={12}>
+              <Grid item sm={12} md={12} xs={12}>
                 <div className="dashboard-basic-info__formTitle">
                   Academics Scores
               </div>
@@ -28,7 +28,7 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <div className="dashboard-basic-info__formText">
                   Passport/Citizenship/National ID
                 </div>
@@ -37,7 +37,7 @@ const DashboardAcademicInfo = (props) => {
                   fullWidth
                   placeholder="eg: 50.50" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <div className="dashboard-basic-info__formText">
                   High School Marks / Class 12 / Level 0 Marks
                 </div>
@@ -48,7 +48,7 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <div className="dashboard-basic-info__formText">
                   Diploma Scroes
                 </div>
@@ -57,7 +57,7 @@ const DashboardAcademicInfo = (props) => {
                   fullWidth
                   placeholder="eg: 50.50" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <div className="dashboard-basic-info__formText">
                   Class 11/Level1 Marks
                 </div>
@@ -68,7 +68,7 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <div className="dashboard-basic-info__formText">
                   Post graduate Marks
                 </div>
@@ -77,7 +77,7 @@ const DashboardAcademicInfo = (props) => {
                   fullWidth
                   placeholder="eg: 50.50" />
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6} xs={12}>
                 <div className="dashboard-basic-info__formText">
                   UnderGraduate Marks
                 </div>
@@ -88,7 +88,7 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={12}>
+              <Grid item sm={12} md={12} xs={12}>
                 <div className="dashboard-basic-info__formText">
                   Academic Identification
                 </div>
@@ -96,12 +96,12 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
+              <Grid item sm={12} md={5} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   School Certificate
                 </div>
               </Grid>
-              <Grid item sm={12} md={7}>
+              <Grid item sm={12} md={7} xs={12}>
 
                 <label htmlFor="upload-photo">
                   <input
@@ -119,12 +119,12 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
+              <Grid item sm={12} md={5} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   High School Marks
                 </div>
               </Grid>
-              <Grid item sm={12} md={7}>
+              <Grid item sm={12} md={7} xs={12}>
 
                 <label htmlFor="upload-photo">
                   <input
@@ -142,12 +142,12 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
+              <Grid item sm={12} md={5} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   Under Graduate Marks
                 </div>
               </Grid>
-              <Grid item sm={12} md={7}>
+              <Grid item sm={12} md={7} xs={12}>
 
                 <label htmlFor="upload-photo">
                   <input
@@ -165,12 +165,12 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
+              <Grid item sm={12} md={5} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   Post Graduate Marks
                 </div>
               </Grid>
-              <Grid item sm={12} md={7}>
+              <Grid item sm={12} md={7} xs={12}>
 
                 <label htmlFor="upload-photo">
                   <input
@@ -188,18 +188,18 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={4}>
+              <Grid item sm={12} md={4} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   Other Certificates
                 </div>
               </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4}>
+              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={4} xs={12}>
                 <Input
                   className={'dashboard-basic-info__input'}
                   fullWidth
                   placeholder="Enter Title" />
               </Grid>
-              <Grid item sm={12} md={4}>
+              <Grid item sm={12} md={4} xs={12}>
                 <div className="dashboard-basic-info__uploadButtonContainer">
                   <label htmlFor="upload-photo">
                     <input
@@ -230,23 +230,23 @@ const DashboardAcademicInfo = (props) => {
           <hr className="dashboard-basic-info__horizontalLine" />
             <form>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitle">
                     GRE
               </div>
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item sm={12} md={4} xs={12}>
                   <RadioGroup aria-label="passport" name="passport1" row>
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
                   </RadioGroup>
                 </Grid>
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitle">
                     SAT
               </div>
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item sm={12} md={4} xs={12}>
                   <RadioGroup aria-label="passport" name="passport1" row>
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -254,12 +254,12 @@ const DashboardAcademicInfo = (props) => {
                 </Grid>
               </Grid>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitle">
                     GMAT
               </div>
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item sm={12} md={4} xs={12}>
                   <RadioGroup aria-label="passport" name="passport1" row>
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -268,12 +268,12 @@ const DashboardAcademicInfo = (props) => {
                     className={'dashboard-basic-info__input'}
                     placeholder="eg: 50" />
                 </Grid>
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitle">
                     SAT II
               </div>
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item sm={12} md={4} xs={12}>
                   <RadioGroup aria-label="passport" name="passport1" row>
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -285,23 +285,23 @@ const DashboardAcademicInfo = (props) => {
                 </Grid>
               </Grid>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitle">
                     GRE
               </div>
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item sm={12} md={4} xs={12}>
                   <RadioGroup aria-label="passport" name="passport1" row>
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
                   </RadioGroup>
                 </Grid>
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitle">
                     SAT
               </div>
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item sm={12} md={4} xs={12}>
                   <RadioGroup aria-label="passport" name="passport1" row>
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -309,12 +309,12 @@ const DashboardAcademicInfo = (props) => {
                 </Grid>
               </Grid>
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitle">
                     GMAT
               </div>
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item sm={12} md={4} xs={12}>
                   <RadioGroup aria-label="passport" name="passport1" row>
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -323,12 +323,12 @@ const DashboardAcademicInfo = (props) => {
                     className={'dashboard-basic-info__input'}
                     placeholder="eg: 50" />
                 </Grid>
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitle">
                     SAT II
               </div>
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item sm={12} md={4} xs={12}>
                   <RadioGroup aria-label="passport" name="passport1" row>
                     <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                     <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -341,9 +341,9 @@ const DashboardAcademicInfo = (props) => {
               </Grid>
 
               <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid item sm={12} md={1}>
+                <Grid item sm={12} md={1} xs={12}>
                 </Grid>
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitleSecond">
                     Listening
                 </div>
@@ -352,7 +352,7 @@ const DashboardAcademicInfo = (props) => {
                     fullWidth
                     placeholder="eg: 50.50" />
                 </Grid>
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitleSecond">
                     Writing
                 </div>
@@ -361,7 +361,7 @@ const DashboardAcademicInfo = (props) => {
                     fullWidth
                     placeholder="eg: 50.50" />
                 </Grid>
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitleSecond">
                     Reading
                 </div>
@@ -370,7 +370,7 @@ const DashboardAcademicInfo = (props) => {
                     fullWidth
                     placeholder="eg: 50.50" />
                 </Grid>
-                <Grid item sm={12} md={2}>
+                <Grid item sm={12} md={2} xs={12}>
                   <div className="dashboard-basic-info__formTitleSecond">
                     Speaking
                 </div>

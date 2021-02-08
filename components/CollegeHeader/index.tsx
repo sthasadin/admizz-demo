@@ -1,6 +1,6 @@
 import React from "react";
 
-const CollegeHeader = (props: any) => {
+const CollegeHeader = ({ collageLogo, name, address, estblished }) => {
   return (
     <div className="college-header">
       <div className="college-header__inner">
@@ -16,18 +16,18 @@ const CollegeHeader = (props: any) => {
         <div className="college-header__college">
           <div className="college-header__left">
             <div className="college-header__logo">
-              <img src="/college-logo.png" alt="college" />
+              <img src={collageLogo} alt="college" />
             </div>
             <div className="college-header__info">
-              <div className="college-header__estd">ESTD:1995</div>
+              <div className="college-header__estd">ESTD: {estblished}</div>
               <div className="college-header__name">
-                Thapar Institute of Engineering & Technology
+                {name}
               </div>
               <div className="college-header__meta">
                 <div className="college-header__meta__item">
                   <div className="college-header__meta__logo"></div>
                   <div className="college-header__meta__title">
-                    Patiala, Punjab
+                    {address}
                   </div>
                 </div>
                 <div className="college-header__meta__item">

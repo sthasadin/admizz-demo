@@ -1,6 +1,6 @@
 import React from "react";
 
-const CollegeDetailsBlock = (props: any) => {
+const CollegeDetailsBlock = ({ totalStudents, totalCourse}) => {
   return (
     <div className="college-details-block">
       <div className="info-block">
@@ -20,7 +20,7 @@ const CollegeDetailsBlock = (props: any) => {
             </svg>
           </div>
           <div className="info-block__heading">Total Students</div>
-          <div className="info-block__title">50,000</div>
+          <div className="info-block__title">{totalStudents}</div>
         </div>
       </div>
       <div className="info-block">
@@ -40,7 +40,7 @@ const CollegeDetailsBlock = (props: any) => {
             </svg>
           </div>
           <div className="info-block__heading">Courses Offered</div>
-          <div className="info-block__title">21</div>
+          <div className="info-block__title">{totalCourse}</div>
         </div>
       </div>
       <div className="info-block">

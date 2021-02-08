@@ -1,0 +1,5 @@
+export const API_BASE_URL = 'http://157.245.106.9'
+export const GET_COLLAGE_DETAIL = 'GET_COLLAGE_DETAIL'
+export const GET_ALL_BLOG = 'GET_ALL_BLOG'
+export const GET_Blog_Detail = 'GET_Blog_Detail'
+export const GET_ALL_COLLAGE = 'GET_ALL_COLLAGE'

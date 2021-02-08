@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const SingleListPostWithImage = (props: any) => {
   const router = useRouter();
@@ -13,7 +14,9 @@ const SingleListPostWithImage = (props: any) => {
             {props.author} - {props.time}
           </div>
           <div className="single-list-post-with-image__Title">
-          {props.title}
+            <Link href={`/blogs/${props.id}`}>
+              {props.title}
+            </Link>
           </div>
           <div className="single-list-post-with-image__Description">
           {props.desc}

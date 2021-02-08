@@ -46,7 +46,7 @@ const BlogListLatestPost = () => {
             ) : ''
           }
         </div>
-        <div className="blog-list-latest-post__secondaryPostContainer">
+        <div className="blog-list-latest-post__smallSecondaryPostContainer">
           {
             blogs.length > 3 ?(
               blogs.slice(3, len).map(({_id, blog_title, blog_desc, blog_imageURL, author, category}) => (

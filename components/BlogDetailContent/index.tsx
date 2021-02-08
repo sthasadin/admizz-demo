@@ -178,7 +178,7 @@ const BlogDetailContent: FC<BlogDetailContent> = ({ blog_desc, author }) => {
             </p>
           </div>
         </div>
-      </div>
+      )}
       {/* <div className="blog-detail-content__commentContainer"> 
           <p className="blog-detail-content__commentTitle">Leave A Comment</p>
           <textarea className="blog-detail-content__textareaValue" placeholder="Enter your comment here."></textarea>

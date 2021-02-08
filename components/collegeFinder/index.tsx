@@ -18,7 +18,7 @@ const CollegeFinder = () => {
             </div>
           </div>
           <div className="collegeFinder__right">
-            <CallToAction onClick={() => router.push('/collegelist')}>explre all categories</CallToAction>
+            <CallToAction onClick={() => router.push('/colleges')}>explore all categories</CallToAction>
           </div>
         </div>
         <div className="collegeFinder__list">

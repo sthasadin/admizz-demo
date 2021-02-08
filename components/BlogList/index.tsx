@@ -19,8 +19,8 @@ const BlogList = () => {
             </div>
           </div>
           <div className="blog-list__right">
-            <Link href="/bloglist">
-              <CallToAction onClick={() => router.push('/')}>view all blogs</CallToAction>
+            <Link href="/blogs">
+              <CallToAction onClick={() => router.push('/blogs')}>view all blogs</CallToAction>
             </Link>
           </div>
         </div>

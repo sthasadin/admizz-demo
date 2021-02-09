@@ -23,7 +23,7 @@ const SidebarContainer = ({ totalCourse, totalStudents, description, top_courses
           />
           <FeeStructure />
           <Newsletter />
-          {/* <RatingAndReview /> */}
+          <RatingAndReview />
           <CollegeGallery />
           <AdmissionProcess />
           {/* <StudentQuestionAnswer /> */}

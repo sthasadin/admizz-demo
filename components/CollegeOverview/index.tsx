@@ -4,7 +4,7 @@ const CollegeOverview = ( { description } ) => {
   return (
     <div className="overview">
       <div className="overview__title-wrap">
-        <div className="overview__title">overview</div>
+        <div className="overview__title">Overview</div>
         <time className="overview__date">Update On: 20 Nov, 2020</time>
       </div>
       <div className="overview__desc">

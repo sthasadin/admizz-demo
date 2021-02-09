@@ -26,7 +26,7 @@ const SidebarContainer = ({ totalCourse, totalStudents, description, top_courses
           <RatingAndReview />
           <CollegeGallery />
           <AdmissionProcess />
-          {/* <StudentQuestionAnswer /> */}
+          <StudentQuestionAnswer />
         </div>
         <Sidebar />
       </div>

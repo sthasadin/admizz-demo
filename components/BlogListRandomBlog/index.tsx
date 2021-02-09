@@ -17,8 +17,7 @@ const BlogListRandomBlog = () => {
           {
             blogs.length > 13 ? (
               blogs.slice(9, 13).map(({_id, blog_title, blog_desc, blog_imageURL, author, category}) => (
-                <div className="blog-list-random-blog__secondaryPostContainer" key={_id}>
-                  <div className="blog-list-random-blog__secondaryPost" >
+                  <div className="blog-list-random-blog__secondaryPost" key={_id}>
                     <SingleBlogCard
                       type={category[0]}
                       auther={author}
@@ -28,7 +27,6 @@ const BlogListRandomBlog = () => {
                       id = {_id}
                     />
                   </div>
-                </div>
               ))
             ) : ''
           }

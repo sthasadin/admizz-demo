@@ -28,7 +28,6 @@
   &__rating {
     font-size: 14px;
     line-height: 21px;
-
     span {
       font-size: 22px;
       font-weight: 800;
@@ -95,13 +94,26 @@
     }
   }
   &__rating-wrap {
-    display: flex;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    // flex-wrap: wrap;
+    // margin: 0 50px 15px 50px;
+    // @media (max-width: 414px) {
+    //   flex-direction: column;
+    //   margin: 0px;
+    // }
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
     margin: 0 50px 15px 50px;
+    @media (max-width: 1030px) {
+      grid-template-columns: 1fr 1fr;
+      margin: 0px;
+    }
     @media (max-width: 414px) {
-      flex-direction: column;
+      grid-template-columns: 1fr;
       margin: 0px;
     }
   }

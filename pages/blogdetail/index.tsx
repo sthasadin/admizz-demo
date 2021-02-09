@@ -55,10 +55,10 @@ const blogDetail = () => {
                   </div>
                   <div className="blog-detail__postValue">
                     <b>50</b> Views
-                </div>
+                  </div>
                   <div className="blog-detail__postValue">
                     <b>60</b> Comments
-                </div>
+                  </div>
                 </div>
                 <div className="blog-detail__shareInfoContainer">
                   <div className="blog-detail__buttonContainer">

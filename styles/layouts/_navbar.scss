@@ -23,20 +23,21 @@
   }
   &__logoImage {
     cursor: pointer;
-    @media (min-width: 415px) {
+    @media (min-width: 480px) {
       height: 40px;
     }
   }
   &__hamburger {
     display: none;
-    @media (max-width: 414px) {
+    text-align: right;
+    @media (max-width: 480px) {
       display: block;
     }
   }
   &__right {
     display: flex;
     align-items: center;
-    @media (max-width: 414px) {
+    @media (max-width: 480px) {
       display: none;
     }
   }

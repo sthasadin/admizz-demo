@@ -29,10 +29,12 @@ const useStyles = makeStyles((theme: Theme) =>
     stepper: {
       "& .MuiStepLabel-root": {
         justifyContent: "flex-start",
+        alignItems: "flex-start",
       },
       "& .MuiStepLabel-label": {
         fontFamily: `"M PLUS 1p"`,
         fontWeight: 500,
+        textAlign: 'left',
       },
       "& .MuiStepIcon-active": {
         color: "#FFA200",
@@ -135,7 +137,7 @@ const DashboardBasicInfoPage = () => {
             <div className="dashboard-basic-info-page__stepperTitle">
               Application Steps
             </div>
-            <Stepper nonLinear activeStep={activeStep} orientation="vertical">
+            <Stepper activeStep={activeStep} orientation="vertical">
               {steps.map((label, index) => (
                 <Step key={label}>
                   <StepButton

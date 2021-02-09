@@ -11,7 +11,7 @@ const BlogListBanner = () => {
         alt={blogs.length > 0? blogs[0].blog_desc : ''}
         style={{position : 'absolute', left : 0, top : 0, width : "100%", height : "100%", zIndex : 1, objectFit : 'cover'}}
       /> : ''} */}
-      <div className="blogCard" style={{zIndex : 100, backgroundColor : "green",}}>
+      <div className="blogCard" style={{zIndex : 100,}}>
         <div className="blogCard__inner" >
           <div className="blogCard__category" style={{ zIndex : 100 }}>{blogs.length > 0? blogs[0].category[0] :''}</div>
           <div className="blogCard__details">

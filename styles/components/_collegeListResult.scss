@@ -60,17 +60,18 @@
     cursor: pointer;
   }
   &__resultContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 10px 0px;
-    @media (max-width: 414px) {
-      flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    @media (max-width: 1050px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 530px) {
+      grid-template-columns: 1fr;
     }
   }
   &__cardContainer {
     margin: 5px 0px 0px 0px;
-    width: 32%;
     @media (max-width: 414px) {
       width: 100%;
       margin-bottom: 10px;

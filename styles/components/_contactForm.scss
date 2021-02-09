@@ -5,7 +5,7 @@
   border-radius: 10px;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
   margin-bottom: 72px;
-  @media (max-width: 414px) {
+  @media (max-width: 640px) {
     flex-direction: column;
   }
 	&__contact-us {
@@ -25,7 +25,7 @@
 		background: #f8f8f8;
     padding: 27px 29px;
     border-radius: 10px;
-    @media (max-width: 414px) {
+    @media (max-width: 640px) {
       width: 90%;
       margin: 10px auto;
     }
@@ -34,6 +34,9 @@
 		margin-top: 47px;
 		display: flex;
 		align-items: end;
+    @media (max-width: 340px) {
+      flex-direction: column;
+    }
 	}
 	&__office-details {
 		margin-left: 23px;
@@ -108,12 +111,12 @@
     display: flex;
     align-items: center;
     margin-top: 30px;
-    @media (max-width: 414px) {
+    @media (max-width: 700px) {
       flex-direction: column-reverse;
     }
   }
   &__followUsText {
-    @media (max-width: 414px) {
+    @media (max-width: 700px) {
       margin-top: 20px;
     }
   }
@@ -127,9 +130,5 @@
 	&__icons {
 		display: flex;
     margin-top: 10px;
-	}
-	&__social-icons {
-    }
-    &__send-message {
-    }
+  }
 }

@@ -3,18 +3,18 @@
   background-color: #CFB9B3;
   border-radius: 5px;
   padding: 15px 20px;
-  @media (max-width: 414px) {
+  @media (max-width: 830px) {
     flex-direction: column;
   }
   &__percentContainer {
     width: 20%;
-    @media (max-width: 414px) {
+    @media (max-width: 830px) {
       width: 100%;
     }
   }
   &__textInfoContainer {
     width: 55%;
-    @media (max-width: 414px) {
+    @media (max-width: 830px) {
       width: 100%;
       margin: 15px 0px;
     }

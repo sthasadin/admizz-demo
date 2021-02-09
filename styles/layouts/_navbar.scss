@@ -29,6 +29,7 @@
   }
   &__hamburger {
     display: none;
+    text-align: right;
     @media (max-width: 480px) {
       display: block;
     }

@@ -34,9 +34,9 @@ const collegeList = () => {
           <div className="student-dashboard-main__detailInfo">
             <DashboardDetailInfo />
           </div>
-          <div className="student-dashboard-main__recommendation">
+          {/* <div className="student-dashboard-main__recommendation">
             <DashboardRecommend collegeList={collegeList} />
-          </div>
+          </div> */}
         </div>
       </main>
     </div>

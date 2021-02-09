@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect }  from "react";
 import Head from "next/head";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllCollegeList } from "../../store/Action/allCollage.action";
 import { DashboardSidebar } from "../../components/DashboardSidebar";
 import { DashboardWelcomeCard } from "../../components/DashboardWelcomeCard";
 import { DashboardDetailInfo } from "../../components/DashboardDetailInfo";
@@ -7,6 +9,13 @@ import { DashboardRecommend } from "../../components/DashboardRecommend";
 import { DashboardNavbar } from "../../layouts/dashboardnavbar";
 
 const collegeList = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllCollegeList());
+  }, []);
+
+  const { collegeList } = useSelector((state) => state.allCollege);
+
   return (
     <div className="container">
       <Head>
@@ -26,7 +35,7 @@ const collegeList = () => {
             <DashboardDetailInfo />
           </div>
           <div className="student-dashboard-main__recommendation">
-            <DashboardRecommend />
+            <DashboardRecommend collegeList={collegeList} />
           </div>
         </div>
       </main>

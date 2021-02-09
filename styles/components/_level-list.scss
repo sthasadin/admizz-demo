@@ -1,7 +1,7 @@
 .level-list {
   display: flex;
   align-items: center;
-  @media (max-width: 414px) {
+  @media (max-width: 1020px) {
     flex-wrap: wrap;
   }
   &__item {
@@ -16,7 +16,7 @@
     &:not(:last-child) {
       margin-right: 8px;
     }
-    @media (max-width: 414px) {
+    @media (max-width: 1020px) {
       margin-bottom: 10px;
     }
   }

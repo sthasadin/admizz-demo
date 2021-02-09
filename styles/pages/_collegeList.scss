@@ -49,27 +49,27 @@
   }
   &__listContainer {
     display: flex;
-    @media (max-width: 414px) {
+    @media (max-width: 870px) {
       flex-direction: column;
     }
   }
   &__sideBarContainer {
     width: 25%;
-    @media (max-width: 414px) {
+    @media (max-width: 870px) {
       width: 100%;
     }
   }
   &__collegeResultContainer {
     padding: 0px 10px;
     width: 75%;
-    @media (max-width: 414px) {
+    @media (max-width: 870px) {
       width: 100%;
       padding: 0px 0px;
     }
   }
   &__sideBarNewsletterContainer {
     display: none;
-    @media (max-width: 414px) {
+    @media (max-width: 870px) {
       display: block;
     }
   }

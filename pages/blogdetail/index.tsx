@@ -47,7 +47,7 @@ const blogDetail = () => {
               <BlogDetailHeader />
             </div>
             <div className="blog-detail__imageContainer">
-              {/* <img className="blog-detail__image" src={BlogImage} /> */}
+              <img className="blog-detail__image" src={BlogImage} />
               <div className="blog-detail__postDetail">
                 {/* <div className="blog-detail__postValueContainer">
                   <div className="blog-detail__postValue">

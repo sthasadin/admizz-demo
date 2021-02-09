@@ -1,5 +1,7 @@
 import Head from "next/head";
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllCollegeList } from "../store/Action/allCollage.action";
 import { About } from "../components/About";
 import { BlogList } from "../components/BlogList";
 import { CollegeFinder } from "../components/collegeFinder";
@@ -18,6 +20,13 @@ import { Navbar } from "../layouts/navbar";
 import { Topbar } from "../layouts/topbar";
 
 export default function Home() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllCollegeList());
+  }, []);
+
+  const { collegeList } = useSelector((state) => state.allCollege);
+
   return (
     <div className="container">
       <Head>
@@ -39,7 +48,7 @@ export default function Home() {
         {/* <Testimonial /> */}
         <Statistics />
         {/* <FiveSteps /> */}
-        <CollegesBlock />
+        <CollegesBlock collegeList={collegeList} />
         <CollegeFinder />
         <BlogList />
         <Teams />

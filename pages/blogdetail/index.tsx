@@ -109,7 +109,7 @@ const blogDetail = () => {
                 <BlogDetailContent />
               </div>
               <div className="blog-detail__imageContainer">
-                {/* <BlogDetailMember /> */}
+                <BlogDetailMember />
               </div>
             </div>
           </div>

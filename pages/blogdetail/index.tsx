@@ -49,7 +49,7 @@ const blogDetail = () => {
             <div className="blog-detail__imageContainer">
               <img className="blog-detail__image" src={BlogImage} />
               <div className="blog-detail__postDetail">
-                {/* <div className="blog-detail__postValueContainer">
+                <div className="blog-detail__postValueContainer">
                   <div className="blog-detail__postValue">
                     <b>Posted by: Stacy James</b>
                   </div>
@@ -59,8 +59,8 @@ const blogDetail = () => {
                   <div className="blog-detail__postValue">
                     <b>60</b> Comments
                   </div>
-                </div> */}
-                {/* <div className="blog-detail__shareInfoContainer">
+                </div>
+                <div className="blog-detail__shareInfoContainer">
                   <div className="blog-detail__buttonContainer">
                     <Button className="blog-detail__button">TECHNOLOGY</Button>
                   </div>
@@ -103,14 +103,14 @@ const blogDetail = () => {
                       </ListItem>
                     </List>
                   </Dialog>
-                </div> */}
+                </div>
               </div>
-              {/* <div className="blog-detail__main">
+              <div className="blog-detail__main">
                 <BlogDetailContent />
               </div>
               <div className="blog-detail__imageContainer">
                 <BlogDetailMember />
-              </div> */}
+              </div>
             </div>
           </div>
         </main>

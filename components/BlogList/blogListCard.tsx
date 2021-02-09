@@ -16,6 +16,8 @@ const BlogCard = () => {
           <div className="blogCard__desc">
             Get the right career advice for you and earn your best career
             certificates.
+            Get the right career advice for you and earn your best career
+            certificates.
           </div>
         </div>
       </div>

@@ -66,6 +66,9 @@
     @media (max-width: 1050px) {
       grid-template-columns: 1fr 1fr;
     }
+    @media (max-width: 530px) {
+      grid-template-columns: 1fr;
+    }
   }
   &__cardContainer {
     margin: 5px 0px 0px 0px;

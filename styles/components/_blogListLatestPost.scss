@@ -2,13 +2,13 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  @media (max-width: 414px) {
+  @media (max-width: 600px) {
     flex-direction: column;
     padding: 0px 20px;
   }
   &__highlightPost {
     width: 65%;
-    @media (max-width: 414px) {
+    @media (max-width: 600px) {
       width: 100%;
     }
   }
@@ -18,21 +18,21 @@
   &__secondaryPostContainer {
     display: flex;
     justify-content: space-between;
-    @media (max-width: 414px) {
+    @media (max-width: 600px) {
       flex-direction: column;
     }
   }
   &__smallSecondaryPostContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    @media (max-width: 414px) {
+    @media (max-width: 600px) {
       display: flex;
       flex-direction: column;
     }
   }
   &__postList {
     width: 33%;
-    @media (max-width: 414px) {
+    @media (max-width: 600px) {
       width: 100%;
     }
   }

@@ -37,6 +37,9 @@
   }
   &__shareInfoContainer {
     display: flex;
+    @media (max-width: 450px) {
+      flex-direction: column;
+    }
   }
   &__buttonContainer {
     display: flex;

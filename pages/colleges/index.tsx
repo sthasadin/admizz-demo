@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Head from "next/head";
 import { useSelector, useDispatch } from "react-redux";
-import SearchIcon from '@material-ui/icons/Search';
+import SearchIcon from "@material-ui/icons/Search";
 import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
@@ -21,25 +21,30 @@ const collegeList = () => {
     <div className="container">
       <Head>
         <Topbar />
-        <title>Admizz - Home</title>
+        <title>Admizz - Collages</title>
         <link rel="icon" href="favicon.svg" />
-        <Navbar />
       </Head>
+      <Navbar />
       <main className="college-list">
         <div className="college-list__container">
           <div className="college-list__searchContainer">
             <div className="college-list__headerTitle">
               College/University Lists in India
-              </div>
+            </div>
             <div className="college-list__headerSearch">
-              <Input placeholder={"Enter College Name, City, State or anything here..."} margin={"0px 0px 0px 0px"} fullWidth icon={SearchIcon} />
-              <div className="college-list__searchButton">
-                Search
-                </div>
+              <Input
+                placeholder={
+                  "Enter College Name, City, State or anything here..."
+                }
+                margin={"0px 0px 0px 0px"}
+                fullWidth
+                icon={SearchIcon}
+              />
+              <div className="college-list__searchButton">Search</div>
             </div>
             <div className="college-list__headerSubtitle">
               Eg: Jain University, Manipur, BMS
-              </div>
+            </div>
           </div>
           <div className="college-list__listContainer">
             <div className="college-list__sideBarContainer">

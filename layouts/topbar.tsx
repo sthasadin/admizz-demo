@@ -27,6 +27,7 @@ const Topbar = (props: any) => {
           <span>Study In</span>
           {/* <Select /> */}
         </div>
+
         <div className="topbar__signup">
           <div className="signup">
             <div className="signup__icon">

@@ -5,24 +5,24 @@ import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
 import { BlogListBanner } from "../../components/BlogListBanner";
 import { SectionTitle } from "../../components/SectionTitle";
-import { BlogListMember } from "../../components/BlogListMember";
+// import { BlogListMember } from "../../components/BlogListMember";
 import { BlogListLatestPost } from "../../components/BlogListLatestPost";
 import { BlogListRandomBlog } from "../../components/BlogListRandomBlog";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { getAllBLog } from "../../store/Action/getAllBlog.action";
 
 const blogList = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch( getAllBLog())
-  }, [])
+    dispatch(getAllBLog());
+  }, []);
 
   return (
     <div className="container">
       <Head>
         <Topbar />
-        <title>Admizz - Home</title>
+        <title>Admizz - Blogs</title>
         <link rel="icon" href="favicon.svg" />
       </Head>
       <div>

@@ -3,8 +3,8 @@ import Head from "next/head";
 import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
-import { BlogDetailHeader } from "../../components/BlogDetailHeader";
-import { BlogDetailContent } from "../../components/BlogDetailContent";
+// import { BlogDetailHeader } from "../../components/BlogDetailHeader";
+// import { BlogDetailContent } from "../../components/BlogDetailContent";
 import { BlogDetailMember } from "../../components/BlogDetailMember";
 import BlogImage from "../../public/blog.png";
 import { Button } from "../../components";
@@ -44,7 +44,7 @@ const blogDetail = () => {
         <main className="blog-detail">
           <div className="blog-detail__container">
             <div className="blog-detail__main">
-              <BlogDetailHeader />
+              {/* <BlogDetailHeader /> */}
             </div>
             <div className="blog-detail__imageContainer">
               <img className="blog-detail__image" src={BlogImage} />
@@ -64,7 +64,10 @@ const blogDetail = () => {
                   <div className="blog-detail__buttonContainer">
                     <Button className="blog-detail__button">TECHNOLOGY</Button>
                   </div>
-                  <div className="blog-detail__sharetitle" onClick={handleClickOpen}>
+                  <div
+                    className="blog-detail__sharetitle"
+                    onClick={handleClickOpen}
+                  >
                     <p className="blog-detail__sharetext">Share This Article</p>
                   </div>
 
@@ -75,7 +78,7 @@ const blogDetail = () => {
                   >
                     <DialogTitle id="simple-dialog-title">
                       Share This Article
-                  </DialogTitle>
+                    </DialogTitle>
                     <List className="blog-detail__listContainer">
                       <ListItem
                         button
@@ -106,7 +109,7 @@ const blogDetail = () => {
                 </div>
               </div>
               <div className="blog-detail__main">
-                <BlogDetailContent />
+                {/* <BlogDetailContent /> */}
               </div>
               <div className="blog-detail__imageContainer">
                 <BlogDetailMember />

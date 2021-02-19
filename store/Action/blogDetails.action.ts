@@ -1,4 +1,4 @@
-import { api } from "../api";
+import { api } from "../api/api";
 import { Dispatch } from 'redux';
 import { GET_Blog_Detail } from "../const";
 

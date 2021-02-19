@@ -1,11 +1,11 @@
-import Link from "next/link";
+// import Link from "next/link";
 import React from "react";
 import { useRouter } from 'next/router'
 
 const SingleBlogCard = (props: any) => {
   const router = useRouter();
   return (
-    <div className="single-blog-card" onClick={() => router.push('/blogdetail')}>
+    <div className="single-blog-card" onClick={() => router.push(`/blogs/${props.slug}`)}>
       <div className="single-blog-card__memberPost">
         <div className="single-blog-card__inner" >
           <div className="single-blog-card__catagoryContainer">
@@ -17,9 +17,9 @@ const SingleBlogCard = (props: any) => {
               <div className="blogCard__time">{props.time}</div>
             </div>
             <div className="blogCard__title" style={{cursor : 'pointer'}}>
-              <Link href = {`/blogs/${props.id}`}>
+              {/* <Link href = {`/blogs/${props.id}`}> */}
                 {props.title}
-              </Link>
+              {/* </Link> */}
             </div>
             <div className="blogCard__desc">
               {props.desc}

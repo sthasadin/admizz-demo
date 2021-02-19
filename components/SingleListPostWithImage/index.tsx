@@ -1,11 +1,11 @@
 import React from "react";
 import { useRouter } from 'next/router'
-import Link from 'next/link'
+// import Link from 'next/link'
 
 const SingleListPostWithImage = (props: any) => {
   const router = useRouter();
   return (
-    <div className="single-list-post-with-image" onClick={() => router.push('/blogdetail')}>
+    <div className="single-list-post-with-image" onClick={() => router.push(`/blogs/${props.slug}`)}>
       <div className="single-list-post-with-image__container">
         <div className="single-list-post-with-image__imageContainer">
         </div>
@@ -14,9 +14,9 @@ const SingleListPostWithImage = (props: any) => {
             {props.author} - {props.time}
           </div>
           <div className="single-list-post-with-image__Title">
-            <Link href={`/blogs/${props.id}`}>
+            {/* <Link href={`/blogs/${props.id}`}> */}
               {props.title}
-            </Link>
+            {/* </Link> */}
           </div>
           <div className="single-list-post-with-image__Description">
           {props.desc}

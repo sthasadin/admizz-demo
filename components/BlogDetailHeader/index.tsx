@@ -1,14 +1,14 @@
 import React from "react";
 import BlogImage from "../../public/blog.png";
 
-const BlogDetailHeader = () => {
+const BlogDetailHeader = ({blog_title,blog_subtitle}) => {
   return (
     <div className="blog-detail-header">
       <div className="blog-detail-header__title">
-        <h1>How I got my job in Google with the help of Admizz - Ind-SAT Upadates</h1>
+        <h1>{blog_title}</h1>
       </div>
       <div className="blog-detail-header__subtitle">
-        Get the right career advice for you and earn your best career certificates.
+        {blog_subtitle}
       </div>
       <div className="blog-detail-header__keyword">
         <div className="blog-detail-header__keybutton">

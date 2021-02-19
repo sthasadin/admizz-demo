@@ -4,12 +4,14 @@ import getAllBLogReducer from './allBlog.reducer'
 import getALlCollageReducer from './allCollages.reducer'
 import blogDetailsReducer  from './blogDetails.reducer'
 import blog from './blog.reducer'
+import college from './college.reducer'
 
 export default combineReducers({
     collageDetails : collageDetailsReducer,
     allBlog : getAllBLogReducer,
     allCollege : getALlCollageReducer,
     blogDetails : blogDetailsReducer,
-    blog
+    blog,
+    college
 
 })

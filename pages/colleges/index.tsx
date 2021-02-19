@@ -8,17 +8,19 @@ import { Topbar } from "../../layouts/topbar";
 import { Input } from "../../components/Input";
 import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
 import { CollegeListResult } from "../../components/CollegeListResult";
-import { getAllCollegeList } from "../../store/Action/allCollage.action";
+// import { getAllCollegeList } from "../../store/Action/allCollage.action";
+import { getColleges } from "../../store/Action/college.action";
 
 const collegeList = () => {
   const [collegeListSearchQuery, setCollegeListSearchQuery] = useState("");
   const [_collegeList, setCollegeList] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllCollegeList());
+    // dispatch(getAllCollegeList());
+    dispatch(getColleges());
   }, []);
 
-  const { collegeList } = useSelector((state) => state.allCollege);
+  const collegeList = useSelector((state) => state.college.colleges);
   useEffect(() => {
     if (collegeList.length) {
       setCollegeList(collegeList);

@@ -107,3 +107,22 @@
     text-align: center;
   }
 }
+
+.newsletter_input {
+    height: 2rem;
+    width: 78%;
+    padding: 1rem;
+    margin-top: 1rem;
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid $primary-color;
+    }
+.newsletter_go {
+  background-color: #FFD2DD;
+  color: $primary-color;
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+  font-size: medium;
+}

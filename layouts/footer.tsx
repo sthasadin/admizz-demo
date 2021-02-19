@@ -1,5 +1,6 @@
 import React from "react";
 import Link from 'next/link'
+import { bold } from "*.jpg";
 
 const Footer = () => {
   return (
@@ -13,6 +14,10 @@ const Footer = () => {
             <div className="footer__newsletter">
               <div className="footer__newsletter__title">
                 Subscribe to our newsletter
+              </div>
+              <div>
+                <input className="newsletter_input" placeholder="Enter your email"/>
+                <button className="newsletter_go">{`>`}</button>
               </div>
             </div>
           </div>

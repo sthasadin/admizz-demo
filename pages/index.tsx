@@ -18,6 +18,7 @@ import { Us } from "../components/why-us";
 import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";
 import { Topbar } from "../layouts/topbar";
+import Carousel from "../components/Carousel";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -41,7 +42,11 @@ export default function Home() {
       </Head>
       <main className="main">
         <Navbar />
-        <Introduction />
+        <Carousel>
+          <Introduction title="hello" />
+          <Introduction title="world" />
+          <Introduction title="helloworld" />
+        </Carousel>
         <About />
         <Merits />
         <Us />

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from 'next/link'
-import { bold } from "*.jpg";
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
 const Footer = () => {
   return (
@@ -17,7 +17,7 @@ const Footer = () => {
               </div>
               <div>
                 <input className="newsletter_input" placeholder="Enter your email"/>
-                <button className="newsletter_go">{`>`}</button>
+                <button className="newsletter_go"><KeyboardArrowRight /></button>
               </div>
             </div>
           </div>

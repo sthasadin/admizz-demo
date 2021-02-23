@@ -9,7 +9,7 @@ import Slide from '@material-ui/core/Slide';
 import ReactPlayer from "react-player"
 import Link from 'next/link'
 
-const Introduction = () => {
+const Introduction = ({title}) => {
   const router = useRouter();
 
   const [open, setOpen] = React.useState(false);
@@ -26,7 +26,7 @@ const Introduction = () => {
     <div className="introduction">
       <div className="introduction__inner">
         <div className="introduction__left">
-          <div className="introduction__header">You just dream it</div>
+          <div className="introduction__header">{`You just dream it ${title}`}</div>
           <div className="introduction__title">
             We help you achieve your big dream
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import { Input } from '../Input';
 import PersonIcon from '@material-ui/icons/Person';
@@ -26,6 +26,14 @@ interface Props {
 
 const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, formValue, formError }) => {
   const [selectedMedium, setSelectedMedium] = useState('messenger')
+  useEffect(()=> {
+    handleChange({
+      target:{
+        name:'contact_medium',
+        value:selectedMedium
+      }
+    })
+  },[selectedMedium])
 
   return (
     <div className="student-info">
@@ -114,15 +122,25 @@ const StudentInfo: React.FC<Props> = ({ handleNext, handleBack, handleChange, fo
                 onClick={() => setSelectedMedium('whatsapp')}
                 className={`student-info__medium ${selectedMedium === 'whatsapp' && 'student-info__selected-medium'}`}>
                 <img src={whatsapp} />
-                <span>Messenger</span>
+                <span>Whatsapp</span>
               </div>
             </div>
           </Grid>
           <Grid item md={3} sm={12} xs={12}>
             {selectedMedium === 'messenger' &&
               <Input
+              name={"contact_id"}
+              onChange={handleChange}
                 fullWidth
                 label={"Enter Facebook ID"}
+              />
+            }
+            {selectedMedium === 'whatsapp' &&
+              <Input
+              name={"contact_id"}
+              onChange={handleChange}
+                fullWidth
+                label={"Enter Whatsapp ID"}
               />
             }
           </Grid>

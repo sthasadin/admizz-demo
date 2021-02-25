@@ -1,16 +1,19 @@
 import React from "react";
 import confirmBookBg from "../../public/confirmBookBg.png"
 import messenger from "../../public/messenger.png"
+import whatsapp from '../../public/whatsapp.png'
 import { Button } from "../Button";
+import moment from 'moment'
 
 
 interface Props {
   handleBack: () => void;
   handleBook: () => void;
+  formValue: any
 }
 
 
-const ConfirmBook: React.FC<Props> = ({ handleBack, handleBook }) => {
+const ConfirmBook: React.FC<Props> = ({ handleBack, handleBook , formValue}) => {
   return (
     <div className={'confirm-section'}>
       <div className={'confirm-section__header'}>
@@ -21,19 +24,19 @@ const ConfirmBook: React.FC<Props> = ({ handleBack, handleBook }) => {
           <div className={'confirm-section__details-head'}>
             {'Date & Time'}
           </div>
-          <div className={'confirm-section_detail-info'}>Dec 05, 2020   -   03:30 PM</div>
+          <div className={'confirm-section_detail-info'}>{`${moment(formValue.date).format('MMM DD YYYY')} - ${formValue.time}`}</div>
         </div>
         <div className={'confirm-section__row'}>
           <div className={'confirm-section__details-head'}>
             Email Address
                     </div>
-          <div className={'confirm-section_detail-info'}>youremail@domain.com</div>
+          <div className={'confirm-section_detail-info'}>{formValue.email}</div>
         </div>
         <div className={'confirm-section__row'}>
           <div className={'confirm-section__details-head'}>
             Applying Course
                     </div>
-          <div className={'confirm-section_detail-info'}>M.Tech in Engineering</div>
+          <div className={'confirm-section_detail-info'}>{formValue.course}</div>
         </div>
         <div className={'confirm-section__row'}>
           <div className={'confirm-section__details-head'}>
@@ -41,8 +44,8 @@ const ConfirmBook: React.FC<Props> = ({ handleBack, handleBook }) => {
                     </div>
           <div
             className={`confirm-section__medium`}>
-            <img src={messenger} />
-            <span>Messenger</span>
+            <img src={formValue.contact_medium ==='messenger'?messenger:whatsapp} />
+            <span>{formValue.contact_medium?.charAt(0).toUpperCase() + formValue.contact_medium.slice(1)}</span>
           </div>
         </div>
       </div>

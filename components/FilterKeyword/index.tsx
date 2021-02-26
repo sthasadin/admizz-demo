@@ -9,7 +9,7 @@ const FilterKeyword = (props: any) => {
         <img src={CheckContainer} />
       </div>
       <p className="filter-keyword__keywordText">{props.title}</p> 
-      <div className="filter-keyword__imageContainer">
+      <div className="filter-keyword__imageContainer" onClick={()=>props.deSelectCourse(props.title)}>
         <img src={CloseSource} />
       </div>
     </div>

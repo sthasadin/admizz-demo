@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Head from "next/head";
 import { useSelector, useDispatch } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
@@ -13,6 +13,7 @@ import { getColleges } from "../../store/Action/college.action";
 
 const collegeList = () => {
   const [collegeListSearchQuery, setCollegeListSearchQuery] = useState("");
+  const [selectedCourses, setSeletedCourses] = useState([]);
   const [_collegeList, setCollegeList] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,11 +22,66 @@ const collegeList = () => {
   }, []);
 
   const collegeList = useSelector((state) => state.college.colleges);
+
+  const allCoursesWithCounts = useMemo(() => {
+    const courses = [];
+    if (collegeList.length) {
+      collegeList.forEach((college) => {
+        college.courses.forEach((course) => courses.push(course.course_name));
+      });
+    }
+    const withCounts = {};
+    courses.forEach(function (x) {
+      withCounts[x] = (withCounts[x] || 0) + 1;
+    });
+    return withCounts;
+  }, [collegeList]);
+
   useEffect(() => {
     if (collegeList.length) {
       setCollegeList(collegeList);
     }
   }, [collegeList]);
+
+  const handleSideSearch = () => {
+    if (selectedCourses.length && collegeList.length) {
+      const colleges = [];
+      collegeList.forEach((college) => {
+        if (college.courses.length) {
+          college.courses.forEach((course) => {
+            if (selectedCourses.includes(course.course_name.toUpperCase())) {
+              colleges.push(college);
+            }
+          });
+        }
+      });
+      setCollegeList(colleges);
+    }
+  };
+  useEffect(() => {
+    handleSideSearch();
+  }, [selectedCourses.length]);
+
+  const onSelecteCourse = (e) => {
+    console.log(e.target.checked, e.target.name);
+    if (e.target.checked) {
+      setSeletedCourses([...selectedCourses, e.target.name.toUpperCase()]);
+    }
+    if (!e.target.checked) {
+      setSeletedCourses(
+        selectedCourses.filter(
+          (course) => course !== e.target.name.toUpperCase()
+        )
+      );
+    }
+  };
+
+  const deSelectCourse = (name) => {
+    console.log(name, selectedCourses);
+    setSeletedCourses(
+      selectedCourses.filter((course) => course !== name.toUpperCase())
+    );
+  };
 
   const onChangeCollegeListSearchQuery = (e) => {
     setCollegeListSearchQuery(e.target.value);
@@ -54,6 +110,7 @@ const collegeList = () => {
   const resetFilter = () => {
     setCollegeListSearchQuery("");
     setCollegeList(collegeList); //the old list
+    setSeletedCourses([]);
   };
   return (
     <div className="container">
@@ -94,7 +151,13 @@ const collegeList = () => {
           </div>
           <div className="college-list__listContainer">
             <div className="college-list__sideBarContainer">
-              <CollegeListSideBar resetFilter={resetFilter} />
+              <CollegeListSideBar
+                resetFilter={resetFilter}
+                allCoursesWithCounts={allCoursesWithCounts}
+                onSelecteCourse={onSelecteCourse}
+                selectedCourses={selectedCourses}
+                deSelectCourse={deSelectCourse}
+              />
             </div>
             <div className="college-list__collegeResultContainer">
               <CollegeListResult collegeList={_collegeList} />

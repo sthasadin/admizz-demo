@@ -44,7 +44,7 @@ const collegeList = () => {
   }, [collegeList]);
 
   const handleSideSearch = () => {
-    if (selectedCourses.length && collegeList.length) {
+    if (collegeList.length) {
       const colleges = [];
       collegeList.forEach((college) => {
         if (college.courses.length) {
@@ -55,7 +55,11 @@ const collegeList = () => {
           });
         }
       });
-      setCollegeList(colleges);
+      if (selectedCourses.length) {
+        setCollegeList(colleges);
+      } else {
+        setCollegeList(collegeList);
+      }
     }
   };
   useEffect(() => {
@@ -63,7 +67,6 @@ const collegeList = () => {
   }, [selectedCourses.length]);
 
   const onSelecteCourse = (e) => {
-    console.log(e.target.checked, e.target.name);
     if (e.target.checked) {
       setSeletedCourses([...selectedCourses, e.target.name.toUpperCase()]);
     }
@@ -77,7 +80,6 @@ const collegeList = () => {
   };
 
   const deSelectCourse = (name) => {
-    console.log(name, selectedCourses);
     setSeletedCourses(
       selectedCourses.filter((course) => course !== name.toUpperCase())
     );
@@ -90,6 +92,7 @@ const collegeList = () => {
   const handleSearch = () => {
     if (collegeListSearchQuery.length && collegeList.length) {
       const filteredColleges = collegeList.filter((college) => {
+        console.log(college);
         if (
           college.name
             .trim()

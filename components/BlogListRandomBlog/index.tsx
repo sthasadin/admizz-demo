@@ -8,7 +8,8 @@ import calculateReadingTime from "../../utils/calculateReadingTime";
 const BlogListRandomBlog = () => {
   // const blogs = useSelector(state => state.allBlog.allBlog)
   const blogs = useSelector(state => state.blog.blogs.sort(() => Math.random() - 0.5))//shuffling
-  const len = blogs.length > 12 ? 12 : blogs.length
+  console.log(blogs)
+  // const len = blogs.length > 12 ? 12 : blogs.length
   const text_truncate =(str) => {
     return str.substring(0, 70 - 3) + '...';
   }
@@ -17,8 +18,8 @@ const BlogListRandomBlog = () => {
       <div className="blog-list-random-blog__highlightPost">
         <div className="blog-list-random-blog__secondaryPostContainer">
           {
-            blogs.length > 13 ? (
-              blogs.slice(9, 13).map(({_id, blog_title, blog_desc, blog_imageURL, author, category}) => (
+            blogs.length ? (
+              blogs.slice(1, 5).map(({_id, blog_title, blog_desc, blog_imageURL, author, category}) => (
                   <div className="blog-list-random-blog__secondaryPost" key={_id}>
                     <SingleBlogCard
                       type={category}

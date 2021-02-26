@@ -5,7 +5,7 @@ import { ScholarshipOption } from "./schlorshipOption";
 const AdmissionProcess = () => {
   {
     return (
-      <div className="admission-process">
+      <div id="admission" className="admission-process">
         <div className="admission-process__inner">
           <div className="admission-process__title">Admission Process</div>
           <div className="admission-process__heading">

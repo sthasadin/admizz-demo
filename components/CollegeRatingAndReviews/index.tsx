@@ -4,7 +4,7 @@ import { RatingItem } from "./ratingItem";
 
 const RatingAndReview = (props: any) => {
   return (
-    <div className="rating-review">
+    <div id="rating" className="rating-review">
       <div className="rating-review__title-wrap">
         <div className="rating-review__title">RATING AND REVIEWS</div>
         <div className="rating-review__cta">Add Your Review</div>

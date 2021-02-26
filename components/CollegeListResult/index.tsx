@@ -33,7 +33,7 @@ const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
       </div>
       <div className="college-list-result__resultContainer">
         {collegeList &&
-          collegeList.map((college: College, index) => {
+          collegeList.map((college, index) => {
             return (
               <div key={index} className="college-list-result__cardContainer">
                 <CollegesCard {...college} />

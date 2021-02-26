@@ -4,7 +4,7 @@ import { Comments } from "./comments";
 
 const StudentQuestionAnswer = (props: any) => {
   return (
-    <div className="rating-review">
+    <div id="qna" className="rating-review">
       <div className="rating-review__title-wrap">
         <div className="rating-review__title">QUESTIONS AND ANSWERS</div>
       </div>

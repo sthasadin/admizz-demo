@@ -13,7 +13,7 @@ import video1 from "../../public/video1.png";
 
 const CollegeGallery = (props) => {
   return (
-    <div className="college-gallery">
+    <div id="gallery" className="college-gallery">
       <div className="college-gallery__inner">
         <div className="college-gallery__title-wrap">
           <div className="college-gallery__title">PHOTOS & VIDEOS</div>

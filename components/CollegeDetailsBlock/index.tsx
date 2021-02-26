@@ -1,6 +1,6 @@
 import React from "react";
 
-const CollegeDetailsBlock = ({ totalStudents, totalCourse}) => {
+const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation_percentage,placement_percentage}) => {
   return (
     <div className="college-details-block">
       <div className="info-block">
@@ -66,7 +66,7 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse}) => {
             </svg>
           </div>
           <div className="info-block__heading">Average Fee</div>
-          <div className="info-block__title">INR 3.04 L</div>
+          <div className="info-block__title">{average_fee}</div>
         </div>
       </div>
       <div className="info-block">
@@ -98,7 +98,7 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse}) => {
             </svg>
           </div>
           <div className="info-block__heading">Graduaton Percentage</div>
-          <div className="info-block__title">98%</div>
+          <div className="info-block__title">{graduation_percentage}</div>
         </div>
       </div>
       <div className="info-block">
@@ -118,7 +118,7 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse}) => {
             </svg>
           </div>
           <div className="info-block__heading">Placement Percentage</div>
-          <div className="info-block__title">80%</div>
+          <div className="info-block__title">{placement_percentage}</div>
         </div>
       </div>
     </div>

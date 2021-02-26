@@ -2,7 +2,7 @@ import React from "react";
 
 const Newsletter = (props: any) => {
   return (
-    <div className="newsletter">
+    <div id="newsletter" className="newsletter">
       <div className="newsletter__inner">
         <div className="newsletter__title">Subscribe to our Newsletter</div>
         <div className="newsletter__form">

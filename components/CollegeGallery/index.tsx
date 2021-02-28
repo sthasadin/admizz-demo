@@ -10,8 +10,13 @@ import gallery7 from "../../public/gallery7.png";
 import gallery8 from "../../public/gallery8.png";
 import video from "../../public/video.png";
 import video1 from "../../public/video1.png";
+import { useDispatch, useSelector } from 'react-redux';
 
 const CollegeGallery = (props) => {
+   const dispatch = useDispatch()
+  const photos = useSelector(state => state.college.college.college?.college_photos)
+  console.log(photos)
+  const videos = useSelector(state => state.college.college.college?.college_videos)
   return (
     <div id="gallery" className="college-gallery">
       <div className="college-gallery__inner">
@@ -20,7 +25,7 @@ const CollegeGallery = (props) => {
           <div className="college-gallery__title__cta">Explore Gallery</div>
         </div>
         <div className="college-gallery__heading">
-          Photos <span>(400)</span>
+          Photos <span>({photos && photos.length})</span>
         </div>
         <div className="college-gallery__list">
           <div className="college-gallery__left">

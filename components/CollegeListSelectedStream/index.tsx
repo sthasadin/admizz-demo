@@ -30,16 +30,19 @@ setSearchCourses(courses)
       <div className="college-list-selected-filter__searchContainer">
         <Input placeholder={"Find Stream"} margin={"0px 0px 0px 0px"} name="stream_search" onChange={onChange} fullWidth icon={SearchIcon} />
       </div>
+      <div style={{padding:'10px'}}>
       {
+
           Object.keys(searchedCourses).map((course,i)=>{
             return (
-      <div key={i} className="college-list-selected-filter__filterStreamContainer">
+              <div key={i} className="college-list-selected-filter__filterStreamContainer">
         <FormControlLabel className="college-list-selected-filter__checkboxLabel" name={course} onChange={onSelecteCourse} control={<Checkbox name={course} />} checked={selectedCourses.includes(course.toUpperCase())} label={course} />
         {searchedCourses[course]}
       </div>
         )
-    })
-  }
+      })
+    }
+    </div>
     </div>
   );
 }; 

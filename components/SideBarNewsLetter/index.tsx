@@ -34,7 +34,7 @@ const SideBarNewsLetter = () => {
         <Input placeholder={"Email Address"} name='subscriber' value={subscriber} onChange={onChange} margin={"0px 0px 16px 0px"} fullWidth icon={MailIcon} />
       </div>
       <div className="side-bar-news-letter__button">
-        <Button onClick={onClick} disabled={loading} className="contact-form__send-message" >Send Message</Button>
+        <Button onClick={onClick} disabled={loading} className="contact-form__send-message" >Subscribe Now</Button>
       </div>
     </div>
   );

@@ -1,8 +1,28 @@
-import React from "react";
+import React,{useState} from "react";
 import Link from 'next/link'
+import {useDispatch} from 'react-redux'
+import * as yup from 'yup'
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import { addSubscriber } from "../store/Action/subscriber.action";
+import { valueOf } from "*.jpg";
 
 const Footer = () => {
+  const [subscriber, setSubscriber] = useState('')
+  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
+  const onChange = e => {
+    setSubscriber(e.target.value)
+  }
+  const onClick =async ()=> {
+    setLoading(true)
+    let schema = yup.string().email();
+    let result = schema.isValidSync(subscriber)
+    if (result) {      
+      await dispatch(addSubscriber(subscriber))
+    }
+    setSubscriber('')
+    setLoading(false)
+  }
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -16,8 +36,8 @@ const Footer = () => {
                 Subscribe to our newsletter
               </div>
               <div>
-                <input className="newsletter_input" placeholder="Enter your email"/>
-                <button className="newsletter_go"><KeyboardArrowRight /></button>
+                <input value={subscriber} onChange={onChange} className="newsletter_input" placeholder="Enter your email"/>
+                <button onClick={onClick} disabled={loading} className="newsletter_go"><KeyboardArrowRight /></button>
               </div>
             </div>
           </div>

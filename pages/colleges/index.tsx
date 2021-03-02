@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
+import _ from "lodash";
 import Head from "next/head";
 import { useSelector, useDispatch } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
@@ -45,7 +46,7 @@ const collegeList = () => {
 
   const handleSideSearch = () => {
     if (collegeList.length) {
-      const colleges = [];
+      let colleges = [];
       collegeList.forEach((college) => {
         if (college.courses.length) {
           college.courses.forEach((course) => {
@@ -56,6 +57,7 @@ const collegeList = () => {
         }
       });
       if (selectedCourses.length) {
+        colleges = _.uniqBy(colleges, "_id");
         setCollegeList(colleges);
       } else {
         setCollegeList(collegeList);

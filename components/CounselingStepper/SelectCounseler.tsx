@@ -3,7 +3,11 @@ import counseler from "../../public/counseler.png";
 import counselerImage from "../../public/counselerImage.png";
 import { db } from '../../firebase';
 
-const SelectCounseler = () => {
+interface Props {
+    handleChange: (e: any) => void;
+}
+
+const SelectCounseler: React.FC<Props>  = ({handleChange}) => {
 
   const [counsellorArray, setCounsellorArray] = useState([]);
 
@@ -30,6 +34,16 @@ const SelectCounseler = () => {
   }, [])
 
   const [selectedCounseler, setSelectedCounseler] = useState(1 as number)
+
+  useEffect(() => {
+
+   handleChange({
+     target:{
+       name:"counsellor",
+       value: selectedCounseler
+     }
+   })
+}, [selectedCounseler]);
   return (
     <div className="select-counseler">
       <div className="select-counseler__header">
@@ -39,7 +53,7 @@ const SelectCounseler = () => {
       <div className="select-counseler__counseler-list">
         {counsellorArray.map(item => {
           return (
-            <div onClick={() => setSelectedCounseler(item.id)}
+            <div key={item.id} onClick={() => setSelectedCounseler(item.id)}
               className={`select-counseler__counseler-card`}>
               <img className={"select-counseler__counsellorImage"} src={item.image} />
               <div className={`select-counseler__counseler-info 

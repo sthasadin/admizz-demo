@@ -1,7 +1,7 @@
 import { faMicrophoneAlt, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Select } from "../components";
+// import { Select } from "../components";
 import Link from 'next/link'
 
 const Topbar = (props: any) => {
@@ -27,6 +27,7 @@ const Topbar = (props: any) => {
           <span>Study In</span>
           {/* <Select /> */}
         </div>
+
         <div className="topbar__signup">
           <div className="signup">
             <div className="signup__icon">

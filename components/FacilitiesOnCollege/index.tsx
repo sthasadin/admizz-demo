@@ -1,13 +1,16 @@
 import React from "react";
 import FacilityItem from "./facilityItem";
+import {useDispatcher, useSelector} from 'react-redux'
 
 const CollegeFacility = () => {
+  const facilities = useSelector(state => state.college.college.facilities)
+  console.log(facilities)
   return (
     <div className="college-facility">
       <div className="college-facility__inner">
         <div className="sidebar__title">Facilities</div>
         <div className="college-facility__list">
-          <FacilityItem
+         {facilities && facilities.includes('wifi') && <FacilityItem
             icon={
               <svg
                 width="22"
@@ -35,8 +38,8 @@ const CollegeFacility = () => {
               </svg>
             }
             label="wifi"
-          />
-          <FacilityItem
+          />}
+          {facilities && facilities.includes('Ambulance') && <FacilityItem
             icon={
               <svg
                 width="28"
@@ -68,8 +71,8 @@ const CollegeFacility = () => {
               </svg>
             }
             label="Ambulance"
-          />
-          <FacilityItem
+          />}
+          {facilities && facilities.includes('Event') && <FacilityItem
             icon={
               <svg
                 width="19"
@@ -97,8 +100,8 @@ const CollegeFacility = () => {
               </svg>
             }
             label="Event"
-          />
-          <FacilityItem
+          />}
+          {facilities && facilities.includes('Games') && <FacilityItem
             icon={
               <svg
                 width="18"
@@ -114,8 +117,8 @@ const CollegeFacility = () => {
               </svg>
             }
             label="Games"
-          />
-          <FacilityItem
+          />}
+          {facilities && facilities.includes('Pool') && <FacilityItem
             icon={
               <svg
                 width="21"
@@ -139,8 +142,8 @@ const CollegeFacility = () => {
               </svg>
             }
             label="Pool"
-          />
-          <FacilityItem
+          />}
+          {facilities && facilities.includes('Library') && <FacilityItem
             icon={
               <svg
                 width="16"
@@ -164,9 +167,10 @@ const CollegeFacility = () => {
               </svg>
             }
             label="Library"
-          />
+          />}
         </div>
       </div>
+      
     </div>
   );
 };

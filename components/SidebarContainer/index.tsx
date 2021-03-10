@@ -9,7 +9,7 @@ import { Newsletter } from "../Newsletter";
 import { Sidebar } from "../Sidebar";
 import { StudentQuestionAnswer } from "../StudentQuestionAnswer";
 
-const SidebarContainer = ({ totalCourse, totalStudents, description, top_courses}) => {
+const SidebarContainer = ({ totalCourse, totalStudents, description, top_courses,average_fee,graduation_percentage,placement_percentage}) => {
   return (
     <div className="sidebar-container">
       <div className="sidebar-container__inner inner">
@@ -17,16 +17,20 @@ const SidebarContainer = ({ totalCourse, totalStudents, description, top_courses
           <CollegeDetailsBlock 
             totalStudents = {totalStudents}
             totalCourse = {totalCourse}
+            average_fee={average_fee}
+            graduation_percentage={graduation_percentage}
+            placement_percentage = {placement_percentage}
           />
           <CollegeOverview 
-            description = {description}
+            // description = {description}
           />
+          
           <FeeStructure />
           <Newsletter />
-          <RatingAndReview />
+          {/* <RatingAndReview /> */}
           <CollegeGallery />
           <AdmissionProcess />
-          <StudentQuestionAnswer />
+          {/* <StudentQuestionAnswer /> */}
         </div>
         <Sidebar />
       </div>

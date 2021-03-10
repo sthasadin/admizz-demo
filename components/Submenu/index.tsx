@@ -6,28 +6,28 @@ const Submenu = (props: any) => {
       <div className="submenu-bar__inner inner">
         <ul className="submenu">
           <li className="submenu__item active">
-            <a href="#">Overview</a>
+            <a href="#overview">Overview</a>
           </li>
           <li className="submenu__item">
-            <a href="#">Courses & Fee</a>
+            <a href="#course_fee">Courses & Fee</a>
+          </li>
+          {/* <li className="submenu__item">
+            <a href="#ranking">Rankings & Awards</a>
+          </li> */}
+          <li className="submenu__item">
+            <a href="#rating">Rating & Reviews</a>
           </li>
           <li className="submenu__item">
-            <a href="#">Rankings & Awards</a>
+            <a href="#gallery">Gallery</a>
           </li>
           <li className="submenu__item">
-            <a href="#">Rating & Reviews</a>
+            <a href="#admission">Admission Process</a>
           </li>
           <li className="submenu__item">
-            <a href="#">Gallery</a>
+            <a href="#placement">Placements</a>
           </li>
           <li className="submenu__item">
-            <a href="#">Admission Process</a>
-          </li>
-          <li className="submenu__item">
-            <a href="#">Placements</a>
-          </li>
-          <li className="submenu__item">
-            <a href="#">Q&A</a>
+            <a href="#qna">Q&A</a>
           </li>
         </ul>
       </div>

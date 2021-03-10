@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 const CollegesCard = (college) => {
   const router = useRouter();
   return (
-    <div className="colleges-card" onClick={() => router.push('/collegeprofile')}>
+    <div className="colleges-card" onClick={() => router.push(`colleges/${college?._id}`)}>
       <div className="colleges-card__inner">
         <div className="colleges-card__thumbnail">
           <img src="/colleges.png" alt="college" />

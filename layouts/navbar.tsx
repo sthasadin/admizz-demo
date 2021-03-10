@@ -29,7 +29,7 @@ const Navbar = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
+      <List className="navbar__list">
         <ListItem button key={"Home"}>
           <Link href="/"><ListItemText primary={"Home"} /></Link>
         </ListItem>
@@ -38,6 +38,9 @@ const Navbar = () => {
         </ListItem>
         <ListItem button key={"Blogs"}>
           <Link href="/blogs"><ListItemText primary={"Blogs"} /></Link>
+        </ListItem>
+        <ListItem button key={"FAQs"}>
+          <Link href="/faq"><ListItemText primary={"FAQs"} /></Link>
         </ListItem>
         <ListItem button key={"Contact"}>
           <Link href="/contact-us"><ListItemText primary={"Contact"} /></Link>
@@ -74,6 +77,9 @@ const Navbar = () => {
                 </li>
                 <li className="menu-item">
                   <Link href="/blogs">Blogs</Link>
+                </li>
+                <li className="menu-item">
+                  <Link href="/faq">FAQs</Link>
                 </li>
                 <li className="menu-item">
                   <Link href="/contact-us">Contact</Link>

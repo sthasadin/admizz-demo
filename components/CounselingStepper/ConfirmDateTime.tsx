@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Datepicker } from "../../components";
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import { SelectCounseler } from "./SelectCounseler";
 import { Button } from "../Button";
 
 interface Props {
-    handleNext: () => void
+    handleNext: () => void;
+    handleChange: (e: any) => void;
+    formValue: Object
 }
 
-const ConfirmDateTime: React.FC<Props> = ({ handleNext }) => {
+const ConfirmDateTime: React.FC<Props> = ({ handleNext, handleChange, formValue }) => {
     const [selectedTime, setSelectedTime] = useState("03:00" as string);
     const [meridium, setMeridium] = useState("PM" as string);
     const pmTimeList = ["12:00", "12:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30"];
+
+    useEffect(() => {
+   handleChange({
+       target: {
+           name:'time',
+        value:`${selectedTime} ${meridium}`
+       }
+   })
+}, [selectedTime]);
 
     return (
         <div className="confirm-date-container">
@@ -23,7 +34,7 @@ const ConfirmDateTime: React.FC<Props> = ({ handleNext }) => {
                             Confirm Date
                         </span>
                     </div>
-                    <Datepicker />
+                    <Datepicker handleChange={handleChange} />
                 </div>
                 <div className="confirm-date-container__time">
                     <div className="confirm-date-container__label">
@@ -54,7 +65,7 @@ const ConfirmDateTime: React.FC<Props> = ({ handleNext }) => {
                     </div>
                 </div>
             </div>
-            <SelectCounseler />
+            <SelectCounseler handleChange={handleChange} />
             <div className={'confirm-date-container__action-button'}>
                 <Button onClick={handleNext} >Continue</Button>
             </div>

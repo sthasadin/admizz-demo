@@ -1,6 +1,10 @@
 import React from "react";
-
+import { useSelector} from 'react-redux'
 const FacultyInformation = (props: any) => {
+  const courses = useSelector(state => state.college.college.courses)
+  if (courses && courses.lenght>3) {
+    courses.length = 3
+  }
   return (
     <div className="faculty-information">
       <div className="faculty-information__inner">
@@ -8,22 +12,27 @@ const FacultyInformation = (props: any) => {
         <div className="faculty-information__shapes">
           <div className="faculty-information__semi-circle">
             <div className="faculty-information__semi-circle-text">
-              200
+              {courses && courses.length}
               <span>Faculty</span>
             </div>
           </div>
-
           <div className="faculty-information__circle-wrap">
-            <div className="faculty-information__circle">
+            {
+              courses?.map(c => {
+                return (
+                  <div className="faculty-information__circle">
               <div className="faculty-information__circle-text border-top half">
                 <span>46%</span>
               </div>
-              <div className="faculty-information__circle__label">Label</div>
+              <div className="faculty-information__circle__label">{c.course_name}</div>
               <div className="faculty-information__circle__desc">
                 Description
               </div>
             </div>
-
+              )
+            })
+          }
+{/* 
             <div className="faculty-information__circle">
               <div className="faculty-information__circle-text half-quarter">
                 <span>74%</span>
@@ -43,6 +52,7 @@ const FacultyInformation = (props: any) => {
                 Description
               </div>
             </div>
+             */}
           </div>
         </div>
 

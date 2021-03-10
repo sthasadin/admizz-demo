@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { api } from '../api';
+import { api } from '../api/api';
 import { GET_COLLAGE_DETAIL } from '../const';
 
 export const getCollageDetail = ( id : string ) => async(dispatch: Dispatch,) => {

@@ -3,6 +3,7 @@ import 'firebase/firestore';
 import "firebase/auth";
 import _ from 'lodash'
 import axios,{AxiosResponse} from 'axios'
+import "firebase/storage"
 
 var firebaseConfig = {
     apiKey: "AIzaSyCjxChYN70lSg57xRAqicg2lgMrFSDvCy4",
@@ -111,4 +112,5 @@ seedQnAs()
 
   }
 
-export { db, auth, firebase }
+const storage = firebase.storage()
+export { db, auth, firebase, storage }

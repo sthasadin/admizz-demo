@@ -14,6 +14,7 @@ import { getCollege } from "../../store/Action/college.action";
 const Home = () => {
   const dispatch = useDispatch();
   const {
+    // _id,
     name,
     address,
     college_logo,

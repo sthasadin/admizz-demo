@@ -6,11 +6,16 @@ import FacultyInformation from "../FacultyInformation";
 import InternationalCollaboration from "../InternationalCollaboration";
 import NewsOnCollege from "../NewsOnCollege";
 import { TrendingCourses } from "../TrendingCourses";
+import Link from "next/link";
 
 const Sidebar = () => {
   return (
     <aside className="sidebar">
-      <CallToAction className="filled full-width">Apply Now</CallToAction>
+      <CallToAction className="filled full-width">
+        <Link href={`/dashboardbasicinfo/Apply`}>
+          Apply Now
+        </Link>
+      </CallToAction>
       <div className="sidebar__cta">
         <CallToAction className="transparent full-width">
           Add to Compare

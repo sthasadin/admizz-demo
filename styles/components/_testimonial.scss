@@ -1,9 +1,10 @@
 .testimonial {
-  margin: 80px 0;
+  //margin: 80px 0;
   background-image: url("../../public/testimonial-background.svg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100%;
   &__inner {
     display: grid;
     place-items: center;
@@ -14,10 +15,15 @@
     align-items: center;
     &__thumbnail {
       &:nth-child(3) {
-        margin-top: 135px;
+        margin-top: 120px;
+        margin-left: -120px;
+      }
+      &:nth-child(2) {
+        margin-top: -120px;
+        margin-left: -55px;
       }
       &:nth-child(1) {
-        margin-top: 210px;
+        margin-top: 120px;
       }
     }
   }
@@ -41,6 +47,7 @@
     &__thumbnail {
       &:nth-child(1) {
         margin-top: 80px;
+        margin-left: -50px;
       }
     }
   }

@@ -1,6 +1,24 @@
 import React from "react";
+import { TeamArray } from "./TeamArray";
+import TeamMemberList from "./TeamMemberList";
 
 const Teams = () => {
+  const [showClickedMember, setShowClickedMember] = React.useState([
+    TeamArray[0],
+  ]);
+  const [teamMemberArray, setTeamMemberArray] = React.useState(TeamArray);
+  console.log(TeamArray);
+
+  const handleClick = (id: string) => {
+    const selectedMember = TeamArray.find((data) => data.id === id);
+    setShowClickedMember([selectedMember]);
+
+    const filterTeamMemberArray = TeamArray.filter((data) => data.id !== id);
+    setTeamMemberArray(filterTeamMemberArray);
+  };
+  console.log(teamMemberArray);
+
+  // console.log(showClickedMember);
   return (
     <div className="teams-list">
       <div className="teams-list__inner">
@@ -12,58 +30,55 @@ const Teams = () => {
         </div>
         <div className="teams-list__details">
           <div className="teams-list__left">
-            <div className="teams-list__thumbnail lead">
-              <img src="./team-lead.png" alt="" />
-            </div>
+            {showClickedMember &&
+              showClickedMember.map((member) => {
+                return (
+                  <div className="teams-list__thumbnail lead">
+                    <img src={member.img} alt="" />
+                  </div>
+                );
+              })}
           </div>
           <div className="teams-list__right">
-            <div className="teams-list__md">
-              <div className="teams-list__md__name">
-                <span>Manish</span> shah
-              </div>
-              <div className="teams-list__designation">
-                <span>Managing Director</span>
-                <span>Country Counseler</span>
-              </div>
-              <div className="teams-list__desc">
-                In the present world of huge competition, choosing the right
-                institute is as important as choosing the right course. Admizz
-                helps selecting a right institution for you with ease. Admizz is
-                registered under INRA EduTech Services Pvt. Ltd. Bangalore,
-                India. We have our partnered office in Kathmandu for counselling
-                and admissions from Nepal.
-              </div>
-            </div>
-            <div className="teams-list__contact">
-              <div className="teams-list__email">
-                <div className="teams-list__email__icon"></div>
-                <div className="teams-list__email__address">
-                  email@domainname.com
-                </div>
-              </div>
-            </div>
+            {showClickedMember &&
+              showClickedMember.map((member) => {
+                return (
+                  <>
+                    <div className="teams-list__md">
+                      <div className="teams-list__md__name">
+                        <span>{member.name}</span>
+                      </div>
+                      <div className="teams-list__designation">
+                        <span>{member.designation1}</span>
+                        <span>{member.designation2}</span>
+                      </div>
+                      <div className="teams-list__desc">
+                        {member.description}
+                      </div>
+                    </div>
+                    <div className="teams-list__contact">
+                      <div className="teams-list__email">
+                        <div className="teams-list__email__icon"></div>
+                        <div className="teams-list__email__address">
+                          {member.email}
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+
             <div className="teams-list__full-team">
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
+              {teamMemberArray &&
+                teamMemberArray.map((TeamArray: any) => {
+                  return (
+                    <TeamMemberList
+                      image={TeamArray.img}
+                      id={TeamArray.id}
+                      handleClick={handleClick}
+                    />
+                  );
+                })}
             </div>
           </div>
         </div>

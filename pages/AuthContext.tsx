@@ -5,7 +5,7 @@ import { firebase } from "../firebase";
 
 export const AuthContext = React.createContext<Partial<any>>({});
 
-const AuthProvider = (props) => {
+const AuthProvider = (props: any) => {
   const [user, setUser] = useState(null as firebase.User | null);
   const [loading, setLoading] = useState(true);
   const [authenticated, setAuthenticated] = useState(null as boolean | null);

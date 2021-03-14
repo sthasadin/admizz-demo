@@ -1,0 +1,185 @@
+.placement {
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 16px;
+  font-family: "M PLUS 1p", sans-serif;
+
+  .placement__title {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 27px;
+    color: $secondary-color;
+  }
+
+  .placement__bargrapcontainer {
+    display: flex;
+    flex-direction: column;
+    //height: 300px;
+    margin-bottom: 10px;
+
+    .placement__bargrapindex {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 50px;
+
+      .placement__indexcontainer {
+        margin-left: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 500;
+        @media (max-width: 1024px) {
+          margin-left: 10px;
+        }
+      }
+
+      .bullet_icon {
+        margin-right: 2px;
+        font-size: 40px;
+      }
+    }
+
+    .placement__bargraphlist {
+      display: flex;
+      //width: 80%;
+      // justify-content: space-between;
+      // border: 1px solid black;
+      flex-wrap: wrap;
+
+      .bargraph__container {
+        //border: 1px solid black;
+        max-width: 90px;
+        margin-left: 50px;
+        @media (max-width: 1024px) {
+          margin-left: 25px;
+        }
+
+        .bargraph__details {
+          display: flex;
+
+          .bargraph__1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            margin-top: 30px;
+
+            .bargraph__index {
+              font-family: "M Plus 1p", sans-serif;
+              font-size: 10px;
+              line-height: 13px;
+              font-weight: 800;
+              color: #4f4f4f;
+              margin-bottom: 3px;
+            }
+          }
+
+          .bargraph__2 {
+            margin-left: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            margin-top: 30px;
+
+            .bargraph__index {
+              font-family: "M Plus 1p", sans-serif;
+              font-size: 10px;
+              line-height: 13px;
+              font-weight: 800;
+              color: #4f4f4f;
+              margin-bottom: 3px;
+            }
+          }
+
+          .bargraph__3 {
+            margin-left: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            margin-top: 30px;
+
+            .bargraph__index {
+              font-family: "M Plus 1p", sans-serif;
+              font-size: 10px;
+              line-height: 13px;
+              font-weight: 800;
+              color: #4f4f4f;
+              margin-bottom: 3px;
+            }
+          }
+        }
+        .bargraph__index {
+          font-family: "M Plus 1p", sans-serif;
+          font-size: 11px;
+          margin-top: 14px;
+          line-height: 13px;
+          color: #4f4f4f;
+        }
+      }
+    }
+  }
+
+  .placement__heading {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 800;
+    color: #333333;
+    margin-bottom: 18px;
+  }
+
+  .placement_imagelist {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+
+    img {
+      width: 45px;
+      height: 45px;
+    }
+  }
+  .placement__notablealumni {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 800;
+    color: #333333;
+    margin-bottom: 18px;
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+
+    .text__right {
+      color: $secondary-color;
+      cursor: pointer;
+    }
+  }
+
+  .placement__studentlist {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 40px;
+    @media (max-width: 1024px) {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .placement__student {
+      display: flex;
+      @media (max-width: 1024px) {
+        margin-top: 10px;
+      }
+
+      .placement__studentdetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        margin-left: 10px;
+      }
+    }
+  }
+}

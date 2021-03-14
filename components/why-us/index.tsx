@@ -1,7 +1,12 @@
 import React from "react";
 import { Feature } from "../feature";
+import leftArrow from "../../public/leftArrow.png";
+import rightArrow from "../../public/rightArrow.png";
 
 const Us = () => {
+  const [counter, setCounter] = React.useState(0);
+
+  const array = [{}];
   return (
     <div className="us">
       <div className="us__inner">
@@ -16,8 +21,13 @@ const Us = () => {
             <div className="us__feature">
               <Feature />
             </div>
-            <div className="us__btn">
-              <button className="btn btn--block btn--light">Learn More</button>
+            <div className="us__btncontainer">
+              <button className="btn__left">
+                <img src={leftArrow} />
+              </button>
+              <button className="btn__right">
+                <img src={rightArrow} />
+              </button>
             </div>
           </div>
         </div>

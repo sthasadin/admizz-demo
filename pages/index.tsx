@@ -13,7 +13,7 @@ import { Merits } from "../components/mertis";
 // import { Register } from "../components/register";
 import { Statistics } from "../components/statistics";
 import { Teams } from "../components/Teams";
-// import { Testimonial } from "../components/Testimonial";
+import { Testimonial } from "../components/Testimonial";
 import { Us } from "../components/why-us";
 import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";
@@ -50,7 +50,7 @@ export default function Home() {
         <About />
         <Merits />
         <Us />
-        {/* <Testimonial /> */}
+        <Testimonial />
         <Statistics />
         {/* <FiveSteps /> */}
         <CollegesBlock collegeList={collegeList} />

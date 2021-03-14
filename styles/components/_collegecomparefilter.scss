@@ -1,0 +1,29 @@
+.comparecollege__filtercontainer {
+  //border: 1px solid black;
+  width: 90%;
+  margin-top: 26px;
+  height: 60px;
+  margin-left: 134px;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+
+  .filter__button {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    height: 41px;
+    border-radius: 20px;
+    border: 1px solid #828282;
+    color: #828282;
+    margin-right: 10px;
+    min-width: 183px;
+
+    &:hover {
+      background-color: #ffa200;
+      border-color: #ffa200;
+      color: white;
+    }
+  }
+}

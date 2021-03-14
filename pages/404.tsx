@@ -22,7 +22,7 @@ const index = () => {
             </h1>
             <p>
               <span className="first__helpertext">
-                The page you are looking for isnt found.
+                The page you are looking for is not found.
               </span>
               <span>we suggest you to go back home</span>
             </p>

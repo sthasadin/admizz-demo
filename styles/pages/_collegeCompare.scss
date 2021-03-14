@@ -1,0 +1,77 @@
+.container {
+  .comparecollege__header {
+    height: 188px;
+    background-color: #e5e5e5;
+    font-family: "M plus 1p", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+
+    .comparecollege__head {
+      width: 80%;
+      display: flex;
+      justify-content: space-between;
+
+      .comparecollege__title {
+        font-size: 24px;
+        line-height: 26px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+      }
+      .comparecollege__filterbtn {
+        padding: 10px;
+        border: 1px solid #5f1802;
+        width: 210px;
+        height: 60px;
+        color: #5f1802;
+        border-radius: 10px;
+        .btn__icon {
+          font-size: 24px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    //customize scroll bar
+    ::-webkit-scrollbar {
+      height: 2px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: $primary-color;
+      border-radius: 10px;
+    }
+    //------------end-----------
+  }
+
+  //----------END HEADER SECTION-------------
+
+  .comparecollege__addcollegecontainer {
+    height: 423px;
+    border: 1px solid black;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    .comparecollege__collegelist {
+      display: flex;
+      width: 80%;
+      align-items: center;
+      border-radius: 5px;
+
+      .comparecollege__addtemplates {
+        margin-left: 20px;
+        width: 224px;
+        height: 268px;
+        background-color: rgba(95, 24, 2, 0.08);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+  }
+}

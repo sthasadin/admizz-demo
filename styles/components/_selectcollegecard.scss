@@ -1,0 +1,148 @@
+.modal__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid yellow;
+  height: 100%;
+
+  .card__container {
+    max-width: 75%;
+    min-width: 75%;
+    min-height: 500px !important;
+    max-height: 80%;
+    overflow: scroll;
+    background-color: #f4f4f4;
+    padding: 25px;
+    font-family: "M plus 1P", sans-serif;
+
+    .card__header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 34px;
+
+      .card__title {
+        font-weight: 800;
+        font-size: 20px;
+        line-height: 29px;
+      }
+    }
+
+    .card__line {
+      border: 1px solid #bdbdbd;
+    }
+
+    .card__collegecardcontainer {
+      padding: 5px;
+      margin-top: 5px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .card__collegecard {
+        border: 1px solid #5f1802;
+
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: 290px;
+        width: 200px;
+        margin-left: 20px;
+        margin-top: 35px;
+        position: relative;
+        cursor: pointer;
+
+        .card__checkedicon {
+          position: absolute;
+          top: -6%;
+          right: -14px;
+        }
+
+        .card__collegecardimage {
+          height: 50%;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .card_collegecarddetails {
+          height: 50%;
+        }
+      }
+
+      .card__collegecarddetails {
+        padding: 10px;
+        .card__collegecardheader {
+          display: flex;
+          justify-content: space-between;
+
+          .card__collegecardtitle {
+            font-size: 16px;
+          }
+
+          img {
+            width: 66px;
+            height: 64px;
+            border-radius: 50%;
+            margin-top: -23%;
+          }
+        }
+
+        .card__collegelocationcontainer {
+          display: flex;
+          margin-top: 5px;
+          align-items: center;
+
+          img {
+            width: 16px;
+            height: 18px;
+          }
+
+          .card__collegelocation {
+            margin-left: 5px;
+            color: #828282;
+            font-size: 14px;
+          }
+        }
+
+        .card__collegetotalcoursecontainer {
+          display: flex;
+          margin-top: 12px;
+          .card__collegetotalcoursetitle {
+            font-size: 12px;
+            line-height: 18px;
+            color: #828282;
+          }
+          .card__collegetotalcourse {
+            font-size: 12px;
+            line-height: 18px;
+            color: #828282;
+          }
+        }
+
+        .card__collegetotalstudentcontainer {
+          display: flex;
+          margin-top: 7px;
+          .card__collegetotalstudenttitle {
+            font-size: 12px;
+            line-height: 18px;
+            color: #828282;
+          }
+          .card__collegetotalstudent {
+            font-size: 12px;
+            line-height: 18px;
+            color: #828282;
+          }
+        }
+      }
+    }
+  }
+  //scroll bar coustomization
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $primary-color;
+    border-radius: 10px;
+  }
+  //----------END--------------------
+}

@@ -7,8 +7,12 @@ import InternationalCollaboration from "../InternationalCollaboration";
 import NewsOnCollege from "../NewsOnCollege";
 import { TrendingCourses } from "../TrendingCourses";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const router = useRouter();
+  const id = useSelector((state) => state.college.college._id);
   return (
     <aside className="sidebar">
       <CallToAction className="filled full-width">
@@ -17,7 +21,10 @@ const Sidebar = () => {
         </Link>
       </CallToAction>
       <div className="sidebar__cta">
-        <CallToAction className="transparent full-width">
+        <CallToAction
+          className="transparent full-width"
+          onClick={() => router.push(`/comparecollege`)}
+        >
           Add to Compare
         </CallToAction>
       </div>

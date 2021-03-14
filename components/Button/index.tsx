@@ -1,9 +1,8 @@
-import { Button as ButtonComponent } from "@material-ui/core"
+import { Button as ButtonComponent } from "@material-ui/core";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { makeStyles } from "@material-ui/core/styles";
-import CircularProgress from '@material-ui/core/CircularProgress';
-
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 type ButtonType = "secondary" | "primary" | "default";
 
@@ -24,7 +23,6 @@ export interface Props {
   fullWidth?: boolean;
 }
 
-
 const Button: React.FC<Props> = ({
   type = "primary",
   onClick,
@@ -35,9 +33,8 @@ const Button: React.FC<Props> = ({
   htmlType,
   children,
   fullWidth,
-  loading
+  loading,
 }) => {
-
   const useStyles = makeStyles(() => {
     return {
       button: {
@@ -142,6 +139,7 @@ const Button: React.FC<Props> = ({
               return 252;
             case "large":
               return 331;
+
             default:
               return 252;
           }
@@ -173,11 +171,15 @@ const Button: React.FC<Props> = ({
       fullWidth={fullWidth}
       type={htmlType}
     >
-      {loading && <CircularProgress size={20} style={{ marginRight: 10, color: '#fff' }} />}
+      {loading && (
+        <CircularProgress
+          size={20}
+          style={{ marginRight: 10, color: "#fff" }}
+        />
+      )}
       {children}
     </ButtonComponent>
   );
 };
 
 export { Button };
-

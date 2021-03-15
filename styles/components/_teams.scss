@@ -37,11 +37,11 @@
     flex: 1;
   }
   &__thumbnail.lead {
-    width: 100%;
-    height: auto;
+    width: 439px;
+    height: 481px;
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
       border-radius: 5px;
     }
   }
@@ -100,8 +100,21 @@
     display: flex;
     align-items: center;
     color: $secondary-color;
+
     &__address {
+      display: flex;
+
       font-size: 14px;
+
+      .teams-list__socailmediaicons {
+        display: flex;
+
+        img {
+          display: flex;
+
+          margin-left: 20px;
+        }
+      }
     }
   }
   &__full-team {
@@ -109,11 +122,11 @@
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 3px;
     &__thumbnail {
-      height: auto;
+      height: 100%;
       width: 100%;
       img {
         width: 100%;
-        height: auto;
+        height: 100%;
       }
     }
   }

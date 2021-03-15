@@ -2,11 +2,63 @@ import React from "react";
 import { Feature } from "../feature";
 import leftArrow from "../../public/leftArrow.png";
 import rightArrow from "../../public/rightArrow.png";
+import chatIcon from "../../public/chatIcon.png";
+import awardIcon from "../../public/awardIcon.png";
+import collegeIcon from "../../public/collegeIcon.png";
+import supportIcon from "../../public/supportIcon.png";
 
 const Us = () => {
   const [counter, setCounter] = React.useState(0);
+  const [showData, setShowData] = React.useState({});
 
-  const array = [{}];
+  const array = [
+    {
+      title: "One on One Counselling session",
+      description:
+        "Get the right career advice for you and earn your best carer certificates.",
+      icon: chatIcon,
+    },
+    {
+      title: "End to End Assistance Support",
+      description:
+        "Get the right career advice for you and earn your best carer certificates.",
+      icon: supportIcon,
+    },
+    {
+      title: "Get Best Scholarships Facility",
+      description:
+        "Get the right career advice for you and earn your best carer certificates.",
+      icon: collegeIcon,
+    },
+    {
+      title: "Be Assured About Your Admission",
+      description:
+        "Get the right career advice for you and earn your best carer certificates.",
+      icon: awardIcon,
+    },
+  ];
+
+  React.useEffect(() => {
+    setShowData(array[counter]);
+  }, [counter]);
+
+  const handleDescrease = () => {
+    if (counter === 0) {
+      setCounter(3);
+    } else {
+      setCounter((counter) => counter - 1);
+    }
+  };
+
+  const handleIncrease = () => {
+    if (counter === 3) {
+      setCounter(0);
+    } else {
+      setCounter((counter) => counter + 1);
+    }
+  };
+
+  console.log(showData);
   return (
     <div className="us">
       <div className="us__inner">
@@ -19,14 +71,14 @@ const Us = () => {
               step ahead of others.
             </div>
             <div className="us__feature">
-              <Feature />
+              <Feature data={showData} />
             </div>
             <div className="us__btncontainer">
-              <button className="btn__left">
+              <button className="btn__left" onClick={handleDescrease}>
                 <img src={leftArrow} />
               </button>
               <button className="btn__right">
-                <img src={rightArrow} />
+                <img src={rightArrow} onClick={handleIncrease} />
               </button>
             </div>
           </div>

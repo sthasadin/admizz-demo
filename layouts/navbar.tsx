@@ -1,14 +1,16 @@
 import React from "react";
-import Link from 'next/link';
-import { useRouter } from 'next/router'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import MenuIcon from '@material-ui/icons/Menu';
+import Link from "next/link";
+import { useRouter } from "next/router";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Drawer from "@material-ui/core/Drawer";
+import Button from "@material-ui/core/Button";
+//import MenuIcon from "@material-ui/icons/Menu";
+import menuIcon from "../public/menuIcon.png";
+import mobileVersionLogo from "../public/mobileVersionLogo.png";
 
-const Navbar = () => {
+const Navbar = (props: any) => {
   const router = useRouter();
 
   const [state, setState] = React.useState({
@@ -16,7 +18,10 @@ const Navbar = () => {
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
 
@@ -31,19 +36,29 @@ const Navbar = () => {
     >
       <List className="navbar__list">
         <ListItem button key={"Home"}>
-          <Link href="/"><ListItemText primary={"Home"} /></Link>
+          <Link href="/">
+            <ListItemText primary={"Home"} />
+          </Link>
         </ListItem>
         <ListItem button key={"Colleges"}>
-          <Link href="/colleges"><ListItemText primary={"Colleges"} /></Link>
+          <Link href="/colleges">
+            <ListItemText primary={"Colleges"} />
+          </Link>
         </ListItem>
         <ListItem button key={"Blogs"}>
-          <Link href="/blogs"><ListItemText primary={"Blogs"} /></Link>
+          <Link href="/blogs">
+            <ListItemText primary={"Blogs"} />
+          </Link>
         </ListItem>
         <ListItem button key={"FAQs"}>
-          <Link href="/faq"><ListItemText primary={"FAQs"} /></Link>
+          <Link href="/faq">
+            <ListItemText primary={"FAQs"} />
+          </Link>
         </ListItem>
         <ListItem button key={"Contact"}>
-          <Link href="/contact-us"><ListItemText primary={"Contact"} /></Link>
+          <Link href="/contact-us">
+            <ListItemText primary={"Contact"} />
+          </Link>
         </ListItem>
       </List>
     </div>
@@ -53,15 +68,24 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar__inner">
         <div className="navbar__logo">
-          <div className="logo" onClick={() => router.push('/')}>
-            <img src="/logo.png" alt="" />
+          <div className="logo" onClick={() => router.push("/")}>
+            <img
+              src={props.windowsSize < 550 ? mobileVersionLogo : "/logo.png"}
+              alt="Admizz_logo"
+            />
           </div>
         </div>
 
-        <div className="navbar__hamburger" >
-          <Button onClick={toggleDrawer('left', true)}><MenuIcon /></Button>
-          <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
-            {list('anchor')}
+        <div className="navbar__hamburger">
+          <Button onClick={toggleDrawer("left", true)}>
+            <img src={menuIcon} />
+          </Button>
+          <Drawer
+            anchor={"top"}
+            open={state["left"]}
+            onClose={toggleDrawer("left", false)}
+          >
+            {list("anchor")}
           </Drawer>
         </div>
 
@@ -95,7 +119,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

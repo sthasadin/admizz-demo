@@ -58,7 +58,6 @@ const Us = () => {
     }
   };
 
-  console.log(showData);
   return (
     <div className="us">
       <div className="us__inner">

@@ -21,10 +21,16 @@
       width: 1240px;
     }
   }
-  &__logoImage {
+  &__logo {
     cursor: pointer;
-    @media (min-width: 480px) {
-      height: 40px;
+    .logo {
+      img {
+        @media (max-width: 550px) {
+          //height: 40px;
+          width: 46px;
+          height: 43px;
+        }
+      }
     }
   }
   &__hamburger {

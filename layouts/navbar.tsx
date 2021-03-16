@@ -50,7 +50,7 @@ const Navbar = (props: any) => {
           src="/crossIcon.png"
           alt="crossIcon_logo"
           className="cross_logo"
-          onClick={toggleDrawer("top", false)}
+          onClick={() => toggleDrawer("top", false)}
         />
       </div>
 

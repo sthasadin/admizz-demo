@@ -16,7 +16,10 @@ const Merits = () => {
           </div>
           <div className="list-item-wrap">
             <div className="list-item">
-              <div className="list-item__icon"></div>
+              <div className="list-item__icon">
+                {" "}
+                <img src="/peopleIcon.png" alt="people_logo" />
+              </div>
               <div className="list-item__text">
                 <div className="list-item__title">
                   15,000+ Placements in 1,500+ Companies
@@ -29,7 +32,9 @@ const Merits = () => {
               </div>
             </div>
             <div className="list-item">
-              <div className="list-item__icon"></div>
+              <div className="list-item__icon">
+                <img src="/packageIcon.png" alt="people_logo" />
+              </div>
               <div className="list-item__text">
                 <div className="list-item__title">
                   15,000+ Placements in 1,500+ Companies

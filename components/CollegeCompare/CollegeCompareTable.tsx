@@ -12,6 +12,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { bold } from "*.jpg";
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -42,7 +43,7 @@ const useStyles = makeStyles({
 });
 
 export default function CustomizedTables(props: any) {
-  const { selectedCollege } = props;
+  const { selectedCollege, selectedFilters } = props;
 
   const dataAttri = [
     "QS_Ranking",
@@ -52,7 +53,7 @@ export default function CustomizedTables(props: any) {
     "ESTD_YEAR",
   ];
 
-  console.log(selectedCollege);
+
   const classes = useStyles();
 
   return (
@@ -69,19 +70,19 @@ export default function CustomizedTables(props: any) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {dataAttri.map((data: any) => {
+          {selectedFilters.map((data: any, i) => {
             return (
-              <StyledTableRow key={data._id}>
+              <StyledTableRow key={i}>
                 <StyledTableCell component="th" scope="row">
-                  {data}
+                  <strong>{data.label}</strong>
                 </StyledTableCell>
 
                 {selectedCollege.map((colegeAttributes: any) => (
                   <>
                     <StyledTableCell component="th" scope="row">
-                      {colegeAttributes.QS_ranking}
+                      {colegeAttributes[data.value]}
                     </StyledTableCell>
-                    <StyledTableCell align="right">
+                    {/* <StyledTableCell align="right">
                       {colegeAttributes.average_fee}
                     </StyledTableCell>
                     <StyledTableCell align="right">
@@ -92,7 +93,7 @@ export default function CustomizedTables(props: any) {
                     </StyledTableCell>
                     <StyledTableCell align="right">
                       {colegeAttributes.graduation_percentage}
-                    </StyledTableCell>
+                    </StyledTableCell> */}
                   </>
                 ))}
               </StyledTableRow>

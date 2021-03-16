@@ -26,4 +26,10 @@
       color: white;
     }
   }
+  .filter__button.active {
+    border-color: $secondary-color;
+    background-color: $secondary-color;
+    color: #fff;
+  }
+
 }

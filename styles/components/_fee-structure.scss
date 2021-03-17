@@ -22,6 +22,14 @@
   }
   &__level {
     margin-bottom: 25px;
+
+    .level-list {
+      @media (max-width: 450px) {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
   }
   &__courses {
     margin-bottom: 16px;

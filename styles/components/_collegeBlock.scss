@@ -1,45 +1,59 @@
 .collegesBlock {
-    margin: 40px 0;
-    &__inner {
-        width: calc(100% - 30px);
-        margin: 0 15px;
-        @media (min-width: 768px) {
-            width: 720px;
-            margin: 0 auto;
-        }
-        @media (min-width: 1024px) {
-            width: 940px;
-        }
-        @media (min-width: 1200px) {
-            width: 1170px;
-        }
-        @media (min-width: 1360px) {
-            width: 1240px;
-        }
+  margin: 40px 0;
+  //overflow: hidden;
+  &__inner {
+    width: calc(100% - 30px);
+    margin: 0 15px;
+    @media (min-width: 768px) {
+      width: 720px;
+      margin: 0 auto;
     }
-    &__heading {
-        margin-bottom: 12px;
+    @media (min-width: 1024px) {
+      width: 940px;
     }
-    &__title {
-        max-width: 410px;
-        margin: 0 auto;
-        margin-bottom: 39px;
-        span {
-            color: $secondary-color;
-        }
+    @media (min-width: 1200px) {
+      width: 1170px;
     }
-    &__list {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-gap: 20px;
-        @media (max-width: 1024px) {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-        @media (max-width: 760px) {
-            grid-template-columns: 1fr 1fr;
-        }
-        @media (max-width: 496px) {
-            grid-template-columns: 1fr;
-        }
+    @media (min-width: 1360px) {
+      width: 1240px;
     }
+    @media (max-width: 450px) {
+      margin: 5px;
+    }
+  }
+  &__heading {
+    margin-bottom: 12px;
+  }
+  &__title {
+    max-width: 410px;
+    margin: 0 auto;
+    margin-bottom: 39px;
+    span {
+      color: $secondary-color;
+    }
+
+    @media (max-width: 450px) {
+      font-size: 24px;
+      font-weight: 800;
+      font-family: "M Plus 1P", sans-serif;
+      line-height: 36px;
+    }
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: 760px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 450px) {
+      display: block;
+      margin: auto;
+      margin-left: 3%;
+    }
+  }
 }

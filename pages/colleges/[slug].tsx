@@ -5,9 +5,7 @@ import { Submenu } from "../../components/Submenu";
 import { SidebarContainer } from "../../components/SidebarContainer";
 import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
-import { Topbar } from "../../layouts/topbar";
 import { useDispatch, useSelector } from "react-redux";
-// import { getCollageDetail } from "../../store/Action/collageDetail.action";
 import { useRouter } from "next/router";
 import { getCollege } from "../../store/Action/college.action";
 
@@ -39,7 +37,6 @@ const Home = () => {
   return (
     <div className="container">
       <Head>
-        <Topbar />
         <title>Admizz - College</title>
         <link rel="icon" href="favicon.svg" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />

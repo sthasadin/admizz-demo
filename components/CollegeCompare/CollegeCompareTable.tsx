@@ -53,7 +53,6 @@ export default function CustomizedTables(props: any) {
     "ESTD_YEAR",
   ];
 
-
   const classes = useStyles();
 
   return (

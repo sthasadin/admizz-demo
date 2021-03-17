@@ -13,11 +13,14 @@ html {
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-	background-color: #F4F4F4;
+  background-color: white;
 }
 
 .container {
   min-height: 100vh;
+  @media (max-width: 450px) {
+    min-width: 102%;
+  }
 }
 
 .title a {

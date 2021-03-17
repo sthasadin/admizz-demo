@@ -1,5 +1,9 @@
 .colleges-card {
   width: 100%;
+  @media (max-width: 450px) {
+    margin-bottom: 22px;
+  }
+
   cursor: pointer;
   &__thumbnail {
     border-top-left-radius: 5px;
@@ -94,6 +98,22 @@
     padding: 14px 0 0 0;
     margin: 0 12px;
     border-top: 1px solid $border-color;
+
+    hr.colleges-card__line {
+      border: 1px solid #e0e0e0;
+    }
+    .colleges-card__viewdetails {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-family: "M Plus 1P", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      color: $primary-color;
+      cursor: pointer;
+    }
   }
 
   &__course {

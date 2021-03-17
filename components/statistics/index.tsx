@@ -1,6 +1,16 @@
 import React from "react";
 
 const Statistics = () => {
+  const [windowSize, setWindowSize] = React.useState({ width: undefined });
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth });
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="stat">
       <div className="stat__inner">
@@ -22,12 +32,20 @@ const Statistics = () => {
               <div className="stat__item__count secondary">20</div>
               <div className="stat__item__title">countries connected</div>
             </div>
+            {windowSize.width < 450 ? (
+              <div className="stat__item">
+                <div className="stat__item__count blue2">200+</div>
+                <div className="stat__item__title">SCHOLARSHIP DELIVERED</div>
+              </div>
+            ) : null}
           </div>
           <div className="stat__info__bottom">
-            <div className="stat__item">
-              <div className="stat__item__count blue2">200+</div>
-              <div className="stat__item__title">SCHOLARSHIP DELIVERED</div>
-            </div>
+            {windowSize.width > 450 ? (
+              <div className="stat__item">
+                <div className="stat__item__count blue2">200+</div>
+                <div className="stat__item__title">SCHOLARSHIP DELIVERED</div>
+              </div>
+            ) : null}
             <div className="stat__item">
               <div className="stat__item__count green2">10000+</div>
               <div className="stat__item__title">REGISTERED STUDNTS</div>

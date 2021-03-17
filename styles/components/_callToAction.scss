@@ -15,7 +15,9 @@
 .cta-button.filled {
   color: #f2f2f2;
   background-color: $primary-color;
-  border: none;
+  // border: none;
+  border-radius: 10px;
+  border: 1px solid white;
 }
 
 .cta-button.full-width {

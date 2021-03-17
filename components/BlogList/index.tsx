@@ -1,10 +1,21 @@
 import React from "react";
-import Link from 'next/link'
+import Link from "next/link";
 import { CallToAction } from "../Button/callToAction";
 import { BlogCard } from "./blogListCard";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
+import Carousel from "../../components/Carousel";
 
 const BlogList = () => {
+  const [windowSize, setWindowSize] = React.useState({ width: undefined });
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth });
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const router = useRouter();
   return (
     <div className="blog-list">
@@ -18,15 +29,28 @@ const BlogList = () => {
               Our Latest News/Article/Blog
             </div>
           </div>
-          <div className="blog-list__right">
-            <Link href="/blogs">
-              <CallToAction onClick={() => router.push('/blogs')}>view all blogs</CallToAction>
-            </Link>
-          </div>
+          {windowSize.width > 450 && (
+            <div className="blog-list__right">
+              <Link href="/blogs">
+                <CallToAction onClick={() => router.push("/blogs")}>
+                  view all blogs
+                </CallToAction>
+              </Link>
+            </div>
+          )}
         </div>
         <div className="blog-list__list">
-          <BlogCard />
-          <BlogCard />
+          {windowSize.width > 450 ? (
+            <>
+              <BlogCard />
+              <BlogCard />
+            </>
+          ) : (
+            <Carousel bulletdot={false}>
+              <BlogCard />
+              <BlogCard />
+            </Carousel>
+          )}
         </div>
       </div>
     </div>

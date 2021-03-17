@@ -20,15 +20,11 @@ const CollegeHeader = ({ collageLogo, name, address, estblished }) => {
             </div>
             <div className="college-header__info">
               <div className="college-header__estd">ESTD: {estblished}</div>
-              <div className="college-header__name">
-                {name}
-              </div>
+              <div className="college-header__name">{name}</div>
               <div className="college-header__meta">
                 <div className="college-header__meta__item">
                   <div className="college-header__meta__logo"></div>
-                  <div className="college-header__meta__title">
-                    {address}
-                  </div>
+                  <div className="college-header__meta__title">{address}</div>
                 </div>
                 <div className="college-header__meta__item">
                   <div className="college-header__meta__logo"></div>

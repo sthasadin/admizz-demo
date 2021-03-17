@@ -1,12 +1,25 @@
 import React from "react";
 import Link from "next/link";
 import { CollegeCourse } from "./collegeCourse";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 const CollegesCard = (college) => {
+  const [windowSize, setWindowSize] = React.useState({ width: undefined });
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth });
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const router = useRouter();
   return (
-    <div className="colleges-card" onClick={() => router.push(`colleges/${college?._id}`)}>
+    <div
+      className="colleges-card"
+      onClick={() => router.push(`colleges/${college?._id}`)}
+    >
       <div className="colleges-card__inner">
         <div className="colleges-card__thumbnail">
           <img src="/colleges.png" alt="college" />
@@ -53,6 +66,12 @@ const CollegesCard = (college) => {
             <div className="colleges-card__course">
               <CollegeCourse courses={college?.top_courses} />
             </div>
+            {windowSize.width < 450 ? (
+              <>
+                <hr className="colleges-card__line" />
+                <div className="colleges-card__viewdetails">VIEW DETAILS</div>
+              </>
+            ) : null}
           </div>
         </div>
       </div>

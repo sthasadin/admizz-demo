@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import filterIcon from "../../public/filterIcon.png";
 import addCollegeIcon from "../../public/addCollegeIcon.png";
@@ -10,13 +10,13 @@ import CollegeCompareTable from "./CollegeCompareTable";
 
 const index = () => {
   const [isFilterContainer, setIsFilterContainer] = React.useState(false);
-  const [selectedFilters,setSelectedFilters] = useState([
-    {label:"QS Ranking",value:'QS_ranking'},//it should be college field
-    {label:"Address", value:'address'},
-    {label:"Average Fee",value:'average_fee'},
-    {label: "University Ranking", value:"university_ranking"},
-    {label: "ESTD_YEAR", value:'estd_year'}
-  ])
+  const [selectedFilters, setSelectedFilters] = useState([
+    { label: "QS Ranking", value: "QS_ranking" }, //it should be college field
+    { label: "Address", value: "address" },
+    { label: "Average Fee", value: "average_fee" },
+    { label: "University Ranking", value: "university_ranking" },
+    { label: "ESTD_YEAR", value: "estd_year" },
+  ]);
   const [selectedCollege, setSelectedCollege] = React.useState([]);
   // const keyAttributes = useMemo(()=> {
   //   return[
@@ -27,7 +27,7 @@ const index = () => {
   //   {label: "ESTD_YEAR", value:'estd_year'}
   // ]
   // },[])
-console.log(selectedFilters)
+  console.log(selectedFilters);
   const [isAddCollegeModalOpen, setIsAddCollegeModalOpen] = React.useState(
     false
   );
@@ -81,7 +81,11 @@ console.log(selectedFilters)
         </div>
         {isFilterContainer && (
           <div className="comparecollege__filtercontainer">
-            <CompareAttributesList selectedFilters={selectedFilters} setSelectedFilters={setSelectedFilters} selectedCollege={selectedCollege}/>
+            <CompareAttributesList
+              selectedFilters={selectedFilters}
+              setSelectedFilters={setSelectedFilters}
+              selectedCollege={selectedCollege}
+            />
           </div>
         )}
       </div>
@@ -117,7 +121,10 @@ console.log(selectedFilters)
         </div>
       </div>
       <div className="collegecompare__tablecontainer">
-        <CollegeCompareTable selectedFilters={selectedFilters} selectedCollege={selectedCollege} />
+        <CollegeCompareTable
+          selectedFilters={selectedFilters}
+          selectedCollege={selectedCollege}
+        />
       </div>
     </div>
   );

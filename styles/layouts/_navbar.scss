@@ -40,10 +40,135 @@
       display: block;
     }
   }
-  &__list {
-    margin-top: 50px;
-    margin-left: 30px;
-    line-height: 4rem;
+  &__drawer {
+    //display: none;
+
+    &__container {
+      background-color: #5f1802;
+      height: 812px;
+
+      .drawer__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin-top: 10px;
+
+        .select__boxcontainer {
+          display: flex;
+
+          .selectbox__text {
+            display: flex;
+            color: #e0e0e0;
+            font-family: "Roboto", sans-serif;
+            font-size: 14px;
+            line-height: 16px;
+            margin-right: 6px;
+            align-self: center;
+          }
+          .selectBox {
+            color: white;
+            background: transparent;
+            height: 12px;
+            display: flex;
+            align-self: center;
+          }
+        }
+        .cross_logo {
+          width: 21px;
+          height: 21px;
+          display: flex;
+          align-self: center;
+        }
+      }
+
+      .navbar__applyaddresscontainer {
+        background-color: #491100;
+        border-radius: 20px 20px 0px 0px;
+        .navbar__applynowcontainer {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 190px;
+
+          .navbar__applynowtext {
+            font-size: 18px;
+            font-weight: 800;
+            font-family: "M Plus 1p", sans-serif;
+            line-height: 27px;
+            color: #ffffff;
+          }
+          .navbar__applybtn {
+            width: 253px;
+            height: 54px;
+            padding: 15px 36px 15px 36px;
+            margin-top: 16px;
+            background-color: #ffa200;
+            color: #f2f2f2;
+            font-weight: 800;
+          }
+        }
+
+        .navbar__contactcontainer {
+          background-color: #5f1802;
+          height: 170px;
+          border-radius: 20px 20px 0px 0px;
+          display: flex;
+          justify-content: space-around;
+          //margin-top: 40px;
+
+          .navbar__contactdetails {
+            margin-top: 50px;
+            .navbar__contactIcons {
+              display: flex;
+
+              div {
+                margin-left: 11px;
+                font-size: 14px;
+                color: #f2f2f2;
+              }
+            }
+            .navbar__contact1 {
+              display: flex;
+              margin-top: 12px;
+              font-size: 14px;
+              color: #f2f2f2;
+
+              .navbar__contactnumber {
+                font-weight: 700;
+                margin-left: 1px;
+              }
+            }
+
+            .navbar__contact2 {
+              display: flex;
+              margin-top: 10px;
+
+              font-size: 14px;
+              color: #f2f2f2;
+              .navbar__contactnumber {
+                font-weight: 700;
+                margin-left: 3px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__listcontainer {
+    .navbar__list {
+      text-align: center;
+      margin-top: 2px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 14px;
+      font-family: "M Plus 1p" sans-serif;
+      color: #e0e0e0;
+      :hover {
+        color: #ffa200;
+      }
+    }
   }
   &__right {
     display: flex;

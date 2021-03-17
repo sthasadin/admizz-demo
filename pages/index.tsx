@@ -6,7 +6,7 @@ import { About } from "../components/About";
 import { BlogList } from "../components/BlogList";
 import { CollegeFinder } from "../components/collegeFinder";
 import { CollegesBlock } from "../components/collegesBlock";
-import { FiveSteps } from "../components/FiveSteps";
+// import { FiveSteps } from "../components/FiveSteps";
 import { Introduction } from "../components/Introduction";
 // import { Login } from "../components/Login";
 import { Merits } from "../components/mertis";
@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      {windowSize.width > 680 && <Topbar />}
+      {windowSize.width > 680 ? <Topbar /> : null}
       <Head>
         {/* console.log("asd")} */}
         <title>Admizz - Home</title>
@@ -57,7 +57,7 @@ export default function Home() {
 
       <main className="main">
         <Navbar windowsSize={windowSize.width} />
-        <Carousel>
+        <Carousel bulletdot={false}>
           <Introduction title="hello" />
           <Introduction title="world" />
           <Introduction title="helloworld" />
@@ -67,7 +67,7 @@ export default function Home() {
         <Us />
 
         <Statistics />
-        <FiveSteps />
+        {/* <FiveSteps /> */}
         <CollegesBlock collegeList={collegeList} />
         <CollegeFinder />
         {/* <Testimonial /> */}

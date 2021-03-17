@@ -2,6 +2,16 @@ import React from "react";
 import { CallToAction } from "../Button/callToAction";
 
 const Merits = () => {
+  const [windowSize, setWindowSize] = React.useState({ width: undefined });
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth });
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className="merit">
       <div className="merit__inner">
@@ -47,7 +57,9 @@ const Merits = () => {
               </div>
             </div>
           </div>
-          <CallToAction>Learn More</CallToAction>
+          {windowSize.width > 450 && (
+            <CallToAction className="learnmore__btn">Learn More</CallToAction>
+          )}
         </div>
         <div className="merit__right">
           <div className="merti__right__inner">
@@ -56,11 +68,24 @@ const Merits = () => {
             </div>
             <div className="merit__thumbnail__text">
               <div className="merit__thumbnail__title">
-                Some Facts about India That you should know
+                {windowSize.width > 450
+                  ? "Some Facts about India That you should know"
+                  : null}
               </div>
               <div className="merit__thumbnail__cta">
-                <a href="#">watch video</a>
+                <a href="#">
+                  {windowSize.width > 450 ? (
+                    "watch video"
+                  ) : (
+                    <img src="/playvideoIcon.png" alt="playicon_logo" />
+                  )}
+                </a>
               </div>
+              {windowSize.width < 450 && (
+                <CallToAction className="learnmore__btn">
+                  Learn More
+                </CallToAction>
+              )}
             </div>
           </div>
         </div>

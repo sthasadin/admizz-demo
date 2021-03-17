@@ -16,8 +16,8 @@ const FiveSteps = (props: any) => {
                   Your 5 Step to Success With Us
                 </div>
                 <div className="five-steps__circle__cta">
-                  <CallToAction classNam="filled">
-                    Find Colleges/Universities
+                  <CallToAction className="filled">
+                    Find Universities
                   </CallToAction>
                 </div>
               </div>

@@ -1,6 +1,9 @@
 .submenu-bar {
   background: $border-color;
   height: 45px;
+  @media (max-width: 450px) {
+    display: none;
+  }
 }
 
 .submenu {

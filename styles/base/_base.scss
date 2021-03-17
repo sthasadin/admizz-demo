@@ -18,6 +18,9 @@ body {
 
 .container {
   min-height: 100vh;
+  @media (max-width: 450px) {
+    min-width: 102%;
+  }
 }
 
 .title a {

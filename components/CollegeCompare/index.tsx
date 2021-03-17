@@ -32,8 +32,6 @@ const index = () => {
     setSelectedCollege([...selectedCollege, ...data]);
   };
 
-  console.log(selectedCollege);
-
   const removeCollegeFromCard = (data: any) => {
     const removeCollege = selectedCollege.filter(
       (selectedCollege) => selectedCollege._id !== data

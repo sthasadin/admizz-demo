@@ -52,7 +52,6 @@ export default function CustomizedTables(props: any) {
     "ESTD_YEAR",
   ];
 
-  console.log(selectedCollege);
   const classes = useStyles();
 
   return (

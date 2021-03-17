@@ -36,8 +36,12 @@ const CompareAttributesList = (props: any) => {
   };
   return (
     <>
-      {filterArray.map((data) => {
-        return <Button className="filter__button">{data}</Button>;
+      {filterArray.map((data, index) => {
+        return (
+          <Button className="filter__button" key={index}>
+            {data}
+          </Button>
+        );
       })}
     </>
   );

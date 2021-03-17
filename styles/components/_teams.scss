@@ -120,7 +120,11 @@
   &__full-team {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-gap: 3px;
+    grid-gap: 5px;
+    overflow-x: auto;
+    @media (max-width: 450px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
     &__thumbnail {
       height: 100%;
       width: 100%;

@@ -8,7 +8,7 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 interface Carousel {
   children: ReactNode | ReactChild | ReactChildren;
 }
-function Carousel({ children }: Carousel) {
+function Carousel({ children, bulletdot }) {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = Children.count(children);
@@ -16,14 +16,18 @@ function Carousel({ children }: Carousel) {
     setActiveStep(step);
   };
   const inactivestyle = {
-    width: "30px",
-    height: "5px",
+    width: "10px",
+    height: "9px",
     background: "#5f1802",
+    borderRadius: "50%",
+    outline: "none",
   };
   const activestyle = {
-    width: "30px",
-    height: "5px",
+    width: "14px",
+    height: "14px",
     background: "#ffa200",
+    borderRadius: "50%",
+    outline: "none",
   };
 
   return (

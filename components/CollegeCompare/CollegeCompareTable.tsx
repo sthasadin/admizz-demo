@@ -81,43 +81,11 @@ export default function CustomizedTables(props: any) {
                     <StyledTableCell component="th" scope="row">
                       {colegeAttributes[data.value]}
                     </StyledTableCell>
-                    {/* <StyledTableCell align="right">
-                      {colegeAttributes.average_fee}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      {colegeAttributes.category}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      {colegeAttributes.estd_year}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      {colegeAttributes.graduation_percentage}
-                    </StyledTableCell> */}
                   </>
                 ))}
               </StyledTableRow>
             );
           })}
-
-          {/* {selectedCollege.map((colegeAttributes: any) => (
-            <StyledTableRow key={colegeAttributes._id}>
-              <StyledTableCell component="th" scope="row">
-                {colegeAttributes.QS_ranking}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {colegeAttributes.average_fee}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {colegeAttributes.category}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {colegeAttributes.estd_year}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {colegeAttributes.graduation_percentage}
-              </StyledTableCell>
-            </StyledTableRow>
-          ))} */}
         </TableBody>
       </Table>
     </TableContainer>

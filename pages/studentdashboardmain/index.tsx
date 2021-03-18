@@ -1,4 +1,4 @@
-import React, { useEffect }  from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCollegeList } from "../../store/Action/allCollage.action";
@@ -7,8 +7,9 @@ import { DashboardWelcomeCard } from "../../components/DashboardWelcomeCard";
 import { DashboardDetailInfo } from "../../components/DashboardDetailInfo";
 import { DashboardRecommend } from "../../components/DashboardRecommend";
 import { DashboardNavbar } from "../../layouts/dashboardnavbar";
+import { withRestrictedRoute } from "../withRestrictedRoute";
 
-const collegeList = () => {
+const index = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCollegeList());
@@ -43,4 +44,4 @@ const collegeList = () => {
   );
 };
 
-export default collegeList;
+export default withRestrictedRoute(index);

@@ -6,7 +6,7 @@ import { About } from "../components/About";
 import { BlogList } from "../components/BlogList";
 import { CollegeFinder } from "../components/collegeFinder";
 import { CollegesBlock } from "../components/collegesBlock";
-// import { FiveSteps } from "../components/FiveSteps";
+import { FiveSteps } from "../components/FiveSteps";
 import { Introduction } from "../components/Introduction";
 // import { Login } from "../components/Login";
 import { Merits } from "../components/mertis";
@@ -67,7 +67,7 @@ export default function Home() {
         <Us />
 
         <Statistics />
-        {/* <FiveSteps /> */}
+        <FiveSteps />
         <CollegesBlock collegeList={collegeList} />
         <CollegeFinder />
         {/* <Testimonial /> */}

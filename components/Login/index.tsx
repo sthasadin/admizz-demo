@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { CallToAction } from "../Button/callToAction";
 import { Input } from "../Input";
-import PersonIcon from '@material-ui/icons/Person';
-import LockIcon from '@material-ui/icons/Lock';
+import PersonIcon from "@material-ui/icons/Person";
+import LockIcon from "@material-ui/icons/Lock";
 import { Button } from "../Button";
 import * as yup from "yup";
 import { auth } from "../../firebase";
 import { ErrorMessages } from "../../utils/ErrorMessages";
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
-
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { useRouter } from "next/router";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -26,9 +26,11 @@ const Login = () => {
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
+  const router = useRouter();
+
   const handleChange = (e: any) => {
-    setFormValue({ ...formValue, [e.target.name]: e.target.value })
-  }
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  };
 
   const validationSchema = yup.object().shape<signInProps>({
     email: yup
@@ -40,30 +42,37 @@ const Login = () => {
 
   const validate = async () => {
     try {
-      await validationSchema.validate({
-        email: formValue.email,
-        password: formValue.password,
-      }, {
-        abortEarly: false
-      });
-      setFormError({})
+      await validationSchema.validate(
+        {
+          email: formValue.email,
+          password: formValue.password,
+        },
+        {
+          abortEarly: false,
+        }
+      );
+      setFormError({});
       return true;
     } catch (err) {
       const errors = {};
       err.inner.forEach((item: any) => {
-        errors[item.path] = item.errors[0]
-      })
-      setFormError({ ...errors })
+        errors[item.path] = item.errors[0];
+      });
+      setFormError({ ...errors });
     }
-  }
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     try {
-      e.preventDefault()
-      setLoading(true)
+      e.preventDefault();
+      setLoading(true);
       const isValid = await validate();
       if (isValid) {
-        const res = await auth.signInWithEmailAndPassword(formValue.email, formValue.password);
+        const res = await auth.signInWithEmailAndPassword(
+          formValue.email,
+          formValue.password
+        );
+        router.push("/studentdashboardmain");
       }
       setLoading(false);
     } catch (err) {
@@ -71,20 +80,20 @@ const Login = () => {
       const errorMessage = ErrorMessages[err.code];
       handleOpenSnackbar();
       if (errorMessage) {
-        setFormError({ ...formError, otherErrors: errorMessage })
+        setFormError({ ...formError, otherErrors: errorMessage });
       } else {
-        setFormError({ ...formError, otherErrors: 'Error occurred' })
+        setFormError({ ...formError, otherErrors: "Error occurred" });
       }
     }
-  }
+  };
 
   const handleOpenSnackbar = () => {
-    setSnackOpen(true)
-  }
+    setSnackOpen(true);
+  };
 
   const handleCloseSnackbar = () => {
-    setSnackOpen(false)
-  }
+    setSnackOpen(false);
+  };
 
   return (
     <div className="signin">
@@ -221,22 +230,29 @@ const Login = () => {
                 <a href="#">Forgot Password?</a>
               </div>
               <div className="signin__submit column">
-                <Button loading={loading} htmlType={"submit"} fullWidth >Login</Button>
+                <Button loading={loading} htmlType={"submit"} fullWidth>
+                  Login
+                </Button>
                 {/* <CallToAction className="filled login">Login</CallToAction> */}
                 <div className="signin__change login">
-                  <a href="/register">New Here? Click Here To Create our Account.</a>
+                  <a href="/register">
+                    New Here? Click Here To Create our Account.
+                  </a>
                 </div>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
         <Alert onClose={handleCloseSnackbar} severity="error">
           {formError.otherErrors}
         </Alert>
       </Snackbar>
-
     </div>
   );
 };

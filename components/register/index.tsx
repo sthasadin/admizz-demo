@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Input } from "../Input";
-import PersonIcon from '@material-ui/icons/Person';
-import MailIcon from '@material-ui/icons/Mail';
-import PhoneIcon from '@material-ui/icons/Phone';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import LockIcon from '@material-ui/icons/Lock';
+import PersonIcon from "@material-ui/icons/Person";
+import MailIcon from "@material-ui/icons/Mail";
+import PhoneIcon from "@material-ui/icons/Phone";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import LockIcon from "@material-ui/icons/Lock";
 import { auth, db } from "../../firebase";
 import * as yup from "yup";
 import { Button } from "../Button";
@@ -13,6 +13,7 @@ import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { Select } from "../Select";
 import { countryList } from "../../utils/CountryLists";
+import { useRouter } from "next/router";
 
 interface signUpFormValue {
   fullName: string;
@@ -27,16 +28,17 @@ interface signUpFormValue {
 
 const Register = () => {
   const [formValue, setFormValue] = useState({
-    countryCode: "+977"
+    countryCode: "+977",
   } as signUpFormValue);
   const [formError, setFormError] = useState({} as any);
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
+  const router = useRouter();
 
   const handleChange = (e: any) => {
-    setFormValue({ ...formValue, [e.target.name]: e.target.value })
-  }
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+  };
 
   const validationSchema = yup.object().shape<signUpFormValue>({
     fullName: yup.string().required("Required"),
@@ -48,37 +50,40 @@ const Register = () => {
     confirmPassword: yup.string().required("Required"),
     country: yup.string().required("Required"),
     phoneNumber: yup.string().required("Required"),
-    countryCode: yup.string().required("Required")
+    countryCode: yup.string().required("Required"),
   });
 
   const validate = async () => {
     try {
-      await validationSchema.validate({
-        fullName: formValue.fullName,
-        email: formValue.email,
-        password: formValue.password,
-        confirmPassword: formValue.confirmPassword,
-        country: formValue.country,
-        phoneNumber: formValue.phoneNumber,
-        countryCode: formValue.countryCode
-      }, {
-        abortEarly: false
-      });
+      await validationSchema.validate(
+        {
+          fullName: formValue.fullName,
+          email: formValue.email,
+          password: formValue.password,
+          confirmPassword: formValue.confirmPassword,
+          country: formValue.country,
+          phoneNumber: formValue.phoneNumber,
+          countryCode: formValue.countryCode,
+        },
+        {
+          abortEarly: false,
+        }
+      );
       if (formValue.password !== formValue.confirmPassword) {
-        setFormError({ confirmPassword: "Password does not match" })
+        setFormError({ confirmPassword: "Password does not match" });
       } else {
-        setFormError({})
+        setFormError({});
         return true;
       }
       return false;
     } catch (err) {
       const errors = {};
       err.inner.forEach((item: any) => {
-        errors[item.path] = item.errors[0]
-      })
-      setFormError({ ...errors })
+        errors[item.path] = item.errors[0];
+      });
+      setFormError({ ...errors });
     }
-  }
+  };
 
   const handleRegister = async (e) => {
     try {
@@ -86,13 +91,17 @@ const Register = () => {
       setLoading(true);
       const valid = await validate();
       if (valid) {
-        await auth.createUserWithEmailAndPassword(formValue.email, formValue.password);
+        await auth.createUserWithEmailAndPassword(
+          formValue.email,
+          formValue.password
+        );
         await db.collection("users").add({
           fullName: formValue.fullName,
           email: formValue.email,
-          phoneNumber: formValue.countryCode + '-' + formValue.phoneNumber,
+          phoneNumber: formValue.countryCode + "-" + formValue.phoneNumber,
           country: formValue.country,
         });
+        router.push("/studentdashboardmain");
       }
       setLoading(false);
     } catch (err) {
@@ -100,20 +109,20 @@ const Register = () => {
       const errorMessage = ErrorMessages[err.code];
       handleOpenSnackbar();
       if (errorMessage) {
-        setFormError({ ...formError, otherErrors: errorMessage })
+        setFormError({ ...formError, otherErrors: errorMessage });
       } else {
-        setFormError({ ...formError, otherErrors: 'Error occurred' })
+        setFormError({ ...formError, otherErrors: "Error occurred" });
       }
     }
-  }
+  };
 
   const handleOpenSnackbar = () => {
-    setSnackOpen(true)
-  }
+    setSnackOpen(true);
+  };
 
   const handleCloseSnackbar = () => {
-    setSnackOpen(false)
-  }
+    setSnackOpen(false);
+  };
 
   return (
     <div className="signin">
@@ -224,9 +233,8 @@ const Register = () => {
             eminent companies offer the most worth-while career opportunities.
           </div>
           <div className="signin__form ">
-            <form onSubmit={handleRegister} >
+            <form onSubmit={handleRegister}>
               <div className={"signin__form-grid"}>
-
                 <Input
                   fullWidth
                   onChange={handleChange}
@@ -235,7 +243,8 @@ const Register = () => {
                   placeholder="Full Name*"
                   error={!!formError.fullName}
                   errorMessage={formError.fullName}
-                  type="text" />
+                  type="text"
+                />
                 <Input
                   fullWidth
                   onChange={handleChange}
@@ -244,8 +253,9 @@ const Register = () => {
                   placeholder="Email Address*"
                   error={!!formError.email}
                   errorMessage={formError.email}
-                  type="text" />
-                <div className={'student-info__phone-input'}>
+                  type="text"
+                />
+                <div className={"student-info__phone-input"}>
                   <Select
                     options={countryList}
                     useValue
@@ -267,7 +277,8 @@ const Register = () => {
                     placeholder="Phone Number*"
                     error={!!formError.phoneNumber}
                     errorMessage={formError.phoneNumber}
-                    type="text" />
+                    type="text"
+                  />
                 </div>
                 {/* <Input
                 fullWidth
@@ -306,7 +317,8 @@ const Register = () => {
                   placeholder="Password"
                   error={!!formError.password}
                   errorMessage={formError.password}
-                  type="password" />
+                  type="password"
+                />
                 <Input
                   fullWidth
                   onChange={handleChange}
@@ -315,28 +327,31 @@ const Register = () => {
                   placeholder="Confirm Password"
                   error={!!formError.confirmPassword}
                   errorMessage={formError.confirmPassword}
-                  type="password" />
+                  type="password"
+                />
               </div>
               <div className="signin__info">
                 By submitting this form, you accept and agree to our
-                     <span>Terms & Condition.</span>
+                <span>Terms & Condition.</span>
               </div>
               <div className="signin__submit">
                 <div className="signin__change">
                   <a href="/login">Already Registered? Click Here To Login.</a>
                 </div>
-                <Button
-                  htmlType={"submit"}
-                  loading={loading}
-                  fullWidth
-                >Register Now</Button>
+                <Button htmlType={"submit"} loading={loading} fullWidth>
+                  Register Now
+                </Button>
                 {/* <CallToAction className="filled">Register Now</CallToAction> */}
               </div>
             </form>
           </div>
         </div>
       </div>
-      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
         <Alert onClose={handleCloseSnackbar} severity="error">
           {formError.otherErrors}
         </Alert>

@@ -23,7 +23,7 @@ const FiveSteps = (props: any) => {
               </div>
             </div>
             <div className="five-steps__list">
-              <div className="five-steps__inner">
+              <div className="five-steps__list__inner">
                 <div className="five-steps__item">
                   <div className="five-steps__item__text">
                     <div className="five-steps__item__title">
@@ -49,6 +49,7 @@ const FiveSteps = (props: any) => {
                     </svg>
                   </div>
                 </div>
+
                 <div className="five-steps__item">
                   <div className="five-steps__item__text">
                     <div className="five-steps__item__title">

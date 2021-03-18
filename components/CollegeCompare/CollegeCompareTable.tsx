@@ -17,7 +17,7 @@ import { bold } from "*.jpg";
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
     head: {
-      // backgroundColor: theme.palette.common.black,
+      backgroundColor: theme.palette.common.black,
       color: theme.palette.common.white,
     },
     body: {
@@ -62,9 +62,7 @@ export default function CustomizedTables(props: any) {
           <TableRow>
             <StyledTableCell>Compare Attributes</StyledTableCell>
             {selectedCollege.map((college: any) => {
-              return (
-                <StyledTableCell align="right">{college.name}</StyledTableCell>
-              );
+              return <StyledTableCell>{college.name}</StyledTableCell>;
             })}
           </TableRow>
         </TableHead>
@@ -81,43 +79,11 @@ export default function CustomizedTables(props: any) {
                     <StyledTableCell component="th" scope="row">
                       {colegeAttributes[data.value]}
                     </StyledTableCell>
-                    {/* <StyledTableCell align="right">
-                      {colegeAttributes.average_fee}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      {colegeAttributes.category}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      {colegeAttributes.estd_year}
-                    </StyledTableCell>
-                    <StyledTableCell align="right">
-                      {colegeAttributes.graduation_percentage}
-                    </StyledTableCell> */}
                   </>
                 ))}
               </StyledTableRow>
             );
           })}
-
-          {/* {selectedCollege.map((colegeAttributes: any) => (
-            <StyledTableRow key={colegeAttributes._id}>
-              <StyledTableCell component="th" scope="row">
-                {colegeAttributes.QS_ranking}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {colegeAttributes.average_fee}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {colegeAttributes.category}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {colegeAttributes.estd_year}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {colegeAttributes.graduation_percentage}
-              </StyledTableCell>
-            </StyledTableRow>
-          ))} */}
         </TableBody>
       </Table>
     </TableContainer>

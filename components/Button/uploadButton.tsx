@@ -1,9 +1,11 @@
 import React from "react";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
-const UploadButton = ({children}) => {
+const UploadButton = ({ children }) => {
   return (
-    <Button className="uploadButton" variant="contained" component="span">{children}</Button>
+    <Button className="uploadButton" variant="contained" component="span">
+      {children}
+    </Button>
   );
 };
 

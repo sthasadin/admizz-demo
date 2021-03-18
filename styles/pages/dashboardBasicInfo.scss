@@ -5,7 +5,7 @@
   }
   &__pageTitle {
     display: flex;
-    color: #BDBDBD;
+    color: #bdbdbd;
     font-family: Poppins;
     font-size: 14px;
     font-style: normal;
@@ -14,8 +14,8 @@
     letter-spacing: 0em;
     text-align: left;
   }
-  &__pageTitleHighlight{
-    color: #FFA200;
+  &__pageTitleHighlight {
+    color: #ffa200;
   }
   &__sectionTitle {
     padding: 10px 0px;
@@ -38,24 +38,24 @@
   &__inputContainer {
     width: 45%;
   }
-	&____input {
+  &____input {
     margin-left: 10px;
     background-color: red;
-	}
-	&__grid {
+  }
+  &__grid {
     padding-left: 15px;
     @media (max-width: 960px) {
       padding: 10px 0px;
     }
-	}
-	&__gridNoPadding {
-    padding-left: 10px;    
-    background-color: #F3F6F9;
-	}
-	&__grid:first-child {
-		padding-left: 0;
-	}
-	&__row {
+  }
+  &__gridNoPadding {
+    padding-left: 10px;
+    background-color: #f3f6f9;
+  }
+  &__grid:first-child {
+    padding-left: 0;
+  }
+  &__row {
     margin: 26px 0px;
     @media (max-width: 414px) {
       margin: 0px;
@@ -98,7 +98,7 @@
     line-height: 21px;
     letter-spacing: 0em;
     text-align: left;
-    color: #4F4F4F;
+    color: #4f4f4f;
     align-items: center;
   }
   &__buttonContainer {
@@ -107,9 +107,8 @@
     padding: 20px 0px;
     width: 100%;
     border-radius: 5px;
-
   }
-  &__backContainer{
+  &__backContainer {
     cursor: pointer;
     align-self: center;
     margin-right: 30px;
@@ -152,7 +151,7 @@
     margin-left: 10px;
   }
   &__viewText {
-    color: #FFA200;
+    color: #ffa200;
     font-family: Mplus 1p;
     font-size: 14px;
     font-style: normal;
@@ -163,7 +162,7 @@
   }
   &__editText {
     margin-left: 30px;
-    color: #5F1802;
+    color: #5f1802;
     font-family: Mplus 1p;
     font-size: 14px;
     font-style: normal;
@@ -174,7 +173,7 @@
   }
   &__tableTitle {
     display: flex;
-    background-color: #F3F6F9;
+    background-color: #f3f6f9;
     width: 100%;
     min-height: 40px;
     align-items: center;
@@ -194,7 +193,7 @@
     line-height: 21px;
     letter-spacing: 0em;
     text-align: left;
-    color: #464E5F;
+    color: #464e5f;
   }
   &__tableSubText {
     font-family: Mplus 1p;
@@ -204,12 +203,12 @@
     line-height: 19px;
     letter-spacing: 0em;
     text-align: left;
-    color: #B5B5C3;
+    color: #b5b5c3;
   }
   &__imageCell {
     height: 50px;
     min-width: 20px;
-    background-color: #F3F6F9;
+    background-color: #f3f6f9;
   }
   &__gridInformation {
     height: 200px;
@@ -219,6 +218,6 @@
   }
   &__horizontalLine {
     margin-top: 10px;
-    border: 1px solid #E0E0E0
+    border: 1px solid #e0e0e0;
   }
 }

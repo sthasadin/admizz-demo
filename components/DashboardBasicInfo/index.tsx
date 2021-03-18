@@ -13,9 +13,9 @@ import { object } from "yup";
 const DashboardBasicInfo = (props) => {
   const [selectedCollege, setSelectedCollege] = useState("");
   const [selectedCourse, setSelectedCourse] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [middleName, setMiddleName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
+  // const [middleName, setMiddleName] = useState("");
+  // const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [DOB, setDob] = useState("");
@@ -211,9 +211,9 @@ const DashboardBasicInfo = (props) => {
     props.getData({
       selectedCollege,
       selectedCourse,
-      firstName,
-      lastName,
-      middleName,
+      fullName,
+      // lastName,
+      // middleName,
       DOB,
       nationality,
       email,
@@ -236,9 +236,9 @@ const DashboardBasicInfo = (props) => {
 
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
-      setFirstName(props.data.firstName);
-      setLastName(props.data.lastName);
-      setMiddleName(props.data.middleName);
+      setFullName(props.data.fullName);
+      // setLastName(props.data.lastName);
+      // setMiddleName(props.data.middleName);
       setDob(props.data.DOB);
       setNationality(props.data.nationality);
       setEmail(props.data.email);
@@ -268,7 +268,7 @@ const DashboardBasicInfo = (props) => {
           <Grid
             container
             className="dashboard-basic-info__row"
-            justify="space-around"
+            justify="flex-start"
             direction="row"
           >
             <Grid
@@ -279,12 +279,12 @@ const DashboardBasicInfo = (props) => {
               xs={12}
             >
               <DropDownSelect
-                title="Select Course"
+                title="Select Stream"
                 options={courseOption}
                 handelChange={setSelectedCourse}
               />
             </Grid>
-            <Grid
+            {/* <Grid
               className={"dashboard-basic-info__grid"}
               item
               sm={12}
@@ -296,7 +296,7 @@ const DashboardBasicInfo = (props) => {
                 options={CollegesOptions}
                 handelChange={setSelectedCollege}
               />
-            </Grid>
+            </Grid> */}
           </Grid>
         </div>
       </div>
@@ -324,12 +324,12 @@ const DashboardBasicInfo = (props) => {
                 <Input
                   className={"dashboard-basic-info__input"}
                   fullWidth
-                  placeholder="First Name"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  placeholder="Full Name"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                 />
               </Grid>
-              <Grid
+              {/* <Grid
                 className={"dashboard-basic-info__grid"}
                 item
                 sm={12}
@@ -343,8 +343,8 @@ const DashboardBasicInfo = (props) => {
                   value={middleName}
                   onChange={(e) => setMiddleName(e.target.value)}
                 />
-              </Grid>
-              <Grid
+              </Grid> */}
+              {/* <Grid
                 className={"dashboard-basic-info__grid"}
                 item
                 sm={12}
@@ -358,38 +358,8 @@ const DashboardBasicInfo = (props) => {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                 />
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <div className={"student-info__phone-separator"}>
-                  <DropDownSelect
-                    options={CountryCodeOptions}
-                    title="Country Code"
-                    handelChange={setCountryCode}
-                  />
-                </div>
-                <div className={"student-info__phone-input"}>
-                  <Input
-                    className={"student-info__input student-info__phone"}
-                    fullWidth
-                    placeholder="Phone Number"
-                    value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                  />
-                </div>
-              </Grid>
+              </Grid> */}
+
               <Grid
                 className={"dashboard-basic-info__grid"}
                 item
@@ -432,6 +402,34 @@ const DashboardBasicInfo = (props) => {
                 md={4}
                 xs={12}
               >
+                <DropDownSelect
+                  options={CountryCodeOptions}
+                  title="Country Code"
+                  handelChange={setCountryCode}
+                />
+              </Grid>
+              <Grid
+                className={"dashboard-basic-info__grid"}
+                item
+                sm={12}
+                md={4}
+                xs={12}
+              >
+                <Input
+                  className={"student-info__input student-info__phone"}
+                  fullWidth
+                  placeholder="Phone Number"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />
+              </Grid>
+              <Grid
+                className={"dashboard-basic-info__grid"}
+                item
+                sm={12}
+                md={4}
+                xs={12}
+              >
                 <Input
                   className={"student-info__input student-info__phone"}
                   fullWidth
@@ -440,6 +438,56 @@ const DashboardBasicInfo = (props) => {
                   onChange={(e) => setDob(e.target.value)}
                 />
               </Grid>
+              {/* <Grid
+                className={"dashboard-basic-info__grid"}
+                item
+                sm={12}
+                md={4}
+                xs={12}
+              >
+                <Input
+                  className={"dashboard-basic-info__input"}
+                  fullWidth
+                  placeholder="Email Address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Grid> */}
+              {/* <Grid
+                className={"dashboard-basic-info__grid"}
+                item
+                sm={12}
+                md={4}
+                xs={12}
+              >
+                <DropDownSelect
+                  title="Nationality"
+                  options={NationalityOptions}
+                  handelChange={setNationality}
+                />
+              </Grid> */}
+            </Grid>
+            <Grid
+              container
+              className="dashboard-basic-info__row"
+              justify="flex-start"
+              direction="row"
+            >
+              {/* <Grid
+                className={"dashboard-basic-info__grid"}
+                item
+                sm={12}
+                md={4}
+                xs={12}
+              >
+                <Input
+                  className={"student-info__input student-info__phone"}
+                  fullWidth
+                  placeholder="Date Of Birth"
+                  value={DOB}
+                  onChange={(e) => setDob(e.target.value)}
+                />
+              </Grid> */}
               <Grid
                 className={"dashboard-basic-info__grid"}
                 item
@@ -453,13 +501,6 @@ const DashboardBasicInfo = (props) => {
                   handelChange={setGender}
                 />
               </Grid>
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              ></Grid>
             </Grid>
           </form>
         </div>
@@ -471,7 +512,7 @@ const DashboardBasicInfo = (props) => {
         <div className="dashboard-basic-info__formContainer">
           <div className="dashboard-basic-info__marginContainer">
             <div className="dashboard-basic-info__formTitle">
-              Residential Address
+              Guardians Address
             </div>
             <hr className="dashboard-basic-info__horizontalLine" />
             <form>
@@ -582,7 +623,7 @@ const DashboardBasicInfo = (props) => {
                     sm={12}
                     xs={12}
                   >
-                    <FormControlLabel
+                    {/* <FormControlLabel
                       className="dashboard-basic-info__checkboxLabel"
                       control={
                         <Checkbox
@@ -593,16 +634,14 @@ const DashboardBasicInfo = (props) => {
                         />
                       }
                       label="Permanent address is same as residential address"
-                    />
+                    /> */}
                   </Grid>
                 </Grid>
               </Grid>
             </form>
           </div>
-          <div className="dashboard-basic-info__formTitle">
-            Permanent Address
-          </div>
-          <hr className="dashboard-basic-info__horizontalLine" />
+
+          {/*          
           <form>
             <Grid
               container
@@ -701,6 +740,7 @@ const DashboardBasicInfo = (props) => {
               ></Grid>
             </Grid>
           </form>
+        */}
         </div>
         <div className="dashboard-basic-info__buttonContainer">
           <div className="dashboard-basic-info__backContainer">Cancel</div>

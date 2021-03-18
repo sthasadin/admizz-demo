@@ -76,8 +76,8 @@ const Us = () => {
               <button className="btn__left" onClick={handleDescrease}>
                 <img src={leftArrow} />
               </button>
-              <button className="btn__right">
-                <img src={rightArrow} onClick={handleIncrease} />
+              <button className="btn__right" onClick={handleIncrease}>
+                <img src={rightArrow} />
               </button>
             </div>
           </div>

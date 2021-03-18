@@ -26,6 +26,9 @@ const DashboardAcademicInfo = (props) => {
     score: "",
     subMars: { listining: "", writing: "", reading: "", speaking: "" },
   });
+
+  console.log(props);
+
   const [certificatesImage, setCertificatresImage] = useState({
     highSchool: null,
     school: null,
@@ -647,7 +650,7 @@ const DashboardAcademicInfo = (props) => {
               <Grid
                 container
                 className="dashboard-basic-info__row"
-                justify="space-around"
+                justify="flex-start"
                 direction="row"
               >
                 <Grid item sm={12} md={2} xs={12}>

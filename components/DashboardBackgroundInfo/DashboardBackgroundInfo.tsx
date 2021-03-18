@@ -380,14 +380,14 @@ const DashboardBackgroundInfo = (props) => {
               <Grid
                 container
                 className="dashboard-basic-info__row"
-                justify="space-around"
+                justify="flex-start"
                 direction="row"
               >
                 <Grid
                   className={"dashboard-basic-info__grid"}
                   item
                   sm={12}
-                  md={3}
+                  md={4}
                   xs={12}
                 >
                   <Input
@@ -420,7 +420,7 @@ const DashboardBackgroundInfo = (props) => {
                   className={"dashboard-basic-info__grid"}
                   item
                   sm={12}
-                  md={3}
+                  md={4}
                   xs={12}
                 >
                   <div className={"student-info__phone-input"}>
@@ -438,11 +438,19 @@ const DashboardBackgroundInfo = (props) => {
                     />
                   </div>
                 </Grid>
+              </Grid>
+
+              <Grid
+                container
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
+              >
                 <Grid
                   className={"dashboard-basic-info__grid"}
                   item
                   sm={12}
-                  md={3}
+                  md={4}
                   xs={12}
                 >
                   <Input
@@ -462,7 +470,7 @@ const DashboardBackgroundInfo = (props) => {
                   className={"dashboard-basic-info__grid"}
                   item
                   sm={12}
-                  md={3}
+                  md={4}
                   xs={12}
                 >
                   <Input
@@ -479,6 +487,7 @@ const DashboardBackgroundInfo = (props) => {
                   />
                 </Grid>
               </Grid>
+
               <Grid
                 container
                 className="dashboard-basic-info__row"

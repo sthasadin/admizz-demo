@@ -197,9 +197,9 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(basicInfo.firstName)}{" "}
-                      {toTitleCase(basicInfo.middleName)}{" "}
-                      {toTitleCase(basicInfo.lastName)}
+                      {toTitleCase(basicInfo.fullName)}{" "}
+                      {/* {toTitleCase(basicInfo.middleName)}{" "}
+                      {toTitleCase(basicInfo.lastName)} */}
                     </p>
                   </div>
 

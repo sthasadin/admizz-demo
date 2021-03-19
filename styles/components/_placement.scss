@@ -137,8 +137,8 @@
     }
 
     img {
-      width: 45px;
-      height: 45px;
+      max-width: 120px;
+      max-height: 50px;
     }
   }
   .placement__notablealumni {
@@ -171,6 +171,11 @@
       display: flex;
       @media (max-width: 1024px) {
         margin-top: 10px;
+      }
+      img {
+        max-width: 80px;
+        max-height: 80px;
+        border-radius: 50px;
       }
 
       .placement__studentdetails {

@@ -15,7 +15,7 @@ const Navbar = (props: any) => {
   const router = useRouter();
 
   const [state, setState] = React.useState({
-    left: false,
+    top: false,
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -41,16 +41,15 @@ const Navbar = (props: any) => {
         <div className="select__boxcontainer">
           <div className="selectbox__text">Study In</div>
           <Select className="selectBox">
-            <MenuItem value={10}>USA</MenuItem>
-            <MenuItem value={20}>NEPAL</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
+            <MenuItem value="usa">USA</MenuItem>
+            <MenuItem value="nepal">NEPAL</MenuItem>
           </Select>
         </div>
         <img
           src="/crossIcon.png"
           alt="crossIcon_logo"
           className="cross_logo"
-          onClick={() => toggleDrawer("top", false)}
+          onClick={toggleDrawer("top", false)}
         />
       </div>
 
@@ -141,13 +140,13 @@ const Navbar = (props: any) => {
         </div>
 
         <div className="navbar__hamburger">
-          <Button onClick={toggleDrawer("left", true)}>
+          <Button onClick={toggleDrawer("top", true)}>
             <img src={menuIcon} />
           </Button>
           <Drawer
             anchor={"top"}
-            open={state["left"]}
-            onClose={toggleDrawer("left", false)}
+            open={state["top"]}
+            onClose={toggleDrawer("top", false)}
             className="navbar__drawer"
           >
             {list("anchor")}

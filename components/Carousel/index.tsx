@@ -22,6 +22,7 @@ function Carousel({ children, bulletdot }) {
     borderRadius: "50%",
     outline: "none",
   };
+
   const activestyle = {
     width: "14px",
     height: "14px",

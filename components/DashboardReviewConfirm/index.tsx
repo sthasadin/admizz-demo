@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { Button } from "../Button";
 import { storage, db } from "../../firebase";
+import Checkbox from "@material-ui/core/Checkbox";
 import { UploadButton } from "../Button/uploadButton";
 
 const DashboardReviewConfirm = (props) => {
   const [document, setDocument] = useState({});
-  const [documentImage, setDocumentImage] = React.useState(null);
+  const [profileImage, setProfileImage] = React.useState(null);
+  const [signatureImage, setSignatureImage] = React.useState(null);
+  const [isTermsChecked, setIstermsChecked] = React.useState(false);
+
   function toTitleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
-
-  console.log(documentImage);
 
   const { basicInfo, backgroundInfo, academicInfo, selectedChoice } = props;
   // console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice)
@@ -28,6 +30,9 @@ const DashboardReviewConfirm = (props) => {
 
   // submit all form
   const handelSubmit = async () => {
+    if (!signatureImage) {
+      alert("please upload your signature");
+    }
     const academicInformation = {
       diplomaScore: academicInfo.diplomaScore,
       gmat: academicInfo.gmat,
@@ -132,7 +137,7 @@ const DashboardReviewConfirm = (props) => {
                 <label htmlFor="upload-photo">
                   <div className="dashboard-basic-info__imageuploadcontainter">
                     <img
-                      src={documentImage ? documentImage : "/avatar.png"}
+                      src={profileImage ? profileImage : "/avatar.png"}
                       alt="avatar_logo"
                       className="dashboard-basic-info__imageuploadcontainter__thumbnailimage"
                     />
@@ -143,7 +148,7 @@ const DashboardReviewConfirm = (props) => {
                       name="upload-photo"
                       type="file"
                       onChange={(e) =>
-                        setDocumentImage(URL.createObjectURL(e.target.files[0]))
+                        setProfileImage(URL.createObjectURL(e.target.files[0]))
                       }
                     />
                   </div>
@@ -1176,6 +1181,76 @@ const DashboardReviewConfirm = (props) => {
                 <div>{/* Change Style According to Data */}</div>
               </Grid>
             </Grid>
+            <Grid
+              container
+              className="dashboard-basic-info__row"
+              justify="flex-start"
+              direction="row"
+            >
+              <Grid
+                className={"dashboard-basic-info__grid"}
+                item
+                sm={12}
+                md={6}
+                xs={12}
+              >
+                <Checkbox
+                  onChange={() => {
+                    setIstermsChecked((isTermsChecked) => !isTermsChecked);
+                    setSignatureImage(null);
+                  }}
+                />
+                <label>
+                  &nbsp; Click to agree <u>terms and conditions</u>
+                </label>
+              </Grid>
+            </Grid>
+            {isTermsChecked && (
+              <Grid
+                container
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
+              >
+                <Grid container sm={12} md={4} xs={12} alignContent="center">
+                  Upload your signature
+                </Grid>
+
+                <Grid
+                  container
+                  sm={12}
+                  md={3}
+                  xs={12}
+                  justify="center"
+                  alignContent="center"
+                >
+                  <label htmlFor="signature-image">
+                    <input
+                      style={{ display: "none" }}
+                      id="signature-image"
+                      name="signature-image"
+                      type="file"
+                      onChange={(e) =>
+                        setSignatureImage(
+                          URL.createObjectURL(e.target.files[0])
+                        )
+                      }
+                    />
+
+                    <UploadButton>Upload</UploadButton>
+                  </label>
+                </Grid>
+                {signatureImage && (
+                  <Grid item sm={12} md={4} xs={12}>
+                    <img
+                      src={signatureImage}
+                      alt="document_logo"
+                      className="image__thumbnail"
+                    />
+                  </Grid>
+                )}
+              </Grid>
+            )}
           </form>
         </div>
       </div>

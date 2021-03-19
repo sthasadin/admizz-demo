@@ -12,7 +12,7 @@ import { object } from "yup";
 
 const DashboardBasicInfo = (props) => {
   const [selectedCollege, setSelectedCollege] = useState("");
-  const [selectedCourse, setSelectedCourse] = useState("");
+  const [selectedLevel, setSelectedLevel] = useState("");
   const [fullName, setFullName] = useState("");
   // const [middleName, setMiddleName] = useState("");
   // const [lastName, setLastName] = useState("");
@@ -69,7 +69,7 @@ const DashboardBasicInfo = (props) => {
     var list = [];
     allCollege.map(({ courses, name, _id }) => {
       courses.map(({ course_name }) => {
-        if (course_name === selectedCourse) {
+        if (course_name === selectedLevel) {
           list.push({ name, id: _id });
         }
       });
@@ -82,7 +82,26 @@ const DashboardBasicInfo = (props) => {
         };
       })
     );
-  }, [selectedCourse]);
+  }, [selectedLevel]);
+
+  const SelectLevelOption = [
+    {
+      label: "Diploma",
+      value: "diploma",
+    },
+    {
+      label: "Under Graduate",
+      value: "undergraduate",
+    },
+    {
+      label: "Post Graduate",
+      value: "postgraduate",
+    },
+    {
+      label: "PHD",
+      value: "PHD",
+    },
+  ];
 
   const GenderOptions = [
     {
@@ -210,10 +229,8 @@ const DashboardBasicInfo = (props) => {
   const sendData = () => {
     props.getData({
       selectedCollege,
-      selectedCourse,
+      selectedLevel,
       fullName,
-      // lastName,
-      // middleName,
       DOB,
       nationality,
       email,
@@ -249,10 +266,10 @@ const DashboardBasicInfo = (props) => {
       setPermanentState(props.data.permanentState);
       setPermanentCity(props.data.permanentCity);
       setPermanentZipCode(props.data.permanentZipCode);
-      setResidentialAddress(props.data.residentialcountry);
-      setResidentialCity(props.data.residentialCity);
-      setResidentialZipCode(props.data.residentialZipCode);
-      setResidentialState(props.data.residentialState);
+      // setResidentialAddress(props.data.residentialcountry);
+      // setResidentialCity(props.data.residentialCity);
+      // setResidentialZipCode(props.data.residentialZipCode);
+      // setResidentialState(props.data.residentialState);
     }
   }, [props.data]);
   return (
@@ -279,24 +296,11 @@ const DashboardBasicInfo = (props) => {
               xs={12}
             >
               <DropDownSelect
-                title="Select Stream"
-                options={courseOption}
-                handelChange={setSelectedCourse}
+                title="Select Level"
+                options={SelectLevelOption}
+                handelChange={setSelectedLevel}
               />
             </Grid>
-            {/* <Grid
-              className={"dashboard-basic-info__grid"}
-              item
-              sm={12}
-              md={6}
-              xs={12}
-            >
-              <DropDownSelect
-                title="Choose College"
-                options={CollegesOptions}
-                handelChange={setSelectedCollege}
-              />
-            </Grid> */}
           </Grid>
         </div>
       </div>
@@ -329,36 +333,6 @@ const DashboardBasicInfo = (props) => {
                   onChange={(e) => setFullName(e.target.value)}
                 />
               </Grid>
-              {/* <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="Middle Name"
-                  value={middleName}
-                  onChange={(e) => setMiddleName(e.target.value)}
-                />
-              </Grid> */}
-              {/* <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="Last Name"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </Grid> */}
 
               <Grid
                 className={"dashboard-basic-info__grid"}
@@ -438,34 +412,6 @@ const DashboardBasicInfo = (props) => {
                   onChange={(e) => setDob(e.target.value)}
                 />
               </Grid>
-              {/* <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="Email Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </Grid> */}
-              {/* <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <DropDownSelect
-                  title="Nationality"
-                  options={NationalityOptions}
-                  handelChange={setNationality}
-                />
-              </Grid> */}
             </Grid>
             <Grid
               container
@@ -473,21 +419,6 @@ const DashboardBasicInfo = (props) => {
               justify="flex-start"
               direction="row"
             >
-              {/* <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <Input
-                  className={"student-info__input student-info__phone"}
-                  fullWidth
-                  placeholder="Date Of Birth"
-                  value={DOB}
-                  onChange={(e) => setDob(e.target.value)}
-                />
-              </Grid> */}
               <Grid
                 className={"dashboard-basic-info__grid"}
                 item
@@ -622,125 +553,11 @@ const DashboardBasicInfo = (props) => {
                     item
                     sm={12}
                     xs={12}
-                  >
-                    {/* <FormControlLabel
-                      className="dashboard-basic-info__checkboxLabel"
-                      control={
-                        <Checkbox
-                          onChange={() =>
-                            setIsPermanentAddressSame(!isPermanentAddressSame)
-                          }
-                          value={isPermanentAddressSame}
-                        />
-                      }
-                      label="Permanent address is same as residential address"
-                    /> */}
-                  </Grid>
+                  ></Grid>
                 </Grid>
               </Grid>
             </form>
           </div>
-
-          {/*          
-          <form>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="Address Line 1"
-                  value={permanentAddress}
-                  onChange={(e) => setPermanentAddress(e.target.value)}
-                />
-              </Grid>
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <DropDownSelect
-                  title="Country"
-                  options={CountryOption}
-                  handelChange={setPermanentCountry}
-                />
-              </Grid>
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <DropDownSelect
-                  title="State"
-                  handelChange={setPermanentState}
-                  options={
-                    permanentcountry === "Nepal"
-                      ? NepalStateOption
-                      : IndiaStateOption
-                  }
-                />
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="City"
-                  value={permanentCity}
-                  onChange={(e) => setPermanentCity(e.target.value)}
-                />
-              </Grid>
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              >
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="Zip Code"
-                  value={permanentZipCode}
-                  onChange={(e) => setPermanentZipCode(e.target.value)}
-                />
-              </Grid>
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={4}
-                xs={12}
-              ></Grid>
-            </Grid>
-          </form>
-        */}
         </div>
         <div className="dashboard-basic-info__buttonContainer">
           <div className="dashboard-basic-info__backContainer">Cancel</div>

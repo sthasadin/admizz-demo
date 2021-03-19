@@ -13,7 +13,7 @@ import { Merits } from "../components/mertis";
 // import { Register } from "../components/register";
 import { Statistics } from "../components/statistics";
 import { Teams } from "../components/Teams";
-// import { Testimonial } from "../components/Testimonial";
+import { Testimonial } from "../components/Testimonial";
 import { Us } from "../components/why-us";
 import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";
@@ -43,9 +43,8 @@ export default function Home() {
 
   return (
     <div className="container">
-      {windowSize.width > 680 ? <Topbar /> : null}
+      <Topbar />
       <Head>
-        {/* console.log("asd")} */}
         <title>Admizz - Home</title>
         <link rel="icon" href="favicon.svg" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -70,7 +69,7 @@ export default function Home() {
         <FiveSteps />
         <CollegesBlock collegeList={collegeList} />
         <CollegeFinder />
-        {/* <Testimonial /> */}
+        <Testimonial />
         <BlogList />
         <Teams />
         {/* <Register />

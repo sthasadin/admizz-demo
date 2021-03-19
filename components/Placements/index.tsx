@@ -2,8 +2,14 @@ import React from "react";
 import jiologo from "../../public/jio.png";
 import student from "../../public/placement_student.png";
 import Bargraph from "./Bargraph";
+import { useSelector } from "react-redux";
 
 const index = () => {
+  const recurtingCompanies = useSelector(
+    (state) => state.college.college?.top_recurtng_companies
+  );
+  const alumnis = useSelector((state) => state.college.college?.alumni);
+  console.log(recurtingCompanies);
   return (
     <div id="placement" className="placement">
       <div className="placement__title">PLACEMENTS</div>
@@ -61,40 +67,57 @@ const index = () => {
       </div>
       <div className="placement__heading">Top Recurting Companies</div>
       <div className="placement_imagelist">
-        <img src={jiologo} />
-        <img src={jiologo} />
-        <img src={jiologo} />
-        <img src={jiologo} />
-        <img src={jiologo} />
-        <img src={jiologo} />
+        {recurtingCompanies ? (
+          <>
+            {recurtingCompanies.map((company) => {
+              return <img src={company} alt="recurting_company_logo" />;
+            })}
+          </>
+        ) : null}
       </div>
 
       <div className="placement__notablealumni">
         <span>Our Notable Alumni</span>
-        <span className="text__right">View all Alumni</span>
+        {/* <span className="text__right">View all Alumni</span> */}
       </div>
       <div className="placement__studentlist">
-        <div className="placement__student">
+        {alumnis ? (
+          <>
+            {alumnis.map((alumni) => {
+              return (
+                <div className="placement__student">
+                  <img src={alumni.image} />
+                  <div className="placement__studentdetails">
+                    <span>{alumni.name}</span>
+                    <span>{alumni.batch_year}</span>
+                  </div>
+                </div>
+              );
+            })}
+          </>
+        ) : null}
+
+        {/* <div className="placement__student">
           <img src={student} />
           <div className="placement__studentdetails">
             <span>Mathew Perry</span>
             <span>Batch 2019</span>
           </div>
-        </div>
-        <div className="placement__student">
+        </div> */}
+        {/* <div className="placement__student">
           <img src={student} />
           <div className="placement__studentdetails">
             <span>Mathew Perry</span>
             <span>Batch 2019</span>
           </div>
-        </div>
-        <div className="placement__student">
+        </div> */}
+        {/* <div className="placement__student">
           <img src={student} />
           <div className="placement__studentdetails">
             <span>Mathew Perry</span>
             <span>Batch 2019</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

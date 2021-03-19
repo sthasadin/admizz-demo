@@ -20,6 +20,7 @@ const DashboardBackgroundInfo = (props) => {
   const [haveAppliedForPassword, setHaveAppliedPassword] = useState(true);
   const [passwordId, setPasswordId] = useState("");
   const [documentImage, setDocumentImage] = useState(null);
+  const [documentImageThumbnail, setDocumentImageThumbnail] = useState(null);
   const [refOneCountryCode, setRefOneCountryCode] = useState("");
   const [refTwoCountryCode, setRefTwoCountryCode] = useState("");
   const [studentRefOne, setstudentRefOne] = useState({
@@ -90,6 +91,11 @@ const DashboardBackgroundInfo = (props) => {
       setstudentRefTwo(props.data.studentRefTwo);
     }
   }, [props.data]);
+
+  const handleImageChange = (e) => {
+    setDocumentImage(e.target.files[0]);
+    setDocumentImageThumbnail(URL.createObjectURL(e.target.files[0]));
+  };
   return (
     <div className="dashboard-basic-info">
       {/* Background Information */}
@@ -336,30 +342,39 @@ const DashboardBackgroundInfo = (props) => {
             <Grid
               container
               className="dashboard-basic-info__row"
-              justify="space-around"
+              justify="flex-start"
               direction="row"
             >
-              <Grid item sm={12} md={5} xs={12}>
+              <Grid item sm={12} md={4} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   Passport/Citizenship/National ID
                 </div>
               </Grid>
-              <Grid item sm={12} md={7} xs={12}>
+              <Grid container alignContent="center" sm={12} md={4} xs={12}>
                 <label htmlFor="upload-photo">
                   <input
                     style={{ display: "none" }}
                     id="upload-photo"
                     name="upload-photo"
                     type="file"
-                    onChange={(e) => setDocumentImage(e.target.files[0])}
+                    onChange={handleImageChange}
                   />
 
                   <UploadButton>Upload button</UploadButton>
+                </label>
+              </Grid>
+              {documentImageThumbnail && (
+                <Grid item sm={12} md={4} xs={12}>
+                  <img
+                    src={documentImageThumbnail}
+                    alt="document_logo"
+                    className="image__thumbnail"
+                  />
                   <p style={{ margin: 10 }}>
                     {documentImage ? documentImage.name : ""}
                   </p>
-                </label>
-              </Grid>
+                </Grid>
+              )}
             </Grid>
           </form>
         </div>
@@ -481,109 +496,6 @@ const DashboardBackgroundInfo = (props) => {
                     onChange={(e) =>
                       setstudentRefOne({
                         ...studentRefOne,
-                        address: e.target.value,
-                      })
-                    }
-                  />
-                </Grid>
-              </Grid>
-
-              <Grid
-                container
-                className="dashboard-basic-info__row"
-                justify="space-around"
-                direction="row"
-              >
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={3}
-                  xs={12}
-                >
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    placeholder="Full Name"
-                    value={studentRefTwo.name}
-                    onChange={(e) =>
-                      setstudentRefTwo({
-                        ...studentRefTwo,
-                        name: e.target.value,
-                      })
-                    }
-                  />
-                </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={3}
-                  xs={12}
-                >
-                  <DropDownSelect
-                    options={CountryCodeOptions}
-                    title="Country Code"
-                    handelChange={setRefTwoCountryCode}
-                  />
-                </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={3}
-                  xs={12}
-                >
-                  <div className={"student-info__phone-input"}>
-                    <Input
-                      className={"student-info__input student-info__phone"}
-                      fullWidth
-                      placeholder="Phone Number"
-                      value={studentRefTwo.number}
-                      onChange={(e) =>
-                        setstudentRefTwo({
-                          ...studentRefTwo,
-                          number: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={3}
-                  xs={12}
-                >
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    placeholder="Email Address"
-                    value={studentRefTwo.email}
-                    onChange={(e) =>
-                      setstudentRefTwo({
-                        ...studentRefTwo,
-                        email: e.target.value,
-                      })
-                    }
-                  />
-                </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={3}
-                  xs={12}
-                >
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    placeholder="Address"
-                    value={studentRefTwo.address}
-                    onChange={(e) =>
-                      setstudentRefTwo({
-                        ...studentRefTwo,
                         address: e.target.value,
                       })
                     }

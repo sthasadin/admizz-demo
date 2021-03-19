@@ -63,7 +63,7 @@ const DashboardBasicInfoPage = () => {
     console.log("backgroundInfo", backgroundInfo);
     console.log("academicInfo", academicInfo);
     console.log("selectedChoice", selectedChoice);
-  }, [basicInfo, backgroundInfo, setAcademicInfo, selectedChoice]);
+  }, [basicInfo, backgroundInfo, academicInfo, selectedChoice]);
 
   const totalSteps = () => {
     return steps.length;
@@ -130,6 +130,7 @@ const DashboardBasicInfoPage = () => {
             handleBack={handleBack}
             getData={setSelectedChoice}
             data={selectedChoice}
+            selectedData={basicInfo}
           />
         );
       case 4:

@@ -29,7 +29,7 @@ const ShowSelectedCollege = (props: any) => {
           className="card__removeicon"
           onClick={() => removeCollegeFromCard(id)}
         >
-          <img src={checked} />{" "}
+          <img src="/closeIcon.png" alt="close_icon" />{" "}
         </div>
       )}
       <div className="collegelist__collegeimage">

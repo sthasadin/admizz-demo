@@ -25,6 +25,7 @@ const Home = () => {
     average_fee,
     graduation_percentage,
     placement_percentage,
+    banner,
   } = useSelector((state) => state.college.college);
   const router = useRouter();
   const { slug } = router.query;
@@ -52,6 +53,7 @@ const Home = () => {
           collageLogo={college_logo}
           address={address}
           estblished={estd_year}
+          collegeBanner={banner}
         />
         <Submenu />
         <SidebarContainer

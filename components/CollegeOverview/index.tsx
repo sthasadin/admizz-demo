@@ -1,9 +1,9 @@
 import React from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-const CollegeOverview = ( ) => {
-const dispatch = useDispatch()
-  const college = useSelector(state => state.college.college)
+const CollegeOverview = () => {
+  const dispatch = useDispatch();
+  const college = useSelector((state) => state.college.college);
 
   return (
     <div id="overview" className="overview">
@@ -34,26 +34,39 @@ const dispatch = useDispatch()
           <div className="overview__block__icon">
             <img src="/college-overview.png" alt="" />
           </div>
-          <div className="overview__block__title">{college.university_ranking}</div>
+          <div className="overview__block__title">
+            {college.university_ranking}
+          </div>
           <div className="overview__block__subheading">University Ranking</div>
         </div>
         <div className="overview__block">
           <div className="overview__block__icon">
             <img src="/college-overview.png" alt="" />
           </div>
-          <div className="overview__block__title">{college.highest_package}</div>
+          <div className="overview__block__title">
+            {college.highest_package}
+          </div>
           <div className="overview__block__subheading">Highest Package</div>
         </div>
         <div className="overview__block">
           <div className="overview__block__icon">
             <img src="/college-overview.png" alt="" />
           </div>
-          <div className="overview__block__title">{college.mim_cost_living}</div>
+          <div className="overview__block__title">
+            {college.mim_cost_living}
+          </div>
           <div className="overview__block__subheading">Min. Cost of Living</div>
         </div>
       </div>
       <div className="overview__thumbnail">
-        <img src="/overview-background.png" alt="" />
+        <img
+          src={
+            college.video_360
+              ? `https://img.youtube.com/vi/${college.video_360}/mqdefault.jpg`
+              : "/college-background.png"
+          }
+          alt="college_360 video "
+        />
         <div className="overview__thumbnail__text">
           <div className="overview__thumbnail__icon">
             <svg

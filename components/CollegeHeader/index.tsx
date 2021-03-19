@@ -1,8 +1,17 @@
 import React from "react";
 
-const CollegeHeader = ({ collageLogo, name, address, estblished }) => {
+const CollegeHeader = ({
+  collageLogo,
+  name,
+  address,
+  estblished,
+  collegeBanner,
+}) => {
   return (
-    <div className="college-header">
+    <div
+      className="college-header"
+      style={{ backgroundImage: `url(${collegeBanner})` }}
+    >
       <div className="college-header__inner">
         <div className="college-header__rating-wrap">
           <div className="rating-block">

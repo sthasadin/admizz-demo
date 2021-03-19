@@ -2,7 +2,7 @@ import React from "react";
 import { CallToAction } from "../Button/callToAction";
 
 const Merits = () => {
-  const [windowSize, setWindowSize] = React.useState({ width: undefined });
+  const [windowSize, setWindowSize] = React.useState({ width: 600 });
 
   React.useEffect(() => {
     const handleResize = () => {

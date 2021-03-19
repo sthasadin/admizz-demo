@@ -26,6 +26,14 @@ const DashboardAcademicInfo = (props) => {
     score: "",
     subMars: { listining: "", writing: "", reading: "", speaking: "" },
   });
+  const [certificateThumbnail, setCertificateThumbnail] = useState({
+    highSchool: null,
+    school: null,
+    under_Graduate: null,
+    post_Gradute: null,
+  });
+
+  console.log(certificateThumbnail.school);
 
   console.log(props);
 
@@ -254,23 +262,44 @@ const DashboardAcademicInfo = (props) => {
               justify="space-around"
               direction="row"
             >
-              <Grid item sm={12} md={5} xs={12}>
+              <Grid item sm={12} md={4} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   School Certificate
                 </div>
               </Grid>
-              <Grid item sm={12} md={7} xs={12}>
+              <Grid
+                container
+                sm={12}
+                md={4}
+                xs={12}
+                justify="center"
+                alignContent="center"
+              >
                 <label htmlFor="upload-photo">
                   <input
                     style={{ display: "none" }}
                     id="upload-photo"
                     name="upload-photo"
                     type="file"
-                    onChange={(e) => addImage(e, "school")}
+                    onChange={(e) => {
+                      addImage(e, "school");
+                      setCertificateThumbnail(
+                        certificateThumbnail.school(
+                          URL.createObjectURL(e.target.files[0])
+                        )
+                      );
+                    }}
                   />
 
                   <UploadButton>Upload button</UploadButton>
                 </label>
+              </Grid>
+              <Grid item sm={12} md={4} xs={12}>
+                <img
+                  src="/photo.jpg"
+                  alt="document_logo"
+                  className="image__thumbnail"
+                />
               </Grid>
             </Grid>
             <Grid
@@ -279,12 +308,19 @@ const DashboardAcademicInfo = (props) => {
               justify="space-around"
               direction="row"
             >
-              <Grid item sm={12} md={5} xs={12}>
+              <Grid item sm={12} md={4} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   High School Marks
                 </div>
               </Grid>
-              <Grid item sm={12} md={7} xs={12}>
+              <Grid
+                container
+                sm={12}
+                md={4}
+                xs={12}
+                justify="center"
+                alignContent="center"
+              >
                 <label htmlFor="upload-photo-High-School">
                   <input
                     style={{ display: "none" }}
@@ -297,6 +333,13 @@ const DashboardAcademicInfo = (props) => {
                   <UploadButton>Upload button</UploadButton>
                 </label>
               </Grid>
+              <Grid item sm={12} md={4} xs={12}>
+                <img
+                  src="/photo.jpg"
+                  alt="document_logo"
+                  className="image__thumbnail"
+                />
+              </Grid>
             </Grid>
             <Grid
               container
@@ -304,12 +347,19 @@ const DashboardAcademicInfo = (props) => {
               justify="space-around"
               direction="row"
             >
-              <Grid item sm={12} md={5} xs={12}>
+              <Grid item sm={12} md={4} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   Under Graduate Marks
                 </div>
               </Grid>
-              <Grid item sm={12} md={7} xs={12}>
+              <Grid
+                container
+                sm={12}
+                md={4}
+                xs={12}
+                justify="center"
+                alignContent="center"
+              >
                 <label htmlFor="upload-photo-Under">
                   <input
                     style={{ display: "none" }}
@@ -322,6 +372,13 @@ const DashboardAcademicInfo = (props) => {
                   <UploadButton>Upload button</UploadButton>
                 </label>
               </Grid>
+              <Grid item sm={12} md={4} xs={12}>
+                <img
+                  src="/photo.jpg"
+                  alt="document_logo"
+                  className="image__thumbnail"
+                />
+              </Grid>
             </Grid>
             <Grid
               container
@@ -329,12 +386,19 @@ const DashboardAcademicInfo = (props) => {
               justify="space-around"
               direction="row"
             >
-              <Grid item sm={12} md={5} xs={12}>
+              <Grid item sm={12} md={4} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   Post Graduate Marks
                 </div>
               </Grid>
-              <Grid item sm={12} md={7} xs={12}>
+              <Grid
+                container
+                sm={12}
+                md={4}
+                xs={12}
+                justify="center"
+                alignContent="center"
+              >
                 <label htmlFor="upload-photo-Post">
                   <input
                     style={{ display: "none" }}
@@ -347,23 +411,32 @@ const DashboardAcademicInfo = (props) => {
                   <UploadButton>Upload button</UploadButton>
                 </label>
               </Grid>
+              <Grid item sm={12} md={4} xs={12}>
+                <img
+                  src="/photo.jpg"
+                  alt="document_logo"
+                  className="image__thumbnail"
+                />
+              </Grid>
             </Grid>
             <Grid
               container
               className="dashboard-basic-info__row"
-              justify="space-around"
+              justify="flex-start"
               direction="row"
             >
-              <Grid item sm={12} md={4} xs={12}>
+              <Grid item sm={12} md={2} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   Other Certificates
                 </div>
               </Grid>
               <Grid
                 className={"dashboard-basic-info__grid"}
-                item
+                container
+                justify="center"
+                alignContent="center"
                 sm={12}
-                md={4}
+                md={3}
                 xs={12}
               >
                 <Input
@@ -372,7 +445,14 @@ const DashboardAcademicInfo = (props) => {
                   placeholder="Enter Title"
                 />
               </Grid>
-              <Grid item sm={12} md={4} xs={12}>
+              <Grid
+                container
+                sm={12}
+                md={3}
+                xs={12}
+                justify="center"
+                alignContent="center"
+              >
                 <div className="dashboard-basic-info__uploadButtonContainer">
                   <label htmlFor="upload-photo">
                     <input
@@ -385,6 +465,13 @@ const DashboardAcademicInfo = (props) => {
                     <UploadButton>Upload button</UploadButton>
                   </label>
                 </div>
+              </Grid>
+              <Grid item sm={12} md={3} xs={12}>
+                <img
+                  src="/photo.jpg"
+                  alt="document_logo"
+                  className="image__thumbnail"
+                />
               </Grid>
             </Grid>
           </form>

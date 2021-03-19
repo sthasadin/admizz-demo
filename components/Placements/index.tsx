@@ -67,13 +67,13 @@ const index = () => {
       </div>
       <div className="placement__heading">Top Recurting Companies</div>
       <div className="placement_imagelist">
-        {recurtingCompanies.map((company) => {
-          return recurtingCompanies ? (
-            <img src={company} alt="recurting_company_logo" />
-          ) : (
-            <img src={jiologo} alt="recurting_company_logo" />
-          );
-        })}
+        {recurtingCompanies ? (
+          <>
+            {recurtingCompanies.map((company) => {
+              return <img src={company} alt="recurting_company_logo" />;
+            })}
+          </>
+        ) : null}
       </div>
 
       <div className="placement__notablealumni">

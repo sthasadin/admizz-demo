@@ -18,14 +18,18 @@ const index = () => {
         <div>2020</div>
       </div>
       <div className="rankingawards__awardscontainer">
-        {college.college_rankings.map((rank) => {
-          return (
-            <RankingTable
-              authorityLogo={rank.ranking_authority_logo}
-              rank={rank.rank}
-            />
-          );
-        })}
+        {college.college_rankings ? (
+          <>
+            {college.college_rankings.map((rank) => {
+              return (
+                <RankingTable
+                  authorityLogo={rank.ranking_authority_logo}
+                  rank={rank.rank}
+                />
+              );
+            })}
+          </>
+        ) : null}
         {/* <RankingTable />
         <RankingTable />
         <RankingTable />

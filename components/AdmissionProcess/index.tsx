@@ -31,9 +31,13 @@ const AdmissionProcess = () => {
           </div>
           <div className="admission-process__heading">Scholarship Options</div>
           <div className="admission-process__list">
-            {scholarships.map((scholarship) => {
-              return <ScholarshipOption image={scholarship} />;
-            })}
+            {scholarships ? (
+              <>
+                {scholarships.map((scholarship) => {
+                  return <ScholarshipOption image={scholarship} />;
+                })}{" "}
+              </>
+            ) : null}
 
             {/* <ScholarshipOption image={schlorship} title="Study In India" />
             <ScholarshipOption

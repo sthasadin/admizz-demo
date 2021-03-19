@@ -12,6 +12,7 @@ import { DashboardAcademicInfo } from "../../../components/DashboardAcademicInfo
 import { DashboardChoiceFilling } from "../../../components/DashboardChoiceFilling";
 import { DashboardReviewConfirm } from "../../../components/DashboardReviewConfirm";
 import { DashboardNavbar } from "../../../layouts/dashboardnavbar";
+import { withPrivateRoute } from "../../withPrivateRoute";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -187,4 +188,4 @@ const DashboardBasicInfoPage = () => {
   );
 };
 
-export default DashboardBasicInfoPage;
+export default withPrivateRoute(DashboardBasicInfoPage);

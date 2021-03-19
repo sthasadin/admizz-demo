@@ -86,7 +86,7 @@ const seedQnAs = async () => {
     //                 }]
     // })
 }
-seedQnAs()
+// seedQnAs()
 
  const seedReviews = () => {
     var batch = db.batch()

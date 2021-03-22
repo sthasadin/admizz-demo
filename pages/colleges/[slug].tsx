@@ -1,13 +1,13 @@
 import Head from "next/head";
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { getCollege } from "../../store/Action/college.action";
 import { CollegeHeader } from "../../components/CollegeHeader";
 import { Submenu } from "../../components/Submenu";
 import { SidebarContainer } from "../../components/SidebarContainer";
 import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/router";
-import { getCollege } from "../../store/Action/college.action";
 
 const Home = () => {
   const dispatch = useDispatch();

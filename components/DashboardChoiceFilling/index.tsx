@@ -52,7 +52,7 @@ const Choice = (props) => {
             <DropDownSelect
               title="Choose Steam"
               options={streamOption}
-              handelChange={setSelectedStream}
+              handleChange={setSelectedStream}
             />
           </Grid>
           <Grid
@@ -65,7 +65,7 @@ const Choice = (props) => {
             <DropDownSelect
               title="Select Specific program"
               options={programOption}
-              handelChange={setSelectedSubCourse}
+              handleChange={setSelectedSubCourse}
             />
           </Grid>
         </Grid>
@@ -85,7 +85,7 @@ const Choice = (props) => {
             <DropDownSelect
               title="Select College"
               options={CollegesOptions}
-              handelChange={setSelectedCollege}
+              handleChange={setSelectedCollege}
             />
           </Grid>
         </Grid>
@@ -181,7 +181,6 @@ const DashboardChoiceFilling = (props) => {
     );
   };
 
-  console.log(fetchedCourses);
   // console.log(selectedStream);
 
   useEffect(() => {
@@ -208,7 +207,7 @@ const DashboardChoiceFilling = (props) => {
     );
   }, [selectedStream]);
 
-  console.log(programOption);
+  //console.log(programOption);
 
   //getting college from selected program
 

@@ -1,11 +1,30 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { getTestimonial } from "../../store/Action/testimonial.actions";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
+import Carousel from "../../components/Carousel";
+import TestimonialCarousel from "./TestimonialCarousel";
 
 const Testimonial = (props: any) => {
   const [open, setOpen] = React.useState(false);
+  const [testimonialList, setTestimonialList] = React.useState([]);
+
+  const dispatch = useDispatch();
+
+  const getAllTestimonal = async () => {
+    const fetchTestimonal = await dispatch(getTestimonial());
+    setTestimonialList(fetchTestimonal);
+  };
+
+  React.useEffect(() => {
+    console.log("asd");
+    getAllTestimonal();
+  }, []);
+
+  console.log(testimonialList);
 
   const handleOpen = () => {
     setOpen(true);
@@ -121,6 +140,15 @@ const Testimonial = (props: any) => {
         <div className="testimonial__author">
           <span>Kerry Johnes</span> - Some Company
         </div>
+      </div>
+
+      <div className="testimonial__formobile">
+        <Carousel bulletdot="false">
+          {testimonialList &&
+            testimonialList.map((data) => {
+              return <TestimonialCarousel key={data.id} data={data} />;
+            })}
+        </Carousel>
       </div>
     </div>
   );

@@ -3,6 +3,12 @@
   overflow: hidden;
   background-color: #f6f6f6;
 
+  .five-steps__inner {
+    @media (min-width: 1500px) {
+      margin-right: 20%;
+    }
+  }
+
   @media (max-width: 450px) {
     // padding-bottom: 60%;
     height: 999px;

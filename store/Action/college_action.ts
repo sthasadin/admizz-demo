@@ -1,6 +1,7 @@
+import { Dispatch } from "react";
 import { db, storage, auth } from "../../firebase";
 
-export const getCourses = () => async (dispatch) => {
+export const getCourses = () => async (dispatch: Dispatch) => {
   let streams = [];
   try {
     let querySnapshot = await db.collection("courses").get();

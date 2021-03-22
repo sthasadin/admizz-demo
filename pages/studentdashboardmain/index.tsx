@@ -15,7 +15,7 @@ const index = () => {
     dispatch(getAllCollegeList());
   }, []);
 
-  const { collegeList } = useSelector((state) => state.allCollege);
+  const { collegeList } = useSelector((state: any) => state.allCollege);
 
   return (
     <div className="container">

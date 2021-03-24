@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import Carousel from "../../components/Carousel";
 
 const BlogList = () => {
-  const [windowSize, setWindowSize] = React.useState({ width: undefined });
+  const [windowSize, setWindowSize] = React.useState({ width: null });
 
   React.useEffect(() => {
     const handleResize = () => {

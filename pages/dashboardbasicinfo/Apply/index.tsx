@@ -140,6 +140,7 @@ const DashboardBasicInfoPage = () => {
             handleBack={handleBack}
             getData={setAcademicInfo}
             data={academicInfo}
+            basicInfo={basicInfo}
           />
         );
       case 3:
@@ -160,6 +161,8 @@ const DashboardBasicInfoPage = () => {
             backgroundInfo={backgroundInfo}
             academicInfo={academicInfo}
             selectedChoice={selectedChoice}
+            setBackgroundInfo={setBackgroundInfo}
+            setAcademicInfo={setAcademicInfo}
           />
         );
       default:

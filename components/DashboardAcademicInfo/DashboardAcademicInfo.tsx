@@ -31,18 +31,20 @@ const DashboardAcademicInfo = (props) => {
     school: null,
     under_Graduate: null,
     post_Gradute: null,
+    other: null,
   });
-
-  console.log(certificateThumbnail.school);
-
-  console.log(props);
 
   const [certificatesImage, setCertificatresImage] = useState({
-    highSchool: null,
-    school: null,
-    under_Graduate: null,
-    post_Gradute: null,
+    highSchoolCertificate: null,
+    schoolCertificate: null,
+    under_GraduateCertificate: null,
+    post_GraduteCertificate: null,
+    otherCertificate: null,
   });
+
+  const [showClass11Marks, setShowClass11Marks] = useState(false);
+
+  const { selectedLevel } = props.basicInfo;
   const sendData = () => {
     props.getData({
       schoolMarks,
@@ -104,7 +106,7 @@ const DashboardAcademicInfo = (props) => {
             <Grid
               container
               className="dashboard-basic-info__row"
-              justify="space-around"
+              justify="flex-start"
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
@@ -117,136 +119,140 @@ const DashboardAcademicInfo = (props) => {
             <Grid
               container
               className="dashboard-basic-info__row"
-              justify="space-around"
+              justify="flex-start"
               direction="row"
             >
+              {selectedLevel === "diploma" && (
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={6}
+                  xs={12}
+                >
+                  <div className="dashboard-basic-info__formText">
+                    School Marks / Class 10(X)
+                  </div>
+                  <Input
+                    className={"dashboard-basic-info__input"}
+                    fullWidth
+                    placeholder="eg: 50.50"
+                    value={schoolMarks}
+                    onChange={(e) => setSchoolMarks(e.target.value)}
+                  />
+                </Grid>
+              )}
+            </Grid>
+            {selectedLevel === "undergraduate" && (
               <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={6}
-                xs={12}
+                container
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
               >
-                <div className="dashboard-basic-info__formText">
-                  School Marks / Class 10(X)
-                </div>
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="eg: 50.50"
-                  value={schoolMarks}
-                  onChange={(e) => setSchoolMarks(e.target.value)}
-                />
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={5}
+                  xs={12}
+                >
+                  <div className="dashboard-basic-info__formText">
+                    High School Marks / Class 12 / Level 0 Marks
+                  </div>
+                  <div style={{ display: "flex" }}>
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      placeholder="eg: 50.50"
+                      value={level0Score}
+                      onChange={(e) => setLevel0Score(e.target.value)}
+                    />
+                    <u
+                      style={{ marginLeft: "5px", cursor: "pointer" }}
+                      onClick={() =>
+                        setShowClass11Marks(
+                          (showClass11Marks) => !showClass11Marks
+                        )
+                      }
+                    >
+                      Haven't completed yet?
+                    </u>
+                  </div>
+                </Grid>
+                {showClass11Marks && (
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={6}
+                    xs={12}
+                  >
+                    <div className="dashboard-basic-info__formText">
+                      Class 11/Level1 Marks
+                    </div>
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      placeholder="eg: 50.50"
+                      value={level1Score}
+                      onChange={(e) => setLevel1Score(e.target.value)}
+                    />
+                  </Grid>
+                )}
               </Grid>
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={6}
-                xs={12}
-              >
-                <div className="dashboard-basic-info__formText">
-                  High School Marks / Class 12 / Level 0 Marks
-                </div>
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="eg: 50.50"
-                  value={level0Score}
-                  onChange={(e) => setLevel0Score(e.target.value)}
-                />
-              </Grid>
+            )}
+            <Grid
+              container
+              className="dashboard-basic-info__row"
+              justify="flex-start"
+              direction="row"
+            >
+              {selectedLevel === "PHD" && (
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={6}
+                  xs={12}
+                >
+                  <div className="dashboard-basic-info__formText">
+                    Post graduate Marks
+                  </div>
+                  <Input
+                    className={"dashboard-basic-info__input"}
+                    fullWidth
+                    placeholder="eg: 50.50"
+                    value={postGraduteScore}
+                    onChange={(e) => setPostGraduteScore(e.target.value)}
+                  />
+                </Grid>
+              )}
+
+              {selectedLevel === "postgraduate" && (
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={6}
+                  xs={12}
+                >
+                  <div className="dashboard-basic-info__formText">
+                    UnderGraduate Marks
+                  </div>
+                  <Input
+                    className={"dashboard-basic-info__input"}
+                    fullWidth
+                    placeholder="eg: 50.50"
+                    value={underGraduate}
+                    onChange={(e) => setUnderGraduate(e.target.value)}
+                  />
+                </Grid>
+              )}
             </Grid>
             <Grid
               container
               className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={6}
-                xs={12}
-              >
-                <div className="dashboard-basic-info__formText">
-                  Diploma Scroes
-                </div>
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="eg: 50.50"
-                  value={diplomaScore}
-                  onChange={(e) => setDiplomaScore(e.target.value)}
-                />
-              </Grid>
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={6}
-                xs={12}
-              >
-                <div className="dashboard-basic-info__formText">
-                  Class 11/Level1 Marks
-                </div>
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="eg: 50.50"
-                  value={level1Score}
-                  onChange={(e) => setLevel1Score(e.target.value)}
-                />
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={6}
-                xs={12}
-              >
-                <div className="dashboard-basic-info__formText">
-                  Post graduate Marks
-                </div>
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="eg: 50.50"
-                  value={postGraduteScore}
-                  onChange={(e) => setPostGraduteScore(e.target.value)}
-                />
-              </Grid>
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={6}
-                xs={12}
-              >
-                <div className="dashboard-basic-info__formText">
-                  UnderGraduate Marks
-                </div>
-                <Input
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  placeholder="eg: 50.50"
-                  value={underGraduate}
-                  onChange={(e) => setUnderGraduate(e.target.value)}
-                />
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
+              justify="flex-start"
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
@@ -256,169 +262,217 @@ const DashboardAcademicInfo = (props) => {
                 <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid item sm={12} md={4} xs={12}>
-                <div className="dashboard-basic-info__subformTitle">
-                  School Certificate
-                </div>
-              </Grid>
+            {selectedLevel === "diploma" && (
               <Grid
                 container
-                sm={12}
-                md={4}
-                xs={12}
-                justify="center"
-                alignContent="center"
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
               >
-                <label htmlFor="upload-photo">
-                  <input
-                    style={{ display: "none" }}
-                    id="upload-photo"
-                    name="upload-photo"
-                    type="file"
-                    onChange={(e) => {
-                      addImage(e, "school");
-                      setCertificateThumbnail(
-                        certificateThumbnail.school(
-                          URL.createObjectURL(e.target.files[0])
-                        )
-                      );
-                    }}
-                  />
+                <Grid item sm={12} md={4} xs={12}>
+                  <div className="dashboard-basic-info__subformTitle">
+                    School Certificate
+                  </div>
+                </Grid>
+                <Grid
+                  container
+                  sm={12}
+                  md={4}
+                  xs={12}
+                  justify="center"
+                  alignContent="center"
+                >
+                  <label htmlFor="upload-photo">
+                    <input
+                      style={{ display: "none" }}
+                      id="upload-photo"
+                      name="upload-photo"
+                      type="file"
+                      onChange={(e) => {
+                        addImage(e, "school");
+                        setCertificateThumbnail({
+                          ...certificateThumbnail,
+                          school: URL.createObjectURL(e.target.files[0]),
+                        });
+                      }}
+                    />
 
-                  <UploadButton>Upload button</UploadButton>
-                </label>
+                    <UploadButton>
+                      {certificateThumbnail.school
+                        ? "update Image"
+                        : "upload Image"}
+                    </UploadButton>
+                  </label>
+                </Grid>
+                {certificateThumbnail.school && (
+                  <Grid item sm={12} md={4} xs={12}>
+                    <img
+                      src={certificateThumbnail.school}
+                      alt="document_logo"
+                      className="image__thumbnail"
+                    />
+                  </Grid>
+                )}
               </Grid>
-              <Grid item sm={12} md={4} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid item sm={12} md={4} xs={12}>
-                <div className="dashboard-basic-info__subformTitle">
-                  High School Marks
-                </div>
-              </Grid>
+            )}
+            {selectedLevel === "undergraduate" && (
               <Grid
                 container
-                sm={12}
-                md={4}
-                xs={12}
-                justify="center"
-                alignContent="center"
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
               >
-                <label htmlFor="upload-photo-High-School">
-                  <input
-                    style={{ display: "none" }}
-                    id="upload-photo-High-School"
-                    name="upload-photo"
-                    type="file"
-                    onChange={(e) => addImage(e, "highSchool")}
-                  />
+                <Grid item sm={12} md={4} xs={12}>
+                  <div className="dashboard-basic-info__subformTitle">
+                    High School Marks
+                  </div>
+                </Grid>
+                <Grid
+                  container
+                  sm={12}
+                  md={4}
+                  xs={12}
+                  justify="center"
+                  alignContent="center"
+                >
+                  <label htmlFor="upload-photo-High-School">
+                    <input
+                      style={{ display: "none" }}
+                      id="upload-photo-High-School"
+                      name="upload-photo"
+                      type="file"
+                      onChange={(e) => {
+                        addImage(e, "highSchool");
+                        setCertificateThumbnail({
+                          ...certificateThumbnail,
+                          highSchool: URL.createObjectURL(e.target.files[0]),
+                        });
+                      }}
+                    />
 
-                  <UploadButton>Upload button</UploadButton>
-                </label>
+                    <UploadButton>
+                      {certificateThumbnail.highSchool
+                        ? "Update Image"
+                        : "upload Image"}
+                    </UploadButton>
+                  </label>
+                </Grid>
+                {certificateThumbnail.highSchool && (
+                  <Grid item sm={12} md={4} xs={12}>
+                    <img
+                      src={certificateThumbnail.highSchool}
+                      alt="document_logo"
+                      className="image__thumbnail"
+                    />
+                  </Grid>
+                )}
               </Grid>
-              <Grid item sm={12} md={4} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid item sm={12} md={4} xs={12}>
-                <div className="dashboard-basic-info__subformTitle">
-                  Under Graduate Marks
-                </div>
-              </Grid>
+            )}
+
+            {selectedLevel === "postgraduate" && (
               <Grid
                 container
-                sm={12}
-                md={4}
-                xs={12}
-                justify="center"
-                alignContent="center"
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
               >
-                <label htmlFor="upload-photo-Under">
-                  <input
-                    style={{ display: "none" }}
-                    id="upload-photo-Under"
-                    name="upload-photo"
-                    type="file"
-                    onChange={(e) => addImage(e, "under_Graduate")}
-                  />
+                <Grid item sm={12} md={4} xs={12}>
+                  <div className="dashboard-basic-info__subformTitle">
+                    Under Graduate Marks
+                  </div>
+                </Grid>
+                <Grid
+                  container
+                  sm={12}
+                  md={4}
+                  xs={12}
+                  justify="center"
+                  alignContent="center"
+                >
+                  <label htmlFor="upload-photo-Under">
+                    <input
+                      style={{ display: "none" }}
+                      id="upload-photo-Under"
+                      name="upload-photo"
+                      type="file"
+                      onChange={(e) => {
+                        addImage(e, "under_Graduate");
+                        setCertificateThumbnail({
+                          ...certificateThumbnail,
+                          under_Graduate: URL.createObjectURL(
+                            e.target.files[0]
+                          ),
+                        });
+                      }}
+                    />
 
-                  <UploadButton>Upload button</UploadButton>
-                </label>
+                    <UploadButton>
+                      {certificateThumbnail.under_Graduate
+                        ? "Update Image"
+                        : "Upload Image"}
+                    </UploadButton>
+                  </label>
+                </Grid>
+                {certificateThumbnail.under_Graduate && (
+                  <Grid item sm={12} md={4} xs={12}>
+                    <img
+                      src={certificateThumbnail.under_Graduate}
+                      alt="document_logo"
+                      className="image__thumbnail"
+                    />
+                  </Grid>
+                )}
               </Grid>
-              <Grid item sm={12} md={4} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid item sm={12} md={4} xs={12}>
-                <div className="dashboard-basic-info__subformTitle">
-                  Post Graduate Marks
-                </div>
-              </Grid>
+            )}
+            {selectedLevel === "PHD" && (
               <Grid
                 container
-                sm={12}
-                md={4}
-                xs={12}
-                justify="center"
-                alignContent="center"
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
               >
-                <label htmlFor="upload-photo-Post">
-                  <input
-                    style={{ display: "none" }}
-                    id="upload-photo-Post"
-                    name="upload-photo"
-                    type="file"
-                    onChange={(e) => addImage(e, "post_Gradute")}
-                  />
+                <Grid item sm={12} md={4} xs={12}>
+                  <div className="dashboard-basic-info__subformTitle">
+                    Post Graduate Marks
+                  </div>
+                </Grid>
+                <Grid
+                  container
+                  sm={12}
+                  md={4}
+                  xs={12}
+                  justify="center"
+                  alignContent="center"
+                >
+                  <label htmlFor="upload-photo-Post">
+                    <input
+                      style={{ display: "none" }}
+                      id="upload-photo-Post"
+                      name="upload-photo"
+                      type="file"
+                      onChange={(e) => {
+                        addImage(e, "post_Gradute");
+                        setCertificateThumbnail({
+                          ...certificateThumbnail,
+                          post_Gradute: URL.createObjectURL(e.target.files[0]),
+                        });
+                      }}
+                    />
 
-                  <UploadButton>Upload button</UploadButton>
-                </label>
+                    <UploadButton>Upload button</UploadButton>
+                  </label>
+                </Grid>
+                {certificateThumbnail.post_Gradute && (
+                  <Grid item sm={12} md={4} xs={12}>
+                    <img
+                      src={certificateThumbnail.post_Gradute}
+                      alt="document_logo"
+                      className="image__thumbnail"
+                    />
+                  </Grid>
+                )}
               </Grid>
-              <Grid item sm={12} md={4} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
-              </Grid>
-            </Grid>
+            )}
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -442,7 +496,7 @@ const DashboardAcademicInfo = (props) => {
                 <Input
                   className={"dashboard-basic-info__input"}
                   fullWidth
-                  placeholder="Enter Title"
+                  label="Title"
                 />
               </Grid>
               <Grid
@@ -460,19 +514,32 @@ const DashboardAcademicInfo = (props) => {
                       id="upload-photo"
                       name="upload-photo"
                       type="file"
+                      onChange={(e) => {
+                        addImage(e, "other");
+                        setCertificateThumbnail({
+                          ...certificateThumbnail,
+                          other: URL.createObjectURL(e.target.files[0]),
+                        });
+                      }}
                     />
 
-                    <UploadButton>Upload button</UploadButton>
+                    <UploadButton>
+                      {certificateThumbnail.other
+                        ? "update image"
+                        : "upload image"}{" "}
+                    </UploadButton>
                   </label>
                 </div>
               </Grid>
-              <Grid item sm={12} md={3} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
-              </Grid>
+              {certificateThumbnail.other && (
+                <Grid item sm={12} md={3} xs={12}>
+                  <img
+                    src={certificateThumbnail.other}
+                    alt="document_logo"
+                    className="image__thumbnail"
+                  />
+                </Grid>
+              )}
             </Grid>
           </form>
         </div>

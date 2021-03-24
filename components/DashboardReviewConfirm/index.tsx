@@ -10,6 +10,7 @@ const DashboardReviewConfirm = (props) => {
   const [profileImage, setProfileImage] = React.useState(null);
   const [signatureImage, setSignatureImage] = React.useState(null);
   const [isTermsChecked, setIstermsChecked] = React.useState(false);
+  // const [imageList, setImageList] = React.useState();
 
   function toTitleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
@@ -17,8 +18,15 @@ const DashboardReviewConfirm = (props) => {
     });
   }
 
-  const { basicInfo, backgroundInfo, academicInfo, selectedChoice } = props;
-  // console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice)
+  const {
+    basicInfo,
+    backgroundInfo,
+    academicInfo,
+    selectedChoice,
+    setBackgroundInfo,
+    setAcademicInfo,
+  } = props;
+  //console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice);
 
   // trunclate string
   function truncateString(str, num = 20) {
@@ -30,38 +38,39 @@ const DashboardReviewConfirm = (props) => {
 
   // submit all form
   const handelSubmit = async () => {
-    if (!signatureImage) {
-      alert("please upload your signature");
-    }
-    const academicInformation = {
-      diplomaScore: academicInfo.diplomaScore,
-      gmat: academicInfo.gmat,
-      gre: academicInfo.gre,
-      ielts: academicInfo.ielts,
-      jeeAdvance: academicInfo.jeeAdvance,
-      level0Score: academicInfo.level0Score,
-      level1Score: academicInfo.level1Score,
-      satII: academicInfo.satII,
-      sat: academicInfo.sat,
-      tofel: academicInfo.tofel,
-      schoolMarks: academicInfo.schoolMarks,
-      underGraduate: academicInfo.underGraduate,
-      postGraduateScore: academicInfo.postGraduteScore,
-    };
+    // if (!signatureImage) {
+    //   alert("please upload your signature");
+    // }
+    // const basicInfo = {
+    //   studentProfile:
+    // }
+
+    // const academicInformation = {
+    //   diplomaScore: academicInfo.diplomaScore,
+    //   gmat: academicInfo.gmat,
+    //   gre: academicInfo.gre,
+    //   ielts: academicInfo.ielts,
+    //   jeeAdvance: academicInfo.jeeAdvance,
+    //   level0Score: academicInfo.level0Score,
+    //   level1Score: academicInfo.level1Score,
+    //   satII: academicInfo.satII,
+    //   sat: academicInfo.sat,
+    //   tofel: academicInfo.tofel,
+    //   schoolMarks: academicInfo.schoolMarks,
+    //   underGraduate: academicInfo.underGraduate,
+    //   postGraduateScore: academicInfo.postGraduteScore,
+
+    // };
     const backgroundInformation = {
-      haveAppliedForPassport: backgroundInfo.haveAppliedForPassword,
-      havePassport: backgroundInfo.havePassword,
-      passport_issued_country: backgroundInfo.passwordCountry,
-      numberOnPassport: backgroundInfo.numberOnPassword,
-      studentRefOne: backgroundInfo.studentRefOne,
-      studentRefTwo: backgroundInfo.studentRefTwo,
-      passwordIssuingAuthority: backgroundInfo.passwordIssuingAuthority,
-      name_on_password: backgroundInfo.nameOnPassword,
-      passwordExpireDate: backgroundInfo.passwordExpireDate,
-      passwordId: backgroundInfo.passwordId,
+      haveAppliedForPassport: backgroundInfo.haveAppliedForPassport,
+      havePassport: backgroundInfo.havePassport,
+      passportDetails: backgroundInfo.passportDetails,
+      passportId: backgroundInfo.passportId,
+      references: backgroundInfo.references,
     };
-    var documentRes = {};
+    //var documentRes = {};
     for (const [key] of Object.entries(academicInfo.certificatesImage)) {
+      // console.log(key);
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
@@ -78,7 +87,11 @@ const DashboardReviewConfirm = (props) => {
               .getDownloadURL()
               .then((url) => {
                 console.log(url);
-                documentRes[key] = url;
+
+                setAcademicInfo({
+                  ...academicInfo,
+                  [key]: url,
+                });
               });
           });
       }
@@ -97,17 +110,23 @@ const DashboardReviewConfirm = (props) => {
             .getDownloadURL()
             .then((url) => {
               console.log(url);
-              documentRes["Personal_Identification_Id"] = url;
+              setBackgroundInfo({
+                ...backgroundInfo,
+                Personal_Identification_Id: url,
+              });
+              // documentRes["Personal_Identification_Id"] = url;
             });
         });
     }
+
     await db
       .collection("students-application")
       .add({
         basicInfo,
-        documentRes,
+        // documentRes,
         selectedChoice,
-        academicInformation,
+        academicInfo,
+        //academicInformation,
         backgroundInformation,
       })
       .then((res) => console.log("response", res))
@@ -328,7 +347,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(basicInfo.permanentCity)}-
+                      {toTitleCase(basicInfo.guardianCity)}-
                       {basicInfo.phoneNumber}{" "}
                     </p>
                   </div>
@@ -354,7 +373,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(basicInfo.permanentZipCode)}{" "}
+                      {toTitleCase(basicInfo.guardianZipCode)}{" "}
                     </p>
                   </div>
 
@@ -380,7 +399,7 @@ const DashboardReviewConfirm = (props) => {
                     >
                       {" "}
                       {toTitleCase(
-                        truncateString(basicInfo.permanentAddress)
+                        truncateString(basicInfo.guardianAddress)
                       )}{" "}
                     </p>
                   </div>
@@ -427,14 +446,16 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Name on Password :
+                      Name on Passport :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(backgroundInfo.nameOnPassword)}
+                      {toTitleCase(
+                        backgroundInfo.passportDetails.nameOnPassport
+                      )}
                     </p>
                   </div>
 
@@ -452,7 +473,7 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Password Issuing Authority :
+                      Passport Issuing Authority :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -460,7 +481,7 @@ const DashboardReviewConfirm = (props) => {
                     >
                       {" "}
                       {toTitleCase(
-                        backgroundInfo.passwordIssuingAuthority
+                        backgroundInfo.passportDetails.passportIssuingAuthority
                       )}{" "}
                     </p>
                   </div>
@@ -479,14 +500,14 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Password Expiry Date :
+                      Passport Expiry Date :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.passwordExpireDate}
+                      {backgroundInfo.passportDetails.passwordExpireDate}
                     </p>
                   </div>
 
@@ -584,7 +605,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.studentRefOne.name}{" "}
+                      {backgroundInfo.references.name}{" "}
                     </p>
                   </div>
                   <div
@@ -608,7 +629,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.studentRefOne.number}{" "}
+                      {backgroundInfo.references.phoneNumber}{" "}
                     </p>
                   </div>
                   <div
@@ -632,7 +653,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.studentRefOne.email}{" "}
+                      {backgroundInfo.references.emailAddress}{" "}
                     </p>
                   </div>
                 </div>
@@ -643,7 +664,7 @@ const DashboardReviewConfirm = (props) => {
                     background: "rgba(0, 0, 0, 0.3)",
                   }}
                 ></hr>
-
+                {/* 
                 <div style={{ display: "flex", flexWrap: "wrap" }}>
                   <div
                     style={{
@@ -718,6 +739,7 @@ const DashboardReviewConfirm = (props) => {
                     </p>
                   </div>
                 </div>
+              */}
               </Grid>
             </Grid>
 

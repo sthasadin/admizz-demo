@@ -1,46 +1,61 @@
 import React, { useEffect, useState } from "react";
 import { Input } from "../Input";
 import { Grid } from "@material-ui/core";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import { Button } from "../Button";
-import Select from "react-select";
-import { DropDownSelect } from "../DropDownSelect";
-import { useSelector, useDispatch } from "react-redux";
-import { getAllCollegeList } from "../../store/Action/allCollage.action";
-import { object } from "yup";
+import Snackbar from "@material-ui/core/Snackbar";
 
-const DashboardBasicInfo = (props:any) => {
-  const [selectedCollege, setSelectedCollege] = useState("");
+import { Button } from "../Button";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+
+import { DropDownSelect } from "../DropDownSelect";
+import { ErrorMessages } from "../../utils/ErrorMessages";
+
+import * as yup from "yup";
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+const DashboardBasicInfo = (props) => {
   const [selectedLevel, setSelectedLevel] = useState("");
   const [fullName, setFullName] = useState("");
-  // const [middleName, setMiddleName] = useState("");
-  // const [lastName, setLastName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [DOB, setDob] = useState("");
   const [nationality, setNationality] = useState("");
   const [gender, setGender] = useState("");
-  const [residentialcountry, setResidentialCountry] = useState("");
-  const [residentialState, setResidentialState] = useState("");
-  const [residentialAddress, setResidentialAddress] = useState("");
-  const [residentialZipCode, setResidentialZipCode] = useState("");
-  const [residentialCity, setResidentialCity] = useState("");
-  const [permanentcountry, setPermanentCountry] = useState("");
-  const [permanentState, setPermanentState] = useState("");
-  const [permanentAddress, setPermanentAddress] = useState("");
-  const [permanentZipCode, setPermanentZipCode] = useState("");
-  const [permanentCity, setPermanentCity] = useState("");
   const [countryCode, setCountryCode] = useState("");
-  const [isPermanentAddressSame, setIsPermanentAddressSame] = useState(false);
-  const allCollege = useSelector((state) => state.allCollege.collegeList);
-  const [CollegesOptions, setCollegesOptions] = useState([]);
-  const [courseOption, setCourseOption] = useState([]);
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getAllCollegeList());
-  }, []);
+  const [guardianAddress, setGuardianAddress] = useState("");
+  const [guardianCountry, setGuardianCountry] = useState("");
+  const [guardianState, setGuardianState] = useState("");
+  const [guardianCity, setGuardianCity] = useState("");
+  const [guardianZipCode, setGuardianZipCode] = useState("" as string);
+  const [snackOpen, setSnackOpen] = useState(false as boolean);
+  const [formError, setFormError] = useState({} as any);
+  const [loading, setLoading] = useState(false as boolean);
+  // const [middleName, setMiddleName] = useState("");
+  // const [lastName, setLastName] = useState("");
+
+  // const [residentialcountry, setResidentialCountry] = useState("");
+  // const [residentialState, setResidentialState] = useState("");
+  // const [residentialAddress, setResidentialAddress] = useState("");
+  // const [residentialZipCode, setResidentialZipCode] = useState("");
+  // const [residentialCity, setResidentialCity] = useState("");
+  // const [permanentcountry, setPermanentCountry] = useState("");
+  // const [permanentState, setPermanentState] = useState("");
+  // const [permanentAddress, setPermanentAddress] = useState("");
+  // const [permanentZipCode, setPermanentZipCode] = useState("");
+  // const [permanentCity, setPermanentCity] = useState("");
+
+  // const [isPermanentAddressSame, setIsPermanentAddressSame] = useState(false);
+  // const allCollege = useSelector((state) => state.allCollege.collegeList);
+  // const [CollegesOptions, setCollegesOptions] = useState([]);
+  // const [courseOption, setCourseOption] = useState([]);
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getAllCollegeList());
+  // }, []);
 
   useEffect(()=> {
     const {authUser} = props
@@ -55,46 +70,83 @@ const DashboardBasicInfo = (props:any) => {
   },[props.authUser])
 
   // getting course from colleges
-  useEffect(() => {
-    var list = [];
-    if (allCollege && allCollege.length > 0) {
-      allCollege.map(({ courses }) => {
-        courses.map((course) => {
-          if (!list.includes(course.course_name)) {
-            list.push(course.course_name);
-          }
-        });
-      });
-    }
-    setCourseOption(
-      list.map((course) => {
-        return {
-          label: course,
-          value: course,
-        };
-      })
-    );
-  }, [allCollege]);
+  // useEffect(() => {
+  //   var list = [];
+  //   if (allCollege && allCollege.length > 0) {
+  //     allCollege.map(({ courses }) => {
+  //       courses.map((course) => {
+  //         if (!list.includes(course.course_name)) {
+  //           list.push(course.course_name);
+  //         }
+  //       });
+  //     });
+  //   }
+  //   setCourseOption(
+  //     list.map((course) => {
+  //       return {
+  //         label: course,
+  //         value: course,
+  //       };
+  //     })
+  //   );
+  // }, [allCollege]);
 
   // getting colleges list which has selected course
-  useEffect(() => {
-    var list = [];
-    allCollege.map(({ courses, name, _id }) => {
-      courses.map(({ course_name }) => {
-        if (course_name === selectedLevel) {
-          list.push({ name, id: _id });
+  // useEffect(() => {
+  //   var list = [];
+  //   allCollege.map(({ courses, name, _id }) => {
+  //     courses.map(({ course_name }) => {
+  //       if (course_name === selectedLevel) {
+  //         list.push({ name, id: _id });
+  //       }
+  //     });
+  //   });
+  //   setCollegesOptions(
+  //     list.map((college) => {
+  //       return {
+  //         label: college.name,
+  //         value: college.id,
+  //       };
+  //     })
+  //   );
+  // }, [selectedLevel]);
+
+  interface signInProps {
+    selectLevel: string;
+    //fullName: string;
+  }
+
+  const validationSchema = yup.object().shape<signInProps>({
+    selectLevel: yup.string().required("Required"),
+    //fullName: yup.string().required("full name is required"),
+  });
+
+  const validate = async () => {
+    try {
+      await validationSchema.validate(
+        {
+          selectLevel: selectedLevel,
+          fullName: fullName,
+        },
+        {
+          abortEarly: false,
         }
+      );
+      setFormError({});
+      return true;
+    } catch (err) {
+      console.log(err);
+
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0];
       });
-    });
-    setCollegesOptions(
-      list.map((college) => {
-        return {
-          label: college.name,
-          value: college.id,
-        };
-      })
-    );
-  }, [selectedLevel]);
+      setFormError({ ...errors });
+      handleOpenSnackbar();
+    }
+  };
+
+  console.log(formError);
 
   const SelectLevelOption = [
     {
@@ -217,71 +269,56 @@ const DashboardBasicInfo = (props:any) => {
     };
   });
 
-  const copyResidentialData = () => {
-    setPermanentCity(residentialCity);
-    setPermanentCountry(residentialcountry);
-    setPermanentZipCode(residentialZipCode);
-    setPermanentState(residentialState);
-    setPermanentAddress(residentialAddress);
+  const handleOpenSnackbar = () => {
+    setSnackOpen(true);
   };
 
-  useEffect(() => {
-    if (isPermanentAddressSame) {
-      copyResidentialData();
-    }
-  }, [
-    isPermanentAddressSame,
-    residentialAddress,
-    residentialCity,
-    residentialState,
-    residentialZipCode,
-    residentialcountry,
-  ]);
+  const handleCloseSnackbar = () => {
+    setSnackOpen(false);
+  };
 
-  const sendData = () => {
-    props.getData({
-      selectedCollege,
-      selectedLevel,
-      fullName,
-      DOB,
-      nationality,
-      email,
-      phoneNumber,
-      countryCode,
-      gender,
-      permanentAddress,
-      residentialAddress,
-      permanentcountry,
-      residentialcountry,
-      permanentState,
-      residentialState,
-      permanentCity,
-      residentialCity,
-      permanentZipCode,
-      residentialZipCode,
-    });
-    props.handleNext();
+  const sendData = async () => {
+    try {
+      // setLoading(true);
+      const isValid = await validate();
+
+      if (isValid) {
+        props.getData({
+          selectedLevel,
+          fullName,
+          DOB,
+          nationality,
+          email,
+          phoneNumber,
+          countryCode,
+          gender,
+          guardianAddress,
+          guardianCountry,
+          guardianState,
+          guardianCity,
+          guardianZipCode,
+        });
+        props.handleNext();
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
       setFullName(props.data.fullName);
-      // setLastName(props.data.lastName);
-      // setMiddleName(props.data.middleName);
       setDob(props.data.DOB);
       setNationality(props.data.nationality);
       setEmail(props.data.email);
       setPhoneNumber(props.data.phoneNumber);
       setGender(props.data.gender);
       setCountryCode(props.data.countryCode);
-      setPermanentAddress(props.data.permanentAddress);
-      setPermanentState(props.data.permanentState);
-      setPermanentCity(props.data.permanentCity);
-      setPermanentZipCode(props.data.permanentZipCode);
-      // setResidentialAddress(props.data.residentialcountry);
-      // setResidentialCity(props.data.residentialCity);
-      // setResidentialZipCode(props.data.residentialZipCode);
-      // setResidentialState(props.data.residentialState);
+      setGuardianAddress(props.data.guardianAddress);
+      setGuardianCountry(props.data.guardianCountry);
+      setGuardianState(props.data.guardianState);
+      setGuardianCity(props.data.guardianCity);
+      setGuardianZipCode(props.data.guardianZipCode);
     }
   }, [props.data]);
   return (
@@ -310,7 +347,10 @@ const DashboardBasicInfo = (props:any) => {
               <DropDownSelect
                 title="Select Level"
                 options={SelectLevelOption}
-                handelChange={setSelectedLevel}
+                handleChange={setSelectedLevel}
+                name={"selectLevel"}
+                errorMessage={formError.selectLevel}
+                // error={!!formError.email}
               />
             </Grid>
           </Grid>
@@ -340,9 +380,12 @@ const DashboardBasicInfo = (props:any) => {
                 <Input
                   className={"dashboard-basic-info__input"}
                   fullWidth
-                  placeholder="Full Name"
+                  name={"fullName"}
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
+                  label="Full Name"
+                  error={!!formError.fullName}
+                  errorMessage={formError.fullName}
                 />
               </Grid>
 
@@ -356,7 +399,7 @@ const DashboardBasicInfo = (props:any) => {
                 <Input
                   className={"dashboard-basic-info__input"}
                   fullWidth
-                  placeholder="Email Address"
+                  label="Email Address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -372,7 +415,9 @@ const DashboardBasicInfo = (props:any) => {
                 defaultvalue={nationality}
                   title="Nationality"
                   options={NationalityOptions}
-                  handelChange={setNationality}
+                  handleChange={setNationality}
+                  name={"Nationality"}
+                  //error={""}
                 />
               </Grid>
             </Grid>
@@ -390,10 +435,12 @@ const DashboardBasicInfo = (props:any) => {
                 xs={12}
               >
                 <DropDownSelect
-                defaultvalue={countryCode}
+                // defaultvalue={countryCode}
                   options={CountryCodeOptions}
                   title="Country Code"
-                  handelChange={setCountryCode}
+                  handleChange={setCountryCode}
+                  name={"countrycode"}
+                  errorMessage={""}
                 />
               </Grid>
               <Grid
@@ -406,7 +453,7 @@ const DashboardBasicInfo = (props:any) => {
                 <Input
                   className={"student-info__input student-info__phone"}
                   fullWidth
-                  placeholder="Phone Number"
+                  label="Phone Number"
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                 />
@@ -421,7 +468,7 @@ const DashboardBasicInfo = (props:any) => {
                 <Input
                   className={"student-info__input student-info__phone"}
                   fullWidth
-                  placeholder="Date Of Birth"
+                  label="Date Of Birth"
                   value={DOB}
                   onChange={(e) => setDob(e.target.value)}
                 />
@@ -443,7 +490,9 @@ const DashboardBasicInfo = (props:any) => {
                 <DropDownSelect
                   title="Gender"
                   options={GenderOptions}
-                  handelChange={setGender}
+                  handleChange={setGender}
+                  name={"gender"}
+                  errorMessage={""}
                 />
               </Grid>
             </Grid>
@@ -477,9 +526,9 @@ const DashboardBasicInfo = (props:any) => {
                   <Input
                     className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="Address Line 1"
-                    value={residentialAddress}
-                    onChange={(e) => setResidentialAddress(e.target.value)}
+                    label="Guardian Address"
+                    value={guardianAddress}
+                    onChange={(e) => setGuardianAddress(e.target.value)}
                   />
                 </Grid>
                 <Grid
@@ -492,7 +541,9 @@ const DashboardBasicInfo = (props:any) => {
                   <DropDownSelect
                     title="Country"
                     options={CountryOption}
-                    handelChange={setResidentialCountry}
+                    handleChange={setGuardianCountry}
+                    name={"country"}
+                    errorMessage={""}
                   />
                 </Grid>
                 <Grid
@@ -504,9 +555,11 @@ const DashboardBasicInfo = (props:any) => {
                 >
                   <DropDownSelect
                     title="State"
-                    handelChange={setResidentialState}
+                    handleChange={setGuardianState}
+                    name={"state"}
+                    errorMessage={""}
                     options={
-                      residentialcountry === "Nepal"
+                      guardianCountry === "Nepal"
                         ? NepalStateOption
                         : IndiaStateOption
                     }
@@ -529,9 +582,9 @@ const DashboardBasicInfo = (props:any) => {
                   <Input
                     className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="City"
-                    value={residentialCity}
-                    onChange={(e) => setResidentialCity(e.target.value)}
+                    label="City"
+                    value={guardianCity}
+                    onChange={(e) => setGuardianCity(e.target.value)}
                   />
                 </Grid>
                 <Grid
@@ -544,9 +597,9 @@ const DashboardBasicInfo = (props:any) => {
                   <Input
                     className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="Zip Code"
-                    value={residentialZipCode}
-                    onChange={(e) => setResidentialZipCode(e.target.value)}
+                    label="Zip Code"
+                    value={guardianZipCode}
+                    onChange={(e) => setGuardianZipCode(e.target.value)}
                   />
                 </Grid>
                 <Grid
@@ -584,6 +637,15 @@ const DashboardBasicInfo = (props:any) => {
           </Button>
         </div>
       </div>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
+        <Alert onClose={handleCloseSnackbar} severity="error">
+          {formError && "Error"}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import { CallToAction } from "../Button/callToAction";
 
 const Merits = () => {
-  const [windowSize, setWindowSize] = React.useState({ width: 600 });
+  const [windowSize, setWindowSize] = React.useState({ width: null });
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -82,9 +82,11 @@ const Merits = () => {
                 </a>
               </div>
               {windowSize.width < 450 && (
-                <CallToAction className="learnmore__btn">
-                  Learn More
-                </CallToAction>
+                <div>
+                  <CallToAction className="learnmore__btn">
+                    Learn More
+                  </CallToAction>
+                </div>
               )}
             </div>
           </div>

@@ -15,21 +15,36 @@ function Carousel({ children, bulletdot }) {
   const handleStepChange = (step) => {
     setActiveStep(step);
   };
-  const inactivestyle = {
-    width: "10px",
-    height: "9px",
-    background: "#5f1802",
-    borderRadius: "50%",
-    outline: "none",
-  };
 
-  const activestyle = {
-    width: "14px",
-    height: "14px",
-    background: "#ffa200",
-    borderRadius: "50%",
-    outline: "none",
-  };
+  // React.useMemo(() => {
+  //   return {
+  //     width: bulletdot ? "10px" : "45px",
+  //     height: "9px",
+  //     background: "#5f1802",
+  //     borderRadius: "50%",
+  //     outline: "none",
+  //   };
+  // }, [bulletdot]);
+
+  const inactivestyle = React.useMemo(() => {
+    return {
+      width: bulletdot ? "10px" : "45px",
+      height: "3px",
+      background: "#5f1802",
+      borderRadius: bulletdot ? "50%" : null,
+      outline: "none",
+    };
+  }, [bulletdot]);
+
+  const activestyle = React.useMemo(() => {
+    return {
+      width: bulletdot ? "10px" : "45px",
+      height: "3px",
+      background: "#5f1802",
+      borderRadius: bulletdot ? "50%" : null,
+      outline: "none",
+    };
+  }, [bulletdot]);
 
   return (
     <div className="carousel">

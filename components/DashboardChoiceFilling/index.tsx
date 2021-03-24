@@ -21,6 +21,20 @@ const Choice = (props) => {
     setSelectedStream,
     programOption,
   } = props.data;
+  const collegeList = [
+    {
+      label: "Modi unversity",
+      value: "modiunveristy",
+    },
+    {
+      label: "tribhuvan  unversity",
+      value: "tribhuvanunveristy",
+    },
+    {
+      label: "havard unversity",
+      value: "havardunveristy",
+    },
+  ];
   return (
     <div className="dashboard-basic-info__formContainer">
       <form>
@@ -84,7 +98,7 @@ const Choice = (props) => {
           >
             <DropDownSelect
               title="Select College"
-              options={CollegesOptions}
+              options={collegeList}
               handleChange={setSelectedCollege}
             />
           </Grid>
@@ -207,7 +221,7 @@ const DashboardChoiceFilling = (props) => {
     );
   }, [selectedStream]);
 
-  //console.log(programOption);
+  console.log(programOption);
 
   //getting college from selected program
 

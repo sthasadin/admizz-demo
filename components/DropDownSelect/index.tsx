@@ -1,7 +1,14 @@
 import React from "react";
 import Select from "react-select";
-
-const DropDownSelect = ({ title, options, handelChange }) => {
+interface DropDownSelect {
+    title?: string;
+    defaut?:string;
+    options?:any;
+    handelChange?:any;
+    defaultvalue?:any
+}
+const DropDownSelect = ({ title, options, handelChange, defaultvalue }:DropDownSelect) => {
+  console.log(defaultvalue)
   const customStyles = {
     menu: (provided) => ({ ...provided, zIndex: 9999 }),
     control: (base) => ({
@@ -35,6 +42,8 @@ const DropDownSelect = ({ title, options, handelChange }) => {
       </div>
       <Select
         options={options}
+        value={{ label: defaultvalue, value: defaultvalue }}
+        defaultValue={{ label: defaultvalue, value: defaultvalue }}
         searchable
         styles={customStyles}
         onChange={(e) => handelChange(e.value)}

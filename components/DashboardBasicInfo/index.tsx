@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllCollegeList } from "../../store/Action/allCollage.action";
 import { object } from "yup";
 
-const DashboardBasicInfo = (props) => {
+const DashboardBasicInfo = (props:any) => {
   const [selectedCollege, setSelectedCollege] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
   const [fullName, setFullName] = useState("");
@@ -41,6 +41,18 @@ const DashboardBasicInfo = (props) => {
   useEffect(() => {
     dispatch(getAllCollegeList());
   }, []);
+
+  useEffect(()=> {
+    const {authUser} = props
+    console.log(authUser?.phoneNumber?.split('-'))
+    if (authUser) {
+      setEmail(authUser?.email)
+      setNationality(authUser?.country === "Nepal"? "nepal": "indain")
+      setCountryCode(authUser?.phoneNumber?.split('-')[0])
+      setPhoneNumber(authUser?.phoneNumber?.split('-')[1])
+      setFullName(authUser?.fullName)
+    }
+  },[props.authUser])
 
   // getting course from colleges
   useEffect(() => {
@@ -121,11 +133,11 @@ const DashboardBasicInfo = (props) => {
   const NationalityOptions = [
     {
       label: "Nepali",
-      value: "nepali",
+      value: "Nepali",
     },
     {
       label: "Indian",
-      value: "indian",
+      value: "Indian",
     },
   ];
 
@@ -357,6 +369,7 @@ const DashboardBasicInfo = (props) => {
                 xs={12}
               >
                 <DropDownSelect
+                defaultvalue={nationality}
                   title="Nationality"
                   options={NationalityOptions}
                   handelChange={setNationality}
@@ -377,6 +390,7 @@ const DashboardBasicInfo = (props) => {
                 xs={12}
               >
                 <DropDownSelect
+                defaultvalue={countryCode}
                   options={CountryCodeOptions}
                   title="Country Code"
                   handelChange={setCountryCode}

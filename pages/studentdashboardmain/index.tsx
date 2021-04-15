@@ -8,6 +8,7 @@ import { DashboardDetailInfo } from "../../components/DashboardDetailInfo";
 import { DashboardRecommend } from "../../components/DashboardRecommend";
 import { DashboardNavbar } from "../../layouts/dashboardnavbar";
 // import { withRestrictedRoute } from "../withRestrictedRoute";
+import { withPrivateRoute } from "../withPrivateRoute";
 
 const index = () => {
   const dispatch = useDispatch();
@@ -44,4 +45,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default withPrivateRoute(index);

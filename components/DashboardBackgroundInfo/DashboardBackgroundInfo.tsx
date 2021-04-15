@@ -8,20 +8,22 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Button } from "../Button";
 import { UploadButton } from "../Button/uploadButton";
 import { DropDownSelect } from "../DropDownSelect";
+import GreenCircle from '../GreenCircle'
+import { PersonalVideo } from "@material-ui/icons";
 
 const DashboardBackgroundInfo = (props) => {
   const [havePassport, setHavePassport] = useState(false);
   const [passportDetails, setPassportDetails] = useState({
     nameOnPassport: "",
-    numberOnPassword: "",
-    passwportCountry: "",
+    numberOnPassport: "",
     passportIssuingAuthority: "",
     passportExpireDate: "",
+    passportIssuedCountry: "",
   });
   const [haveAppliedForPassport, setHaveAppliedPassport] = useState(false);
   const [passportId, setPassportId] = useState("");
   const [documentImage, setDocumentImage] = useState(null);
-  const [documentImageThumbnail, setDocumentImageThumbnail] = useState(null);
+  // const [documentImageThumbnail, setDocumentImageThumbnail] = useState(null);
   const [references, setReferences] = useState({
     fullName: "",
     countryCode: "",
@@ -29,7 +31,7 @@ const DashboardBackgroundInfo = (props) => {
     emailAddress: "",
     address: "",
   });
-
+  
   const sendData = () => {
     props.getData({
       havePassport,
@@ -77,8 +79,18 @@ const DashboardBackgroundInfo = (props) => {
 
   const handleImageChange = (e) => {
     setDocumentImage(e.target.files[0]);
-    setDocumentImageThumbnail(URL.createObjectURL(e.target.files[0]));
+    // setDocumentImageThumbnail(URL.createObjectURL(e.target.files[0]));
   };
+
+  const truncateString =(str, num) => {
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
+
+
   return (
     <div className="dashboard-basic-info">
       {/* Background Information */}
@@ -163,14 +175,12 @@ const DashboardBackgroundInfo = (props) => {
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="Passport Number"
-                      value={passportDetails.numberOnPassword}
-                      onChange={(e) =>
-                        setPassportDetails({
-                          ...passportDetails,
-                          numberOnPassword: e.target.value,
-                        })
-                      }
+                      label="Passport Number"
+                      value={passportDetails.numberOnPassport}
+                      onChange={(e) => setPassportDetails({
+                        ...passportDetails,
+                        numberOnPassport: e.target.value,
+                      })}
                     />
                   </Grid>
                 </Grid>
@@ -190,7 +200,7 @@ const DashboardBackgroundInfo = (props) => {
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="Issuing Authority"
+                      label="Issuing Authority"
                       value={passportDetails.passportIssuingAuthority}
                       onChange={(e) =>
                         setPassportDetails({
@@ -210,14 +220,12 @@ const DashboardBackgroundInfo = (props) => {
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="Expiry Date of Passport"
+                      label="Expiry Date of Passport"
                       value={passportDetails.passportExpireDate}
-                      onChange={(e) =>
-                        setPassportDetails({
-                          ...passportDetails,
-                          passportExpireDate: e.target.value,
-                        })
-                      }
+                      onChange={(e) => setPassportDetails({
+                        ...passportDetails,
+                        passportExpireDate: e.target.value,
+                      })}
                     />
                   </Grid>
                 </Grid>
@@ -227,6 +235,23 @@ const DashboardBackgroundInfo = (props) => {
                   justify="space-around"
                   direction="row"
                 >
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={6}
+                    xs={12}
+                  >
+                    <DropDownSelect
+                      title="Issuing Country"
+                      options={CountryOption}
+                      defaultvalue={passportDetails.passportIssuedCountry}
+                      handleChange={(e) => setPassportDetails({
+                        ...passportDetails,
+                        passportIssuedCountry: e
+                      })}
+                    />
+                  </Grid>
                   <Grid
                     className={"dashboard-basic-info__grid"}
                     item
@@ -302,7 +327,7 @@ const DashboardBackgroundInfo = (props) => {
                 <Input
                   className={"dashboard-basic-info__input"}
                   fullWidth
-                  placeholder="Citizenship ID / National ID"
+                  label="Citizenship ID / National ID"
                   value={passportId}
                   onChange={(e) => setPassportId(e.target.value)}
                 />
@@ -351,18 +376,12 @@ const DashboardBackgroundInfo = (props) => {
                   <UploadButton>Upload button</UploadButton>
                 </label>
               </Grid>
-              {documentImageThumbnail && (
-                <Grid item sm={12} md={4} xs={12}>
-                  <img
-                    src={documentImageThumbnail}
-                    alt="document_logo"
-                    className="image__thumbnail"
-                  />
-                  <p style={{ margin: 10 }}>
-                    {documentImage ? documentImage.name : ""}
-                  </p>
-                </Grid>
-              )}
+           
+                  <Grid item sm={12} md={4} xs={12} justify="flex-start" style={{display: 'flex'}}>
+                  {documentImage && <><div style={{alignSelf: 'center'}}>{truncateString(documentImage.name, 20)}</div> <GreenCircle /> </>}
+                      
+
+                  </Grid>
             </Grid>
           </form>
         </div>
@@ -404,7 +423,7 @@ const DashboardBackgroundInfo = (props) => {
                     }
                   />
                 </Grid>
-                <Grid
+                {/* <Grid
                   className={"dashboard-basic-info__grid"}
                   item
                   sm={6}
@@ -422,7 +441,7 @@ const DashboardBackgroundInfo = (props) => {
                     }
                     //handleChange={setReferences}
                   />
-                </Grid>
+                </Grid> */}
                 <Grid
                   className={"dashboard-basic-info__grid"}
                   item
@@ -430,7 +449,21 @@ const DashboardBackgroundInfo = (props) => {
                   md={4}
                   xs={12}
                 >
-                  <div className={"student-info__phone-input"}>
+                  
+                  <div className='student-info__phone-input'>
+                <Select
+                options={CountryCodeOptions}
+                useValue
+                minWidth={"83px"}
+                width={"90px"}
+                defaultValue={references.countryCode}
+                // name={"countryCode"}
+                onChange={(e) => setReferences({
+                  ...references,
+                  countryCode: e.target.value
+                }) }
+                className={"student-info__phone-separator"}
+              />
                     <Input
                       className={"student-info__input student-info__phone"}
                       fullWidth
@@ -445,14 +478,6 @@ const DashboardBackgroundInfo = (props) => {
                     />
                   </div>
                 </Grid>
-              </Grid>
-
-              <Grid
-                container
-                className="dashboard-basic-info__row"
-                justify="flex-start"
-                direction="row"
-              >
                 <Grid
                   className={"dashboard-basic-info__grid"}
                   item
@@ -473,6 +498,14 @@ const DashboardBackgroundInfo = (props) => {
                     }
                   />
                 </Grid>
+              </Grid>
+
+              <Grid
+                container
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
+              >
                 <Grid
                   className={"dashboard-basic-info__grid"}
                   item

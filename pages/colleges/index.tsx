@@ -26,9 +26,9 @@ const collegeList = () => {
 
   const allCoursesWithCounts = useMemo(() => {
     const courses = [];
-    if (collegeList.length) {
-      collegeList.forEach((college) => {
-        college.courses.forEach((course) => courses.push(course.course_name));
+    if (collegeList?.length) {
+      collegeList?.forEach((college) => {
+        college.courses?.forEach((course) => courses.push(course.course_name));
       });
     }
     const withCounts = {};

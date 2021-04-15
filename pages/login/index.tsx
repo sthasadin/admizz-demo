@@ -2,7 +2,7 @@ import React from "react";
 import { Login } from "../../components/Login";
 import { Navbar } from "../../layouts/navbar";
 import { Footer } from "../../layouts/footer";
-// import { withRestrictedRoute } from "../withRestrictedRoute";
+import { withRestrictedRoute } from "../withRestrictedRoute";
 
 const LoginPage = () => {
   return (
@@ -16,4 +16,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default withRestrictedRoute(LoginPage);

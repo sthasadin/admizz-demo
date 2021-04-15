@@ -1,0 +1,53 @@
+.collegecompare__tablecontainer{
+    margin-top: 51px;
+
+    .collegetable_metacontainer{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 257px;
+        font-family: 'M Plus 1P', sans-serif;
+        color: #333333;
+        
+        margin-bottom: 12px;
+
+        .collegetable_meta{
+            font-size: 20px;
+
+        }
+
+        .collegetable_period{
+            display: flex;
+            justify-content: flex-end;
+            
+            span{
+                margin-top: 5px;
+            }
+            span:first-child{
+               margin-top: 5px;
+                margin-right: 15px;
+                margin-bottom: 0;
+                font-size: 16px;
+            }
+        }
+    
+    
+    }
+
+    .comparetable__container{
+        display: flex;
+    }
+
+    .collegedetails_container{
+        border: 1px solid black;
+        display: flex;
+    }
+
+    .collegetable-attribute{
+        height: 97px;
+       
+        width: 311px;
+       
+
+        
+    }
+}

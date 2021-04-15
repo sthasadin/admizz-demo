@@ -56,36 +56,15 @@ export default function CustomizedTables(props: any) {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Compare Attributes</StyledTableCell>
-            {selectedCollege.map((college: any) => {
-              return <StyledTableCell>{college.name}</StyledTableCell>;
-            })}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {selectedFilters.map((data: any, i) => {
-            return (
-              <StyledTableRow key={i}>
-                <StyledTableCell component="th" scope="row">
-                  <strong>{data.label}</strong>
-                </StyledTableCell>
+    <>
+    
+    <div>World Ranking</div>
+    {/* <div className="collegedetails_container"> */}
+    <div className="collegetable-attribute">Rank 5</div>
+    {/* <div>Rank 15</div>
+    <div>Rank 20</div> */}
+    {/* </div> */}
 
-                {selectedCollege.map((colegeAttributes: any) => (
-                  <>
-                    <StyledTableCell component="th" scope="row">
-                      {colegeAttributes[data.value]}
-                    </StyledTableCell>
-                  </>
-                ))}
-              </StyledTableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    </>
   );
 }

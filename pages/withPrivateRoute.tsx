@@ -17,14 +17,14 @@ const withPrivateRoute = (AuthComponent) => {
         return;
       }
 
-      if (
-        user &&
-        authenticated &&
-        !user.emailVerified &&
-        user?.providerData[0]?.providerId != "facebook.com"
-      ) {
-        Router.push("/register-verification");
-      }
+      // if (
+      //   user &&
+      //   authenticated &&
+      //   !user.emailVerified &&
+      //   user?.providerData[0]?.providerId != "facebook.com"
+      // ) {
+      //   Router.push("/register-verification");
+      // }
 
       setIsLoading(false);
     }, [authenticated, user]);

@@ -21,6 +21,7 @@ export const getCollege = (college_slug) => async (dispatch: Dispatch) => {
 
   const response:any = await collegeService.getCollege(college_slug);
 
+
   dispatch(finish(COLLEGE_TYPES.GET_COLLEGE));
 
   if (response.isSuccess) {

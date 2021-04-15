@@ -9,7 +9,7 @@ interface Props {
   margin?: string;
   disabled?: boolean;
   name?: string;
-  value?: any;
+  s?: any;
   placeholder?: string;
   className?: any;
   type?: string;
@@ -19,6 +19,7 @@ interface Props {
   error?: boolean;
   errorMessage?: string;
   borderRadius?: string;
+  value?:any;
 }
 
 const Input = (props: Props) => {
@@ -45,7 +46,7 @@ const Input = (props: Props) => {
         lineHeight: "20.79px",
         "& .MuiOutlinedInput-input": {
           paddingLeft: (props: Props) => {
-            return props.multiline ? " 30px" : !props.icon && "15px";
+            return props.multiline ? " 30px" : !props.icon && '10px'
           },
         },
       },

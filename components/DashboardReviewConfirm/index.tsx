@@ -41,10 +41,6 @@ const DashboardReviewConfirm = (props) => {
     // if (!signatureImage) {
     //   alert("please upload your signature");
     // }
-    // const basicInfo = {
-    //   studentProfile:
-    // }
-
     // const academicInformation = {
     //   diplomaScore: academicInfo.diplomaScore,
     //   gmat: academicInfo.gmat,
@@ -59,7 +55,6 @@ const DashboardReviewConfirm = (props) => {
     //   schoolMarks: academicInfo.schoolMarks,
     //   underGraduate: academicInfo.underGraduate,
     //   postGraduateScore: academicInfo.postGraduteScore,
-
     // };
     const backgroundInformation = {
       haveAppliedForPassport: backgroundInfo.haveAppliedForPassport,
@@ -68,7 +63,7 @@ const DashboardReviewConfirm = (props) => {
       passportId: backgroundInfo.passportId,
       references: backgroundInfo.references,
     };
-    //var documentRes = {};
+    // var documentRes = {};
     for (const [key] of Object.entries(academicInfo.certificatesImage)) {
       // console.log(key);
       const name = Math.random().toString(36).slice(1);
@@ -87,11 +82,11 @@ const DashboardReviewConfirm = (props) => {
               .getDownloadURL()
               .then((url) => {
                 console.log(url);
-
                 setAcademicInfo({
                   ...academicInfo,
                   [key]: url,
-                });
+                })
+                // documentRes[key] = url;
               });
           });
       }
@@ -114,7 +109,6 @@ const DashboardReviewConfirm = (props) => {
                 ...backgroundInfo,
                 Personal_Identification_Id: url,
               });
-              // documentRes["Personal_Identification_Id"] = url;
             });
         });
     }
@@ -123,10 +117,10 @@ const DashboardReviewConfirm = (props) => {
       .collection("students-application")
       .add({
         basicInfo,
-        // documentRes,
+       // documentRes,
         selectedChoice,
+       // academicInformation,
         academicInfo,
-        //academicInformation,
         backgroundInformation,
       })
       .then((res) => console.log("response", res))
@@ -453,9 +447,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(
-                        backgroundInfo.passportDetails.nameOnPassport
-                      )}
+                      {toTitleCase(backgroundInfo.passportDetails.nameOnPassport)}
                     </p>
                   </div>
 
@@ -532,7 +524,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.numberOnPassword}{" "}
+                      {backgroundInfo.numberOnPassport}{" "}
                     </p>
                   </div>
                   <div
@@ -622,7 +614,7 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Phone Numer:
+                      Phone Nubmer:
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -664,8 +656,8 @@ const DashboardReviewConfirm = (props) => {
                     background: "rgba(0, 0, 0, 0.3)",
                   }}
                 ></hr>
-                {/* 
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
+
+                {/* <div style={{ display: "flex", flexWrap: "wrap" }}>
                   <div
                     style={{
                       display: "flex",
@@ -738,8 +730,9 @@ const DashboardReviewConfirm = (props) => {
                       {backgroundInfo.studentRefOne.email}{" "}
                     </p>
                   </div>
-                </div>
-              */}
+                </div> */}
+
+              
               </Grid>
             </Grid>
 

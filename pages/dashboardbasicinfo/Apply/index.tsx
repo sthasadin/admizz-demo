@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import { useDispatch } from "react-redux";
 import Head from "next/head";
 import StickyBox from "react-sticky-box";
 import Stepper from "@material-ui/core/Stepper";
@@ -12,6 +13,9 @@ import { DashboardAcademicInfo } from "../../../components/DashboardAcademicInfo
 import { DashboardChoiceFilling } from "../../../components/DashboardChoiceFilling";
 import { DashboardReviewConfirm } from "../../../components/DashboardReviewConfirm";
 import { DashboardNavbar } from "../../../layouts/dashboardnavbar";
+import { withPrivateRoute } from "../../withPrivateRoute";
+import { AuthContext } from "../../AuthContext";
+import { getAuthUser } from "../../../store/Action/user.action";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,7 +48,10 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const DashboardBasicInfoPage = () => {
+  const { authenticated, user } = useContext(AuthContext);
+  const dispatch = useDispatch();
   const classes = useStyles();
+  const [authUser, setAuthUser] = useState({});
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed] = React.useState<{ [k: number]: boolean }>({});
   const steps = [
@@ -64,6 +71,17 @@ const DashboardBasicInfoPage = () => {
     console.log("academicInfo", academicInfo);
     console.log("selectedChoice", selectedChoice);
   }, [basicInfo, backgroundInfo, academicInfo, selectedChoice]);
+
+  const getUser = async (id: string) => {
+    const user = await dispatch(getAuthUser(id));
+    setAuthUser(user);
+  };
+
+  useEffect(() => {
+    if (authenticated) {
+      getUser(user?.uid);
+    }
+  }, [authenticated, user]);
 
   const totalSteps = () => {
     return steps.length;
@@ -103,6 +121,7 @@ const DashboardBasicInfoPage = () => {
             handleNext={handleNext}
             getData={setBasicInfo}
             data={basicInfo}
+            authUser={authUser}
           />
         );
       case 1:
@@ -121,7 +140,7 @@ const DashboardBasicInfoPage = () => {
             handleBack={handleBack}
             getData={setAcademicInfo}
             data={academicInfo}
-            basicInfo={basicInfo}
+            selectedLevel={basicInfo}
           />
         );
       case 3:
@@ -190,4 +209,4 @@ const DashboardBasicInfoPage = () => {
   );
 };
 
-export default DashboardBasicInfoPage;
+export default withPrivateRoute(DashboardBasicInfoPage);

@@ -59,6 +59,7 @@ const Select = (props: Props) => {
     }
   }));
   const classes = useStyles(props);
+  console.log(props.defaultValue)
 
   const Icon = props.icon;
   return (
@@ -70,7 +71,7 @@ const Select = (props: Props) => {
         name={props.name}
         className={`${classes.select} ${props.className}`}
         label={props.label}
-        defaultValue={props.defaultValue ? props.defaultValue : ''}
+        defaultValue={props.defaultValue ? props.defaultValue : ' '}
         startAdornment={(props.icon ?
           <InputAdornment position="start">
             <Icon />

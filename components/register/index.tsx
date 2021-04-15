@@ -6,6 +6,7 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import LockIcon from "@material-ui/icons/Lock";
 import { auth, db } from "../../firebase";
+import { useRouter } from "next/router";
 import * as yup from "yup";
 import { Button } from "../Button";
 import { ErrorMessages } from "../../utils/ErrorMessages";
@@ -13,7 +14,6 @@ import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { Select } from "../Select";
 import { countryList } from "../../utils/CountryLists";
-import { useRouter } from "next/router";
 
 interface signUpFormValue {
   fullName: string;
@@ -91,17 +91,18 @@ const Register = () => {
       setLoading(true);
       const valid = await validate();
       if (valid) {
-        await auth.createUserWithEmailAndPassword(
+        let authUser = await auth.createUserWithEmailAndPassword(
           formValue.email,
           formValue.password
         );
-        await db.collection("users").add({
+        if(authUser.user){
+          await db.collection("users").doc(authUser.user.uid).set({
           fullName: formValue.fullName,
           email: formValue.email,
           phoneNumber: formValue.countryCode + "-" + formValue.phoneNumber,
           country: formValue.country,
         });
-        router.push("/studentdashboardmain");
+        router.push("/studentdashboardmain");}
       }
       setLoading(false);
     } catch (err) {

@@ -38,7 +38,7 @@ const SidebarContainer = ({
           <FeeStructure />
           <RankingAwards />
           <Newsletter />
-          {/* <RatingAndReview /> */}
+          <RatingAndReview />
           <CollegeGallery />
           <AdmissionProcess />
           <Placements />

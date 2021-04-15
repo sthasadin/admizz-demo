@@ -23,6 +23,16 @@ body {
   }
 }
 
+.inner{
+  @media (min-width: 1366px) {
+    width: 1200px;
+  }
+  @media (min-width: 1200px){
+
+    width: 1200px;
+  }
+}
+
 .title a {
   color: #0070f3;
   text-decoration: none;

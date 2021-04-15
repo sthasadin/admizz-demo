@@ -4,11 +4,11 @@ interface DropDownSelect {
     title?: string;
     defaut?:string;
     options?:any;
-    handelChange?:any;
-    defaultvalue?:any
+    handleChange?: (e: any) => void;
+    defaultvalue?:any;
 }
-const DropDownSelect = ({ title, options, handelChange, defaultvalue }:DropDownSelect) => {
-  console.log(defaultvalue)
+const DropDownSelect = ({ title, options, handleChange, defaultvalue }:DropDownSelect) => {
+  // console.log(defaultvalue)
   const customStyles = {
     menu: (provided) => ({ ...provided, zIndex: 9999 }),
     control: (base) => ({
@@ -27,7 +27,7 @@ const DropDownSelect = ({ title, options, handelChange, defaultvalue }:DropDownS
         style={{
           position: "absolute",
           left: 20,
-          top: -7,
+          top: 0,
           height: 15,
           background: "white",
           zIndex: 1,
@@ -41,12 +41,13 @@ const DropDownSelect = ({ title, options, handelChange, defaultvalue }:DropDownS
         </h4>
       </div>
       <Select
-        options={options}
-        value={{ label: defaultvalue, value: defaultvalue }}
-        defaultValue={{ label: defaultvalue, value: defaultvalue }}
-        searchable
-        styles={customStyles}
-        onChange={(e) => handelChange(e.value)}
+         options={options}
+         searchable
+         styles={customStyles}
+         name={name}
+       //  defaultvalue={defaultvalue}
+        //  error={error}
+         onChange={(e) => handleChange(e.value)}
       />
     </div>
   );

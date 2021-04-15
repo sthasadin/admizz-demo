@@ -30,37 +30,32 @@ const DashboardReviewConfirm = (props) => {
 
   // submit all form
   const handelSubmit = async () => {
-    if (!signatureImage) {
-      alert("please upload your signature");
-    }
-    const academicInformation = {
-      diplomaScore: academicInfo.diplomaScore,
-      gmat: academicInfo.gmat,
-      gre: academicInfo.gre,
-      ielts: academicInfo.ielts,
-      jeeAdvance: academicInfo.jeeAdvance,
-      level0Score: academicInfo.level0Score,
-      level1Score: academicInfo.level1Score,
-      satII: academicInfo.satII,
-      sat: academicInfo.sat,
-      tofel: academicInfo.tofel,
-      schoolMarks: academicInfo.schoolMarks,
-      underGraduate: academicInfo.underGraduate,
-      postGraduateScore: academicInfo.postGraduteScore,
-    };
+    // if (!signatureImage) {
+    //   alert("please upload your signature");
+    // }
+    // const academicInformation = {
+    //   diplomaScore: academicInfo.diplomaScore,
+    //   gmat: academicInfo.gmat,
+    //   gre: academicInfo.gre,
+    //   ielts: academicInfo.ielts,
+    //   jeeAdvance: academicInfo.jeeAdvance,
+    //   level0Score: academicInfo.level0Score,
+    //   level1Score: academicInfo.level1Score,
+    //   satII: academicInfo.satII,
+    //   sat: academicInfo.sat,
+    //   tofel: academicInfo.tofel,
+    //   schoolMarks: academicInfo.schoolMarks,
+    //   underGraduate: academicInfo.underGraduate,
+    //   postGraduateScore: academicInfo.postGraduteScore,
+    // };
     const backgroundInformation = {
-      haveAppliedForPassport: backgroundInfo.haveAppliedForPassword,
-      havePassport: backgroundInfo.havePassword,
-      passport_issued_country: backgroundInfo.passwordCountry,
-      numberOnPassport: backgroundInfo.numberOnPassword,
-      studentRefOne: backgroundInfo.studentRefOne,
-      studentRefTwo: backgroundInfo.studentRefTwo,
-      passwordIssuingAuthority: backgroundInfo.passwordIssuingAuthority,
-      name_on_password: backgroundInfo.nameOnPassword,
-      passwordExpireDate: backgroundInfo.passwordExpireDate,
-      passwordId: backgroundInfo.passwordId,
+      haveAppliedForPassport: backgroundInfo.haveAppliedForPassport,
+      havePassport: backgroundInfo.havePassport,
+      passportDetails: backgroundInfo.passportDetails,
+      passportId: backgroundInfo.passportId,
+      references: backgroundInfo.references,
     };
-    var documentRes = {};
+    // var documentRes = {};
     for (const [key] of Object.entries(academicInfo.certificatesImage)) {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
@@ -78,7 +73,11 @@ const DashboardReviewConfirm = (props) => {
               .getDownloadURL()
               .then((url) => {
                 console.log(url);
-                documentRes[key] = url;
+                setAcademicinfo({
+                  ...academicInfo,
+                  [key]: url,
+                })
+                // documentRes[key] = url;
               });
           });
       }
@@ -97,7 +96,10 @@ const DashboardReviewConfirm = (props) => {
             .getDownloadURL()
             .then((url) => {
               console.log(url);
-              documentRes["Personal_Identification_Id"] = url;
+              setBackgroundInfo({
+                ...backgroundInfo,
+                Personal_Identification_Id: url,
+              });
             });
         });
     }
@@ -105,9 +107,10 @@ const DashboardReviewConfirm = (props) => {
       .collection("students-application")
       .add({
         basicInfo,
-        documentRes,
+       // documentRes,
         selectedChoice,
-        academicInformation,
+       // academicInformation,
+        academicInfo,
         backgroundInformation,
       })
       .then((res) => console.log("response", res))
@@ -328,7 +331,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(basicInfo.permanentCity)}-
+                      {toTitleCase(basicInfo.guardianCity)}-
                       {basicInfo.phoneNumber}{" "}
                     </p>
                   </div>
@@ -354,7 +357,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(basicInfo.permanentZipCode)}{" "}
+                      {toTitleCase(basicInfo.guardianZipCode)}{" "}
                     </p>
                   </div>
 
@@ -380,7 +383,7 @@ const DashboardReviewConfirm = (props) => {
                     >
                       {" "}
                       {toTitleCase(
-                        truncateString(basicInfo.permanentAddress)
+                        truncateString(basicInfo.guardianAddress)
                       )}{" "}
                     </p>
                   </div>
@@ -434,7 +437,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(backgroundInfo.nameOnPassword)}
+                      {toTitleCase(backgroundInfo.passportDetails.nameOnPassport)}
                     </p>
                   </div>
 
@@ -460,7 +463,7 @@ const DashboardReviewConfirm = (props) => {
                     >
                       {" "}
                       {toTitleCase(
-                        backgroundInfo.passwordIssuingAuthority
+                        backgroundInfo.passportDetails.passportIssuingAuthority
                       )}{" "}
                     </p>
                   </div>
@@ -486,7 +489,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.passwordExpireDate}
+                      {backgroundInfo.passportDetails.passwordExpireDate}
                     </p>
                   </div>
 
@@ -511,7 +514,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.numberOnPassword}{" "}
+                      {backgroundInfo.numberOnPassport}{" "}
                     </p>
                   </div>
                   <div
@@ -584,7 +587,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.studentRefOne.name}{" "}
+                      {backgroundInfo.references.name}{" "}
                     </p>
                   </div>
                   <div
@@ -601,14 +604,14 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Phone Numer:
+                      Phone Nubmer:
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.studentRefOne.number}{" "}
+                      {backgroundInfo.references.phoneNumber}{" "}
                     </p>
                   </div>
                   <div
@@ -632,7 +635,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.studentRefOne.email}{" "}
+                      {backgroundInfo.references.emailAddress}{" "}
                     </p>
                   </div>
                 </div>
@@ -644,7 +647,7 @@ const DashboardReviewConfirm = (props) => {
                   }}
                 ></hr>
 
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
+                {/* <div style={{ display: "flex", flexWrap: "wrap" }}>
                   <div
                     style={{
                       display: "flex",
@@ -717,7 +720,9 @@ const DashboardReviewConfirm = (props) => {
                       {backgroundInfo.studentRefOne.email}{" "}
                     </p>
                   </div>
-                </div>
+                </div> */}
+
+              
               </Grid>
             </Grid>
 

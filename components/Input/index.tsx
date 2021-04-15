@@ -46,7 +46,7 @@ const Input = (props: Props) => {
         lineHeight: "20.79px",
         '& .MuiOutlinedInput-input': {
           paddingLeft: (props: Props) => {
-            return props.multiline ? " 30px" : !props.icon && '40px'
+            return props.multiline ? " 30px" : !props.icon && '10px'
           },
         }
       },

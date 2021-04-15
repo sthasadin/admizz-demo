@@ -7,7 +7,7 @@ export class CollegeService {
   }
 
   getCollege(college_slug) {
-    let url = `/college/getOneCollege/?id=${college_slug}`;//temporarly slug is id
+    let url = `/college/getOneCollege/${college_slug}`;//temporarly slug is id
     let data = getService(url);
     return data;
   }

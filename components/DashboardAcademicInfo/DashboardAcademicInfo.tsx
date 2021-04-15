@@ -10,6 +10,7 @@ import { UploadButton } from "../Button/uploadButton";
 
 const DashboardAcademicInfo = (props) => {
   const [schoolMarks, setSchoolMarks] = useState("");
+  const [selectedCourse, setselectedCourse] = useState("");
   const [level0Score, setLevel0Score] = useState("");
   const [diplomaScore, setDiplomaScore] = useState("");
   const [level1Score, setLevel1Score] = useState("");
@@ -33,15 +34,20 @@ const DashboardAcademicInfo = (props) => {
     post_Gradute: null,
   });
 
-  console.log(certificateThumbnail.school);
+  const {selectedLevel} = props.selectedLevel;
+  console.log(selectedLevel);
 
-  console.log(props);
+  // if(props.selectedLevel.selectedLevel =="diploma"){
+  //   setselectedCourse("diploma")
+    
+  // }
 
   const [certificatesImage, setCertificatresImage] = useState({
     highSchool: null,
     school: null,
     under_Graduate: null,
     post_Gradute: null,
+    other: null,
   });
   const sendData = () => {
     props.getData({
@@ -91,6 +97,15 @@ const DashboardAcademicInfo = (props) => {
     });
   };
 
+  const truncateString =(str, num) => {
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
+
+
   return (
     <div className="dashboard-basic-info">
       {/* Background Information */}
@@ -117,9 +132,13 @@ const DashboardAcademicInfo = (props) => {
             <Grid
               container
               className="dashboard-basic-info__row"
-              justify="space-around"
+              justify="flex-start"
               direction="row"
             >
+
+              {(selectedLevel == 'diploma' || selectedLevel == 'postgraduate' || selectedLevel == 'undergraduate' || selectedLevel == 'phd') && 
+
+      
               <Grid
                 className={"dashboard-basic-info__grid"}
                 item
@@ -138,6 +157,9 @@ const DashboardAcademicInfo = (props) => {
                   onChange={(e) => setSchoolMarks(e.target.value)}
                 />
               </Grid>
+                
+            }
+             { (selectedLevel == 'phd' || selectedLevel === 'diploma' || selectedLevel === 'postgraduate' || selectedLevel == 'undergraduate')  &&
               <Grid
                 className={"dashboard-basic-info__grid"}
                 item
@@ -156,13 +178,15 @@ const DashboardAcademicInfo = (props) => {
                   onChange={(e) => setLevel0Score(e.target.value)}
                 />
               </Grid>
+        }
             </Grid>
             <Grid
               container
               className="dashboard-basic-info__row"
-              justify="space-around"
+              justify="flex-start"
               direction="row"
             >
+              { (selectedLevel == 'postgraduate' || selectedLevel == 'undergraduate' || selectedLevel == 'phd') &&
               <Grid
                 className={"dashboard-basic-info__grid"}
                 item
@@ -181,6 +205,8 @@ const DashboardAcademicInfo = (props) => {
                   onChange={(e) => setDiplomaScore(e.target.value)}
                 />
               </Grid>
+          }   
+          {(selectedLevel == 'diploma' || selectedLevel == 'postgraduate' || selectedLevel == 'undergraduate' || selectedLevel == 'phd') &&
               <Grid
                 className={"dashboard-basic-info__grid"}
                 item
@@ -199,13 +225,15 @@ const DashboardAcademicInfo = (props) => {
                   onChange={(e) => setLevel1Score(e.target.value)}
                 />
               </Grid>
+            }
             </Grid>
             <Grid
               container
               className="dashboard-basic-info__row"
-              justify="space-around"
+              justify="flex-start"
               direction="row"
             >
+              {selectedLevel == 'phd' &&
               <Grid
                 className={"dashboard-basic-info__grid"}
                 item
@@ -224,6 +252,8 @@ const DashboardAcademicInfo = (props) => {
                   onChange={(e) => setPostGraduteScore(e.target.value)}
                 />
               </Grid>
+              }
+              {(selectedLevel == 'postgraduate' || selectedLevel == 'phd') &&
               <Grid
                 className={"dashboard-basic-info__grid"}
                 item
@@ -242,6 +272,7 @@ const DashboardAcademicInfo = (props) => {
                   onChange={(e) => setUnderGraduate(e.target.value)}
                 />
               </Grid>
+              }
             </Grid>
             <Grid
               container
@@ -256,12 +287,15 @@ const DashboardAcademicInfo = (props) => {
                 <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
+            {(selectedLevel == 'diploma' || selectedLevel == 'postgraduate' || selectedLevel == 'undergraduate' || selectedLevel == 'phd') &&
+            
             <Grid
               container
               className="dashboard-basic-info__row"
               justify="space-around"
               direction="row"
             >
+           
               <Grid item sm={12} md={4} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   School Certificate
@@ -295,13 +329,14 @@ const DashboardAcademicInfo = (props) => {
                 </label>
               </Grid>
               <Grid item sm={12} md={4} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
+              {certificatesImage.school && <div style={{display: 'flex', marginTop:'10px'}}>{truncateString(certificatesImage.school.name, 20)} <img src="/check.png" alt="check" style={{marginLeft: '20px'}} /> </ div>}
               </Grid>
+              
+            
             </Grid>
+            }
+            {(selectedLevel == 'diploma' || selectedLevel == 'postgraduate' || selectedLevel == 'undergraduate' || selectedLevel == 'phd') &&
+            
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -334,13 +369,12 @@ const DashboardAcademicInfo = (props) => {
                 </label>
               </Grid>
               <Grid item sm={12} md={4} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
+              {certificatesImage.highSchool && <div style={{display: 'flex', marginTop:'10px'}}>{truncateString(certificatesImage.highSchool.name, 20)} <img src="/check.png" alt="check" style={{marginLeft: '20px'}} /> </ div>}
               </Grid>
             </Grid>
+            }
+            {(selectedLevel == 'postgraduate' || selectedLevel == 'phd') &&
+            
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -373,13 +407,12 @@ const DashboardAcademicInfo = (props) => {
                 </label>
               </Grid>
               <Grid item sm={12} md={4} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
+              {certificatesImage.under_Graduate && <div style={{display: 'flex', marginTop:'10px'}}>{truncateString(certificatesImage.under_Graduate.name, 20)} <img src="/check.png" alt="check" style={{marginLeft: '20px'}} /> </ div>}
               </Grid>
             </Grid>
+          }
+          {( selectedLevel == 'phd') &&
+            
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -412,13 +445,10 @@ const DashboardAcademicInfo = (props) => {
                 </label>
               </Grid>
               <Grid item sm={12} md={4} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
+              {certificatesImage.post_Gradute && <div style={{display: 'flex', marginTop:'10px'}}>{truncateString(certificatesImage.post_Gradute.name, 20)} <img src="/check.png" alt="check" style={{marginLeft: '20px'}} /> </ div>}
               </Grid>
             </Grid>
+            }
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -467,11 +497,7 @@ const DashboardAcademicInfo = (props) => {
                 </div>
               </Grid>
               <Grid item sm={12} md={3} xs={12}>
-                <img
-                  src="/photo.jpg"
-                  alt="document_logo"
-                  className="image__thumbnail"
-                />
+              {certificatesImage.other && <div style={{display: 'flex', marginTop:'10px'}}>{truncateString(certificatesImage.other.name, 20)} <img src="/check.png" alt="check" style={{marginLeft: '20px'}} /> </ div>}
               </Grid>
             </Grid>
           </form>

@@ -8,49 +8,38 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Button } from "../Button";
 import { UploadButton } from "../Button/uploadButton";
 import { DropDownSelect } from "../DropDownSelect";
+import GreenCircle from '../GreenCircle'
 import { PersonalVideo } from "@material-ui/icons";
 
 const DashboardBackgroundInfo = (props) => {
-  const [nameOnPassword, setNameOnPassword] = useState("");
-  const [numberOnPassword, setNumberOnPassword] = useState("");
-  const [passwordCountry, setPasswordCountry] = useState("");
-  const [passwordIssuingAuthority, setPasswordIssuingAuthority] = useState("");
-  const [passwordExpireDate, setPasswordExpireDate] = useState("");
-  const [havePassword, setHavePassword] = useState(false);
-  const [haveAppliedForPassword, setHaveAppliedPassword] = useState(true);
-  const [passwordId, setPasswordId] = useState("");
+  const [havePassport, setHavePassport] = useState(false);
+  const [passportDetails, setPassportDetails] = useState({
+    nameOnPassport: "",
+    numberOnPassport: "",
+    passportIssuingAuthority: "",
+    passportExpireDate: "",
+    passportIssuedCountry: "",
+  });
+  const [haveAppliedForPassport, setHaveAppliedPassport] = useState(false);
+  const [passportId, setPassportId] = useState("");
   const [documentImage, setDocumentImage] = useState(null);
-  const [documentImageThumbnail, setDocumentImageThumbnail] = useState(null);
-  const [refOneCountryCode, setRefOneCountryCode] = useState("");
-  const [refTwoCountryCode, setRefTwoCountryCode] = useState("");
-  const [studentRefOne, setstudentRefOne] = useState({
-    name: "",
-    country_code: refOneCountryCode,
-    number: "",
-    email: "",
+  // const [documentImageThumbnail, setDocumentImageThumbnail] = useState(null);
+  const [references, setReferences] = useState({
+    fullName: "",
+    countryCode: "",
+    phoneNumber: "",
+    emailAddress: "",
     address: "",
   });
-  const [studentRefTwo, setstudentRefTwo] = useState({
-    name: "",
-    number: "",
-    email: "",
-    address: "",
-    country_code: refTwoCountryCode,
-  });
-
   const sendData = () => {
     props.getData({
-      nameOnPassword,
-      numberOnPassword,
-      passwordCountry,
-      passwordIssuingAuthority,
-      passwordExpireDate,
-      havePassword,
-      haveAppliedForPassword,
-      passwordId,
+      havePassport,
+      passportDetails,
+      haveAppliedForPassport,
+      passportId,
+
       documentImage,
-      studentRefOne,
-      studentRefTwo,
+      references,
     });
     props.handleNext();
   };
@@ -78,24 +67,29 @@ const DashboardBackgroundInfo = (props) => {
 
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
-      setNameOnPassword(props.data.nameOnPassword);
-      setNameOnPassword(props.data.numberOnPassword);
-      setPasswordExpireDate(props.data.passwordExpireDate);
-      setPasswordCountry(props.data.passwordCountry);
-      setPasswordIssuingAuthority(props.data.passwordIssuingAuthority);
-      setHavePassword(props.data.havePassword);
-      setHaveAppliedPassword(props.data.haveAppliedForPassword);
-      setPasswordId(props.data.passwordId);
+      setHavePassport(props.data.havePassport);
+      setPassportDetails(props.data.passportDetails);
+      setHaveAppliedPassport(props.data.haveAppliedForPassport);
+      setPassportId(props.data.passportId);
       setDocumentImage(props.data.documentImage);
-      setstudentRefOne(props.data.studentRefOne);
-      setstudentRefTwo(props.data.studentRefTwo);
+      setReferences(props.data.references);
     }
   }, [props.data]);
 
   const handleImageChange = (e) => {
     setDocumentImage(e.target.files[0]);
-    setDocumentImageThumbnail(URL.createObjectURL(e.target.files[0]));
+    // setDocumentImageThumbnail(URL.createObjectURL(e.target.files[0]));
   };
+
+  const truncateString =(str, num) => {
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
+
+
   return (
     <div className="dashboard-basic-info">
       {/* Background Information */}
@@ -128,19 +122,19 @@ const DashboardBackgroundInfo = (props) => {
                     value="yes"
                     control={<Radio />}
                     label="Yes"
-                    onChange={() => setHavePassword(true)}
+                    onChange={() => setHavePassport(true)}
                   />
                   <FormControlLabel
                     value="no"
                     control={<Radio />}
                     label="No"
-                    onChange={() => setHavePassword(false)}
+                    onChange={() => setHavePassport(false)}
                   />
                 </RadioGroup>
               </Grid>
             </Grid>
             {/*  */}
-            {!havePassword ? (
+            {!havePassport ? (
               ""
             ) : (
               <div>
@@ -161,8 +155,11 @@ const DashboardBackgroundInfo = (props) => {
                       className={"dashboard-basic-info__input"}
                       fullWidth
                       placeholder="Name On Passport"
-                      value={nameOnPassword}
-                      onChange={(e) => setNameOnPassword(e.target.value)}
+                      value={passportDetails.nameOnPassport}
+                      onChange={(e) => setPassportDetails({
+                        ...passportDetails,
+                        nameOnPassport: e.target.value,
+                      })}
                     />
                   </Grid>
                   <Grid
@@ -176,8 +173,11 @@ const DashboardBackgroundInfo = (props) => {
                       className={"dashboard-basic-info__input"}
                       fullWidth
                       placeholder="Passport Number"
-                      value={numberOnPassword}
-                      onChange={(e) => setNumberOnPassword(e.target.value)}
+                      value={passportDetails.numberOnPassport}
+                      onChange={(e) => setPassportDetails({
+                        ...passportDetails,
+                        numberOnPassport: e.target.value,
+                      })}
                     />
                   </Grid>
                 </Grid>
@@ -198,9 +198,12 @@ const DashboardBackgroundInfo = (props) => {
                       className={"dashboard-basic-info__input"}
                       fullWidth
                       placeholder="Issuing Authority"
-                      value={passwordIssuingAuthority}
+                      value={passportDetails.passportIssuingAuthority}
                       onChange={(e) =>
-                        setPasswordIssuingAuthority(e.target.value)
+                        setPassportDetails({
+                          ...passportDetails,
+                          passportIssuingAuthority: e.target.value,
+                        })
                       }
                     />
                   </Grid>
@@ -215,8 +218,11 @@ const DashboardBackgroundInfo = (props) => {
                       className={"dashboard-basic-info__input"}
                       fullWidth
                       placeholder="Expiry Date of Passport"
-                      value={passwordExpireDate}
-                      onChange={(e) => setPasswordExpireDate(e.target.value)}
+                      value={passportDetails.passportExpireDate}
+                      onChange={(e) => setPassportDetails({
+                        ...passportDetails,
+                        passportExpireDate: e.target.value,
+                      })}
                     />
                   </Grid>
                 </Grid>
@@ -236,7 +242,11 @@ const DashboardBackgroundInfo = (props) => {
                     <DropDownSelect
                       title="Issuing Country"
                       options={CountryOption}
-                      handelChange={setPasswordCountry}
+                      defaultvalue={passportDetails.passportIssuedCountry}
+                      handleChange={(e) => setPassportDetails({
+                        ...passportDetails,
+                        passportIssuedCountry: e
+                      })}
                     />
                   </Grid>
                   <Grid
@@ -249,7 +259,7 @@ const DashboardBackgroundInfo = (props) => {
                 </Grid>
               </div>
             )}
-            {havePassword ? (
+            {havePassport ? (
               ""
             ) : (
               <Grid
@@ -274,13 +284,13 @@ const DashboardBackgroundInfo = (props) => {
                       value="yes"
                       control={<Radio />}
                       label="Yes"
-                      onChange={() => setHaveAppliedPassword(true)}
+                      onChange={() => setHaveAppliedPassport(true)}
                     />
                     <FormControlLabel
                       value="no"
                       control={<Radio />}
                       label="No"
-                      onChange={() => setHaveAppliedPassword(false)}
+                      onChange={() => setHaveAppliedPassport(false)}
                     />
                   </RadioGroup>
                 </Grid>
@@ -315,8 +325,8 @@ const DashboardBackgroundInfo = (props) => {
                   className={"dashboard-basic-info__input"}
                   fullWidth
                   placeholder="Citizenship ID / National ID"
-                  value={passwordId}
-                  onChange={(e) => setPasswordId(e.target.value)}
+                  value={passportId}
+                  onChange={(e) => setPassportId(e.target.value)}
                 />
               </Grid>
               <Grid
@@ -363,7 +373,13 @@ const DashboardBackgroundInfo = (props) => {
                   <UploadButton>Upload button</UploadButton>
                 </label>
               </Grid>
-              {documentImageThumbnail && (
+           
+                  <Grid item sm={12} md={4} xs={12} justify="flex-start" style={{display: 'flex'}}>
+                  {documentImage && <><div style={{alignSelf: 'center'}}>{truncateString(documentImage.name, 20)}</div> <GreenCircle /> </>}
+                      
+
+                  </Grid>
+              {/* {documentImageThumbnail && (
                 <Grid item sm={12} md={4} xs={12}>
                   <img
                     src={documentImageThumbnail}
@@ -374,7 +390,7 @@ const DashboardBackgroundInfo = (props) => {
                     {documentImage ? documentImage.name : ""}
                   </p>
                 </Grid>
-              )}
+              )} */}
             </Grid>
           </form>
         </div>
@@ -388,7 +404,7 @@ const DashboardBackgroundInfo = (props) => {
         <div className="dashboard-basic-info__formContainer">
           <div className="dashboard-basic-info__marginContainer">
             <div className="dashboard-basic-info__formTitle">
-              At least 2 references
+            References
             </div>
             <hr className="dashboard-basic-info__horizontalLine" />
             <form>
@@ -409,26 +425,13 @@ const DashboardBackgroundInfo = (props) => {
                     className={"dashboard-basic-info__input"}
                     fullWidth
                     placeholder="Full Name"
-                    value={studentRefOne.name}
+                    value={references.fullName}
                     onChange={(e) =>
-                      setstudentRefOne({
-                        ...studentRefOne,
-                        name: e.target.value,
+                      setReferences({
+                        ...references,
+                        fullName: e.target.value,
                       })
                     }
-                  />
-                </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={6}
-                  md={3}
-                  xs={4}
-                >
-                  <DropDownSelect
-                    options={CountryCodeOptions}
-                    title="Country Code"
-                    handelChange={setRefTwoCountryCode}
                   />
                 </Grid>
                 <Grid
@@ -438,20 +441,54 @@ const DashboardBackgroundInfo = (props) => {
                   md={4}
                   xs={12}
                 >
-                  <div className={"student-info__phone-input"}>
+                  
+                  <div className='student-info__phone-input'>
+                <Select
+                options={CountryCodeOptions}
+                useValue
+                minWidth={"83px"}
+                width={"90px"}
+                defaultValue={references.countryCode}
+                // name={"countryCode"}
+                onChange={(e) => setReferences({
+                  ...references,
+                  countryCode: e.target.value
+                }) }
+                className={"student-info__phone-separator"}
+              />
                     <Input
                       className={"student-info__input student-info__phone"}
                       fullWidth
                       placeholder="Phone Number"
-                      value={studentRefOne.number}
+                      value={references.phoneNumber}
                       onChange={(e) =>
-                        setstudentRefOne({
-                          ...studentRefOne,
-                          number: e.target.value,
+                        setReferences({
+                          ...references,
+                          phoneNumber: e.target.value,
                         })
                       }
                     />
                   </div>
+                </Grid>
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={4}
+                  xs={12}
+                >
+                  <Input
+                    className={"dashboard-basic-info__input"}
+                    fullWidth
+                    placeholder="Email Address"
+                    value={references.emailAddress}
+                    onChange={(e) =>
+                      setReferences({
+                        ...references,
+                        emailAddress: e.target.value,
+                      })
+                    }
+                  />
                 </Grid>
               </Grid>
 
@@ -471,31 +508,11 @@ const DashboardBackgroundInfo = (props) => {
                   <Input
                     className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="Email Address"
-                    value={studentRefOne.email}
-                    onChange={(e) =>
-                      setstudentRefOne({
-                        ...studentRefOne,
-                        email: e.target.value,
-                      })
-                    }
-                  />
-                </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={4}
-                  xs={12}
-                >
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
                     placeholder="Address"
-                    value={studentRefOne.address}
+                    value={references.address}
                     onChange={(e) =>
-                      setstudentRefOne({
-                        ...studentRefOne,
+                      setReferences({
+                        ...references,
                         address: e.target.value,
                       })
                     }

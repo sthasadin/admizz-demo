@@ -140,6 +140,7 @@ const DashboardBasicInfoPage = () => {
             handleBack={handleBack}
             getData={setAcademicInfo}
             data={academicInfo}
+            selectedLevel={basicInfo}
           />
         );
       case 3:

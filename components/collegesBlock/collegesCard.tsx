@@ -18,14 +18,14 @@ const CollegesCard = (college) => {
   return (
     <div
       className="colleges-card"
-      onClick={() => router.push(`colleges/${college?._id}`)}
+      onClick={() => router.push(`colleges/${college?.college_slug}`)}
     >
       <div className="colleges-card__inner">
         <div className="colleges-card__thumbnail">
           <img src="/colleges.png" alt="college" />
           <div className="colleges-card__title-wrap">
             <div className="colleges-card__title">
-              <Link href={`colleges/${college?._id}`}>
+              <Link href={`colleges/${college?.college_slug}`}>
                 <a>{college?.name}</a>
               </Link>
             </div>

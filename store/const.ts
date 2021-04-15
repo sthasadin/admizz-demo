@@ -1,4 +1,5 @@
-export const API_BASE_URL = 'http://157.245.106.9'
+// export const API_BASE_URL = 'http://157.245.106.9'
+export const API_BASE_URL = 'http://localhost:3005'
 
 // alert
 export const GLOBAL_ERROR = "GLOBAL_ERROR";

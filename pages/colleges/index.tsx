@@ -27,6 +27,7 @@ const collegeList = () => {
   const allCoursesWithCounts = useMemo(() => {
     const courses = [];
     if (collegeList.length) {
+      collegeList.length = 10;
       collegeList.forEach((college) => {
         college.courses.forEach((course) => courses.push(course.course_name));
       });
@@ -40,12 +41,14 @@ const collegeList = () => {
 
   useEffect(() => {
     if (collegeList.length) {
+      collegeList.length = 10;
       setCollegeList(collegeList);
     }
   }, [collegeList]);
 
   const handleSideSearch = () => {
     if (collegeList.length) {
+      collegeList.length = 10;
       let colleges = [];
       collegeList.forEach((college) => {
         if (college.courses.length) {

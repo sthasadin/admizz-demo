@@ -369,6 +369,7 @@ const DashboardBasicInfo = (props) => {
                 md={4}
                 xs={12}
               >
+<<<<<<< HEAD
                    <div className='student-info__phone-input'>
                 <Select
                 options={CountryCodeOptions}
@@ -380,6 +381,24 @@ const DashboardBasicInfo = (props) => {
                 onChange={e => setCountryCode(e.target.value)}
                 className={"student-info__phone-separator"}
               />
+=======
+                <DropDownSelect
+                // defaultvalue={countryCode}
+                  options={CountryCodeOptions}
+                  title="Country Code"
+                  handleChange={setCountryCode}
+                  name={"countrycode"}
+                  errorMessage={""}
+                />
+              </Grid>
+              <Grid
+                className={"dashboard-basic-info__grid"}
+                item
+                sm={12}
+                md={4}
+                xs={12}
+              >
+>>>>>>> 0f464a20bcd45f5ca08d5537253c9c6de8934dc9
                 <Input
                   className={"student-info__input student-info__phone"}
                   fullWidth

@@ -31,6 +31,7 @@ const DashboardBackgroundInfo = (props) => {
     emailAddress: "",
     address: "",
   });
+  
   const sendData = () => {
     props.getData({
       havePassport,
@@ -154,12 +155,14 @@ const DashboardBackgroundInfo = (props) => {
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="Name On Passport"
+                      label="Name On Passport"
                       value={passportDetails.nameOnPassport}
-                      onChange={(e) => setPassportDetails({
-                        ...passportDetails,
-                        nameOnPassport: e.target.value,
-                      })}
+                      onChange={(e) =>
+                        setPassportDetails({
+                          ...passportDetails,
+                          nameOnPassport: e.target.value,
+                        })
+                      }
                     />
                   </Grid>
                   <Grid
@@ -172,7 +175,7 @@ const DashboardBackgroundInfo = (props) => {
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="Passport Number"
+                      label="Passport Number"
                       value={passportDetails.numberOnPassport}
                       onChange={(e) => setPassportDetails({
                         ...passportDetails,
@@ -197,7 +200,7 @@ const DashboardBackgroundInfo = (props) => {
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="Issuing Authority"
+                      label="Issuing Authority"
                       value={passportDetails.passportIssuingAuthority}
                       onChange={(e) =>
                         setPassportDetails({
@@ -217,7 +220,7 @@ const DashboardBackgroundInfo = (props) => {
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="Expiry Date of Passport"
+                      label="Expiry Date of Passport"
                       value={passportDetails.passportExpireDate}
                       onChange={(e) => setPassportDetails({
                         ...passportDetails,
@@ -324,7 +327,7 @@ const DashboardBackgroundInfo = (props) => {
                 <Input
                   className={"dashboard-basic-info__input"}
                   fullWidth
-                  placeholder="Citizenship ID / National ID"
+                  label="Citizenship ID / National ID"
                   value={passportId}
                   onChange={(e) => setPassportId(e.target.value)}
                 />
@@ -379,18 +382,6 @@ const DashboardBackgroundInfo = (props) => {
                       
 
                   </Grid>
-              {/* {documentImageThumbnail && (
-                <Grid item sm={12} md={4} xs={12}>
-                  <img
-                    src={documentImageThumbnail}
-                    alt="document_logo"
-                    className="image__thumbnail"
-                  />
-                  <p style={{ margin: 10 }}>
-                    {documentImage ? documentImage.name : ""}
-                  </p>
-                </Grid>
-              )} */}
             </Grid>
           </form>
         </div>
@@ -403,9 +394,7 @@ const DashboardBackgroundInfo = (props) => {
         </div>
         <div className="dashboard-basic-info__formContainer">
           <div className="dashboard-basic-info__marginContainer">
-            <div className="dashboard-basic-info__formTitle">
-            References
-            </div>
+            <div className="dashboard-basic-info__formTitle">References</div>
             <hr className="dashboard-basic-info__horizontalLine" />
             <form>
               <Grid
@@ -424,7 +413,7 @@ const DashboardBackgroundInfo = (props) => {
                   <Input
                     className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="Full Name"
+                    label="Full Name"
                     value={references.fullName}
                     onChange={(e) =>
                       setReferences({
@@ -434,6 +423,25 @@ const DashboardBackgroundInfo = (props) => {
                     }
                   />
                 </Grid>
+                {/* <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={6}
+                  md={3}
+                  xs={4}
+                >
+                  <DropDownSelect
+                    options={CountryCodeOptions}
+                    title="Country Code"
+                    handleChange={(e) =>
+                      setReferences({
+                        ...references,
+                        countryCode: e,
+                      })
+                    }
+                    //handleChange={setReferences}
+                  />
+                </Grid> */}
                 <Grid
                   className={"dashboard-basic-info__grid"}
                   item
@@ -459,7 +467,7 @@ const DashboardBackgroundInfo = (props) => {
                     <Input
                       className={"student-info__input student-info__phone"}
                       fullWidth
-                      placeholder="Phone Number"
+                      label="Phone Number"
                       value={references.phoneNumber}
                       onChange={(e) =>
                         setReferences({
@@ -480,7 +488,7 @@ const DashboardBackgroundInfo = (props) => {
                   <Input
                     className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="Email Address"
+                    label="Email Address"
                     value={references.emailAddress}
                     onChange={(e) =>
                       setReferences({
@@ -508,7 +516,7 @@ const DashboardBackgroundInfo = (props) => {
                   <Input
                     className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="Address"
+                    label="Address"
                     value={references.address}
                     onChange={(e) =>
                       setReferences({

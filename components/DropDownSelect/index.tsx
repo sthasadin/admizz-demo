@@ -17,10 +17,11 @@ const DropDownSelect = ({ title, options, handleChange, defaultvalue }:DropDownS
       minHeight: 50,
       position: "absolute",
       left: 0,
-      top: 0,
+      top: 7,
       right: 0,
     }),
   };
+
   return (
     <div style={{ position: "relative", height: 50 }}>
       <div

@@ -10,6 +10,7 @@ const DashboardReviewConfirm = (props) => {
   const [profileImage, setProfileImage] = React.useState(null);
   const [signatureImage, setSignatureImage] = React.useState(null);
   const [isTermsChecked, setIstermsChecked] = React.useState(false);
+  // const [imageList, setImageList] = React.useState();
 
   function toTitleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
@@ -17,8 +18,15 @@ const DashboardReviewConfirm = (props) => {
     });
   }
 
-  const { basicInfo, backgroundInfo, academicInfo, selectedChoice } = props;
-  // console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice)
+  const {
+    basicInfo,
+    backgroundInfo,
+    academicInfo,
+    selectedChoice,
+    setBackgroundInfo,
+    setAcademicInfo,
+  } = props;
+  //console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice);
 
   // trunclate string
   function truncateString(str, num = 20) {
@@ -57,6 +65,7 @@ const DashboardReviewConfirm = (props) => {
     };
     // var documentRes = {};
     for (const [key] of Object.entries(academicInfo.certificatesImage)) {
+      // console.log(key);
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
@@ -73,7 +82,7 @@ const DashboardReviewConfirm = (props) => {
               .getDownloadURL()
               .then((url) => {
                 console.log(url);
-                setAcademicinfo({
+                setAcademicInfo({
                   ...academicInfo,
                   [key]: url,
                 })
@@ -103,6 +112,7 @@ const DashboardReviewConfirm = (props) => {
             });
         });
     }
+
     await db
       .collection("students-application")
       .add({
@@ -430,7 +440,7 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Name on Password :
+                      Name on Passport :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -455,7 +465,7 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Password Issuing Authority :
+                      Passport Issuing Authority :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -482,7 +492,7 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Password Expiry Date :
+                      Passport Expiry Date :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"

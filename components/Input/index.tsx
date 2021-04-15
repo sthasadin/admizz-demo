@@ -1,7 +1,7 @@
 import React from "react";
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import InputAdornment from '@material-ui/core/InputAdornment';
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 interface Props {
   icon?: any;
@@ -9,7 +9,7 @@ interface Props {
   margin?: string;
   disabled?: boolean;
   name?: string;
-  value?: any;
+  s?: any;
   placeholder?: string;
   className?: any;
   type?: string;
@@ -19,14 +19,14 @@ interface Props {
   error?: boolean;
   errorMessage?: string;
   borderRadius?: string;
+  value?:any;
 }
-
 
 const Input = (props: Props) => {
   const useStyles = makeStyles((theme) => ({
     container: {
-      position: 'relative',
-      width: '100%',
+      position: "relative",
+      width: "100%",
       margin: (props: Props) => {
         return props.margin && props.margin;
       },
@@ -35,35 +35,35 @@ const Input = (props: Props) => {
       },
     },
     input: {
-      '& .MuiOutlinedInput-root': {
+      "& .MuiOutlinedInput-root": {
         borderRadius: (props: Props) => {
-          return props.borderRadius ? props.borderRadius : "5px"
+          return props.borderRadius ? props.borderRadius : "5px";
         },
-        outline: 'none',
+        outline: "none",
         fontFamily: "'M PLUS 1p'",
         fontWeight: 400,
         fontSize: 14,
         lineHeight: "20.79px",
-        '& .MuiOutlinedInput-input': {
+        "& .MuiOutlinedInput-input": {
           paddingLeft: (props: Props) => {
             return props.multiline ? " 30px" : !props.icon && '10px'
           },
-        }
+        },
       },
     },
     errorMessage: {
       fontSize: 12,
-      color: '#FF0000',
-      position: 'absolute',
-      bottom: '-16px',
-      left: '4px'
-    }
+      color: "#FF0000",
+      position: "absolute",
+      bottom: "-16px",
+      left: "4px",
+    },
   }));
   const classes = useStyles(props);
 
   let Icon;
   if (props.icon) {
-    Icon = props.icon
+    Icon = props.icon;
   }
 
   return (
@@ -83,15 +83,19 @@ const Input = (props: Props) => {
         label={props.label}
         onChange={props.onChange}
         error={props.error}
-        InputProps={Icon && {
-          startAdornment: (
-            <InputAdornment position="start">
-              <Icon />
-            </InputAdornment>
-          ),
-        }}
+        InputProps={
+          Icon && {
+            startAdornment: (
+              <InputAdornment position="start">
+                <Icon />
+              </InputAdornment>
+            ),
+          }
+        }
       />
-      {props.errorMessage && <span className={classes.errorMessage}>{props.errorMessage}</span>}
+      {props.errorMessage && (
+        <span className={classes.errorMessage}>{props.errorMessage}</span>
+      )}
     </div>
   );
 };

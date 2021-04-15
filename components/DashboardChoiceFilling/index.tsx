@@ -187,8 +187,6 @@ const DashboardChoiceFilling = (props) => {
   const [selectedProgram, setSelectedProgram] = useState('');
   const [programOption, setProgramOption] = useState([]);
   const [collegeOption, setCollegeOption] = useState([]);
-
-
     
   //fetch stream
   useEffect(() => {

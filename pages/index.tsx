@@ -14,6 +14,7 @@ import { Merits } from "../components/mertis";
 import { Statistics } from "../components/statistics";
 import { Teams } from "../components/Teams";
 import { Testimonial } from "../components/Testimonial";
+// import { Testimonial } from "../components/Testomonial";
 import { Us } from "../components/why-us";
 import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";

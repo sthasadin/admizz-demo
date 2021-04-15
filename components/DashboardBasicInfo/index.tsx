@@ -283,8 +283,8 @@ const DashboardBasicInfo = (props) => {
                 title="Select Level"
                 options={SelectLevelOption}
                 handleChange={setSelectedLevel}
-                name={"selectLevel"}
-                errorMessage={formError.selectLevel}
+                // name={"selectLevel"}
+                // errorMessage={formError.selectLevel}
                 // error={!!formError.email}
               />
             </Grid>
@@ -465,8 +465,8 @@ const DashboardBasicInfo = (props) => {
                     title="Country"
                     options={CountryOption}
                     handleChange={setGuardianCountry}
-                    name={"country"}
-                    errorMessage={""}
+                    // name={"country"}
+                    // errorMessage={""}
                   />
                 </Grid>
                 <Grid
@@ -479,8 +479,8 @@ const DashboardBasicInfo = (props) => {
                   <DropDownSelect
                     title="State"
                     handleChange={setGuardianState}
-                    name={"state"}
-                    errorMessage={""}
+                    // name={"state"}
+                    // errorMessage={""}
                     options={
                       guardianCountry === "Nepal"
                         ? NepalStateOption

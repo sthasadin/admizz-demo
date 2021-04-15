@@ -176,13 +176,7 @@ const DashboardBasicInfo = (props:any) => {
     };
   });
 
-  const copyResidentialData = () => {
-    setPermanentCity(residentialCity);
-    setPermanentCountry(residentialcountry);
-    setPermanentZipCode(residentialZipCode);
-    setPermanentState(residentialState);
-    setPermanentAddress(residentialAddress);
-  };
+ 
 
   
 

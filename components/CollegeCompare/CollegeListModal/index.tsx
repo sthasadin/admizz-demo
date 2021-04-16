@@ -22,6 +22,7 @@ const index = (props: any) => {
   }, []);
 
   const collegeList = useSelector((state: any) => state.college.colleges);
+  console.log(collegeList)
 
   React.useEffect(() => {
     if (collegeList.length) {

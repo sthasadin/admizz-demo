@@ -13,6 +13,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { bold } from "*.jpg";
+import People from '../../public/people.png'
+import breifcase from '../../public/breifcase.png'
 
 const StyledTableCell = withStyles((theme: Theme) =>
   createStyles({
@@ -53,17 +55,52 @@ export default function CustomizedTables(props: any) {
     "ESTD_YEAR",
   ];
 
+  const getIcon=(label) => {
+
+  
+    switch(label) {
+      case "QS_ranking":
+        return <People />;
+      default:
+        return null;  
+  }
+}
+
   const classes = useStyles();
+  console.log(selectedFilters)
+  const mergedArr = []
+
+  
 
   return (
     <>
-    
-    <div>World Ranking</div>
-    {/* <div className="collegedetails_container"> */}
-    <div className="collegetable-attribute">Rank 5</div>
-    {/* <div>Rank 15</div>
-    <div>Rank 20</div> */}
-    {/* </div> */}
+    <div className="compare-college-table">
+    {selectedFilters.map((data: any, i) => {
+            return (
+              <StyledTableRow key={i}>
+                <StyledTableCell component="th" scope="row">
+                  <strong>{data.label}</strong>
+                </StyledTableCell>
+            <div style={{display: 'flex', marginLeft: "75px"}}>
+                {selectedCollege.map((colegeAttributes: any) => {
+                  console.log(data.value) 
+                  return(
+                  <>
+                    <div className="comparetable__data_attributes" style={{width: '311px', height: '97px', display: 'flex', border: '1px solid #E0E0E0' , marginLeft: '24px', backgroundColor: 'white'}}>
+                     {getIcon(data.value)} {colegeAttributes[data.value]}
+                      {/* {    console.log(Object.keys(colegeAttributes[data.value][0]) } */}
+                    </div>
+                  </>
+                   
+                )
+              }
+                )}
+                </div>
+              </StyledTableRow>
+            );
+          })}
+      
+    </div>
 
     </>
   );

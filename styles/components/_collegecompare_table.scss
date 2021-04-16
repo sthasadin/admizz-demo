@@ -51,3 +51,28 @@
         
     }
 }
+.compare-college-table{
+    width: 100%;
+
+    .comparetable__data_attributes{
+        font-size: 18px;
+        color: #4F4F4F;
+        padding: 33px 27px;
+
+    }
+}
+.compare-college-table ul{
+    list-style: none;
+}
+.compare-college-table ul::after{
+    clear: both;
+    display: block;
+    content: "";
+}
+.compare-college-table > ul > li{
+    float: left;
+    width: 33.33333%;
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+}

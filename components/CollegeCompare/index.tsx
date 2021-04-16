@@ -17,7 +17,7 @@ const index = () => {
     { label: "University Ranking", value: "university_ranking" },
     { label: "ESTD_YEAR", value: "estd_year" },
   ]);
-  const arry = [1,2,3];
+  const arry = [1,2];
   const [selectedCollege, setSelectedCollege] = React.useState([]);
   // console.log(selectedFilters);
   const [isAddCollegeModalOpen, setIsAddCollegeModalOpen] = React.useState(
@@ -60,11 +60,13 @@ const index = () => {
           selectedCollegeArray={selectedCollege}
         />
       )}
+      <div style={{backgroundColor:'#e5e5e5'}}>
+       <div className="inner">
 
       <div className="comparecollege__header">
-      <div className="inner">
+     
         
-          <div className="comparecollege__head">
+          <div className="comparecollege__head" style={{margin: "auto 0"}}>
             <div className="comparecollege__title">Compare College</div>
             <Button
               className="comparecollege__filterbtn"
@@ -74,7 +76,14 @@ const index = () => {
               Filter Compare
             </Button>
           </div>
-          {isFilterContainer && (
+
+         
+         
+          </div>
+         
+    
+      </div>
+      {isFilterContainer && (
             <div className="comparecollege__filtercontainer">
               <CompareAttributesList
                 selectedFilters={selectedFilters}
@@ -83,17 +92,14 @@ const index = () => {
               />
             </div>
           )}
-          </div>
-    
-      </div>
-
+  </div>
       <div className="comparecollege__addcollegecontainer">
       <div className="inner">
        
           <div className="comparecollege__collegelist">
             {/* here college */}
-            {/* {arry &&
-              arry.map((collegedata) => {
+            {selectedCollege &&
+              selectedCollege.map((collegedata) => {
                 return (
                   <ShowSelectedCollege
                     hostId={college._id}
@@ -105,9 +111,9 @@ const index = () => {
                     removeCollegeFromCard={removeCollegeFromCard}
                   />
                 );
-              })} */}
+              })}
 
-            {/* {selectedCollege.length < 3 ? (
+            {selectedCollege.length < 3 ? (
               <div
                 className="comparecollege__addtemplates"
                 onClick={() => handleAddCollegeModal(true)}
@@ -116,7 +122,7 @@ const index = () => {
               </div>
             ) : (
               ""
-            )} */}
+            )}
           </div>
 
         <div className="collegecompare__tablecontainer">

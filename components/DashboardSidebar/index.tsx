@@ -14,7 +14,7 @@ const DashboardSidebar = () => {
   return (
     <StickyBox>
       <div className="dashboard-sidebar">
-        <div onClick={()=>router.push('/studentdashboardmain')}><DashboardSidebarTab  title="DashBoard" /></div>
+        <div onClick={()=>router.push('/studentdashboardmain')}><DashboardSidebarTab  title="Dashboard" /></div>
         <DashboardSidebarTab title="Student" />
         <DashboardSidebarTab title="Result" />
         <DashboardSidebarTab title="Latest Update" />

@@ -98,6 +98,15 @@ export const removeProgram = (id) => async(dispatch: Dispatch) => {
     }
 };
 
+export const getFilters = () => async(dispatch: Dispatch) => {
+    const response = await coursesService.getFilters();
+    if (response.isSuccess) {
+        return response.data
+    } else if (!response.isSuccess) {
+        return {}
+    }
+};
+
 export const getCollegesByCourses = (course_level, course_stream, program_id ) => async(dispatch: Dispatch) => {
     const response = await coursesService.getCollegesByCourses(course_level, course_stream, program_id);
     if (response.isSuccess) {

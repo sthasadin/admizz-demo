@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import _ from "lodash";
 import Head from "next/head";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,53 +11,75 @@ import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
 import { CollegeListResult } from "../../components/CollegeListResult";
 // import { getAllCollegeList } from "../../store/Action/allCollage.action";
 import { getColleges } from "../../store/Action/college.action";
+import { getFilters } from "../../store/Action/courses.action";
 
 const collegeList = () => {
   const [collegeListSearchQuery, setCollegeListSearchQuery] = useState("");
   const [selectedCourses, setSeletedCourses] = useState([]);
+  const [filters, setFilters] = useState({});
   const [_collegeList, setCollegeList] = useState([]);
   const dispatch = useDispatch();
+
+  const _getFilters = async () => {
+    const filters = await dispatch(getFilters());
+    setFilters(filters);
+  };
   useEffect(() => {
-    // dispatch(getAllCollegeList());
+    _getFilters();
     dispatch(getColleges());
   }, []);
 
   const collegeList = useSelector((state) => state.college.colleges);
 
-  const allCoursesWithCounts = useMemo(() => {
-    const courses = [];
-    if (collegeList?.length) {
-      collegeList?.forEach((college) => {
-        college.courses?.forEach((course) => courses.push(course.course_name));
-      });
-    }
-    const withCounts = {};
-    courses.forEach(function (x) {
-      withCounts[x] = (withCounts[x] || 0) + 1;
-    });
-    return withCounts;
-  }, [collegeList]);
+  // const allCoursesWithCounts = useMemo(() => {
+  //   const courses = [];
+  //   if (collegeList?.length) {
+  //     collegeList?.forEach((college) => {
+  //       college.courses?.forEach((course) => courses.push(course.course_name));
+  //     });
+  //   }
+  //   const withCounts = {};
+  //   courses.forEach(function (x) {
+  //     withCounts[x] = (withCounts[x] || 0) + 1;
+  //   });
+  //   return withCounts;
+  // }, [collegeList]);
 
   useEffect(() => {
     if (collegeList.length) {
-      collegeList.length = 10;
+      // collegeList.length = 10;
       setCollegeList(collegeList);
     }
   }, [collegeList]);
 
   const handleSideSearch = () => {
     if (collegeList.length) {
-      collegeList.length = 10;
+      // collegeList.length = 10;
       let colleges = [];
-      collegeList.forEach((college) => {
-        if (college.courses.length) {
-          college.courses.forEach((course) => {
-            if (selectedCourses.includes(course.course_name.toUpperCase())) {
-              colleges.push(college);
-            }
-          });
+      let _seletedColleges = [];
+
+      for (const stream in filters) {
+        if (Object.prototype.hasOwnProperty.call(filters, stream)) {
+          const element = filters[stream];
+          if (selectedCourses.includes(stream.toUpperCase())) {
+            _seletedColleges.push(...element.colleges);
+          }
         }
-      });
+      }
+      _seletedColleges = _.uniqBy(_seletedColleges, "_id");
+      colleges = _.intersectionBy(collegeList, _seletedColleges, "_id");
+
+      console.log(colleges);
+
+      // collegeList.forEach((college) => {
+      //   if (college.courses.length) {
+      //     college.courses.forEach((course) => {
+      //       if (selectedCourses.includes(course.course_name.toUpperCase())) {
+      //         colleges.push(college);
+      //       }
+      //     });
+      //   }
+      // });
       if (selectedCourses.length) {
         colleges = _.uniqBy(colleges, "_id");
         setCollegeList(colleges);
@@ -71,6 +93,7 @@ const collegeList = () => {
   }, [selectedCourses.length]);
 
   const onSelecteCourse = (e) => {
+    // console.log(e.target.checked)
     if (e.target.checked) {
       setSeletedCourses([...selectedCourses, e.target.name.toUpperCase()]);
     }
@@ -96,7 +119,7 @@ const collegeList = () => {
   const handleSearch = () => {
     if (collegeListSearchQuery.length && collegeList.length) {
       const filteredColleges = collegeList.filter((college) => {
-        console.log(college);
+        // console.log(college);
         if (
           college.name
             .trim()
@@ -160,7 +183,7 @@ const collegeList = () => {
             <div className="college-list__sideBarContainer">
               <CollegeListSideBar
                 resetFilter={resetFilter}
-                allCoursesWithCounts={allCoursesWithCounts}
+                allCoursesWithCounts={filters}
                 onSelecteCourse={onSelecteCourse}
                 selectedCourses={selectedCourses}
                 deSelectCourse={deSelectCourse}

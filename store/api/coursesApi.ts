@@ -1,6 +1,12 @@
 import { postService, getService } from "../commonServices";
 
 export class CoursesService {
+
+  getFilters() {
+    let url = "/courses/get-filters";
+    let data = getService(url);
+    return data;
+  }
   getPrograms() {
     let url = "/courses";
     let data = getService(url);;

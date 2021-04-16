@@ -4,7 +4,7 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation
   return (
     <div className="college-details-block">
       <div className="info-block">
-        <div className="info-block__inner">
+        {totalStudents && <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
               width="33"
@@ -21,9 +21,9 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation
           </div>
           <div className="info-block__heading">Total Students</div>
           <div className="info-block__title">{totalStudents}</div>
-        </div>
+        </div>}
       </div>
-      <div className="info-block">
+      {totalCourse && <div className="info-block">
         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
@@ -42,8 +42,8 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation
           <div className="info-block__heading">Courses Offered</div>
           <div className="info-block__title">{totalCourse}</div>
         </div>
-      </div>
-      <div className="info-block">
+      </div>}
+      {average_fee && <div className="info-block">
         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
@@ -68,8 +68,8 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation
           <div className="info-block__heading">Average Fee</div>
           <div className="info-block__title">{average_fee}</div>
         </div>
-      </div>
-      <div className="info-block">
+      </div>}
+      {graduation_percentage && <div className="info-block">
         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
@@ -100,8 +100,8 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation
           <div className="info-block__heading">Graduaton Percentage</div>
           <div className="info-block__title">{graduation_percentage}</div>
         </div>
-      </div>
-      <div className="info-block">
+      </div>}
+      {placement_percentage && <div className="info-block">
         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
@@ -120,7 +120,7 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation
           <div className="info-block__heading">Placement Percentage</div>
           <div className="info-block__title">{placement_percentage}</div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

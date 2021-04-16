@@ -1,12 +1,16 @@
 import React,{useState,useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import {getCollegeCourses, getLevels} from '../../store/Action/courses.action'
 
 const FeeStructure = (props: any) => {
   const [selectLevel,setSelectLevel] = useState("diploma")
   const [selectedSubCourse,setSelectedSubCourse] = useState([])
+  const [levels, setLevels] = useState([])
+  const [courses, setCourses] = useState([])
   const dispatch = useDispatch()
-  const courses = useSelector(state => state.college.college.courses)
-  const onLevelClick = (level) =>{
+  const college = useSelector((state:any) => state.college.college)
+  const onLevelClick = (level:string) =>{
+
     courses.forEach(course => {
       if (course.course_level === selectLevel) {
             setSelectedSubCourse(course.sub_courses)    
@@ -14,6 +18,21 @@ const FeeStructure = (props: any) => {
     })
     setSelectLevel(level)
   }
+   const getCourses = async (id:string) => {
+   let res = await dispatch(getCollegeCourses(id))
+   setCourses(res)
+  }
+
+  const getAllLevels = async () => {
+    let res = await dispatch(getLevels())
+    setLevels(res)
+  }
+
+  useEffect(()=>{
+    getAllLevels()
+    college && getCourses(college?._id)
+  },[college])
+
   return (
     <div id="course_fee" className="fee-structure">
       <div className="fee-structure__inner">
@@ -22,7 +41,7 @@ const FeeStructure = (props: any) => {
           {/* <div className="fee-structure__cta">View All Courses</div> */}
         </div>
         <div className="fee-structure__level">
-          <div className="level-list">
+            <div className="level-list">
             <div onClick={()=>onLevelClick("diploma")} className={selectLevel==="diploma"?"level-list__item active":"level-list__item"}>DIPLOMA</div>
 
             <div onClick={()=>onLevelClick("undergraduate")} className={selectLevel==="undergraduate"?"level-list__item active":"level-list__item"}>UNDER GRADUATE</div>

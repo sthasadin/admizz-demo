@@ -1,7 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import moment from 'moment'
+import ReactPlayer from "react-player"
 
 const CollegeOverview = () => {
+   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const college = useSelector((state) => state.college.college);
 
@@ -9,28 +15,27 @@ const CollegeOverview = () => {
     <div id="overview" className="overview">
       <div className="overview__title-wrap">
         <div className="overview__title">Overview</div>
-        <time className="overview__date">Update On: 20 Nov, 2020</time>
+        <time className="overview__date">Update On: {moment(college?.updateAt).format('YYYY MMM DD')}</time>
       </div>
-      <div className="overview__desc">
-        {/* {description} */}
+      {college.overview &&  <div className="overview__desc">
         {college.overview}
-      </div>
+      </div>}
       <div className="overview__block-wrap">
-        <div className="overview__block">
+        {college.QS_ranking && <div className="overview__block">
           <div className="overview__block__icon">
             <img src="/college-overview.png" alt="" />
           </div>
           <div className="overview__block__title">{college.QS_ranking}</div>
           <div className="overview__block__subheading">QS Ranking</div>
-        </div>
-        <div className="overview__block">
+        </div>}
+        {college.nirf && <div className="overview__block">
           <div className="overview__block__icon">
             <img src="/college-overview.png" alt="" />
           </div>
           <div className="overview__block__title">{college.nirf}</div>
           <div className="overview__block__subheading">NIRF Ranking</div>
-        </div>
-        <div className="overview__block">
+        </div>}
+        {college.university_ranking && <div className="overview__block">
           <div className="overview__block__icon">
             <img src="/college-overview.png" alt="" />
           </div>
@@ -38,8 +43,8 @@ const CollegeOverview = () => {
             {college.university_ranking}
           </div>
           <div className="overview__block__subheading">University Ranking</div>
-        </div>
-        <div className="overview__block">
+        </div>}
+        {college.highest_package && <div className="overview__block">
           <div className="overview__block__icon">
             <img src="/college-overview.png" alt="" />
           </div>
@@ -47,8 +52,8 @@ const CollegeOverview = () => {
             {college.highest_package}
           </div>
           <div className="overview__block__subheading">Highest Package</div>
-        </div>
-        <div className="overview__block">
+        </div>}
+        {college.mim_cost_living && <div className="overview__block">
           <div className="overview__block__icon">
             <img src="/college-overview.png" alt="" />
           </div>
@@ -56,9 +61,30 @@ const CollegeOverview = () => {
             {college.mim_cost_living}
           </div>
           <div className="overview__block__subheading">Min. Cost of Living</div>
-        </div>
+        </div>}
       </div>
-      <div className="overview__thumbnail">
+    { college.video_360 &&  
+      <div className="overview__thumbnail" onClick={()=>setOpen(!open)}>
+         <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                open={open}
+                onClose={()=>setOpen(false)}
+                className="introduction__modalContainer"
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                  timeout: 500,
+                }}
+                >
+                <Fade in={open}>
+                  <div>
+                    <ReactPlayer
+                      url={`https://youtu.be/${college.video_360}`}
+                    />
+                  </div>
+                </Fade>
+              </Modal>
         <img
           src={
             college.video_360
@@ -67,6 +93,7 @@ const CollegeOverview = () => {
           }
           alt="college_360 video "
         />
+        
         <div className="overview__thumbnail__text">
           <div className="overview__thumbnail__icon">
             <svg
@@ -94,9 +121,10 @@ const CollegeOverview = () => {
           </div>
         </div>
       </div>
-      <a href="#" className="overview__cta">
+      }
+      {/* <a href="#" className="overview__cta">
         Read More
-      </a>
+      </a> */}
     </div>
   );
 };

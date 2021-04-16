@@ -37,7 +37,7 @@ setSearchCourses(courses)
             return (
               <div key={i} className="college-list-selected-filter__filterStreamContainer">
         <FormControlLabel className="college-list-selected-filter__checkboxLabel" name={course} onChange={onSelecteCourse} control={<Checkbox name={course} />} checked={selectedCourses.includes(course.toUpperCase())} label={course} />
-        {searchedCourses[course]}
+        {searchedCourses[course].count}
       </div>
         )
       })

@@ -22,7 +22,7 @@ const CollegesCard = (college) => {
     >
       <div className="colleges-card__inner">
         <div className="colleges-card__thumbnail">
-          <img src="/colleges.png" alt="college" />
+          <img src={college?.banner? college?.banner:"/colleges.png"} alt="college" />
           <div className="colleges-card__title-wrap">
             <div className="colleges-card__title">
               <Link href={`colleges/${college?.college_slug}`}>
@@ -39,10 +39,10 @@ const CollegesCard = (college) => {
                 <div className="colleges-card__key">ESTD:</div>
                 <div className="colleges-card__value">{college?.estd_year}</div>
               </div>
-              <div className="colleges-card__key-value">
+              {/* <div className="colleges-card__key-value">
                 <div className="colleges-card__key">Type:</div>
                 <div className="colleges-card__value">Private</div>
-              </div>
+              </div> */}
             </div>
             <div className="colleges-card__logo">
               <img src={college?.college_logo} alt="" />

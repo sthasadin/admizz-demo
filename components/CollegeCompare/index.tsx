@@ -132,10 +132,10 @@ const index = () => {
         <div className="collegecompare__tablecontainer">
             <div className="collegetable_metacontainer">
               <div className="collegetable_meta">Comparison details</div>
-              <div className="collegetable_period">
+              {/* <div className="collegetable_period">
                 <span className="collegetable_year">Year</span>
                 <span className="collegetable_currentyear">2020</span>
-                </div>
+                </div> */}
               </div>
 
 

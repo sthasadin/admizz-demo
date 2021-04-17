@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import {getLevels,getStreams, getAllPrograms, getCollegesByCourses } from "../../store/Action/courses.action";
 import { Grid } from "@material-ui/core";
 import { Button } from "../Button";
@@ -230,9 +231,9 @@ const DashboardChoiceFilling = (props) => {
 
   // handel submit button
   const sendData = () => {
-    props.getData({
+    props.getData([
       ...appliedCollegeDetail,
-    });
+    ]);
     props.handleNext();
   };
 
@@ -258,10 +259,8 @@ const DashboardChoiceFilling = (props) => {
 
    await dispatch(getCollege(selectedCollege));
    console.log(newChoice);
-  // console.log(fetchCollege);
-  // setCollegeDetails(fetchCollege);
   setAppliedCollege([...appliedCollege,newChoice])
-    // setAppliedCollege((props) => [...props, newChoice]);
+  setLoader(false)
   };
 
   //getting details of applied college
@@ -277,6 +276,7 @@ const DashboardChoiceFilling = (props) => {
           address: collegeDetails.address,
           course: selectedStream,
           sub_course: selectedProgram,
+          id:collegeDetails._id,
         },
       ]);
       // console.log(selectedCourse);
@@ -318,7 +318,7 @@ const DashboardChoiceFilling = (props) => {
 
   return (
     <div className="dashboard-basic-info">
-      {/* {loader ? (
+      {loader ? (
         <div
           style={{
             position: "fixed",
@@ -337,7 +337,7 @@ const DashboardChoiceFilling = (props) => {
         </div>
       ) : (
         ""
-      )} */}
+      )}
 
       {/* Background Information */}
       <div className="dashboard-basic-info__sectionContainer">
@@ -445,6 +445,11 @@ const DashboardChoiceFilling = (props) => {
                 </Grid>
               </Grid>
             </div>
+
+
+
+
+
             {appliedCollegeDetail.map((college, i) => {
               // console.log(college, appliedCollege.length, i);
              
@@ -523,7 +528,10 @@ const DashboardChoiceFilling = (props) => {
                         xs={12}
                       >
                         <div className="dashboard-basic-info__tableCell">
-                          <Button>View Detail</Button>
+                          <Button>
+                          <a href={`http://localhost:3000/colleges/${college?.id}`}  target='_blank' >View Detail</a>
+                          </Button>
+                          
                         </div>
                       </Grid>
                     </Grid>

@@ -15,13 +15,17 @@ const index = (props: any) => {
   } = props;
   const [_collegeList, setCollegeList] = React.useState([]);
   const [selectedCollege, setSelectedCollege] = React.useState([]);
+  const [searchKeyword, setSearchKeyword] = React.useState('');
+
+  
+  const collegeList = useSelector((state: any) => state.college.colleges);
 
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(getColleges()); //get all the college list
   }, []);
 
-  const collegeList = useSelector((state: any) => state.college.colleges);
+  
 
   React.useEffect(() => {
     if (collegeList.length) {
@@ -31,7 +35,6 @@ const index = (props: any) => {
 
   const disSelectCollege = (id: string) => {
     removeCollegeFromCard(id);
-    // setSelectedCollege(removeCollege);
   };
 
   const addSelectedCollege = (id: string) => {
@@ -42,6 +45,13 @@ const index = (props: any) => {
     setSelectedCollege([...selectedCollege, id]);
   };
 
+  const handleSearch = (e) => {
+    setSearchKeyword(e.target.value);
+    const filter = collegeList.filter(obj => obj.name?.toLowerCase().indexOf(searchKeyword) > -1);
+    setCollegeList(filter);
+
+  }
+
   return (
     <>
       <Modal
@@ -49,11 +59,14 @@ const index = (props: any) => {
         open={isAddCollegeModalOpen}
         onClose={() => handleAddCollegeModal(false)}
       >
-        <Fade in style={{ outline: "none" }}>
+        <Fade in style={{ outline: "none", backgroundColor: '#fff' }}>
           <div className="card__container">
             <div className="card__header">
               <div className="card__title">Compare College</div>
+              <div className="card__searchbtn">
+              <input type="text" className="card__searchField" placeholder="Search College" onChange={handleSearch} value={searchKeyword}/>
               <Button>Add to compare</Button>
+              </div>
             </div>
             <div className="card__line"></div>
 

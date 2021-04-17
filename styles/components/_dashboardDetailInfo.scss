@@ -82,22 +82,45 @@
   }
 }
 .dashboard__imageuploadcontainer {
+  max-width: 120px;
+  max-height: 150px;
+  min-width: 120px;
+  margin-bottom: 10px;
+  border: 1px solid #9e9e9e;
+  background-color: #f3f6f9;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   .dashboard-basic-info__imageuploadcontainter {
-    max-width: 120px;
-    max-height: 150px;
-    min-width: 120px;
-    margin-bottom: 10px;
-    border: 1px solid black;
+
+    .dashboard-profile-upload{
+      display: none;
+    }
 
     &__thumbnailimage {
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
       padding: 1px;
       width: 100%;
       height: 100%;
     }
   }
-  .upload__btn {
-    text-align: center;
+
+  .dashboard-profileimage-upload{
+    opacity: 0;
+    padding: 5px 5px !important;
+    background-color: #f3f6f9;
+    color: #757575;
+    transition: .2s ease-in;
   }
+
+  &:hover .dashboard-profileimage-upload{
+    opacity: 1;
+  }
+  
 }
 
 .signature {
@@ -117,4 +140,8 @@
   // align-items: center;
   margin-bottom: 10px;
   //position: absolute;
+}
+
+.padding-0{
+  padding: 0 !important
 }

@@ -15,18 +15,18 @@
 
   .card__removeicon {
     position: absolute;
-    top: -4%;
+    top: -10%;
     right: -10px;
     cursor: pointer;
     img {
-      width: 36px;
-      height: 36px;
+      width: 25px;
+      height: 25px;
     }
   }
 
   .collegelist__collegeimage {
     width: 64px;
-    height: 64;
+    height: 64px;
 
     font-family: "M Plus 1p", sans-serif;
 
@@ -37,7 +37,7 @@
     }
   }
   .collegelist__collegedetails {
-    padding: 10px;
+    padding: 5px 10px;
     width: 100%;
 
     .collegelist__collegename{

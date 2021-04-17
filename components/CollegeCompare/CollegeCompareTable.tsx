@@ -1,70 +1,73 @@
 import React from "react";
-import {
-  withStyles,
-  Theme,
-  createStyles,
-  makeStyles,
-} from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import { bold } from "*.jpg";
-
-const StyledTableCell = withStyles((theme: Theme) =>
-  createStyles({
-    head: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-    body: {
-      fontSize: 14,
-    },
-  })
-)(TableCell);
-
-const StyledTableRow = withStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      "&:nth-of-type(odd)": {
-        backgroundColor: theme.palette.action.hover,
-      },
-    },
-  })
-)(TableRow);
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 700,
-  },
-});
+import People from "../../public/people.png";
+import Breifcase from "../../public/breifcase.png";
+import Cashicon from "../../public/cash-icon.png";
+import Rankicon from "../../public/rank-icon.png";
+import Courseoffered from "../../public/course-offered.png";
+import Graduation from "../../public/graduation.png";
 
 export default function CustomizedTables(props: any) {
   const { selectedCollege, selectedFilters } = props;
 
-  const dataAttri = [
-    "QS_Ranking",
-    "Address",
-    "Average Fee",
-    "College Ranking",
-    "ESTD_YEAR",
-  ];
+  const getIcon = (label: string) => {
+    switch (label) {
+      case "QS_ranking":
+        return <img src={Rankicon} />;
+      case "placement_percentage":
+        return <img src={Breifcase} />;
+      case "total_students":
+        return <img src={People} />;
+      case "total_course":
+        return <img src={Courseoffered} />;
+      case "average_fee":
+        return <img src={Cashicon} />;
+      default:
+        return <img src={Graduation} />;
+    }
+  };
 
-  const classes = useStyles();
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
 
   return (
     <>
-    
-    <div>World Ranking</div>
-    {/* <div className="collegedetails_container"> */}
-    <div className="collegetable-attribute">Rank 5</div>
-    {/* <div>Rank 15</div>
-    <div>Rank 20</div> */}
-    {/* </div> */}
-
+      <div className="compare-college-table">
+        {selectedFilters.map((data: any, i) => {
+          return (
+            <div className="compare-table-inner" key={i}>
+              <div className="compare-table-label">
+                <strong>{data.label}</strong>
+              </div>
+              <div style={{ display: "flex", marginLeft: "34px" }}>
+                {selectedCollege.map((colegeAttributes: any) => {
+                  return (
+                    <>
+                      <div className="comparetable__data_attributes">
+                        <div>
+                          <div style={{display: 'flex'}}>
+                            <div className="comparetable__dataIcon">
+                
+                              {getIcon(data.value)}
+                            </div>
+                            <div className="comparetable__datavalue">
+                              
+                              {data.value === 'QS_ranking' ? <div className="compare__datavalue__forranking"><span>#{colegeAttributes[data.value]}</span> out of <span>100</span></div>:truncate(colegeAttributes[data.value], 16) }
+                            </div>
+                          </div>
+                          <div style={{ fontSize: "12px", color: "#828282", marginTop: '3px' }}>
+                            {data.value === "QS_ranking" ? null : data.label}
+                          </div>
+                        </div>
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

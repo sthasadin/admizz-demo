@@ -12,18 +12,20 @@ const index = () => {
   const [isFilterContainer, setIsFilterContainer] = React.useState(false);
   const [selectedFilters, setSelectedFilters] = useState([
     { label: "QS Ranking", value: "QS_ranking" }, //it should be college field
-    { label: "Address", value: "address" },
+    { label: "Placement Percentage", value: "placement_percentage" },
+    { label: "Total Students", value: "total_students" },
+    { label: "Total Courses", value: "total_course" },
     { label: "Average Fee", value: "average_fee" },
-    { label: "University Ranking", value: "university_ranking" },
-    { label: "ESTD_YEAR", value: "estd_year" },
+    
+    
   ]);
-  const arry = [1,2,3];
   const [selectedCollege, setSelectedCollege] = React.useState([]);
   // console.log(selectedFilters);
   const [isAddCollegeModalOpen, setIsAddCollegeModalOpen] = React.useState(
     false
   );
   const college = useSelector((state) => state.college.college);
+  console.log(college);
 
   React.useEffect(() => {
     if (college) {
@@ -60,11 +62,13 @@ const index = () => {
           selectedCollegeArray={selectedCollege}
         />
       )}
+      <div style={{backgroundColor:'#e5e5e5'}}>
+       <div className="inner">
 
       <div className="comparecollege__header">
-      <div className="inner">
+     
         
-          <div className="comparecollege__head">
+          <div className="comparecollege__head" style={{margin: "auto 0"}}>
             <div className="comparecollege__title">Compare College</div>
             <Button
               className="comparecollege__filterbtn"
@@ -74,7 +78,14 @@ const index = () => {
               Filter Compare
             </Button>
           </div>
-          {isFilterContainer && (
+
+         
+         
+          </div>
+         
+    
+      </div>
+      {isFilterContainer && (
             <div className="comparecollege__filtercontainer">
               <CompareAttributesList
                 selectedFilters={selectedFilters}
@@ -83,17 +94,16 @@ const index = () => {
               />
             </div>
           )}
-          </div>
-    
-      </div>
-
+  </div>
       <div className="comparecollege__addcollegecontainer">
       <div className="inner">
+
+        {/* show selected college */}
        
           <div className="comparecollege__collegelist">
             {/* here college */}
-            {/* {arry &&
-              arry.map((collegedata) => {
+            {selectedCollege &&
+              selectedCollege.map((collegedata) => {
                 return (
                   <ShowSelectedCollege
                     hostId={college._id}
@@ -105,9 +115,9 @@ const index = () => {
                     removeCollegeFromCard={removeCollegeFromCard}
                   />
                 );
-              })} */}
+              })}
 
-            {/* {selectedCollege.length < 3 ? (
+            {selectedCollege.length < 3 ? (
               <div
                 className="comparecollege__addtemplates"
                 onClick={() => handleAddCollegeModal(true)}
@@ -116,16 +126,16 @@ const index = () => {
               </div>
             ) : (
               ""
-            )} */}
+            )}
           </div>
 
         <div className="collegecompare__tablecontainer">
             <div className="collegetable_metacontainer">
               <div className="collegetable_meta">Comparison details</div>
-              <div className="collegetable_period">
+              {/* <div className="collegetable_period">
                 <span className="collegetable_year">Year</span>
                 <span className="collegetable_currentyear">2020</span>
-                </div>
+                </div> */}
               </div>
 
 

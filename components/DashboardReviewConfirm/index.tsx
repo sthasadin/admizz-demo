@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Grid } from "@material-ui/core";
-import { Button } from "../Button";
+import { Grid, Button } from "@material-ui/core";
+// import { Button } from "../Button";
 import { storage, db } from "../../firebase";
 import Checkbox from "@material-ui/core/Checkbox";
 import { UploadButton } from "../Button/uploadButton";
+import AppliedCollege from "./appliedCollege";
+import CameraAltIcon from "@material-ui/icons/CameraAlt";
 
 const DashboardReviewConfirm = (props) => {
   const [document, setDocument] = useState({});
   const [profileImage, setProfileImage] = React.useState(null);
   const [signatureImage, setSignatureImage] = React.useState(null);
   const [isTermsChecked, setIstermsChecked] = React.useState(false);
-  // const [imageList, setImageList] = React.useState();
+  // console.log(props.selectedChoice);
 
   function toTitleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
@@ -26,7 +28,7 @@ const DashboardReviewConfirm = (props) => {
     setBackgroundInfo,
     setAcademicInfo,
   } = props;
-  //console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice);
+ 
 
   // trunclate string
   function truncateString(str, num = 20) {
@@ -38,24 +40,6 @@ const DashboardReviewConfirm = (props) => {
 
   // submit all form
   const handelSubmit = async () => {
-    // if (!signatureImage) {
-    //   alert("please upload your signature");
-    // }
-    // const academicInformation = {
-    //   diplomaScore: academicInfo.diplomaScore,
-    //   gmat: academicInfo.gmat,
-    //   gre: academicInfo.gre,
-    //   ielts: academicInfo.ielts,
-    //   jeeAdvance: academicInfo.jeeAdvance,
-    //   level0Score: academicInfo.level0Score,
-    //   level1Score: academicInfo.level1Score,
-    //   satII: academicInfo.satII,
-    //   sat: academicInfo.sat,
-    //   tofel: academicInfo.tofel,
-    //   schoolMarks: academicInfo.schoolMarks,
-    //   underGraduate: academicInfo.underGraduate,
-    //   postGraduateScore: academicInfo.postGraduteScore,
-    // };
     const backgroundInformation = {
       haveAppliedForPassport: backgroundInfo.haveAppliedForPassport,
       havePassport: backgroundInfo.havePassport,
@@ -85,7 +69,7 @@ const DashboardReviewConfirm = (props) => {
                 setAcademicInfo({
                   ...academicInfo,
                   [key]: url,
-                })
+                });
                 // documentRes[key] = url;
               });
           });
@@ -117,9 +101,9 @@ const DashboardReviewConfirm = (props) => {
       .collection("students-application")
       .add({
         basicInfo,
-       // documentRes,
+        // documentRes,
         selectedChoice,
-       // academicInformation,
+        // academicInformation,
         academicInfo,
         backgroundInformation,
       })
@@ -145,31 +129,7 @@ const DashboardReviewConfirm = (props) => {
               className="dashboard-basic-info__row"
               justify="flex-end"
               direction="row"
-            >
-              <div className="dashboard__imageuploadcontainer">
-                <label htmlFor="upload-photo">
-                  <div className="dashboard-basic-info__imageuploadcontainter">
-                    <img
-                      src={profileImage ? profileImage : "/avatar.png"}
-                      alt="avatar_logo"
-                      className="dashboard-basic-info__imageuploadcontainter__thumbnailimage"
-                    />
-
-                    <input
-                      style={{ display: "none" }}
-                      id="upload-photo"
-                      name="upload-photo"
-                      type="file"
-                      onChange={(e) =>
-                        setProfileImage(URL.createObjectURL(e.target.files[0]))
-                      }
-                    />
-                  </div>
-                  <div className="upload__btn"></div>
-                  <UploadButton>Upload</UploadButton>
-                </label>
-              </div>
-            </Grid>
+            ></Grid>
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -193,211 +153,248 @@ const DashboardReviewConfirm = (props) => {
                 className={"dashboard-basic-info__grid"}
                 style={{ width: "100%" }}
               >
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                {/* <div style={{ display: "flex", flexWrap: "wrap" }}> */}
+                <div
+                  className="basicInformation-container"
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div className="basicInformation_container_text">
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        width: "28%",
+                        minWidth: 250,
+                        height: 40,
+                      }}
                     >
-                      Full Name :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {toTitleCase(basicInfo.fullName)}{" "}
-                      {/* {toTitleCase(basicInfo.middleName)}{" "}
-                      {toTitleCase(basicInfo.lastName)} */}
-                    </p>
-                  </div>
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                      >
+                        Full Name :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30 }}
+                      >
+                        {" "}
+                        {toTitleCase(basicInfo.fullName)}{" "}
+                      </p>
+                    </div>
 
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        minWidth: 250,
+                        height: 40,
+                      }}
                     >
-                      Email Address :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                      >
+                        Email Address :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, width: "auto" }}
+                      >
+                        {toTitleCase(basicInfo.email)}
+                      </p>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        width: "28%",
+                        minWidth: 250,
+                        height: 40,
+                      }}
                     >
-                      {" "}
-                      {toTitleCase(truncateString(basicInfo.email))}{" "}
-                    </p>
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                      >
+                        Phone Number :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuisStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30 }}
+                      >
+                        {" "}
+                        {basicInfo.countryCode}-{basicInfo.phoneNumber}{" "}
+                      </p>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        width: "28%",
+                        minWidth: 250,
+                        height: 40,
+                      }}
+                    >
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                      >
+                        Gender :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30 }}
+                      >
+                        {" "}
+                        {toTitleCase(basicInfo.gender)}{" "}
+                      </p>
+                    </div>
                   </div>
+                  <div className="dashboard__imageuploadcontainer">
+                    <label htmlFor="upload-photo">
+                      <div className="dashboard-basic-info__imageuploadcontainter">
+                       
+                        {profileImage && (
+                          <img
+                            src={profileImage}
+                            alt="avatar_logo"
+                            className="dashboard-basic-info__imageuploadcontainter__thumbnailimage"
+                          />
+                        )}
 
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Gender :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {toTitleCase(basicInfo.gender)}{" "}
-                    </p>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Phone Number :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {basicInfo.countryCode}-{basicInfo.phoneNumber}{" "}
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Nationality :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {toTitleCase(basicInfo.nationality)}{" "}
-                    </p>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      City :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {toTitleCase(basicInfo.guardianCity)}-
-                      {basicInfo.phoneNumber}{" "}
-                    </p>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Zip Code :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {toTitleCase(basicInfo.guardianZipCode)}{" "}
-                    </p>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Address :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {toTitleCase(
-                        truncateString(basicInfo.guardianAddress)
-                      )}{" "}
-                    </p>
+                        <input
+                          // style={{ position: 'absolute', opacity: '0', width:'100%', height:'100%', border: '1px solid black' }}
+                          className="dashboard-profile-upload"
+                          id="upload-photo"
+                          name="upload-photo"
+                          type="file"
+                          onChange={(e) =>
+                            setProfileImage(
+                              URL.createObjectURL(e.target.files[0])
+                            )
+                          }
+                        />
+                         < UploadButton
+                          className="dashboard-profileimage-upload"
+                          startIcon={<CameraAltIcon />}
+                        >
+                          Update
+                        </ UploadButton>
+                      </div>
+                    </label>
                   </div>
                 </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    marginRight: 40,
+                    width: "28%",
+                    minWidth: 250,
+                    height: 40,
+                  }}
+                >
+                  <h4
+                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                    style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                  >
+                    Nationality :
+                  </h4>
+                  <p
+                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                    style={{ height: 30 }}
+                  >
+                    {" "}
+                    {toTitleCase(basicInfo.nationality)}{" "}
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    marginRight: 40,
+                    width: "28%",
+                    minWidth: 250,
+                    height: 40,
+                  }}
+                >
+                  <h4
+                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                    style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                  >
+                    City :
+                  </h4>
+                  <p
+                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                    style={{ height: 30 }}
+                  >
+                    {" "}
+                    {toTitleCase(basicInfo.guardianCity)}-
+                    {basicInfo.phoneNumber}{" "}
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    marginRight: 40,
+                    width: "28%",
+                    minWidth: 250,
+                    height: 40,
+                  }}
+                >
+                  <h4
+                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                    style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                  >
+                    Zip Code :
+                  </h4>
+                  <p
+                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                    style={{ height: 30 }}
+                  >
+                    {" "}
+                    {toTitleCase(basicInfo.guardianZipCode)}{" "}
+                  </p>
+                </div>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    marginRight: 40,
+                    width: "28%",
+                    minWidth: 250,
+                    height: 40,
+                  }}
+                >
+                  <h4
+                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                    style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                  >
+                    Address :
+                  </h4>
+                  <p
+                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                    style={{ height: 30 }}
+                  >
+                    {" "}
+                    {toTitleCase(
+                      truncateString(basicInfo.guardianAddress)
+                    )}{" "}
+                  </p>
+                </div>
+                {/* </div> */}
               </Grid>
             </Grid>
             <Grid
@@ -447,7 +444,9 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(backgroundInfo.passportDetails.nameOnPassport)}
+                      {toTitleCase(
+                        backgroundInfo.passportDetails.nameOnPassport
+                      )}
                     </p>
                   </div>
 
@@ -499,7 +498,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.passportDetails.passwordExpireDate}
+                      {backgroundInfo.passportDetails.passportExpireDate}
                     </p>
                   </div>
 
@@ -517,14 +516,14 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Password Number :
+                      Passport Number :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.numberOnPassport}{" "}
+                      {backgroundInfo.passportDetails.numberOnPassport}{" "}
                     </p>
                   </div>
                   <div
@@ -541,14 +540,14 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Password Issuing Country :
+                      Passport Issuing Country :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.passwordCountry}{" "}
+                      {backgroundInfo.passportDetails.passportIssuedCountry}{" "}
                     </p>
                   </div>
                 </div>
@@ -597,7 +596,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.references.name}{" "}
+                      {backgroundInfo.references.fullName}{" "}
                     </p>
                   </div>
                   <div
@@ -649,90 +648,6 @@ const DashboardReviewConfirm = (props) => {
                     </p>
                   </div>
                 </div>
-                <hr
-                  style={{
-                    marginTop: 20,
-                    marginBottom: 30,
-                    background: "rgba(0, 0, 0, 0.3)",
-                  }}
-                ></hr>
-
-                {/* <div style={{ display: "flex", flexWrap: "wrap" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Name :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {backgroundInfo.studentRefOne.name}{" "}
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Phone Numer:
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {backgroundInfo.studentRefOne.number}{" "}
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Email:
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {backgroundInfo.studentRefOne.email}{" "}
-                    </p>
-                  </div>
-                </div> */}
-
-              
               </Grid>
             </Grid>
 
@@ -1129,44 +1044,20 @@ const DashboardReviewConfirm = (props) => {
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
+                <div
+                  className="dashboard-basic-info__formTitle"
+                  style={{ height: "auto" }}
+                >
                   Choice Filing
                 </div>
                 <hr className="dashboard-basic-info__horizontalLine" />
-              </Grid>
-            </Grid>
-            {/* Back ground Info */}
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                style={{ width: "100%" }}
-              >
-                {/* <div  style={{display : 'flex', flexWrap : "wrap"}}>
-                      <div style={{display : 'flex', flexWrap : "wrap", marginRight : 40, width : '28%', minWidth : 250, height: 40 }}>
-                          <h4 className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock" style ={{ height : 30, fontWeight : 700, marginRight : 10}}> 
-                            Full Name :
-                          </h4>
-                          <p className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock" style={{height : 30,}}> { toTitleCase(basicInfo.firstName)} { toTitleCase(basicInfo.middleName)} {toTitleCase(basicInfo.lastName)}</p>
-                      </div>
 
-                      <div style={{display : 'flex', flexWrap : "wrap", marginRight : 40, width : '28%', minWidth : 250, height: 40  }}>
-                          <h4 className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock" style ={{ height : 30, fontWeight : 700, marginRight : 10}}> 
-                            Email Address :
-                          </h4>
-                          <p className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock" style={{height : 30,}}> { toTitleCase(basicInfo.email)} </p>
-                      </div>
-                    </div> */}
-                {
-                  // selectedChoice.length > 0 ? (
-                  // )
-                }
+                <AppliedCollege  selectedCollege={selectedChoice}/>
               </Grid>
             </Grid>
+
+            {/* Back ground Info */}
+{/* 
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -1179,23 +1070,8 @@ const DashboardReviewConfirm = (props) => {
                 </div>
                 <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
-            </Grid>
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={6}
-                xs={12}
-              >
-                <div>{/* Change Style According to Data */}</div>
-              </Grid>
-            </Grid>
+            </Grid> */}
+           
             <Grid
               container
               className="dashboard-basic-info__row"

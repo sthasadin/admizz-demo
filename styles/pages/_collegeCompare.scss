@@ -5,13 +5,15 @@
     font-family: "M plus 1p", sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow-x: auto;
+    justify-content: space-between;
+    //align-items: center;
+    // overflow-x: auto;
 
     .comparecollege__head {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      
 
       .comparecollege__title {
         font-size: 24px;
@@ -48,7 +50,7 @@
   //----------END HEADER SECTION-------------
 
   .comparecollege__addcollegecontainer {
-    height: 423px;
+    // height: 423px;
     background-color: #FBF8F8;
     padding-top: 28px;
     padding-bottom: 58px;
@@ -60,6 +62,7 @@
       align-items: center;
       border-radius: 5px;
       margin-left: 230px;
+      // overflow: auto;
      
 
       @media (max-width: 450px) {
@@ -81,7 +84,6 @@
 
         border-radius: 10px;
 
-        border: 1px solid black;
         padding: 10px;
 
         @media (max-width: 450px) {

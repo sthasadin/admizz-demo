@@ -55,15 +55,7 @@ const CollegeList = (props) => {
           <div className="card__collegelocation">{truncate(address, 18)}</div>
         </div>
 
-        {/* <div className="card__collegetotalcoursecontainer">
-          <div className="card__collegetotalcoursetitle">Total Courses:</div>
-          <div className="card__collegetotalcourse">{totalCourse}</div>
-        </div>
-
-        <div className="card__collegetotalstudentcontainer">
-          <div className="card__collegetotalstudenttitle">Total student:</div>
-          <div className="card__collegetotalstudent">{totalStudent}</div>
-        </div> */}
+        
       </div>
     </div>
   );

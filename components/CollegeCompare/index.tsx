@@ -11,19 +11,21 @@ import CollegeCompareTable from "./CollegeCompareTable";
 const index = () => {
   const [isFilterContainer, setIsFilterContainer] = React.useState(false);
   const [selectedFilters, setSelectedFilters] = useState([
-    { label: "QS Ranking", value: "QS_ranking" }, //it should be college field
-    { label: "Address", value: "address" },
+    { label: "World Ranking", value: "QS_ranking" }, //it should be college field
+    { label: "Placement Percentage", value: "placement_percentage" },
+    { label: "Total Students", value: "total_students" },
+    { label: "Total Courses", value: "total_course" },
     { label: "Average Fee", value: "average_fee" },
-    { label: "University Ranking", value: "university_ranking" },
-    { label: "ESTD_YEAR", value: "estd_year" },
+    
+    
   ]);
-  const arry = [1,2];
   const [selectedCollege, setSelectedCollege] = React.useState([]);
   // console.log(selectedFilters);
   const [isAddCollegeModalOpen, setIsAddCollegeModalOpen] = React.useState(
     false
   );
   const college = useSelector((state) => state.college.college);
+  console.log(college);
 
   React.useEffect(() => {
     if (college) {
@@ -95,6 +97,8 @@ const index = () => {
   </div>
       <div className="comparecollege__addcollegecontainer">
       <div className="inner">
+
+        {/* show selected college */}
        
           <div className="comparecollege__collegelist">
             {/* here college */}

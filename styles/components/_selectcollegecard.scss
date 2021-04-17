@@ -8,7 +8,6 @@
   .card__container {
     max-width: 75%;
     min-width: 75%;
-    min-height: 500px !important;
     max-height: 80%;
     overflow: scroll;
     background-color: #f4f4f4;
@@ -24,6 +23,24 @@
         font-weight: 800;
         font-size: 20px;
         line-height: 29px;
+        margin: auto 0;
+      }
+
+      .card__searchbtn {
+        width: 463px;
+        display: flex;
+        justify-content: space-between;
+
+        .card__searchField {
+          width: 279px;
+          height: 50px;
+          // border-color: #4F4F4F;
+          border: 1px solid #4F4F4F;
+          text-indent: 20px;
+          border-radius: 5px;
+          font-size: 14px;
+          outline: none;
+        }
       }
     }
 
@@ -38,12 +55,13 @@
       flex-wrap: wrap;
 
       .card__collegecard {
-        border: 1px solid #5f1802;
-
+        display: flex;
+        border: 1px solid #bdbdbd;
+        padding: 10px;
         box-sizing: border-box;
         border-radius: 5px;
-        height: 290px;
-        width: 200px;
+        height: 103px;
+        width: 288px;
         margin-left: 20px;
         margin-top: 35px;
         position: relative;
@@ -51,32 +69,41 @@
 
         .card__checkedicon {
           position: absolute;
-          top: -6%;
+          top: -13%;
           right: -14px;
         }
 
         .card__collegecardimage {
-          height: 50%;
+          width: 60px;
+          min-width: 60px;
+          height: 64px;
+          min-height: 64px;
 
           img {
             width: 100%;
             height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
           }
         }
 
-        .card_collegecarddetails {
-          height: 50%;
-        }
+        // .card_collegecarddetails {
+        //   // height: 50%;
+
+        // }
       }
 
       .card__collegecarddetails {
-        padding: 10px;
+        padding: 0px 15px;
         .card__collegecardheader {
           display: flex;
           justify-content: space-between;
 
           .card__collegecardtitle {
             font-size: 16px;
+            font-weight: 800;
+            color: $primary-color;
+            text-decoration: underline;
           }
 
           img {
@@ -93,8 +120,8 @@
           align-items: center;
 
           img {
-            width: 16px;
-            height: 18px;
+            width: 19px;
+            height: 20px;
           }
 
           .card__collegelocation {

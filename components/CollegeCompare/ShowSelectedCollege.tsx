@@ -31,20 +31,20 @@ const ShowSelectedCollege = (props: any) => {
         >
           <img src="/closeIcon.png" alt="close_icon" />{" "}
         </div>
-      )}
+       )} 
       <div className="collegelist__collegeimage">
         <img src={image ? image : '/college-logo.png'} alt="college_profile" />
       </div>
       <div className="collegelist__collegedetails">
         <div className="collegelist_inner">
-          <div className="collegelist__collegename">BMS College of Engineering(BMSCE)</div>
+          <div className="collegelist__collegename">{name}</div>
           {/* <div className="collegelist__collegelogo">
             <img src={logo} alt="college_logo" />
           </div> */}
         </div>
         <div className="collegelist__collegeaddress">
           <img src={locationMark} style={{ marginRight: "5px" }} />
-          {truncate("Bangalore", 50)}
+          {truncate(address, 50)}
         </div>
       </div>
     </div>

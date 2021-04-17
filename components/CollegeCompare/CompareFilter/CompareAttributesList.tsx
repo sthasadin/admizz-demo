@@ -30,8 +30,6 @@ const CompareAttributesList = (props: any) => {
     { label: "Highest Package", value: "highest_package" },
     { label: "Min Cost of Living", value: "min_cost_living" },
     { label: "NIRF ranking", value: "nirf" },
-
-
     { label: "University Ranking", value: "university_ranking" },
     { label: "ESTD_YEAR", value: "estd_year" },
     { label: "Address", value: "address" },

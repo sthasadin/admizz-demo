@@ -65,12 +65,12 @@ const DashboardBasicInfoPage = () => {
   const [backgroundInfo, setBackgroundInfo] = useState({});
   const [academicInfo, setAcademicInfo] = useState({});
   const [selectedChoice, setSelectedChoice] = useState([]);
-  useEffect(() => {
-    console.log("basicInfo", basicInfo);
-    console.log("backgroundInfo", backgroundInfo);
-    console.log("academicInfo", academicInfo);
-    console.log("selectedChoice", selectedChoice);
-  }, [basicInfo, backgroundInfo, academicInfo, selectedChoice]);
+  // useEffect(() => {
+  //   console.log("basicInfo", basicInfo);
+  //   console.log("backgroundInfo", backgroundInfo);
+  //   console.log("academicInfo", academicInfo);
+  //   console.log("selectedChoice", selectedChoice);
+  // }, [basicInfo, backgroundInfo, academicInfo, selectedChoice]);
 
   const getUser = async (id: string) => {
     const user = await dispatch(getAuthUser(id));

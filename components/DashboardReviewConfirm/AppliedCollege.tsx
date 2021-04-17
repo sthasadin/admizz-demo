@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 import { Button } from "../Button";
 
 
-const appliedCollege = ({selectedCollege}) => {
+const AppliedCollege = ({selectedCollege}) => {
   function truncateString(str, num = 20) {
     if (str.length <= num) {
       return str;
@@ -159,4 +159,4 @@ const appliedCollege = ({selectedCollege}) => {
     )
 }
 
-export default appliedCollege
+export default AppliedCollege

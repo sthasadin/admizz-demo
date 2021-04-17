@@ -4,13 +4,15 @@ import { Grid, Button } from "@material-ui/core";
 import { storage, db } from "../../firebase";
 import Checkbox from "@material-ui/core/Checkbox";
 import { UploadButton } from "../Button/uploadButton";
-import AppliedCollege from "./appliedCollege";
+import AppliedCollege from "./AppliedCollege";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 
 const DashboardReviewConfirm = (props) => {
   const [document, setDocument] = useState({});
   const [profileImage, setProfileImage] = React.useState(null);
+  const [profileImageThumbnail, setProfileImageThumbnail] = React.useState(null);
   const [signatureImage, setSignatureImage] = React.useState(null);
+  const [signatureImageThumbnail, setSignatureImageThumbnail] = React.useState(null);
   const [isTermsChecked, setIstermsChecked] = React.useState(false);
   // console.log(props.selectedChoice);
 
@@ -19,6 +21,7 @@ const DashboardReviewConfirm = (props) => {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
+  console.log(props);
 
   const {
     basicInfo,
@@ -27,8 +30,8 @@ const DashboardReviewConfirm = (props) => {
     selectedChoice,
     setBackgroundInfo,
     setAcademicInfo,
+    setBasicInfo,
   } = props;
- 
 
   // trunclate string
   function truncateString(str, num = 20) {
@@ -96,6 +99,57 @@ const DashboardReviewConfirm = (props) => {
             });
         });
     }
+    if (profileImage !== null) {
+      const name = Math.random().toString(36).slice(1);
+      const name2 = Math.random().toString(36).slice(1);
+      const mixName = name + name2;
+      storage
+        .ref(`student-application/${mixName}`)
+        .put(profileImage)
+        .then(() => {
+          storage
+            .ref("student-application")
+            .child(mixName)
+            .getDownloadURL()
+            .then((url) => {
+              console.log(url);
+              setBasicInfo({
+                ...basicInfo,
+                profileImage: url,
+              });
+            });
+        });
+    }
+
+    if(signatureImage !==null){
+      const name = Math.random().toString(36).slice(1);
+      const name2 = Math.random().toString(36).slice(1);
+      const mixName = name + name2;
+      storage
+        .ref(`student-application/${mixName}`)
+        .put(signatureImage)
+        .then(() => {
+          storage
+            .ref("student-application")
+            .child(mixName)
+            .getDownloadURL()
+            .then((url) => {
+              console.log(url);
+              setBasicInfo({
+                ...basicInfo,
+                signatureImage: url,
+              });
+            });
+        });
+    }
+    return(
+      console.log(basicInfo)
+        // documentRes,
+        // selectedChoice,
+        // // academicInformation,
+        // academicInfo,
+        // backgroundInformation,)
+    )
 
     await db
       .collection("students-application")
@@ -261,10 +315,9 @@ const DashboardReviewConfirm = (props) => {
                   <div className="dashboard__imageuploadcontainer">
                     <label htmlFor="upload-photo">
                       <div className="dashboard-basic-info__imageuploadcontainter">
-                       
-                        {profileImage && (
+                        {profileImageThumbnail && (
                           <img
-                            src={profileImage}
+                            src={profileImageThumbnail}
                             alt="avatar_logo"
                             className="dashboard-basic-info__imageuploadcontainter__thumbnailimage"
                           />
@@ -276,18 +329,17 @@ const DashboardReviewConfirm = (props) => {
                           id="upload-photo"
                           name="upload-photo"
                           type="file"
-                          onChange={(e) =>
-                            setProfileImage(
-                              URL.createObjectURL(e.target.files[0])
-                            )
-                          }
+                          onChange={(e) =>{
+                            setProfileImageThumbnail(URL.createObjectURL(e.target.files[0]));
+                            setProfileImage(e.target.files[0]);
+                          }}
                         />
-                         < UploadButton
+                        <UploadButton
                           className="dashboard-profileimage-upload"
                           startIcon={<CameraAltIcon />}
                         >
                           Update
-                        </ UploadButton>
+                        </UploadButton>
                       </div>
                     </label>
                   </div>
@@ -547,7 +599,9 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {backgroundInfo.passportDetails.passportIssuedCountry}{" "}
+                      {
+                        backgroundInfo.passportDetails.passportIssuedCountry
+                      }{" "}
                     </p>
                   </div>
                 </div>
@@ -1052,12 +1106,12 @@ const DashboardReviewConfirm = (props) => {
                 </div>
                 <hr className="dashboard-basic-info__horizontalLine" />
 
-                <AppliedCollege  selectedCollege={selectedChoice}/>
+                <AppliedCollege selectedCollege={selectedChoice} />
               </Grid>
             </Grid>
 
             {/* Back ground Info */}
-{/* 
+            {/* 
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -1071,7 +1125,7 @@ const DashboardReviewConfirm = (props) => {
                 <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid> */}
-           
+
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -1121,20 +1175,19 @@ const DashboardReviewConfirm = (props) => {
                       id="signature-image"
                       name="signature-image"
                       type="file"
-                      onChange={(e) =>
-                        setSignatureImage(
-                          URL.createObjectURL(e.target.files[0])
-                        )
-                      }
+                      onChange={(e) =>{
+                        setSignatureImageThumbnail( URL.createObjectURL(e.target.files[0]));
+                        setSignatureImage(e.target.files[0])
+                      }}
                     />
 
-                    <UploadButton>Upload</UploadButton>
+                    <UploadButton startIcon="" className="">Upload</UploadButton>
                   </label>
                 </Grid>
-                {signatureImage && (
+                {signatureImageThumbnail && (
                   <Grid item sm={12} md={4} xs={12}>
                     <img
-                      src={signatureImage}
+                      src={signatureImageThumbnail}
                       alt="document_logo"
                       className="image__thumbnail"
                     />

@@ -163,6 +163,7 @@ const DashboardBasicInfoPage = () => {
             selectedChoice={selectedChoice}
             setBackgroundInfo={setBackgroundInfo}
             setAcademicInfo={setAcademicInfo}
+            setBasicInfo={setBasicInfo}
           />
         );
       default:

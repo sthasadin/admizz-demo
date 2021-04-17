@@ -46,7 +46,9 @@ const DropDownSelect = ({ title, options, handleChange, defaultvalue }:DropDownS
          searchable
          styles={customStyles}
          name={name}
-       //  defaultvalue={defaultvalue}
+         value={{ label: defaultvalue, value: defaultvalue }}
+         defaultValue={{ label: defaultvalue, value:defaultvalue }}
+        //  defaultvalue={defaultvalue}
         //  error={error}
          onChange={(e) => handleChange(e.value)}
       />

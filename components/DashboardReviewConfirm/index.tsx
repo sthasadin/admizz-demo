@@ -21,7 +21,7 @@ const DashboardReviewConfirm = (props) => {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
   }
-  console.log(props);
+  // console.log(props);
 
   const {
     basicInfo,
@@ -31,7 +31,10 @@ const DashboardReviewConfirm = (props) => {
     setBackgroundInfo,
     setAcademicInfo,
     setBasicInfo,
+    certificatesImage
   } = props;
+
+  console.log(certificatesImage);
 
   // trunclate string
   function truncateString(str, num = 20) {
@@ -50,48 +53,76 @@ const DashboardReviewConfirm = (props) => {
       passportId: backgroundInfo.passportId,
       references: backgroundInfo.references,
     };
+
+    const academicInformation = {
+      diplomaScore:academicInfo.diplomaScore,
+      gmat:academicInfo.gmat,
+      gre:academicInfo.gre,
+      ielts:academicInfo.ielts,
+      jeeAdvance:academicInfo.jeeAdvance,
+      level0Score:academicInfo.level0Score,
+      level1Score:academicInfo.level1Score,
+      postGraduteScore:academicInfo.postGraduteScore,
+      sat:academicInfo.sat,
+      satII:academicInfo.satII,
+      schoolMarks:academicInfo.schoolMarks,
+      tofel:academicInfo.tofel,
+      underGraduate:academicInfo.underGraduate
+    }
+   
     // var documentRes = {};
+    // var certificatedImagesPromise = [];
     for (const [key] of Object.entries(academicInfo.certificatesImage)) {
-      // console.log(key);
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
 
-      if (academicInfo.certificatesImage[key] == null) {
-      } else {
-        storage
+      // certificatedImagesPromise.push()
+
+
+      if (academicInfo.certificatesImage[key] !== null) {
+      //   console.log('asd');
+      // } else {
+         storage
           .ref(`student-application/${mixName}`)
           .put(academicInfo.certificatesImage[key])
-          .then(() => {
-            storage
+          .then( () => {
+             storage
               .ref("student-application")
               .child(mixName)
               .getDownloadURL()
               .then((url) => {
+                
                 console.log(url);
-                setAcademicInfo({
-                  ...academicInfo,
-                  [key]: url,
-                });
-                // documentRes[key] = url;
+                // academicInformation.push({
+                //   // ...academicInformation,
+                //   [key]: url,
+                // });
+                academicInformation[key]= url
+                // certificatedImagesPromise.resolve()
+                
               });
           });
       }
     }
+    // const allPromises = [certificatedImagesPromise];
+    // Promise.allSettled(allPromises).then(() => console.log(academicInfo))
+
+
     if (backgroundInfo.documentImage !== null) {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
-      storage
+    await  storage
         .ref(`student-application/${mixName}`)
-        .put(backgroundInfo.documentImage)
+        .put(backgroundInfo.documentImage.name)
         .then(() => {
           storage
             .ref("student-application")
             .child(mixName)
             .getDownloadURL()
             .then((url) => {
-              console.log(url);
+              // console.log(url);
               setBackgroundInfo({
                 ...backgroundInfo,
                 Personal_Identification_Id: url,
@@ -103,7 +134,7 @@ const DashboardReviewConfirm = (props) => {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
-      storage
+     await  storage
         .ref(`student-application/${mixName}`)
         .put(profileImage)
         .then(() => {
@@ -112,7 +143,7 @@ const DashboardReviewConfirm = (props) => {
             .child(mixName)
             .getDownloadURL()
             .then((url) => {
-              console.log(url);
+              // console.log(url);
               setBasicInfo({
                 ...basicInfo,
                 profileImage: url,
@@ -134,7 +165,7 @@ const DashboardReviewConfirm = (props) => {
             .child(mixName)
             .getDownloadURL()
             .then((url) => {
-              console.log(url);
+              // console.log(url);
               setBasicInfo({
                 ...basicInfo,
                 signatureImage: url,
@@ -142,24 +173,23 @@ const DashboardReviewConfirm = (props) => {
             });
         });
     }
-    return(
-      console.log(basicInfo)
-        // documentRes,
-        // selectedChoice,
-        // // academicInformation,
-        // academicInfo,
-        // backgroundInformation,)
-    )
+    // return(
+    //   console.log(basicInfo,
+    //     // documentRes,
+    //     selectedChoice,
+    //     // academicInformation,
+    //     academicInfo,
+    //     backgroundInformation,)
+    // )
 
     await db
       .collection("students-application")
       .add({
         basicInfo,
-        // documentRes,
         selectedChoice,
-        // academicInformation,
-        academicInfo,
+        // academicInfo,
         backgroundInformation,
+        academicInformation
       })
       .then((res) => console.log("response", res))
       .catch((e) => console.log(e));
@@ -280,7 +310,7 @@ const DashboardReviewConfirm = (props) => {
                         Phone Number :
                       </h4>
                       <p
-                        className="MuiTypography-root MuisStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30 }}
                       >
                         {" "}

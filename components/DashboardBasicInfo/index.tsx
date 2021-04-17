@@ -283,6 +283,7 @@ const DashboardBasicInfo = (props) => {
                 title="Select Level"
                 options={SelectLevelOption}
                 handleChange={setSelectedLevel}
+                defaultvalue={selectedLevel}
                 // name={"selectLevel"}
                 // errorMessage={formError.selectLevel}
                 // error={!!formError.email}
@@ -465,6 +466,7 @@ const DashboardBasicInfo = (props) => {
                     title="Country"
                     options={CountryOption}
                     handleChange={setGuardianCountry}
+                    defaultvalue={guardianCountry}
                     // name={"country"}
                     // errorMessage={""}
                   />
@@ -479,6 +481,7 @@ const DashboardBasicInfo = (props) => {
                   <DropDownSelect
                     title="State"
                     handleChange={setGuardianState}
+                    defaultvalue={guardianState}
                     // name={"state"}
                     // errorMessage={""}
                     options={

@@ -4,19 +4,24 @@ import {getCollegeCourses, getLevels} from '../../store/Action/courses.action'
 
 const FeeStructure = (props: any) => {
   const [selectLevel,setSelectLevel] = useState("diploma")
-  const [selectedSubCourse,setSelectedSubCourse] = useState([])
+  const [selectedStream,setSelectedStream] = useState([])
   const [levels, setLevels] = useState([])
+  const [streams, setStreams] = useState([])
+  const [programs, setPrograms] = useState([])
   const [courses, setCourses] = useState([])
   const dispatch = useDispatch()
   const college = useSelector((state:any) => state.college.college)
   const onLevelClick = (level:string) =>{
-
+    let thisLevel = levels.find(l=>l.name === level)
+    
+    let thisStreams = []
     courses.forEach(course => {
-      if (course.course_level === selectLevel) {
-            setSelectedSubCourse(course.sub_courses)    
+      if (course?.coursestream?.courselevel === thisLevel?._id) {
+        thisStreams.push(course.coursestream  ) 
       }
     })
-    setSelectLevel(level)
+    setStreams(thisStreams)
+    setSelectLevel(level) 
   }
    const getCourses = async (id:string) => {
    let res = await dispatch(getCollegeCourses(id))
@@ -27,10 +32,13 @@ const FeeStructure = (props: any) => {
     let res = await dispatch(getLevels())
     setLevels(res)
   }
-
+console.log(selectedStream  )
+  useEffect(()=>{
+    courses.length && onLevelClick("diploma")
+  },[courses.length])
   useEffect(()=>{
     getAllLevels()
-    college && getCourses(college?._id)
+    college?._id && getCourses(college?._id)
   },[college])
 
   return (
@@ -54,12 +62,8 @@ const FeeStructure = (props: any) => {
             <div className="courses-list__title">All Courses</div>
             <div className="courses-list__itemContainer">
               {
-                courses && courses.map(course => {
-                  if (course.course_level === selectLevel) {
-                    
-                    return <div onClick={()=>setSelectedSubCourse(course.sub_courses)} className="courses-list__item">{course.course_name}</div>
-                  }
-
+                streams && streams.map((stream, i) => {
+                    return <div style={{cursor:'pointer'}} key={i} onClick={()=>setSelectedStream(stream)} className="courses-list__item">{stream.name}</div>
                 })
               }
             </div>
@@ -68,7 +72,7 @@ const FeeStructure = (props: any) => {
         <div className="fee-structure__course-fee">
           <div className="course-fee">
             {
-            selectedSubCourse.map(sub_course => {
+            selectedStream.map(sub_course => {
               return (
                 <div className="course-fee__item">
               <div className="course-fee__course">{sub_course.sub_course_name}</div>

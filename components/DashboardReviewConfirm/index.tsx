@@ -10,9 +10,13 @@ import CameraAltIcon from "@material-ui/icons/CameraAlt";
 const DashboardReviewConfirm = (props) => {
   const [document, setDocument] = useState({});
   const [profileImage, setProfileImage] = React.useState(null);
-  const [profileImageThumbnail, setProfileImageThumbnail] = React.useState(null);
+  const [profileImageThumbnail, setProfileImageThumbnail] = React.useState(
+    null
+  );
   const [signatureImage, setSignatureImage] = React.useState(null);
-  const [signatureImageThumbnail, setSignatureImageThumbnail] = React.useState(null);
+  const [signatureImageThumbnail, setSignatureImageThumbnail] = React.useState(
+    null
+  );
   const [isTermsChecked, setIstermsChecked] = React.useState(false);
   // console.log(props.selectedChoice);
 
@@ -31,7 +35,7 @@ const DashboardReviewConfirm = (props) => {
     setBackgroundInfo,
     setAcademicInfo,
     setBasicInfo,
-    certificatesImage
+    certificatesImage,
   } = props;
 
   console.log(certificatesImage);
@@ -55,65 +59,63 @@ const DashboardReviewConfirm = (props) => {
     };
 
     const academicInformation = {
-      diplomaScore:academicInfo.diplomaScore,
-      gmat:academicInfo.gmat,
-      gre:academicInfo.gre,
-      ielts:academicInfo.ielts,
-      jeeAdvance:academicInfo.jeeAdvance,
-      level0Score:academicInfo.level0Score,
-      level1Score:academicInfo.level1Score,
-      postGraduteScore:academicInfo.postGraduteScore,
-      sat:academicInfo.sat,
-      satII:academicInfo.satII,
-      schoolMarks:academicInfo.schoolMarks,
-      tofel:academicInfo.tofel,
-      underGraduate:academicInfo.underGraduate
-    }
-   
+      diplomaScore: academicInfo.diplomaScore,
+      gmat: academicInfo.gmat,
+      gre: academicInfo.gre,
+      ielts: academicInfo.ielts,
+      jeeAdvance: academicInfo.jeeAdvance,
+      level0Score: academicInfo.level0Score,
+      level1Score: academicInfo.level1Score,
+      postGraduteScore: academicInfo.postGraduteScore,
+      sat: academicInfo.sat,
+      satII: academicInfo.satII,
+      schoolMarks: academicInfo.schoolMarks,
+      tofel: academicInfo.tofel,
+      underGraduate: academicInfo.underGraduate,
+    };
+
     // var documentRes = {};
     // var certificatedImagesPromise = [];
-    for (const [key] of Object.entries(academicInfo.certificatesImage)) {
-      const name = Math.random().toString(36).slice(1);
-      const name2 = Math.random().toString(36).slice(1);
-      const mixName = name + name2;
+    // for (const [key] of Object.entries(academicInfo.certificatesImage)) {
+    //   const name = Math.random().toString(36).slice(1);
+    //   const name2 = Math.random().toString(36).slice(1);
+    //   const mixName = name + name2;
 
-      // certificatedImagesPromise.push()
+    //   // certificatedImagesPromise.push()
 
+    //   if (academicInfo.certificatesImage[key] == null) {
+    //     console.log('asd');
+    //   } else {
+    //      storage
+    //       .ref(`student-application/${mixName}`)
+    //       .put(academicInfo.certificatesImage[key])
+    //       .then( () => {
+    //          storage
+    //           .ref("student-application")
+    //           .child(mixName)
+    //           .getDownloadURL()
+    //           .then((url) => {
 
-      if (academicInfo.certificatesImage[key] !== null) {
-      //   console.log('asd');
-      // } else {
-         storage
-          .ref(`student-application/${mixName}`)
-          .put(academicInfo.certificatesImage[key])
-          .then( () => {
-             storage
-              .ref("student-application")
-              .child(mixName)
-              .getDownloadURL()
-              .then((url) => {
-                
-                console.log(url);
-                // academicInformation.push({
-                //   // ...academicInformation,
-                //   [key]: url,
-                // });
-                academicInformation[key]= url
-                // certificatedImagesPromise.resolve()
-                
-              });
-          });
-      }
-    }
+    //             console.log(url);
+    //             // academicInformation.push({
+    //             //   // ...academicInformation,
+    //             //   [key]: url,
+    //             // });
+    //             academicInformation[key]= url
+    //             // certificatedImagesPromise.resolve()
+
+    //           });
+    //       });
+    //   }
+    // }
     // const allPromises = [certificatedImagesPromise];
     // Promise.allSettled(allPromises).then(() => console.log(academicInfo))
-
 
     if (backgroundInfo.documentImage !== null) {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
-    await  storage
+      await storage
         .ref(`student-application/${mixName}`)
         .put(backgroundInfo.documentImage.name)
         .then(() => {
@@ -134,7 +136,7 @@ const DashboardReviewConfirm = (props) => {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
-     await  storage
+      await storage
         .ref(`student-application/${mixName}`)
         .put(profileImage)
         .then(() => {
@@ -152,7 +154,7 @@ const DashboardReviewConfirm = (props) => {
         });
     }
 
-    if(signatureImage !==null){
+    if (signatureImage !== null) {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
@@ -182,6 +184,13 @@ const DashboardReviewConfirm = (props) => {
     //     backgroundInformation,)
     // )
 
+    return console.log(
+      academicInformation,
+      basicInfo,
+      selectedChoice,
+      backgroundInformation
+    );
+
     await db
       .collection("students-application")
       .add({
@@ -189,7 +198,7 @@ const DashboardReviewConfirm = (props) => {
         selectedChoice,
         // academicInfo,
         backgroundInformation,
-        academicInformation
+        academicInformation,
       })
       .then((res) => console.log("response", res))
       .catch((e) => console.log(e));
@@ -359,13 +368,15 @@ const DashboardReviewConfirm = (props) => {
                           id="upload-photo"
                           name="upload-photo"
                           type="file"
-                          onChange={(e) =>{
-                            setProfileImageThumbnail(URL.createObjectURL(e.target.files[0]));
+                          onChange={(e) => {
+                            setProfileImageThumbnail(
+                              URL.createObjectURL(e.target.files[0])
+                            );
                             setProfileImage(e.target.files[0]);
                           }}
                         />
                         <UploadButton
-                          className="dashboard-profileimage-upload"
+                          className={`dashboard-profileimage-upload ${profileImageThumbnail == null && 'active'}`}
                           startIcon={<CameraAltIcon />}
                         >
                           Update
@@ -1205,13 +1216,17 @@ const DashboardReviewConfirm = (props) => {
                       id="signature-image"
                       name="signature-image"
                       type="file"
-                      onChange={(e) =>{
-                        setSignatureImageThumbnail( URL.createObjectURL(e.target.files[0]));
-                        setSignatureImage(e.target.files[0])
+                      onChange={(e) => {
+                        setSignatureImageThumbnail(
+                          URL.createObjectURL(e.target.files[0])
+                        );
+                        setSignatureImage(e.target.files[0]);
                       }}
                     />
 
-                    <UploadButton startIcon="" className="">Upload</UploadButton>
+                    <UploadButton startIcon="" className="">
+                      Upload
+                    </UploadButton>
                   </label>
                 </Grid>
                 {signatureImageThumbnail && (

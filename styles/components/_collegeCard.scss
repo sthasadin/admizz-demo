@@ -9,6 +9,7 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     position: relative;
+    height: 167px;
     img {
       height: 100%;
       width: 100%;
@@ -17,9 +18,10 @@
   }
   &__title-wrap {
     position: absolute;
-    bottom: 5px;
+    bottom: 8px;
     left: 11px;
     z-index: 1;
+    width: 80%;
     max-width: 254px;
   }
   &__title {
@@ -36,11 +38,13 @@
   }
   &__details {
     background: #ffffff;
-    border: 1px solid $border-color;
+    border: 1px solid #BDBDBD;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
     border-radius: 0px 0px 5px 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    margin-top: -4px;
+    height: 167px;
   }
   &__top {
     display: flex;
@@ -83,7 +87,7 @@
   &__logo {
     position: absolute;
     bottom: 11px;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
+    // box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
     border-radius: 50%;
     right: 14px;
     img {
@@ -92,6 +96,7 @@
       width: 64px;
       border-radius: 50%;
       border: 2px solid #fff;
+      box-shadow: 0px 10px 10px rgb(0 0 0 / 8%);
     }
   }
   &__bottom {

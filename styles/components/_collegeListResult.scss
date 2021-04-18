@@ -62,7 +62,10 @@
   &__resultContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 10px;
+    grid-column-gap: 15px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    grid-row-gap:18px;
     @media (max-width: 1050px) {
       grid-template-columns: 1fr 1fr;
     }
@@ -72,6 +75,8 @@
   }
   &__cardContainer {
     margin: 5px 0px 0px 0px;
+    border-radius: 5px;
+    overflow: hidden;
     @media (max-width: 414px) {
       width: 100%;
       margin-bottom: 10px;

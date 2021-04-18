@@ -33,7 +33,10 @@ const Choice = (props) => {
     setSelectedStream,
     programOption,
     setSelectedProgram,
-    collegeOption
+    collegeOption,
+    selectedStream,
+    selectedProgram,
+    selectedCollege
   } = props.data;
 
 
@@ -94,7 +97,7 @@ const Choice = (props) => {
             <DropDownSelect
               title="Choose Steam"
               options={streamList}
-              // defaultvalue={selectedStream}
+               defaultvalue={selectedStream}
               handleChange={setSelectedStream}
             />
           </Grid>
@@ -108,7 +111,7 @@ const Choice = (props) => {
             <DropDownSelect
               title="Select Specific program"
               options={programList}
-              // defaultvalue={selectedProgram}
+              defaultvalue={selectedProgram}
               handleChange={setSelectedProgram}
               
             />
@@ -130,7 +133,7 @@ const Choice = (props) => {
             <DropDownSelect
               title="Select College"
               options={collegeList}
-              // defaultvalue={selectedCollege}
+              defaultvalue={selectedCollege}
               handleChange={setSelectedCollege}
             />
           </Grid>
@@ -160,6 +163,11 @@ const Choice = (props) => {
     </div>
   );
 };
+
+
+
+
+
 
 const DashboardChoiceFilling = (props) => {
   const [choicesArray, setChoicesArray] = useState([]);
@@ -376,13 +384,13 @@ const DashboardChoiceFilling = (props) => {
               CollegesOptions,
               setSelectedCollege,
               selectedCollege,
-            // streamOption,
-            // setSelectedStream,
-            // selectedStream,
-            // programOption,
-            // setSelectedProgram,
-            // selectedProgram,
-            // collegeOption
+              // streamOption,
+              // setSelectedStream,
+              // selectedStream,
+              // programOption,
+              // setSelectedProgram,
+              // selectedProgram,
+              // collegeOption
             }}
           />
         ))}

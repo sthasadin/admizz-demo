@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import _ from 'lodash'
 import {getCollegeCourses, getLevels} from '../../store/Action/courses.action'
 
 const FeeStructure = (props: any) => {
   const [selectLevel,setSelectLevel] = useState("diploma")
-  const [selectedStream,setSelectedStream] = useState([])
+  const [selectStream,setSelectStream] = useState(null)
   const [levels, setLevels] = useState([])
   const [streams, setStreams] = useState([])
   const [programs, setPrograms] = useState([])
@@ -20,8 +21,12 @@ const FeeStructure = (props: any) => {
         thisStreams.push(course.coursestream  ) 
       }
     })
-    setStreams(thisStreams)
+    setStreams(_.uniqBy(thisStreams,'_id'))
+    // console.log(thisStreams[0])
     setSelectLevel(level) 
+    if (level !== selectLevel) {
+      setPrograms([])
+    }
   }
    const getCourses = async (id:string) => {
    let res = await dispatch(getCollegeCourses(id))
@@ -32,10 +37,35 @@ const FeeStructure = (props: any) => {
     let res = await dispatch(getLevels())
     setLevels(res)
   }
-console.log(selectedStream  )
+  
+  const getAllPrograms = async (stream:any) => {
+    let thisPrograms = []
+    courses.forEach(course => {
+      if (course?.coursestream?.courselevel === stream?.courselevel && course?.coursestream?._id === stream?._id) {
+        let programDetail = {
+          _id:course?._id,
+          name:course?.courseprogram?.name,
+          fee_per_sem:course?.fee_per_sem,
+          eligibility:course?.eligibility
+        }
+        thisPrograms.push(programDetail ) 
+      }
+    })
+    console.log(thisPrograms)
+    setPrograms(thisPrograms)
+  }
+  
+  useEffect(()=> {
+    selectStream && getAllPrograms(selectStream)
+
+  },[selectStream])
+
+
   useEffect(()=>{
     courses.length && onLevelClick("diploma")
   },[courses.length])
+
+
   useEffect(()=>{
     getAllLevels()
     college?._id && getCourses(college?._id)
@@ -63,7 +93,7 @@ console.log(selectedStream  )
             <div className="courses-list__itemContainer">
               {
                 streams && streams.map((stream, i) => {
-                    return <div style={{cursor:'pointer'}} key={i} onClick={()=>setSelectedStream(stream)} className="courses-list__item">{stream.name}</div>
+                    return <div style={{cursor:'pointer'}} key={i} onClick={()=>setSelectStream(stream)} className="courses-list__item">{stream.name}</div>
                 })
               }
             </div>
@@ -72,16 +102,16 @@ console.log(selectedStream  )
         <div className="fee-structure__course-fee">
           <div className="course-fee">
             {
-            selectedStream.map(sub_course => {
+            programs.map((p,i) => {
               return (
-                <div className="course-fee__item">
-              <div className="course-fee__course">{sub_course.sub_course_name}</div>
+                <div key={i} className="course-fee__item">
+              <div className="course-fee__course">{p.name}</div>
               <div className="course-fee__fee">
-                <span className="title">{sub_course.fee_per_sem} (Fees Per Sem)</span>
+                <span className="title">{p.fee_per_sem} (Fees Per Sem)</span>
                 <span>Estimated Fee</span>
               </div>
               <div className="course-fee__eligibility">
-                <span className="title">{sub_course.eligibility}</span>
+                <span className="title">{p.eligibility}</span>
                 <span>Eligibility</span>
               </div>
               {/* <a href="#" className="course-fee__cta">

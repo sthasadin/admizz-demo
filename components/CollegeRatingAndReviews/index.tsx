@@ -1,6 +1,6 @@
 import React,{useEffect} from "react";
 import {useSelector,useDispatch} from 'react-redux'
-import { getQnas } from "../../store/Action/review.action";
+import { getQnas, getReviews } from "../../store/Action/review.action";
 import { Review } from "../Review";
 import { RatingItem } from "./ratingItem";
 
@@ -9,7 +9,8 @@ const RatingAndReview = (props: any) => {
   const dispatch = useDispatch()
   const college_id = useSelector(state => state.college.college._id)
   useEffect(()=> {
-    dispatch(getQnas(college_id))
+    dispatch(getReviews(college_id))
+    // dispatch(getQnas(college_id))
   },[college_id])
   // const seedReviews = () => {
   //   var batch = db.batch()

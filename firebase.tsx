@@ -54,7 +54,7 @@ const db = firebase.firestore();
 
   }
 
-  seedReviews()
+  // seedReviews()
 
 const storage = firebase.storage()
 export { db, auth, firebase, storage }

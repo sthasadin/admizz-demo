@@ -274,7 +274,7 @@ const DashboardChoiceFilling = (props) => {
   //getting details of applied college
   useEffect(() => {
     if (Object.keys(collegeDetails).length > 0) {
-      
+      console.log(collegeDetails)
       setAppliedCollegeDetail((prev) => [
         
         ...prev,
@@ -285,6 +285,7 @@ const DashboardChoiceFilling = (props) => {
           course: selectedStream,
           sub_course: selectedProgram,
           id:collegeDetails._id,
+          college_slug:collegeDetails.college_slug
         },
       ]);
       // console.log(selectedCourse);
@@ -537,7 +538,7 @@ const DashboardChoiceFilling = (props) => {
                       >
                         <div className="dashboard-basic-info__tableCell">
                           <Button>
-                          <a href={`http://localhost:3000/colleges/${college?.id}`}  target='_blank' >View Detail</a>
+                          <a href={`http://localhost:3000/colleges/${college?.college_slug}`}  target='_blank' >View Detail</a>
                           </Button>
                           
                         </div>

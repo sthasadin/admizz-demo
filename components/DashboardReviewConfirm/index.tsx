@@ -74,40 +74,40 @@ const DashboardReviewConfirm = (props) => {
       underGraduate: academicInfo.underGraduate,
     };
 
-    // var documentRes = {};
-    // var certificatedImagesPromise = [];
-    // for (const [key] of Object.entries(academicInfo.certificatesImage)) {
-    //   const name = Math.random().toString(36).slice(1);
-    //   const name2 = Math.random().toString(36).slice(1);
-    //   const mixName = name + name2;
+    var documentRes = {};
+    var certificatedImagesPromise = [];
+    for (const [key] of Object.entries(academicInfo.certificatesImage)) {
+      const name = Math.random().toString(36).slice(1);
+      const name2 = Math.random().toString(36).slice(1);
+      const mixName = name + name2;
 
-    //   // certificatedImagesPromise.push()
+      // certificatedImagesPromise.push()
 
-    //   if (academicInfo.certificatesImage[key] == null) {
-    //     console.log('asd');
-    //   } else {
-    //      storage
-    //       .ref(`student-application/${mixName}`)
-    //       .put(academicInfo.certificatesImage[key])
-    //       .then( () => {
-    //          storage
-    //           .ref("student-application")
-    //           .child(mixName)
-    //           .getDownloadURL()
-    //           .then((url) => {
+      if (academicInfo.certificatesImage[key] == null) {
+        console.log('asd');
+      } else {
+         storage
+          .ref(`student-application/${mixName}`)
+          .put(academicInfo.certificatesImage[key])
+          .then( () => {
+             storage
+              .ref("student-application")
+              .child(mixName)
+              .getDownloadURL()
+              .then((url) => {
 
-    //             console.log(url);
-    //             // academicInformation.push({
-    //             //   // ...academicInformation,
-    //             //   [key]: url,
-    //             // });
-    //             academicInformation[key]= url
-    //             // certificatedImagesPromise.resolve()
+                console.log(url);
+                // academicInformation.push({
+                //   // ...academicInformation,
+                //   [key]: url,
+                // });
+                academicInformation[key]= url
+                // certificatedImagesPromise.resolve()
 
-    //           });
-    //       });
-    //   }
-    // }
+              });
+          });
+      }
+    }
     // const allPromises = [certificatedImagesPromise];
     // Promise.allSettled(allPromises).then(() => console.log(academicInfo))
 

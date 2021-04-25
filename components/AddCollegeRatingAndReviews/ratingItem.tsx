@@ -19,7 +19,7 @@ const RatingItem = (props: any) => {
       </div>
       <div className="rating-review__rating__item__info">
         <div className="rating-review__rating__item__rating">
-          <span>{props.rating}/</span>
+          <span><input onChange={(e)=>{props.handleChange(e)}} name={props.title.toLowerCase()} type='number'></input>/</span>
           10
         </div>
         <div className="rating-review__rating__item__title">{props.title}</div>

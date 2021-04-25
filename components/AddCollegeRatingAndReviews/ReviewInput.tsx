@@ -1,7 +1,6 @@
 import React from "react";
 
-const Review = ({review}: any) => {
-  console.log(review)
+const ReviewInput = ({handleChange, onSubmit, loading}: any) => {
   return (
     <div className="review">
       <div className="review__item">
@@ -19,24 +18,25 @@ const Review = ({review}: any) => {
         <div>
           <div className="review__item__header">
             <div className="review__item__header__left">
-              <div className="review__item__name">{review?.by?.fullName}</div>
-              {/* <div className="review__item__meta">
+              <div className="review__item__name">James Franko</div>
+              <div className="review__item__meta">
                 <div className="review__item__branch">
-                  Mechanical Engineering Student (2019 Batch) - 1 year ago
+                  Mechanical Engineering Student (2019 Batch)
                 </div>
-              </div> */}
+              </div>
             </div>
             <div className="rating-review__rating">
-              <span>{review?.averageRating}/</span>
+              <span>9/</span>
               10
             </div>
           </div>
           <div className="review__item__comment">
-            {review?.comment}
+           <input name='comment' onChange={handleChange}>
+           </input>
           </div>
           <div className="review__item__reaction">
             <div className="review__item__left">
-              <div className="review__item__reaction__item">
+              {/* <div className="review__item__reaction__item">
                 <div className="review__item__reaction__icon">
                   <svg
                     width="17"
@@ -51,7 +51,7 @@ const Review = ({review}: any) => {
                     />
                   </svg>
                 </div>
-                <div className="review__item__reaction__text">{review?.noOfLikes}</div>
+                <div className="review__item__reaction__text">25</div>
               </div>
               <div className="review__item__reaction__item">
                 <div className="review__item__reaction__icon">
@@ -68,7 +68,7 @@ const Review = ({review}: any) => {
                     />
                   </svg>
                 </div>
-                <div className="review__item__reaction__text">{review?.noOfDisLikes}</div>
+                <div className="review__item__reaction__text">25</div>
               </div>
               <div className="review__item__reaction__item">
                 <div className="review__item__reaction__icon">
@@ -94,11 +94,11 @@ const Review = ({review}: any) => {
                   </svg>
                 </div>
                 <div className="review__item__reaction__text">Report</div>
-              </div>
+              </div> */}
             </div>
-            {/* <a href="#" className="review__item__right">
-              Read Full Review
-            </a> */}
+            <button disabled={loading} onClick={onSubmit} className="review__item__right">
+              Submit
+            </button>
           </div>
         </div>
       </div>
@@ -106,4 +106,4 @@ const Review = ({review}: any) => {
   );
 };
 
-export { Review };
+export { ReviewInput };

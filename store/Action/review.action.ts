@@ -2,35 +2,28 @@ import { db } from "../../firebase";
 import { Dispatch } from "react-redux";
 
 
+export const addReview = (review:any) => async(dispatch: Dispatch) => {
+  try {
+    await db.collection('reviews').add(review)
+    return true
+  } catch (error) {
+    console.log(error)
+    return false
+  }
+}
+
 
 export const getReviews = (college_id) => async (dispatch: Dispatch) => { 
   let reviews = [];
-  //  let arr = [{
-  //     academics:8,
-  //     accomodation:9,
-  //     faculty:7,
-  //     infrastructures:7,
-  //     placements:9,
-  //     social:10,
-  //     isReported:false,
-  //     by:'czdSyNe9xuSJceGDy3BswI5XnDe2',
-  //     comment:'this is good college.',
-  //     timestamp:Date.now(),
-  //     noOFLikes:['czdSyNe9xuSJceGDy3BswI5XnDe2'],//student id
-  //     noOFDisLikes:[]
-  //   }]
-
-  //   db.collection('reviews').doc('60138a2c50ccc8fef5b00c66').set({all_reviews:arr},{ merge: true })
-  //   .then(()=>console.log('object'))
-  //   .catch(err=>console.log(err))
   try {
-    let doc = await db.collection("reviews").doc(college_id).get();
-    if (doc.exists) {
-      console.log("Document data:", doc.data());
-    } else {
-      // doc.data() will be undefined in this case
-      console.log("No such document!");
-    }
+    let reviewSnapshots = await db.collection("reviews").where('college','==',college_id).get();
+    reviewSnapshots.forEach(doc => {
+      let review = doc.data()
+      reviews.push({
+        ...review,
+        id:doc.id
+      })
+    })
     return reviews;
   } catch (error) {
     console.log(error);

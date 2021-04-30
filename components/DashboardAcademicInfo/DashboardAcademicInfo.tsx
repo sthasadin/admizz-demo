@@ -14,6 +14,7 @@ export const DashboardAcademicInfo = (props) => {
   const [level0Score, setLevel0Score] = useState("");
   const [diplomaScore, setDiplomaScore] = useState("");
   const [level1Score, setLevel1Score] = useState("");
+  const [level2Score, setLevel2Score] = useState("");
   const [postGraduteScore, setPostGraduteScore] = useState("");
   const [underGraduate, setUnderGraduate] = useState("");
   const [gre, setGre] = useState({ haveDone: "no", score: "" });
@@ -42,10 +43,27 @@ export const DashboardAcademicInfo = (props) => {
   const [showClass11Marks, setShowClass11Marks] = useState(false);
 
   const sendData = () => {
+    // return console.log(
+    //   schoolMarks,
+    //   level0Score,
+    //   level1Score,
+    //   diplomaScore,
+    //   postGraduteScore,
+    //   underGraduate,
+    //   gre,
+    //   gmat,
+    //   sat,
+    //   satII,
+    //   tofel,
+    //   jeeAdvance,
+    //   ielts,
+    //   certificatesImage
+    // );
     props.getData({
       schoolMarks,
       level0Score,
       level1Score,
+      level2Score,
       diplomaScore,
       postGraduteScore,
       underGraduate,
@@ -56,7 +74,7 @@ export const DashboardAcademicInfo = (props) => {
       tofel,
       jeeAdvance,
       ielts,
-      // certificatesImage,
+      certificatesImage,
     });
     props.handleNext();
   };
@@ -173,8 +191,8 @@ export const DashboardAcademicInfo = (props) => {
                         className={"dashboard-basic-info__input"}
                         fullWidth
                         placeholder="eg: 50.50"
-                        value={level0Score}
-                        onChange={(e) => setLevel0Score(e.target.value)}
+                        value={level2Score}
+                        onChange={(e) => setLevel2Score(e.target.value)}
                       />
                       <div
                         onClick={() =>
@@ -204,8 +222,8 @@ export const DashboardAcademicInfo = (props) => {
                         className={"dashboard-basic-info__input"}
                         fullWidth
                         placeholder="eg: 50.50"
-                        value={level0Score}
-                        onChange={(e) => setLevel0Score(e.target.value)}
+                        value={level1Score}
+                        onChange={(e) => setLevel1Score(e.target.value)}
                       />
                     </Grid>
                   )}
@@ -337,7 +355,7 @@ export const DashboardAcademicInfo = (props) => {
                   </label>
                 </Grid>
                 <Grid item sm={12} md={4} xs={12}>
-                  {certificatesImage.school && (
+                  {certificatesImage?.school && (
                     <div style={{ display: "flex", marginTop: "10px" }}>
                       {truncateString(certificatesImage.school.name, 20)}{" "}
                       <img
@@ -394,7 +412,7 @@ export const DashboardAcademicInfo = (props) => {
                   </label>
                 </Grid>
                 <Grid item sm={12} md={4} xs={12}>
-                  {certificatesImage.highSchool && (
+                  {certificatesImage?.highSchool && (
                     <div style={{ display: "flex", marginTop: "10px" }}>
                       {truncateString(certificatesImage.highSchool.name, 20)}{" "}
                       <img
@@ -450,10 +468,10 @@ export const DashboardAcademicInfo = (props) => {
                   </label>
                 </Grid>
                 <Grid item sm={12} md={4} xs={12}>
-                  {certificatesImage.under_Graduate && (
+                  {certificatesImage?.under_Graduate && (
                     <div style={{ display: "flex", marginTop: "10px" }}>
                       {truncateString(
-                        certificatesImage.under_Graduate.name,
+                        certificatesImage?.under_Graduate.name,
                         20
                       )}{" "}
                       <img
@@ -507,9 +525,9 @@ export const DashboardAcademicInfo = (props) => {
                   </label>
                 </Grid>
                 <Grid item sm={12} md={4} xs={12}>
-                  {certificatesImage.post_Gradute && (
+                  {certificatesImage?.post_Gradute && (
                     <div style={{ display: "flex", marginTop: "10px" }}>
-                      {truncateString(certificatesImage.post_Gradute.name, 20)}{" "}
+                      {truncateString(certificatesImage?.post_Gradute.name, 20)}{" "}
                       <img
                         src="/check.png"
                         alt="check"
@@ -577,7 +595,7 @@ export const DashboardAcademicInfo = (props) => {
                 </div>
               </Grid>
               <Grid item sm={12} md={3} xs={12}>
-                {certificatesImage.other && (
+                {certificatesImage?.other && (
                   <div style={{ display: "flex", marginTop: "10px" }}>
                     {truncateString(certificatesImage.other.name, 20)}{" "}
                     <img
@@ -599,7 +617,7 @@ export const DashboardAcademicInfo = (props) => {
               className="dashboard-basic-info__row"
               justify="flex-start"
               direction="row"
-            > 
+            >
               <Grid item sm={12} md={12} xs={12}>
                 <div className="dashboard-basic-info__formTitle">
                   Exam Scores
@@ -918,21 +936,6 @@ export const DashboardAcademicInfo = (props) => {
                       ""
                     )}
                   </Grid>
-                  {/* <Grid item sm={12} md={2} xs={12}>
-                  <div className="dashboard-basic-info__formTitle">
-                    SAT II
-              </div>
-                </Grid>
-                <Grid item sm={12} md={4} xs={12}>
-                  <RadioGroup aria-label="passport" name="passport1" row>
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
-                  </RadioGroup>
-                  <Input
-                    className={'dashboard-basic-info__input'}
-                    fullWidth
-                    placeholder="eg: 50.50" />
-                </Grid> */}
                 </Grid>
 
                 {ielts.haveDone == "yes" ? (
@@ -951,6 +954,17 @@ export const DashboardAcademicInfo = (props) => {
                         className={"dashboard-basic-info__input"}
                         fullWidth
                         placeholder="eg: 50.50"
+                        value={ielts.subMars.listining}
+                        onChange={(e) => {
+                          let _itels = {
+                            ...ielts,
+                            subMars: {
+                              ...ielts.subMars,
+                              listining: e.target.value,
+                            },
+                          };
+                          setIelts(_itels);
+                        }}
                       />
                     </Grid>
                     <Grid item sm={12} md={2} xs={12}>
@@ -961,6 +975,17 @@ export const DashboardAcademicInfo = (props) => {
                         className={"dashboard-basic-info__input"}
                         fullWidth
                         placeholder="eg: 50.50"
+                        onChange={(e) => {
+                          let _itels = {
+                            ...ielts,
+                            subMars: {
+                              ...ielts.subMars,
+                              writing: e.target.value,
+                            },
+                          };
+
+                          setIelts(_itels);
+                        }}
                       />
                     </Grid>
                     <Grid item sm={12} md={2} xs={12}>
@@ -971,6 +996,17 @@ export const DashboardAcademicInfo = (props) => {
                         className={"dashboard-basic-info__input"}
                         fullWidth
                         placeholder="eg: 50.50"
+                        onChange={(e) => {
+                          let _itels = {
+                            ...ielts,
+                            subMars: {
+                              ...ielts.subMars,
+                              reading: e.target.value,
+                            },
+                          };
+
+                          setIelts(_itels);
+                        }}
                       />
                     </Grid>
                     <Grid item sm={12} md={2} xs={12}>
@@ -981,6 +1017,17 @@ export const DashboardAcademicInfo = (props) => {
                         className={"dashboard-basic-info__input"}
                         fullWidth
                         placeholder="eg: 50.50"
+                        onChange={(e) => {
+                          let _itels = {
+                            ...ielts,
+                            subMars: {
+                              ...ielts.subMars,
+                              speaking: e.target.value,
+                            },
+                          };
+
+                          setIelts(_itels);
+                        }}
                       />
                     </Grid>
                   </Grid>

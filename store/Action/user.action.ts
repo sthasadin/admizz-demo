@@ -11,7 +11,6 @@ export const getAuthUser = (id:string) => async (dispatch:Dispatch) => {
       return user
     } else {
       // doc.data() will be undefined in this case
-      console.log("No such document!");
       throw Error("No such document!")
     }
   } catch (error) {

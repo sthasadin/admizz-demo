@@ -1,308 +1,51 @@
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import {getLevels,getStreams, getAllPrograms, getCollegesByCourses } from "../../store/Action/courses.action";
 import { Grid } from "@material-ui/core";
 import { Button } from "../Button";
-import { DropDownSelect } from "../DropDownSelect";
 import { useSelector, useDispatch } from "react-redux";
 import Alert from "@material-ui/lab/Alert";
-import { getCollageDetail } from "../../store/Action/collageDetail.action";
-import {getCollege} from '../../store/Action/college.action';
 import ClipLoader from "react-spinners/ClipLoader";
-
-
-
-
-const Choice = (props) => {
-  // const [selectedStream1, setSelectedStream1] = React.useState('');
-
-
-
-
-
-
-
-
-
-
-
-
-  const {
-    setSelectedCollege,
-    streamOption,
-    setSelectedStream,
-    programOption,
-    setSelectedProgram,
-    collegeOption,
-    selectedStream,
-    selectedProgram,
-    selectedCollege
-  } = props.data;
-
-
-  // const handleStream (e) => {
-  //   setSelectedStream1
-  //   setSelectedStream()
-  // }
-
-  const streamList = streamOption?.map((stream) => {
-    return{
-      label:stream.name,
-      value:stream.name
-    }
-  })
-
-  const programList = programOption?.map((program) => {
-    return{
-      label:program.name,
-      value:program.name
-    }
-  })
-
-  const collegeList = collegeOption?.map((college) => {
-    return{
-      label:college.college?.name,
-      value:college.college?.college_slug
-    }
-  })
-
-  return (
-    <div className="dashboard-basic-info__formContainer">
-      <form>
-        <Grid
-          container
-          className="dashboard-basic-info__row"
-          justify="space-around"
-          direction="row"
-        >
-          <Grid item sm={12} md={12} xs={12}>
-            <div className="dashboard-basic-info__formTitle">
-              Choice # {props.choiceNumber}
-            </div>
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          className="dashboard-basic-info__row"
-          justify="space-around"
-          direction="row"
-        >
-          <Grid
-            className={"dashboard-basic-info__grid"}
-            item
-            sm={12}
-            md={6}
-            xs={12}
-          >
-            <DropDownSelect
-              title="Choose Steam"
-              options={streamList}
-               defaultvalue={selectedStream}
-              handleChange={setSelectedStream}
-            />
-          </Grid>
-          <Grid
-            className={"dashboard-basic-info__grid"}
-            item
-            sm={12}
-            md={6}
-            xs={12}
-          >
-            <DropDownSelect
-              title="Select Specific program"
-              options={programList}
-              defaultvalue={selectedProgram}
-              handleChange={setSelectedProgram}
-              
-            />
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          className="dashboard-basic-info__row"
-          justify="space-around"
-          direction="row"
-        >
-          <Grid
-            className={"dashboard-basic-info__grid"}
-            item
-            sm={12}
-            md={12}
-            xs={12}
-          >
-            <DropDownSelect
-              title="Select College"
-              options={collegeList}
-              defaultvalue={selectedCollege}
-              handleChange={setSelectedCollege}
-            />
-          </Grid>
-        </Grid>
-        <Grid
-          container
-          className="dashboard-basic-info__row"
-          justify="space-around"
-          direction="row"
-        >
-          <div className="dashboard-basic-info__buttonContainer">
-            <div
-              className="dashboard-basic-info__viewText"
-              onClick={() => props.handelSave()}
-            >
-              Save Choice
-            </div>
-            <div
-              className="dashboard-basic-info__editText"
-              onClick={() => props.onClickAddChoice()}
-            >
-              Add More Choice
-            </div>
-          </div>
-        </Grid>
-      </form>
-    </div>
-  );
-};
-
-
-
-
-
+import Choice from "./Choice";
 
 const DashboardChoiceFilling = (props) => {
   const [choicesArray, setChoicesArray] = useState([]);
   const [choiceNumber, setChoiceNumber] = useState(2);
-  const [selectedCollege, setSelectedCollege] = useState("");
-  const [selectedSubCourse, setSelectedSubCourse] = useState("");
-  const [selectedCourse, setSelectedCourse] = useState("");
-  const[selectedLevelId,setSelectedLevelId] = useState('');
+  // const [selectedCollege, setSelectedCollege] = useState("");
+  // const [selectedSubCourse, setSelectedSubCourse] = useState("");
+  // const [selectedCourse, setSelectedCourse] = useState("");
+  // const [selectedLevelId, setSelectedLevelId] = useState("");
 
-  const allCollege = useSelector((state) => state.allCollege.collegeList);
-  const [CollegesOptions, setCollegesOptions] = useState([]);
-  const [courseOption, setCourseOption] = useState([]);
-  const [subCourseOptions, setSubCourseOptions] = useState([]);
-  const dispatch = useDispatch();
-  const [appliedCollege, setAppliedCollege] = useState([]);
-  const [appliedCollegeDetail, setAppliedCollegeDetail] = useState([]);
-  const collegeDetails = useSelector(
-    (state) => state.college.college
-  );
+  // const allCollege = useSelector((state) => state.allCollege.collegeList);
+  // const [CollegesOptions, setCollegesOptions] = useState([]);
+  // const [courseOption, setCourseOption] = useState([]);
+  // const [subCourseOptions, setSubCourseOptions] = useState([]);
+  // const dispatch = useDispatch();
+  // const [appliedCollege, setAppliedCollege] = useState([]);
+  // const [appliedCollegeDetail, setAppliedCollegeDetail] = useState([]);
+  // const collegeDetails = useSelector((state) => state.college.college);
   // const [collegeDetails, setCollegeDetails] = useState({})
   const [loader, setLoader] = useState(false);
-  const [fetchedCourses, setFetchedCourses] = useState([]);
-  const [streamOption, setStreamOption] = useState([]);
-  const [selectedStream, setSelectedStream] = useState("");
-  const [selectedStreamId, setSelectedStreamId] = useState('');
-  const [selectedProgram, setSelectedProgram] = useState('');
-  const [programOption, setProgramOption] = useState([]);
-  const [collegeOption, setCollegeOption] = useState([]);
-    
-  //fetch stream
-  useEffect(() => {
-    (async() => {
-     const fetchLevel = await dispatch(getLevels());
-     const selectLevelObj = fetchLevel.find((id) => id.name === props.selectedData.selectedLevel);
-     setSelectedLevelId(selectLevelObj?._id);
-     const fetchStream = await dispatch(getStreams(selectLevelObj?._id));
-     setStreamOption(fetchStream);
-    })();   
-   }, [])
- 
- 
-   //fetch program
-   useEffect(() => {
-     (async() => {
-       const fetchSelectedStream = streamOption.find((course) =>course.name === selectedStream)
-       const fetchProgram = await dispatch(getAllPrograms(selectedLevelId, fetchSelectedStream?._id))
-       setProgramOption(fetchProgram)
-       setSelectedStreamId(fetchSelectedStream?._id);
-       setSelectedProgram('');
-       setSelectedCollege('');
+  // const [fetchedCourses, setFetchedCourses] = useState([]);
+  // const [streamOption, setStreamOption] = useState([]);
+  // const [selectedStream, setSelectedStream] = useState("");
+  // const [selectedStreamId, setSelectedStreamId] = useState("");
+  // const [selectedProgram, setSelectedProgram] = useState("");
+  // const [programOption, setProgramOption] = useState([]);
+  // const [collegeOption, setCollegeOption] = useState([]);
 
-     })();
-   }, [selectedStream])
-   
- 
-   //fetch college
-   useEffect(() => {
-     (async()=> {
-       //prevent from unnecessary api call by dependency update
-       if(selectedProgram){
-       const fetchSelectedProgam = programOption.find((program) => program.name === selectedProgram)
-       const fetchCollege = await dispatch(getCollegesByCourses( selectedLevelId, selectedStreamId,fetchSelectedProgam?._id ));
-       setCollegeOption(fetchCollege);
-       }
- 
-     })()
-   }, [selectedProgram])
-  
+  const [appliedCollege, setAppliedCollege] = React.useState([]);
 
   // handel submit button
   const sendData = () => {
-    props.getData([
-      ...appliedCollegeDetail,
-    ]);
+    props.getData([...appliedCollege]);
     props.handleNext();
   };
-
-  
-
-  // saving selected college to apply
-  const saveChoice = async () => {
-    console.log(selectedCollege)
-    setLoader(true);
-    if (
-      selectedCollege !== "" &&
-      selectedStream !== "" &&
-      selectedProgram !== ""
-    ) {
-      var newChoice = {
-        collegeName: selectedCollege,
-        course: selectedStream,
-        sub_course: selectedProgram,
-      };
-    } else {
-      return alert("Please Select all Field!! ");
-    }
-
-   await dispatch(getCollege(selectedCollege));
-   console.log(newChoice);
-  setAppliedCollege([...appliedCollege,newChoice])
-  setLoader(false)
-  };
-
-  //getting details of applied college
-  useEffect(() => {
-    if (Object.keys(collegeDetails).length > 0) {
-      console.log(collegeDetails)
-      setAppliedCollegeDetail((prev) => [
-        
-        ...prev,
-        {
-          name: collegeDetails.name,
-          image: collegeDetails.college_profile_image,
-          address: collegeDetails.address,
-          course: selectedStream,
-          sub_course: selectedProgram,
-          id:collegeDetails._id,
-          college_slug:collegeDetails.college_slug
-        },
-      ]);
-      // console.log(selectedCourse);
-      // console.log("asdasd");
-      // setSelectedCollege("");
-      // setSelectedSubCourse("");
-      // setSelectedCourse("");
-      // setSelectedStream(""); 
-      // setLoader(false);
-    }
-  }, [collegeDetails]);
-
 
   const onClickAddChoice = () => {
     setChoiceNumber(choiceNumber + 1);
     setChoicesArray((choicesArray) => [...choicesArray, choiceNumber]);
   };
+
+  console.log(choicesArray);
 
   // trunclate string
   function truncateString(str, num = 20) {
@@ -312,6 +55,8 @@ const DashboardChoiceFilling = (props) => {
     return str.slice(0, num) + "...";
   }
 
+  console.log(appliedCollege);
+
   // back tracking
   // useEffect(() => {
   //   if (Object.keys(props.data).length > 0) {
@@ -319,11 +64,11 @@ const DashboardChoiceFilling = (props) => {
   //   }
   // }, [props.data]);
 
-  
-
-
-  
-  
+  const RemoveChoiceArray = (index) => {
+    console.log(index);
+    const filterArray = choicesArray.filter((ind, i) => i !== index);
+    setChoicesArray(filterArray);
+  };
 
   return (
     <div className="dashboard-basic-info">
@@ -353,46 +98,22 @@ const DashboardChoiceFilling = (props) => {
         <div className="dashboard-basic-info__sectionTitle">Choice Filling</div>
         <Choice
           onClickAddChoice={() => onClickAddChoice()}
-          handelSave={saveChoice}
           choiceNumber={1}
-          data={{
-            courseOption,
-            setSelectedCourse,
-            subCourseOptions,
-            setSelectedSubCourse,
-            CollegesOptions,
-            setSelectedCollege,
-            selectedCollege,
-            streamOption,
-            setSelectedStream,
-            selectedStream,
-            programOption,
-            setSelectedProgram,
-            selectedProgram,
-            collegeOption
-          }}
+          selectedData={props.selectedData}
+          setAppliedCollege={setAppliedCollege}
+          appliedCollege={appliedCollege}
         />
-        {choicesArray.map((choiceNumber) => (
+
+        {choicesArray.map((choiceNumber, i) => (
           <Choice
+            key={i}
             onClickAddChoice={() => onClickAddChoice()}
-            handelSave={saveChoice}
             choiceNumber={choiceNumber}
-            data={{
-              courseOption,
-              setSelectedCourse,
-              subCourseOptions,
-              setSelectedSubCourse,
-              CollegesOptions,
-              setSelectedCollege,
-              selectedCollege,
-              // streamOption,
-              // setSelectedStream,
-              // selectedStream,
-              // programOption,
-              // setSelectedProgram,
-              // selectedProgram,
-              // collegeOption
-            }}
+            selectedData={props.selectedData}
+            setAppliedCollege={setAppliedCollege}
+            appliedCollege={appliedCollege}
+            index={i}
+            RemoveChoiceArray={RemoveChoiceArray}
           />
         ))}
       </div>
@@ -455,13 +176,7 @@ const DashboardChoiceFilling = (props) => {
               </Grid>
             </div>
 
-
-
-
-
-            {appliedCollegeDetail.map((college, i) => {
-              // console.log(college, appliedCollege.length, i);
-             
+            {appliedCollege.map((college, i) => {
               if (true) {
                 return (
                   <div className="dashboard-basic-info__rowTable" key={i}>
@@ -496,10 +211,10 @@ const DashboardChoiceFilling = (props) => {
                       >
                         <div className="dashboard-basic-info__tableCell">
                           <div className="dashboard-basic-info__tableText">
-                            {college.name}
+                            {college.collegeName}
                           </div>
                           <div className="dashboard-basic-info__tableSubText">
-                            {truncateString(college.address)}
+                            {college.address}
                           </div>
                         </div>
                       </Grid>
@@ -512,7 +227,7 @@ const DashboardChoiceFilling = (props) => {
                       >
                         <div className="dashboard-basic-info__tableCell">
                           <div className="dashboard-basic-info__tableText">
-                            {college.course}
+                            {college.collegeStream}
                           </div>
                         </div>
                       </Grid>
@@ -525,7 +240,7 @@ const DashboardChoiceFilling = (props) => {
                       >
                         <div className="dashboard-basic-info__tableCell">
                           <div className="dashboard-basic-info__tableText">
-                            {college.sub_course}
+                            {college.collegeProgram}
                           </div>
                         </div>
                       </Grid>
@@ -538,9 +253,13 @@ const DashboardChoiceFilling = (props) => {
                       >
                         <div className="dashboard-basic-info__tableCell">
                           <Button>
-                          <a href={`http://localhost:3000/colleges/${college?.college_slug}`}  target='_blank' >View Detail</a>
+                            <a
+                              href={`http://localhost:3000/colleges/${college?.college_slug}`}
+                              target="_blank"
+                            >
+                              View Detail
+                            </a>
                           </Button>
-                          
                         </div>
                       </Grid>
                     </Grid>

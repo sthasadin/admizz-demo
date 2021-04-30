@@ -78,6 +78,8 @@ const DashboardReviewConfirm = (props) => {
       underGraduate: academicInfo.underGraduate,
     };
 
+    const status = "pending";
+
     var documentRes = {};
     var certificatedImagesPromise = [];
     console.log(academicInfo.certificatesImage);
@@ -202,6 +204,7 @@ const DashboardReviewConfirm = (props) => {
         // academicInfo,
         backgroundInformation,
         academicInformation,
+        status,
       })
       .then((res) => console.log("response", res, academicInformation))
       .catch((e) => console.log(e));

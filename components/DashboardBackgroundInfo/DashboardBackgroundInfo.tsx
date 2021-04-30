@@ -8,7 +8,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Button } from "../Button";
 import { UploadButton } from "../Button/uploadButton";
 import { DropDownSelect } from "../DropDownSelect";
-import GreenCircle from '../GreenCircle'
+import GreenCircle from "../GreenCircle";
 import { PersonalVideo } from "@material-ui/icons";
 
 const DashboardBackgroundInfo = (props) => {
@@ -18,7 +18,7 @@ const DashboardBackgroundInfo = (props) => {
     numberOnPassport: "",
     passportIssuingAuthority: "",
     passportExpireDate: "",
-    passportIssuedCountry: "",
+    passportIssuedCountry: { label: "", value: "" },
   });
   const [haveAppliedForPassport, setHaveAppliedPassport] = useState(false);
   const [passportId, setPassportId] = useState("");
@@ -31,11 +31,14 @@ const DashboardBackgroundInfo = (props) => {
     emailAddress: "",
     address: "",
   });
-  
+
   const sendData = () => {
     props.getData({
       havePassport,
-      passportDetails,
+      passportDetails: {
+        ...passportDetails,
+        passportIssuedCountry: passportDetails.passportIssuedCountry.value,
+      },
       haveAppliedForPassport,
       passportId,
 
@@ -82,14 +85,13 @@ const DashboardBackgroundInfo = (props) => {
     // setDocumentImageThumbnail(URL.createObjectURL(e.target.files[0]));
   };
 
-  const truncateString =(str, num) => {
+  const truncateString = (str, num) => {
     if (str.length > num) {
       return str.slice(0, num) + "...";
     } else {
       return str;
     }
-  }
-
+  };
 
   return (
     <div className="dashboard-basic-info">
@@ -177,10 +179,12 @@ const DashboardBackgroundInfo = (props) => {
                       fullWidth
                       label="Passport Number"
                       value={passportDetails.numberOnPassport}
-                      onChange={(e) => setPassportDetails({
-                        ...passportDetails,
-                        numberOnPassport: e.target.value,
-                      })}
+                      onChange={(e) =>
+                        setPassportDetails({
+                          ...passportDetails,
+                          numberOnPassport: e.target.value,
+                        })
+                      }
                     />
                   </Grid>
                 </Grid>
@@ -222,10 +226,12 @@ const DashboardBackgroundInfo = (props) => {
                       fullWidth
                       label="Expiry Date of Passport"
                       value={passportDetails.passportExpireDate}
-                      onChange={(e) => setPassportDetails({
-                        ...passportDetails,
-                        passportExpireDate: e.target.value,
-                      })}
+                      onChange={(e) =>
+                        setPassportDetails({
+                          ...passportDetails,
+                          passportExpireDate: e.target.value,
+                        })
+                      }
                     />
                   </Grid>
                 </Grid>
@@ -246,10 +252,12 @@ const DashboardBackgroundInfo = (props) => {
                       title="Issuing Country"
                       options={CountryOption}
                       defaultvalue={passportDetails.passportIssuedCountry}
-                      handleChange={(e) => setPassportDetails({
-                        ...passportDetails,
-                        passportIssuedCountry: e
-                      })}
+                      handleChange={(e) =>
+                        setPassportDetails({
+                          ...passportDetails,
+                          passportIssuedCountry: e,
+                        })
+                      }
                     />
                   </Grid>
                   <Grid
@@ -373,15 +381,29 @@ const DashboardBackgroundInfo = (props) => {
                     onChange={handleImageChange}
                   />
 
-                  <UploadButton>Upload button</UploadButton>
+                  <UploadButton startIcon="" className="">
+                    Upload button
+                  </UploadButton>
                 </label>
               </Grid>
-           
-                  <Grid item sm={12} md={4} xs={12} justify="flex-start" style={{display: 'flex'}}>
-                  {documentImage && <><div style={{alignSelf: 'center'}}>{truncateString(documentImage.name, 20)}</div> <GreenCircle /> </>}
-                      
 
-                  </Grid>
+              <Grid
+                item
+                sm={12}
+                md={4}
+                xs={12}
+                justify="flex-start"
+                style={{ display: "flex" }}
+              >
+                {documentImage && (
+                  <>
+                    <div style={{ alignSelf: "center" }}>
+                      {truncateString(documentImage.name, 20)}
+                    </div>{" "}
+                    <GreenCircle />{" "}
+                  </>
+                )}
+              </Grid>
             </Grid>
           </form>
         </div>
@@ -449,21 +471,22 @@ const DashboardBackgroundInfo = (props) => {
                   md={4}
                   xs={12}
                 >
-                  
-                  <div className='student-info__phone-input'>
-                <Select
-                options={CountryCodeOptions}
-                useValue
-                minWidth={"83px"}
-                width={"90px"}
-                defaultValue={references.countryCode}
-                // name={"countryCode"}
-                onChange={(e) => setReferences({
-                  ...references,
-                  countryCode: e.target.value
-                }) }
-                className={"student-info__phone-separator"}
-              />
+                  <div className="student-info__phone-input">
+                    <Select
+                      options={CountryCodeOptions}
+                      useValue
+                      minWidth={"83px"}
+                      width={"90px"}
+                      defaultValue={references.countryCode}
+                      // name={"countryCode"}
+                      onChange={(e) =>
+                        setReferences({
+                          ...references,
+                          countryCode: e.target.value,
+                        })
+                      }
+                      className={"student-info__phone-separator"}
+                    />
                     <Input
                       className={"student-info__input student-info__phone"}
                       fullWidth

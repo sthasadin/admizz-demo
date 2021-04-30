@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Input } from "../Input";
 import { Grid } from "@material-ui/core";
 import Snackbar from "@material-ui/core/Snackbar";
-import {getLevels} from '../../store/Action/courses.action';
-import {useDispatch} from 'react-redux';
+import { getLevels } from "../../store/Action/courses.action";
+import { useDispatch } from "react-redux";
 import { Select } from "../Select";
 
 import { Button } from "../Button";
@@ -19,85 +19,74 @@ function Alert(props: AlertProps) {
 }
 
 const DashboardBasicInfo = (props) => {
-  const [selectedLevel, setSelectedLevel] = useState("");
+  const [selectedLevel, setSelectedLevel] = useState({
+    label: "",
+    value: "",
+  });
   const [selectLevel, setSelectLevel] = useState([]);
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [DOB, setDob] = useState("");
-  const [nationality, setNationality] = useState("");
-  const [gender, setGender] = useState("");
+  const [nationality, setNationality] = useState({
+    label: "",
+    value: "",
+  });
+  const [gender, setGender] = useState({
+    label: "",
+    value: "",
+  });
   const [countryCode, setCountryCode] = useState("");
 
   const [guardianAddress, setGuardianAddress] = useState("");
-  const [guardianCountry, setGuardianCountry] = useState("");
-  const [guardianState, setGuardianState] = useState("");
+  const [guardianCountry, setGuardianCountry] = useState({
+    label: "",
+    value: "",
+  });
+  const [guardianState, setGuardianState] = useState({
+    label: "",
+    value: "",
+  });
   const [guardianCity, setGuardianCity] = useState("");
   const [guardianZipCode, setGuardianZipCode] = useState("" as string);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [formError, setFormError] = useState({} as any);
   const [loading, setLoading] = useState(false as boolean);
-  const dispatch = useDispatch()
-  // const [middleName, setMiddleName] = useState("");
-  // const [lastName, setLastName] = useState("");
+  const dispatch = useDispatch();
 
-  // const [residentialcountry, setResidentialCountry] = useState("");
-  // const [residentialState, setResidentialState] = useState("");
-  // const [residentialAddress, setResidentialAddress] = useState("");
-  // const [residentialZipCode, setResidentialZipCode] = useState("");
-  // const [residentialCity, setResidentialCity] = useState("");
-  // const [permanentcountry, setPermanentCountry] = useState("");
-  // const [permanentState, setPermanentState] = useState("");
-  // const [permanentAddress, setPermanentAddress] = useState("");
-  // const [permanentZipCode, setPermanentZipCode] = useState("");
-  // const [permanentCity, setPermanentCity] = useState("");
-
-  // const [isPermanentAddressSame, setIsPermanentAddressSame] = useState(false);
-  // const allCollege = useSelector((state) => state.allCollege.collegeList);
-  // const [CollegesOptions, setCollegesOptions] = useState([]);
-  // const [courseOption, setCourseOption] = useState([]);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getAllCollegeList());
-  // }, []);
-
-  useEffect(()=> {
-    const {authUser} = props
-    console.log(authUser?.phoneNumber?.split('-'))
+  useEffect(() => {
+    const { authUser } = props;
+    console.log(authUser?.phoneNumber?.split("-"));
     if (authUser) {
-      setEmail(authUser?.email)
-      setNationality(authUser?.country === "Nepal"? "nepal": "indain")
-      setCountryCode(authUser?.phoneNumber?.split('-')[0])
-      setPhoneNumber(authUser?.phoneNumber?.split('-')[1])
-      setFullName(authUser?.fullName)
+      setEmail(authUser?.email);
+      setNationality(
+        authUser?.country === "Nepal"
+          ? { label: "Nepal", value: "Nepali" }
+          : { label: "indain", value: "indain" }
+      );
+      setCountryCode(authUser?.phoneNumber?.split("-")[0]);
+      setPhoneNumber(authUser?.phoneNumber?.split("-")[1]);
+      setFullName(authUser?.fullName);
     }
-  },[props.authUser])
+  }, [props.authUser]);
 
   const getAllLevels = async () => {
-    setLoading(true)
+    setLoading(true);
     const fetchLevel = await dispatch(getLevels());
     setSelectLevel(fetchLevel);
     setLoading(false);
-  }
+  };
 
   useEffect(() => {
-  
     getAllLevels();
-    
-    
-  }, [])
-
-  
-
-  
+  }, []);
 
   const SelectLevelOption = selectLevel.map((level) => {
-    return{
-      label:level.name,
-      value:level.name,
-    }
-    });
+    return {
+      label: level.name,
+      value: level.name,
+    };
+  });
 
   const GenderOptions = [
     {
@@ -210,29 +199,42 @@ const DashboardBasicInfo = (props) => {
   };
 
   const sendData = async () => {
-   
     try {
-     
+      // return console.log(
+      //   selectedLevel,
+      //   fullName,
+      //   DOB,
+      //   nationality.value,
+      //   email,
+      //   phoneNumber,
+      //   countryCode,
+      //   gender,
+      //   guardianAddress,
+      //   guardianCountry.value,
+      //   guardianState.value,
+      //   guardianCity,
+      //   guardianZipCode
+      // );
       // setLoading(true);
       // const isValid = await validate();
 
       // if (isValid) {
-        props.getData({
-          selectedLevel,
-          fullName,
-          DOB,
-          nationality,
-          email,
-          phoneNumber,
-          countryCode,
-          gender,
-          guardianAddress,
-          guardianCountry,
-          guardianState,
-          guardianCity,
-          guardianZipCode,
-        });
-        props.handleNext();
+      props.getData({
+        selectedLevel: selectedLevel.value,
+        fullName,
+        DOB,
+        nationality: nationality.value,
+        email,
+        phoneNumber,
+        countryCode,
+        gender: gender.value,
+        guardianAddress,
+        guardianCountry: guardianCountry.value,
+        guardianState: guardianState.value,
+        guardianCity,
+        guardianZipCode,
+      });
+      props.handleNext();
       // }
     } catch (err) {
       console.log(err);
@@ -255,6 +257,8 @@ const DashboardBasicInfo = (props) => {
       setGuardianZipCode(props.data.guardianZipCode);
     }
   }, [props.data]);
+
+  console.log(selectedLevel);
 
   return (
     <div className="dashboard-basic-info">
@@ -282,7 +286,7 @@ const DashboardBasicInfo = (props) => {
               <DropDownSelect
                 title="Select Level"
                 options={SelectLevelOption}
-                handleChange={setSelectedLevel}
+                handleChange={(e) => setSelectedLevel(e)}
                 defaultvalue={selectedLevel}
                 // name={"selectLevel"}
                 // errorMessage={formError.selectLevel}
@@ -351,7 +355,7 @@ const DashboardBasicInfo = (props) => {
                   defaultvalue={nationality}
                   title="Nationality"
                   options={NationalityOptions}
-                  handleChange={setNationality}
+                  handleChange={(e) => setNationality(e)}
                   // name={"Nationality"}
                   //error={""}
                 />
@@ -370,24 +374,24 @@ const DashboardBasicInfo = (props) => {
                 md={4}
                 xs={12}
               >
-                   <div className='student-info__phone-input'>
-                <Select
-                options={CountryCodeOptions}
-                useValue
-                minWidth={"83px"}
-                width={"90px"}
-                defaultValue={countryCode}
-                // name={"countryCode"}
-                onChange={e => setCountryCode(e.target.value)}
-                className={"student-info__phone-separator"}
-              />
-                <Input
-                  className={"student-info__input student-info__phone"}
-                  fullWidth
-                  label="Phone Number"
-                  value={phoneNumber}
-                  onChange={e => setPhoneNumber(e.target.value)}
-                />
+                <div className="student-info__phone-input">
+                  <Select
+                    options={CountryCodeOptions}
+                    useValue
+                    minWidth={"83px"}
+                    width={"90px"}
+                    defaultValue={countryCode}
+                    // name={"countryCode"}
+                    onChange={(e) => setCountryCode(e.target.value)}
+                    className={"student-info__phone-separator"}
+                  />
+                  <Input
+                    className={"student-info__input student-info__phone"}
+                    fullWidth
+                    label="Phone Number"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                  />
                 </div>
               </Grid>
               <Grid
@@ -401,7 +405,7 @@ const DashboardBasicInfo = (props) => {
                   className={"student-info__input student-info__phone"}
                   type="date"
                   value={DOB}
-                  onChange={e => setDob(e.target.value)}
+                  onChange={(e) => setDob(e.target.value)}
                 />
               </Grid>
               <Grid

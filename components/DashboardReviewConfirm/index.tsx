@@ -21,9 +21,10 @@ const DashboardReviewConfirm = (props) => {
   // console.log(props.selectedChoice);
 
   function toTitleCase(str) {
-    return str.replace(/\w\S*/g, function (txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
+    // return str.replace(/\w\S*/g, function (txt) {
+    //   return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    // });
+    return str;
   }
   // console.log(props);
 
@@ -38,7 +39,9 @@ const DashboardReviewConfirm = (props) => {
     certificatesImage,
   } = props;
 
-  console.log(certificatesImage);
+  console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice);
+
+  // console.log(certificatesImage);
 
   // trunclate string
   function truncateString(str, num = 20) {
@@ -66,6 +69,7 @@ const DashboardReviewConfirm = (props) => {
       jeeAdvance: academicInfo.jeeAdvance,
       level0Score: academicInfo.level0Score,
       level1Score: academicInfo.level1Score,
+      level2Score: academicInfo.level2Score,
       postGraduteScore: academicInfo.postGraduteScore,
       sat: academicInfo.sat,
       satII: academicInfo.satII,
@@ -76,7 +80,8 @@ const DashboardReviewConfirm = (props) => {
 
     var documentRes = {};
     var certificatedImagesPromise = [];
-    for (const [key] of Object.entries(academicInfo.certificatesImage)) {
+    console.log(academicInfo.certificatesImage);
+    for (const [key] of Object?.entries(academicInfo.certificatesImage)) {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
@@ -84,26 +89,24 @@ const DashboardReviewConfirm = (props) => {
       // certificatedImagesPromise.push()
 
       if (academicInfo.certificatesImage[key] == null) {
-        console.log('asd');
+        console.log("asd");
       } else {
-         storage
+        storage
           .ref(`student-application/${mixName}`)
           .put(academicInfo.certificatesImage[key])
-          .then( () => {
-             storage
+          .then(() => {
+            storage
               .ref("student-application")
               .child(mixName)
               .getDownloadURL()
               .then((url) => {
-
                 console.log(url);
                 // academicInformation.push({
                 //   // ...academicInformation,
                 //   [key]: url,
                 // });
-                academicInformation[key]= url
+                academicInformation[key] = url;
                 // certificatedImagesPromise.resolve()
-
               });
           });
       }
@@ -124,7 +127,7 @@ const DashboardReviewConfirm = (props) => {
             .child(mixName)
             .getDownloadURL()
             .then((url) => {
-              // console.log(url);
+              console.log(url);
               setBackgroundInfo({
                 ...backgroundInfo,
                 Personal_Identification_Id: url,
@@ -145,7 +148,7 @@ const DashboardReviewConfirm = (props) => {
             .child(mixName)
             .getDownloadURL()
             .then((url) => {
-              // console.log(url);
+              console.log(url);
               setBasicInfo({
                 ...basicInfo,
                 profileImage: url,
@@ -167,7 +170,7 @@ const DashboardReviewConfirm = (props) => {
             .child(mixName)
             .getDownloadURL()
             .then((url) => {
-              // console.log(url);
+              console.log(url);
               setBasicInfo({
                 ...basicInfo,
                 signatureImage: url,
@@ -184,12 +187,12 @@ const DashboardReviewConfirm = (props) => {
     //     backgroundInformation,)
     // )
 
-    return console.log(
-      academicInformation,
-      basicInfo,
-      selectedChoice,
-      backgroundInformation
-    );
+    // return console.log(
+    //   academicInformation,
+    //   basicInfo,
+    //   selectedChoice,
+    //   backgroundInformation
+    // );
 
     await db
       .collection("students-application")
@@ -200,7 +203,7 @@ const DashboardReviewConfirm = (props) => {
         backgroundInformation,
         academicInformation,
       })
-      .then((res) => console.log("response", res))
+      .then((res) => console.log("response", res, academicInformation))
       .catch((e) => console.log(e));
   };
 
@@ -376,7 +379,9 @@ const DashboardReviewConfirm = (props) => {
                           }}
                         />
                         <UploadButton
-                          className={`dashboard-profileimage-upload ${profileImageThumbnail == null && 'active'}`}
+                          className={`dashboard-profileimage-upload ${
+                            profileImageThumbnail == null && "active"
+                          }`}
                           startIcon={<CameraAltIcon />}
                         >
                           Update

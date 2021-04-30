@@ -16,6 +16,8 @@ export const BLOG_TYPES = {
   GET_BLOG_FINISH: "GET_BLOG_FINISH",
 };
 
+export const GET_COLLEGE_NEWS="GET_COLLEGE_NEWS";
+
 //college
 export const COLLEGES_TYPES = {
   GET_COLLEGES : "GET_COLLEGES",

@@ -24,7 +24,7 @@ const CollegeGallery = (props) => {
   const dispatch = useDispatch()
   const photos = useSelector(state => state.college.college?.college_photos)
   const videos = useSelector(state => state.college.college?.college_videos)
-  return (
+  return photos?.length || videos?.length ? (
     <div id="gallery" className="college-gallery">
       <div className="college-gallery__inner">
         <div className="college-gallery__title-wrap">
@@ -175,7 +175,7 @@ const CollegeGallery = (props) => {
         </div>
       </div>
     </div>
-  );
+  ):null;
 };
 
 export { CollegeGallery };

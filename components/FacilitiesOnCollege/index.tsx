@@ -4,8 +4,8 @@ import {useDispatcher, useSelector} from 'react-redux'
 
 const CollegeFacility = () => {
   const facilities = useSelector(state => state.college.college.facilities)
-  console.log(facilities)
-  return (
+  // console.log(facilities)
+  return facilities?.length ? (
     <div className="college-facility">
       <div className="college-facility__inner">
         <div className="sidebar__title">Facilities</div>
@@ -39,7 +39,7 @@ const CollegeFacility = () => {
             }
             label="wifi"
           />}
-          {facilities && facilities.includes('Ambulance') && <FacilityItem
+          {facilities && facilities.includes('ambulance') && <FacilityItem
             icon={
               <svg
                 width="28"
@@ -72,7 +72,7 @@ const CollegeFacility = () => {
             }
             label="Ambulance"
           />}
-          {facilities && facilities.includes('Event') && <FacilityItem
+          {facilities && facilities.includes('event') && <FacilityItem
             icon={
               <svg
                 width="19"
@@ -101,7 +101,7 @@ const CollegeFacility = () => {
             }
             label="Event"
           />}
-          {facilities && facilities.includes('Games') && <FacilityItem
+          {facilities && facilities.includes('games') && <FacilityItem
             icon={
               <svg
                 width="18"
@@ -118,7 +118,7 @@ const CollegeFacility = () => {
             }
             label="Games"
           />}
-          {facilities && facilities.includes('Pool') && <FacilityItem
+          {facilities && facilities.includes('pool') && <FacilityItem
             icon={
               <svg
                 width="21"
@@ -143,7 +143,7 @@ const CollegeFacility = () => {
             }
             label="Pool"
           />}
-          {facilities && facilities.includes('Library') && <FacilityItem
+          {facilities && facilities.includes('library') && <FacilityItem
             icon={
               <svg
                 width="16"
@@ -172,6 +172,6 @@ const CollegeFacility = () => {
       </div>
       
     </div>
-  );
+  ):null;
 };
 export default CollegeFacility;

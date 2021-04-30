@@ -39,10 +39,10 @@ const CollegesCard = (college) => {
                 <div className="colleges-card__key">ESTD:</div>
                 <div className="colleges-card__value">{college?.estd_year}</div>
               </div>
-              {/* <div className="colleges-card__key-value">
+              <div className="colleges-card__key-value">
                 <div className="colleges-card__key">Type:</div>
                 <div className="colleges-card__value">Private</div>
-              </div> */}
+              </div>
             </div>
             <div className="colleges-card__logo">
               <img src={college?.college_logo} alt="" />
@@ -56,16 +56,16 @@ const CollegesCard = (college) => {
                   {college?.total_course}+
                 </div>
               </div>
-              <div className="colleges-card__key-value lg">
+              {college?.total_students && <div className="colleges-card__key-value lg">
                 <div className="colleges-card__key lg">Total students:</div>
                 <div className="colleges-card__value lg">
                   {college?.total_students}+
                 </div>
-              </div>
+              </div>}
             </div>
-            <div className="colleges-card__course">
+            {college?.top_courses && <div className="colleges-card__course">
               <CollegeCourse courses={college?.top_courses} />
-            </div>
+            </div>}
             {windowSize.width < 450 ? (
               <>
                 <hr className="colleges-card__line" />

@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 const index = () => {
   const college = useSelector((state:any) => state.college.college);
-  console.log(college.college_rankings);
 
   const ranking = useMemo(()=>{
     let clgRank = college?.college_rankings
@@ -48,8 +47,7 @@ const index = () => {
     }
     return newStructOfRank
   },[college])
-  console.log(ranking)
-  return (
+  return college.college_rankings?.length ?(
     <div className="rankingawards__section">
       <div className="rankingawards__title">RANKING & AWARDS</div>
       <div className="rankingawards__heading">Ranking Information</div>
@@ -95,7 +93,7 @@ const index = () => {
         <AwardList name="awards3" /> */}
       </div>
     </div>
-  );
+  ) :null;
 };
 
 export default index;

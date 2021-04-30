@@ -4,6 +4,18 @@ import jiologo from "../../public/jio.png";
 import student from "../../public/placement_student.png";
 import Bargraph from "./Bargraph";
 import { useSelector } from "react-redux";
+// let itels = {
+//               haveDone: "no",
+//               score: "",
+//               subMars: { listining: "", writing: "", reading: "", speaking: "" },
+//             }
+// let a = {
+//   ...itels,
+//   subMars:{
+//     ...itels.subMars,
+//     listining:e.target.value
+//   }
+// }
 
 const index = () => {
   const recurtingCompanies = useSelector(
@@ -29,7 +41,7 @@ const index = () => {
       return `${Number(money%100000) === 0 ? Number(money/100000) : Number(money/100000).toFixed(1)  }L`
     }
   }
-  return (
+  return statistics || recurtingCompanies?.length || alumnis?.length ? (
     <div id="placement" className="placement">
       <div className="placement__title">PLACEMENTS</div>
       <div className="placement__bargrapcontainer">
@@ -179,7 +191,7 @@ const index = () => {
         </div> */}
       </div>
     </div>
-  );
+  ):null;
 };
 
 export default index;

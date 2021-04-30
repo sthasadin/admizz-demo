@@ -1,7 +1,6 @@
 import React from "react";
-
 const Review = ({review}: any) => {
-  console.log(review)
+  // console.log(review)
   return (
     <div className="review">
       <div className="review__item">

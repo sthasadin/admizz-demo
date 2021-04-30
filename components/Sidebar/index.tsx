@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useMemo} from "react";
 import { AdmissionProcess } from "../AdmissionProcess";
 import { CallToAction } from "../Button/callToAction";
 import CollegeFacility from "../FacilitiesOnCollege";
@@ -12,8 +12,11 @@ import { useSelector } from "react-redux";
 
 const Sidebar = () => {
   const router = useRouter();
-  const id = useSelector((state) => state.college.college._id);
-  return (
+  const college = useSelector((state) => state.college.college);
+  let len = useMemo(()=>{
+    return Object.keys(college).length
+  },[college])
+  return len > 10 ? (
     <aside className="sidebar">
       <CallToAction className="filled full-width">
         <Link href={`/dashboardbasicinfo/Apply`}>
@@ -34,7 +37,7 @@ const Sidebar = () => {
       <CollegeFacility />
       <InternationalCollaboration />
     </aside>
-  );
+  ):null;
 };
 
 export { Sidebar };

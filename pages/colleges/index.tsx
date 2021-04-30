@@ -69,7 +69,7 @@ const collegeList = () => {
       _seletedColleges = _.uniqBy(_seletedColleges, "_id");
       colleges = _.intersectionBy(collegeList, _seletedColleges, "_id");
 
-      console.log(colleges);
+      // console.log(colleges);
 
       // collegeList.forEach((college) => {
       //   if (college.courses.length) {

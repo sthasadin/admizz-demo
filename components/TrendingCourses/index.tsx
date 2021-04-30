@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 const TrendingCourses = () => {
   const trending_courses = useSelector(state => state.college.college.trending_courses)
 
-  console.log(trending_courses)
-  return (
+  // console.log({trending_courses})
+  return trending_courses?.length ? (
     <div className="trending-courses">
       <div className="trending-courses__inner">
         <div className="sidebar__title">Trending Courses</div>
@@ -28,12 +28,12 @@ const TrendingCourses = () => {
             ))
           }
         </div>
-        <a href="#" className="trending-courses__cta">
+        {/* <a href="#" className="trending-courses__cta">
           Explore All Courses
-        </a>
+        </a> */}
       </div>
     </div>
-  );
+  ):null;
 };
 
 export { TrendingCourses };

@@ -17,7 +17,7 @@ const CollegeCourse = ({ courses }) => {
           })}
 
         <div className="college-course__pagination">
-          {courses && courses.length - 3} +
+          {courses && courses.length > 3 ? courses?.length- 3 :courses?.length} +
         </div>
       </div>
     </div>

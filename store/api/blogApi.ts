@@ -11,4 +11,9 @@ export class BlogService {
     let data = getService(url);
     return data;
   }
+  getNewsOfCollege(college_slug) {
+    let url = `/blogs/getNewsCollege/${college_slug}`
+    let data = getService(url)
+    return data
+  }
 }

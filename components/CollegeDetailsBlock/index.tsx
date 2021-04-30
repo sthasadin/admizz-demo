@@ -3,8 +3,9 @@ import React from "react";
 const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation_percentage,placement_percentage}) => {
   return (
     <div className="college-details-block">
+        {totalStudents &&
       <div className="info-block">
-        {totalStudents && <div className="info-block__inner">
+         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
               width="33"
@@ -21,8 +22,8 @@ const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation
           </div>
           <div className="info-block__heading">Total Students</div>
           <div className="info-block__title">{totalStudents}</div>
-        </div>}
-      </div>
+        </div>
+      </div>}
       {totalCourse && <div className="info-block">
         <div className="info-block__inner">
           <div className="info-block__icon">

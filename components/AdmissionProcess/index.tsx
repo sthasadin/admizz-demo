@@ -14,7 +14,7 @@ const AdmissionProcess = () => {
 
   console.log(admission)
   {
-    return (
+    return admission || scholarships?.length ? (
       <div id="admission" className="admission-process">
         <div className="admission-process__inner">
           {admission && <Fragment>
@@ -58,7 +58,7 @@ const AdmissionProcess = () => {
           </div>
         </div>
       </div>
-    );
+    ):null;
   }
 };
 

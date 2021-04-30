@@ -28,7 +28,6 @@ const RatingAndReview = (props: any) => {
         social:Math.ceil(res.reduce((a, b) => Number(a) + (Number(b['social']) || 0), 0)/res.length),
       },
       all_reviews: res.map(r => {
-        console.log(r.accomodation)
         return {
           by:r?.by,
           comment:r?.comment,
@@ -46,7 +45,7 @@ const RatingAndReview = (props: any) => {
   }
   useEffect(()=> {
     _getReviews(college_id)
-    dispatch(getReviews(college_id))
+    // dispatch(getReviews(college_id))
   },[college_id])
 
   const openReviewScetion = () => {
@@ -77,19 +76,19 @@ const RatingAndReview = (props: any) => {
         <div className="rating-review__rating__right">
           <div className="rating-review__rating__heading">Average Rating</div>
           <div className="rating-review__rating">
-            <span>{reviews?.averageRating}/</span>
+            <span>{reviews?.averageRating || 0}/</span>
             10
           </div>
         </div>
       </div>
 
       <div className="rating-review__rating-wrap">
-        <RatingItem title="Academics" rating={reviews?.ratings?.academics} />
-        <RatingItem title="Accomodation" rating={reviews?.ratings?.accomodation}/>
-        <RatingItem title="Faculty" rating={reviews?.ratings?.faculty}/>
-        <RatingItem title="Infrastructures" rating={reviews?.ratings?.infrastructures}/>
-        <RatingItem title="Placements" rating={reviews?.ratings?.placements}/>
-        <RatingItem title="Social" rating={reviews?.ratings?.social}/>
+        <RatingItem title="Academics" rating={reviews?.ratings?.academics || 0} />
+        <RatingItem title="Accomodation" rating={reviews?.ratings?.accomodation || 0}/>
+        <RatingItem title="Faculty" rating={reviews?.ratings?.faculty || 0}/>
+        <RatingItem title="Infrastructures" rating={reviews?.ratings?.infrastructures || 0}/>
+        <RatingItem title="Placements" rating={reviews?.ratings?.placements || 0}/>
+        <RatingItem title="Social" rating={reviews?.ratings?.social || 0}/>
       </div>
 
       <div className="rating-review__rating__header border-bottom">

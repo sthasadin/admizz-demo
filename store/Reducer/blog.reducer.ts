@@ -1,4 +1,4 @@
-import { BLOGS_TYPES, BLOG_TYPES } from "../const";
+import { BLOGS_TYPES, BLOG_TYPES,GET_COLLEGE_NEWS } from "../const";
 
 
 const initialState = {
@@ -6,11 +6,17 @@ const initialState = {
     blogs: [],
     multiLoading: true,
     singleLoading: true,
+    collegeNews:[]
 }
 
 export default (state = initialState, action) => {
     const {type, payload} = action
     switch (type) {
+        case GET_COLLEGE_NEWS: 
+            return {
+                ...state,
+                collegeNews:payload
+            }
         case BLOGS_TYPES.GET_BLOGS:
             return {
                 ...state,

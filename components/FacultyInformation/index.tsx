@@ -5,7 +5,7 @@ const FacultyInformation = (props: any) => {
   if (courses && courses.lenght>3) {
     courses.length = 3
   }
-  return (
+  return courses?.length ? (
     <div className="faculty-information">
       <div className="faculty-information__inner">
         <div className="sidebar__title">Faculty Information</div>
@@ -61,7 +61,7 @@ const FacultyInformation = (props: any) => {
         </a>
       </div>
     </div>
-  );
+  ):null
 };
 
 export default FacultyInformation;

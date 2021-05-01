@@ -39,7 +39,7 @@ const DashboardReviewConfirm = (props) => {
     certificatesImage,
   } = props;
 
-  console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice);
+  // console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice);
 
   // console.log(certificatesImage);
 
@@ -67,7 +67,7 @@ const DashboardReviewConfirm = (props) => {
       gre: academicInfo.gre,
       ielts: academicInfo.ielts,
       jeeAdvance: academicInfo.jeeAdvance,
-      level0Score: academicInfo.level0Score,
+      // level0Score: academicInfo.level0Score,
       level1Score: academicInfo.level1Score,
       level2Score: academicInfo.level2Score,
       postGraduteScore: academicInfo.postGraduteScore,
@@ -80,15 +80,10 @@ const DashboardReviewConfirm = (props) => {
 
     const status = "pending";
 
-    var documentRes = {};
-    var certificatedImagesPromise = [];
-    console.log(academicInfo.certificatesImage);
     for (const [key] of Object?.entries(academicInfo.certificatesImage)) {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
-
-      // certificatedImagesPromise.push()
 
       if (academicInfo.certificatesImage[key] == null) {
         console.log("asd");
@@ -103,18 +98,12 @@ const DashboardReviewConfirm = (props) => {
               .getDownloadURL()
               .then((url) => {
                 console.log(url);
-                // academicInformation.push({
-                //   // ...academicInformation,
-                //   [key]: url,
-                // });
+
                 academicInformation[key] = url;
-                // certificatedImagesPromise.resolve()
               });
           });
       }
     }
-    // const allPromises = [certificatedImagesPromise];
-    // Promise.allSettled(allPromises).then(() => console.log(academicInfo))
 
     if (backgroundInfo.documentImage !== null) {
       const name = Math.random().toString(36).slice(1);
@@ -122,7 +111,7 @@ const DashboardReviewConfirm = (props) => {
       const mixName = name + name2;
       await storage
         .ref(`student-application/${mixName}`)
-        .put(backgroundInfo.documentImage.name)
+        .put(backgroundInfo.documentImage)
         .then(() => {
           storage
             .ref("student-application")
@@ -180,6 +169,8 @@ const DashboardReviewConfirm = (props) => {
             });
         });
     }
+
+    // return console.log(selectedChoice);
     // return(
     //   console.log(basicInfo,
     //     // documentRes,
@@ -196,17 +187,33 @@ const DashboardReviewConfirm = (props) => {
     //   backgroundInformation
     // );
 
+    // return console.log(
+    //   basicInfo,
+    //   selectedChoice,
+    //   backgroundInformation,
+    //   academicInformation,
+    //   status
+    // );
+
     await db
       .collection("students-application")
       .add({
         basicInfo,
         selectedChoice,
-        // academicInfo,
         backgroundInformation,
         academicInformation,
         status,
       })
-      .then((res) => console.log("response", res, academicInformation))
+      .then((res) =>
+        console.log(
+          "response",
+          res,
+          academicInformation,
+          backgroundInformation,
+          selectedChoice,
+          basicInfo
+        )
+      )
       .catch((e) => console.log(e));
   };
 
@@ -827,7 +834,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {academicInfo.level0Score}
+                      {academicInfo.schoolMarks}
                     </p>
                   </div>
 

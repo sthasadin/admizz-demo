@@ -100,7 +100,7 @@ const selectCollege = (props) => {
         ...appliedCollege,
         {
           collegeName: collegeDetails.name,
-          image: collegeDetails.college_profile_image,
+          image: collegeDetails.college_logo,
           address: collegeDetails.address,
           college_slug: collegeDetails.college_slug,
           collegeStream: selectedStream.label,

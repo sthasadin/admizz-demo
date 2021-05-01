@@ -200,21 +200,6 @@ const DashboardBasicInfo = (props) => {
 
   const sendData = async () => {
     try {
-      // return console.log(
-      //   selectedLevel,
-      //   fullName,
-      //   DOB,
-      //   nationality.value,
-      //   email,
-      //   phoneNumber,
-      //   countryCode,
-      //   gender,
-      //   guardianAddress,
-      //   guardianCountry.value,
-      //   guardianState.value,
-      //   guardianCity,
-      //   guardianZipCode
-      // );
       // setLoading(true);
       // const isValid = await validate();
 
@@ -489,7 +474,7 @@ const DashboardBasicInfo = (props) => {
                     // name={"state"}
                     // errorMessage={""}
                     options={
-                      guardianCountry === "Nepal"
+                      guardianCountry.value === "Nepal"
                         ? NepalStateOption
                         : IndiaStateOption
                     }

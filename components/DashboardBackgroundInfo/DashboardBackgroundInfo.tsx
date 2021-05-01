@@ -33,6 +33,7 @@ const DashboardBackgroundInfo = (props) => {
   });
 
   const sendData = () => {
+    // return console.log(documentImage);
     props.getData({
       havePassport,
       passportDetails: {

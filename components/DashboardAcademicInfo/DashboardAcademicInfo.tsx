@@ -11,7 +11,7 @@ import { UploadButton } from "../Button/uploadButton";
 export const DashboardAcademicInfo = (props) => {
   const [schoolMarks, setSchoolMarks] = useState("");
   const [selectedCourse, setselectedCourse] = useState("");
-  const [level0Score, setLevel0Score] = useState("");
+  // const [level0Score, setLevel0Score] = useState("");
   const [diplomaScore, setDiplomaScore] = useState("");
   const [level1Score, setLevel1Score] = useState("");
   const [level2Score, setLevel2Score] = useState("");
@@ -47,6 +47,7 @@ export const DashboardAcademicInfo = (props) => {
     //   schoolMarks,
     //   level0Score,
     //   level1Score,
+    //   level2Score,
     //   diplomaScore,
     //   postGraduteScore,
     //   underGraduate,
@@ -61,7 +62,7 @@ export const DashboardAcademicInfo = (props) => {
     // );
     props.getData({
       schoolMarks,
-      level0Score,
+      // level0Score,
       level1Score,
       level2Score,
       diplomaScore,
@@ -83,8 +84,10 @@ export const DashboardAcademicInfo = (props) => {
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
       setSchoolMarks(props.data.schoolMarks);
-      setLevel0Score(props.data.level0Score);
+      // setLevel0Score(props.data.level0Score);
+
       setLevel1Score(props.data.level1Score);
+      setLevel2Score(props.data.level2Score);
       setDiplomaScore(props.data.diplomaScore);
       setPostGraduteScore(props.data.postGraduteScore);
       setUnderGraduate(props.data.underGraduate);

@@ -57,37 +57,32 @@ const Merits = () => {
               </div>
             </div>
           </div>
-          {windowSize.width > 450 && (
-            <CallToAction className="learnmore__btn">Learn More</CallToAction>
-          )}
+
+          <CallToAction className="learnmore__btn hideofmobile">
+            Learn More
+          </CallToAction>
         </div>
         <div className="merit__right">
           <div className="merti__right__inner">
             <div className="merit__thumbnail">
               <img src="/india.jpg" alt="" />
+              <img
+                src="/playvideoIcon.png"
+                alt="playicon_logo"
+                className="playicon-formobileversion"
+              />
             </div>
             <div className="merit__thumbnail__text">
               <div className="merit__thumbnail__title">
-                {windowSize.width > 450
-                  ? "Some Facts about India That you should know"
-                  : null}
+                "Some Facts about India That you should know"
               </div>
               <div className="merit__thumbnail__cta">
-                <a href="#">
-                  {windowSize.width > 450 ? (
-                    "watch video"
-                  ) : (
-                    <img src="/playvideoIcon.png" alt="playicon_logo" />
-                  )}
-                </a>
+                <a href="#">"watch video"</a>
               </div>
-              {windowSize.width < 450 && (
-                <div>
-                  <CallToAction className="learnmore__btn">
-                    Learn More
-                  </CallToAction>
-                </div>
-              )}
+            </div>
+
+            <div className="formobile">
+              <CallToAction className="learnmore__btn">Learn More</CallToAction>
             </div>
           </div>
         </div>

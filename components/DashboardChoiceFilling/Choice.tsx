@@ -95,8 +95,12 @@ const selectCollege = (props) => {
   const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray } = props;
 
   React.useEffect(() => {
-    if (Object.keys(collegeDetails).length > 0) {
-      setAppliedCollege(() => [
+    if (
+      collegeDetails?._id !== undefined &&
+      selectedStream.value.length !== 0
+    ) {
+      // console.log("asd");
+      setAppliedCollege([
         ...appliedCollege,
         {
           collegeName: collegeDetails.name,
@@ -113,10 +117,7 @@ const selectCollege = (props) => {
   // console.log(index);
 
   const handleSave = async () => {
-    // props.handelSave();
-
     dispatch(getCollege(selectedCollege.value));
-    console.log(collegeDetails);
   };
 
   const programList = programOption?.map((program) => {
@@ -133,9 +134,6 @@ const selectCollege = (props) => {
     };
   });
 
-  // const handleClose = (e) => {
-  //   console.log(e);
-  // };
   return (
     <>
       <div className="dashboard-basic-info__formContainer">

@@ -2,6 +2,10 @@
   margin: 0;
   overflow: hidden;
   background-color: #f6f6f6;
+  @media (max-width: 450px) {
+    // padding-bottom: 60%;
+    height: 999px;
+  }
 
   .five-steps__inner {
     @media (min-width: 1500px) {
@@ -9,14 +13,13 @@
     }
   }
 
-  @media (max-width: 450px) {
-    // padding-bottom: 60%;
-    height: 999px;
-  }
-  @media (max-width: 1024px) {
-    // padding-bottom: 60%;
-    height: 1350px; //need to consult .. edit in future
-  }
+  // @media (max-width: 450px) {
+  //   // padding-bottom: 60%;
+  //   height: 999px;
+  // }
+  // @media (max-width: 1024px) {
+  //   height: 1350px;
+  // }
   &__circle-wrap {
     display: flex;
     justify-content: flex-end;
@@ -240,6 +243,10 @@
       place-items: center;
       path {
         fill: $secondary-color;
+      }
+      @media (max-width: 450px) {
+        height: 65px;
+        width: 87px;
       }
     }
     &__icon.active {

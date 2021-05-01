@@ -1,0 +1,22 @@
+.ratingstar__container {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-between;
+
+  .ratingstar__title {
+    margin: auto 0;
+    min-width: 105px;
+    width: 105px;
+  }
+
+  .ratingstar__star {
+    // margin-left: 10px;
+    min-width: 125px;
+    width: 125px;
+  }
+  .ratingstar__ratingnumber {
+    width: 50px;
+    display: flex;
+    justify-content: center;
+  }
+}

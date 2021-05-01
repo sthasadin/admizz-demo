@@ -16,6 +16,12 @@ body {
   background-color: white;
 }
 
+.hideformobile {
+  @media (max-width: 450px) {
+    display: none !important;
+  }
+}
+
 .container {
   min-height: 100vh;
   @media (max-width: 450px) {
@@ -23,12 +29,12 @@ body {
   }
 }
 
-.inner{
+.inner {
   @media (min-width: 1366px) {
     width: 1200px;
   }
 
-  @media(max-width: 1024px){
+  @media (max-width: 1024px) {
     width: 100%;
   }
 }

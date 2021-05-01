@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { Button } from "../Button";
-import { useSelector, useDispatch } from "react-redux";
+
 import Alert from "@material-ui/lab/Alert";
 import ClipLoader from "react-spinners/ClipLoader";
 import Choice from "./Choice";
@@ -9,28 +9,8 @@ import Choice from "./Choice";
 const DashboardChoiceFilling = (props) => {
   const [choicesArray, setChoicesArray] = useState([]);
   const [choiceNumber, setChoiceNumber] = useState(2);
-  // const [selectedCollege, setSelectedCollege] = useState("");
-  // const [selectedSubCourse, setSelectedSubCourse] = useState("");
-  // const [selectedCourse, setSelectedCourse] = useState("");
-  // const [selectedLevelId, setSelectedLevelId] = useState("");
 
-  // const allCollege = useSelector((state) => state.allCollege.collegeList);
-  // const [CollegesOptions, setCollegesOptions] = useState([]);
-  // const [courseOption, setCourseOption] = useState([]);
-  // const [subCourseOptions, setSubCourseOptions] = useState([]);
-  // const dispatch = useDispatch();
-  // const [appliedCollege, setAppliedCollege] = useState([]);
-  // const [appliedCollegeDetail, setAppliedCollegeDetail] = useState([]);
-  // const collegeDetails = useSelector((state) => state.college.college);
-  // const [collegeDetails, setCollegeDetails] = useState({})
   const [loader, setLoader] = useState(false);
-  // const [fetchedCourses, setFetchedCourses] = useState([]);
-  // const [streamOption, setStreamOption] = useState([]);
-  // const [selectedStream, setSelectedStream] = useState("");
-  // const [selectedStreamId, setSelectedStreamId] = useState("");
-  // const [selectedProgram, setSelectedProgram] = useState("");
-  // const [programOption, setProgramOption] = useState([]);
-  // const [collegeOption, setCollegeOption] = useState([]);
 
   const [appliedCollege, setAppliedCollege] = React.useState([]);
 
@@ -57,17 +37,11 @@ const DashboardChoiceFilling = (props) => {
 
   console.log(appliedCollege);
 
-  // back tracking
-  // useEffect(() => {
-  //   if (Object.keys(props.data).length > 0) {
-  //     setAppliedCollege(props.data);
-  //   }
-  // }, [props.data]);
-
   const RemoveChoiceArray = (index) => {
     console.log(index);
     const filterArray = choicesArray.filter((ind, i) => i !== index);
     setChoicesArray(filterArray);
+    setChoiceNumber(choiceNumber - 1);
   };
 
   return (

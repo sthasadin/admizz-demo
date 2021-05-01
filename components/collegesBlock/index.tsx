@@ -27,25 +27,20 @@ const CollegesBlock: FC<CollegeProps> = ({ collegeList }) => {
         <div className="collegesBlock__title block-title">
           Find The Best College in <span>INDIA</span> for Study
         </div>
-        <div className="collegesBlock__list">
-          {windowSize.width > 450 ? (
-            <>
-              {collegeList &&
-                collegeList.slice(0, 4).map((college: object, index) => {
-                  return <CollegesCard {...college} key={index} />;
-                })}
-            </>
-          ) : (
-            <>
-              <Carousel bulletdot={true}>
-                {collegeList &&
-                  collegeList.slice(0, 4).map((college: object, index) => {
-                    return <CollegesCard {...college} key={index} />;
-                  })}
-              </Carousel>
-            </>
-          )}
+        <div className="collegesBlock__list hideformobile">
+          {collegeList &&
+            collegeList.slice(0, 4).map((college: object, index) => {
+              return <CollegesCard {...college} key={index} />;
+            })}
         </div>
+      </div>
+      <div className="formobile">
+        <Carousel bulletdot={true}>
+          {collegeList &&
+            collegeList.slice(0, 4).map((college: object, index) => {
+              return <CollegesCard {...college} key={index} />;
+            })}
+        </Carousel>
       </div>
     </div>
   );

@@ -8,6 +8,9 @@
   // @media (max-width: 1024) {
   //   overflow: auto;
   // }
+  @media (max-width: 450px) {
+    background-size: initial;
+  }
 
   &__inner {
     display: grid;

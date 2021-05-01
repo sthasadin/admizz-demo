@@ -56,4 +56,18 @@
       margin-left: 3%;
     }
   }
+  .hideformobile {
+    @media (max-width: 450px) {
+      display: none;
+    }
+  }
+
+  .formobile {
+    display: none;
+    @media (max-width: 450px) {
+      display: block;
+      width: 95%;
+      margin: auto;
+    }
+  }
 }

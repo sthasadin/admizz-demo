@@ -58,11 +58,12 @@ const DashboardChoiceFilling = (props) => {
   console.log(appliedCollege);
 
   // back tracking
-  // useEffect(() => {
-  //   if (Object.keys(props.data).length > 0) {
-  //     setAppliedCollege(props.data);
-  //   }
-  // }, [props.data]);
+  useEffect(() => {
+    console.log("asdasd");
+    if (Object.keys(props.getData).length > 0) {
+      setAppliedCollege(props.getData);
+    }
+  }, [props.getData]);
 
   const RemoveChoiceArray = (index) => {
     console.log(index);

@@ -14,11 +14,20 @@ const DashboardSidebar = () => {
   return (
     <StickyBox>
       <div className="dashboard-sidebar">
-        <div onClick={()=>router.push('/studentdashboardmain')}><DashboardSidebarTab  title="Dashboard" /></div>
-        <DashboardSidebarTab title="Student" />
-        <DashboardSidebarTab title="Result" />
-        <DashboardSidebarTab title="Latest Update" />
-        <DashboardSidebarTab title="Application Status" />
+        <div onClick={()=>router.push('/studentdashboardmain')}>
+          <DashboardSidebarTab  title="Dashboard" />
+        </div>
+        <div onClick={()=>router.push('/dashboardbasicinfo/Apply')}>
+          <DashboardSidebarTab title="Apply Application" />
+          </div>
+        {/* <DashboardSidebarTab title="Result" /> */}
+        <div onClick={()=>router.push('/studentapplicationstatus')}>
+        <DashboardSidebarTab  title="Application Status" />
+        </div>
+        <div onClick={()=>router.push('/')}>
+
+        <DashboardSidebarTab title="Back To Home" />
+        </div>
         <div onClick={logout} className="dashboard-sidebar__logout">
           LogOut
       </div>

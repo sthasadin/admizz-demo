@@ -1,20 +1,29 @@
 import React from "react";
 
-const DashboardDetailInfo = () => {
+const DashboardDetailInfo = ({application}) => {
+  const {basicInfo,backgroundInformation, selectedChoice} = application || {}
   return (
     <div className="dashboard-detail-info">
       {/* <Basic Card Info */}
-      <div className="dashboard-detail-info__detailCard">
+    { basicInfo && <div className="dashboard-detail-info__detailCard">
         <div className="dashboard-detail-info__detailCardTitle">
           Basic Information
         </div>
         <div className="dashboard-detail-info__detailCardInfo">
           <div className="dashboard-detail-info__cardRow">
             <div className="dashboard-detail-info__keyText">
+              Name
+            </div>
+            <div className="dashboard-detail-info__valueText">
+               {basicInfo?.fullName}
+            </div>
+          </div>
+          <div className="dashboard-detail-info__cardRow">
+            <div className="dashboard-detail-info__keyText">
               Email
             </div>
             <div className="dashboard-detail-info__valueText">
-              someemail@domain.com
+              {basicInfo?.email}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -22,7 +31,23 @@ const DashboardDetailInfo = () => {
               Phone 
             </div>
             <div className="dashboard-detail-info__valueText">
-              987654321
+               {basicInfo?.countryCode} {basicInfo?.phoneNumber}
+            </div>
+          </div>
+          <div className="dashboard-detail-info__cardRow">
+            <div className="dashboard-detail-info__keyText">
+              Gender
+            </div>
+            <div className="dashboard-detail-info__valueText">
+               {basicInfo?.gender}
+            </div>
+          </div>
+          <div className="dashboard-detail-info__cardRow">
+            <div className="dashboard-detail-info__keyText">
+              Nationality 
+            </div>
+            <div className="dashboard-detail-info__valueText">
+               {basicInfo?.nationality}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -30,7 +55,7 @@ const DashboardDetailInfo = () => {
               Status
             </div>
             <div className="dashboard-detail-info__valueText">
-              Active
+               {application?.status}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -38,53 +63,48 @@ const DashboardDetailInfo = () => {
               Date of Birth
             </div>
             <div className="dashboard-detail-info__valueText">
-              1994-02-12
+               {basicInfo?.DOB}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
             <div className="dashboard-detail-info__keyText">
-              Country
+              Guardian Address
             </div>
             <div className="dashboard-detail-info__valueText">
-              Nepal
+               {basicInfo?.guardianCountry},{basicInfo?.guardianState}, {basicInfo?.guardianAddress},{basicInfo?.guardianCity}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
             <div className="dashboard-detail-info__keyText">
-              Residential Address
+              Zip Code
             </div>
             <div className="dashboard-detail-info__valueText">
-              kathmandu
+               {basicInfo?.guardianZipCode}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRowButton">
-            <div className="dashboard-detail-info__viewText">
+            {/* <div className="dashboard-detail-info__viewText">
               View
-            </div>
+            </div> */}
             <div className="dashboard-detail-info__editText">
               Edit
             </div>
           </div>
         </div>
       </div>
-
+}
       {/* <Background Information */}
-      <div className="dashboard-detail-info__detailCard">
+    {backgroundInformation && <div className="dashboard-detail-info__detailCard">
         <div className="dashboard-detail-info__detailCardTitle">
           Background Information
         </div>
         <div className="dashboard-detail-info__detailCardInfo">
           <div className="dashboard-detail-info__cardRow">
             <div className="dashboard-detail-info__keyText">
-              Personal Detail
-            </div>
-          </div>
-          <div className="dashboard-detail-info__cardRow">
-            <div className="dashboard-detail-info__keyText">
               Citizenship No. 
             </div>
             <div className="dashboard-detail-info__valueText">
-              987654321
+              {backgroundInformation?.citizenId}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -94,39 +114,65 @@ const DashboardDetailInfo = () => {
           </div>
           <div className="dashboard-detail-info__cardRow">
             <div className="dashboard-detail-info__valueText">
-              Ram B. Mahat
+              {backgroundInformation?.references?.fullName}, {backgroundInformation?.references?.emailAddress}
             </div>
             <div className="dashboard-detail-info__valueText">
-              987654321
+              {backgroundInformation?.references?.address}, {`${backgroundInformation?.references?.phoneNumber}`}
+            </div>
+            {/* <div className="dashboard-detail-info__valueText">
+              {backgroundInformation?.references?.address}
+            </div> */}
+          </div>
+         { backgroundInformation?.passportDetails &&<> <div className="dashboard-detail-info__cardRow">
+            <div className="dashboard-detail-info__keyText">
+              Passport Name
             </div>
             <div className="dashboard-detail-info__valueText">
-              987654321
+              {backgroundInformation?.passportDetails?.nameOnPassport}
             </div>
           </div>
+
+            <div className="dashboard-detail-info__cardRow">
+            <div className="dashboard-detail-info__keyText">
+              Passport Number
+            </div>
+            <div className="dashboard-detail-info__valueText">
+              {backgroundInformation?.passportDetails?.numberOnPassport}
+            </div>
+          </div>
+
+           <div className="dashboard-detail-info__cardRow">
+            <div className="dashboard-detail-info__keyText">
+              Passport Issue Country
+            </div>
+            <div className="dashboard-detail-info__valueText">
+              {backgroundInformation?.passportDetails?.passportIssuedCountry}
+            </div>
+          </div>
+
           <div className="dashboard-detail-info__cardRow">
-            <div className="dashboard-detail-info__valueText">
-              Ram B. Mahat
+            <div className="dashboard-detail-info__keyText">
+              Passport Expire Date
             </div>
             <div className="dashboard-detail-info__valueText">
-              987654321
-            </div>
-            <div className="dashboard-detail-info__valueText">
-              987654321
+              {backgroundInformation?.passportDetails?.passportExpireDate}
             </div>
           </div>
+          </>
+         } 
           <div className="dashboard-detail-info__cardRowButton">
-            <div className="dashboard-detail-info__viewText">
+            {/* <div className="dashboard-detail-info__viewText">
               View
-            </div>
+            </div> */}
             <div className="dashboard-detail-info__editText">
               Edit
             </div>
           </div>
         </div>
       </div>
-
+}
       {/* <Choice Detail */}
-      <div className="dashboard-detail-info__detailCard">
+     { selectedChoice?.length &&  <div className="dashboard-detail-info__detailCard">
         <div className="dashboard-detail-info__detailCardTitle">
           Choice Detail
         </div>
@@ -136,7 +182,7 @@ const DashboardDetailInfo = () => {
               Level
             </div>
             <div className="dashboard-detail-info__valueText">
-              Under Graduate
+              {application?.basicInfo?.selectedLevel}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -144,7 +190,7 @@ const DashboardDetailInfo = () => {
               Stream  
             </div>
             <div className="dashboard-detail-info__valueText">
-              Engineering, Management, Humanities
+              {selectedChoice?.map(choice => choice.collegeStream).join(', ')}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -152,7 +198,7 @@ const DashboardDetailInfo = () => {
               Specialization
             </div>
             <div className="dashboard-detail-info__valueText">
-              Computer Science, Electronics, Medical Science
+              {selectedChoice?.map(choice => choice.collegeProgram).join(', ')}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -160,19 +206,20 @@ const DashboardDetailInfo = () => {
               College/University
             </div>
             <div className="dashboard-detail-info__valueText">
-              Thaper, JIT, KIIT, BMS Engineering, Other
+              {selectedChoice?.map(choice => choice.collegeName).join(', ')}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRowButton">
-            <div className="dashboard-detail-info__viewText">
+            {/* <div className="dashboard-detail-info__viewText">
               View
-            </div>
+            </div> */}
             <div className="dashboard-detail-info__editText">
               Edit
             </div>
           </div>
         </div>
       </div>
+    }
     </div>
   );
 };

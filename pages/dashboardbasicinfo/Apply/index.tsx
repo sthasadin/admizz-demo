@@ -164,6 +164,7 @@ const DashboardBasicInfoPage = () => {
             setBackgroundInfo={setBackgroundInfo}
             setAcademicInfo={setAcademicInfo}
             setBasicInfo={setBasicInfo}
+            authUser={authUser}
           />
         );
       default:

@@ -37,3 +37,7 @@ export const GET_ALL_COLLAGE = 'GET_ALL_COLLAGE'
 
 //user
 export const GET_AUTH_USER = 'GET_AUTH_USER'
+
+//application
+export const GET_APPLICATION = 'GET_APPLICATION'
+export const UPDATE_APPLICATION = 'UPDATE_APPLICATION'

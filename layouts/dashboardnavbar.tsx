@@ -66,14 +66,14 @@ const DashboardNavbar = () => {
                 <li className="menu-item">
                   <img src={userImage} />
                 </li>
-                {/* <li className="menu-item">
+                <li className="menu-item">
                   <div className="navbar__hamburger" >
                     <Button onClick={toggleDrawer('left', true)}><MenuIcon /></Button>
                     <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
                       {list('anchor')}
                     </Drawer>
                   </div>
-                </li> */}
+                </li>
               </ul>
             </nav>
             <div className="navbar__hamburger" >

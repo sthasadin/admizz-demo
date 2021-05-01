@@ -37,6 +37,7 @@ const DashboardReviewConfirm = (props) => {
     setAcademicInfo,
     setBasicInfo,
     certificatesImage,
+    authUser
   } = props;
 
   // console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice);
@@ -57,7 +58,7 @@ const DashboardReviewConfirm = (props) => {
       haveAppliedForPassport: backgroundInfo.haveAppliedForPassport,
       havePassport: backgroundInfo.havePassport,
       passportDetails: backgroundInfo.passportDetails,
-      passportId: backgroundInfo.passportId,
+      citizenId: backgroundInfo.passportId,
       references: backgroundInfo.references,
     };
 
@@ -152,7 +153,7 @@ const DashboardReviewConfirm = (props) => {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
-      storage
+      await storage
         .ref(`student-application/${mixName}`)
         .put(signatureImage)
         .then(() => {
@@ -203,6 +204,7 @@ const DashboardReviewConfirm = (props) => {
         backgroundInformation,
         academicInformation,
         status,
+        student_id:authUser.id
       })
       .then((res) =>
         console.log(

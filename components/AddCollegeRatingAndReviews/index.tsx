@@ -1,61 +1,109 @@
-import React,{useEffect, useState} from "react";
-import {useSelector,useDispatch} from 'react-redux'
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { addReview, getReviews } from "../../store/Action/review.action";
 import { ReviewInput } from "./ReviewInput";
 import { RatingItem } from "./ratingItem";
 import { auth } from "../../firebase";
 import { getAuthUser } from "@/store/Action/user.action";
-const AddCollegeRatingAndReview = ({setIsAddReviewOpen , _getReviews}: any) => {
-  const [loading, setLoading] = useState(false)
-  
+import RatingModal from "./RatingModal";
+const AddCollegeRatingAndReview = ({
+  setIsAddReviewOpen,
+  _getReviews,
+}: any) => {
+  const [loading, setLoading] = useState(false);
+  const [isRatingModal, setIsRatingModal] = React.useState(false);
+
   const [review, setReview] = useState({
-    academics:null,
+    academics: null,
     accomodation: null,
     faculty: null,
-    infrastructures:null,
-    placements:null,
-    social:null,
-    comment:''
-  })
-  const dispatch = useDispatch()
-  const college_id = useSelector(state => state.college.college._id)
-  const user = useSelector(state => state.user.authUser)
+    infrastructures: null,
+    placements: null,
+    social: null,
+    comment: "",
+  });
+  const dispatch = useDispatch();
+  const college_id = useSelector((state) => state.college.college._id);
+  const user = useSelector((state) => state.user.authUser);
 
- 
-  useEffect(()=> {
-    
-    auth.currentUser && dispatch(getAuthUser(auth.currentUser.uid))
-  },[college_id, auth])
+  useEffect(() => {
+    auth.currentUser && dispatch(getAuthUser(auth.currentUser.uid));
+  }, [college_id, auth]);
 
   const handleChange = (e) => {
-    setReview({
-      ...review,
-      [e.target.name]:e.target.value
-    })
-  }
-  const onSubmit = async() => {
-    setLoading(true)
+    if (e.target.name !== "comment") {
+      setReview({
+        ...review,
+        [e.target.name]: Number(e.target.value) * 2,
+      });
+    } else {
+      setReview({
+        ...review,
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
+
+  const handleAlertModal = (res) => {
+    setIsRatingModal(res);
+  };
+  const onSubmit = () => {
+    handleAlertModal(true);
+    // setLoading(true);
+    // if (user) {
+    //   let reviewToBeSubmited = {
+    //     ...review,
+    //     by: {
+    //       ...user,
+    //     },
+    //     college: college_id,
+    //   };
+    //   let res = await dispatch(addReview(reviewToBeSubmited));
+    //   if (res) {
+    //     _getReviews(college_id);
+    //   }
+    // }
+    // setLoading(false);
+  };
+
+  const onSend = async () => {
+    // return console.log(review);
+    setLoading(true);
     if (user) {
       let reviewToBeSubmited = {
         ...review,
-        by:{
-          ...user
+        by: {
+          ...user,
         },
-        college:college_id
-      }
-      let res = await dispatch(addReview(reviewToBeSubmited))
+        college: college_id,
+      };
+      let res = await dispatch(addReview(reviewToBeSubmited));
       if (res) {
-        _getReviews(college_id)
+        _getReviews(college_id);
       }
     }
-    setLoading(false)
-  }
+    setLoading(false);
+    setIsRatingModal(false);
+  };
 
   return (
-    <div id="add-rating-college" className="rating-review">
+    <div id="add-rating-college">
+      <RatingModal
+        handleAlertModal={handleAlertModal}
+        isRatingModal={isRatingModal}
+        handleChange={handleChange}
+        onSend={onSend}
+        review={review}
+      />
       <div className="rating-review__title-wrap">
         <div className="rating-review__title">RATING AND REVIEWS</div>
-        <div className="rating-review__cta" style={{cursor:'pointer'}} onClick={()=>setIsAddReviewOpen(false)}>Cancel</div>
+        <div
+          className="rating-review__cta"
+          style={{ cursor: "pointer" }}
+          onClick={() => setIsAddReviewOpen(false)}
+        >
+          Cancel
+        </div>
       </div>
 
       {/* <div className="rating-review__rating__header">
@@ -74,14 +122,14 @@ const AddCollegeRatingAndReview = ({setIsAddReviewOpen , _getReviews}: any) => {
         </div>
       </div> */}
 
-      <div className="rating-review__rating-wrap">
+      {/* <div className="rating-review__rating-wrap">
         <RatingItem handleChange={handleChange} title="Academics" />
         <RatingItem handleChange={handleChange} title="Accomodation" />
         <RatingItem handleChange={handleChange} title="Faculty" />
         <RatingItem handleChange={handleChange} title="Infrastructures" />
         <RatingItem handleChange={handleChange} title="Placements" />
         <RatingItem handleChange={handleChange} title="Social" />
-      </div>
+      </div> */}
 
       {/* <div className="rating-review__rating__header border-bottom">
         <div className="rating-review__rating__left">
@@ -97,7 +145,11 @@ const AddCollegeRatingAndReview = ({setIsAddReviewOpen , _getReviews}: any) => {
         </div>
       </div> */}
 
-      <ReviewInput handleChange={handleChange} onSubmit={onSubmit} loading={loading}/>
+      <ReviewInput
+        handleChange={handleChange}
+        onSubmit={onSubmit}
+        loading={loading}
+      />
     </div>
   );
 };

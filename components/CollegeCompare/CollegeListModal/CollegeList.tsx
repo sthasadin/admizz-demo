@@ -15,6 +15,7 @@ const CollegeList = (props) => {
     disSelectCollege,
     addSelectedCollege,
     selectedCollege,
+    selectedCollegeArray,
   } = props;
 
   const [selectedCard, setSelectedCard] = React.useState(false);
@@ -28,7 +29,7 @@ const CollegeList = (props) => {
       disSelectCollege(id);
       setSelectedCard(false);
     } else {
-      if (selectedCollege.length < 2) {
+      if (selectedCollegeArray.length < 3) {
         setSelectedCard(true);
         addSelectedCollege(id);
       }
@@ -54,8 +55,6 @@ const CollegeList = (props) => {
           <img src={location} alt="location" />
           <div className="card__collegelocation">{truncate(address, 18)}</div>
         </div>
-
-        
       </div>
     </div>
   );

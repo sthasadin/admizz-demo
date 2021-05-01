@@ -5,7 +5,7 @@ import Link from "next/link";
 const DashboardWelcomeCard = () => {
   return (
     <div className="dashboard-welcome-card">
-      <div className="dashboard-welcome-card__percentContainer">Percent</div>
+      {/* <div className="dashboard-welcome-card__percentContainer">Percent</div> */}
       <div className="dashboard-welcome-card__textInfoContainer">
         <div className="dashboard-welcome-card__titleText">
           Welcome to Admizz Student Dashboard!! Complete your application

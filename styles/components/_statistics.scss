@@ -88,4 +88,16 @@
       color: $green2;
     }
   }
+
+  .formobileview-stat {
+    display: none;
+    @media (max-width: 450px) {
+      display: block;
+    }
+  }
+}
+.hideformobile {
+  @media (max-width: 450px) {
+    display: none;
+  }
 }

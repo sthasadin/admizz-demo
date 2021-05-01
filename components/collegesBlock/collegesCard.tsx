@@ -4,16 +4,6 @@ import { CollegeCourse } from "./collegeCourse";
 import { useRouter } from "next/router";
 
 const CollegesCard = (college) => {
-  const [windowSize, setWindowSize] = React.useState({ width: undefined });
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth });
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
   const router = useRouter();
   return (
     <div
@@ -22,7 +12,10 @@ const CollegesCard = (college) => {
     >
       <div className="colleges-card__inner">
         <div className="colleges-card__thumbnail">
-          <img src={college?.banner? college?.banner:"/colleges.png"} alt="college" />
+          <img
+            src={college?.banner ? college?.banner : "/colleges.png"}
+            alt="college"
+          />
           <div className="colleges-card__title-wrap">
             <div className="colleges-card__title">
               <Link href={`colleges/${college?.college_slug}`}>
@@ -56,22 +49,20 @@ const CollegesCard = (college) => {
                   {college?.total_course}+
                 </div>
               </div>
-              {college?.total_students && <div className="colleges-card__key-value lg">
-                <div className="colleges-card__key lg">Total students:</div>
-                <div className="colleges-card__value lg">
-                  {college?.total_students}+
+              {college?.total_students && (
+                <div className="colleges-card__key-value lg">
+                  <div className="colleges-card__key lg">Total students:</div>
+                  <div className="colleges-card__value lg">
+                    {college?.total_students}+
+                  </div>
                 </div>
-              </div>}
+              )}
             </div>
-            {college?.top_courses && <div className="colleges-card__course">
-              <CollegeCourse courses={college?.top_courses} />
-            </div>}
-            {windowSize.width < 450 ? (
-              <>
-                <hr className="colleges-card__line" />
-                <div className="colleges-card__viewdetails">VIEW DETAILS</div>
-              </>
-            ) : null}
+            {college?.top_courses && (
+              <div className="colleges-card__course">
+                <CollegeCourse courses={college?.top_courses} />
+              </div>
+            )}
           </div>
         </div>
       </div>

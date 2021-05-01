@@ -7,7 +7,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 const TestimonialCarousel = ({ data }) => {
   const [open, setOpen] = React.useState(false);
 
-  console.log(data);
+  // console.log(data);
 
   const handleOpen = () => {
     setOpen(true);

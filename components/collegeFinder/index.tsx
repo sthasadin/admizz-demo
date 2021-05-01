@@ -4,23 +4,7 @@ import { CollegeFinderCard } from "./collegeFinderCard";
 import { useRouter } from "next/router";
 
 const CollegeFinder = () => {
-  const [showMore, setShowMore] = React.useState(false);
-  const [windowSize, setWindowSize] = React.useState({ width: undefined });
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth });
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  React.useEffect(() => {
-    if (windowSize.width < 450) {
-      setShowMore(true);
-    }
-  }, []);
+  const [showMore, setShowMore] = React.useState(true);
 
   const router = useRouter();
   return (
@@ -35,13 +19,12 @@ const CollegeFinder = () => {
               Explore and Find College By Categories
             </div>
           </div>
-          {windowSize.width > 450 && (
-            <div className="collegeFinder__right">
-              <CallToAction onClick={() => router.push("/colleges")}>
-                explore all categories
-              </CallToAction>
-            </div>
-          )}
+
+          <div className="collegeFinder__right hideformobile">
+            <CallToAction onClick={() => router.push("/colleges")}>
+              explore all categories
+            </CallToAction>
+          </div>
         </div>
         <div className="collegeFinder__list">
           <CollegeFinderCard name="Engineering" count="1259" />
@@ -64,15 +47,13 @@ const CollegeFinder = () => {
             </>
           )}
         </div>
-        <div className="collegeFinder__middle">
-          {windowSize.width < 450 && (
-            <CallToAction
-              onClick={() => setShowMore((showMore) => !showMore)}
-              className="collegeFinder__middle__btn"
-            >
-              {showMore ? "Hide categories" : "explore all categories"}
-            </CallToAction>
-          )}
+        <div className="collegeFinder__middle formobile">
+          <CallToAction
+            onClick={() => setShowMore((showMore) => !showMore)}
+            className="collegeFinder__middle__btn"
+          >
+            {showMore ? "Hide categories" : "explore all categories"}
+          </CallToAction>
         </div>
       </div>
     </div>

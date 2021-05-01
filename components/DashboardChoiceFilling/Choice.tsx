@@ -134,16 +134,6 @@ const selectCollege = (props) => {
     };
   });
 
-  // back tracking
-  // React.useEffect(() => {
-  //   if (Object.keys(props.data).length > 0) {
-  //     setAppliedCollege(props.data);
-  //   }
-  // }, [props.data]);
-
-  // const handleClose = (e) => {
-  //   console.log(e);
-  // };
   return (
     <>
       <div className="dashboard-basic-info__formContainer">

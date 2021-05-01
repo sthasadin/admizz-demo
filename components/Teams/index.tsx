@@ -22,16 +22,6 @@ const Teams = () => {
     instagram: "",
     twitter: "",
   });
-  const [windowSize, setWindowSize] = React.useState({ width: undefined });
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth });
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   React.useEffect(() => {
     getFireStoreCounselor();
@@ -85,13 +75,12 @@ const Teams = () => {
           Meet Our Dedicated Teams
         </div>
         <div className="teams-list__details">
-          {windowSize.width > 450 && (
-            <div className="teams-list__left">
-              <div className="teams-list__thumbnail lead">
-                <img src={showClickedMember.image} alt="member_logo" />
-              </div>
+          <div className="teams-list__left hideformobile">
+            <div className="teams-list__thumbnail lead">
+              <img src={showClickedMember.image} alt="member_logo" />
             </div>
-          )}
+          </div>
+
           <div className="teams-list__right">
             <div className="teams-list__md">
               <div className="teams-list__md__name">

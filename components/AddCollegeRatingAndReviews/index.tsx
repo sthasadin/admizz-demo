@@ -84,6 +84,7 @@ const AddCollegeRatingAndReview = ({
     }
     setLoading(false);
     setIsRatingModal(false);
+    setIsAddReviewOpen(false)
   };
 
   return (
@@ -96,7 +97,7 @@ const AddCollegeRatingAndReview = ({
         review={review}
       />
       <div className="rating-review__title-wrap">
-        <div className="rating-review__title">RATING AND REVIEWS</div>
+        <div className="rating-review__title">ADD RATING AND REVIEWS</div>
         <div
           className="rating-review__cta"
           style={{ cursor: "pointer" }}

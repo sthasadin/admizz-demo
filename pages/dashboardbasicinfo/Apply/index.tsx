@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import StickyBox from "react-sticky-box";
 import Stepper from "@material-ui/core/Stepper";
@@ -65,6 +66,17 @@ const DashboardBasicInfoPage = () => {
   const [backgroundInfo, setBackgroundInfo] = useState({});
   const [academicInfo, setAcademicInfo] = useState({});
   const [selectedChoice, setSelectedChoice] = useState([]);
+  // const { application } = useSelector(
+  //   (state: any) => state.student_application
+  // );
+  const router = useRouter();
+  console.log(router.query);
+
+  // useEffect(()=> {
+  //   if (router.query?.edit === 'true' && application) {
+  //     setBasicInfo(application?.basicInfo)
+  //   }
+  // },[router.query , application])
   // useEffect(() => {
   //   console.log("basicInfo", basicInfo);
   //   console.log("backgroundInfo", backgroundInfo);

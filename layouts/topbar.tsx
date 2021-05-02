@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 // import { Select } from "../components";
 import Link from "next/link";
+import { auth } from "../firebase";
+
 
 const Topbar = (props: any) => {
   return (
@@ -31,14 +33,21 @@ const Topbar = (props: any) => {
         </div>
 
         <div className="topbar__signup">
-          <div className="signup">
+          {!auth.currentUser ? <div className="signup">
             <div className="signup__icon">
               <FontAwesomeIcon icon={faUserTie} />
             </div>
             <div className="signup__text">
               <Link href="/register">Sign up</Link>
             </div>
-          </div>
+          </div> : <div className="signup">
+            <div className="signup__icon">
+              <FontAwesomeIcon icon={faUserTie} />
+            </div>
+            <div className="signup__text">
+              <Link href="/studentdashboardmain">Student Dashboard</Link>
+            </div>
+          </div>}
         </div>
       </div>
     </div>

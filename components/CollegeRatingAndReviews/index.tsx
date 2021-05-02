@@ -1,7 +1,7 @@
 import { auth } from "../../firebase";
 import React,{useEffect,useState} from "react";
 import {useSelector,useDispatch} from 'react-redux'
-import { getQnas, getReviews } from "../../store/Action/review.action";
+import { getQnas, getReviews, updateReview } from "../../store/Action/review.action";
 import { AddCollegeRatingAndReview } from "../AddCollegeRatingAndReviews";
 import { Review } from "../Review";
 import { RatingItem } from "./ratingItem";
@@ -10,11 +10,14 @@ import { useRouter } from 'next/router'
 const RatingAndReview = (props: any) => {
   const [isAddReviewOpen, setIsAddReviewOpen] = useState(false)
   const [reviews, setReviews] = useState(null)
+  const [originalReviews, setOriginalReviews] = useState([])
   const dispatch = useDispatch()
   const router = useRouter()
+  const user = useSelector((state) => state.user.authUser);
   const college_id = useSelector(state => state.college.college._id)
    const _getReviews = async (college_id) => {
     let res = await dispatch(getReviews(college_id))
+    setOriginalReviews(res)
 
     //make proper datastructure
     let collegeReviews:any = {
@@ -29,8 +32,11 @@ const RatingAndReview = (props: any) => {
       },
       all_reviews: res.map(r => {
         return {
+          id:r?.id,
           by:r?.by,
           comment:r?.comment,
+          likesArray:r?.noOfLikes || [],
+          disLikesArray:r?.noOfDisLikes || [],
           noOfLikes:r?.noOfLikes?.length || 0,
           noOfDisLikes:r?.noOfDisLikes?.length || 0,
           averageRating: Math.ceil((Number(r.academics) + Number(r.accomodation) + Number(r.faculty) + Number(r.infrastructures) + Number(r.placements)  + Number(r.social)) / 6)
@@ -56,6 +62,30 @@ const RatingAndReview = (props: any) => {
     }
   }
 
+  const addLike = async(review) => {
+    const user = auth.currentUser?.uid
+    let _review = originalReviews.find(r => r.id === review.id)
+    if (!review.likesArray.includes(user)) {
+      _review.noOfLikes = [...review.likesArray,user]
+      let id = _review.id
+      const newReview = {..._review}
+      delete newReview.id
+      await dispatch(updateReview(newReview,id))
+      _getReviews(college_id)
+    }
+  }
+  const addDisLike = async(review) => {
+    const user = auth.currentUser?.uid
+    let _review = originalReviews.find(r => r.id === review.id)
+    if (!review.disLikesArray.includes(user)) {
+      _review.noOfDisLikes = [...review.disLikesArray,user]
+      let id = _review.id
+      const newReview = {..._review}
+      delete newReview.id
+      await dispatch(updateReview(newReview,id))
+      _getReviews(college_id)
+    }
+  }
   
   return (
     <div id="rating" className="rating-review">
@@ -98,15 +128,15 @@ const RatingAndReview = (props: any) => {
             Showing results for Most relevent reviews
           </div>
         </div>
-        <div className="rating-review__rating__right">
+        {/* <div className="rating-review__rating__right">
           <div className="rating-review__cta">
             <span>Sort By</span>Most Helpful
           </div>
-        </div>
+        </div> */}
       </div>
 
       {
-        reviews?.all_reviews?.map(review => <Review review={review}/>)
+        reviews?.all_reviews?.map(review => <Review key={review.id} addDisLike={addDisLike} addLike={addLike} review={review}/>)
       }
 
       {/* <Review />

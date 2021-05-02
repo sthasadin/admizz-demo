@@ -12,6 +12,18 @@ export const addReview = (review:any) => async(dispatch: Dispatch) => {
   }
 }
 
+export const updateReview = (review:any,id:any) => async(dispatch: Dispatch) => {
+  try {
+    await db.collection('reviews').doc(id).set({
+    ...review
+}, { merge: true });
+    return true
+  } catch (error) {
+    console.log(error)
+    return false
+  }
+}
+
 
 export const getReviews = (college_id) => async (dispatch: Dispatch) => { 
   let reviews = [];

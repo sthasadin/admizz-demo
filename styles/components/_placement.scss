@@ -130,7 +130,8 @@
 
   .placement_imagelist {
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    flex-wrap: wrap;
     width: 80%;
     @media (max-width: 1024px) {
       width: 100%;
@@ -139,6 +140,8 @@
     img {
       max-width: 120px;
       max-height: 50px;
+      margin-bottom: 10px;
+      margin-left: 10px;
     }
   }
   .placement__notablealumni {

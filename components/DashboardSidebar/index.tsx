@@ -13,7 +13,11 @@ const DashboardSidebar = () => {
   };
   return (
     <StickyBox style={{ height: "100vh" }}>
-      <div className="dashboard-sidebar" style={{ width: "100%" }}>
+      <div
+        className="dashboard-sidebar"
+        style={{ width: "100%", cursor: "pointer" }}
+        onClick={() => router.push("/")}
+      >
         <div style={{ margin: "0 auto" }}>
           <img src="/logo.png" alt="admizz" />
         </div>

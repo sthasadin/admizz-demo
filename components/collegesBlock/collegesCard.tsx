@@ -25,7 +25,7 @@ const CollegesCard = (college) => {
             <div className="colleges-card__location">{college?.address}</div>
           </div>
         </div>
-        <div className="colleges-card__details" style={{ height: "auto" }}>
+        <div className="colleges-card__details">
           <div className="colleges-card__top">
             <div className="colleges-card__key-value-wrap">
               <div className="colleges-card__key-value">

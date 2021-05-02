@@ -336,14 +336,16 @@ const DashboardBasicInfo = (props) => {
                 md={4}
                 xs={12}
               >
-                <DropDownSelect
-                  defaultvalue={nationality}
-                  title="Nationality"
-                  options={NationalityOptions}
-                  handleChange={(e) => setNationality(e)}
-                  // name={"Nationality"}
-                  //error={""}
-                />
+                <div>
+                  <DropDownSelect
+                    defaultvalue={nationality}
+                    title="Nationality"
+                    options={NationalityOptions}
+                    handleChange={(e) => setNationality(e)}
+                    // name={"Nationality"}
+                    //error={""}
+                  />
+                </div>
               </Grid>
             </Grid>
             <Grid
@@ -389,6 +391,7 @@ const DashboardBasicInfo = (props) => {
                 <Input
                   className={"student-info__input student-info__phone"}
                   type="date"
+                  fullWidth
                   value={DOB}
                   onChange={(e) => setDob(e.target.value)}
                 />

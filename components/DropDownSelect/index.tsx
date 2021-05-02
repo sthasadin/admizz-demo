@@ -22,7 +22,7 @@ const DropDownSelect = ({
       minHeight: 50,
       position: "absolute",
       left: 0,
-      top: 7,
+      top: 3,
       right: 0,
     }),
   };
@@ -33,7 +33,7 @@ const DropDownSelect = ({
         style={{
           position: "absolute",
           left: 20,
-          top: 0,
+          top: -5,
           height: 15,
           background: "white",
           zIndex: 1,

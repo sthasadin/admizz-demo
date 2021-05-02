@@ -8,15 +8,11 @@ interface CollegeProps {
 const DashboardRecommend: FC<CollegeProps> = ({ collegeList }) => {
   return (
     <div className="dashboard-recommend">
-      <div className="dashboard-recommend__title">
-        Recommend Colleges
-      </div>
+      <div className="dashboard-recommend__title">Recommend Colleges</div>
       <div className="dashboard-recommend__collegeList">
         {collegeList &&
-          collegeList.slice(0,4).map((college: College, index) => {
-            return (
-                <CollegesCard {...college} />
-            );
+          collegeList.slice(0, 4).map((college: College, index) => {
+            return <CollegesCard {...college} />;
           })}
       </div>
     </div>

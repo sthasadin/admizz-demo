@@ -16,7 +16,7 @@ const index = () => {
   const dispatch = useDispatch();
   const { authenticated, user } = useContext(AuthContext);
   useEffect(() => {
-    if (authenticated) {
+    if (authenticated && user.uid) {
       dispatch(getAllCollegeList());
       dispatch(getStudentApplication(user.uid));
     }

@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useRouter } from "next/router";
 const DashboardDetailInfo = ({application}) => {
+  const router = useRouter()
   const {basicInfo,backgroundInformation, selectedChoice} = application || {}
   return (
     <div className="dashboard-detail-info">
@@ -86,9 +87,9 @@ const DashboardDetailInfo = ({application}) => {
             {/* <div className="dashboard-detail-info__viewText">
               View
             </div> */}
-            <div className="dashboard-detail-info__editText">
+            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinfo/Apply?edit=true')} style={{cursor:'pointer'}}>
               Edit
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -164,9 +165,9 @@ const DashboardDetailInfo = ({application}) => {
             {/* <div className="dashboard-detail-info__viewText">
               View
             </div> */}
-            <div className="dashboard-detail-info__editText">
+            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinfo/Apply?edit=true')} style={{cursor:'pointer'}}>
               Edit
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -213,9 +214,9 @@ const DashboardDetailInfo = ({application}) => {
             {/* <div className="dashboard-detail-info__viewText">
               View
             </div> */}
-            <div className="dashboard-detail-info__editText">
+            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinfo/Apply?edit=true')} style={{cursor:'pointer'}}>
               Edit
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

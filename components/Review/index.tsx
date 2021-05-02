@@ -1,6 +1,5 @@
 import React from "react";
-const Review = ({review}: any) => {
-  // console.log(review)
+const Review = ({review, addDisLike, addLike}: any) => {
   return (
     <div className="review">
       <div className="review__item">
@@ -35,7 +34,8 @@ const Review = ({review}: any) => {
           </div>
           <div className="review__item__reaction">
             <div className="review__item__left">
-              <div className="review__item__reaction__item">
+
+              <div onClick={()=>addLike(review)} style={{cursor:'pointer'}} className="review__item__reaction__item">
                 <div className="review__item__reaction__icon">
                   <svg
                     width="17"
@@ -52,7 +52,8 @@ const Review = ({review}: any) => {
                 </div>
                 <div className="review__item__reaction__text">{review?.noOfLikes}</div>
               </div>
-              <div className="review__item__reaction__item">
+              
+              <div onClick={()=>addDisLike(review)} style={{cursor:'pointer'}} className="review__item__reaction__item">
                 <div className="review__item__reaction__icon">
                   <svg
                     width="17"
@@ -69,7 +70,7 @@ const Review = ({review}: any) => {
                 </div>
                 <div className="review__item__reaction__text">{review?.noOfDisLikes}</div>
               </div>
-              <div className="review__item__reaction__item">
+              {/* <div className="review__item__reaction__item">
                 <div className="review__item__reaction__icon">
                   <svg
                     width="18"
@@ -94,6 +95,7 @@ const Review = ({review}: any) => {
                 </div>
                 <div className="review__item__reaction__text">Report</div>
               </div>
+             */}
             </div>
             {/* <a href="#" className="review__item__right">
               Read Full Review

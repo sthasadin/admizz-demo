@@ -17,9 +17,9 @@ const DashboardSidebar = () => {
         <div onClick={() => router.push("/studentdashboardmain")}>
           <DashboardSidebarTab title="Dashboard" />
         </div>
-        <div onClick={() => router.push("/dashboardbasicinfo/Apply")}>
+        {/* <div onClick={() => router.push("/dashboardbasicinfo/Apply")}>
           <DashboardSidebarTab title="Apply Application" />
-        </div>
+        </div> */}
         {/* <DashboardSidebarTab title="Result" /> */}
         {/* <div onClick={()=>router.push('/studentapplicationstatus')}>
         <DashboardSidebarTab  title="Application Status" />

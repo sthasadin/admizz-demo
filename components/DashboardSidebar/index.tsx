@@ -12,7 +12,7 @@ const DashboardSidebar = () => {
     router.push("/");
   };
   return (
-    <StickyBox>
+    <StickyBox style={{ height: "100vh" }}>
       <div className="dashboard-sidebar" style={{ width: "100%" }}>
         <div onClick={() => router.push("/studentdashboardmain")}>
           <DashboardSidebarTab title="Dashboard" />

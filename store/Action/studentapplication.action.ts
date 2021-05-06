@@ -4,7 +4,8 @@ import { GET_APPLICATION } from "../const";
 export const getStudentApplication = (id) => {
   return async (dispatch) => {
     try {
-        let applications = []
+      console.log(id)
+      let applications = []
       let querySnapshot = await db.collection('students-application').where('student_id','==',id).get()
       // console.log(doc.data())
       querySnapshot.forEach(doc => {

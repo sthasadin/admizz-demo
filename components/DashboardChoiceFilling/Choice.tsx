@@ -103,12 +103,13 @@ const selectCollege = (props) => {
       setAppliedCollege([
         ...appliedCollege,
         {
-          collegeName: collegeDetails.name,
-          image: collegeDetails.college_logo,
-          address: collegeDetails.address,
-          college_slug: collegeDetails.college_slug,
-          collegeStream: selectedStream.label,
-          collegeProgram: selectedProgram.label,
+          collegeName: collegeDetails?.name,
+          image: collegeDetails?.college_logo,
+          address: collegeDetails?.address,
+          college_slug: collegeDetails?.college_slug,
+          collegeStream: selectedStream?.label,
+          collegeProgram: selectedProgram?.label,
+          collegeEmail:collegeDetails?.email
         },
       ]);
     }

@@ -74,7 +74,7 @@ const Merits = () => {
             </div>
             <div className="merit__thumbnail__text">
               <div className="merit__thumbnail__title">
-                "Some Facts about India That you should know"
+                Some Facts about India That you should know
               </div>
               <div className="merit__thumbnail__cta">
                 <a href="#">"watch video"</a>

@@ -57,6 +57,7 @@ export default function Home() {
 
       <main className="main">
         <Navbar windowsSize={windowSize.width} />
+
         <Carousel bulletdot={false}>
           <Introduction title="hello" />
           <Introduction title="world" />

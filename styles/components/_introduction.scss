@@ -5,7 +5,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  padding-left: 50px;
+  // padding-left: 50px;
   padding-top: 30px;
   @media (max-width: 755px) {
     background-image: url("../../public/mobileLandingImage.png");
@@ -15,35 +15,48 @@
     padding-top: 0px;
     padding-left: 10px;
   }
+
+  &__freecounseling {
+    position: absolute;
+    z-index: 10;
+    height: 228px;
+    width: 50px;
+    background-color: $secondary-color;
+  }
   &__inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     text-align: left;
+
+    @media (min-width: 1366px) {
+      width: 89%;
+      margin: 0 auto;
+    }
     //width: calc(100% - 30px);
-    max-width: 1024px;
+    // max-width: 1024px;
     // @media (max-width: 1500px) {
     //   max-width: 1400px;
     // }
-    @media (max-width: 768px) {
-      width: 720px;
-      margin-top: 50px;
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 1024px) {
-      width: 940px;
-    }
-    @media (min-width: 1200px) {
-      width: 1170px;
-    }
-    @media (min-width: 1360px) {
-      width: 1240px;
-    }
-    @media (max-width: 760px) {
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 1920px) {
-      margin: auto;
-    }
+    // @media (max-width: 768px) {
+    //   width: 720px;
+    //   margin-top: 50px;
+    //   grid-template-columns: 1fr;
+    // }
+    // @media (min-width: 1024px) {
+    //   width: 940px;
+    // }
+    // @media (min-width: 1200px) {
+    //   width: 1170px;
+    // }
+    // @media (min-width: 1360px) {
+    //   width: 90%;
+    // }
+    // @media (max-width: 760px) {
+    //   grid-template-columns: 1fr;
+    // }
+    // @media (min-width: 1920px) {
+    //   margin: auto;
+    // }
   }
   &__left {
     margin-bottom: 48px;
@@ -147,9 +160,9 @@
         justify-content: space-between;
       }
 
-      @media (max-width: 1024px) {
-        width: 50%;
-      }
+      // @media (max-width: 1024px) {
+      //   width: 50%;
+      // }
     }
 
     &__item {
@@ -181,7 +194,7 @@
     }
     &__background {
       position: absolute;
-      height: 50vw;
+      height: 45vw;
       width: 50vw;
       border-radius: 50%;
       background-color: $secondary-color;

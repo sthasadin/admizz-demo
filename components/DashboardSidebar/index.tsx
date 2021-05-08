@@ -16,7 +16,7 @@ const DashboardSidebar = () => {
       <div
         className="dashboard-sidebar"
         style={{ width: "100%", cursor: "pointer" }}
-        onClick={() => router.push("/")}
+        // onClick={() => router.push("/")}
       >
         <div style={{ margin: "0 auto" }}>
           <img src="/logo.png" alt="admizz" />

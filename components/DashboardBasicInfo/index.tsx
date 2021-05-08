@@ -36,7 +36,10 @@ const DashboardBasicInfo = (props) => {
     label: "",
     value: "",
   });
-  const [countryCode, setCountryCode] = useState("");
+  const [countryCode, setCountryCode] = useState({
+    label: "",
+    value: "",
+  });
 
   const [guardianAddress, setGuardianAddress] = useState("");
   const [guardianCountry, setGuardianCountry] = useState({
@@ -91,15 +94,15 @@ const DashboardBasicInfo = (props) => {
   const GenderOptions = [
     {
       label: "Male",
-      value: "male",
+      value: "Male",
     },
     {
       label: "Female",
-      value: "female",
+      value: "Female",
     },
     {
       label: "Other",
-      value: "other",
+      value: "Fther",
     },
   ];
 
@@ -204,6 +207,7 @@ const DashboardBasicInfo = (props) => {
       // const isValid = await validate();
 
       // if (isValid) {
+        console.log({selectedLevel,nationality,gender,guardianCountry,guardianState})
       props.getData({
         selectedLevel: selectedLevel.value,
         fullName,
@@ -228,22 +232,38 @@ const DashboardBasicInfo = (props) => {
 
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
+      console.log(props.data)
       setFullName(props.data.fullName);
       setDob(props.data.DOB);
-      setNationality(props.data.nationality);
+      setSelectedLevel({
+        label:props.data.selectedLevel,
+        value:props.data.selectedLevel
+      })
+      setNationality({
+        label:props.data.nationality,
+        value:props.data.nationality
+      });
       setEmail(props.data.email);
       setPhoneNumber(props.data.phoneNumber);
-      setGender(props.data.gender);
-      setCountryCode(props.data.countryCode);
+      setGender({
+        label:props.data.gender,
+        value:props.data.gender
+      });
+      setCountryCode(props.data.countryCode)
       setGuardianAddress(props.data.guardianAddress);
-      setGuardianCountry(props.data.guardianCountry);
-      setGuardianState(props.data.guardianState);
+      setGuardianCountry({
+        label:props.data.guardianCountry,
+        value:props.data.guardianCountry
+      });
+      setGuardianState({
+        label:props.data.guardianState,
+        value:props.data.guardianState
+      });
       setGuardianCity(props.data.guardianCity);
       setGuardianZipCode(props.data.guardianZipCode);
     }
   }, [props.data]);
 
-  console.log(selectedLevel);
 
   return (
     <div className="dashboard-basic-info">
@@ -367,11 +387,19 @@ const DashboardBasicInfo = (props) => {
                     useValue
                     minWidth={"83px"}
                     width={"90px"}
-                    defaultValue={countryCode}
+                    value={countryCode}
                     // name={"countryCode"}
                     onChange={(e) => setCountryCode(e.target.value)}
                     className={"student-info__phone-separator"}
                   />
+                  {/* <DropDownSelect
+                    defaultvalue={countryCode}
+                    title="Country Code"
+                    options={CountryCodeOptions}
+                    handleChange={setCountryCode}
+                    // name={"Nationality"}
+                    //error={""}
+                  /> */}
                   <Input
                     className={"student-info__input student-info__phone"}
                     fullWidth
@@ -477,7 +505,7 @@ const DashboardBasicInfo = (props) => {
                     // name={"state"}
                     // errorMessage={""}
                     options={
-                      guardianCountry.value === "Nepal"
+                      guardianCountry?.value === "Nepal"
                         ? NepalStateOption
                         : IndiaStateOption
                     }

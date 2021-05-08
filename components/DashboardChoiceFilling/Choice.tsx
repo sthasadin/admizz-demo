@@ -32,7 +32,7 @@ const selectCollege = (props) => {
   });
 
   const dispatch = useDispatch();
-
+const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray } = props;
   //fetch stream
   React.useEffect(() => {
     (async () => {
@@ -50,9 +50,15 @@ const selectCollege = (props) => {
           };
         })
       );
+      // console.log(props)
+      
+      // setSelectedStream({
+      //   label:appliedCollege?.collegeStream,
+      //   value:fetchStream?.find(s => s.name === appliedCollege?.collegeStream)?._id
+      // })
     })();
-  }, []);
-
+  }, [appliedCollege]);
+// console.log({selectedCollege, selectedProgram,selectedStream})
   // fetch program
   React.useEffect(() => {
     (async () => {
@@ -92,32 +98,52 @@ const selectCollege = (props) => {
     })();
   }, [selectedProgram]);
 
-  const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray } = props;
-
   React.useEffect(() => {
     if (
       collegeDetails?._id !== undefined &&
       selectedStream.value.length !== 0
     ) {
-      // console.log("asd");
-      setAppliedCollege([
-        ...appliedCollege,
-        {
-          collegeName: collegeDetails?.name,
-          image: collegeDetails?.college_logo,
-          address: collegeDetails?.address,
-          college_slug: collegeDetails?.college_slug,
-          collegeStream: selectedStream?.label,
-          collegeProgram: selectedProgram?.label,
-          collegeEmail:collegeDetails?.email
-        },
-      ]);
+      const isAlreadyExist = appliedCollege.some(clg => (clg.college_slug === selectedCollege.value && clg.collegeStream === selectedStream?.label && clg.collegeProgram  === selectedProgram?.label ))
+      if (!isAlreadyExist) {
+
+        const isSameIndex=appliedCollege.findIndex(clg => (clg.id === props.choiceNumber ))
+        console.log({isSameIndex})
+        if (isSameIndex >= 0) {
+          appliedCollege[isSameIndex] ={
+              id:appliedCollege[isSameIndex].id,
+              collegeName: collegeDetails?.name,
+              image: collegeDetails?.college_logo,
+              address: collegeDetails?.address,
+              college_slug: collegeDetails?.college_slug,
+              collegeStream: selectedStream?.label,
+              collegeProgram: selectedProgram?.label,
+              collegeEmail:collegeDetails?.email
+            }
+            setAppliedCollege([...appliedCollege])
+        } else {          
+          setAppliedCollege([
+            ...appliedCollege,
+            {
+              id:props.choiceNumber,
+              collegeName: collegeDetails?.name,
+              image: collegeDetails?.college_logo,
+              address: collegeDetails?.address,
+              college_slug: collegeDetails?.college_slug,
+              collegeStream: selectedStream?.label,
+              collegeProgram: selectedProgram?.label,
+              collegeEmail:collegeDetails?.email
+            },
+          ]);
+        }
+      }
+      // props.setLoader(false)
     }
   }, [collegeDetails]);
 
   // console.log(index);
 
   const handleSave = async () => {
+    // props.setLoader(true)
     dispatch(getCollege(selectedCollege.value));
   };
 
@@ -155,7 +181,7 @@ const selectCollege = (props) => {
                 <img
                   src="/cross-sign.png"
                   alt="cross_sign"
-                  onClick={() => RemoveChoiceArray(index)}
+                  onClick={() => RemoveChoiceArray(props.choiceNumber)}
                 />
               </Grid>
             )}

@@ -42,24 +42,7 @@ export const DashboardAcademicInfo = (props) => {
 
   const [showClass11Marks, setShowClass11Marks] = useState(false);
 
-  const sendData = () => {
-    // return console.log(
-    //   schoolMarks,
-    //   level0Score,
-    //   level1Score,
-    //   level2Score,
-    //   diplomaScore,
-    //   postGraduteScore,
-    //   underGraduate,
-    //   gre,
-    //   gmat,
-    //   sat,
-    //   satII,
-    //   tofel,
-    //   jeeAdvance,
-    //   ielts,
-    //   certificatesImage
-    // );
+  const saveData = () => {
     props.getData({
       schoolMarks,
       // level0Score,
@@ -68,15 +51,23 @@ export const DashboardAcademicInfo = (props) => {
       diplomaScore,
       postGraduteScore,
       underGraduate,
-      gre,
-      gmat,
-      sat,
-      satII,
-      tofel,
-      jeeAdvance,
-      ielts,
+      gre:{...gre,score:gre?.haveDone === 'no' ? '' :gre.score},
+      gmat:{...gmat,score:gmat?.haveDone === 'no' ? '' :gmat.score},
+      sat:{...sat,score:sat?.haveDone === 'no' ? '' :sat.score},
+      satII:{...satII,score:satII?.haveDone === 'no' ? '' :satII.score},
+      tofel:{...tofel,score:tofel?.haveDone === 'no' ? '' :tofel.score},
+      jeeAdvance:{...jeeAdvance,score:jeeAdvance?.haveDone === 'no' ? '' :jeeAdvance.score},
+      ielts:{...ielts,
+        score:ielts?.haveDone === 'no' ? '' :ielts.score,
+        subMars:ielts?.haveDone === 'no' ? { listining: "", writing: "", reading: "", speaking: "" } :ielts.subMars
+      },
       certificatesImage,
     });
+
+  }
+
+  const sendData = () => {
+    saveData()
     props.handleNext();
   };
 
@@ -175,7 +166,7 @@ export const DashboardAcademicInfo = (props) => {
                 </Grid>
               )}
               {(selectedLevel == "phd" ||
-                selectedLevel === "diploma" ||
+                // selectedLevel === "diploma" ||
                 selectedLevel === "postgraduate" ||
                 selectedLevel == "undergraduate") && (
                 <>
@@ -653,6 +644,7 @@ export const DashboardAcademicInfo = (props) => {
                       name="passport1"
                       row
                       defaultValue="no"
+                      value={gre.haveDone}
                       onChange={(e) =>
                         setGre({ ...gre, haveDone: e.target.value })
                       }
@@ -690,6 +682,7 @@ export const DashboardAcademicInfo = (props) => {
                       name="passport1"
                       row
                       defaultValue="no"
+                      value={sat.haveDone}
                       onChange={(e) =>
                         setSat({ ...sat, haveDone: e.target.value })
                       }
@@ -734,6 +727,7 @@ export const DashboardAcademicInfo = (props) => {
                       name="passport1"
                       row
                       defaultValue="no"
+                      value={gmat.haveDone}
                       onChange={(e) =>
                         setGmat({ ...gmat, haveDone: e.target.value })
                       }
@@ -774,6 +768,7 @@ export const DashboardAcademicInfo = (props) => {
                       name="passport1"
                       row
                       defaultValue="no"
+                      value={satII.haveDone}
                       onChange={(e) =>
                         setSatII({ ...satII, haveDone: e.target.value })
                       }
@@ -819,6 +814,7 @@ export const DashboardAcademicInfo = (props) => {
                       name="passport1"
                       row
                       defaultValue="no"
+                      value={tofel.haveDone}
                       onChange={(e) =>
                         setTofel({ ...tofel, haveDone: e.target.value })
                       }
@@ -859,6 +855,7 @@ export const DashboardAcademicInfo = (props) => {
                       name="passport1"
                       row
                       defaultValue="no"
+                      value={jeeAdvance.haveDone}
                       onChange={(e) =>
                         setJeeAdvance({
                           ...jeeAdvance,
@@ -910,6 +907,7 @@ export const DashboardAcademicInfo = (props) => {
                       name="passport1"
                       row
                       defaultValue="no"
+                      value={ielts?.haveDone}
                       onChange={(e) =>
                         setIelts({ ...ielts, haveDone: e.target.value })
                       }
@@ -1043,7 +1041,10 @@ export const DashboardAcademicInfo = (props) => {
             <div className="dashboard-basic-info__buttonContainer">
               <div
                 className="dashboard-basic-info__backContainer"
-                onClick={props.handleBack}
+                onClick={()=>{
+                  saveData()
+                  props.handleBack()
+                }}
               >
                 Back
               </div>

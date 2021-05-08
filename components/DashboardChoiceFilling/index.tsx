@@ -35,12 +35,13 @@ const DashboardChoiceFilling = (props) => {
     return str.slice(0, num) + "...";
   }
 
-  console.log(appliedCollege);
+  // console.log(appliedCollege);
 
   const RemoveChoiceArray = (index) => {
-    console.log(index);
-    const filterArray = choicesArray.filter((ind, i) => i !== index);
+    const filterArray = choicesArray.filter(c => c !== index);
+    console.log(filterArray)
     setChoicesArray(filterArray);
+    setAppliedCollege(appliedCollege.filter(clg => clg.id !== index))
     setChoiceNumber(choiceNumber - 1);
   };
 
@@ -73,20 +74,23 @@ const DashboardChoiceFilling = (props) => {
         <Choice
           onClickAddChoice={() => onClickAddChoice()}
           choiceNumber={1}
+          // index={Math.random().toString(36).slice(2)}
           selectedData={props.selectedData}
           setAppliedCollege={setAppliedCollege}
           appliedCollege={appliedCollege}
+          setLoader={setLoader}
         />
 
         {choicesArray.map((choiceNumber, i) => (
           <Choice
-            key={i}
+            key={Math.random().toString(36).slice(2)}
             onClickAddChoice={() => onClickAddChoice()}
             choiceNumber={choiceNumber}
             selectedData={props.selectedData}
             setAppliedCollege={setAppliedCollege}
+            setLoader={setLoader}
             appliedCollege={appliedCollege}
-            index={i}
+            index={Math.random().toString(36).slice(2)}
             RemoveChoiceArray={RemoveChoiceArray}
           />
         ))}
@@ -246,7 +250,10 @@ const DashboardChoiceFilling = (props) => {
         <div className="dashboard-basic-info__buttonContainer">
           <div
             className="dashboard-basic-info__backContainer"
-            onClick={props.handleBack}
+            onClick={()=>{
+              props.getData([...appliedCollege]);
+              props.handleBack()
+            }}
           >
             Back
           </div>

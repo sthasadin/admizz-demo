@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Input } from "../Input";
 import { Grid } from "@material-ui/core";
 import Snackbar from "@material-ui/core/Snackbar";
-import { getLevels } from "../../store/Action/courses.action";
-import { useDispatch } from "react-redux";
+import { getLevels,getStreams } from "../../store/Action/courses.action";
+import { useDispatch, useSelector } from "react-redux";
 import { Select } from "../Select";
 
 import { Button } from "../Button";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 import { DropDownSelect } from "../DropDownSelect";
-import { ErrorMessages } from "../../utils/ErrorMessages";
-
-import * as yup from "yup";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -23,7 +20,6 @@ const DashboardBasicInfo = (props) => {
     label: "",
     value: "",
   });
-  const [selectLevel, setSelectLevel] = useState([]);
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -54,12 +50,20 @@ const DashboardBasicInfo = (props) => {
   const [guardianZipCode, setGuardianZipCode] = useState("" as string);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [formError, setFormError] = useState({} as any);
-  const [loading, setLoading] = useState(false as boolean);
   const dispatch = useDispatch();
+  
+  const allLevels = useSelector(state =>state.courses.allLevels)
+  const selectLevelOption = useMemo(()=>{
+    return allLevels.map((level) => {
+    return {
+      label: level.name,
+      value: level.name,
+    };
+  })
+  },[allLevels])
 
   useEffect(() => {
     const { authUser } = props;
-    console.log(authUser?.phoneNumber?.split("-"));
     if (authUser) {
       setEmail(authUser?.email);
       setNationality(
@@ -73,23 +77,21 @@ const DashboardBasicInfo = (props) => {
     }
   }, [props.authUser]);
 
-  const getAllLevels = async () => {
-    setLoading(true);
-    const fetchLevel = await dispatch(getLevels());
-    setSelectLevel(fetchLevel);
-    setLoading(false);
-  };
 
   useEffect(() => {
-    getAllLevels();
+    dispatch(getLevels())
   }, []);
 
-  const SelectLevelOption = selectLevel.map((level) => {
-    return {
-      label: level.name,
-      value: level.name,
-    };
-  });
+  useEffect(()=> {
+    if (selectedLevel.label) {
+      const _selectedLevel = allLevels.find(level => level.name === selectedLevel.label)
+      dispatch(getStreams(_selectedLevel?._id))   
+      //saving to store so that we can it use on choice filling comp
+      dispatch({type:'SELECTED_LEVEL', payload:_selectedLevel})   
+    }
+  },[selectedLevel])
+
+  
 
   const GenderOptions = [
     {
@@ -193,9 +195,11 @@ const DashboardBasicInfo = (props) => {
     };
   });
 
-  const handleOpenSnackbar = () => {
-    setSnackOpen(true);
-  };
+
+
+  // const handleOpenSnackbar = () => {
+  //   setSnackOpen(true);
+  // };
 
   const handleCloseSnackbar = () => {
     setSnackOpen(false);
@@ -207,7 +211,7 @@ const DashboardBasicInfo = (props) => {
       // const isValid = await validate();
 
       // if (isValid) {
-        console.log({selectedLevel,nationality,gender,guardianCountry,guardianState})
+        // console.log({selectedLevel,nationality,gender,guardianCountry,guardianState})
       props.getData({
         selectedLevel: selectedLevel.value,
         fullName,
@@ -290,7 +294,7 @@ const DashboardBasicInfo = (props) => {
             >
               <DropDownSelect
                 title="Select Level"
-                options={SelectLevelOption}
+                options={selectLevelOption}
                 handleChange={(e) => setSelectedLevel(e)}
                 defaultvalue={selectedLevel}
                 // name={"selectLevel"}

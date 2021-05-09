@@ -41,3 +41,10 @@ export const GET_AUTH_USER = 'GET_AUTH_USER'
 //application
 export const GET_APPLICATION = 'GET_APPLICATION'
 export const UPDATE_APPLICATION = 'UPDATE_APPLICATION'
+
+
+//courses
+export const GET_LEVELS = 'GET_LEVELS'
+export const GET_STREAMS = 'GET_STREAMS'
+export const GET_PROGRAMS = 'GET_PROGRAMS'
+export const GET_CHOICE_COLLEGES = 'GET_CHOICE_COLLEGES'

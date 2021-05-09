@@ -1,27 +1,17 @@
-import React from "react";
-import { getCollege } from "../../store/Action/college.action";
+import React, { useEffect, useMemo } from "react";
 import {
-  getLevels,
-  getStreams,
   getAllPrograms,
   getCollegesByCourses,
 } from "../../store/Action/courses.action";
 import { useSelector, useDispatch } from "react-redux";
 import { Grid } from "@material-ui/core";
-import { Button } from "../Button";
 import { DropDownSelect } from "../DropDownSelect";
 
 const selectCollege = (props) => {
-  const [selectedLevelId, setSelectedLevelId] = React.useState("");
-  const [streamOption, setStreamOption] = React.useState([]);
-  const [programOption, setProgramOption] = React.useState([]);
-  const [collegeOption, setCollegeOption] = React.useState([]);
-  // const [appliedCollege, setAppliedCollege] = React.useState([]);
-  const collegeDetails = useSelector((state) => state.college.college);
   const [selectedStream, setSelectedStream] = React.useState({
     label: "",
     value: "",
-  } as any);
+  });
   const [selectedProgram, setSelectedProgram] = React.useState({
     label: "",
     value: "",
@@ -32,36 +22,54 @@ const selectCollege = (props) => {
   });
 
   const dispatch = useDispatch();
-const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray } = props;
-  //fetch stream
-  React.useEffect(() => {
-    (async () => {
-      const fetchLevel = await dispatch(getLevels());
-      const selectLevelObj = fetchLevel.find(
-        (id) => id.name === props.selectedData?.selectedLevel
-      );
-      setSelectedLevelId(selectLevelObj?._id);
-      const fetchStream = await dispatch(getStreams(selectLevelObj?._id));
-      setStreamOption(
-        fetchStream.map((res) => {
-          return {
-            label: res.name,
-            value: res._id,
-          };
+  const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray, allStreams, choiceNumber } = props;
+
+
+// console.log({appliedCollege})
+  const selectedLevel = useSelector(state => state.courses.selectedLevel)
+  const _appliedColleges = useSelector(state => state.courses.appliedColleges)
+  const allPrograms = useSelector(state => state.courses.allPrograms.map(p =>({
+    label:p.name,
+    value:p._id
+  })))
+
+   React.useEffect(() => {  
+     let appliedCollege =  _appliedColleges.find(a => a.id === choiceNumber)
+    if (appliedCollege) {
+      // console.log(allStreams.find(s => s.label === appliedCollege?.collegeStream))
+      dispatch(getAllPrograms(selectedLevel._id, allStreams.find(s => s.label === appliedCollege?.collegeStream)?.value));
+      setSelectedStream({
+        label:appliedCollege?.collegeStream,
+        value: allStreams.find(s => s.name === appliedCollege?.collegeStream)?._id
+      })      
+    }
+  }, [_appliedColleges]);
+
+   React.useEffect(() => {  
+     let appliedCollege =  _appliedColleges.find(a => a.id === choiceNumber)
+    if (appliedCollege && selectedStream?.label) {
+        console.log({
+          label:appliedCollege?.collegeProgram,
+          value: allPrograms.find(s => s.label === appliedCollege?.collegeProgram)?.value
         })
-      );
-      // console.log(props)
-      
-      // setSelectedStream({
-      //   label:appliedCollege?.collegeStream,
-      //   value:fetchStream?.find(s => s.name === appliedCollege?.collegeStream)?._id
-      // })
-    })();
-  }, [appliedCollege]);
-// console.log({selectedCollege, selectedProgram,selectedStream})
-  // fetch program
+        setSelectedProgram({
+          label:appliedCollege?.collegeProgram,
+          value: allPrograms.find(s => s.label === appliedCollege?.collegeProgram)?.value
+        })    
+    }
+  }, [_appliedColleges,selectedStream]);
+  // console.log({_appliedColleges})
+
+  const colleges = useSelector(state => state.courses.allColleges)
+  const allColleges = useMemo(()=> {
+    return colleges.map(p =>({
+    label: p.college?.name,
+    value: p.college?.college_slug,
+  }))
+  },[colleges])
+
   React.useEffect(() => {
-    (async () => {
+    if (selectedStream.label) {
       setSelectedProgram({
         label: "",
         value: "",
@@ -70,96 +78,62 @@ const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray } = props;
         label: "",
         value: "",
       });
-      const fetchProgram = await dispatch(
-        getAllPrograms(selectedLevelId, selectedStream.value)
-      );
-      setProgramOption(fetchProgram);
-    })();
-  }, [selectedStream]);
+      dispatch(getAllPrograms(selectedLevel._id, selectedStream.value));
+      
+    }
+  }, [selectedStream,selectedLevel]);
 
   //fetch college
   React.useEffect(() => {
-    (async () => {
+    if (selectedStream.label && selectedProgram.label) {
       setSelectedCollege({
         label: "",
         value: "",
       });
-      //prevent from unnecessary api call by dependency update
-      if (selectedProgram) {
-        const fetchCollege = await dispatch(
-          getCollegesByCourses(
-            selectedLevelId,
-            selectedStream.value,
-            selectedProgram.value
-          )
-        );
-        setCollegeOption(fetchCollege);
-      }
-    })();
+      dispatch(getCollegesByCourses(selectedLevel._id, selectedStream.value,selectedProgram.value));
+      
+    }
   }, [selectedProgram]);
 
-  React.useEffect(() => {
-    if (
-      collegeDetails?._id !== undefined &&
+  const handleSave = async () => {
+    let thisCollege = colleges.find(clg => clg.college.college_slug === selectedCollege.value)
+    
+     if (
+      thisCollege.college?._id !== undefined &&
       selectedStream.value.length !== 0
     ) {
-      const isAlreadyExist = appliedCollege.some(clg => (clg.college_slug === selectedCollege.value && clg.collegeStream === selectedStream?.label && clg.collegeProgram  === selectedProgram?.label ))
+      const isAlreadyExist = _appliedColleges.some(clg => (clg.college_slug === selectedCollege.value && clg.collegeStream === selectedStream?.label && clg.collegeProgram  === selectedProgram?.label ))
+      
       if (!isAlreadyExist) {
 
-        const isSameIndex=appliedCollege.findIndex(clg => (clg.id === props.choiceNumber ))
-        console.log({isSameIndex})
+        const isSameIndex=_appliedColleges.findIndex(clg => (clg.id === props.choiceNumber ))
         if (isSameIndex >= 0) {
-          appliedCollege[isSameIndex] ={
-              id:appliedCollege[isSameIndex].id,
-              collegeName: collegeDetails?.name,
-              image: collegeDetails?.college_logo,
-              address: collegeDetails?.address,
-              college_slug: collegeDetails?.college_slug,
+          _appliedColleges[isSameIndex] ={
+              id:_appliedColleges[isSameIndex].id,
+              collegeName: thisCollege.college?.name,
+              image: thisCollege.college?.college_logo,
+              address: thisCollege.college?.address,
+              college_slug: thisCollege.college?.college_slug,
               collegeStream: selectedStream?.label,
               collegeProgram: selectedProgram?.label,
-              collegeEmail:collegeDetails?.email
+              collegeEmail:thisCollege.college?.email
             }
-            setAppliedCollege([...appliedCollege])
-        } else {          
-          setAppliedCollege([
-            ...appliedCollege,
-            {
+            dispatch({type:'SAVE_APPLIED_COLLEGES',payload:[..._appliedColleges]})
+        } else {    
+          dispatch({type:'SAVE_APPLIED_COLLEGES',payload:[..._appliedColleges,{
               id:props.choiceNumber,
-              collegeName: collegeDetails?.name,
-              image: collegeDetails?.college_logo,
-              address: collegeDetails?.address,
-              college_slug: collegeDetails?.college_slug,
+              collegeName: thisCollege.college?.name,
+              image: thisCollege.college?.college_logo,
+              address: thisCollege.college?.address,
+              college_slug: thisCollege.college?.college_slug,
               collegeStream: selectedStream?.label,
               collegeProgram: selectedProgram?.label,
-              collegeEmail:collegeDetails?.email
-            },
-          ]);
+              collegeEmail:thisCollege.college?.email
+            }]})
         }
       }
-      // props.setLoader(false)
     }
-  }, [collegeDetails]);
-
-  // console.log(index);
-
-  const handleSave = async () => {
-    // props.setLoader(true)
-    dispatch(getCollege(selectedCollege.value));
   };
-
-  const programList = programOption?.map((program) => {
-    return {
-      label: program.name,
-      value: program?._id,
-    };
-  });
-
-  const collegeList = collegeOption?.map((college) => {
-    return {
-      label: college.college?.name,
-      value: college.college?.college_slug,
-    };
-  });
 
   return (
     <>
@@ -201,7 +175,7 @@ const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray } = props;
             >
               <DropDownSelect
                 title="Choose Steam"
-                options={streamOption}
+                options={allStreams}
                 defaultvalue={selectedStream}
                 handleChange={(e) => setSelectedStream(e)}
               />
@@ -215,7 +189,7 @@ const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray } = props;
             >
               <DropDownSelect
                 title="Select Specific program"
-                options={programList}
+                options={allPrograms}
                 defaultvalue={selectedProgram}
                 handleChange={(e) => setSelectedProgram(e)}
               />
@@ -236,7 +210,7 @@ const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray } = props;
             >
               <DropDownSelect
                 title="Select College"
-                options={collegeList}
+                options={allColleges}
                 defaultvalue={selectedCollege}
                 handleChange={(e) => setSelectedCollege(e)}
               />

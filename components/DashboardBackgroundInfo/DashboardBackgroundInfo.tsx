@@ -418,7 +418,11 @@ const DashboardBackgroundInfo = (props) => {
                     <div style={{ alignSelf: "center" }}>
                       {truncateString(documentImage.name, 20)}
                     </div>{" "}
-                    <GreenCircle />{" "}
+                    <img
+                        src="/check.png"
+                        alt="check"
+                        style={{ marginLeft: "20px" }}
+                      />{" "}
                   </>
                 )}
               </Grid>

@@ -362,7 +362,8 @@ export const DashboardAcademicInfo = (props) => {
                 </Grid>
               </Grid>
             )}
-            {(selectedLevel == "diploma" ||
+            {(
+              // selectedLevel == "diploma" ||
               selectedLevel == "postgraduate" ||
               selectedLevel == "undergraduate" ||
               selectedLevel == "phd") && (

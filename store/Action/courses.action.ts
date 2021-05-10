@@ -46,7 +46,7 @@ export const getLevels = () => async (dispatch: Dispatch) => {
     const response = await coursesService.getAllLevels();
     if (response.isSuccess) {
         dispatch({type:GET_LEVELS, payload:response.data})
-        return response.data
+        return response.data//returned data is used in college detail page
     } else if (!response.isSuccess) {
         dispatch({type:GET_LEVELS, payload:[]})
         return []

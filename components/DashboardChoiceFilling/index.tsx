@@ -96,7 +96,7 @@ _choice
           onClickAddChoice={() => onClickAddChoice()}
           choiceNumber={1}
           // index={Math.random().toString(36).slice(2)}
-          selectedData={props.selectedData}
+          // selectedData={props.selectedData}
           // setAppliedCollege={setAppliedCollege}
           // appliedCollege={appliedCollege}
           setLoader={setLoader}

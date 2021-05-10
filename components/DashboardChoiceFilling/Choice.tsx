@@ -40,36 +40,32 @@ const selectCollege = (props) => {
       dispatch(getAllPrograms(selectedLevel._id, allStreams.find(s => s.label === appliedCollege?.collegeStream)?.value));
       setSelectedStream({
         label:appliedCollege?.collegeStream,
-        value: allStreams.find(s => s.name === appliedCollege?.collegeStream)?._id
+        value: allStreams.find(s => s.label === appliedCollege?.collegeStream)?.value
       })      
     }
   }, [_appliedColleges]);
 
    React.useEffect(() => {  
      let appliedCollege =  _appliedColleges.find(a => a.id === choiceNumber)
-    if (appliedCollege && selectedStream?.label) {
-        console.log({
-          label:appliedCollege?.collegeProgram,
-          value: allPrograms.find(s => s.label === appliedCollege?.collegeProgram)?.value
-        })
+     if (appliedCollege && selectedStream?.label) {
         setSelectedProgram({
           label:appliedCollege?.collegeProgram,
           value: allPrograms.find(s => s.label === appliedCollege?.collegeProgram)?.value
         })    
     }
   }, [_appliedColleges,selectedStream]);
-  // console.log({_appliedColleges})
-
+  
   const colleges = useSelector(state => state.courses.allColleges)
   const allColleges = useMemo(()=> {
     return colleges.map(p =>({
-    label: p.college?.name,
-    value: p.college?.college_slug,
-  }))
+      label: p.college?.name,
+      value: p.college?.college_slug,
+    }))
   },[colleges])
-
+  
   React.useEffect(() => {
     if (selectedStream.label) {
+      // console.log({selectedProgram})
       setSelectedProgram({
         label: "",
         value: "",
@@ -90,6 +86,7 @@ const selectCollege = (props) => {
         label: "",
         value: "",
       });
+      console.log({selectedStream})
       dispatch(getCollegesByCourses(selectedLevel._id, selectedStream.value,selectedProgram.value));
       
     }

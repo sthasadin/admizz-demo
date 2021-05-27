@@ -1,25 +1,28 @@
 .navbar {
-  background-color: #fff;
+  background: #fff;
+  box-shadow: 0 -3px 12px 0 #000;
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    width: calc(100% - 30px);
-    margin: 0 15px;
-    @media (min-width: 768px) {
-      width: 720px;
-      margin: 0 auto;
-    }
-    @media (min-width: 1024px) {
-      width: 940px;
-    }
-    @media (min-width: 1200px) {
-      width: 1170px;
-    }
-    @media (min-width: 1360px) {
-      width: 90%;
-    }
+    width: 90%;
+    margin: auto;
+    // width: calc(100% - 30px);
+    // margin: 0 15px;
+    // @media (min-width: 768px) {
+    //   width: 720px;
+    //   margin: 0 auto;
+    // }
+    // @media (min-width: 1024px) {
+    //   width: 940px;
+    // }
+    // @media (min-width: 1200px) {
+    //   width: 1170px;
+    // }
+    // @media (min-width: 1360px) {
+    //   width: 90%;
+    // }
   }
   &__logo {
     cursor: pointer;

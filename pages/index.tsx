@@ -7,7 +7,7 @@ import { BlogList } from "../components/BlogList";
 import { CollegeFinder } from "../components/collegeFinder";
 import { CollegesBlock } from "../components/collegesBlock";
 import { FiveSteps } from "../components/FiveSteps";
-import { Introduction } from "../components/Introduction";
+import Introduction from "../components/Introduction";
 // import { Login } from "../components/Login";
 import { Merits } from "../components/mertis";
 // import { Register } from "../components/register";
@@ -19,26 +19,12 @@ import { Us } from "../components/why-us";
 import { Footer } from "../layouts/footer";
 import { Navbar } from "../layouts/navbar";
 import { Topbar } from "../layouts/topbar";
-import Carousel from "../components/Carousel";
 
 export default function Home() {
-  const [windowSize, setWindowSize] = React.useState({ width: undefined });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth });
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCollegeList());
   }, []);
-
-  console.log(windowSize.width);
 
   const { collegeList } = useSelector((state) => state.allCollege);
 
@@ -56,13 +42,10 @@ export default function Home() {
       </Head>
 
       <main className="main">
-        <Navbar windowsSize={windowSize.width} />
+        <Navbar />
 
-        <Carousel bulletdot={false}>
-          <Introduction title="hello" />
-          <Introduction title="world" />
-          <Introduction title="helloworld" />
-        </Carousel>
+        <Introduction />
+
         <About />
         <Merits />
         <Us />

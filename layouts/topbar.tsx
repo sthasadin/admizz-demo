@@ -13,6 +13,8 @@ const Topbar = (props: any) => {
           <div className="contact">
             <div className="contact__icon">
               <FontAwesomeIcon icon={faMicrophoneAlt} />
+
+              <img src="/contactIcon.png" alt="contact-us" />
             </div>
             <div className="contact__item">
               <span className="contact__title">Nepal:</span>

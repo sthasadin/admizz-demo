@@ -26,29 +26,37 @@ const DashboardBackgroundInfo = (props) => {
   // const [documentImageThumbnail, setDocumentImageThumbnail] = useState(null);
   const [references, setReferences] = useState({
     fullName: "",
-    countryCode: "",
+    countryCode: {
+    label: "",
+    value: "",
+  },
     phoneNumber: "",
     emailAddress: "",
     address: "",
   });
 
-  const sendData = () => {
-    // return console.log(documentImage);
+  const saveDate = () => {
     props.getData({
       havePassport,
-      passportDetails: {
+      passportDetails: havePassport ? {
         ...passportDetails,
-        passportIssuedCountry: passportDetails.passportIssuedCountry.value,
-      },
-      haveAppliedForPassport,
+        passportIssuedCountry: passportDetails.passportIssuedCountry?.value,
+      }: {},
+      haveAppliedForPassport:havePassport?false:haveAppliedForPassport,
       passportId,
-
+  
       documentImage,
       references,
     });
+
+  }
+
+  const sendData = () => {
+    // return console.log(documentImage);
+    saveDate()
     props.handleNext();
   };
-  const CountryOption = [
+  const countryOption = [
     {
       label: "Nepal",
       value: "Nepal",
@@ -70,14 +78,22 @@ const DashboardBackgroundInfo = (props) => {
     },
   ];
 
+  
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
       setHavePassport(props.data.havePassport);
-      setPassportDetails(props.data.passportDetails);
+      setPassportDetails({
+        ...props.data?.passportDetails,
+        passportIssuedCountry:{
+          label:props.data?.passportDetails?.passportIssuedCountry,
+          value:props.data?.passportDetails?.passportIssuedCountry
+        }
+      });
       setHaveAppliedPassport(props.data.haveAppliedForPassport);
       setPassportId(props.data.passportId);
       setDocumentImage(props.data.documentImage);
       setReferences(props.data.references);
+      
     }
   }, [props.data]);
 
@@ -93,7 +109,6 @@ const DashboardBackgroundInfo = (props) => {
       return str;
     }
   };
-
   return (
     <div className="dashboard-basic-info">
       {/* Background Information */}
@@ -121,6 +136,7 @@ const DashboardBackgroundInfo = (props) => {
                   row
                   onChange={(e) => console.log(e)}
                   defaultValue="no"
+                  value={havePassport?'yes' : 'no'}
                 >
                   <FormControlLabel
                     value="yes"
@@ -251,13 +267,13 @@ const DashboardBackgroundInfo = (props) => {
                   >
                     <DropDownSelect
                       title="Issuing Country"
-                      options={CountryOption}
+                      options={countryOption}
                       defaultvalue={passportDetails.passportIssuedCountry}
-                      handleChange={(e) =>
+                      handleChange={(e) =>{
                         setPassportDetails({
                           ...passportDetails,
                           passportIssuedCountry: e,
-                        })
+                        })}
                       }
                     />
                   </Grid>
@@ -291,6 +307,7 @@ const DashboardBackgroundInfo = (props) => {
                     name="passport1"
                     row
                     defaultValue="no"
+                    value={haveAppliedForPassport?'yes' : 'no'}
                   >
                     <FormControlLabel
                       value="yes"
@@ -401,7 +418,11 @@ const DashboardBackgroundInfo = (props) => {
                     <div style={{ alignSelf: "center" }}>
                       {truncateString(documentImage.name, 20)}
                     </div>{" "}
-                    <GreenCircle />{" "}
+                    <img
+                        src="/check.png"
+                        alt="check"
+                        style={{ marginLeft: "20px" }}
+                      />{" "}
                   </>
                 )}
               </Grid>
@@ -478,7 +499,7 @@ const DashboardBackgroundInfo = (props) => {
                       useValue
                       minWidth={"83px"}
                       width={"90px"}
-                      defaultValue={references.countryCode}
+                      value={references.countryCode}
                       // name={"countryCode"}
                       onChange={(e) =>
                         setReferences({
@@ -557,7 +578,10 @@ const DashboardBackgroundInfo = (props) => {
         <div className="dashboard-basic-info__buttonContainer">
           <div
             className="dashboard-basic-info__backContainer"
-            onClick={props.handleBack}
+            onClick={()=>{
+              saveDate()
+              props.handleBack()
+            }}
           >
             Back
           </div>

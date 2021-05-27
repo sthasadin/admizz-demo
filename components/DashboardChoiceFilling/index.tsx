@@ -1,18 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { Button } from "../Button";
-
-import Alert from "@material-ui/lab/Alert";
+import {useDispatch,useSelector} from 'react-redux'
 import ClipLoader from "react-spinners/ClipLoader";
 import Choice from "./Choice";
 
+const _choice = {
+              id:1,
+              collegeName: '',
+              image: '',
+              address: '',
+              college_slug: '',
+              collegeStream: '',
+              collegeProgram: '',
+              collegeEmail:''
+            }
 const DashboardChoiceFilling = (props) => {
-  const [choicesArray, setChoicesArray] = useState([]);
+  const dispatch = useDispatch()
+  const [choicesArray, setChoicesArray] = useState([
+_choice
+  ]);
   const [choiceNumber, setChoiceNumber] = useState(2);
 
   const [loader, setLoader] = useState(false);
 
   const [appliedCollege, setAppliedCollege] = React.useState([]);
+
+  const allStreams = useSelector(state => state.courses.allStreams.map((stream) => {
+          return {
+            label: stream.name,
+            value: stream._id,
+          };
+        }))
+
+  const _appliedColleges = useSelector(state => state.courses.appliedColleges)
 
   // handel submit button
   const sendData = () => {
@@ -22,10 +43,10 @@ const DashboardChoiceFilling = (props) => {
 
   const onClickAddChoice = () => {
     setChoiceNumber(choiceNumber + 1);
-    setChoicesArray((choicesArray) => [...choicesArray, choiceNumber]);
+    setChoicesArray((choicesArray) => [...choicesArray, {..._choice,id:choiceNumber + 1}]);
   };
 
-  console.log(choicesArray);
+  // console.log(choicesArray);
 
   // trunclate string
   function truncateString(str, num = 20) {
@@ -35,15 +56,15 @@ const DashboardChoiceFilling = (props) => {
     return str.slice(0, num) + "...";
   }
 
-  console.log(appliedCollege);
+  // console.log(appliedCollege);
 
   const RemoveChoiceArray = (index) => {
-    console.log(index);
-    const filterArray = choicesArray.filter((ind, i) => i !== index);
+    const filterArray = choicesArray.filter(c => c.id !== index);
+    console.log(filterArray)
     setChoicesArray(filterArray);
+    setAppliedCollege(appliedCollege.filter(clg => clg.id !== index))
     setChoiceNumber(choiceNumber - 1);
   };
-
   return (
     <div className="dashboard-basic-info">
       {loader ? (
@@ -71,25 +92,30 @@ const DashboardChoiceFilling = (props) => {
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__sectionTitle">Choice Filling</div>
         <Choice
+          allStreams={allStreams}
           onClickAddChoice={() => onClickAddChoice()}
           choiceNumber={1}
-          selectedData={props.selectedData}
-          setAppliedCollege={setAppliedCollege}
-          appliedCollege={appliedCollege}
+          // index={Math.random().toString(36).slice(2)}
+          // selectedData={props.selectedData}
+          // setAppliedCollege={setAppliedCollege}
+          // appliedCollege={appliedCollege}
+          setLoader={setLoader}
         />
 
-        {choicesArray.map((choiceNumber, i) => (
+        {/* {choicesArray.map((choice, i) => (
           <Choice
-            key={i}
+            allStreams={allStreams}
+            key={Math.random().toString(36).slice(2)}
             onClickAddChoice={() => onClickAddChoice()}
-            choiceNumber={choiceNumber}
+            choiceNumber={choice.id}
             selectedData={props.selectedData}
             setAppliedCollege={setAppliedCollege}
+            setLoader={setLoader}
             appliedCollege={appliedCollege}
-            index={i}
+            index={Math.random().toString(36).slice(2)}
             RemoveChoiceArray={RemoveChoiceArray}
           />
-        ))}
+        ))} */}
       </div>
 
       {/* Applied College */}
@@ -150,7 +176,7 @@ const DashboardChoiceFilling = (props) => {
               </Grid>
             </div>
 
-            {appliedCollege.map((college, i) => {
+            {_appliedColleges.map((college, i) => {
               if (true) {
                 return (
                   <div className="dashboard-basic-info__rowTable" key={i}>
@@ -246,7 +272,10 @@ const DashboardChoiceFilling = (props) => {
         <div className="dashboard-basic-info__buttonContainer">
           <div
             className="dashboard-basic-info__backContainer"
-            onClick={props.handleBack}
+            onClick={()=>{
+              props.getData([...appliedCollege]);
+              props.handleBack()
+            }}
           >
             Back
           </div>

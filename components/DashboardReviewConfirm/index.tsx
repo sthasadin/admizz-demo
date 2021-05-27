@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Grid, Button } from "@material-ui/core";
 // import { Button } from "../Button";
 import { storage, db } from "../../firebase";
+import {useRouter} from 'next/router'
 import Checkbox from "@material-ui/core/Checkbox";
 import { UploadButton } from "../Button/uploadButton";
 import AppliedCollege from "./AppliedCollege";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 
 const DashboardReviewConfirm = (props) => {
+  const router = useRouter()
   const [document, setDocument] = useState({});
   const [profileImage, setProfileImage] = React.useState(null);
   const [profileImageThumbnail, setProfileImageThumbnail] = React.useState(
@@ -217,6 +219,8 @@ const DashboardReviewConfirm = (props) => {
         )
       )
       .catch((e) => console.log(e));
+
+      router.push('/studentdashboardmain')
   };
 
   useEffect(() => {

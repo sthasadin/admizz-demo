@@ -9,6 +9,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 interface Props {
   title?: string;
   options: any[];
+  value?:any;
   icon?: any;
   label?: string;
   useValue?: boolean;
@@ -59,7 +60,7 @@ const Select = (props: Props) => {
     }
   }));
   const classes = useStyles(props);
-  console.log(props.defaultValue)
+  // console.log(props.defaultValue)
 
   const Icon = props.icon;
   return (
@@ -69,6 +70,7 @@ const Select = (props: Props) => {
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         name={props.name}
+        value={props.value}
         className={`${classes.select} ${props.className}`}
         label={props.label}
         defaultValue={props.defaultValue ? props.defaultValue : ' '}

@@ -16,7 +16,7 @@ const DashboardSidebar = () => {
       <div
         className="dashboard-sidebar"
         style={{ width: "100%", cursor: "pointer" }}
-        onClick={() => router.push("/")}
+        // onClick={() => router.push("/")}
       >
         <div style={{ margin: "0 auto" }}>
           <img src="/logo.png" alt="admizz" />
@@ -28,9 +28,9 @@ const DashboardSidebar = () => {
           <DashboardSidebarTab title="Apply Application" />
         </div> */}
         {/* <DashboardSidebarTab title="Result" /> */}
-        {/* <div onClick={()=>router.push('/studentapplicationstatus')}>
+        <div onClick={()=>router.push('/dashboardbasicinfo/Status')}>
         <DashboardSidebarTab  title="Application Status" />
-        </div> */}
+        </div>
         <div onClick={() => router.push("/")}>
           <DashboardSidebarTab title="Back To Home" />
         </div>

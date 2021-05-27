@@ -1,18 +1,27 @@
 .topbar {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   background-color: $primary-color;
-  position: relative;
-  font-size: 14px;
-  padding: 5px 100px;
-  color: #fff;
-  @media (max-width: 680px) {
-    display: none;
+
+  .topbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    font-size: 14px;
+    padding: 5px 5px;
+    color: #fff;
+    width: 90%;
+    margin: auto;
+    @media (max-width: 680px) {
+      display: none;
+    }
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
   }
-  @media (max-width: 480px) {
-    flex-direction: column;
+
+  .contact__icon {
+    margin-right: 10px;
   }
   &__right {
     display: flex;

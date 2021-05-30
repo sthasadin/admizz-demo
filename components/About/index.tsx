@@ -4,7 +4,7 @@ import { Card1 } from "../card/card1";
 const About = () => {
   return (
     <div className="about-country">
-      <div className="about-country__inner">
+      <div className="inner__about">
         {/* <div className="container" style={{ border: "1px solid black" }}> */}
         <div className="about-country__heading block-heading">about india</div>
         <div className="about-country__title block-title">

@@ -27,28 +27,31 @@ const DashboardChoiceFilling = (props) => {
   };
 
   function onClickAddChoice() {
-    let arr = choices.concat(_choice)
-    console.log(arr)
-    setChoices([...choices, _choice])
+    setChoices([...choices, {
+  selectedStream: preObj,
+  selectedCollege: preObj,
+  selectedProgram: preObj
+}])
   }
 
   const removeChoice = (i) => {
     let arr = [...choices];
+
     arr.splice(i, 1)
+    console.log({arr})
     setChoices(arr)
-    let colleges = [..._appliedColleges]
-    colleges.splice(i,1)
-    dispatch({ type: 'SAVE_APPLIED_COLLEGES', payload: colleges })
+    // let colleges = [..._appliedColleges]
+    // colleges.splice(i,1)
+    // dispatch({ type: 'SAVE_APPLIED_COLLEGES', payload: colleges })
   }
 
   const handleSave = async () => {
 
     choices.forEach((choice, i) => {
       let {selectedCollege, selectedStream,selectedProgram} = choice
+      let thisCollege = colleges.find(clg => clg.college.college_slug === selectedCollege.value)
 
-      let thisCollege = colleges.find(clg => clg.college.college_slug === choice.selectedCollege.value)
-
-      if (thisCollege.college?._id !== undefined && selectedStream.value !== undefined) {
+      if (thisCollege?.college?._id !== undefined && selectedStream.value !== undefined) {
 
         const isAlreadyExist = _appliedColleges.some(clg => (clg.college_slug === selectedCollege.value && clg.collegeStream === selectedStream?.label && clg.collegeProgram === selectedProgram?.label))
   

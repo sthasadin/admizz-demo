@@ -1,73 +1,90 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { Button } from "../Button";
-import {useDispatch,useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import ClipLoader from "react-spinners/ClipLoader";
 import Choice from "./Choice";
+const preObj = { label: '', value: '' }
 
+const _choice1 = {
+  id: 1,
+  collegeName: '',
+  image: '',
+  address: '',
+  college_slug: '',
+  collegeStream: '',
+  collegeProgram: '',
+  collegeEmail: ''
+}
 const _choice = {
-              id:1,
-              collegeName: '',
-              image: '',
-              address: '',
-              college_slug: '',
-              collegeStream: '',
-              collegeProgram: '',
-              collegeEmail:''
-            }
+  selectedStream: preObj,
+  selectedCollege: preObj,
+  selectedProgram: preObj
+}
+
 const DashboardChoiceFilling = (props) => {
-  const dispatch = useDispatch()
-  const [choicesArray, setChoicesArray] = useState([
-_choice
-  ]);
-  const [choiceNumber, setChoiceNumber] = useState(2);
-
+  const [choices, setChoices] = useState([_choice, _choice])
   const [loader, setLoader] = useState(false);
-
-  const [appliedCollege, setAppliedCollege] = React.useState([]);
-
-  const allStreams = useSelector(state => state.courses.allStreams.map((stream) => {
-          return {
-            label: stream.name,
-            value: stream._id,
-          };
-        }))
-
+  const [appliedCollege, setAppliedCollege] = useState([]);
+  const allStreams = useSelector(state => state.courses.allStreams.map(({ name: label, _id: value }) => ({ label, value })))
   const _appliedColleges = useSelector(state => state.courses.appliedColleges)
 
-  // handel submit button
-  const sendData = () => {
+  function sendData() {
     props.getData([...appliedCollege]);
     props.handleNext();
   };
 
-  const onClickAddChoice = () => {
-    setChoiceNumber(choiceNumber + 1);
-    setChoicesArray((choicesArray) => [...choicesArray, {..._choice,id:choiceNumber + 1}]);
-  };
-
-  // console.log(choicesArray);
-
-  // trunclate string
-  function truncateString(str, num = 20) {
-    if (str.length <= num) {
-      return str;
-    }
-    return str.slice(0, num) + "...";
+  function onClickAddChoice() {
+    setChoices([...choices, _choice])
   }
 
-  // console.log(appliedCollege);
+  const removeChoice = (i) => {
+    let arr = [...choices];
+    arr.splice(i, 1)
+    setChoices(arr)
+  }
 
-  const RemoveChoiceArray = (index) => {
-    const filterArray = choicesArray.filter(c => c.id !== index);
-    console.log(filterArray)
-    setChoicesArray(filterArray);
-    setAppliedCollege(appliedCollege.filter(clg => clg.id !== index))
-    setChoiceNumber(choiceNumber - 1);
+  const handleSave = async () => {
+    let thisCollege = colleges.find(clg => clg.college.college_slug === selectedCollege.value)
+    if (thisCollege.college?._id !== undefined && selectedStream.value !== undefined) {
+      const isAlreadyExist = _appliedColleges.some(clg => (clg.college_slug === selectedCollege.value && clg.collegeStream === selectedStream?.label && clg.collegeProgram === selectedProgram?.label))
+
+      if (!isAlreadyExist) {
+
+        const isSameIndex = _appliedColleges.findIndex(clg => (clg.id === choiceNumber))
+        if (isSameIndex >= 0) {
+          _appliedColleges[isSameIndex] = {
+            id: _appliedColleges[isSameIndex].id,
+            collegeName: thisCollege.college?.name,
+            image: thisCollege.college?.college_logo,
+            address: thisCollege.college?.address,
+            college_slug: thisCollege.college?.college_slug,
+            collegeStream: selectedStream?.label,
+            collegeProgram: selectedProgram?.label,
+            collegeEmail: thisCollege.college?.email
+          }
+          dispatch({ type: 'SAVE_APPLIED_COLLEGES', payload: [..._appliedColleges] })
+        } else {
+          dispatch({
+            type: 'SAVE_APPLIED_COLLEGES', payload: [..._appliedColleges, {
+              id: choiceNumber,
+              collegeName: thisCollege.college?.name,
+              image: thisCollege.college?.college_logo,
+              address: thisCollege.college?.address,
+              college_slug: thisCollege.college?.college_slug,
+              collegeStream: selectedStream?.label,
+              collegeProgram: selectedProgram?.label,
+              collegeEmail: thisCollege.college?.email
+            }]
+          })
+        }
+      }
+    }
   };
+
   return (
     <div className="dashboard-basic-info">
-      {loader ? (
+      {loader && (
         <div
           style={{
             position: "fixed",
@@ -84,38 +101,50 @@ _choice
         >
           <ClipLoader color={"green"} loading={loader} size={150} />
         </div>
-      ) : (
-        ""
       )}
 
       {/* Background Information */}
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__sectionTitle">Choice Filling</div>
-        <Choice
-          allStreams={allStreams}
-          onClickAddChoice={() => onClickAddChoice()}
-          choiceNumber={1}
-          // index={Math.random().toString(36).slice(2)}
-          // selectedData={props.selectedData}
-          // setAppliedCollege={setAppliedCollege}
-          // appliedCollege={appliedCollege}
-          setLoader={setLoader}
-        />
+        <div className="dashboard-basic-info__formContainer">
+          <form>
+            {
+              choices.map((choice, i) => (
+                <Choice
+                  allStreams={allStreams}
+                  onClickAddChoice={() => onClickAddChoice()}
+                  choiceNumber={i + 1}
+                  choices={choices}
+                  setChoices={setChoices}
+                  removeChoice={removeChoice}
+                />
+              ))
+            }
+            <Grid
+              container
+              className="dashboard-basic-info__row"
+              justify="space-around"
+              direction="row"
+            >
+              <div className="dashboard-basic-info__buttonContainer">
+                <div
+                  className="dashboard-basic-info__viewText"
+                  // onClick={() => props.handelSave()}
+                  onClick={() => ''}
+                >
+                  Save Choice
+              </div>
+                <div
+                  className="dashboard-basic-info__editText"
+                  onClick={() => onClickAddChoice()}
+                >
+                  Add More Choice
+              </div>
+              </div>
+            </Grid>
 
-        {/* {choicesArray.map((choice, i) => (
-          <Choice
-            allStreams={allStreams}
-            key={Math.random().toString(36).slice(2)}
-            onClickAddChoice={() => onClickAddChoice()}
-            choiceNumber={choice.id}
-            selectedData={props.selectedData}
-            setAppliedCollege={setAppliedCollege}
-            setLoader={setLoader}
-            appliedCollege={appliedCollege}
-            index={Math.random().toString(36).slice(2)}
-            RemoveChoiceArray={RemoveChoiceArray}
-          />
-        ))} */}
+          </form>
+        </div>
       </div>
 
       {/* Applied College */}
@@ -272,7 +301,7 @@ _choice
         <div className="dashboard-basic-info__buttonContainer">
           <div
             className="dashboard-basic-info__backContainer"
-            onClick={()=>{
+            onClick={() => {
               props.getData([...appliedCollege]);
               props.handleBack()
             }}
@@ -284,6 +313,7 @@ _choice
       </div>
     </div>
   );
-};
+
+}
 
 export { DashboardChoiceFilling };

@@ -7,236 +7,165 @@ import { useSelector, useDispatch } from "react-redux";
 import { Grid } from "@material-ui/core";
 import { DropDownSelect } from "../DropDownSelect";
 
-const selectCollege = (props) => {
-  const [selectedStream, setSelectedStream] = React.useState({
-    label: "",
-    value: "",
-  });
-  const [selectedProgram, setSelectedProgram] = React.useState({
-    label: "",
-    value: "",
-  });
-  const [selectedCollege, setSelectedCollege] = React.useState({
-    label: "",
-    value: "",
-  });
+const preObj = { label: '', value: '' }
+
+const selectCollege = ({ allStreams, choiceNumber, choices, setChoices, removeChoice }: any) => {
+  let i = choiceNumber - 1
+  let { selectedStream, selectedProgram, selectedCollege } = choices[i]
 
   const dispatch = useDispatch();
-  const { setAppliedCollege, appliedCollege, index, RemoveChoiceArray, allStreams, choiceNumber } = props;
 
-
-// console.log({appliedCollege})
   const selectedLevel = useSelector(state => state.courses.selectedLevel)
   const _appliedColleges = useSelector(state => state.courses.appliedColleges)
-  const allPrograms = useSelector(state => state.courses.allPrograms.map(p =>({
-    label:p.name,
-    value:p._id
-  })))
+  const allPrograms = useSelector(state => state.courses.allPrograms.map(({ name: label, _id: value }) => ({ label, value })))
 
-   React.useEffect(() => {  
-     let appliedCollege =  _appliedColleges.find(a => a.id === choiceNumber)
+
+
+  React.useEffect(() => {
+    let appliedCollege = _appliedColleges.find(a => a.id === choiceNumber)
     if (appliedCollege) {
       // console.log(allStreams.find(s => s.label === appliedCollege?.collegeStream))
       dispatch(getAllPrograms(selectedLevel._id, allStreams.find(s => s.label === appliedCollege?.collegeStream)?.value));
       setSelectedStream({
-        label:appliedCollege?.collegeStream,
+        label: appliedCollege?.collegeStream,
         value: allStreams.find(s => s.label === appliedCollege?.collegeStream)?.value
-      })      
+      })
     }
   }, [_appliedColleges]);
 
-   React.useEffect(() => {  
-     let appliedCollege =  _appliedColleges.find(a => a.id === choiceNumber)
-     if (appliedCollege && selectedStream?.label) {
-        setSelectedProgram({
-          label:appliedCollege?.collegeProgram,
-          value: allPrograms.find(s => s.label === appliedCollege?.collegeProgram)?.value
-        })    
+  React.useEffect(() => {
+    let appliedCollege = _appliedColleges.find(a => a.id === choiceNumber)
+    if (appliedCollege && selectedStream?.label) {
+      setSelectedProgram({
+        label: appliedCollege?.collegeProgram,
+        value: allPrograms.find(s => s.label === appliedCollege?.collegeProgram)?.value
+      })
     }
-  }, [_appliedColleges,selectedStream]);
-  
+  }, [_appliedColleges, selectedStream]);
+
   const colleges = useSelector(state => state.courses.allColleges)
-  const allColleges = useMemo(()=> {
-    return colleges.map(p =>({
+  const allColleges = useMemo(() => {
+    return colleges.map(p => ({
       label: p.college?.name,
       value: p.college?.college_slug,
     }))
-  },[colleges])
-  
+  }, [colleges])
+
   React.useEffect(() => {
     if (selectedStream.label) {
-      // console.log({selectedProgram})
-      setSelectedProgram({
-        label: "",
-        value: "",
-      });
-      setSelectedCollege({
-        label: "",
-        value: "",
-      });
       dispatch(getAllPrograms(selectedLevel._id, selectedStream.value));
-      
     }
-  }, [selectedStream,selectedLevel]);
+  }, [selectedStream, selectedLevel]);
 
   //fetch college
   React.useEffect(() => {
     if (selectedStream.label && selectedProgram.label) {
-      setSelectedCollege({
-        label: "",
-        value: "",
-      });
-      console.log({selectedStream})
-      dispatch(getCollegesByCourses(selectedLevel._id, selectedStream.value,selectedProgram.value));
-      
+      dispatch(getCollegesByCourses(selectedLevel._id, selectedStream.value, selectedProgram.value));
     }
   }, [selectedProgram]);
 
-  const handleSave = async () => {
-    let thisCollege = colleges.find(clg => clg.college.college_slug === selectedCollege.value)
-    
-     if (
-      thisCollege.college?._id !== undefined &&
-      selectedStream.value.length !== 0
-    ) {
-      const isAlreadyExist = _appliedColleges.some(clg => (clg.college_slug === selectedCollege.value && clg.collegeStream === selectedStream?.label && clg.collegeProgram  === selectedProgram?.label ))
-      
-      if (!isAlreadyExist) {
+  const setSelectedStream = (e) => {
+    let data = [...choices]
+    data[i].selectedStream = e
+    data[i].selectedProgram = preObj
+    data[i].selectedCollege = preObj
+    setChoices(data)
+  }
 
-        const isSameIndex=_appliedColleges.findIndex(clg => (clg.id === props.choiceNumber ))
-        if (isSameIndex >= 0) {
-          _appliedColleges[isSameIndex] ={
-              id:_appliedColleges[isSameIndex].id,
-              collegeName: thisCollege.college?.name,
-              image: thisCollege.college?.college_logo,
-              address: thisCollege.college?.address,
-              college_slug: thisCollege.college?.college_slug,
-              collegeStream: selectedStream?.label,
-              collegeProgram: selectedProgram?.label,
-              collegeEmail:thisCollege.college?.email
-            }
-            dispatch({type:'SAVE_APPLIED_COLLEGES',payload:[..._appliedColleges]})
-        } else {    
-          dispatch({type:'SAVE_APPLIED_COLLEGES',payload:[..._appliedColleges,{
-              id:props.choiceNumber,
-              collegeName: thisCollege.college?.name,
-              image: thisCollege.college?.college_logo,
-              address: thisCollege.college?.address,
-              college_slug: thisCollege.college?.college_slug,
-              collegeStream: selectedStream?.label,
-              collegeProgram: selectedProgram?.label,
-              collegeEmail:thisCollege.college?.email
-            }]})
-        }
-      }
-    }
-  };
+  const setSelectedProgram = (e) => {
+    console.log(e)
+    let data = [...choices]
+    data[i].selectedProgram = e
+    data[i].selectedCollege = preObj
+    setChoices(data)
+  }
+
+  const setSelectedCollege = (e) => {
+    console.log(e)
+    let data = [...choices]
+    data[i].selectedCollege = e
+    setChoices(data)
+  }
 
   return (
     <>
-      <div className="dashboard-basic-info__formContainer">
-        <form>
-          <Grid
-            container
-            className="dashboard-basic-info__row"
-            justify="space-between"
-            direction="row"
-          >
-            <Grid>
-              <div className="dashboard-basic-info__formTitle">
-                Choice # {props.choiceNumber}
-              </div>
-            </Grid>
-            {index == undefined ? null : (
-              <Grid>
-                <img
-                  src="/cross-sign.png"
-                  alt="cross_sign"
-                  onClick={() => RemoveChoiceArray(props.choiceNumber)}
-                />
-              </Grid>
-            )}
-          </Grid>
-          <Grid
-            container
-            className="dashboard-basic-info__row"
-            justify="space-around"
-            direction="row"
-          >
-            <Grid
-              className={"dashboard-basic-info__grid"}
-              item
-              sm={12}
-              md={6}
-              xs={12}
-            >
-              <DropDownSelect
-                title="Choose Steam"
-                options={allStreams}
-                defaultvalue={selectedStream}
-                handleChange={(e) => setSelectedStream(e)}
-              />
-            </Grid>
-            <Grid
-              className={"dashboard-basic-info__grid"}
-              item
-              sm={12}
-              md={6}
-              xs={12}
-            >
-              <DropDownSelect
-                title="Select Specific program"
-                options={allPrograms}
-                defaultvalue={selectedProgram}
-                handleChange={(e) => setSelectedProgram(e)}
-              />
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            className="dashboard-basic-info__row"
-            justify="space-around"
-            direction="row"
-          >
-            <Grid
-              className={"dashboard-basic-info__grid"}
-              item
-              sm={12}
-              md={12}
-              xs={12}
-            >
-              <DropDownSelect
-                title="Select College"
-                options={allColleges}
-                defaultvalue={selectedCollege}
-                handleChange={(e) => setSelectedCollege(e)}
-              />
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            className="dashboard-basic-info__row"
-            justify="space-around"
-            direction="row"
-          >
-            <div className="dashboard-basic-info__buttonContainer">
-              <div
-                className="dashboard-basic-info__viewText"
-                // onClick={() => props.handelSave()}
-                onClick={handleSave}
-              >
-                Save Choice
-              </div>
-              <div
-                className="dashboard-basic-info__editText"
-                onClick={() => props.onClickAddChoice()}
-              >
-                Add More Choice
-              </div>
-            </div>
-          </Grid>
-        </form>
-      </div>
+      <Grid
+        container
+        className="dashboard-basic-info__row"
+        justify="space-between"
+        direction="row"
+      >
+        <Grid>
+          <div className="dashboard-basic-info__formTitle">
+            Choice # {choiceNumber}
+          </div>
+        </Grid>
+
+        <Grid>
+          <img
+            src="/cross-sign.png"
+            alt="cross_sign"
+            onClick={() => removeChoice(i)}
+          />
+        </Grid>
+
+      </Grid>
+      <Grid
+        container
+        className="dashboard-basic-info__row"
+        justify="space-around"
+        direction="row"
+      >
+        <Grid
+          className={"dashboard-basic-info__grid"}
+          item
+          sm={12}
+          md={6}
+          xs={12}
+        >
+          <DropDownSelect
+            title="Choose Steam"
+            options={allStreams}
+            defaultvalue={selectedStream}
+            handleChange={(e) => setSelectedStream(e)}
+          />
+        </Grid>
+        <Grid
+          className={"dashboard-basic-info__grid"}
+          item
+          sm={12}
+          md={6}
+          xs={12}
+        >
+          <DropDownSelect
+            title="Select Specific program"
+            options={allPrograms}
+            defaultvalue={selectedProgram}
+            handleChange={(e) => setSelectedProgram(e)}
+          />
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        className="dashboard-basic-info__row"
+        justify="space-around"
+        direction="row"
+      >
+        <Grid
+          className={"dashboard-basic-info__grid"}
+          item
+          sm={12}
+          md={12}
+          xs={12}
+        >
+          <DropDownSelect
+            title="Select College"
+            options={allColleges}
+            defaultvalue={selectedCollege}
+            handleChange={(e) => setSelectedCollege(e)}
+          />
+        </Grid>
+      </Grid>
     </>
   );
 };

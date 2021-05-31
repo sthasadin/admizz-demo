@@ -47,7 +47,7 @@ const DashboardBasicInfo = (props) => {
     value: "",
   });
   const [guardianCity, setGuardianCity] = useState("");
-  const [guardianZipCode, setGuardianZipCode] = useState("" as string);
+  // const [guardianZipCode, setGuardianZipCode] = useState("" as string);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [formError, setFormError] = useState({} as any);
   const dispatch = useDispatch();
@@ -225,7 +225,7 @@ const DashboardBasicInfo = (props) => {
         guardianCountry: guardianCountry.value,
         guardianState: guardianState.value,
         guardianCity,
-        guardianZipCode,
+        // guardianZipCode,
       });
       props.handleNext();
       // }
@@ -264,7 +264,7 @@ const DashboardBasicInfo = (props) => {
         value:props.data.guardianState
       });
       setGuardianCity(props.data.guardianCity);
-      setGuardianZipCode(props.data.guardianZipCode);
+      // setGuardianZipCode(props.data.guardianZipCode);
     }
   }, [props.data]);
 
@@ -544,13 +544,13 @@ const DashboardBasicInfo = (props) => {
                   md={4}
                   xs={12}
                 >
-                  <Input
+                  {/* <Input
                     className={"dashboard-basic-info__input"}
                     fullWidth
                     label="Zip Code"
                     value={guardianZipCode}
                     onChange={(e) => setGuardianZipCode(e.target.value)}
-                  />
+                  /> */}
                 </Grid>
                 <Grid
                   className={"dashboard-basic-info__grid"}

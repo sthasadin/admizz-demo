@@ -66,22 +66,7 @@ const DashboardBasicInfoPage = () => {
   const [backgroundInfo, setBackgroundInfo] = useState({});
   const [academicInfo, setAcademicInfo] = useState({});
   const [selectedChoice, setSelectedChoice] = useState([]);
-  // const { application } = useSelector(
-  //   (state: any) => state.student_application
-  // );
-  // const router = useRouter();
-
-  // useEffect(()=> {
-  //   if (router.query?.edit === 'true' && application) {
-  //     setBasicInfo(application?.basicInfo)
-  //   }
-  // },[router.query , application])
-  // useEffect(() => {
-  //   console.log("basicInfo", basicInfo);
-  //   console.log("backgroundInfo", backgroundInfo);
-  //   console.log("academicInfo", academicInfo);
-  //   console.log("selectedChoice", selectedChoice);
-  // }, [basicInfo, backgroundInfo, academicInfo, selectedChoice]);
+  const [info, setInfo] = useState([]);
 
   const getUser = async (id: string) => {
     const user = await dispatch(getAuthUser(id));
@@ -160,8 +145,9 @@ const DashboardBasicInfoPage = () => {
             handleNext={handleNext}
             handleBack={handleBack}
             getData={setSelectedChoice}
-            data={selectedChoice}
-            selectedData={basicInfo}
+            selectedChoice={selectedChoice}
+            info={info}
+            setInfo={setInfo}
           />
         );
       case 4:

@@ -30,7 +30,6 @@ export const DashboardAcademicInfo = (props) => {
   });
 
   const { selectedLevel } = props.selectedLevel;
-  console.log(selectedLevel);
 
   const [certificatesImage, setCertificatesImage] = useState({
     highSchool: null,
@@ -95,12 +94,13 @@ export const DashboardAcademicInfo = (props) => {
 
   //  image selecting
   const addImage = (image, imageName) => {
+    console.log({image:image.target.files[0], imageName})
     setCertificatesImage({
       ...certificatesImage,
       [imageName]: image.target.files[0],
     });
   };
-
+// console.log({certificatesImage})
   const truncateString = (str, num) => {
     if (str.length > num) {
       return str.slice(0, num) + "...";
@@ -351,7 +351,7 @@ export const DashboardAcademicInfo = (props) => {
                 <Grid item sm={12} md={4} xs={12}>
                   {certificatesImage?.school && (
                     <div style={{ display: "flex", marginTop: "10px" }}>
-                      {truncateString(certificatesImage.school.name, 20)}{" "}
+                      {truncateString(certificatesImage.school.name, 10)}{" "}
                       <img
                         src="/check.png"
                         alt="check"
@@ -409,7 +409,7 @@ export const DashboardAcademicInfo = (props) => {
                 <Grid item sm={12} md={4} xs={12}>
                   {certificatesImage?.highSchool && (
                     <div style={{ display: "flex", marginTop: "10px" }}>
-                      {truncateString(certificatesImage.highSchool.name, 20)}{" "}
+                      {truncateString(certificatesImage.highSchool.name, 10)}{" "}
                       <img
                         src="/check.png"
                         alt="check"
@@ -522,7 +522,7 @@ export const DashboardAcademicInfo = (props) => {
                 <Grid item sm={12} md={4} xs={12}>
                   {certificatesImage?.post_Gradute && (
                     <div style={{ display: "flex", marginTop: "10px" }}>
-                      {truncateString(certificatesImage?.post_Gradute.name, 20)}{" "}
+                      {truncateString(certificatesImage?.post_Gradute.name, 10)}{" "}
                       <img
                         src="/check.png"
                         alt="check"
@@ -554,6 +554,7 @@ export const DashboardAcademicInfo = (props) => {
                 xs={12}
               >
                 <Input
+                  type="text"
                   className={"dashboard-basic-info__input"}
                   fullWidth
                   label="Title"
@@ -568,10 +569,10 @@ export const DashboardAcademicInfo = (props) => {
                 alignContent="center"
               >
                 <div className="dashboard-basic-info__uploadButtonContainer">
-                  <label htmlFor="upload-photo">
+                  <label htmlFor="upload-photo-other">
                     <input
                       style={{ display: "none" }}
-                      id="upload-photo"
+                      id="upload-photo-other"
                       name="upload-photo"
                       type="file"
                       onChange={(e) => {
@@ -592,7 +593,7 @@ export const DashboardAcademicInfo = (props) => {
               <Grid item sm={12} md={3} xs={12}>
                 {certificatesImage?.other && (
                   <div style={{ display: "flex", marginTop: "10px" }}>
-                    {truncateString(certificatesImage.other.name, 20)}{" "}
+                    {truncateString(certificatesImage.other.name, 10)}{" "}
                     <img
                       src="/check.png"
                       alt="check"

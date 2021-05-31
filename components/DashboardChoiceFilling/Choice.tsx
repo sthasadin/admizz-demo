@@ -1,31 +1,44 @@
-import React, { useEffect, useMemo } from "react";
-import {
-  getAllPrograms,
-  getCollegesByCourses,
-} from "../../store/Action/courses.action";
-import { useSelector, useDispatch } from "react-redux";
+import React, {  useState } from "react";
+import { useSelector } from "react-redux";
 import { Grid } from "@material-ui/core";
 import { DropDownSelect } from "../DropDownSelect";
+import { CoursesService } from "@/store/api/coursesApi";
 
 const preObj = { label: '', value: '' }
+const preArr = []
 
 const selectCollege = ({ allStreams, choiceNumber, choices, setChoices, removeChoice }: any) => {
+  
+  const [allPrograms, set_allPrograms] = useState([])
+  const [allColleges, setallColleges] = useState([])
+  const [rawColleges, setRawColleges] = useState([])
+
+
   let i = choiceNumber - 1
   let { selectedStream, selectedProgram, selectedCollege } = choices[i]
-
-  const dispatch = useDispatch();
+  const coursesService = new CoursesService();
 
   const selectedLevel = useSelector(state => state.courses.selectedLevel)
   const _appliedColleges = useSelector(state => state.courses.appliedColleges)
-  const allPrograms = useSelector(state => state.courses.allPrograms.map(({ name: label, _id: value }) => ({ label, value })))
 
+  const _getPrograms = async (level,stream) => {
+    let response = await coursesService.getAllPrograms(level,stream)
+    if (response.isSuccess) {
+      set_allPrograms(response?.data?.map(({ name: label, _id: value }) => ({ label, value })))
+    }
+  }
 
+  const _getColleges = async (level,stream, program) => {
+    let response = await coursesService.getCollegesByCourses(level,stream,program)
+    if (response.isSuccess) {
+      setRawColleges(response.data)
+      setallColleges(response?.data?.map(({college:{ name: label, college_slug: value }}) => ({ label, value })))
+    }
+  }
 
   React.useEffect(() => {
     let appliedCollege = _appliedColleges.find(a => a.id === choiceNumber)
     if (appliedCollege) {
-      // console.log(allStreams.find(s => s.label === appliedCollege?.collegeStream))
-      dispatch(getAllPrograms(selectedLevel._id, allStreams.find(s => s.label === appliedCollege?.collegeStream)?.value));
       setSelectedStream({
         label: appliedCollege?.collegeStream,
         value: allStreams.find(s => s.label === appliedCollege?.collegeStream)?.value
@@ -43,24 +56,16 @@ const selectCollege = ({ allStreams, choiceNumber, choices, setChoices, removeCh
     }
   }, [_appliedColleges, selectedStream]);
 
-  const colleges = useSelector(state => state.courses.allColleges)
-  const allColleges = useMemo(() => {
-    return colleges.map(p => ({
-      label: p.college?.name,
-      value: p.college?.college_slug,
-    }))
-  }, [colleges])
-
   React.useEffect(() => {
     if (selectedStream.label) {
-      dispatch(getAllPrograms(selectedLevel._id, selectedStream.value));
+      _getPrograms(selectedLevel._id, selectedStream.value)
     }
   }, [selectedStream, selectedLevel]);
 
   //fetch college
   React.useEffect(() => {
     if (selectedStream.label && selectedProgram.label) {
-      dispatch(getCollegesByCourses(selectedLevel._id, selectedStream.value, selectedProgram.value));
+      _getColleges(selectedLevel._id, selectedStream.value, selectedProgram.value)
     }
   }, [selectedProgram]);
 
@@ -73,7 +78,6 @@ const selectCollege = ({ allStreams, choiceNumber, choices, setChoices, removeCh
   }
 
   const setSelectedProgram = (e) => {
-    console.log(e)
     let data = [...choices]
     data[i].selectedProgram = e
     data[i].selectedCollege = preObj
@@ -81,12 +85,29 @@ const selectCollege = ({ allStreams, choiceNumber, choices, setChoices, removeCh
   }
 
   const setSelectedCollege = (e) => {
-    console.log(e)
     let data = [...choices]
-    data[i].selectedCollege = e
+
+    let thisCollege = rawColleges.find(clg => clg.college.college_slug === e.value)
+    if (thisCollege?.college?._id !== undefined && selectedStream.value !== undefined) {
+
+      const isAlreadyExist = data.some(clg => (clg.selectedCollege.college_slug === e.value && clg.collegeStream === selectedStream?.label && clg.collegeProgram === selectedProgram?.label))
+
+      if(!isAlreadyExist) {
+
+      data[i].selectedCollege = {
+      ...e,
+      collegeName: thisCollege.college?.name || '',
+      image: thisCollege.college?.college_logo|| '',
+      address: thisCollege.college?.address || '',
+      college_slug: thisCollege.college?.college_slug|| '',
+      collegeStream: selectedStream?.label,
+      collegeProgram: selectedProgram?.label,
+      collegeEmail: thisCollege.college?.email || ''
+    }
     setChoices(data)
   }
-
+  }
+  }
   return (
     <>
       <Grid
@@ -101,13 +122,13 @@ const selectCollege = ({ allStreams, choiceNumber, choices, setChoices, removeCh
           </div>
         </Grid>
 
-        <Grid>
+        {i !== 0 && <Grid>
           <img
             src="/cross-sign.png"
             alt="cross_sign"
             onClick={() => removeChoice(i)}
           />
-        </Grid>
+        </Grid>}
 
       </Grid>
       <Grid

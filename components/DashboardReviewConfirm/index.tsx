@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Button } from "@material-ui/core";
-// import { Button } from "../Button";
+import Backdrop from '@material-ui/core/Backdrop';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { storage, db } from "../../firebase";
 import {useRouter} from 'next/router'
 import Checkbox from "@material-ui/core/Checkbox";
 import { UploadButton } from "../Button/uploadButton";
 import AppliedCollege from "./AppliedCollege";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+}));
+
 
 const DashboardReviewConfirm = (props) => {
   const router = useRouter()
-  const [document, setDocument] = useState({});
+  
   const [profileImage, setProfileImage] = React.useState(null);
   const [profileImageThumbnail, setProfileImageThumbnail] = React.useState(
     null
@@ -20,15 +30,22 @@ const DashboardReviewConfirm = (props) => {
     null
   );
   const [isTermsChecked, setIstermsChecked] = React.useState(false);
-  // console.log(props.selectedChoice);
+   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    setOpen(true);
+  };
+
 
   function toTitleCase(str) {
     // return str.replace(/\w\S*/g, function (txt) {
     //   return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     // });
-    return str;
+    return str
   }
-  // console.log(props);
 
   const {
     basicInfo,
@@ -39,14 +56,11 @@ const DashboardReviewConfirm = (props) => {
     setAcademicInfo,
     setBasicInfo,
     certificatesImage,
-    authUser
+    authUser,
   } = props;
 
-  // console.log(basicInfo, backgroundInfo, academicInfo, selectedChoice);
 
-  // console.log(certificatesImage);
 
-  // trunclate string
   function truncateString(str, num = 20) {
     if (str.length <= num) {
       return str;
@@ -56,13 +70,19 @@ const DashboardReviewConfirm = (props) => {
 
   // submit all form
   const handelSubmit = async () => {
+    handleToggle()
     const backgroundInformation = {
       haveAppliedForPassport: backgroundInfo.haveAppliedForPassport,
       havePassport: backgroundInfo.havePassport,
       passportDetails: backgroundInfo.passportDetails,
       citizenId: backgroundInfo.passportId,
       references: backgroundInfo.references,
+      documentImage:backgroundInfo.documentImage
     };
+
+    const basicInformation = {
+      ...basicInfo
+    }
 
     const academicInformation = {
       diplomaScore: academicInfo.diplomaScore,
@@ -83,52 +103,55 @@ const DashboardReviewConfirm = (props) => {
 
     const status = "pending";
 
+
     for (const [key] of Object?.entries(academicInfo.certificatesImage)) {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
       const mixName = name + name2;
 
-      if (academicInfo.certificatesImage[key] == null) {
-        console.log("asd");
-      } else {
-        storage
+      if (academicInfo.certificatesImage[key] !== null) {
+        await storage
           .ref(`student-application/${mixName}`)
           .put(academicInfo.certificatesImage[key])
-          .then(() => {
-            storage
+          .then(async() => {
+            await storage
               .ref("student-application")
               .child(mixName)
               .getDownloadURL()
               .then((url) => {
-                console.log(url);
-
                 academicInformation[key] = url;
-              });
+              }).catch(err => {
+                console.log(err)
+              })
           });
       }
     }
 
-    if (backgroundInfo.documentImage !== null) {
-      const name = Math.random().toString(36).slice(1);
-      const name2 = Math.random().toString(36).slice(1);
-      const mixName = name + name2;
-      await storage
-        .ref(`student-application/${mixName}`)
-        .put(backgroundInfo.documentImage)
-        .then(() => {
-          storage
-            .ref("student-application")
-            .child(mixName)
-            .getDownloadURL()
-            .then((url) => {
-              console.log(url);
-              setBackgroundInfo({
-                ...backgroundInfo,
-                Personal_Identification_Id: url,
-              });
-            });
-        });
-    }
+      if (backgroundInfo.documentImage !== null) {
+        const name = Math.random().toString(36).slice(1);
+        const name2 = Math.random().toString(36).slice(1);
+        const mixName = name + name2;
+        await storage
+          .ref(`student-application/${mixName}`)
+          .put(backgroundInfo.documentImage)
+          .then(async() => {
+            await storage
+              .ref("student-application")
+              .child(mixName)
+              .getDownloadURL()
+              .then((url) => {
+                console.log({url})
+                // setBackgroundInfo({
+                //   ...backgroundInfo,
+                //   documentImage: url,
+                // });
+                backgroundInformation.documentImage = url
+              }).catch(err => {
+                console.log(err)
+              })
+          });
+      }
+
     if (profileImage !== null) {
       const name = Math.random().toString(36).slice(1);
       const name2 = Math.random().toString(36).slice(1);
@@ -136,18 +159,16 @@ const DashboardReviewConfirm = (props) => {
       await storage
         .ref(`student-application/${mixName}`)
         .put(profileImage)
-        .then(() => {
-          storage
+        .then(async () => {
+          await storage
             .ref("student-application")
             .child(mixName)
             .getDownloadURL()
             .then((url) => {
-              console.log(url);
-              setBasicInfo({
-                ...basicInfo,
-                profileImage: url,
-              });
-            });
+              basicInformation.profileImage = url
+              }).catch(err => {
+                console.log(err)
+              })
         });
     }
 
@@ -158,77 +179,53 @@ const DashboardReviewConfirm = (props) => {
       await storage
         .ref(`student-application/${mixName}`)
         .put(signatureImage)
-        .then(() => {
-          storage
+        .then(async () => {
+          await storage
             .ref("student-application")
             .child(mixName)
             .getDownloadURL()
             .then((url) => {
-              console.log(url);
-              setBasicInfo({
-                ...basicInfo,
-                signatureImage: url,
-              });
-            });
+              basicInformation.signatureImage = url
+            }).catch(err => {
+                console.log(err)
+              })
         });
     }
-
-    // return console.log(selectedChoice);
-    // return(
-    //   console.log(basicInfo,
-    //     // documentRes,
-    //     selectedChoice,
-    //     // academicInformation,
-    //     academicInfo,
-    //     backgroundInformation,)
-    // )
-
-    // return console.log(
-    //   academicInformation,
-    //   basicInfo,
-    //   selectedChoice,
-    //   backgroundInformation
-    // );
-
-    // return console.log(
-    //   basicInfo,
-    //   selectedChoice,
-    //   backgroundInformation,
-    //   academicInformation,
-    //   status
-    // );
-
     await db
       .collection("students-application")
       .add({
-        basicInfo,
+        basicInformation,
         selectedChoice,
         backgroundInformation,
         academicInformation,
         status,
         student_id:authUser.id
       })
-      .then((res) =>
-        console.log(
-          "response",
-          res,
-          academicInformation,
-          backgroundInformation,
-          selectedChoice,
-          basicInfo
-        )
+      .then((res) =>{
+        console.log({res})
+          handleClose()}
       )
-      .catch((e) => console.log(e));
+      .catch((e) => {
+        console.log(e)
+        handleClose()
+      });
 
+      handleClose()
       router.push('/studentdashboardmain')
   };
 
-  useEffect(() => {
-    console.log("//////////////", document);
-  }, [setDocument]);
+  // useEffect(() => {
+  //   console.log("//////////////", document);
+  // }, [setDocument]);
 
   return (
     <div className="dashboard-basic-info">
+
+      {
+      <Backdrop  className={classes.backdrop} open={open}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
+      }
       {/* Background Information */}
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__sectionTitle">
@@ -388,10 +385,10 @@ const DashboardReviewConfirm = (props) => {
                           name="upload-photo"
                           type="file"
                           onChange={(e) => {
-                            setProfileImageThumbnail(
+                            e.target.files[0] && setProfileImageThumbnail(
                               URL.createObjectURL(e.target.files[0])
                             );
-                            setProfileImage(e.target.files[0]);
+                            e.target.files[0] && setProfileImage(e.target.files[0]);
                           }}
                         />
                         <UploadButton
@@ -452,12 +449,11 @@ const DashboardReviewConfirm = (props) => {
                     style={{ height: 30 }}
                   >
                     {" "}
-                    {toTitleCase(basicInfo.guardianCity)}-
-                    {basicInfo.phoneNumber}{" "}
+                    {toTitleCase(basicInfo.guardianCity)}{" "}
                   </p>
                 </div>
 
-                <div
+                {/* <div
                   style={{
                     display: "flex",
                     flexWrap: "wrap",
@@ -480,7 +476,7 @@ const DashboardReviewConfirm = (props) => {
                     {" "}
                     {toTitleCase(basicInfo.guardianZipCode)}{" "}
                   </p>
-                </div>
+                </div> */}
 
                 <div
                   style={{
@@ -569,7 +565,7 @@ const DashboardReviewConfirm = (props) => {
                       display: "flex",
                       flexWrap: "wrap",
                       marginRight: 40,
-                      width: "28%",
+                      // width: "28%",
                       minWidth: 250,
                       height: 40,
                     }}
@@ -1238,10 +1234,10 @@ const DashboardReviewConfirm = (props) => {
                       name="signature-image"
                       type="file"
                       onChange={(e) => {
-                        setSignatureImageThumbnail(
+                        e.target.files[0] && setSignatureImageThumbnail(
                           URL.createObjectURL(e.target.files[0])
                         );
-                        setSignatureImage(e.target.files[0]);
+                        e.target.files[0] && setSignatureImage(e.target.files[0]);
                       }}
                     />
 

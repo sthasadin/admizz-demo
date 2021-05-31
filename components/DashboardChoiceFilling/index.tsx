@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import ClipLoader from "react-spinners/ClipLoader";
 import Choice from "./Choice";
 const preObj = { label: '', value: '' }
-
+const preArr = []
 
 const _choice = {
   selectedStream: preObj,
@@ -13,83 +13,51 @@ const _choice = {
   selectedProgram: preObj
 }
 
-const DashboardChoiceFilling = (props) => {
+const DashboardChoiceFilling = ({handleNext,handleBack,getData,selectedChoice,info,setInfo}) => {
   const dispatch = useDispatch()
   const [choices, setChoices] = useState([_choice])
   const [loader, setLoader] = useState(false);
-  const [appliedCollege, setAppliedCollege] = useState([]);
+  const [_appliedColleges, setAppliedColleges] = useState([]);
   const allStreams = useSelector(state => state.courses.allStreams.map(({ name: label, _id: value }) => ({ label, value })))
-  const _appliedColleges = useSelector(state => state.courses.appliedColleges)
-  const colleges = useSelector(state => state.courses.allColleges)
-  function sendData() {
-    props.getData([..._appliedColleges]);
-    props.handleNext();
-  };
+
+  useEffect(()=>{
+    selectedChoice.length && setAppliedColleges([...selectedChoice])
+  },[selectedChoice])
+
+  useEffect(()=>{
+    info.length && setChoices(info)
+  },[info])
 
   function onClickAddChoice() {
     setChoices([...choices, {
-  selectedStream: preObj,
-  selectedCollege: preObj,
-  selectedProgram: preObj
+      selectedStream: preObj,
+      selectedCollege: preObj,
+      selectedProgram: preObj
 }])
   }
 
   const removeChoice = (i) => {
     let arr = [...choices];
-
     arr.splice(i, 1)
-    console.log({arr})
     setChoices(arr)
-    // let colleges = [..._appliedColleges]
-    // colleges.splice(i,1)
-    // dispatch({ type: 'SAVE_APPLIED_COLLEGES', payload: colleges })
+    let colleges = [..._appliedColleges]
+    colleges.splice(i,1)
+    setAppliedColleges(colleges)
   }
 
   const handleSave = async () => {
 
-    choices.forEach((choice, i) => {
-      let {selectedCollege, selectedStream,selectedProgram} = choice
-      let thisCollege = colleges.find(clg => clg.college.college_slug === selectedCollege.value)
+    setAppliedColleges(choices.map((c:any )=>{
+      return ({
+      collegeName: c.selectedCollege?.collegeName|| '',
+      image: c.selectedCollege?.image|| '',
+      address: c.selectedCollege?.address|| '',
+      college_slug: c.selectedCollege?.college_slug,
+      collegeStream: c.selectedStream?.label,
+      collegeProgram: c.selectedProgram?.label,
+      collegeEmail: c.selectedCollege?.email|| ''
+    })}))
 
-      if (thisCollege?.college?._id !== undefined && selectedStream.value !== undefined) {
-
-        const isAlreadyExist = _appliedColleges.some(clg => (clg.college_slug === selectedCollege.value && clg.collegeStream === selectedStream?.label && clg.collegeProgram === selectedProgram?.label))
-  
-        if (!isAlreadyExist) {
-  
-          const isSameIndex = _appliedColleges.findIndex(clg => (clg.id === i))
-          if (isSameIndex >= 0) {
-            _appliedColleges[isSameIndex] = {
-              id: _appliedColleges[isSameIndex].id,
-              collegeName: thisCollege.college?.name,
-              image: thisCollege.college?.college_logo,
-              address: thisCollege.college?.address,
-              college_slug: thisCollege.college?.college_slug,
-              collegeStream: selectedStream?.label,
-              collegeProgram: selectedProgram?.label,
-              collegeEmail: thisCollege.college?.email
-            }
-            dispatch({ type: 'SAVE_APPLIED_COLLEGES', payload: [..._appliedColleges] })
-          } else {
-            dispatch({
-              type: 'SAVE_APPLIED_COLLEGES', payload: [..._appliedColleges, {
-                id: i,
-                collegeName: thisCollege.college?.name,
-                image: thisCollege.college?.college_logo,
-                address: thisCollege.college?.address,
-                college_slug: thisCollege.college?.college_slug,
-                collegeStream: selectedStream?.label,
-                collegeProgram: selectedProgram?.label,
-                collegeEmail: thisCollege.college?.email
-              }]
-            })
-          }
-        }
-
-    }}
-
-
-    )
   };
 
   return (
@@ -310,13 +278,18 @@ const DashboardChoiceFilling = (props) => {
           <div
             className="dashboard-basic-info__backContainer"
             onClick={() => {
-              props.getData([...appliedCollege]);
-              props.handleBack()
+              setInfo([...choices])
+              getData([..._appliedColleges]);
+              handleBack()
             }}
           >
             Back
           </div>
-          <Button onClick={sendData}>Save And Continue</Button>
+          <Button onClick={() => {
+            setInfo([...choices])
+            getData([..._appliedColleges]);
+            handleNext();
+          }}>Save And Continue</Button>
         </div>
       </div>
     </div>

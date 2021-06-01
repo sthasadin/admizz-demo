@@ -68,8 +68,8 @@ const DashboardBasicInfo = (props) => {
       setEmail(authUser?.email);
       setNationality(
         authUser?.country === "Nepal"
-          ? { label: "Nepal", value: "Nepali" }
-          : { label: "indain", value: "indain" }
+          ? { label: "Nepali", value: "nepal" }
+          : { label: "Indain", value: "india" }
       );
       setCountryCode(authUser?.phoneNumber?.split("-")[0]);
       setPhoneNumber(authUser?.phoneNumber?.split("-")[1]);

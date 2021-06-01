@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid, Button } from "@material-ui/core";
 import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import ClipLoader from "react-spinners/ClipLoader";
 import { storage, db } from "../../firebase";
 import {useRouter} from 'next/router'
 import Checkbox from "@material-ui/core/Checkbox";
@@ -223,7 +224,8 @@ const DashboardReviewConfirm = (props) => {
 
       {
       <Backdrop  className={classes.backdrop} open={open}>
-        <CircularProgress color="inherit" />
+        {/* <CircularProgress color="inherit" /> */}
+        <ClipLoader color={"green"} loading={open} size={150} />
       </Backdrop>
       }
       {/* Background Information */}

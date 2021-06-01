@@ -46,7 +46,7 @@ const DashboardChoiceFilling = ({handleNext,handleBack,getData,selectedChoice,in
   }
 
   const handleSave = async () => {
-
+setLoader(true)
     setAppliedColleges(choices.map((c:any )=>{
       return ({
       collegeName: c.selectedCollege?.collegeName|| '',
@@ -57,6 +57,7 @@ const DashboardChoiceFilling = ({handleNext,handleBack,getData,selectedChoice,in
       collegeProgram: c.selectedProgram?.label,
       collegeEmail: c.selectedCollege?.email|| ''
     })}))
+    setLoader(false)
 
   };
 

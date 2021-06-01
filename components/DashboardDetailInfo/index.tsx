@@ -2,11 +2,11 @@ import React from "react";
 import { useRouter } from "next/router";
 const DashboardDetailInfo = ({application}) => {
   const router = useRouter()
-  const {basicInfo,backgroundInformation, selectedChoice} = application || {}
+  const {basicInformation,backgroundInformation, selectedChoice} = application || {}
   return (
     <div className="dashboard-detail-info">
       {/* <Basic Card Info */}
-    { basicInfo && <div className="dashboard-detail-info__detailCard">
+    { basicInformation && <div className="dashboard-detail-info__detailCard">
         <div className="dashboard-detail-info__detailCardTitle">
           Basic Information
         </div>
@@ -16,7 +16,7 @@ const DashboardDetailInfo = ({application}) => {
               Name
             </div>
             <div className="dashboard-detail-info__valueText">
-               {basicInfo?.fullName}
+               {basicInformation?.fullName}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -24,7 +24,7 @@ const DashboardDetailInfo = ({application}) => {
               Email
             </div>
             <div className="dashboard-detail-info__valueText">
-              {basicInfo?.email}
+              {basicInformation?.email}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -32,7 +32,7 @@ const DashboardDetailInfo = ({application}) => {
               Phone 
             </div>
             <div className="dashboard-detail-info__valueText">
-               {basicInfo?.countryCode} {basicInfo?.phoneNumber}
+               {basicInformation?.countryCode} {basicInformation?.phoneNumber}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -40,7 +40,7 @@ const DashboardDetailInfo = ({application}) => {
               Gender
             </div>
             <div className="dashboard-detail-info__valueText">
-               {basicInfo?.gender}
+               {basicInformation?.gender}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -48,7 +48,7 @@ const DashboardDetailInfo = ({application}) => {
               Nationality 
             </div>
             <div className="dashboard-detail-info__valueText">
-               {basicInfo?.nationality}
+               {basicInformation?.nationality}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -64,7 +64,7 @@ const DashboardDetailInfo = ({application}) => {
               Date of Birth
             </div>
             <div className="dashboard-detail-info__valueText">
-               {basicInfo?.DOB}
+               {basicInformation?.DOB}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -72,22 +72,22 @@ const DashboardDetailInfo = ({application}) => {
               Guardian Address
             </div>
             <div className="dashboard-detail-info__valueText">
-               {basicInfo?.guardianCountry},{basicInfo?.guardianState}, {basicInfo?.guardianAddress},{basicInfo?.guardianCity}
+               {basicInformation?.guardianCountry},{basicInformation?.guardianState}, {basicInformation?.guardianAddress},{basicInformation?.guardianCity}
             </div>
           </div>
-          <div className="dashboard-detail-info__cardRow">
+          {/* <div className="dashboard-detail-info__cardRow">
             <div className="dashboard-detail-info__keyText">
               Zip Code
             </div>
             <div className="dashboard-detail-info__valueText">
-               {basicInfo?.guardianZipCode}
+               {basicInformation?.guardianZipCode}
             </div>
-          </div>
+          </div> */}
           <div className="dashboard-detail-info__cardRowButton">
             {/* <div className="dashboard-detail-info__viewText">
               View
             </div> */}
-            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinfo/Apply?edit=true')} style={{cursor:'pointer'}}>
+            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinforamtion/Apply?edit=true')} style={{cursor:'pointer'}}>
               Edit
             </div> */}
           </div>
@@ -165,7 +165,7 @@ const DashboardDetailInfo = ({application}) => {
             {/* <div className="dashboard-detail-info__viewText">
               View
             </div> */}
-            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinfo/Apply?edit=true')} style={{cursor:'pointer'}}>
+            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinforamtion/Apply?edit=true')} style={{cursor:'pointer'}}>
               Edit
             </div> */}
           </div>
@@ -183,7 +183,7 @@ const DashboardDetailInfo = ({application}) => {
               Level
             </div>
             <div className="dashboard-detail-info__valueText">
-              {application?.basicInfo?.selectedLevel}
+              {application?.basicInformation?.selectedLevel}
             </div>
           </div>
           <div className="dashboard-detail-info__cardRow">
@@ -214,7 +214,7 @@ const DashboardDetailInfo = ({application}) => {
             {/* <div className="dashboard-detail-info__viewText">
               View
             </div> */}
-            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinfo/Apply?edit=true')} style={{cursor:'pointer'}}>
+            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinforamtion/Apply?edit=true')} style={{cursor:'pointer'}}>
               Edit
             </div> */}
           </div>

@@ -12,7 +12,7 @@ const Topbar = (props: any) => {
         <div className="topbar__contact">
           <div className="contact">
             <div className="contact__icon">
-              <FontAwesomeIcon icon={faMicrophoneAlt} />
+              {/* <FontAwesomeIcon icon={faMicrophoneAlt} /> */}
 
               <img src="/contactIcon.png" alt="contact-us" />
             </div>
@@ -35,7 +35,7 @@ const Topbar = (props: any) => {
           </div>
 
           <div className="topbar__signup">
-            {!auth.currentUser ? (
+            {!auth?.currentUser ? (
               <div className="signup">
                 <div className="signup__icon">
                   <FontAwesomeIcon icon={faUserTie} />

@@ -4,7 +4,7 @@ import { GET_APPLICATION } from "../const";
 export const getStudentApplication = (id) => {
   return async (dispatch) => {
     try {
-      console.log(id)
+     
       let applications = []
       let querySnapshot = await db.collection('students-application').where('student_id','==',id).get()
       // console.log(doc.data())
@@ -15,7 +15,7 @@ export const getStudentApplication = (id) => {
         })
       })
       dispatch({type:GET_APPLICATION,payload:applications[0]})
-      // return applications[0]
+     
     } catch (error) {
       console.log(error)
       // return {}

@@ -39,8 +39,8 @@ const index = () => {
 
         <Carousel bulletdot={false}>
           <Introduction title="hello" />
-          {/* <Introduction title="world" />
-          <Introduction title="helloworld" /> */}
+          <Introduction title="world" />
+          <Introduction title="helloworld" />
         </Carousel>
       </div>
     </>

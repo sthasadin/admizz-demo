@@ -108,11 +108,15 @@ const DashboardDetailInfo = ({application}) => {
               {backgroundInformation?.citizenId}
             </div>
           </div>
+          <div style={{display:'flex',justifyContent:'space-between'}}>
+
+         
           <div className="dashboard-detail-info__cardRow">
             <div className="dashboard-detail-info__keyText">
               References
             </div>
           </div>
+
           <div className="dashboard-detail-info__cardRow">
             <div className="dashboard-detail-info__valueText">
               {backgroundInformation?.references?.fullName}, {backgroundInformation?.references?.emailAddress}
@@ -124,6 +128,7 @@ const DashboardDetailInfo = ({application}) => {
               {backgroundInformation?.references?.address}
             </div> */}
           </div>
+           </div>
          { backgroundInformation?.passportDetails &&<> <div className="dashboard-detail-info__cardRow">
             <div className="dashboard-detail-info__keyText">
               Passport Name

@@ -1,63 +1,79 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { Button } from "../Button";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 import Choice from "./Choice";
-const preObj = { label: '', value: '' }
-const preArr = []
+const preObj = { label: "", value: "" };
+const preArr = [];
 
 const _choice = {
   selectedStream: preObj,
   selectedCollege: preObj,
-  selectedProgram: preObj
-}
+  selectedProgram: preObj,
+};
 
-const DashboardChoiceFilling = ({handleNext,handleBack,getData,selectedChoice,info,setInfo}) => {
-  const dispatch = useDispatch()
-  const [choices, setChoices] = useState([_choice])
+const DashboardChoiceFilling = ({
+  handleNext,
+  handleBack,
+  getData,
+  selectedChoice,
+  info,
+  setInfo,
+}) => {
+  const dispatch = useDispatch();
+  const [choices, setChoices] = useState([_choice]);
   const [loader, setLoader] = useState(false);
   const [_appliedColleges, setAppliedColleges] = useState([]);
-  const allStreams = useSelector(state => state.courses.allStreams.map(({ name: label, _id: value }) => ({ label, value })))
+  const allStreams = useSelector((state) =>
+    state.courses.allStreams.map(({ name: label, _id: value }) => ({
+      label,
+      value,
+    }))
+  );
 
-  useEffect(()=>{
-    selectedChoice.length && setAppliedColleges([...selectedChoice])
-  },[selectedChoice])
+  useEffect(() => {
+    selectedChoice.length && setAppliedColleges([...selectedChoice]);
+  }, [selectedChoice]);
 
-  useEffect(()=>{
-    info.length && setChoices(info)
-  },[info])
+  useEffect(() => {
+    info.length && setChoices(info);
+  }, [info]);
 
   function onClickAddChoice() {
-    setChoices([...choices, {
-      selectedStream: preObj,
-      selectedCollege: preObj,
-      selectedProgram: preObj
-}])
+    setChoices([
+      ...choices,
+      {
+        selectedStream: preObj,
+        selectedCollege: preObj,
+        selectedProgram: preObj,
+      },
+    ]);
   }
 
   const removeChoice = (i) => {
     let arr = [...choices];
-    arr.splice(i, 1)
-    setChoices(arr)
-    let colleges = [..._appliedColleges]
-    colleges.splice(i,1)
-    setAppliedColleges(colleges)
-  }
+    arr.splice(i, 1);
+    setChoices(arr);
+    let colleges = [..._appliedColleges];
+    colleges.splice(i, 1);
+    setAppliedColleges(colleges);
+  };
 
   const handleSave = async () => {
-
-    setAppliedColleges(choices.map((c:any )=>{
-      return ({
-      collegeName: c.selectedCollege?.collegeName|| '',
-      image: c.selectedCollege?.image|| '',
-      address: c.selectedCollege?.address|| '',
-      college_slug: c.selectedCollege?.college_slug,
-      collegeStream: c.selectedStream?.label,
-      collegeProgram: c.selectedProgram?.label,
-      collegeEmail: c.selectedCollege?.email|| ''
-    })}))
-
+    setAppliedColleges(
+      choices.map((c: any) => {
+        return {
+          collegeName: c.selectedCollege?.collegeName || "",
+          image: c.selectedCollege?.image || "",
+          address: c.selectedCollege?.address || "",
+          college_slug: c.selectedCollege?.college_slug,
+          collegeStream: c.selectedStream?.label,
+          collegeProgram: c.selectedProgram?.label,
+          collegeEmail: c.selectedCollege?.email || "",
+        };
+      })
+    );
   };
 
   return (
@@ -86,17 +102,15 @@ const DashboardChoiceFilling = ({handleNext,handleBack,getData,selectedChoice,in
         <div className="dashboard-basic-info__sectionTitle">Choice Filling</div>
         <div className="dashboard-basic-info__formContainer">
           <form>
-            {
-              choices.map((choice, i) => (
-                <Choice
-                  allStreams={allStreams}
-                  choiceNumber={i + 1}
-                  choices={choices}
-                  setChoices={setChoices}
-                  removeChoice={removeChoice}
-                />
-              ))
-            }
+            {choices.map((choice, i) => (
+              <Choice
+                allStreams={allStreams}
+                choiceNumber={i + 1}
+                choices={choices}
+                setChoices={setChoices}
+                removeChoice={removeChoice}
+              />
+            ))}
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -106,19 +120,18 @@ const DashboardChoiceFilling = ({handleNext,handleBack,getData,selectedChoice,in
               <div className="dashboard-basic-info__buttonContainer">
                 <div
                   className="dashboard-basic-info__viewText"
-                  onClick={() =>handleSave()}
+                  onClick={() => handleSave()}
                 >
                   Save Choice
-              </div>
+                </div>
                 <div
                   className="dashboard-basic-info__editText"
                   onClick={() => onClickAddChoice()}
                 >
                   Add More Choice
-              </div>
+                </div>
               </div>
             </Grid>
-
           </form>
         </div>
       </div>
@@ -278,23 +291,26 @@ const DashboardChoiceFilling = ({handleNext,handleBack,getData,selectedChoice,in
           <div
             className="dashboard-basic-info__backContainer"
             onClick={() => {
-              setInfo([...choices])
+              setInfo([...choices]);
               getData([..._appliedColleges]);
-              handleBack()
+              handleBack();
             }}
           >
             Back
           </div>
-          <Button onClick={() => {
-            setInfo([...choices])
-            getData([..._appliedColleges]);
-            handleNext();
-          }}>Save And Continue</Button>
+          <Button
+            onClick={() => {
+              setInfo([...choices]);
+              getData([..._appliedColleges]);
+              handleNext();
+            }}
+          >
+            Save And Continue
+          </Button>
         </div>
       </div>
     </div>
   );
-
-}
+};
 
 export { DashboardChoiceFilling };

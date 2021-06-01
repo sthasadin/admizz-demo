@@ -27,32 +27,35 @@ const index = () => {
   const { application } = useSelector(
     (state: any) => state.student_application
   );
+  console.log(auth.currentUser.uid);
   return (
-    <div className="container">
-      <Head>
-        <DashboardNavbar />
-        <title>Admizz - Home</title>
-        <link rel="icon" href="favicon.svg" />
-      </Head>
-      <main className="student-dashboard-main">
-        <div className="student-dashboard-main__sidebar">
-          <DashboardSidebar />
-        </div>
-        <div className="student-dashboard-main__mainpage">
-          {!application?.id && (
-            <div className="student-dashboard-main__welcomeCard">
-              <DashboardWelcomeCard />
+    <>
+      <DashboardNavbar />
+      <div className="container">
+        <Head>
+          <title>Admizz - Home</title>
+          <link rel="icon" href="favicon.svg" />
+        </Head>
+        <main className="student-dashboard-main">
+          <div className="student-dashboard-main__sidebar">
+            <DashboardSidebar />
+          </div>
+          <div className="student-dashboard-main__mainpage">
+            {!application?.id && (
+              <div className="student-dashboard-main__welcomeCard">
+                <DashboardWelcomeCard />
+              </div>
+            )}
+            <div className="student-dashboard-main__detailInfo">
+              <DashboardDetailInfo application={application} />
             </div>
-          )}
-          <div className="student-dashboard-main__detailInfo">
-            <DashboardDetailInfo application={application} />
+            <div className="student-dashboard-main__recommendation">
+              <DashboardRecommend collegeList={collegeList} />
+            </div>
           </div>
-          <div className="student-dashboard-main__recommendation">
-            <DashboardRecommend collegeList={collegeList} />
-          </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 };
 

@@ -17,7 +17,7 @@ const DashboardApplicationStatus = ({application}) => {
               Status
             </div>
             <div className="dashboard-detail-info__valueText">
-               {application?.status}
+               <span>{application?.status}</span>
             </div>
           </div>
            {rest?.offer_letter && <div className="dashboard-detail-info__cardRow">
@@ -29,6 +29,14 @@ const DashboardApplicationStatus = ({application}) => {
             )}
             </div>
           </div>}
+          <div className="dashboard-detail-info__cardRow">
+            <div className="dashboard-detail-info__keyText">
+              Remark
+            </div>
+            <div className="dashboard-detail-info__valueText">
+               {application?.remark}
+            </div>
+          </div>
           <div className="dashboard-detail-info__cardRowButton">
             {/* <div className="dashboard-detail-info__viewText">
               View

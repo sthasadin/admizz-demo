@@ -95,14 +95,18 @@ const Register = () => {
           formValue.email,
           formValue.password
         );
-        if(authUser.user){
-          await db.collection("users").doc(authUser.user.uid).set({
-          fullName: formValue.fullName,
-          email: formValue.email,
-          phoneNumber: formValue.countryCode + "-" + formValue.phoneNumber,
-          country: formValue.country,
-        });
-        router.push("/studentdashboardmain");}
+        if (authUser.user) {
+          await db
+            .collection("users")
+            .doc(authUser.user.uid)
+            .set({
+              fullName: formValue.fullName,
+              email: formValue.email,
+              phoneNumber: formValue.countryCode + "-" + formValue.phoneNumber,
+              country: formValue.country,
+            });
+          router.push("/studentdashboardmain");
+        }
       }
       setLoading(false);
     } catch (err) {
@@ -281,15 +285,7 @@ const Register = () => {
                     type="text"
                   />
                 </div>
-                {/* <Input
-                fullWidth
-                onChange={handleChange}
-                name={"phoneNumber"}
-                icon={PhoneIcon}
-                placeholder="Phone Number*"
-                error={!!formError.phoneNumber}
-                errorMessage={formError.phoneNumber}
-                type="text" /> */}
+
                 <Select
                   useLabel
                   options={countryList}

@@ -229,7 +229,10 @@ const Login = () => {
               <div className="signin__forgot">
                 <a href="#">Forgot Password?</a>
               </div>
-              <div className="signin__submit column">
+              <div
+                className="signin__submit column"
+                style={{ flexDirection: "column", gap: "1rem" }}
+              >
                 <Button loading={loading} htmlType={"submit"} fullWidth>
                   Login
                 </Button>

@@ -4,12 +4,12 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import { Select as SelectComponent } from "@material-ui/core";
-import InputAdornment from '@material-ui/core/InputAdornment';
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 interface Props {
   title?: string;
   options: any[];
-  value?:any;
+  value?: any;
   icon?: any;
   label?: string;
   useValue?: boolean;
@@ -27,45 +27,46 @@ interface Props {
 const Select = (props: Props) => {
   const useStyles = makeStyles((theme) => ({
     formControl: {
-      display: 'relative',
+      display: "relative",
       width: (props: Props) => {
-        return props.width ? props.width : "100%"
+        return props.width ? props.width : "100%";
       },
       minWidth: (props: Props) => {
-        return props.minWidth ? props.minWidth : 120
+        return props.minWidth ? props.minWidth : 120;
       },
-      color: 'red',
+      color: "red",
     },
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
     label: {
-      color: '#a9a9a9',
+      color: "#a9a9a9",
       paddingLeft: 22,
     },
     select: {
-      '& .PrivateNotchedOutline-legendLabelled-8': {
+      "& .PrivateNotchedOutline-legendLabelled-8": {
         visibility: "unset",
         color: (props: Props) => {
-          return props.error ? '#FF0000' : '#828282'
-        }
-      }
+          return props.error ? "#FF0000" : "#828282";
+        },
+      },
     },
     errorMessage: {
       fontSize: 12,
-      color: '#FF0000',
-      position: 'absolute',
-      bottom: '-16px',
-      left: '4px'
-    }
+      color: "#FF0000",
+      position: "absolute",
+      bottom: "-16px",
+      left: "4px",
+    },
   }));
   const classes = useStyles(props);
-  // console.log(props.defaultValue)
 
   const Icon = props.icon;
   return (
-    <FormControl className={classes.formControl} variant="outlined" >
-      <InputLabel id="demo-simple-select-label" className={classes.label}>{props.title}</InputLabel>
+    <FormControl className={classes.formControl} variant="outlined">
+      <InputLabel id="demo-simple-select-label" className={classes.label}>
+        {props.title}
+      </InputLabel>
       <SelectComponent
         labelId="demo-simple-select-label"
         id="demo-simple-select"
@@ -73,25 +74,34 @@ const Select = (props: Props) => {
         value={props.value}
         className={`${classes.select} ${props.className}`}
         label={props.label}
-        defaultValue={props.defaultValue ? props.defaultValue : ' '}
-        startAdornment={(props.icon ?
-          <InputAdornment position="start">
-            <Icon />
-          </InputAdornment>
-          : <></>
-        )}
+        defaultValue={props.defaultValue ? props.defaultValue : " "}
+        startAdornment={
+          props.icon ? (
+            <InputAdornment position="start">
+              <Icon />
+            </InputAdornment>
+          ) : (
+            <></>
+          )
+        }
         onChange={props.onChange}
         error={props.error}
       >
-        {props.options && props.options.map((item, key) => {
-          return (
-            <MenuItem key={key} value={props.useLabel ? item.label : item.value}>
-              {props.useValue ? item.value : item.label}
-            </MenuItem>
-          )
-        })}
+        {props.options &&
+          props.options.map((item, key) => {
+            return (
+              <MenuItem
+                key={key}
+                value={props.useLabel ? item.label : item.value}
+              >
+                {item.label}
+              </MenuItem>
+            );
+          })}
       </SelectComponent>
-      {props.errorMessage && <span className={classes.errorMessage}>{props.errorMessage}</span>}
+      {props.errorMessage && (
+        <span className={classes.errorMessage}>{props.errorMessage}</span>
+      )}
     </FormControl>
   );
 };

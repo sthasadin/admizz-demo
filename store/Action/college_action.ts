@@ -7,7 +7,7 @@ export const getCourses = () => async (dispatch: Dispatch) => {
     let querySnapshot = await db.collection("courses").get();
 
     querySnapshot.forEach(function (doc) {
-      //   console.log(doc);
+     
       const data = doc.data();
       data.id = doc.id;
       streams.push(data);

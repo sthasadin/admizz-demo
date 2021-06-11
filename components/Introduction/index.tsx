@@ -10,7 +10,6 @@ const index = () => {
 
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
-      console.log("started");
       if (window.scrollY > 600) {
         setActive(true);
       } else {

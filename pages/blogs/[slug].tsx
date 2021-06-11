@@ -101,7 +101,6 @@ const blogDetail = () => {
                       <ListItem
                         button
                         className="blog-detail__listItemContainer"
-                        onClick={() => console.log("Share Clicked")}
                       >
                         <ListItemAvatar>
                           <FacebookShareButton
@@ -118,10 +117,7 @@ const blogDetail = () => {
                         <ListItemText primary={"Facebook"} />
                       </ListItem>
 
-                      <ListItem
-                        button
-                        onClick={() => console.log("Share Clicked")}
-                      >
+                      <ListItem button>
                         <ListItemAvatar>
                           <WhatsappShareButton
                             url={`http://localhost:3000/blogs/${blog.blog_slug}`}

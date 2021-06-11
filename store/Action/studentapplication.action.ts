@@ -7,7 +7,7 @@ export const getStudentApplication = (id) => {
      
       let applications = []
       let querySnapshot = await db.collection('students-application').where('student_id','==',id).get()
-      // console.log(doc.data())
+     
       querySnapshot.forEach(doc => {
         applications.push({
             ...doc.data(),

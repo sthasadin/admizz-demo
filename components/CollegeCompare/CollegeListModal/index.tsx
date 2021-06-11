@@ -51,15 +51,6 @@ const index = (props: any) => {
     setCollegeList(filter);
   };
 
-  // const filteredCollege = _collegeList?.filter(
-  //   (college) =>
-  //     !selectedCollegeArray.find(
-  //       (selectedCollege) => college?.id === selectedCollege._id
-  //     )
-  // );
-
-  // console.log(filteredCollege);
-
   return (
     <>
       <Modal

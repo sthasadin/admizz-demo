@@ -2,7 +2,8 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Input } from "../Input";
 import { Grid } from "@material-ui/core";
 import Snackbar from "@material-ui/core/Snackbar";
-import { getLevels,getStreams } from "../../store/Action/courses.action";
+import * as yup from "yup";
+import { getLevels, getStreams } from "../../store/Action/courses.action";
 import { useDispatch, useSelector } from "react-redux";
 import { Select } from "../Select";
 
@@ -13,6 +14,21 @@ import { DropDownSelect } from "../DropDownSelect";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+interface studentInfoFormValue {
+  fullName: string;
+  email: string;
+
+  phoneNumber: number;
+  selectedLevel: string;
+  DOB: string;
+  nationality: string;
+  gender: string;
+  guardianAddress: string;
+  guardianCountry: string;
+  guardianState: string;
+  guardianCity: string;
+  // additional_query: string;
 }
 
 const DashboardBasicInfo = (props) => {
@@ -50,17 +66,18 @@ const DashboardBasicInfo = (props) => {
   // const [guardianZipCode, setGuardianZipCode] = useState("" as string);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [formError, setFormError] = useState({} as any);
+
   const dispatch = useDispatch();
-  
-  const allLevels = useSelector(state =>state.courses.allLevels)
-  const selectLevelOption = useMemo(()=>{
+
+  const allLevels = useSelector((state) => state.courses.allLevels);
+  const selectLevelOption = useMemo(() => {
     return allLevels.map((level) => {
-    return {
-      label: level.name,
-      value: level.name,
-    };
-  })
-  },[allLevels])
+      return {
+        label: level.name,
+        value: level.name,
+      };
+    });
+  }, [allLevels]);
 
   useEffect(() => {
     const { authUser } = props;
@@ -77,21 +94,20 @@ const DashboardBasicInfo = (props) => {
     }
   }, [props.authUser]);
 
-
   useEffect(() => {
-    dispatch(getLevels())
+    dispatch(getLevels());
   }, []);
 
-  useEffect(()=> {
+  useEffect(() => {
     if (selectedLevel.label) {
-      const _selectedLevel = allLevels.find(level => level.name === selectedLevel.label)
-      dispatch(getStreams(_selectedLevel?._id))   
+      const _selectedLevel = allLevels.find(
+        (level) => level.name === selectedLevel.label
+      );
+      dispatch(getStreams(_selectedLevel?._id));
       //saving to store so that we can it use on choice filling comp
-      dispatch({type:'SELECTED_LEVEL', payload:_selectedLevel})   
+      dispatch({ type: "SELECTED_LEVEL", payload: _selectedLevel });
     }
-  },[selectedLevel])
-
-  
+  }, [selectedLevel]);
 
   const GenderOptions = [
     {
@@ -104,7 +120,7 @@ const DashboardBasicInfo = (props) => {
     },
     {
       label: "Other",
-      value: "Fther",
+      value: "Other",
     },
   ];
 
@@ -132,7 +148,7 @@ const DashboardBasicInfo = (props) => {
 
   const CountryCodeOptions = [
     {
-      label: "+91",
+      label: "India (+91)",
       value: "+91",
     },
     {
@@ -195,79 +211,124 @@ const DashboardBasicInfo = (props) => {
     };
   });
 
-
-
-  // const handleOpenSnackbar = () => {
-  //   setSnackOpen(true);
-  // };
-
   const handleCloseSnackbar = () => {
     setSnackOpen(false);
   };
 
+  const validationSchema = yup.object().shape<studentInfoFormValue>({
+    fullName: yup.string().required("Required name"),
+    email: yup
+      .string()
+      .required("Required gmail")
+      .email("Please provide a valid email"),
+
+    phoneNumber: yup.number().required("Required phone"),
+    selectedLevel: yup.string().required("Please select the level"),
+    DOB: yup.string().required("Requried DOB"),
+    nationality: yup.string().required("Please select the nationality"),
+
+    gender: yup.string().required("Please select the gender"),
+    guardianAddress: yup.string().required("Required address"),
+    guardianCountry: yup.string().required("Please select the country"),
+    // additional_query: yup.string().required("Required query"),
+    guardianState: yup.string().required("Please select the state"),
+    guardianCity: yup.string().required("Required city"),
+  });
+
+  const handleOpenSnackbar = () => {
+    setSnackOpen(true);
+  };
+
+  const validate = async () => {
+    try {
+      await validationSchema.validate(
+        {
+          selectedLevel: selectedLevel.value,
+          fullName: fullName,
+          DOB: DOB,
+          nationality: nationality.value,
+          email,
+          phoneNumber,
+          countryCode,
+          gender: gender.value,
+          guardianAddress,
+          guardianCountry: guardianCountry.value,
+          guardianState: guardianState.value,
+          guardianCity,
+        },
+        {
+          abortEarly: false,
+        }
+      );
+      setFormError({});
+      return true;
+    } catch (err) {
+      handleOpenSnackbar();
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0];
+      });
+      setFormError({ ...errors });
+    }
+  };
+
   const sendData = async () => {
     try {
-      // setLoading(true);
-      // const isValid = await validate();
+      const isValid = await validate();
 
-      // if (isValid) {
-        // console.log({selectedLevel,nationality,gender,guardianCountry,guardianState})
-      props.getData({
-        selectedLevel: selectedLevel.value,
-        fullName,
-        DOB,
-        nationality: nationality.value,
-        email,
-        phoneNumber,
-        countryCode,
-        gender: gender.value,
-        guardianAddress,
-        guardianCountry: guardianCountry.value,
-        guardianState: guardianState.value,
-        guardianCity,
-        // guardianZipCode,
-      });
-      props.handleNext();
-      // }
-    } catch (err) {
-      console.log(err);
-    }
+      if (isValid) {
+        props.getData({
+          selectedLevel: selectedLevel.value,
+          fullName,
+          DOB,
+          nationality: nationality.value,
+          email,
+          phoneNumber,
+          countryCode,
+          gender: gender.value,
+          guardianAddress,
+          guardianCountry: guardianCountry.value,
+          guardianState: guardianState.value,
+          guardianCity,
+          // guardianZipCode,
+        });
+        props.handleNext();
+      }
+    } catch (err) {}
   };
 
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
-      console.log(props.data)
       setFullName(props.data.fullName);
       setDob(props.data.DOB);
       setSelectedLevel({
-        label:props.data.selectedLevel,
-        value:props.data.selectedLevel
-      })
+        label: props.data.selectedLevel,
+        value: props.data.selectedLevel,
+      });
       setNationality({
-        label:props.data.nationality,
-        value:props.data.nationality
+        label: props.data.nationality,
+        value: props.data.nationality,
       });
       setEmail(props.data.email);
       setPhoneNumber(props.data.phoneNumber);
       setGender({
-        label:props.data.gender,
-        value:props.data.gender
+        label: props.data.gender,
+        value: props.data.gender,
       });
-      setCountryCode(props.data.countryCode)
+      setCountryCode(props.data.countryCode);
       setGuardianAddress(props.data.guardianAddress);
       setGuardianCountry({
-        label:props.data.guardianCountry,
-        value:props.data.guardianCountry
+        label: props.data.guardianCountry,
+        value: props.data.guardianCountry,
       });
       setGuardianState({
-        label:props.data.guardianState,
-        value:props.data.guardianState
+        label: props.data.guardianState,
+        value: props.data.guardianState,
       });
       setGuardianCity(props.data.guardianCity);
       // setGuardianZipCode(props.data.guardianZipCode);
     }
   }, [props.data]);
-
 
   return (
     <div className="dashboard-basic-info">
@@ -297,9 +358,9 @@ const DashboardBasicInfo = (props) => {
                 options={selectLevelOption}
                 handleChange={(e) => setSelectedLevel(e)}
                 defaultvalue={selectedLevel}
-                // name={"selectLevel"}
-                // errorMessage={formError.selectLevel}
-                // error={!!formError.email}
+                name={"selectedLevel"}
+                errorMessage={formError.selectedLevel}
+                error={!!formError.selectedLevel}
               />
             </Grid>
           </Grid>
@@ -351,6 +412,9 @@ const DashboardBasicInfo = (props) => {
                   label="Email Address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  name={"email"}
+                  errorMessage={formError.email}
+                  error={!!formError.email}
                 />
               </Grid>
               <Grid
@@ -366,8 +430,9 @@ const DashboardBasicInfo = (props) => {
                     title="Nationality"
                     options={NationalityOptions}
                     handleChange={(e) => setNationality(e)}
-                    // name={"Nationality"}
-                    //error={""}
+                    name={"nationality"}
+                    errorMessage={formError.nationality}
+                    error={!!formError.nationality}
                   />
                 </div>
               </Grid>
@@ -392,24 +457,19 @@ const DashboardBasicInfo = (props) => {
                     minWidth={"83px"}
                     width={"90px"}
                     value={countryCode}
-                    // name={"countryCode"}
                     onChange={(e) => setCountryCode(e.target.value)}
                     className={"student-info__phone-separator"}
                   />
-                  {/* <DropDownSelect
-                    defaultvalue={countryCode}
-                    title="Country Code"
-                    options={CountryCodeOptions}
-                    handleChange={setCountryCode}
-                    // name={"Nationality"}
-                    //error={""}
-                  /> */}
+
                   <Input
                     className={"student-info__input student-info__phone"}
                     fullWidth
                     label="Phone Number"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
+                    name={"phoneNumber"}
+                    errorMessage={formError.phoneNumber}
+                    error={!!formError.phoneNumber}
                   />
                 </div>
               </Grid>
@@ -426,6 +486,9 @@ const DashboardBasicInfo = (props) => {
                   fullWidth
                   value={DOB}
                   onChange={(e) => setDob(e.target.value)}
+                  name={"DOB"}
+                  errorMessage={formError.DOB}
+                  error={!!formError.DOB}
                 />
               </Grid>
               <Grid
@@ -440,7 +503,9 @@ const DashboardBasicInfo = (props) => {
                   options={GenderOptions}
                   handleChange={setGender}
                   defaultvalue={gender}
-                  // errorMessage={""}
+                  name={"gender"}
+                  errorMessage={formError.gender}
+                  error={!!formError.gender}
                 />
               </Grid>
             </Grid>
@@ -454,7 +519,7 @@ const DashboardBasicInfo = (props) => {
         <div className="dashboard-basic-info__formContainer">
           <div className="dashboard-basic-info__marginContainer">
             <div className="dashboard-basic-info__formTitle">
-              Guardians Address
+              Personal Address
             </div>
             <hr className="dashboard-basic-info__horizontalLine" />
             <form>
@@ -468,51 +533,18 @@ const DashboardBasicInfo = (props) => {
                   className={"dashboard-basic-info__grid"}
                   item
                   sm={12}
-                  md={4}
+                  md={12}
                   xs={12}
                 >
                   <Input
                     className={"dashboard-basic-info__input"}
                     fullWidth
-                    label="Guardian Address"
+                    label="Personal Address"
                     value={guardianAddress}
                     onChange={(e) => setGuardianAddress(e.target.value)}
-                  />
-                </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={4}
-                  xs={12}
-                >
-                  <DropDownSelect
-                    title="Country"
-                    options={CountryOption}
-                    handleChange={setGuardianCountry}
-                    defaultvalue={guardianCountry}
-                    // name={"country"}
-                    // errorMessage={""}
-                  />
-                </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={4}
-                  xs={12}
-                >
-                  <DropDownSelect
-                    title="State"
-                    handleChange={setGuardianState}
-                    defaultvalue={guardianState}
-                    // name={"state"}
-                    // errorMessage={""}
-                    options={
-                      guardianCountry?.value === "Nepal"
-                        ? NepalStateOption
-                        : IndiaStateOption
-                    }
+                    name={"guardianAddress"}
+                    errorMessage={formError.guardianAddress}
+                    error={!!formError.guardianAddress}
                   />
                 </Grid>
               </Grid>
@@ -535,6 +567,9 @@ const DashboardBasicInfo = (props) => {
                     label="City"
                     value={guardianCity}
                     onChange={(e) => setGuardianCity(e.target.value)}
+                    name={"guardianCity"}
+                    errorMessage={formError.guardianCity}
+                    error={!!formError.guardianCity}
                   />
                 </Grid>
                 <Grid
@@ -544,13 +579,15 @@ const DashboardBasicInfo = (props) => {
                   md={4}
                   xs={12}
                 >
-                  {/* <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    label="Zip Code"
-                    value={guardianZipCode}
-                    onChange={(e) => setGuardianZipCode(e.target.value)}
-                  /> */}
+                  <DropDownSelect
+                    title="Country"
+                    options={CountryOption}
+                    handleChange={setGuardianCountry}
+                    defaultvalue={guardianCountry}
+                    name={"guardianCountry"}
+                    errorMessage={formError.guardianCountry}
+                    error={!!formError.guardianCountry}
+                  />
                 </Grid>
                 <Grid
                   className={"dashboard-basic-info__grid"}
@@ -558,19 +595,20 @@ const DashboardBasicInfo = (props) => {
                   sm={12}
                   md={4}
                   xs={12}
-                ></Grid>
-                <Grid
-                  container
-                  className="dashboard-basic-info__row"
-                  justify="space-around"
-                  direction="row"
                 >
-                  <Grid
-                    className={"dashboard-basic-info__grid"}
-                    item
-                    sm={12}
-                    xs={12}
-                  ></Grid>
+                  <DropDownSelect
+                    title="State"
+                    handleChange={setGuardianState}
+                    defaultvalue={guardianState}
+                    options={
+                      guardianCountry?.value === "Nepal"
+                        ? NepalStateOption
+                        : IndiaStateOption
+                    }
+                    name={"guardianState"}
+                    errorMessage={formError.guardianState}
+                    error={!!formError.guardianState}
+                  />
                 </Grid>
               </Grid>
             </form>
@@ -589,11 +627,11 @@ const DashboardBasicInfo = (props) => {
       </div>
       <Snackbar
         open={snackOpen}
-        autoHideDuration={6000}
+        autoHideDuration={4000}
         onClose={handleCloseSnackbar}
       >
         <Alert onClose={handleCloseSnackbar} severity="error">
-          {formError && "Error"}
+          Please check the field and try again!
         </Alert>
       </Snackbar>
     </div>

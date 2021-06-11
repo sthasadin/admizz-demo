@@ -67,7 +67,6 @@ const AddCollegeRatingAndReview = ({
   };
 
   const onSend = async () => {
-    // return console.log(review);
     setLoading(true);
     if (user) {
       let reviewToBeSubmited = {
@@ -84,7 +83,7 @@ const AddCollegeRatingAndReview = ({
     }
     setLoading(false);
     setIsRatingModal(false);
-    setIsAddReviewOpen(false)
+    setIsAddReviewOpen(false);
   };
 
   return (

@@ -27,7 +27,6 @@ const blogDetail = () => {
   };
 
   const handleClose = () => {
-    // console.log(selectedValue)
     setOpen(false);
     // setSelectedValue(value);
   };
@@ -83,7 +82,6 @@ const blogDetail = () => {
                       <ListItem
                         button
                         className="blog-detail__listItemContainer"
-                        onClick={() => console.log("Share Clicked")}
                       >
                         <ListItemAvatar>
                           <Avatar>
@@ -93,10 +91,7 @@ const blogDetail = () => {
                         <ListItemText primary={"Facebook"} />
                       </ListItem>
 
-                      <ListItem
-                        button
-                        onClick={() => console.log("Share Clicked")}
-                      >
+                      <ListItem button>
                         <ListItemAvatar>
                           <Avatar>
                             <WhatsAppIcon />

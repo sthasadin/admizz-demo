@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
       "& .MuiStepLabel-root": {
         justifyContent: "flex-start",
         alignItems: "flex-start",
+        marginTop: "-10px",
       },
       "& .MuiStepLabel-label": {
         fontFamily: `"M PLUS 1p"`,

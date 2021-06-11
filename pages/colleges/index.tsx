@@ -69,17 +69,6 @@ const collegeList = () => {
       _seletedColleges = _.uniqBy(_seletedColleges, "_id");
       colleges = _.intersectionBy(collegeList, _seletedColleges, "_id");
 
-      // console.log(colleges);
-
-      // collegeList.forEach((college) => {
-      //   if (college.courses.length) {
-      //     college.courses.forEach((course) => {
-      //       if (selectedCourses.includes(course.course_name.toUpperCase())) {
-      //         colleges.push(college);
-      //       }
-      //     });
-      //   }
-      // });
       if (selectedCourses.length) {
         colleges = _.uniqBy(colleges, "_id");
         setCollegeList(colleges);
@@ -93,7 +82,6 @@ const collegeList = () => {
   }, [selectedCourses.length]);
 
   const onSelecteCourse = (e) => {
-    // console.log(e.target.checked)
     if (e.target.checked) {
       setSeletedCourses([...selectedCourses, e.target.name.toUpperCase()]);
     }
@@ -119,7 +107,6 @@ const collegeList = () => {
   const handleSearch = () => {
     if (collegeListSearchQuery.length && collegeList.length) {
       const filteredColleges = collegeList.filter((college) => {
-        // console.log(college);
         if (
           college.name
             .trim()

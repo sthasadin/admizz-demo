@@ -53,8 +53,6 @@ const Teams = () => {
     setAllTeamMemberArray(teamArray);
   };
 
-  // console.log(showClickedMember.name);
-
   const handleClick = (id: string) => {
     const selectedMember = teamMemberArray.find((data) => data.id === id);
     setShowClickedMember(selectedMember);

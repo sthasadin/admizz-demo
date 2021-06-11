@@ -66,7 +66,7 @@ export const getQnas = (college_id) => async (dispatch: Dispatch) => {
     snapshot.docs.forEach(doc => {
 
     let data = doc.data()//the qnas of the college
-    console.log(data)
+  
     data.qnas.forEach(qna => {
     let questionBy //with populate data
     qna.questionBy.get().then(snap => {
@@ -87,7 +87,7 @@ export const getQnas = (college_id) => async (dispatch: Dispatch) => {
         })
     })
     })
-    console.log(replies)
+   
     qnas.push({
         college:college_id,
         replies,
@@ -100,5 +100,5 @@ export const getQnas = (college_id) => async (dispatch: Dispatch) => {
     })
   })
 })
-console.log(qnas)
+
 };

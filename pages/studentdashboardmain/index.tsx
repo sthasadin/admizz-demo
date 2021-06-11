@@ -27,7 +27,7 @@ const index = () => {
   const { application } = useSelector(
     (state: any) => state.student_application
   );
-  console.log(auth.currentUser.uid);
+
   return (
     <>
       <DashboardNavbar />

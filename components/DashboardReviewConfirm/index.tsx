@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Button } from "@material-ui/core";
-import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import ClipLoader from "react-spinners/ClipLoader";
 import { storage, db } from "../../firebase";
 import { useRouter } from "next/router";
+import * as yup from "yup";
 import Checkbox from "@material-ui/core/Checkbox";
 import { UploadButton } from "../Button/uploadButton";
 import AppliedCollege from "./AppliedCollege";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import { makeStyles } from "@material-ui/core/styles";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
 import { auth } from "../../firebase";
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
@@ -18,6 +25,11 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
   },
 }));
+
+interface ReviewFormValue {
+  profileImage: string;
+  signatureImage: string;
+}
 
 const DashboardReviewConfirm = (props) => {
   const router = useRouter();
@@ -31,8 +43,10 @@ const DashboardReviewConfirm = (props) => {
     null
   );
   const [isTermsChecked, setIstermsChecked] = React.useState(false);
+  const [snackOpen, setSnackOpen] = useState(false as boolean);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [formError, setFormError] = useState({} as any);
   const handleClose = () => {
     setOpen(false);
   };
@@ -46,6 +60,37 @@ const DashboardReviewConfirm = (props) => {
     // });
     return str;
   }
+
+  const validationSchema = yup.object().shape<ReviewFormValue>({
+    profileImage: yup.string().nullable().required("Please upload your photo"),
+    signatureImage: yup
+      .string()
+      .nullable()
+      .required("Please upload your signature"),
+  });
+
+  const validate = async () => {
+    try {
+      await validationSchema.validate(
+        {
+          profileImage: profileImage,
+          signatureImage: signatureImage,
+        },
+        {
+          abortEarly: false,
+        }
+      );
+      setFormError({});
+      return true;
+    } catch (err) {
+      const errors = {};
+      setSnackOpen(true);
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0];
+      });
+      setFormError({ ...errors });
+    }
+  };
 
   const {
     basicInfo,
@@ -68,164 +113,165 @@ const DashboardReviewConfirm = (props) => {
 
   // submit all form
   const handelSubmit = async () => {
-    handleToggle();
-    const backgroundInformation = {
-      haveAppliedForPassport: backgroundInfo.haveAppliedForPassport,
-      havePassport: backgroundInfo.havePassport,
-      passportDetails: backgroundInfo.passportDetails,
-      citizenId: backgroundInfo.passportId,
-      references: backgroundInfo.references,
-      documentImage: backgroundInfo.documentImage,
-    };
+    try {
+      const isValid = await validate();
+      if (isValid) {
+        handleToggle();
+        const backgroundInformation = {
+          haveAppliedForPassport: backgroundInfo.haveAppliedForPassport,
+          havePassport: backgroundInfo.havePassport,
+          passportDetails: backgroundInfo.passportDetails,
+          citizenId: backgroundInfo.passportId,
+          references: backgroundInfo.references,
+          documentImage: backgroundInfo.documentImage,
+        };
 
-    const basicInformation = {
-      ...basicInfo,
-    };
+        const basicInformation = {
+          ...basicInfo,
+        };
 
-    const academicInformation = {
-      diplomaScore: academicInfo.diplomaScore,
-      gmat: academicInfo.gmat,
-      gre: academicInfo.gre,
-      ielts: academicInfo.ielts,
-      jeeAdvance: academicInfo.jeeAdvance,
-      // level0Score: academicInfo.level0Score,
-      level1Score: academicInfo.level1Score,
-      level2Score: academicInfo.level2Score,
-      postGraduteScore: academicInfo.postGraduteScore,
-      sat: academicInfo.sat,
-      satII: academicInfo.satII,
-      schoolMarks: academicInfo.schoolMarks,
-      tofel: academicInfo.tofel,
-      underGraduate: academicInfo.underGraduate,
-    };
+        const academicInformation = {
+          diplomaScore: academicInfo.diplomaScore,
+          gmat: academicInfo.gmat,
+          gre: academicInfo.gre,
+          ielts: academicInfo.ielts,
+          jeeAdvance: academicInfo.jeeAdvance,
+          // level0Score: academicInfo.level0Score,
+          level1Score: academicInfo.level1Score,
+          level2Score: academicInfo.level2Score,
+          postGraduteScore: academicInfo.postGraduteScore,
+          sat: academicInfo.sat,
+          satII: academicInfo.satII,
+          schoolMarks: academicInfo.schoolMarks,
+          tofel: academicInfo.tofel,
+          underGraduate: academicInfo.underGraduate,
+        };
 
-    const status = "pending";
+        const status = "pending";
 
-    for (const [key] of Object?.entries(academicInfo.certificatesImage)) {
-      const name = Math.random().toString(36).slice(1);
-      const name2 = Math.random().toString(36).slice(1);
-      const mixName = name + name2;
+        for (const [key] of Object?.entries(academicInfo.certificatesImage)) {
+          const name = Math.random().toString(36).slice(1);
+          const name2 = Math.random().toString(36).slice(1);
+          const mixName = name + name2;
 
-      if (academicInfo.certificatesImage[key] !== null) {
-        await storage
-          .ref(`student-application/${mixName}`)
-          .put(academicInfo.certificatesImage[key])
-          .then(async () => {
+          if (academicInfo.certificatesImage[key] !== null) {
             await storage
-              .ref("student-application")
-              .child(mixName)
-              .getDownloadURL()
-              .then((url) => {
-                academicInformation[key] = url;
-              })
-              .catch((err) => {
-                console.log(err);
+              .ref(`student-application/${mixName}`)
+              .put(academicInfo.certificatesImage[key])
+              .then(async () => {
+                await storage
+                  .ref("student-application")
+                  .child(mixName)
+                  .getDownloadURL()
+                  .then((url) => {
+                    academicInformation[key] = url;
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
               });
+          }
+        }
+
+        if (backgroundInfo.documentImage !== null) {
+          const name = Math.random().toString(36).slice(1);
+          const name2 = Math.random().toString(36).slice(1);
+          const mixName = name + name2;
+          await storage
+            .ref(`student-application/${mixName}`)
+            .put(backgroundInfo.documentImage)
+            .then(async () => {
+              await storage
+                .ref("student-application")
+                .child(mixName)
+                .getDownloadURL()
+                .then((url) => {
+                  backgroundInformation.documentImage = url;
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            });
+        }
+
+        if (profileImage !== null) {
+          const name = Math.random().toString(36).slice(1);
+          const name2 = Math.random().toString(36).slice(1);
+          const mixName = name + name2;
+          await storage
+            .ref(`student-application/${mixName}`)
+            .put(profileImage)
+            .then(async () => {
+              await storage
+                .ref("student-application")
+                .child(mixName)
+                .getDownloadURL()
+                .then((url) => {
+                  basicInformation.profileImage = url;
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            });
+        }
+
+        if (signatureImage !== null) {
+          const name = Math.random().toString(36).slice(1);
+          const name2 = Math.random().toString(36).slice(1);
+          const mixName = name + name2;
+          await storage
+            .ref(`student-application/${mixName}`)
+            .put(signatureImage)
+            .then(async () => {
+              await storage
+                .ref("student-application")
+                .child(mixName)
+                .getDownloadURL()
+                .then((url) => {
+                  basicInformation.signatureImage = url;
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            });
+        }
+        await db
+          .collection("students-application")
+          .add({
+            basicInformation,
+            selectedChoice,
+            backgroundInformation,
+            academicInformation,
+            status,
+            student_id: auth.currentUser.uid,
+          })
+          .then((res) => {
+            handleClose();
+          })
+          .catch((e) => {
+            console.log(e);
+            handleClose();
           });
+
+        handleClose();
+        router.push("/studentdashboardmain");
       }
-    }
-
-    if (backgroundInfo.documentImage !== null) {
-      const name = Math.random().toString(36).slice(1);
-      const name2 = Math.random().toString(36).slice(1);
-      const mixName = name + name2;
-      await storage
-        .ref(`student-application/${mixName}`)
-        .put(backgroundInfo.documentImage)
-        .then(async () => {
-          await storage
-            .ref("student-application")
-            .child(mixName)
-            .getDownloadURL()
-            .then((url) => {
-              console.log({ url });
-              // setBackgroundInfo({
-              //   ...backgroundInfo,
-              //   documentImage: url,
-              // });
-              backgroundInformation.documentImage = url;
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        });
-    }
-
-    if (profileImage !== null) {
-      const name = Math.random().toString(36).slice(1);
-      const name2 = Math.random().toString(36).slice(1);
-      const mixName = name + name2;
-      await storage
-        .ref(`student-application/${mixName}`)
-        .put(profileImage)
-        .then(async () => {
-          await storage
-            .ref("student-application")
-            .child(mixName)
-            .getDownloadURL()
-            .then((url) => {
-              basicInformation.profileImage = url;
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        });
-    }
-
-    if (signatureImage !== null) {
-      const name = Math.random().toString(36).slice(1);
-      const name2 = Math.random().toString(36).slice(1);
-      const mixName = name + name2;
-      await storage
-        .ref(`student-application/${mixName}`)
-        .put(signatureImage)
-        .then(async () => {
-          await storage
-            .ref("student-application")
-            .child(mixName)
-            .getDownloadURL()
-            .then((url) => {
-              basicInformation.signatureImage = url;
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        });
-    }
-    await db
-      .collection("students-application")
-      .add({
-        basicInformation,
-        selectedChoice,
-        backgroundInformation,
-        academicInformation,
-        status,
-        student_id: auth.currentUser.uid,
-      })
-      .then((res) => {
-        console.log({ res });
-        handleClose();
-      })
-      .catch((e) => {
-        console.log(e);
-        handleClose();
+    } catch (err) {
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0];
       });
-
-    handleClose();
-    router.push("/studentdashboardmain");
+      setFormError({ ...errors });
+    }
   };
-
-  // useEffect(() => {
-  //   console.log("//////////////", document);
-  // }, [setDocument]);
 
   return (
     <div className="dashboard-basic-info">
       {
-      <Backdrop  className={classes.backdrop} open={open}>
-        {/* <CircularProgress color="inherit" /> */}
-        <ClipLoader color={"green"} loading={open} size={150} />
-      </Backdrop>
+        <Backdrop className={classes.backdrop} open={open}>
+          {/* <CircularProgress color="inherit" /> */}
+          <ClipLoader color={"green"} loading={open} size={150} />
+        </Backdrop>
       }
       {/* Background Information */}
       <div className="dashboard-basic-info__sectionContainer">
@@ -369,41 +415,47 @@ const DashboardReviewConfirm = (props) => {
                     </div>
                   </div>
                   <div className="dashboard__imageuploadcontainer">
-                    <label htmlFor="upload-photo">
-                      <div className="dashboard-basic-info__imageuploadcontainter">
-                        {profileImageThumbnail && (
-                          <img
-                            src={profileImageThumbnail}
-                            alt="avatar_logo"
-                            className="dashboard-basic-info__imageuploadcontainter__thumbnailimage"
-                          />
-                        )}
-
-                        <input
-                          // style={{ position: 'absolute', opacity: '0', width:'100%', height:'100%', border: '1px solid black' }}
-                          className="dashboard-profile-upload"
-                          id="upload-photo"
-                          name="upload-photo"
-                          type="file"
-                          onChange={(e) => {
-                            e.target.files[0] &&
-                              setProfileImageThumbnail(
-                                URL.createObjectURL(e.target.files[0])
-                              );
-                            e.target.files[0] &&
-                              setProfileImage(e.target.files[0]);
-                          }}
-                        />
-                        <UploadButton
-                          className={`dashboard-profileimage-upload ${
-                            profileImageThumbnail == null && "active"
-                          }`}
-                          startIcon={<CameraAltIcon />}
+                    <div>
+                      <label htmlFor="upload-photo">
+                        <div
+                          className="dashboard-basic-info__imageuploadcontainter"
+                          style={{ flexDirection: "column" }}
                         >
-                          Update
-                        </UploadButton>
-                      </div>
-                    </label>
+                          {profileImageThumbnail && (
+                            <img
+                              src={profileImageThumbnail}
+                              alt="avatar_logo"
+                              className="dashboard-basic-info__imageuploadcontainter__thumbnailimage"
+                            />
+                          )}
+
+                          <input
+                            // style={{ position: 'absolute', opacity: '0', width:'100%', height:'100%', border: '1px solid black' }}
+                            className="dashboard-profile-upload"
+                            id="upload-photo"
+                            name="profileImage"
+                            type="file"
+                            onChange={(e) => {
+                              e.target.files[0] &&
+                                setProfileImageThumbnail(
+                                  URL.createObjectURL(e.target.files[0])
+                                );
+                              e.target.files[0] &&
+                                setProfileImage(e.target.files[0]);
+                            }}
+                          />
+                          <UploadButton
+                            className={`dashboard-profileimage-upload ${
+                              profileImageThumbnail == null && "active"
+                            }`}
+                            startIcon={<CameraAltIcon />}
+                          >
+                            Update
+                          </UploadButton>
+                        </div>
+                      </label>
+                    </div>
+                    <div className="error-msg">{formError.profileImage}</div>
                   </div>
                 </div>
                 <div
@@ -455,31 +507,6 @@ const DashboardReviewConfirm = (props) => {
                     {toTitleCase(basicInfo.guardianCity)}{" "}
                   </p>
                 </div>
-
-                {/* <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    marginRight: 40,
-                    width: "28%",
-                    minWidth: 250,
-                    height: 40,
-                  }}
-                >
-                  <h4
-                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                    style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                  >
-                    Zip Code :
-                  </h4>
-                  <p
-                    className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                    style={{ height: 30 }}
-                  >
-                    {" "}
-                    {toTitleCase(basicInfo.guardianZipCode)}{" "}
-                  </p>
-                </div> */}
 
                 <div
                   style={{
@@ -1234,7 +1261,7 @@ const DashboardReviewConfirm = (props) => {
                     <input
                       style={{ display: "none" }}
                       id="signature-image"
-                      name="signature-image"
+                      name="signatureImage"
                       type="file"
                       onChange={(e) => {
                         e.target.files[0] &&
@@ -1249,6 +1276,9 @@ const DashboardReviewConfirm = (props) => {
                     <UploadButton startIcon="" className="">
                       Upload
                     </UploadButton>
+                    <div className="error-msg" style={{ marginTop: "10px" }}>
+                      {formError.signatureImage}
+                    </div>
                   </label>
                 </Grid>
                 {signatureImageThumbnail && (
@@ -1277,6 +1307,15 @@ const DashboardReviewConfirm = (props) => {
           <Button onClick={handelSubmit}>Confirm Application</Button>
         </div>
       </div>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="error">
+          Please check the empty field
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

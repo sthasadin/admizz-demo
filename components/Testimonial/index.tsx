@@ -20,11 +20,8 @@ const Testimonial = (props: any) => {
   };
 
   React.useEffect(() => {
-    console.log("asd");
     getAllTestimonal();
   }, []);
-
-  console.log(testimonialList);
 
   const handleOpen = () => {
     setOpen(true);

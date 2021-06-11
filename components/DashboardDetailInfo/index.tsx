@@ -21,7 +21,10 @@ const DashboardDetailInfo = ({ application }) => {
             </div>
             <div className="dashboard-detail-info__cardRow">
               <div className="dashboard-detail-info__keyText">Email</div>
-              <div className="dashboard-detail-info__valueText">
+              <div
+                className="dashboard-detail-info__valueText"
+                style={{ whiteSpace: "nowrap" }}
+              >
                 {basicInformation?.email}
               </div>
             </div>

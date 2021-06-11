@@ -71,7 +71,6 @@ const AppliedCollege = ({ selectedCollege }) => {
 
         {selectedCollege &&
           selectedCollege.map((college, i) => {
-            console.log(college?.image);
             return (
               <div className="dashboard-basic-info__rowTable" key={i}>
                 <Grid

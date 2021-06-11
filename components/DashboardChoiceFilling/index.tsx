@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { Button } from "../Button";
 import { useDispatch, useSelector } from "react-redux";
+import Snackbar from "@material-ui/core/Snackbar";
 import ClipLoader from "react-spinners/ClipLoader";
 import Choice from "./Choice";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { TrainRounded } from "@material-ui/icons";
 const preObj = { label: "", value: "" };
 const preArr = [];
 
@@ -12,6 +15,10 @@ const _choice = {
   selectedCollege: preObj,
   selectedProgram: preObj,
 };
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const DashboardChoiceFilling = ({
   handleNext,
@@ -24,6 +31,7 @@ const DashboardChoiceFilling = ({
   const dispatch = useDispatch();
   const [choices, setChoices] = useState([_choice]);
   const [loader, setLoader] = useState(false);
+  const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [_appliedColleges, setAppliedColleges] = useState([]);
   const allStreams = useSelector((state) =>
     state.courses.allStreams.map(({ name: label, _id: value }) => ({
@@ -60,20 +68,30 @@ const DashboardChoiceFilling = ({
     setAppliedColleges(colleges);
   };
 
-  const handleSave = async () => {
-setLoader(true)
-    setAppliedColleges(choices.map((c:any )=>{
-      return ({
-      collegeName: c.selectedCollege?.collegeName|| '',
-      image: c.selectedCollege?.image|| '',
-      address: c.selectedCollege?.address|| '',
-      college_slug: c.selectedCollege?.college_slug,
-      collegeStream: c.selectedStream?.label,
-      collegeProgram: c.selectedProgram?.label,
-      collegeEmail: c.selectedCollege?.email|| ''
-    })}))
-    setLoader(false)
+  const handleCheck = () => {
+    if (_appliedColleges.length) {
+      handleNext();
+    } else {
+      setSnackOpen(true);
+    }
+  };
 
+  const handleSave = async () => {
+    setLoader(true);
+    setAppliedColleges(
+      choices.map((c: any) => {
+        return {
+          collegeName: c.selectedCollege?.collegeName || "",
+          image: c.selectedCollege?.image || "",
+          address: c.selectedCollege?.address || "",
+          college_slug: c.selectedCollege?.college_slug,
+          collegeStream: c.selectedStream?.label,
+          collegeProgram: c.selectedProgram?.label,
+          collegeEmail: c.selectedCollege?.email || "",
+        };
+      })
+    );
+    setLoader(false);
   };
 
   return (
@@ -302,13 +320,23 @@ setLoader(true)
             onClick={() => {
               setInfo([...choices]);
               getData([..._appliedColleges]);
-              handleNext();
+              handleCheck();
+              //handleNext();
             }}
           >
             Save And Continue
           </Button>
         </div>
       </div>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="error">
+          Please select atleast one college for your further studies
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

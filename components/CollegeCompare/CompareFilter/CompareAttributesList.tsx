@@ -7,25 +7,6 @@ const CompareAttributesList = (props: any) => {
 
   const { selectedCollege, selectedFilters, setSelectedFilters } = props;
 
-  // useEffect(()=> {
-  // let _filters = []
-  // let newFilters = []
-  // selectedCollege.length && selectedCollege.forEach((clg, i) => {
-  //   if (i==0) {
-  //   for (const key in clg) {
-  //     _filters.push(key)
-  //   }
-  // }
-  // if(i>0){
-  //   for (const key in clg) {
-  //     if (_filters.includes(key)) {
-  //       newFilters.push(key)
-  //     }
-  //   }}
-
-  // })
-  // console.log(_filters, newFilters)
-  // },[selectedCollege])
   let filters = [
     { label: "Highest Package", value: "highest_package" },
     { label: "Min Cost of Living", value: "min_cost_living" },

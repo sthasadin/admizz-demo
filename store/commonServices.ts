@@ -17,7 +17,7 @@ export const postService = async (url, body, method:Method = "POST") => {
     if (resp.status >= 200 && resp.status < 300) {
       return apiResponse(true, resp.data, null);
     } else {
-      console.log(resp)
+    
       return apiResponse(false,resp.data, null);
     }
 
@@ -35,7 +35,7 @@ export const getService = async (url) => {
   if (resp.status >= 200 && resp.status < 300) {
       return apiResponse(true,resp.data, null);
     } else {
-      console.log(resp)
+     
       return apiResponse(false, null, resp.data);
     }
 

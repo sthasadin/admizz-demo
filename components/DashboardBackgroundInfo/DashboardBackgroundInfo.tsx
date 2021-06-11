@@ -17,6 +17,7 @@ interface BackgroundInfo {
   phoneNumber: string;
   emailAddress: string;
   address: string;
+  passportId: string;
 }
 
 function Alert(props: AlertProps) {
@@ -123,6 +124,7 @@ const DashboardBackgroundInfo = (props) => {
     phoneNumber: yup.string().required("Required phonenumber"),
     emailAddress: yup.string().required("Required emailAddress"),
     address: yup.string().required("Required address"),
+    passportId: yup.string().required("Required address"),
   });
 
   const validate = async () => {
@@ -408,6 +410,9 @@ const DashboardBackgroundInfo = (props) => {
                   label="Citizenship ID / National ID"
                   value={passportId}
                   onChange={(e) => setPassportId(e.target.value)}
+                  name="passportId"
+                  errorMessage={formError.passportId}
+                  error={!!formError.passportId}
                 />
               </Grid>
               <Grid

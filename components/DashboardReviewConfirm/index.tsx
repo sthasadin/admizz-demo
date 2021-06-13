@@ -1275,7 +1275,7 @@ const DashboardReviewConfirm = (props) => {
                       }}
                     />
 
-                    <UploadButton startIcon="" className="">
+                    <UploadButton startIcon="" className="btn-color">
                       Upload
                     </UploadButton>
                     <div className="error-msg" style={{ marginTop: "10px" }}>

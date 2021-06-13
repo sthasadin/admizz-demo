@@ -30,10 +30,16 @@
   }
   &__formContainer {
     padding: 5px 40px;
+
     width: 100%;
     background-color: white;
     border-radius: 5px;
     margin-bottom: 20px;
+  }
+
+  &__exam-score-container {
+    padding-left: 0 !important;
+    padding-top: 0 !important;
   }
   &__inputContainer {
     width: 45%;
@@ -43,7 +49,8 @@
     background-color: red;
   }
   &__grid {
-    padding-left: 15px;
+    padding-right: 15px;
+
     @media (max-width: 960px) {
       padding: 10px 0px;
     }
@@ -132,7 +139,7 @@
     letter-spacing: 0em;
     text-align: left;
     align-items: center;
-    margin-left: 30px;
+    // margin-left: 30px;
   }
   &__formText {
     font-family: Mplus 1p;
@@ -226,5 +233,14 @@
     text-align: center;
     font-size: 12px;
     color: #ff0000;
+  }
+
+  .btn-color {
+    color: #fff;
+    background-color: #5f1802;
+    &:hover {
+      color: #fff;
+      background-color: #5f1802;
+    }
   }
 }

@@ -209,7 +209,7 @@ export const DashboardAcademicInfo = (props) => {
                   sm={12}
                   md={6}
                   xs={12}
-                  style={{ paddingLeft: "15px", marginBottom: "20px" }}
+                  style={{ marginBottom: "20px" }}
                 >
                   <div className="dashboard-basic-info__formText">
                     School Marks / Class 10(X)
@@ -418,7 +418,7 @@ export const DashboardAcademicInfo = (props) => {
                       }}
                     />
 
-                    <UploadButton startIcon="" className="">
+                    <UploadButton startIcon="" className="btn-color">
                       Upload button
                     </UploadButton>
                   </label>
@@ -476,7 +476,7 @@ export const DashboardAcademicInfo = (props) => {
                         }}
                       />
 
-                      <UploadButton startIcon="" className="">
+                      <UploadButton startIcon="" className="btn-color">
                         Upload button
                       </UploadButton>
                     </label>
@@ -533,7 +533,7 @@ export const DashboardAcademicInfo = (props) => {
                       }}
                     />
 
-                    <UploadButton startIcon="" className="">
+                    <UploadButton startIcon="" className="btn-color">
                       Upload button
                     </UploadButton>
                   </label>
@@ -590,7 +590,7 @@ export const DashboardAcademicInfo = (props) => {
                       }}
                     />
 
-                    <UploadButton startIcon="" className="">
+                    <UploadButton startIcon="" className="btn-color">
                       Upload button
                     </UploadButton>
                   </label>
@@ -651,7 +651,7 @@ export const DashboardAcademicInfo = (props) => {
                       }}
                     />
 
-                    <UploadButton startIcon="" className="">
+                    <UploadButton startIcon="" className="btn-color">
                       Upload Button
                     </UploadButton>
                   </label>
@@ -689,8 +689,8 @@ export const DashboardAcademicInfo = (props) => {
               </Grid>
             </Grid>
             <div
-              className="dashboard-basic-info__formContainer"
-              style={{ paddingTop: "0px" }}
+              className="dashboard-basic-info__formContainer exam-score-container"
+              style={{ paddingLeft: "0px", paddingTop: "0px" }}
             >
               {/* <div className="dashboard-basic-info__marginContainer"> */}
               {/* <div className="dashboard-basic-info__formTitle">

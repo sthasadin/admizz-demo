@@ -455,7 +455,7 @@ const DashboardBackgroundInfo = (props) => {
                     onChange={handleImageChange}
                   />
 
-                  <UploadButton startIcon="" className="">
+                  <UploadButton startIcon=" " className="btn-color">
                     Upload button
                   </UploadButton>
                 </label>

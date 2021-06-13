@@ -911,14 +911,16 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Class 11 Score :
+                      Class {academicInfo.level2Score ? "12" : "11"} Score :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {academicInfo.level1Score}
+                      {academicInfo.level2Score
+                        ? academicInfo.level2Score
+                        : academicInfo.level1Score}
                     </p>
                   </div>
 

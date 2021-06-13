@@ -273,6 +273,7 @@ const Register = () => {
                     errorMessage={formError.countryCode}
                     className={"student-info__phone-separator"}
                   />
+
                   <Input
                     fullWidth
                     onChange={handleChange}
@@ -331,13 +332,19 @@ const Register = () => {
                 By submitting this form, you accept and agree to our
                 <span>Terms & Condition.</span>
               </div>
-              <div className="signin__submit">
-                <div className="signin__change">
-                  <a href="/login">Already Registered? Click Here To Login.</a>
-                </div>
+              <div
+                className="signin__submit"
+                style={{
+                  flexDirection: "column",
+                }}
+              >
                 <Button htmlType={"submit"} loading={loading} fullWidth>
                   Register Now
                 </Button>
+                <div className="signin__change" style={{ marginTop: "1rem" }}>
+                  <a href="/login">Already Registered? Click Here To Login.</a>
+                </div>
+
                 {/* <CallToAction className="filled">Register Now</CallToAction> */}
               </div>
             </form>

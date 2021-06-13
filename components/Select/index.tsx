@@ -61,6 +61,11 @@ const Select = (props: Props) => {
   }));
   const classes = useStyles(props);
 
+  const getCountryCode = (label) => {
+    console.log(label);
+    return label.split(" ")[1];
+  };
+
   const Icon = props.icon;
   return (
     <FormControl className={classes.formControl} variant="outlined">

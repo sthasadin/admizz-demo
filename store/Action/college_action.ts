@@ -1,4 +1,4 @@
-import { Dispatch } from "react";
+import { Dispatch } from "redux";
 import { db, storage, auth } from "../../firebase";
 
 export const getCourses = () => async (dispatch: Dispatch) => {

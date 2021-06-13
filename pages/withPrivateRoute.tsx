@@ -52,3 +52,4 @@ const withPrivateRoute = (AuthComponent) => {
 };
 
 export { withPrivateRoute };
+export default withPrivateRoute;

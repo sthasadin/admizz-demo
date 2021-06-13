@@ -38,3 +38,4 @@ const withRestrictedRoute = (AuthComponent) => {
 };
 
 export { withRestrictedRoute };
+export default withRestrictedRoute;

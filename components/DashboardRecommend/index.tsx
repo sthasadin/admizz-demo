@@ -11,7 +11,7 @@ const DashboardRecommend: FC<CollegeProps> = ({ collegeList }) => {
       <div className="dashboard-recommend__title">Recommend Colleges</div>
       <div className="dashboard-recommend__collegeList">
         {collegeList &&
-          collegeList.slice(0, 4).map((college: College, index) => {
+          collegeList.slice(0, 4).map((college: any, index) => {
             return <CollegesCard {...college} />;
           })}
       </div>

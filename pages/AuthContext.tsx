@@ -81,3 +81,4 @@ const AuthProvider = (props: any) => {
 };
 
 export { AuthProvider };
+export default AuthProvider;

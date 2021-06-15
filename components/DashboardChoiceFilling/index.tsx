@@ -290,7 +290,7 @@ const DashboardChoiceFilling = ({
                         <div className="dashboard-basic-info__tableCell">
                           <Button>
                             <a
-                              href={`http://localhost:3000/colleges/${college?.college_slug}`}
+                              href={`${process.env.BASE_URL}/colleges/${college?.college_slug}`}
                               target="_blank"
                             >
                               View Detail

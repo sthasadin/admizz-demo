@@ -104,7 +104,7 @@ const blogDetail = () => {
                       >
                         <ListItemAvatar>
                           <FacebookShareButton
-                            url={`http://localhost:3000/blogs/${blog.blog_slug}`} //temporary
+                            url={`${process.env.BASE_URL}/blogs/${blog.blog_slug}`} //temporary
                             quote={"Admizz - You just dream it."}
                             hashtag="#admizz"
                           >
@@ -120,7 +120,7 @@ const blogDetail = () => {
                       <ListItem button>
                         <ListItemAvatar>
                           <WhatsappShareButton
-                            url={`http://localhost:3000/blogs/${blog.blog_slug}`}
+                            url={`${process.env.BASE_URL}/blogs/${blog.blog_slug}`}
                             title={`${blog.title}`}
                           >
                             <Avatar>

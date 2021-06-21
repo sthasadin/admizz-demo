@@ -13,7 +13,7 @@ const ReviewInput = ({ handleChange, onSubmit, loading }: any) => {
           name="comment"
           onChange={handleChange}
           placeholder="Write your review"
-          rows="5"
+          rows={5}
           style={{ padding: "10px", outline: "none", width: "100%" }}
         />
       </div>

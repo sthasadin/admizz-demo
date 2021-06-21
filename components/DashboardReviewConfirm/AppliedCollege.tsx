@@ -147,7 +147,7 @@ const AppliedCollege = ({ selectedCollege }) => {
                     <div className="dashboard-basic-info__tableCell">
                       <Button>
                         <a
-                          href={`http://localhost:3000/colleges/${college?.id}`}
+                          href={`${process.env.BASE_URL}/colleges/${college?.id}`}
                           target="_blank"
                         >
                           View Detail

@@ -174,7 +174,10 @@ const DashboardChoiceFilling = ({
                 </div>
               </Grid>
             </Grid>
-            <div className="dashboard-basic-info__rowTableTitle">
+            <div
+              className="dashboard-basic-info__rowTableTitle"
+              style={{ paddingLeft: "5px" }}
+            >
               <Grid
                 container
                 className="dashboard-basic-info__row"
@@ -187,7 +190,10 @@ const DashboardChoiceFilling = ({
                   sm={12}
                   md={3}
                 >
-                  <div className="dashboard-basic-info__tableTitle">
+                  <div
+                    className="dashboard-basic-info__tableTitle"
+                    style={{ paddingLeft: "5px" }}
+                  >
                     COLLEGE/UNIVERSITY
                   </div>
                 </Grid>

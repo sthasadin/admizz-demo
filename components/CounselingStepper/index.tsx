@@ -10,6 +10,12 @@ import StepButton from "@material-ui/core/StepButton";
 import { ConfirmDateTime } from "./ConfirmDateTime";
 import { StudentInfo } from "./StudentInfo";
 import ConfirmBook from "./ConfirmSection";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 interface studentInfoFormValue {
   name: string;
@@ -70,9 +76,12 @@ const CounselingStepper = () => {
   const router = useRouter();
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [isDisable, setIsDisable] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
   const [completed, setCompleted] = React.useState<{ [k: number]: boolean }>(
     {}
   );
+  const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   //State for Student Info Stepper
   const [formValue, setFormValue] = useState({} as studentInfoFormValue);
@@ -143,6 +152,8 @@ const CounselingStepper = () => {
   };
 
   const handleBook = async () => {
+    setIsDisable(true);
+    setLoading(true);
     db.collection("appointment")
       .add({
         name: formValue.name,
@@ -161,7 +172,12 @@ const CounselingStepper = () => {
         createdAt: moment().format(),
       })
       .then(function (docRef) {
-        router.push("/");
+        setSnackOpen(true);
+        setTimeout(() => {
+          setIsDisable(false);
+          setLoading(false);
+          router.push("/");
+        }, 2000);
       })
       .catch(function (error) {
         console.error("Error adding document: ", error);
@@ -244,6 +260,8 @@ const CounselingStepper = () => {
             handleBack={handleBack}
             handleBook={handleBook}
             formValue={formValue}
+            disable={isDisable}
+            loading={loading}
           />
         );
       default:
@@ -270,6 +288,15 @@ const CounselingStepper = () => {
         ))}
       </Stepper>
       <div>{getStepContent(activeStep)}</div>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={6000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="success">
+          Your Booking has been Confirmed. Redirecting to home page.
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

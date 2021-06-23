@@ -26,7 +26,6 @@ const Input = (props: Props) => {
   const useStyles = makeStyles((theme) => ({
     container: {
       position: "relative",
-      // width: "100%",
       margin: (props: Props) => {
         return props.margin && props.margin;
       },
@@ -45,10 +44,17 @@ const Input = (props: Props) => {
         fontSize: 14,
         lineHeight: "20.79px",
         "& .MuiOutlinedInput-input": {
-          paddingLeft: (props: Props) => {
-            return props.multiline ? " 30px" : !props.icon && "10px";
-          },
+          // paddingLeft: (props: Props) => {
+          //   return props.multiline ? " 30px" : !props.icon && "10px";
+          // },
         },
+      },
+    },
+    inputLabel: {
+      color: "rgb(130, 130, 130);",
+      "&.focused": {
+        color: "rgb(130, 130, 130);",
+        fontWeight: 400,
       },
     },
     errorMessage: {
@@ -83,6 +89,12 @@ const Input = (props: Props) => {
         label={props.label}
         onChange={props.onChange}
         error={props.error}
+        InputLabelProps={{
+          classes: {
+            root: classes.inputLabel,
+            focused: "focused",
+          },
+        }}
         InputProps={
           Icon && {
             startAdornment: (

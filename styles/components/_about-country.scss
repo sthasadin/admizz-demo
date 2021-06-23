@@ -1,38 +1,29 @@
 .about-country {
-  padding: 40px 40px 60px;
   margin: 36px 0;
   // width: calc(100% - 30px);
-  background-color: #f2f2f2;
+
   border-radius: 5px;
   text-align: center;
   width: 100%;
 
   .inner__about {
+    background-color: #f2f2f2;
+    padding: 40px 40px 60px;
     @media (min-width: 1360px) {
       width: 1240px;
       margin: 0 auto;
     }
   }
-  // @media (min-width: 768px) {
-  //   width: 720px;
-  //   margin: 36px auto;
-  // }
-  // @media (min-width: 1024px) {
-  //   width: 940px;
-  // }
-  // @media (min-width: 1200px) {
-  //   width: 1170px;
-  // }
-  // @media (min-width: 1360px) {
-  //   width: 1240px;
-  // }
+
   &__desc {
+    margin: 10px auto 0;
+
     font-size: 14px;
-    color: $gray-2;
-    line-height: 20px;
-    margin: 0 auto;
+    color: #4f4f4f;
+
+    line-height: 1.6;
+    width: 58%;
     margin-bottom: 32px;
-    // width: 700px;
   }
   &__info {
     font-size: 18px;

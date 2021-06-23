@@ -190,7 +190,11 @@ const DashboardBasicInfoPage = () => {
             <div className="dashboard-basic-info-page__stepperTitle">
               Application Steps
             </div>
-            <Stepper activeStep={activeStep} orientation="vertical">
+            <Stepper
+              activeStep={activeStep}
+              orientation="vertical"
+              style={{ borderRadius: "5px" }}
+            >
               {steps.map((label, index) => (
                 <Step key={label}>
                   <StepButton

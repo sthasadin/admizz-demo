@@ -20,7 +20,7 @@ interface studentInfoFormValue {
   email: string;
 
   phoneNumber: number;
-  selectedLevel: string;
+  // selectedLevel: string;
   DOB: string;
   nationality: string;
   gender: string;
@@ -223,7 +223,7 @@ const DashboardBasicInfo = (props) => {
       .email("Please provide a valid email"),
 
     phoneNumber: yup.number().required("Required phone"),
-    selectedLevel: yup.string().required("Please select the level"),
+    // selectedLevel: yup.string().required("Please select the level"),
     DOB: yup.string().required("Requried DOB"),
     nationality: yup.string().required("Please select the nationality"),
 
@@ -243,7 +243,7 @@ const DashboardBasicInfo = (props) => {
     try {
       await validationSchema.validate(
         {
-          selectedLevel: selectedLevel.value,
+          // selectedLevel: selectedLevel.value,
           fullName: fullName,
           DOB: DOB,
           nationality: nationality.value,
@@ -359,8 +359,8 @@ const DashboardBasicInfo = (props) => {
                 handleChange={(e) => setSelectedLevel(e)}
                 defaultvalue={selectedLevel}
                 name={"selectedLevel"}
-                errorMessage={formError.selectedLevel}
-                error={!!formError.selectedLevel}
+                // errorMessage={formError.selectedLevel}
+                // error={!!formError.selectedLevel}
               />
             </Grid>
           </Grid>
@@ -390,7 +390,7 @@ const DashboardBasicInfo = (props) => {
                 <Input
                   className={"dashboard-basic-info__input"}
                   fullWidth
-                  name={"fullName"}
+                  name={" fullName "}
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   label="Full Name"
@@ -522,7 +522,7 @@ const DashboardBasicInfo = (props) => {
               Personal Address
             </div>
             <hr className="dashboard-basic-info__horizontalLine" />
-            <form>
+            <form className="dashboard-basic-info__formContent">
               <Grid
                 container
                 className="dashboard-basic-info__row"

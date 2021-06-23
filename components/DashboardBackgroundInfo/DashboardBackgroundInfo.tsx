@@ -169,7 +169,7 @@ const DashboardBackgroundInfo = (props) => {
         <div className="dashboard-basic-info__sectionTitle">
           Background Information
         </div>
-        <div className="dashboard-basic-info__formContainer">
+        <div className="dashboard-basic-info__formContainer background-info-container">
           <form>
             <Grid
               container
@@ -492,7 +492,7 @@ const DashboardBackgroundInfo = (props) => {
         <div className="dashboard-basic-info__sectionTitle">
           Parents Information
         </div>
-        <div className="dashboard-basic-info__formContainer">
+        <div className="dashboard-basic-info__formContainer ">
           <div className="dashboard-basic-info__marginContainer">
             {/* <div className="dashboard-basic-info__formTitle">Parents</div>
             <hr className="dashboard-basic-info__horizontalLine" /> */}

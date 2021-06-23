@@ -8,7 +8,7 @@ const About = () => {
         {/* <div className="container" style={{ border: "1px solid black" }}> */}
         <div className="about-country__heading block-heading">about india</div>
         <div className="about-country__title block-title">
-          learn something about india
+          learn something about INDIA
         </div>
         <div className="about-country__desc">
           <p>
@@ -23,11 +23,31 @@ const About = () => {
           <span>2 million Hindu temples</span>
         </div>
         <div className="about-country__thumbnail-wrap">
-          <Card1 />
-          <Card1 />
-          <Card1 />
-          <Card1 />
-          <Card1 />
+          <Card1
+            bgImage="card-1"
+            title="Learn About Geography"
+            subText="All About India"
+          />
+          <Card1
+            bgImage="card-2"
+            title="History Of India in a Min"
+            subText="History of India"
+          />
+          <Card1
+            bgImage="card-3"
+            title="Education System in India"
+            subText="Efficent Education"
+          />
+          <Card1
+            bgImage="card-4"
+            title="Learn About India Culture"
+            subText="Culture of India"
+          />
+          <Card1
+            bgImage="card-5"
+            title="Lifestyle of Indian People"
+            subText="Daily Lifestyle"
+          />
         </div>
       </div>
     </div>

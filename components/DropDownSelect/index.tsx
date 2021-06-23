@@ -23,13 +23,16 @@ const DropDownSelect = ({
     menu: (provided) => ({ ...provided, zIndex: 9999, marginTop: "60px" }),
     control: (base) => ({
       ...base,
-      height: 50,
+      height: 53,
       minHeight: 50,
       position: "absolute",
       left: 0,
-      top: 3,
+      // top: 0,
       right: 0,
       borderColor: error ? "red" : "#c4c4c4",
+      "&:hover": {
+        borderColor: "#F3969A",
+      },
     }),
   };
 
@@ -39,15 +42,15 @@ const DropDownSelect = ({
         style={{
           position: "absolute",
           left: 20,
-          top: -5,
+          top: -7,
           height: 15,
           background: "white",
           zIndex: 1,
-          paddingLeft: 10,
-          paddingRight: 10,
+          paddingLeft: 2,
+          // paddingRight: 10,
         }}
       >
-        <h4 style={{ fontSize: 13, fontWeight: 500, color: "#828282" }}>
+        <h4 style={{ fontSize: 13, fontWeight: 400, color: "#828282" }}>
           {" "}
           {title}{" "}
         </h4>

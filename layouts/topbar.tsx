@@ -41,7 +41,7 @@ const Topbar = (props: any) => {
                   <FontAwesomeIcon icon={faUserTie} />
                 </div>
                 <div className="signup__text">
-                  <Link href="/register">Sign up</Link>
+                  <Link href="/register">Sign Up</Link>
                 </div>
               </div>
             ) : (

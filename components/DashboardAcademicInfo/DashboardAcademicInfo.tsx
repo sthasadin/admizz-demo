@@ -83,49 +83,10 @@ export const DashboardAcademicInfo = (props) => {
     });
   };
 
-  // const validationSchema = yup.object().shape<AcademicFormField>({
-  //   schoolMarks: yup.string().required("Required school marks"),
-  //   diplomaScore: yup.string().required("Required diploma score"),
-  //   level1Score: yup.string().required("Required level1score"),
-  //   level2Score: yup.string().required("Required level2score"),
-  //   underGraduate: yup.string().required("Required under graduate score"),
-  //   postGraduteScore: yup.string().required("Required post graduate score"),
-  // });
-
-  // const validate = async () => {
-  //   try {
-  //     await validationSchema.validate(
-  //       {
-  //         schoolMarks: schoolMarks,
-  //         diplomaScore: diplomaScore,
-  //         level1Score: level1Score,
-  //         level2Score: level2Score,
-  //         underGraduate: underGraduate,
-  //         postGraduteScore: postGraduteScore,
-  //       },
-  //       {
-  //         abortEarly: false,
-  //       }
-  //     );
-  //     setFormError({});
-  //     return true;
-  //   } catch (err) {
-  //     setSnackOpen(true);
-  //     const errors = {};
-  //     err.inner.forEach((item: any) => {
-  //       errors[item.path] = item.errors[0];
-  //     });
-  //     setFormError({ ...errors });
-  //   }
-  // };
-
   const sendData = async () => {
     try {
-      // const isValid = await validate();
-      // if (isValid) {
       saveData();
       props.handleNext();
-      // }
     } catch (error) {}
   };
 
@@ -204,12 +165,11 @@ export const DashboardAcademicInfo = (props) => {
                 selectedLevel == "undergraduate" ||
                 selectedLevel == "phd") && (
                 <Grid
-                  className={"dashboard-basic-info__grid"}
+                  className={"dashboard-basic-info__grid academic-marks-field"}
                   item
                   sm={12}
                   md={6}
                   xs={12}
-                  style={{ marginBottom: "20px" }}
                 >
                   <div className="dashboard-basic-info__formText">
                     School Marks / Class 10(X)
@@ -293,12 +253,11 @@ export const DashboardAcademicInfo = (props) => {
                 selectedLevel == "undergraduate" ||
                 selectedLevel == "phd") && (
                 <Grid
-                  className={"dashboard-basic-info__grid"}
+                  className={"dashboard-basic-info__grid academic-marks-field"}
                   item
                   sm={12}
                   md={6}
                   xs={12}
-                  style={{ marginBottom: "20px" }}
                 >
                   <div className="dashboard-basic-info__formText">
                     Diploma Scroes
@@ -385,7 +344,7 @@ export const DashboardAcademicInfo = (props) => {
               selectedLevel == "phd") && (
               <Grid
                 container
-                className="dashboard-basic-info__row"
+                className="dashboard-basic-info__row acdemic-certificate-upload"
                 justify="flex-start"
                 direction="row"
               >
@@ -402,6 +361,7 @@ export const DashboardAcademicInfo = (props) => {
                   xs={12}
                   justify="center"
                   alignContent="center"
+                  className="academic-document-upload"
                 >
                   <label htmlFor="upload-photo">
                     <input
@@ -460,6 +420,7 @@ export const DashboardAcademicInfo = (props) => {
                     xs={12}
                     justify="center"
                     alignContent="center"
+                    className="academic-document-upload"
                   >
                     <label htmlFor="upload-photo-High-School">
                       <input
@@ -469,10 +430,6 @@ export const DashboardAcademicInfo = (props) => {
                         type="file"
                         onChange={(e) => {
                           addImage(e, "highSchool");
-                          // setCertificateThumbnail({
-                          //   ...certificateThumbnail,
-                          //   highSchool: URL.createObjectURL(e.target.files[0]),
-                          // });
                         }}
                       />
 
@@ -515,6 +472,7 @@ export const DashboardAcademicInfo = (props) => {
                   xs={12}
                   justify="center"
                   alignContent="center"
+                  className="academic-document-upload"
                 >
                   <label htmlFor="upload-photo-Under">
                     <input
@@ -574,6 +532,7 @@ export const DashboardAcademicInfo = (props) => {
                   xs={12}
                   justify="center"
                   alignContent="center"
+                  className="academic-document-upload"
                 >
                   <label htmlFor="upload-photo-Post">
                     <input
@@ -631,6 +590,7 @@ export const DashboardAcademicInfo = (props) => {
                 xs={12}
                 justify="center"
                 alignContent="center"
+                className="academic-document-upload"
               >
                 <div
                   className="dashboard-basic-info__uploadButtonContainer"
@@ -692,20 +652,17 @@ export const DashboardAcademicInfo = (props) => {
               className="dashboard-basic-info__formContainer exam-score-container"
               style={{ paddingLeft: "0px", paddingTop: "0px" }}
             >
-              {/* <div className="dashboard-basic-info__marginContainer"> */}
-              {/* <div className="dashboard-basic-info__formTitle">
-                  Exam Scores
-                </div>
-                <hr className="dashboard-basic-info__horizontalLine" /> */}
               <form>
                 <Grid
                   container
-                  className="dashboard-basic-info__row"
+                  className="dashboard-basic-info__row exam-score"
                   justify="space-around"
                   direction="row"
                 >
                   <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle">GRE</div>
+                    <div className="dashboard-basic-info__formTitle language-score">
+                      GRE
+                    </div>
                   </Grid>
                   <Grid item sm={12} md={4} xs={12}>
                     <RadioGroup
@@ -743,7 +700,9 @@ export const DashboardAcademicInfo = (props) => {
                     )}
                   </Grid>
                   <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle">SAT</div>
+                    <div className="dashboard-basic-info__formTitle language-score">
+                      SAT
+                    </div>
                   </Grid>
                   <Grid item sm={12} md={4} xs={12}>
                     <RadioGroup
@@ -783,12 +742,14 @@ export const DashboardAcademicInfo = (props) => {
                 </Grid>
                 <Grid
                   container
-                  className="dashboard-basic-info__row"
+                  className="dashboard-basic-info__row exam-score"
                   justify="space-around"
                   direction="row"
                 >
                   <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle">GMAT</div>
+                    <div className="dashboard-basic-info__formTitle language-score">
+                      GMAT
+                    </div>
                   </Grid>
                   <Grid item sm={12} md={4} xs={12}>
                     <RadioGroup
@@ -827,7 +788,7 @@ export const DashboardAcademicInfo = (props) => {
                     )}
                   </Grid>
                   <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle">
+                    <div className="dashboard-basic-info__formTitle language-score">
                       SAT II
                     </div>
                   </Grid>
@@ -870,12 +831,14 @@ export const DashboardAcademicInfo = (props) => {
                 </Grid>
                 <Grid
                   container
-                  className="dashboard-basic-info__row"
+                  className="dashboard-basic-info__row exam-score"
                   justify="space-around"
                   direction="row"
                 >
                   <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle">TOFEL</div>
+                    <div className="dashboard-basic-info__formTitle language-score">
+                      TOEFL
+                    </div>
                   </Grid>
                   <Grid item sm={12} md={4} xs={12}>
                     <RadioGroup
@@ -914,7 +877,7 @@ export const DashboardAcademicInfo = (props) => {
                     )}
                   </Grid>
                   <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle">
+                    <div className="dashboard-basic-info__formTitle language-score">
                       JEE Advance
                     </div>
                   </Grid>
@@ -963,12 +926,14 @@ export const DashboardAcademicInfo = (props) => {
                 </Grid>
                 <Grid
                   container
-                  className="dashboard-basic-info__row"
+                  className="dashboard-basic-info__row exam-score"
                   justify="flex-start"
                   direction="row"
                 >
                   <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle">IELTS</div>
+                    <div className="dashboard-basic-info__formTitle language-score">
+                      IELTS
+                    </div>
                   </Grid>
                   <Grid item sm={12} md={4} xs={12}>
                     <RadioGroup
@@ -1011,7 +976,7 @@ export const DashboardAcademicInfo = (props) => {
                 {ielts.haveDone == "yes" ? (
                   <Grid
                     container
-                    className="dashboard-basic-info__row"
+                    className="dashboard-basic-info__row exam-score"
                     justify="space-around"
                     direction="row"
                   >

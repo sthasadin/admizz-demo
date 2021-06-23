@@ -10,13 +10,13 @@
   }
   &__inner {
     padding: 20px;
-    background-image: linear-gradient(
-        180deg,
-        rgba(1, 1, 1, 0) 0%,
-        rgba(95, 24, 2, 0.51) 45.31%,
-        #5f1802 100%
-      ),
-      url(/india.jpg);
+    // background-image: linear-gradient(
+    //     180deg,
+    //     rgba(1, 1, 1, 0) 0%,
+    //     rgba(95, 24, 2, 0.51) 45.31%,
+    //     #5f1802 100%
+    //   ),
+    //   url(/india.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -38,4 +38,49 @@
     color: #fff;
     text-align: left;
   }
+}
+.card-1 {
+  background-image: linear-gradient(
+      180deg,
+      rgba(1, 1, 1, 0) 0%,
+      rgba(95, 24, 2, 0.51) 45.31%,
+      #5f1802 100%
+    ),
+    url(/about-india/card-1.png);
+}
+.card-2 {
+  background-image: linear-gradient(
+      180deg,
+      rgba(1, 1, 1, 0) 0%,
+      rgba(95, 24, 2, 0.51) 45.31%,
+      #5f1802 100%
+    ),
+    url(/about-india/card-2.png);
+}
+.card-3 {
+  background-image: linear-gradient(
+      180deg,
+      rgba(1, 1, 1, 0) 0%,
+      rgba(95, 24, 2, 0.51) 45.31%,
+      #5f1802 100%
+    ),
+    url(/about-india/card-3.png);
+}
+.card-4 {
+  background-image: linear-gradient(
+      180deg,
+      rgba(1, 1, 1, 0) 0%,
+      rgba(95, 24, 2, 0.51) 45.31%,
+      #5f1802 100%
+    ),
+    url(/about-india/card-4.png);
+}
+.card-5 {
+  background-image: linear-gradient(
+      180deg,
+      rgba(1, 1, 1, 0) 0%,
+      rgba(95, 24, 2, 0.51) 45.31%,
+      #5f1802 100%
+    ),
+    url(/about-india/card-5.png);
 }

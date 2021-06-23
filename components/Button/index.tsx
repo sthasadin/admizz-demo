@@ -34,6 +34,7 @@ const Button: React.FC<Props> = ({
   children,
   fullWidth,
   loading,
+  disabled,
 }) => {
   const useStyles = makeStyles(() => {
     return {
@@ -170,6 +171,7 @@ const Button: React.FC<Props> = ({
       onClick={onClick}
       fullWidth={fullWidth}
       type={htmlType}
+      disabled={disabled}
     >
       {loading && (
         <CircularProgress

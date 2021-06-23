@@ -310,13 +310,7 @@ const DashboardReviewConfirm = (props) => {
                 style={{ width: "100%" }}
               >
                 {/* <div style={{ display: "flex", flexWrap: "wrap" }}> */}
-                <div
-                  className="basicInformation-container"
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                  }}
-                >
+                <div className="basicInformation-container">
                   <div className="basicInformation_container_text">
                     <div
                       style={{
@@ -346,7 +340,7 @@ const DashboardReviewConfirm = (props) => {
                     <div
                       style={{
                         display: "flex",
-                        flexWrap: "wrap",
+                        // flexWrap: "wrap",
                         marginRight: 40,
                         minWidth: 250,
                         height: 40,
@@ -354,7 +348,12 @@ const DashboardReviewConfirm = (props) => {
                     >
                       <h4
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                        style={{
+                          height: 30,
+                          fontWeight: 700,
+                          marginRight: 10,
+                          whiteSpace: "nowrap",
+                        }}
                       >
                         Email Address :
                       </h4>

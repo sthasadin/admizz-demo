@@ -1,8 +1,9 @@
 .dashboard-welcome-card {
   display: flex;
-  background-color: #CFB9B3;
+  background-color: #cfb9b3;
   border-radius: 5px;
   padding: 15px 20px;
+  justify-content: space-between;
   @media (max-width: 830px) {
     flex-direction: column;
   }
@@ -20,7 +21,7 @@
     }
   }
   &__titleText {
-    color: #4F4F4F;
+    color: #4f4f4f;
     font-family: Mplus 1p;
     font-size: 16px;
     font-style: normal;
@@ -30,7 +31,7 @@
     text-align: left;
   }
   &__descText {
-    color: #4F4F4F;
+    color: #4f4f4f;
     font-family: Mplus 1p;
     font-size: 14px;
     font-style: normal;

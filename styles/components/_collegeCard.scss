@@ -3,8 +3,11 @@
   @media (max-width: 450px) {
     margin-bottom: 22px;
   }
+  &__inner {
+    margin: 0 0.5rem;
+    cursor: pointer;
+  }
 
-  cursor: pointer;
   &__thumbnail {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -34,7 +37,14 @@
   &__location {
     font-size: 14px;
     line-height: 21px;
+    display: flex;
+    justify-content: center;
     color: #f2f2f2;
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
   }
   &__details {
     background: #ffffff;
@@ -122,6 +132,10 @@
   }
 
   &__course {
-    margin: 0 23px 20px 0px;
+    margin: 0 0px 20px 0px;
   }
+}
+
+.colleges-card:hover .colleges-card__title {
+  text-decoration: underline;
 }

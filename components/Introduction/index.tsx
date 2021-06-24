@@ -21,10 +21,7 @@ const index = () => {
 
   return (
     <>
-      <div
-        className="introduction__container"
-        onClick={() => router.push("/free-counseling")}
-      >
+      <div className="introduction__container">
         <div
           className={`${
             active && "active__vertical"
@@ -38,8 +35,8 @@ const index = () => {
 
         <Carousel bulletdot={false}>
           <Introduction title="hello" />
-          <Introduction title="world" />
-          <Introduction title="helloworld" />
+          {/* <Introduction title="world" />
+          <Introduction title="helloworld" /> */}
         </Carousel>
       </div>
     </>

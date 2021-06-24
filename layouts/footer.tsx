@@ -5,22 +5,67 @@ import * as yup from "yup";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import { addSubscriber } from "../store/Action/subscriber.action";
 import { valueOf } from "*.jpg";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import Snackbar from "@material-ui/core/Snackbar";
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+interface studentInfoFormValue {
+  subscriber: string;
+}
 
 const Footer = () => {
   const [subscriber, setSubscriber] = useState("");
   const [loading, setLoading] = useState(false);
+  const [snackOpen, setSnackOpen] = useState(false as boolean);
+  const [formError, setFormError] = useState({} as any);
   const dispatch = useDispatch();
   const onChange = (e) => {
     setSubscriber(e.target.value);
+    setFormError({ subscriber: null });
   };
+
+  const validationSchema = yup.object().shape<studentInfoFormValue>({
+    subscriber: yup
+      .string()
+      .required("Please enter your gmail")
+      .email("Please provide a valid email")
+      .min(15, "Invalid gmail"),
+  });
+
+  const validate = async () => {
+    try {
+      await validationSchema.validate(
+        {
+          subscriber,
+        },
+        {
+          abortEarly: false,
+        }
+      );
+      setFormError({});
+      return true;
+    } catch (err) {
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0];
+      });
+      setFormError({ ...errors });
+    }
+  };
+
   const onClick = async () => {
     setLoading(true);
-    let schema = yup.string().email();
-    let result = schema.isValidSync(subscriber);
-    if (result) {
-      await dispatch(addSubscriber(subscriber));
-    }
-    setSubscriber("");
+    try {
+      const isValid = await validate();
+      if (isValid) {
+        setSnackOpen(true);
+        await dispatch(addSubscriber(subscriber));
+        setSubscriber("");
+      }
+    } catch (error) {}
     setLoading(false);
   };
   return (
@@ -38,6 +83,7 @@ const Footer = () => {
               <div className="footer__newsletter__searchbox">
                 <input
                   value={subscriber}
+                  name="subscriber"
                   onChange={onChange}
                   className="newsletter_input"
                   placeholder="Enter your email"
@@ -50,6 +96,7 @@ const Footer = () => {
                   <KeyboardArrowRight />
                 </button>
               </div>
+              <p className="error-subscribe-msg">{formError.subscriber}</p>
             </div>
           </div>
           <div className="footer__mobileCol">
@@ -145,15 +192,43 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer__middle__right">
-            <div className="social-icons"></div>
+            <div className="social-icons">
+              <div>
+                <a href="https://www.facebook.com/admizz" target="_blank">
+                  <img src="/facebook-1.png" alt="facebook_admiz" />
+                </a>
+              </div>
+              <div>
+                <a href="https://twitter.com/admizz_official" target="_blank">
+                  <img src="/twitter.png" alt="twitter_admiz" />
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://www.instagram.com/admizz_official/"
+                  target="_blank"
+                >
+                  <img src="/instagram.png" alt="instagram_admiz" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div className="footer__bottom">
         <div className="footer__copyright">
-          Copyright @ 2020 Admizz | All Right Reserved
+          Copyright @ {new Date().getFullYear()} Admizz | All Right Reserved
         </div>
       </div>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="success">
+          Thanks for subscribing
+        </Alert>
+      </Snackbar>
     </footer>
   );
 };

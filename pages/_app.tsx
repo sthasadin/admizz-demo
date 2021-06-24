@@ -5,6 +5,7 @@ import Router from "next/router";
 import { AppProps } from "next/app";
 import { AuthProvider } from "./AuthContext";
 import { Provider } from "react-redux";
+
 // import { createWrapper } from "next-redux-wrapper";
 import store from "../store/store";
 if (typeof window !== "undefined") {

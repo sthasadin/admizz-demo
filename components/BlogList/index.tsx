@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CallToAction } from "../Button/callToAction";
 import { BlogCard } from "./blogListCard";
 import { useRouter } from "next/router";
-import Carousel from "../../components/Carousel";
+import Carousel from "../BlogCarousel";
 
 const BlogList = () => {
   const router = useRouter();
@@ -28,17 +28,23 @@ const BlogList = () => {
             </Link>
           </div>
         </div>
-        <div className="blog-list__list hideformobile">
-          <BlogCard />
-          <BlogCard />
+        {/* <div className="blog-list__list hideformobile"> */}
+        <div>
+          <Carousel />
+
+          {/* <BlogCard />
+          <BlogCard /> */}
         </div>
 
-        <div className="formobile">
+        {/* <div className="formobile">
+
+
+
           <Carousel bulletdot={false}>
             <BlogCard />
             <BlogCard />
           </Carousel>
-        </div>
+        </div> */}
       </div>
     </div>
   );

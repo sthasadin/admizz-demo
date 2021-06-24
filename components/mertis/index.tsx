@@ -1,17 +1,20 @@
 import React from "react";
 import { CallToAction } from "../Button/callToAction";
+import Fade from "@material-ui/core/Fade";
+import ReactPlayer from "react-player";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
 
 const Merits = () => {
-  const [windowSize, setWindowSize] = React.useState({ width: null });
+  const [open, setOpen] = React.useState(false);
 
-  React.useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth });
-    };
-    window.addEventListener("resize", handleResize);
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div className="merit">
       <div className="merit__inner">
@@ -65,11 +68,12 @@ const Merits = () => {
         <div className="merit__right">
           <div className="merti__right__inner">
             <div className="merit__thumbnail">
-              <img src="/india.jpg" alt="" />
+              <img src="/why-study-in-india.png" alt="why-study-in-india" />
               <img
                 src="/playvideoIcon.png"
                 alt="playicon_logo"
                 className="playicon-formobileversion"
+                onClick={handleOpen}
               />
             </div>
             <div className="merit__thumbnail__text">
@@ -77,7 +81,12 @@ const Merits = () => {
                 Some Facts about India That you should know
               </div>
               <div className="merit__thumbnail__cta">
-                <a href="#">"watch video"</a>
+                <a
+                  href="https://www.youtube.com/watch?v=_xMXR5_CnQM"
+                  target="_blank"
+                >
+                  watch video
+                </a>
               </div>
             </div>
 
@@ -87,6 +96,24 @@ const Merits = () => {
           </div>
         </div>
       </div>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        className="introduction__modalContainer"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div>
+            <ReactPlayer url="https://www.youtube.com/watch?v=_xMXR5_CnQM" />
+          </div>
+        </Fade>
+      </Modal>
     </div>
   );
 };

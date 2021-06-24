@@ -17,6 +17,7 @@ interface BackgroundInfo {
   phoneNumber: string;
   emailAddress: string;
   address: string;
+  passportId: string;
 }
 
 function Alert(props: AlertProps) {
@@ -123,7 +124,7 @@ const DashboardBackgroundInfo = (props) => {
     phoneNumber: yup.string().required("Required phonenumber"),
     emailAddress: yup.string().required("Required emailAddress"),
     address: yup.string().required("Required address"),
-    // passportId: yup.string().required("Required passport id"),
+    passportId: yup.string().required("Required passport id"),
   });
 
   const validate = async () => {
@@ -134,6 +135,7 @@ const DashboardBackgroundInfo = (props) => {
           phoneNumber: references.phoneNumber,
           emailAddress: references.emailAddress,
           address: references.address,
+          passportId: passportId,
         },
         {
           abortEarly: false,
@@ -408,10 +410,13 @@ const DashboardBackgroundInfo = (props) => {
                   fullWidth
                   label="Citizenship ID / National ID"
                   value={passportId}
-                  onChange={(e) => setPassportId(e.target.value)}
-                  // name="passportId"
-                  // errorMessage={formError.passportId}
-                  // error={!!formError.passportId}
+                  onChange={(e) => {
+                    setPassportId(e.target.value);
+                    setFormError((prev) => ({ ...prev, passportId: null }));
+                  }}
+                  name="passportId"
+                  errorMessage={formError.passportId}
+                  error={!!formError.passportId}
                 />
               </Grid>
               <Grid
@@ -515,12 +520,13 @@ const DashboardBackgroundInfo = (props) => {
                     fullWidth
                     label="Full Name"
                     value={references.fullName}
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setReferences({
                         ...references,
                         fullName: e.target.value,
-                      })
-                    }
+                      });
+                      setFormError((prev) => ({ ...prev, fullName: null }));
+                    }}
                     errorMessage={formError.fullName}
                     error={!!formError.fullName}
                   />
@@ -554,12 +560,16 @@ const DashboardBackgroundInfo = (props) => {
                       fullWidth
                       label="Phone Number"
                       value={references.phoneNumber}
-                      onChange={(e) =>
+                      onChange={(e) => {
                         setReferences({
                           ...references,
                           phoneNumber: e.target.value,
-                        })
-                      }
+                        });
+                        setFormError((prev) => ({
+                          ...prev,
+                          phoneNumber: null,
+                        }));
+                      }}
                       name="phoneNumber"
                       errorMessage={formError.phoneNumber}
                       error={!!formError.phoneNumber}
@@ -578,12 +588,13 @@ const DashboardBackgroundInfo = (props) => {
                     fullWidth
                     label="Email Address"
                     value={references.emailAddress}
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setReferences({
                         ...references,
                         emailAddress: e.target.value,
-                      })
-                    }
+                      });
+                      setFormError((prev) => ({ ...prev, emailAddress: null }));
+                    }}
                     name="emailAddress"
                     errorMessage={formError.emailAddress}
                     error={!!formError.emailAddress}
@@ -609,12 +620,13 @@ const DashboardBackgroundInfo = (props) => {
                     fullWidth
                     label="Address"
                     value={references.address}
-                    onChange={(e) =>
+                    onChange={(e) => {
                       setReferences({
                         ...references,
                         address: e.target.value,
-                      })
-                    }
+                      });
+                      setFormError((prev) => ({ ...prev, address: null }));
+                    }}
                     name="address"
                     errorMessage={formError.address}
                     error={!!formError.address}

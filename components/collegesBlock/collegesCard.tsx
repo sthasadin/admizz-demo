@@ -5,12 +5,20 @@ import { useRouter } from "next/router";
 
 const CollegesCard = (college) => {
   const router = useRouter();
+
+  function truncateString(str, num) {
+    if (str.toString().length > num) {
+      return str.toString().slice(0, num) + "K+";
+    } else {
+      return str;
+    }
+  }
   return (
-    <div
-      className="colleges-card"
-      onClick={() => router.push(`colleges/${college?.college_slug}`)}
-    >
-      <div className="colleges-card__inner">
+    <div className="colleges-card">
+      <div
+        className="colleges-card__inner"
+        onClick={() => router.push(`colleges/${college?.college_slug}`)}
+      >
         <div className="colleges-card__thumbnail">
           <img
             src={college?.banner ? college?.banner : "/colleges.png"}
@@ -22,7 +30,10 @@ const CollegesCard = (college) => {
                 <a>{college?.name}</a>
               </Link>
             </div>
-            <div className="colleges-card__location">{college?.address}</div>
+            <div className="colleges-card__location">
+              <img src="/location3.png" alt="location" />
+              {college?.address}
+            </div>
           </div>
         </div>
         <div className="colleges-card__details">
@@ -53,7 +64,7 @@ const CollegesCard = (college) => {
                 <div className="colleges-card__key-value lg">
                   <div className="colleges-card__key lg">Total students:</div>
                   <div className="colleges-card__value lg">
-                    {college?.total_students}+
+                    {truncateString(college?.total_students, 2)}
                   </div>
                 </div>
               )}

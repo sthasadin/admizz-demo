@@ -242,7 +242,7 @@
       font-weight: 700;
       line-height: 22px;
       margin-bottom: 10px;
-      color: $primary-color;
+      color: black;
     }
     &__desc {
       font-size: 14px;
@@ -274,4 +274,8 @@
       }
     }
   }
+}
+
+.five-steps__item.active .five-steps__item__title {
+  color: $primary-color;
 }

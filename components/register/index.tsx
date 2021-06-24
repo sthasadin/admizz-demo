@@ -14,6 +14,7 @@ import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { Select } from "../Select";
 import { countryList } from "../../utils/CountryLists";
+import { DropDownSelect } from "../DropDownSelect";
 
 interface signUpFormValue {
   fullName: string;
@@ -251,27 +252,19 @@ const Register = () => {
                   options={countryList}
                   onChange={handleChange}
                   icon={LocationOnIcon}
-                  label={"Home Country"}
+                  label="Home Country"
                   name={"country"}
                   error={!!formError.country}
                   errorMessage={formError.country}
                 />
 
-                {/* <Input
-                fullWidth
-                onChange={handleChange}
-                name={"country"}
-                icon={LocationOnIcon}
-                placeholder="Home Country"
-                error={!!formError.country}
-                errorMessage={formError.country}
-                type="text" /> */}
                 <Input
                   fullWidth
                   onChange={handleChange}
                   name={"password"}
                   icon={LockIcon}
                   placeholder="Password"
+                  label="Password"
                   error={!!formError.password}
                   errorMessage={formError.password}
                   type="password"
@@ -281,6 +274,7 @@ const Register = () => {
                   onChange={handleChange}
                   name={"confirmPassword"}
                   icon={LockIcon}
+                  label="Confirm Password"
                   placeholder="Confirm Password"
                   error={!!formError.confirmPassword}
                   errorMessage={formError.confirmPassword}
@@ -291,18 +285,13 @@ const Register = () => {
                 By submitting this form, you accept and agree to our
                 <span>Terms & Condition.</span>
               </div>
-              <div
-                className="signin__submit"
-                style={{
-                  flexDirection: "column",
-                }}
-              >
+              <div className="signin__submit">
+                <div className="signin__change">
+                  <a href="/login">Already Registered? Click Here To Login.</a>
+                </div>
                 <Button htmlType={"submit"} loading={loading} fullWidth>
                   Register Now
                 </Button>
-                <div className="signin__change" style={{ marginTop: "1rem" }}>
-                  <a href="/login">Already Registered? Click Here To Login.</a>
-                </div>
 
                 {/* <CallToAction className="filled">Register Now</CallToAction> */}
               </div>

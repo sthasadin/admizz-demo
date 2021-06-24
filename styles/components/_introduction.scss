@@ -8,6 +8,7 @@
 
   .vertical__stickycontainer {
     height: 228px;
+    display: none;
     width: 50px;
     background-color: $secondary-color;
     position: absolute;
@@ -37,6 +38,7 @@
   .active__vertical {
     position: fixed;
     top: 150px;
+    display: none;
   }
 }
 

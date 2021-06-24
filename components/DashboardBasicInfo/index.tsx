@@ -20,7 +20,7 @@ interface studentInfoFormValue {
   email: string;
 
   phoneNumber: number;
-  // selectedLevel: string;
+  selectedLevel: string;
   DOB: string;
   nationality: string;
   gender: string;
@@ -223,14 +223,14 @@ const DashboardBasicInfo = (props) => {
       .email("Please provide a valid email"),
 
     phoneNumber: yup.number().required("Required phone"),
-    // selectedLevel: yup.string().required("Please select the level"),
+    selectedLevel: yup.string().required("Please select the level"),
     DOB: yup.string().required("Requried DOB"),
     nationality: yup.string().required("Please select the nationality"),
 
     gender: yup.string().required("Please select the gender"),
     guardianAddress: yup.string().required("Required address"),
     guardianCountry: yup.string().required("Please select the country"),
-    // additional_query: yup.string().required("Required query"),
+
     guardianState: yup.string().required("Please select the state"),
     guardianCity: yup.string().required("Required city"),
   });
@@ -243,7 +243,7 @@ const DashboardBasicInfo = (props) => {
     try {
       await validationSchema.validate(
         {
-          // selectedLevel: selectedLevel.value,
+          selectedLevel: selectedLevel.value,
           fullName: fullName,
           DOB: DOB,
           nationality: nationality.value,
@@ -356,11 +356,14 @@ const DashboardBasicInfo = (props) => {
               <DropDownSelect
                 title="Select Level"
                 options={selectLevelOption}
-                handleChange={(e) => setSelectedLevel(e)}
+                handleChange={(e) => {
+                  setSelectedLevel(e);
+                  setFormError((prev) => ({ ...prev, selectedLevel: null }));
+                }}
                 defaultvalue={selectedLevel}
                 name={"selectedLevel"}
-                // errorMessage={formError.selectedLevel}
-                // error={!!formError.selectedLevel}
+                errorMessage={formError.selectedLevel}
+                error={!!formError.selectedLevel}
               />
             </Grid>
           </Grid>
@@ -390,9 +393,12 @@ const DashboardBasicInfo = (props) => {
                 <Input
                   className={"dashboard-basic-info__input"}
                   fullWidth
-                  name={" fullName "}
+                  name={"fullName"}
                   value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
+                  onChange={(e) => {
+                    setFullName(e.target.value);
+                    setFormError((prev) => ({ ...prev, fullName: null }));
+                  }}
                   label="Full Name"
                   error={!!formError.fullName}
                   errorMessage={formError.fullName}
@@ -411,7 +417,10 @@ const DashboardBasicInfo = (props) => {
                   fullWidth
                   label="Email Address"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setFormError((prev) => ({ ...prev, email: null }));
+                  }}
                   name={"email"}
                   errorMessage={formError.email}
                   error={!!formError.email}
@@ -429,7 +438,10 @@ const DashboardBasicInfo = (props) => {
                     defaultvalue={nationality}
                     title="Nationality"
                     options={NationalityOptions}
-                    handleChange={(e) => setNationality(e)}
+                    handleChange={(e) => {
+                      setNationality(e);
+                      setFormError((prev) => ({ ...prev, nationality: null }));
+                    }}
                     name={"nationality"}
                     errorMessage={formError.nationality}
                     error={!!formError.nationality}
@@ -466,7 +478,10 @@ const DashboardBasicInfo = (props) => {
                     fullWidth
                     label="Phone Number"
                     value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    onChange={(e) => {
+                      setPhoneNumber(e.target.value);
+                      setFormError((prev) => ({ ...prev, phoneNumber: null }));
+                    }}
                     name={"phoneNumber"}
                     errorMessage={formError.phoneNumber}
                     error={!!formError.phoneNumber}
@@ -485,7 +500,10 @@ const DashboardBasicInfo = (props) => {
                   type="date"
                   fullWidth
                   value={DOB}
-                  onChange={(e) => setDob(e.target.value)}
+                  onChange={(e) => {
+                    setDob(e.target.value);
+                    setFormError((prev) => ({ ...prev, DOB: null }));
+                  }}
                   name={"DOB"}
                   errorMessage={formError.DOB}
                   error={!!formError.DOB}
@@ -501,7 +519,10 @@ const DashboardBasicInfo = (props) => {
                 <DropDownSelect
                   title="Gender"
                   options={GenderOptions}
-                  handleChange={setGender}
+                  handleChange={(e) => {
+                    setGender(e);
+                    setFormError((prev) => ({ ...prev, gender: null }));
+                  }}
                   defaultvalue={gender}
                   name={"gender"}
                   errorMessage={formError.gender}
@@ -541,7 +562,13 @@ const DashboardBasicInfo = (props) => {
                     fullWidth
                     label="Personal Address"
                     value={guardianAddress}
-                    onChange={(e) => setGuardianAddress(e.target.value)}
+                    onChange={(e) => {
+                      setGuardianAddress(e.target.value);
+                      setFormError((prev) => ({
+                        ...prev,
+                        guardianAddress: null,
+                      }));
+                    }}
                     name={"guardianAddress"}
                     errorMessage={formError.guardianAddress}
                     error={!!formError.guardianAddress}
@@ -566,7 +593,10 @@ const DashboardBasicInfo = (props) => {
                     fullWidth
                     label="City"
                     value={guardianCity}
-                    onChange={(e) => setGuardianCity(e.target.value)}
+                    onChange={(e) => {
+                      setGuardianCity(e.target.value);
+                      setFormError((prev) => ({ ...prev, guardianCity: null }));
+                    }}
                     name={"guardianCity"}
                     errorMessage={formError.guardianCity}
                     error={!!formError.guardianCity}
@@ -582,7 +612,13 @@ const DashboardBasicInfo = (props) => {
                   <DropDownSelect
                     title="Country"
                     options={CountryOption}
-                    handleChange={setGuardianCountry}
+                    handleChange={(e) => {
+                      setGuardianCountry(e);
+                      setFormError((prev) => ({
+                        ...prev,
+                        guardianCountry: null,
+                      }));
+                    }}
                     defaultvalue={guardianCountry}
                     name={"guardianCountry"}
                     errorMessage={formError.guardianCountry}
@@ -598,7 +634,13 @@ const DashboardBasicInfo = (props) => {
                 >
                   <DropDownSelect
                     title="State"
-                    handleChange={setGuardianState}
+                    handleChange={(e) => {
+                      setGuardianState(e);
+                      setFormError((prev) => ({
+                        ...prev,
+                        guardianState: null,
+                      }));
+                    }}
                     defaultvalue={guardianState}
                     options={
                       guardianCountry?.value === "Nepal"

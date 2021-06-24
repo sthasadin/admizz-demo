@@ -60,6 +60,10 @@
       &:not(:last-child) {
         margin-bottom: 12px;
       }
+      &:hover {
+        text-decoration: underline;
+        color: #fff;
+      }
     }
   }
   &__logo {
@@ -78,8 +82,8 @@
       color: #fff;
     }
     &__searchbox {
+      display: flex;
       @media (max-width: 450px) {
-        display: flex;
         align-content: center;
       }
     }
@@ -116,15 +120,18 @@
 
 .newsletter_input {
   height: 2rem;
-  //width: 78%;
-  padding: 1rem;
+  width: 60%;
+
+  padding: 1rem 1rem 1rem 5px;
   margin-top: 1rem;
   color: white;
   background: transparent;
   border: none;
+  outline: none;
   border-bottom: 2px solid $primary-color;
 }
 .newsletter_go {
+  margin-top: 12px;
   background-color: #ffd2dd;
   color: $primary-color;
   height: 40px;
@@ -135,4 +142,14 @@
     width: 80px;
     height: 50px;
   }
+}
+.social-icons {
+  display: flex;
+  gap: 4rem;
+}
+.error-subscribe-msg {
+  color: red;
+  margin-top: 5px;
+  font-weight: 400;
+  font-size: 12px;
 }

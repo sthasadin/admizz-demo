@@ -1,6 +1,10 @@
 .blog-list {
   margin: 80px 0;
   &__inner {
+    background-image: url(/dotted.png);
+    background-position-y: 96px;
+    background-position-x: 51rem;
+    background-repeat: no-repeat;
     width: calc(100% - 30px);
     // margin: 40px 15px;
     @media (min-width: 768px) {
@@ -32,7 +36,7 @@
     text-align: left;
   }
   &__title {
-    max-width: 464px;
+    // max-width: 464px;
     text-align: left;
     @media (max-width: 450px) {
       font-size: 24px;

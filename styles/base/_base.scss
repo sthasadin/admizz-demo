@@ -135,3 +135,15 @@ a {
   outline: none !important;
   background-color: #fff !important;
 }
+
+.slick-next:before {
+  display: none;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  display: none;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-size: 0 !important;
+}

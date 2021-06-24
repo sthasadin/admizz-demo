@@ -102,7 +102,7 @@ const CollegeFinder = () => {
                 alt="law-enforcement_logo"
               />
               <CollegeFinderCard
-                name="Scoail Psychology"
+                name="Social Psychology"
                 count="1259"
                 imgSrc="/college-finder/social-psychology.png"
                 alt="social-psychology_logo"

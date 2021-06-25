@@ -38,7 +38,7 @@
     font-size: 14px;
     line-height: 21px;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     color: #f2f2f2;
     img {
       width: 20px;
@@ -138,4 +138,40 @@
 
 .colleges-card:hover .colleges-card__title {
   text-decoration: underline;
+}
+
+.review-rating-container {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.review-title {
+  color: #f2f2f2;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.rating-container {
+  float: right;
+  margin-top: 5px;
+}
+.review-number {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #f2f2f2;
+}
+.review-detail {
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: #f2f2f2;
+}
+.like-icon {
+  width: 18px !important;
+  height: 18px !important;
+  margin-right: 10px;
+  margin-top: 5px;
 }

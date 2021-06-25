@@ -154,19 +154,27 @@ const collegeList = () => {
                 value={collegeListSearchQuery}
                 fullWidth
                 icon={SearchIcon}
+                bgColor="#fff"
               />
               <div
                 className="college-list__searchButton"
                 onClick={handleSearch}
               >
-                Search
+                Search{" "}
+                <img
+                  src="/color-rightarrow.png"
+                  alt=".."
+                  className="right-arrow-icon"
+                />
               </div>
             </div>
             <div className="college-list__headerSubtitle">
               Eg: Jain University, Manipur, BMS
             </div>
           </div>
-          <div className="college-list__listContainer">
+        </div>
+        <div className="college-list__college-container">
+          <div className="college-list__college-container__inner">
             <div className="college-list__sideBarContainer">
               <CollegeListSideBar
                 resetFilter={resetFilter}

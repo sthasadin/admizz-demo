@@ -1,4 +1,9 @@
 import React from "react";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const CollegeHeader = ({
   collageLogo,
@@ -7,10 +12,15 @@ const CollegeHeader = ({
   estblished,
   collegeBanner,
 }) => {
+  const [click, setClick] = React.useState(false);
+  const [snackOpen, setSnackOpen] = React.useState(false as boolean);
+
   return (
     <div
       className="college-header"
-      style={{ backgroundImage: `url(${collegeBanner})` }}
+      style={{
+        backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)),url(${collegeBanner})`,
+      }}
     >
       <div className="college-header__inner">
         <div className="college-header__rating-wrap">
@@ -32,17 +42,23 @@ const CollegeHeader = ({
               <div className="college-header__name">{name}</div>
               <div className="college-header__meta">
                 <div className="college-header__meta__item">
-                  <div className="college-header__meta__logo"></div>
+                  <div className="college-header__meta__logo">
+                    <img src="/location4.png" alt="..." />
+                  </div>
                   <div className="college-header__meta__title">{address}</div>
                 </div>
                 <div className="college-header__meta__item">
-                  <div className="college-header__meta__logo"></div>
+                  <div className="college-header__meta__logo">
+                    <img src="/star.png" alt="..." />
+                  </div>
                   <div className="college-header__meta__title">
                     Central University
                   </div>
                 </div>
                 <div className="college-header__meta__item">
-                  <div className="college-header__meta__logo"></div>
+                  <div className="college-header__meta__logo">
+                    <img src="/shield-tick.png" alt="..." />
+                  </div>
                   <div className="college-header__meta__title">
                     AICTE | UGC | NBA | NAAA-A
                   </div>
@@ -52,17 +68,25 @@ const CollegeHeader = ({
           </div>
           <div className="college-header__right">
             <div className="college-header__task">
-              <div className="task__logo">
+              <div
+                className="task__logo"
+                onClick={() => {
+                  setClick((click) => !click);
+                  setSnackOpen(true);
+                }}
+              >
                 <svg
                   width="22"
-                  height="22"
-                  viewBox="0 0 22 22"
+                  height="20"
+                  viewBox="0 0 22 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M16.0669 3.52C16.6388 3.51953 17.2051 3.62954 17.7326 3.84357C18.26 4.05759 18.738 4.37134 19.1384 4.7664C19.9636 5.57685 20.4261 6.6688 20.4261 7.8064C20.4261 8.944 19.9636 10.036 19.1384 10.8464L11 18.8188L2.86157 10.8464C2.0364 10.036 1.57387 8.944 1.57387 7.8064C1.57387 6.6688 2.0364 5.57685 2.86157 4.7664C3.26228 4.37162 3.74028 4.05804 4.26766 3.84398C4.79504 3.62992 5.36121 3.51968 5.93312 3.51968C6.50503 3.51968 7.07121 3.62992 7.59858 3.84398C8.12596 4.05804 8.60396 4.37162 9.00467 4.7664L11 6.7424L12.9875 4.7816C13.3867 4.38183 13.8652 4.06406 14.3943 3.84729C14.9234 3.63052 15.4923 3.5192 16.0669 3.52ZM16.0669 2C15.2857 1.99936 14.5123 2.14961 13.792 2.44194C13.0716 2.73427 12.4189 3.1628 11.872 3.7024L11 4.5536L10.128 3.7024C9.58045 3.16378 8.92753 2.73599 8.20732 2.44399C7.48711 2.15198 6.71402 2.00159 5.93312 2.00159C5.15222 2.00159 4.37914 2.15198 3.65893 2.44399C2.93872 2.73599 2.28579 3.16378 1.73822 3.7024C0.624195 4.79956 0 6.27603 0 7.814C0 9.35197 0.624195 10.8284 1.73822 11.9256L11 21L20.2618 11.9256C21.3758 10.8284 22 9.35197 22 7.814C22 6.27603 21.3758 4.79956 20.2618 3.7024C19.7143 3.16349 19.0615 2.73541 18.3413 2.44313C17.621 2.15085 16.8479 2.00021 16.0669 2Z"
-                    fill="white"
+                    d="M19.8401 2.61C19.3294 2.09901 18.7229 1.69365 18.0555 1.41709C17.388 1.14052 16.6726 0.998177 15.9501 0.998177C15.2276 0.998177 14.5122 1.14052 13.8448 1.41709C13.1773 1.69365 12.5709 2.09901 12.0601 2.61L11.0001 3.67L9.94012 2.61C8.90843 1.57831 7.50915 0.998711 6.05012 0.998711C4.59109 0.998711 3.19181 1.57831 2.16012 2.61C1.12843 3.64169 0.548828 5.04097 0.548828 6.5C0.548828 7.95903 1.12843 9.35831 2.16012 10.39L3.22012 11.45L11.0001 19.23L18.7801 11.45L19.8401 10.39C20.3511 9.87925 20.7565 9.27282 21.033 8.60536C21.3096 7.9379 21.4519 7.22249 21.4519 6.5C21.4519 5.77751 21.3096 5.06211 21.033 4.39465C20.7565 3.72719 20.3511 3.12076 19.8401 2.61V2.61Z"
+                    fill={`${click ? "white" : ""}`}
+                    stroke="white"
+                    strokeWidth="2px"
                   />
                 </svg>
               </div>
@@ -95,6 +119,17 @@ const CollegeHeader = ({
           </div>
         </div>
       </div>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={1000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="success">
+          {click
+            ? `${name} has been added to your favourite list.`
+            : `${name} Removed from your favourite list`}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

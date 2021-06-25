@@ -1,9 +1,10 @@
 .college-list {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
   background-color: #e5e5e5;
   &__container {
     width: 90%;
+    margin: 0 auto;
   }
   &__searchContainer {
     display: flex;
@@ -43,6 +44,7 @@
   }
   &__searchButton {
     background-color: #5f1802;
+    display: flex;
     /* border: 1px solid #5f1802; */
     color: white;
     padding: 0 30px;
@@ -52,9 +54,12 @@
     border-bottom-right-radius: 5px;
     line-height: 53px;
     height: 54px;
+    z-index: 1;
+    margin-left: -2px;
   }
   &__listContainer {
     display: flex;
+    background-color: #f6f6f6;
     @media (max-width: 870px) {
       flex-direction: column;
     }
@@ -79,4 +84,22 @@
       display: block;
     }
   }
+}
+
+.college-list__college-container {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  &__inner {
+    display: flex;
+    width: 90%;
+    margin-top: 18px;
+  }
+}
+
+.right-arrow-icon {
+  width: 22px;
+  height: 17px;
+  margin: auto;
+  margin-left: 5px;
 }

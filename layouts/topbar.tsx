@@ -1,6 +1,7 @@
 import { faMicrophoneAlt, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+
 // import { Select } from "../components";
 import Link from "next/link";
 import { auth } from "../firebase";
@@ -18,11 +19,15 @@ const Topbar = (props: any) => {
             </div>
             <div className="contact__item">
               <span className="contact__title">Nepal:</span>
-              <span className="contact__info">+977 87654321</span>
+              <Link href="tel:+977 87654321">
+                <span className="contact__info">+977 87654321</span>
+              </Link>
             </div>
             <div className="contact__item">
               <span className="contact__title">India:</span>
-              <span className="contact__info">+91 87654321</span>
+              <Link href="tel:+977 87654321">
+                <span className="contact__info">+91 87654321</span>
+              </Link>
             </div>
           </div>
         </div>

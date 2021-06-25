@@ -1,5 +1,5 @@
 import React from "react";
-const Review = ({review, addDisLike, addLike}: any) => {
+const Review = ({ review, addDisLike, addLike }: any) => {
   return (
     <div className="review">
       <div className="review__item">
@@ -14,7 +14,7 @@ const Review = ({review, addDisLike, addLike}: any) => {
             <ellipse cx="27.2621" cy="27" rx="27.2621" ry="27" fill="#4F4F4F" />
           </svg>
         </div>
-        <div>
+        <div style={{ width: "100%" }}>
           <div className="review__item__header">
             <div className="review__item__header__left">
               <div className="review__item__name">{review?.by?.fullName}</div>
@@ -29,13 +29,14 @@ const Review = ({review, addDisLike, addLike}: any) => {
               10
             </div>
           </div>
-          <div className="review__item__comment">
-            {review?.comment}
-          </div>
+          <div className="review__item__comment">{review?.comment}</div>
           <div className="review__item__reaction">
             <div className="review__item__left">
-
-              <div onClick={()=>addLike(review)} style={{cursor:'pointer'}} className="review__item__reaction__item">
+              <div
+                onClick={() => addLike(review)}
+                style={{ cursor: "pointer" }}
+                className="review__item__reaction__item"
+              >
                 <div className="review__item__reaction__icon">
                   <svg
                     width="17"
@@ -50,10 +51,16 @@ const Review = ({review, addDisLike, addLike}: any) => {
                     />
                   </svg>
                 </div>
-                <div className="review__item__reaction__text">{review?.noOfLikes}</div>
+                <div className="review__item__reaction__text">
+                  {review?.noOfLikes}
+                </div>
               </div>
-              
-              <div onClick={()=>addDisLike(review)} style={{cursor:'pointer'}} className="review__item__reaction__item">
+
+              <div
+                onClick={() => addDisLike(review)}
+                style={{ cursor: "pointer" }}
+                className="review__item__reaction__item"
+              >
                 <div className="review__item__reaction__icon">
                   <svg
                     width="17"
@@ -68,38 +75,11 @@ const Review = ({review, addDisLike, addLike}: any) => {
                     />
                   </svg>
                 </div>
-                <div className="review__item__reaction__text">{review?.noOfDisLikes}</div>
-              </div>
-              {/* <div className="review__item__reaction__item">
-                <div className="review__item__reaction__icon">
-                  <svg
-                    width="18"
-                    height="16"
-                    viewBox="0 0 18 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M4.46604 1C4.59993 1 4.72834 1.05268 4.82302 1.14645C4.9177 1.24021 4.97089 1.36739 4.97089 1.5V14.5C4.97089 14.6326 4.9177 14.7598 4.82302 14.8536C4.72834 14.9473 4.59993 15 4.46604 15C4.33214 15 4.20373 14.9473 4.10905 14.8536C4.01437 14.7598 3.96118 14.6326 3.96118 14.5V1.5C3.96118 1.36739 4.01437 1.24021 4.10905 1.14645C4.20373 1.05268 4.33214 1 4.46604 1Z"
-                      fill="#4F4F4F"
-                    />
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M4.73049 2.558C5.71294 1.909 6.33189 1.5 7.49508 1.5C8.15442 1.5 8.64513 1.825 9.00459 2.062L9.0369 2.084C9.4317 2.344 9.68917 2.5 10.0193 2.5C10.189 2.5 10.3788 2.458 10.612 2.374C10.8146 2.29785 11.0143 2.21446 11.2108 2.124C11.2694 2.097 11.3289 2.071 11.3925 2.044C11.9681 1.789 12.683 1.5 13.5533 1.5C13.6872 1.5 13.8156 1.55268 13.9103 1.64645C14.005 1.74021 14.0582 1.86739 14.0582 2V8C14.0582 8.13261 14.005 8.25979 13.9103 8.35355C13.8156 8.44732 13.6872 8.5 13.5533 8.5C12.9091 8.5 12.3619 8.71 11.8025 8.957L11.6419 9.027C11.4198 9.127 11.1845 9.232 10.9574 9.314C10.6581 9.42989 10.3406 9.49285 10.0193 9.5C9.36001 9.5 8.86929 9.175 8.50983 8.938L8.47752 8.916C8.08273 8.656 7.82525 8.5 7.49508 8.5C6.65399 8.5 6.26525 8.746 5.25049 9.416C5.19361 9.44982 5.13056 9.4722 5.06494 9.48188C4.99932 9.49157 4.93241 9.48835 4.86805 9.47243C4.80368 9.4565 4.74311 9.42818 4.6898 9.38907C4.63649 9.34996 4.59147 9.30084 4.55733 9.2445C4.52319 9.18816 4.50058 9.12572 4.4908 9.06073C4.48103 8.99574 4.48427 8.92948 4.50035 8.86573C4.51643 8.80198 4.54503 8.742 4.58452 8.6892C4.62401 8.6364 4.67361 8.59181 4.73049 8.558C5.71294 7.909 6.33189 7.5 7.49508 7.5C8.15442 7.5 8.64513 7.825 9.00459 8.062L9.0369 8.084C9.4317 8.344 9.68917 8.5 10.0193 8.5C10.189 8.5 10.3788 8.458 10.612 8.374C10.8009 8.306 10.9917 8.221 11.2108 8.124C11.2694 8.097 11.3289 8.071 11.3925 8.044C11.853 7.84 12.4023 7.614 13.0485 7.532V2.543C12.6113 2.617 12.2104 2.777 11.8025 2.957L11.6419 3.027C11.4198 3.127 11.1845 3.232 10.9574 3.314C10.6581 3.42989 10.3406 3.49285 10.0193 3.5C9.36001 3.5 8.86929 3.175 8.50983 2.938L8.47752 2.916C8.08273 2.656 7.82525 2.5 7.49508 2.5C6.65399 2.5 6.26525 2.746 5.25049 3.416C5.13909 3.48488 5.00497 3.50806 4.87659 3.48061C4.74822 3.45317 4.6357 3.37726 4.56291 3.26899C4.49012 3.16073 4.46279 3.02863 4.48673 2.90074C4.51067 2.77285 4.58398 2.65923 4.69112 2.584L4.7315 2.558H4.73049Z"
-                      fill="#4F4F4F"
-                    />
-                  </svg>
+                <div className="review__item__reaction__text">
+                  {review?.noOfDisLikes}
                 </div>
-                <div className="review__item__reaction__text">Report</div>
               </div>
-             */}
             </div>
-            {/* <a href="#" className="review__item__right">
-              Read Full Review
-            </a> */}
           </div>
         </div>
       </div>

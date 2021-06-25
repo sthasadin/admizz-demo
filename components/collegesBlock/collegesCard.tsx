@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { CollegeCourse } from "./collegeCourse";
+
 import { useRouter } from "next/router";
 
 const CollegesCard = (college) => {
@@ -20,6 +21,14 @@ const CollegesCard = (college) => {
         onClick={() => router.push(`colleges/${college?.college_slug}`)}
       >
         <div className="colleges-card__thumbnail">
+          <div className="review-rating-container">
+            <div className="review-title">Reviews rating</div>
+            <div className="rating-container">
+              <img src="/heart.png" alt="..." className="like-icon" />
+              <span className="review-detail">8.5 </span>
+              <span className="review-number">/ 10</span>
+            </div>
+          </div>
           <img
             src={college?.banner ? college?.banner : "/colleges.png"}
             alt="college"

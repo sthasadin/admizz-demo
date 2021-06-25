@@ -31,8 +31,7 @@ const Footer = () => {
     subscriber: yup
       .string()
       .required("Please enter your gmail")
-      .email("Please provide a valid email")
-      .min(15, "Invalid gmail"),
+      .email("Please provide a valid email"),
   });
 
   const validate = async () => {

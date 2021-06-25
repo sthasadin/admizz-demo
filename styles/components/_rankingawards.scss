@@ -30,7 +30,7 @@
     }
   }
   .rankingawards__awardscontainer {
-    height: 370px;
+    max-height: 370px;
     overflow: auto;
 
     .rankingawards__awardsbox {

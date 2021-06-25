@@ -19,7 +19,7 @@ const FiveSteps = (props: any) => {
                 <div className="five-steps__circle__cta">
                   <Link href="/colleges">
                     <CallToAction className="filled">
-                      Find Universities
+                      Find Colleges/Universities
                     </CallToAction>
                   </Link>
                 </div>

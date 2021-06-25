@@ -8,6 +8,12 @@ interface CollegeProps {
 }
 
 const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
+  console.log(collegeList);
+  const sortArray = () => {
+    //  const sortedArray =  collegeList.sort((a, b) => a.average_fee > b.average_fee)
+    //  console.log(sortedArray);
+  };
+
   return (
     <div className="college-list-result">
       <div className="college-list-result__titleContainer">
@@ -21,13 +27,14 @@ const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
         <div className="college-list-result__sortContainer">
           <p className="college-list-result__sortItemTitle">Sort By</p>
           <p className="college-list-result__sortItem">
-            Popularity <img src={SortImage} />
+            Popularity{" "}
+            <img src={SortImage} alt=".." className="image-sort-icon" />
+          </p>
+          <p className="college-list-result__sortItem" onClick={sortArray}>
+            Ratings <img src={SortImage} alt=".." className="image-sort-icon" />
           </p>
           <p className="college-list-result__sortItem">
-            Ratings <img src={SortImage} />
-          </p>
-          <p className="college-list-result__sortItem">
-            Fees <img src={SortImage} />
+            Fees <img src={SortImage} alt=".." className="image-sort-icon" />
           </p>
         </div>
       </div>
@@ -40,22 +47,6 @@ const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
               </div>
             );
           })}
-
-        {/* <div className="college-list-result__cardContainer">
-          <CollegesCard />
-        </div> */}
-        {/* <div className="college-list-result__cardContainer">
-          <CollegesCard />
-        </div>
-        <div className="college-list-result__cardContainer">
-          <CollegesCard />
-        </div>
-        <div className="college-list-result__cardContainer">
-          <CollegesCard />
-        </div>
-        <div className="college-list-result__cardContainer">
-          <CollegesCard />
-        </div> */}
       </div>
     </div>
   );

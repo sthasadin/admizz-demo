@@ -2,6 +2,7 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import { inherits } from "util";
 
 interface Props {
   icon?: any;
@@ -20,6 +21,7 @@ interface Props {
   errorMessage?: string;
   borderRadius?: string;
   value?: any;
+  bgColor?: any;
 }
 
 const Input = (props: Props) => {
@@ -40,6 +42,7 @@ const Input = (props: Props) => {
         },
         outline: "none",
         fontFamily: "'M PLUS 1p'",
+        borderColor: "none",
         fontWeight: 400,
         fontSize: 14,
         lineHeight: "20.79px",
@@ -48,7 +51,13 @@ const Input = (props: Props) => {
           //   return props.multiline ? " 30px" : !props.icon && "10px";
           // },
         },
+        backgroundColor: (props: Props) => {
+          return props.bgColor ? props.bgColor : inherits;
+        },
       },
+    },
+    noBorder: {
+      border: "none",
     },
     inputLabel: {
       color: "rgb(130, 130, 130);",

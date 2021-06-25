@@ -1,12 +1,19 @@
 .college-list-selected-filter {
   background-color: white;
   border-radius: 10px;
-  padding: 10px 10px;
+  padding: 10px 15px;
   margin: 10px 0px;
+  font-family: "Mplus 1p";
+  border: 1px solid #e0e0e0;
   &__filterTitleContainer {
     display: flex;
     justify-content: space-between;
     padding: 5px 5px;
+
+    &__filterTitle {
+      color: #4f4f4f;
+      font-style: normal;
+    }
   }
   &__filterAdd {
     cursor: pointer;
@@ -24,8 +31,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 5px;
   }
   &__checkboxLabel {
     color: #828282;
   }
+}
+
+.college-list-selected-filter__filterTitle {
+  color: #4f4f4f;
+  font-style: normal;
+}
+
+.college-list-count {
+  color: #828282;
+  font-style: 12px;
+  font-weight: 500;
+  font-style: normal;
 }

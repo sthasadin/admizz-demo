@@ -11,7 +11,7 @@
   }
   &__titleText {
     display: flex;
-    color: #4F4F4F;
+    color: #4f4f4f;
     font-family: Mplus 1p;
     font-size: 14px;
     font-style: normal;
@@ -24,7 +24,7 @@
   }
   &__titleTextNumber {
     padding: 0px 5px;
-    color:#FFA200;    ;
+    color: #ffa200;
     font-family: Mplus 1p;
     font-size: 14px;
     font-style: normal;
@@ -40,12 +40,11 @@
     font-family: Mplus 1p;
     font-size: 14px;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 21px;
     letter-spacing: 0em;
     text-align: center;
     color: #828282;
-    ;
   }
   &__sortItem {
     padding: 0px 5px;
@@ -65,7 +64,7 @@
     grid-column-gap: 15px;
     margin-top: 18px;
     margin-bottom: 18px;
-    grid-row-gap:18px;
+    grid-row-gap: 18px;
     @media (max-width: 1050px) {
       grid-template-columns: 1fr 1fr;
     }
@@ -82,4 +81,8 @@
       margin-bottom: 10px;
     }
   }
+}
+
+.image-sort-icon {
+  margin-left: 5px;
 }

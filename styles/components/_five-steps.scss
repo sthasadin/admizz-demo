@@ -126,6 +126,7 @@
     }
 
     &__inner {
+      z-index: 1;
       @media (max-width: 450px) {
         display: flex;
         margin-top: 25%;

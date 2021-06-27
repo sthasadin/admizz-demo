@@ -1,4 +1,3 @@
-import Head from "next/head";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCollegeList } from "../store/Action/allCollage.action";
@@ -8,17 +7,13 @@ import { CollegeFinder } from "../components/collegeFinder";
 import { CollegesBlock } from "../components/collegesBlock";
 import { FiveSteps } from "../components/FiveSteps";
 import Introduction from "../components/Introduction";
-// import { Login } from "../components/Login";
 import { Merits } from "../components/mertis";
-// import { Register } from "../components/register";
 import { Statistics } from "../components/statistics";
 import { Teams } from "../components/Teams";
 import { Testimonial } from "../components/Testimonial";
-// import { Testimonial } from "../components/Testomonial";
+
 import { Us } from "../components/why-us";
-import { Footer } from "../layouts/footer";
-import { Navbar } from "../layouts/navbar";
-import { Topbar } from "../layouts/topbar";
+import Layout from "../layouts/index";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -30,20 +25,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <Topbar />
-      <Head>
-        <title>Admizz - Home</title>
-        <link rel="icon" href="favicon.svg" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@800&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-
-      <main className="main">
-        <Navbar />
-
+      <Layout>
         <Introduction />
 
         <About />
@@ -57,10 +39,7 @@ export default function Home() {
         <Testimonial />
         <BlogList />
         <Teams />
-        {/* <Register />
-        <Login /> */}
-      </main>
-      <Footer />
+      </Layout>
     </div>
   );
 }

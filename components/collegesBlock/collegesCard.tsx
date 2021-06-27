@@ -4,7 +4,7 @@ import { CollegeCourse } from "./collegeCourse";
 
 import { useRouter } from "next/router";
 
-const CollegesCard = (college) => {
+const CollegesCard = (college, props) => {
   const router = useRouter();
 
   function truncateString(str, num) {

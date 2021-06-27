@@ -2,6 +2,8 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import VisibilityOffOutlinedIcon from "@material-ui/icons/VisibilityOffOutlined";
+import VisibilityOutlinedIcon from "@material-ui/icons/VisibilityOutlined";
 import { inherits } from "util";
 
 interface Props {
@@ -17,15 +19,16 @@ interface Props {
   multiline?: boolean;
   label?: string;
   onChange?: (e: any) => void;
-  onKeyDown?: (e: any) => void;
+  onClick?: (e: any) => void;
   error?: boolean;
   errorMessage?: string;
   borderRadius?: string;
   value?: any;
+  showPassword?: boolean;
   bgColor?: any;
 }
 
-const Input = (props: Props) => {
+const PasswordField = (props: Props) => {
   const useStyles = makeStyles((theme) => ({
     container: {
       position: "relative",
@@ -98,7 +101,6 @@ const Input = (props: Props) => {
         rowsMax={props.multiline && 8}
         label={props.label}
         onChange={props.onChange}
-        onKeyDown={props.onKeyDown}
         error={props.error}
         InputLabelProps={{
           classes: {
@@ -106,15 +108,29 @@ const Input = (props: Props) => {
             focused: "focused",
           },
         }}
-        InputProps={
-          Icon && {
-            startAdornment: (
-              <InputAdornment position="start">
-                <Icon />
-              </InputAdornment>
-            ),
-          }
-        }
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <Icon />
+            </InputAdornment>
+          ),
+
+          endAdornment: (
+            <InputAdornment position="end">
+              {props.showPassword ? (
+                <VisibilityOutlinedIcon
+                  onClick={props.onClick}
+                  style={{ cursor: "pointer" }}
+                />
+              ) : (
+                <VisibilityOffOutlinedIcon
+                  onClick={props.onClick}
+                  style={{ cursor: "pointer" }}
+                />
+              )}
+            </InputAdornment>
+          ),
+        }}
       />
       {props.errorMessage && (
         <span className={classes.errorMessage}>{props.errorMessage}</span>
@@ -123,4 +139,4 @@ const Input = (props: Props) => {
   );
 };
 
-export { Input };
+export { PasswordField };

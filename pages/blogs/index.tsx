@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import Head from "next/head";
-import { Footer } from "../../layouts/footer";
-import { Navbar } from "../../layouts/navbar";
-import { Topbar } from "../../layouts/topbar";
+
+import Layout from "../../layouts";
+
 import { BlogListBanner } from "../../components/BlogListBanner";
 import { SectionTitle } from "../../components/SectionTitle";
 import { BlogListMember } from "../../components/BlogListMember";
@@ -21,16 +20,10 @@ const blogList = () => {
   }, []);
 
   return (
-    <div className="container">
-      <Head>
-        <Topbar />
-        <title>Admizz - Blogs</title>
-        <link rel="icon" href="favicon.svg" />
-      </Head>
-      <div>
-        <Navbar />
+    <Layout>
+      <div className="container">
         <main className="blog-list">
-          <div className="blog-list__container">
+          <div className="section-wrapper">
             <BlogListBanner />
             <SectionTitle title="Featured For Members" />
             <BlogListMember />
@@ -41,8 +34,7 @@ const blogList = () => {
           </div>
         </main>
       </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

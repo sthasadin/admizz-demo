@@ -5,46 +5,15 @@ import "slick-carousel/slick/slick-theme.css";
 import { BlogCard } from "../BlogList/blogListCard";
 
 const index = () => {
-  function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", zIndex: 1 }}
-        onClick={onClick}
-      >
-        <img
-          src="./right-side-arrow.png"
-          alt=".."
-          style={{ marginLeft: "-22px" }}
-        />
-      </div>
-    );
-  }
-  function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", zIndex: 1 }}
-        onClick={onClick}
-      >
-        <img
-          src="./left-side-arrow.png"
-          alt=".."
-          style={{ marginLeft: "5px", zIndex: 10 }}
-        />
-      </div>
-    );
-  }
   const settings = {
-    dots: false,
+    dots: true,
+    dotsClass: "slick-custom-scroll slick-thumb",
     infinite: false,
     speed: 500,
     slidesToShow: 1.5,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    // nextArrow: <SampleNextArrow />,
+    // prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1024,

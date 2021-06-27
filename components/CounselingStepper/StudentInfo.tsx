@@ -181,8 +181,8 @@ const StudentInfo: React.FC<Props> = ({
               className={"student-info__input"}
               fullWidth
               icon={MenuBookIcon}
-              label={"Selected Course"}
-              placeholder="Selected Course"
+              label={"Select Course"}
+              placeholder="Select Course"
             />
           </Grid>
         </Grid>

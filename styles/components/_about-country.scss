@@ -8,11 +8,8 @@
 
   .inner__about {
     background-color: #f2f2f2;
+    // background-image: url("/background-about-india.png");
     padding: 40px 40px 60px;
-    @media (min-width: 1360px) {
-      width: 1240px;
-      margin: 0 auto;
-    }
   }
 
   &__desc {

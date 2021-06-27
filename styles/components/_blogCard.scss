@@ -1,5 +1,8 @@
 .blogCard {
   &__inner {
+    width: 98%;
+    // margin: 0 auto;
+    max-width: 1440px;
     background-image: url(../../public/blog.png);
     background-size: cover;
     background-position: center center;
@@ -11,7 +14,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding-top: 200px;
-    margin-right: 1.5rem;
+    // margin-right: 1.5rem;
     // margin: 0px 20px;
     @media (max-width: 450px) {
       padding-top: 0;

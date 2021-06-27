@@ -11,8 +11,6 @@ import mobileVersionLogo from "../public/mobileVersionLogo.png";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
-
-
 const Navbar = (props: any) => {
   const router = useRouter();
 
@@ -159,19 +157,39 @@ const Navbar = (props: any) => {
           <div className="navbar__menu">
             <nav className="navigation">
               <ul className="menu">
-                <li className="menu-item">
+                <li
+                  className={`menu-item ${
+                    router.pathname == "/" ? "active-navlink" : ""
+                  }`}
+                >
                   <Link href="/">Home</Link>
                 </li>
-                <li className="menu-item">
+                <li
+                  className={`menu-item ${
+                    router.pathname == "/colleges" ? "active-navlink" : ""
+                  }`}
+                >
                   <Link href="/colleges">Colleges</Link>
                 </li>
-                <li className="menu-item">
+                <li
+                  className={`menu-item ${
+                    router.pathname == "/blogs" ? "active-navlink" : ""
+                  }`}
+                >
                   <Link href="/blogs">Blogs</Link>
                 </li>
-                <li className="menu-item">
+                <li
+                  className={`menu-item ${
+                    router.pathname == "/faq" ? "active-navlink" : ""
+                  }`}
+                >
                   <Link href="/faq">FAQs</Link>
                 </li>
-                <li className="menu-item">
+                <li
+                  className={`menu-item ${
+                    router.pathname == "/contact-us" ? "active-navlink" : ""
+                  }`}
+                >
                   <Link href="/contact-us">Contact</Link>
                 </li>
               </ul>

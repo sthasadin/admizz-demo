@@ -69,7 +69,11 @@ const Select = (props: Props) => {
   const Icon = props.icon;
   return (
     <FormControl className={classes.formControl} variant="outlined">
-      <InputLabel id="demo-simple-select-label" className={classes.label}>
+      <InputLabel
+        id="demo-simple-select-label"
+        className={classes.label}
+        style={{ backgroundColor: "#fff" }}
+      >
         {props.title}
       </InputLabel>
       <SelectComponent

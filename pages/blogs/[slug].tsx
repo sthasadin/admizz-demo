@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Head from "next/head";
+
 import {
   FacebookShareButton,
   WhatsappShareButton,
@@ -8,9 +8,8 @@ import {
 } from "react-share";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import { Footer } from "../../layouts/footer";
-import { Navbar } from "../../layouts/navbar";
-import { Topbar } from "../../layouts/topbar";
+import Layout from "../../layouts";
+
 import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 import { BlogDetailContent } from "../../components/BlogDetailContent";
 import { BlogDetailMember } from "../../components/BlogDetailMember";
@@ -51,14 +50,8 @@ const blogDetail = () => {
   const blog = useSelector((state) => state.blog.blog);
 
   return (
-    <div className="container">
-      <Head>
-        <Topbar />
-        <title>Admizz - Home</title>
-        <link rel="icon" href="favicon.svg" />
-      </Head>
-      <div>
-        <Navbar />
+    <Layout>
+      <div className="container">
         <main className="blog-detail">
           <div className="blog-detail__container">
             <div className="blog-detail__main">
@@ -145,8 +138,7 @@ const blogDetail = () => {
           </div>
         </main>
       </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

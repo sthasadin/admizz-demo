@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Input } from "../Input";
+import { PasswordField } from "../Input/PasswordField";
 import PersonIcon from "@material-ui/icons/Person";
 import MailIcon from "@material-ui/icons/Mail";
 import PhoneIcon from "@material-ui/icons/Phone";
@@ -32,6 +33,7 @@ const Register = () => {
     countryCode: "+977",
   } as signUpFormValue);
   const [formError, setFormError] = useState({} as any);
+  const [showPassword, setShowPassword] = useState(false as boolean);
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
@@ -206,6 +208,7 @@ const Register = () => {
                   name={"fullName"}
                   icon={PersonIcon}
                   placeholder="Full Name*"
+                  label="Full Name"
                   error={!!formError.fullName}
                   errorMessage={formError.fullName}
                   type="text"
@@ -216,6 +219,7 @@ const Register = () => {
                   name={"email"}
                   icon={MailIcon}
                   placeholder="Email Address*"
+                  label="Email Address"
                   error={!!formError.email}
                   errorMessage={formError.email}
                   type="text"
@@ -241,6 +245,7 @@ const Register = () => {
                     icon={PhoneIcon}
                     borderRadius={"0px 5px 5px 0px"}
                     placeholder="Phone Number*"
+                    label="Phone Number"
                     error={!!formError.phoneNumber}
                     errorMessage={formError.phoneNumber}
                     type="text"
@@ -252,13 +257,14 @@ const Register = () => {
                   options={countryList}
                   onChange={handleChange}
                   icon={LocationOnIcon}
-                  label="Home Country"
+                  title="Home Country"
+                  // placeholder="Home Country"
                   name={"country"}
                   error={!!formError.country}
                   errorMessage={formError.country}
                 />
 
-                <Input
+                <PasswordField
                   fullWidth
                   onChange={handleChange}
                   name={"password"}
@@ -267,9 +273,13 @@ const Register = () => {
                   label="Password"
                   error={!!formError.password}
                   errorMessage={formError.password}
-                  type="password"
+                  type={`${showPassword ? "text" : "password"}`}
+                  onClick={() =>
+                    setShowPassword((showPassword) => !showPassword)
+                  }
+                  showPassword={showPassword}
                 />
-                <Input
+                <PasswordField
                   fullWidth
                   onChange={handleChange}
                   name={"confirmPassword"}
@@ -278,7 +288,11 @@ const Register = () => {
                   placeholder="Confirm Password"
                   error={!!formError.confirmPassword}
                   errorMessage={formError.confirmPassword}
-                  type="password"
+                  type={`${showPassword ? "text" : "password"}`}
+                  onClick={() =>
+                    setShowPassword((showPassword) => !showPassword)
+                  }
+                  showPassword={showPassword}
                 />
               </div>
               <div className="signin__info">

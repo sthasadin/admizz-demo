@@ -22,7 +22,7 @@ const SidebarContainer = ({
 }) => {
   return (
     <div className="sidebar-container">
-      <div className="sidebar-container__inner inner">
+      <div className="sidebar-container__inner section-wrapper">
         <div className="content-with-sidebar">
           <CollegeDetailsBlock
             totalStudents={totalStudents}

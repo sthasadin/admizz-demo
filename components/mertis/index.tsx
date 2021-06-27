@@ -17,11 +17,11 @@ const Merits = () => {
   };
   return (
     <div className="merit">
-      <div className="merit__inner">
+      <div className="merit__inner section-wrapper">
         <div className="merit__left">
           <div className="merit__heading block-heading">study in india</div>
           <div className="merit__title block-title">
-            why to study in <span>india</span>
+            Why to study in <span>india</span>
           </div>
           <div className="merit__desc">
             We continuously strive towards facilitating campus-drives where

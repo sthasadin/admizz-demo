@@ -8,7 +8,6 @@ interface CollegeProps {
 }
 
 const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
-  console.log(collegeList);
   const sortArray = () => {
     //  const sortedArray =  collegeList.sort((a, b) => a.average_fee > b.average_fee)
     //  console.log(sortedArray);

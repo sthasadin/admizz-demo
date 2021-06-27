@@ -34,3 +34,11 @@ nav.navigation {
     }
   }
 }
+
+.menu-item:last-child {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+.menu-item:last-child a {
+  padding-right: 5px !important;
+}

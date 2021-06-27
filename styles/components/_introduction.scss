@@ -1,6 +1,6 @@
 .introduction__container {
   position: relative;
-  background-image: url("/background-image.png");
+  background-image: url("/background-image.jpg");
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
@@ -45,12 +45,15 @@
 .introduction {
   // margin-bottom: 36px;
   // background-color: #f2f2f2;
+  max-height: 669px;
   border-radius: 5px;
   text-align: center;
   position: relative;
   overflow: hidden;
+
+  margin: 0 auto;
   // padding-left: 100px;
-  padding-top: 30px;
+  // padding-top: 30px;
 
   @media (max-width: 755px) {
     background-image: url("../../public/mobileLandingImage.png");
@@ -70,10 +73,9 @@
   }
   &__inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
     text-align: left;
-    width: 90%;
-    margin: auto;
+
     //width: calc(100% - 30px);
     // max-width: 1024px;
     // @media (max-width: 1500px) {
@@ -101,7 +103,7 @@
     // }
   }
   &__left {
-    margin-bottom: 48px;
+    margin-top: 66px;
   }
   &__header {
     font-size: 24px;
@@ -192,7 +194,7 @@
     }
 
     .u-align-center {
-      width: 85%;
+      width: 535px;
       display: flex;
       justify-content: space-between;
       @media (max-width: 450px) {
@@ -260,6 +262,8 @@
     &__thumbnail {
       height: 100%;
       z-index: 2;
+      width: 500px;
+      float: right;
       position: relative;
       @media (max-width: 1210px) {
         right: -32px;
@@ -269,6 +273,29 @@
       }
       @media (max-width: 1024px) {
         display: none;
+      }
+      &::after {
+        content: "";
+        width: 619px;
+        background: transparent;
+        border: 3px dotted #ad8b81;
+        height: 590px;
+        position: absolute;
+        z-index: -1;
+        border-radius: 50%;
+        bottom: -70px;
+        right: -158px;
+      }
+      &::before {
+        content: "";
+        width: 569px;
+        background: #ffa200;
+        height: 548px;
+        position: absolute;
+        z-index: -1;
+        border-radius: 50%;
+        bottom: -50px;
+        right: -134px;
       }
       img {
         height: 100%;

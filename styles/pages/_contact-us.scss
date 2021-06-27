@@ -1,22 +1,22 @@
 .contact-container {
   display: flex;
   flex-direction: column;
+  background-color: #ffa200;
 }
 .banner {
-	background-color: #ffa200;
-	height: 482px;
-	position: relative;
-	padding-left: 10%;
-	padding-top: 113px;
+  height: 482px;
+  position: relative;
+  padding-left: 10%;
+  padding-top: 113px;
   @media (max-width: 414px) {
     padding-right: 10%;
   }
 }
 .banner-opacity {
-	height: 361px;
-	background-image: url(../../public//map.png);
-	position: absolute;
-	right: 10px;
+  height: 361px;
+  background-image: url(../../public//map.png);
+  position: absolute;
+  right: 10px;
   width: 30%;
   top: 71px;
   @media (max-width: 530px) {
@@ -24,34 +24,38 @@
   }
 }
 .banner-head {
-	font-family: 'M PLUS 1p';
-	font-weight: 800;
-	line-height: 53px;
-    font-size: 36px;
-    color: #333333;
-    width: fit-content;
+  font-family: "M PLUS 1p";
+  font-weight: 800;
+  line-height: 53px;
+  font-size: 36px;
+  color: #333333;
+  width: fit-content;
 }
 .banner-content {
-    width: 60%;
-    font-family: 'M PLUS 1p';
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 24px;
-    color: white;
-    flex-wrap: wrap;
-    @media (max-width: 530px) {
-      width: 100%;
-    }
+  width: 60%;
+  font-family: "M PLUS 1p";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: white;
+  flex-wrap: wrap;
+  @media (max-width: 530px) {
+    width: 100%;
+  }
 }
 .banner-image {
-	background: radial-gradient(50.14% 50.14% at 50.1% 49.86%, rgba(255, 162, 0, 0.46) 0%, #ffa200 100%);
-	height: 361px;
-	position: relative;
-	img {
-		position: absolute;
-		left: 120px;
-		bottom: 180px;
-	}
+  background: radial-gradient(
+    50.14% 50.14% at 50.1% 49.86%,
+    rgba(255, 162, 0, 0.46) 0%,
+    #ffa200 100%
+  );
+  height: 361px;
+  position: relative;
+  img {
+    position: absolute;
+    left: 120px;
+    bottom: 180px;
+  }
 }
 .banner-imageValue {
   @media (max-width: 700px) {
@@ -59,11 +63,11 @@
   }
 }
 .form-wrapper {
-	margin-top: -150px;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	padding-bottom: 81px;
-	position: relative;
-	z-index: 2;
+  margin-top: -150px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 81px;
+  position: relative;
+  z-index: 2;
 }

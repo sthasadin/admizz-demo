@@ -77,7 +77,13 @@ const index = ({ data }) => {
       <Slider {...settings}>
         {data &&
           data.map((college, index) => {
-            return <CollegesCard {...college} key={index} />;
+            return (
+              <CollegesCard
+                {...college}
+                key={index}
+                style={{ margin: "0 0.5rem !important" }}
+              />
+            );
           })}
       </Slider>
     </div>

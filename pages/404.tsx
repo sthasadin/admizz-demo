@@ -1,18 +1,11 @@
 import React from "react";
-import Head from "next/head";
 import Link from "next/link";
-import { Navbar } from "../layouts/navbar";
+import Layout from "../layouts";
 import ErrorImage from "../public/404error.png";
 import { Button } from "../components/Button";
 const index = () => {
   return (
-    <>
-      <Head>
-        {/* <Topbar /> */}
-        <title>Admizz - Collages</title>
-        <link rel="icon" href="favicon.svg" />
-      </Head>
-      <Navbar />
+    <Layout>
       <div className="error__container">
         <div className="text__container">
           <div className="text__section">
@@ -35,7 +28,7 @@ const index = () => {
           <img src={ErrorImage} />{" "}
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

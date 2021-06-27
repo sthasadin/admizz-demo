@@ -16,21 +16,11 @@ function Carousel({ children, bulletdot }) {
     setActiveStep(step);
   };
 
-  // React.useMemo(() => {
-  //   return {
-  //     width: bulletdot ? "10px" : "45px",
-  //     height: "9px",
-  //     background: "#5f1802",
-  //     borderRadius: "50%",
-  //     outline: "none",
-  //   };
-  // }, [bulletdot]);
-
   const inactivestyle = React.useMemo(() => {
     return {
       width: bulletdot ? "10px" : "45px",
-      height: "3px",
-      background: "#5f1802",
+      height: "5px",
+      background: "#828282",
       borderRadius: bulletdot ? "50%" : null,
       outline: "none",
     };
@@ -39,7 +29,7 @@ function Carousel({ children, bulletdot }) {
   const activestyle = React.useMemo(() => {
     return {
       width: bulletdot ? "10px" : "45px",
-      height: "3px",
+      height: "5px",
       background: "#5f1802",
       borderRadius: bulletdot ? "50%" : null,
       outline: "none",

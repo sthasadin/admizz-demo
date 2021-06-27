@@ -11,7 +11,7 @@ interface CollegeProps {
 const CollegesBlock: FC<CollegeProps> = ({ collegeList }) => {
   return (
     <div className="collegesBlock">
-      <div className="collegesBlock__inner">
+      <div className="collegesBlock__inner section-wrapper">
         <div className="collegesBlock__heading block-heading">
           featured college
         </div>

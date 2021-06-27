@@ -4,7 +4,7 @@ import { Card1 } from "../card/card1";
 const About = () => {
   return (
     <div className="about-country">
-      <div className="inner__about">
+      <div className="inner__about section-wrapper">
         {/* <div className="container" style={{ border: "1px solid black" }}> */}
         <div className="about-country__heading block-heading">about india</div>
         <div className="about-country__title block-title">
@@ -36,7 +36,7 @@ const About = () => {
           <Card1
             bgImage="card-3"
             title="Education System in India"
-            subText="Efficent Education"
+            subText="Efficient Education"
           />
           <Card1
             bgImage="card-4"

@@ -9,7 +9,7 @@ import Slide from "@material-ui/core/Slide";
 import ReactPlayer from "react-player";
 import Link from "next/link";
 
-const Introduction = ({ title }) => {
+const Introduction = ({ title, imgSrc }) => {
   const router = useRouter();
 
   const [open, setOpen] = React.useState(false);
@@ -24,7 +24,7 @@ const Introduction = ({ title }) => {
 
   return (
     <div className="introduction">
-      <div className="introduction__inner">
+      <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
           <div className="introduction__header">{`You just dream it ${title}`}</div>
           <div className="introduction__title">
@@ -185,7 +185,7 @@ const Introduction = ({ title }) => {
         <div className="introduction__right">
           {/* <div className="introduction__right__background"></div> */}
           <div className="introduction__right__thumbnail">
-            <img src={intro} alt="" />
+            <img src={imgSrc} alt="..." />
           </div>
         </div>
       </div>

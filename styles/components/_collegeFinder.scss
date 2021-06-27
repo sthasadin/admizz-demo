@@ -1,21 +1,21 @@
 .collegeFinder {
   margin: 80px 0;
   &__inner {
-    width: calc(100% - 30px);
-    margin: 40px 15px;
-    @media (min-width: 768px) {
-      width: 720px;
-      margin: 0 auto;
-    }
-    @media (min-width: 1024px) {
-      width: 940px;
-    }
-    @media (min-width: 1200px) {
-      width: 1170px;
-    }
-    @media (min-width: 1360px) {
-      width: 1240px;
-    }
+    // width: calc(100% - 30px);
+    // margin: 40px 15px;
+    // @media (min-width: 768px) {
+    //   width: 720px;
+    //   margin: 0 auto;
+    // }
+    // @media (min-width: 1024px) {
+    //   width: 940px;
+    // }
+    // @media (min-width: 1200px) {
+    //   width: 1170px;
+    // }
+    // @media (min-width: 1360px) {
+    //   width: 1240px;
+    // }
   }
 
   &__titlebar {

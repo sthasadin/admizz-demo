@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CallToAction } from "../Button/callToAction";
 import { Input } from "../Input";
+import { PasswordField } from "../Input/PasswordField";
 import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
 import { Button } from "../Button";
@@ -22,6 +23,7 @@ interface signInProps {
 
 const Login = () => {
   const [formValue, setFormValue] = useState({} as signInProps);
+  const [showPassword, setShowPassword] = useState(false as boolean);
   const [formError, setFormError] = useState({} as any);
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
@@ -175,15 +177,17 @@ const Login = () => {
                 error={!!formError.email}
                 errorMessage={formError.email}
               />
-              <Input
+              <PasswordField
                 icon={LockIcon}
                 name={"password"}
                 onChange={handleChange}
+                onClick={() => setShowPassword((showPassword) => !showPassword)}
                 fullWidth
                 placeholder="Password"
-                type="password"
+                type={`${showPassword ? "text" : "password"}`}
                 error={!!formError.password}
                 errorMessage={formError.password}
+                showPassword={showPassword}
               />
               <div className="signin__forgot">
                 <a href="#">Forgot Password?</a>

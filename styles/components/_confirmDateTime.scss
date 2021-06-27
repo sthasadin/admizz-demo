@@ -2,8 +2,9 @@
   padding-bottom: 28px;
   &__date-time {
     display: flex;
-    padding-top: 25px;
-    padding-left: 32px;
+    // padding-top: 25px;
+    // padding-left: 32px;
+    padding: 25px 32px;
     justify-content: space-between;
     max-height: 410px;
     @media (max-width: 800px) {
@@ -47,7 +48,7 @@
     width: 100%;
     border-radius: 5px;
     border: 1px solid #e0e0e0;
-    height: 83%;
+    height: 89%;
     padding: 21px 41px 53px 40px;
     font-family: "M PLUS 1p";
     font-weight: 800;
@@ -92,6 +93,7 @@
   }
   &__meridium {
     font-weight: 400;
+    width: 22px;
   }
   &__time-controls {
     display: flex;

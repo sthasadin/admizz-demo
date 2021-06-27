@@ -1,12 +1,13 @@
 .navbar {
   background: #fff;
-  box-shadow: 0 -3px 12px 0 #000;
+  // box-shadow: 0 -3px 12px 0 #000;
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
     width: 90%;
+    max-width: 1440px;
     margin: auto;
     // width: calc(100% - 30px);
     // margin: 0 15px;

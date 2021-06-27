@@ -9,7 +9,7 @@ const BlogList = () => {
   const router = useRouter();
   return (
     <div className="blog-list">
-      <div className="blog-list__inner">
+      <div className="blog-list__inner section-wrapper">
         <div className="blog-list__titlebar">
           <div className="blog-list__left">
             <div className="blog-list__heading block-heading">

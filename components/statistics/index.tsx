@@ -1,16 +1,6 @@
 import React from "react";
 
 const Statistics = () => {
-  const [windowSize, setWindowSize] = React.useState({ width: undefined });
-
-  React.useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth });
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
   return (
     <div className="stat">
       <div className="stat__inner">

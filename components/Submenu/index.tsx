@@ -3,7 +3,7 @@ import React from "react";
 const Submenu = (props: any) => {
   return (
     <div className="submenu-bar">
-      <div className="submenu-bar__inner inner">
+      <div className="submenu-bar__inner section-wrapper">
         <ul className="submenu">
           <li className="submenu__item active">
             <a href="#overview">Overview</a>

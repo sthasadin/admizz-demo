@@ -5,7 +5,7 @@ import QuickHelp from "./quick-help";
 const FAQ = () => {
   return (
     <div className="faq">
-      <div className="faq__header">
+      <div className="faq__header section-wrapper">
         <div className="faq__header__title">
           <div className="faq__header__search">What can we help you? FAQs</div>
           <div className="faq__header__desc">
@@ -13,7 +13,7 @@ const FAQ = () => {
           </div>
         </div>
       </div>
-      <div className="faq__inner">
+      <div className="faq__inner section-wrapper">
         <div className="faq__title">Frequently Asked Questions</div>
         <div className="faq__accordian">
           <div className="faq__accordian__item">

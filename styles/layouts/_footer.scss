@@ -1,21 +1,22 @@
 .footer {
   background-color: #300b00;
   &__inner {
-    width: calc(100% - 30px);
-    margin: 0 15px;
-    @media (min-width: 768px) {
-      width: 720px;
-      margin: 0 auto;
-    }
-    @media (min-width: 1024px) {
-      width: 940px;
-    }
-    @media (min-width: 1200px) {
-      width: 1170px;
-    }
-    @media (min-width: 1360px) {
-      width: 90%;
-    }
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    // @media (min-width: 768px) {
+    //   width: 720px;
+    //   margin: 0 auto;
+    // }
+    // @media (min-width: 1024px) {
+    //   width: 940px;
+    // }
+    // @media (min-width: 1200px) {
+    //   width: 1170px;
+    // }
+    // @media (min-width: 1360px) {
+    //   width: 90%;
+    // }
   }
   &__top {
     padding: 110px 0;

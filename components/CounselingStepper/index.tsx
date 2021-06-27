@@ -93,6 +93,7 @@ const CounselingStepper = () => {
       [e.target.name]: e.target.value,
       country_code: 977,
     });
+    console.log(formValue);
   };
 
   const validationSchema = yup.object().shape<studentInfoFormValue>({

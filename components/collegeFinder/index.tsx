@@ -9,7 +9,7 @@ const CollegeFinder = () => {
   const router = useRouter();
   return (
     <div className="collegeFinder">
-      <div className="collegeFinder__inner">
+      <div className="collegeFinder__inner section-wrapper">
         <div className="collegeFinder__titlebar">
           <div className="collegeFinder__left">
             <div className="collegeFinder__heading block-heading">

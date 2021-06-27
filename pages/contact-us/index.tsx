@@ -1,23 +1,16 @@
 import React from "react";
-import Head from "next/head";
-import { Topbar } from "../../layouts/topbar";
+
 import { ContactForm, BookCounseling } from "../../components";
-import { Footer } from "../../layouts/footer";
-import { Navbar } from "../../layouts/navbar";
+import Layout from "../../layouts";
+
 import marker from "../../public/marker.png";
 
 const ContactUs = () => {
   return (
-    <div>
-      <Head>
-        <Topbar />
-        <title>Admizz - Contact</title>
-        <link rel="icon" href="favicon.svg" />
-      </Head>
+    <Layout>
       <div>
-        <Navbar />
         <div className="contact-container">
-          <div className="banner">
+          <div className="banner section-wrapper">
             <div className="banner-head">Get In Touch</div>
             <div className="banner-content">
               Welcome to our Website. We are glad to have you around. following
@@ -32,13 +25,13 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
+
+        <div className="form-wrapper section-wrapper">
+          <ContactForm />
+          <BookCounseling />
+        </div>
       </div>
-      <div className="form-wrapper">
-        <ContactForm />
-        <BookCounseling />
-      </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

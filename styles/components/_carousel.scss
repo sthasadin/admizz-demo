@@ -4,10 +4,14 @@
   &__lines {
     display: flex;
     justify-content: center;
-    height: 5px;
-    margin-top: -5px;
+
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-50%);
   }
   &__line {
+    width: 58px;
     margin-left: 5px;
   }
 }

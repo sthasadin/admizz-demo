@@ -23,8 +23,8 @@ const SelectCounseler: React.FC<Props> = ({ handleChange }) => {
           counsellor.push({
             id: doc.id,
             name: data.name,
-            country: data.country,
-            image: data.image,
+            country: data.coverage,
+            image: data.imageURL,
           });
         });
       });
@@ -74,7 +74,7 @@ const SelectCounseler: React.FC<Props> = ({ handleChange }) => {
                   {item.name}
                 </div>
                 <div className="select-counseler__counseler-nationaliy">
-                  {item.country} Counseler
+                  {item.country}
                 </div>
               </div>
             </div>

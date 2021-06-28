@@ -49,3 +49,13 @@
   font-weight: 500;
   font-style: normal;
 }
+.stream-container {
+  height: 0px;
+  overflow: hidden;
+  transition: height 4s ease-out;
+}
+
+.active-stream-container {
+  height: 100%;
+  transition: height 12s ease-in;
+}

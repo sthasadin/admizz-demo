@@ -104,24 +104,39 @@ const collegeList = () => {
     setCollegeListSearchQuery(e.target.value);
   };
 
+  // const handleSearch = () => {
+  //   if (collegeListSearchQuery.length && collegeList.length) {
+  //     const filteredColleges = collegeList.filter((college) => {
+  //       if (
+  //         college.name
+  //           .trim()
+  //           .toLowerCase()
+  //           .search(collegeListSearchQuery.trim().toLowerCase()) > -1 || //by name
+  //         college.address
+  //           .trim()
+  //           .toLowerCase()
+  //           .search(collegeListSearchQuery.trim().toLowerCase()) > -1 //by address
+  //       ) {
+  //         return college;
+  //       }
+  //     });
+  //     setCollegeList(filteredColleges);
+  //   }
+  // };
   const handleSearch = () => {
-    if (collegeListSearchQuery.length && collegeList.length) {
-      const filteredColleges = collegeList.filter((college) => {
-        if (
-          college.name
-            .trim()
-            .toLowerCase()
-            .search(collegeListSearchQuery.trim().toLowerCase()) > -1 || //by name
-          college.address
-            .trim()
-            .toLowerCase()
-            .search(collegeListSearchQuery.trim().toLowerCase()) > -1 //by address
-        ) {
-          return college;
-        }
-      });
-      setCollegeList(filteredColleges);
-    }
+    const filteredColleges = collegeList.filter((college) => {
+      return (
+        college?.name
+          .trim()
+          .toLowerCase()
+          .includes(collegeListSearchQuery.trim().toLowerCase()) ||
+        college?.address
+          .trim()
+          .toLowerCase()
+          .includes(collegeListSearchQuery.trim().toLowerCase())
+      );
+    });
+    setCollegeList(filteredColleges);
   };
 
   const resetFilter = () => {
@@ -148,6 +163,7 @@ const collegeList = () => {
                   onChange={onChangeCollegeListSearchQuery}
                   value={collegeListSearchQuery}
                   fullWidth
+                  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   icon={SearchIcon}
                   bgColor="#fff"
                 />

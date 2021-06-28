@@ -61,10 +61,10 @@ const Select = (props: Props) => {
   }));
   const classes = useStyles(props);
 
-  const getCountryCode = (label) => {
-    console.log(label);
-    return label.split(" ")[1];
-  };
+  // const getNumberWithImage = (code: any) => {
+  //   console.log(code);
+  //   return <p>asdasd</p>;
+  // };
 
   const Icon = props.icon;
   return (
@@ -103,6 +103,7 @@ const Select = (props: Props) => {
                 key={key}
                 value={props.useLabel ? item.label : item.value}
               >
+                {/* {getNumberWithImage(item.label)} */}
                 {item.label}
               </MenuItem>
             );

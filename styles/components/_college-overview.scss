@@ -35,6 +35,7 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 25px;
     margin-bottom: 30px;
+    margin-top: 30px;
     @media (max-width: 400px) {
       grid-template-columns: 1fr 1fr 1fr;
     }
@@ -71,7 +72,8 @@
     position: relative;
     img {
       width: 100%;
-      height: auto;
+      min-height: 250px;
+      height: 250px;
       object-fit: cover;
       border-radius: 5px;
     }

@@ -3,11 +3,15 @@ import counseler from "../../public/counseler.png";
 import counselerImage from "../../public/counselerImage.png";
 import { db } from "../../firebase";
 
+interface FormError {
+  [key: string]: string;
+}
 interface Props {
   handleChange: (e: any) => void;
+  formError: FormError;
 }
 
-const SelectCounseler: React.FC<Props> = ({ handleChange }) => {
+const SelectCounseler: React.FC<Props> = ({ handleChange, formError }) => {
   const [counsellorArray, setCounsellorArray] = useState([]);
 
   const getFireStoreCounselor = async () => {
@@ -81,6 +85,7 @@ const SelectCounseler: React.FC<Props> = ({ handleChange }) => {
           );
         })}
       </div>
+      <div className="error-msg">{formError.counsellor} </div>
     </div>
   );
 };

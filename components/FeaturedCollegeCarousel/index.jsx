@@ -43,6 +43,7 @@ const index = ({ data }) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    className: "college-list-slider",
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -78,11 +79,9 @@ const index = ({ data }) => {
         {data &&
           data.map((college, index) => {
             return (
-              <CollegesCard
-                {...college}
-                key={index}
-                style={{ margin: "0 0.5rem !important" }}
-              />
+              <div style={{ display: "none" }}>
+                <CollegesCard {...college} key={index} />
+              </div>
             );
           })}
       </Slider>

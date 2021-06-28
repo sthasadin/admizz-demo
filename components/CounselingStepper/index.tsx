@@ -33,6 +33,12 @@ interface studentInfoFormValue {
   // additional_query: string;
 }
 
+interface FirstStepValidateSchema {
+  date: string;
+  time: string;
+  counsellor: string;
+}
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -93,8 +99,17 @@ const CounselingStepper = () => {
       [e.target.name]: e.target.value,
       country_code: 977,
     });
-    console.log(formValue);
+    setFormError({
+      ...formError,
+      [e.target.name]: null,
+    });
   };
+
+  const firstStepValidateSchema = yup.object().shape<FirstStepValidateSchema>({
+    date: yup.string().required("Please select one date"),
+    time: yup.string().required("Required time"),
+    counsellor: yup.string().required("Please select one counselor"),
+  });
 
   const validationSchema = yup.object().shape<studentInfoFormValue>({
     name: yup.string().required("Required name"),
@@ -109,15 +124,38 @@ const CounselingStepper = () => {
       .typeError("Value should be number"),
     home_country: yup.string().required("Required country name"),
     course: yup.string().required("Required course"),
-    description: yup.string().required("Required desc"),
+    description: yup.string().required("Required description"),
 
-    date: yup.string().required("Required date"),
+    date: yup.string().required("Please select one date"),
     time: yup.string().required("Required time"),
-    counsellor: yup.string().required("Required counsellor"),
+    counsellor: yup.string().required("Please select one counselor"),
     // additional_query: yup.string().required("Required query"),
     contact_medium: yup.string().required("Required medium"),
     contact_id: yup.string().required("Required constact id"),
   });
+
+  const firstStepValidate = async () => {
+    try {
+      await firstStepValidateSchema.validate(
+        {
+          date: formValue.date,
+          time: formValue.time,
+          counsellor: formValue.counsellor,
+        },
+        {
+          abortEarly: false,
+        }
+      );
+      setFormError({});
+      return true;
+    } catch (err) {
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0];
+      });
+      setFormError({ ...errors });
+    }
+  };
 
   const validate = async () => {
     try {
@@ -151,6 +189,7 @@ const CounselingStepper = () => {
       setFormError({ ...errors });
     }
   };
+  console.log(formError);
 
   const handleBook = async () => {
     setIsDisable(true);
@@ -211,14 +250,17 @@ const CounselingStepper = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleNext = () => {
-    const newActiveStep =
-      isLastStep() && !allStepsCompleted()
-        ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
-        : activeStep + 1;
-    setActiveStep(newActiveStep);
+  const handleNext = async () => {
+    const valid = await firstStepValidate();
+    if (valid) {
+      const newActiveStep =
+        isLastStep() && !allStepsCompleted()
+          ? // It's the last step, but not all steps have been completed,
+            // find the first step that has been completed
+            steps.findIndex((step, i) => !(i in completed))
+          : activeStep + 1;
+      setActiveStep(newActiveStep);
+    }
   };
 
   const handleNextFormValidation = async () => {
@@ -243,6 +285,7 @@ const CounselingStepper = () => {
             handleNext={handleNext}
             handleChange={handleChange}
             formValue={formValue}
+            formError={formError}
           />
         );
       case 1:

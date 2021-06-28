@@ -50,4 +50,7 @@
 }
 .contact__info {
   cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 }

@@ -148,11 +148,11 @@ const DashboardBasicInfo = (props) => {
 
   const CountryCodeOptions = [
     {
-      label: "India (+91)",
+      label: "+91",
       value: "+91 ",
     },
     {
-      label: "Nepal (+977)",
+      label: "+977",
       value: "+977",
     },
   ];

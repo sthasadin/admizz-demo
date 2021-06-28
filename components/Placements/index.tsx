@@ -246,7 +246,7 @@ const index = () => {
       <div className="placement__studentlist">
         {alumnis ? (
           <>
-            {alumnis.map((alumni) => {
+            {alumnis?.slice(0, 4).map((alumni) => {
               return (
                 <div className="placement__student">
                   <img src={alumni.image} />

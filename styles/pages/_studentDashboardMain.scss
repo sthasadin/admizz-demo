@@ -1,7 +1,7 @@
-.student-dashboard-main{
+.student-dashboard-main {
   display: flex;
   width: 100%;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   &__sidebar {
     width: 20%;
     @media (max-width: 700px) {
@@ -28,4 +28,17 @@
   &__recommendation {
     width: 100%;
   }
+}
+
+.student-dashboard-area {
+  background-color: #e5e5e5;
+}
+
+.dashboard-area {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 51%,
+    rgba(229, 229, 229, 1) 52%,
+    rgba(229, 229, 229, 1) 100%
+  );
 }

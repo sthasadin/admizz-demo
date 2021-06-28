@@ -5149,7 +5149,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 }
 
 .student-info__phone-separator .MuiOutlinedInput-input {
-  padding: 17px 14px;
+  padding: 17px 14px ;
 }
 
 .student-info__phone-separator .MuiOutlinedInput-notchedOutline {

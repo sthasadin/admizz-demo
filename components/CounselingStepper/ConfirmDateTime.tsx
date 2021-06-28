@@ -4,16 +4,21 @@ import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import { SelectCounseler } from "./SelectCounseler";
 import { Button } from "../Button";
 
+interface FormError {
+  [key: string]: string;
+}
 interface Props {
   handleNext: () => void;
   handleChange: (e: any) => void;
   formValue: Object;
+  formError: FormError;
 }
 
 const ConfirmDateTime: React.FC<Props> = ({
   handleNext,
   handleChange,
   formValue,
+  formError,
 }) => {
   const [selectedTime, setSelectedTime] = useState("03:00" as string);
   const [meridium, setMeridium] = useState("PM" as string);
@@ -51,7 +56,9 @@ const ConfirmDateTime: React.FC<Props> = ({
             <span>Confirm Date</span>
           </div>
           <Datepicker handleChange={handleChange} />
+          <div className="error-msg">{formError.date} </div>
         </div>
+
         <div className="confirm-date-container__time">
           <div className="confirm-date-container__label">
             <CalendarTodayIcon className="confirm-date-container__calendar-icon" />
@@ -102,7 +109,10 @@ const ConfirmDateTime: React.FC<Props> = ({
           </div>
         </div>
       </div>
-      <SelectCounseler handleChange={handleChange} />
+      <div className="select-counsellor-container">
+        <SelectCounseler handleChange={handleChange} formError={formError} />
+      </div>
+
       <div className={"confirm-date-container__action-button"}>
         <Button onClick={handleNext}>Continue</Button>
       </div>

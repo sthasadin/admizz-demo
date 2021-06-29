@@ -31,7 +31,7 @@ const DropDownSelect = ({
       right: 0,
       borderColor: error ? "red" : "#c4c4c4",
       "&:hover": {
-        borderColor: "#F3969A",
+        borderColor: "black",
       },
     }),
   };

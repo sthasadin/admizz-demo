@@ -61,7 +61,7 @@ const DashboardNavbar = () => {
 
   return (
     <div className="navbar">
-      <div className="navbar__inner">
+      <div className="navbar__inner dashboard-navbar">
         <div className="navbar__logoImage" style={{ cursor: "pointer" }}>
           <img src="/logo.png" alt="" onClick={() => router.push("/")} />
         </div>
@@ -69,12 +69,6 @@ const DashboardNavbar = () => {
           <div className="navbar__menu">
             <nav className="navigation">
               <ul className="menu">
-                <li className="menu-item">
-                  <img className="navbar__navImage" src={searchIcon} />
-                </li>
-                <li className="menu-item">
-                  <img className="navbar__navImage" src={notificationIcon} />
-                </li>
                 <li className="menu-item">
                   <img src={userImage} />
                 </li>

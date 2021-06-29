@@ -154,6 +154,11 @@ a {
   margin: 0 auto;
   max-width: 1440px;
 }
+.dashboard-wrapper {
+  width: 99%;
+  margin: 0 auto;
+  max-width: 1440px;
+}
 .custom-pagination-team-member {
   position: absolute;
   height: 156px;
@@ -235,4 +240,7 @@ a {
 
 .college-list-slider .slick-slide > div {
   margin: 0 0.5rem;
+}
+.dashboard-navbar {
+  width: 99% !important;
 }

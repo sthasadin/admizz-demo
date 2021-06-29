@@ -14,5 +14,15 @@
     text-align: left;
     color: #5f1802;
     cursor: pointer;
+    &:hover{
+
+      text-decoration: underline;
+    }
   }
+}
+
+.active-dashboard {
+  color: #5f1802 !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
 }

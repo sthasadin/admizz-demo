@@ -56,6 +56,7 @@ const DropDownSelect = ({
         </h4>
       </div>
       <Select
+        name={name}
         options={options}
         searchable
         styles={customStyles}

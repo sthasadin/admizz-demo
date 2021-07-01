@@ -53,6 +53,7 @@ const StudentInfo: React.FC<Props> = ({
               name={"name"}
               onChange={handleChange}
               errorMessage={formError.name}
+              error={!!formError.name}
               className={"student-info__input"}
               fullWidth
               icon={PersonIcon}
@@ -65,6 +66,7 @@ const StudentInfo: React.FC<Props> = ({
               name={"email"}
               onChange={handleChange}
               errorMessage={formError.email}
+              error={!!formError.email}
               className={"student-info__input"}
               fullWidth
               icon={MailIcon}
@@ -100,6 +102,7 @@ const StudentInfo: React.FC<Props> = ({
                 name={"phone"}
                 onChange={handleChange}
                 errorMessage={formError.phone}
+                error={!!formError.phone}
                 className={"student-info__input student-info__phone"}
                 fullWidth
                 icon={CallIcon}
@@ -113,6 +116,7 @@ const StudentInfo: React.FC<Props> = ({
               name={"home_country"}
               onChange={handleChange}
               errorMessage={formError.home_country}
+              error={!!formError.home_country}
               className={"student-info__input"}
               fullWidth
               icon={LocationOnIcon}
@@ -161,7 +165,10 @@ const StudentInfo: React.FC<Props> = ({
                 name={"contact_id"}
                 onChange={handleChange}
                 fullWidth
-                label={"Enter Facebook ID"}
+                label={"Facebook ID"}
+                errorMessage={formError.contact_id}
+                error={!!formError.contact_id}
+                placeholder="Facebook ID"
               />
             )}
             {selectedMedium === "whatsapp" && (
@@ -169,7 +176,10 @@ const StudentInfo: React.FC<Props> = ({
                 name={"contact_id"}
                 onChange={handleChange}
                 fullWidth
-                label={"Enter Whatsapp ID"}
+                label={"Whatsapp ID"}
+                errorMessage={formError.contact_id}
+                error={!!formError.contact_id}
+                placeholder="Whatsapp ID"
               />
             )}
           </Grid>
@@ -178,6 +188,7 @@ const StudentInfo: React.FC<Props> = ({
               name={"course"}
               onChange={handleChange}
               errorMessage={formError.course}
+              error={!!formError.course}
               className={"student-info__input"}
               fullWidth
               icon={MenuBookIcon}
@@ -190,6 +201,7 @@ const StudentInfo: React.FC<Props> = ({
           name={"description"}
           onChange={handleChange}
           errorMessage={formError.description}
+          error={!!formError.description}
           multiline
           // icon={CommentIcon}
           placeholder={"Add additional query you have"}

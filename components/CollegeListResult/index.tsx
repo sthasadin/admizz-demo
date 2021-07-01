@@ -13,6 +13,8 @@ const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
     //  console.log(sortedArray);
   };
 
+  console.log(collegeList);
+
   return (
     <div className="college-list-result">
       <div className="college-list-result__titleContainer">

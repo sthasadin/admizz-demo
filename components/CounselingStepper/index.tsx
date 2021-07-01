@@ -91,6 +91,7 @@ const CounselingStepper = () => {
 
   //State for Student Info Stepper
   const [formValue, setFormValue] = useState({} as studentInfoFormValue);
+
   const [formError, setFormError] = useState({} as any);
 
   const handleChange = (e: any) => {
@@ -108,30 +109,32 @@ const CounselingStepper = () => {
   const firstStepValidateSchema = yup.object().shape<FirstStepValidateSchema>({
     date: yup.string().required("Please select one date"),
     time: yup.string().required("Required time"),
-    counsellor: yup.string().required("Please select one counselor"),
+    counsellor: yup.string().required("Please select  counselor"),
   });
 
   const validationSchema = yup.object().shape<studentInfoFormValue>({
-    name: yup.string().required("Required name"),
+    name: yup.string().required("Name field should not be empty"),
     email: yup
       .string()
-      .required("Required")
+      .required("Email field should not be empty")
       .email("Please provide a valid email"),
     country_code: yup.number().required("Required code"),
     phone: yup
       .number()
-      .required("Required phone")
+      .required("Phone number field should not be empty")
       .typeError("Value should be number"),
-    home_country: yup.string().required("Required country name"),
-    course: yup.string().required("Required course"),
-    description: yup.string().required("Required description"),
+    home_country: yup
+      .string()
+      .required("Home country field should not be empty"),
+    course: yup.string().required("Course field should not be empty"),
+    description: yup.string().required("Description field should not be empty"),
 
-    date: yup.string().required("Please select one date"),
-    time: yup.string().required("Required time"),
-    counsellor: yup.string().required("Please select one counselor"),
+    date: yup.string().required("Date field should not be empty"),
+    time: yup.string().required("Time field should not be empty"),
+    counsellor: yup.string().required("Select one counselor"),
     // additional_query: yup.string().required("Required query"),
-    contact_medium: yup.string().required("Required medium"),
-    contact_id: yup.string().required("Required constact id"),
+    contact_medium: yup.string().required("Select one medium"),
+    contact_id: yup.string().required("Contact id field should not be empty"),
   });
 
   const firstStepValidate = async () => {

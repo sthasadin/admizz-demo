@@ -15,7 +15,12 @@ import Facebook from "../../public/facebook.png";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import SubjectIcon from "@material-ui/icons/Subject";
-import LiveHelpIcon from "@material-ui/icons/LiveHelp";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 interface ContactUsFormValue {
   name: string;
@@ -27,19 +32,22 @@ interface ContactUsFormValue {
 const ContactForm = () => {
   const [formValue, setFormValue] = useState({} as ContactUsFormValue);
   const [formError, setFormError] = useState({} as any);
+  const [loading, setLoading] = useState(false as boolean);
+  const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    setFormError(() => ({ ...formError, [e.target.name]: null }));
   };
 
   const validationSchema = yup.object().shape<ContactUsFormValue>({
-    name: yup.string().required("Required"),
+    name: yup.string().required("Please enter your name"),
     email: yup
       .string()
-      .required("Required")
+      .required("Please enter your gmail")
       .email("Please provide a valid email"),
-    subject: yup.string().required("Required"),
-    query: yup.string().required("Required"),
+    subject: yup.string().required("Please enter the subject"),
+    query: yup.string().required("Please enter your query"),
   });
 
   const validate = async () => {
@@ -67,6 +75,7 @@ const ContactForm = () => {
   };
 
   const handleRegister = async () => {
+    setLoading(true);
     const valid = await validate();
     if (valid) {
       db.collection("contact")
@@ -77,11 +86,22 @@ const ContactForm = () => {
           query: formValue.query,
           createdAt: moment().format(),
         })
-        .then(function (docRef) {})
+        .then(function (docRef) {
+          setSnackOpen(true);
+          setFormValue({
+            ...formValue,
+            name: "",
+            email: "",
+            subject: "",
+            query: "",
+          });
+          setLoading(false);
+        })
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
     }
+    setLoading(false);
   };
 
   return (
@@ -145,6 +165,8 @@ const ContactForm = () => {
           onChange={handleChange}
           placeholder={"Full Name"}
           errorMessage={formError.name}
+          error={!!formError.name}
+          value={formValue.name}
           fullWidth
           margin={"25px 0px 16px 0px"}
           icon={PersonIcon}
@@ -152,8 +174,10 @@ const ContactForm = () => {
         <Input
           name={"email"}
           onChange={handleChange}
+          value={formValue.email}
           placeholder={"Email Address"}
           errorMessage={formError.email}
+          error={!!formError.email}
           margin={"0px 0px 16px 0px"}
           fullWidth
           icon={MailIcon}
@@ -161,8 +185,10 @@ const ContactForm = () => {
         <Input
           name={"subject"}
           onChange={handleChange}
+          value={formValue.subject}
           placeholder={"Subject"}
           errorMessage={formError.subject}
+          error={!!formError.subject}
           margin={"0px 0px 16px 0px"}
           fullWidth
           icon={SubjectIcon}
@@ -170,34 +196,54 @@ const ContactForm = () => {
         <Input
           name={"query"}
           onChange={handleChange}
+          value={formValue.query}
           multiline
           placeholder={"Add additional query you have"}
           errorMessage={formError.query}
+          error={!!formError.query}
           margin={"0px 0px 16px 0px"}
           fullWidth
-          icon={LiveHelpIcon}
         />
         <div className="contact-form__actions">
           <div className="contact-form__socials">
             <div className="contact-form__followUsText">Follow Us on:</div>
             <div className="contact-form__icons">
-              <img src={Facebook} width="11px" height="23px" />
-              <TwitterIcon
-                style={{ fill: "#2F80ED", marginRight: 47, marginLeft: 47 }}
-              />
-              <InstagramIcon style={{ fill: "#2F80ED" }} />
+              <a href="https://www.facebook.com/admizz" target="_blank">
+                <img src={Facebook} width="11px" height="23px" />{" "}
+              </a>
+              <a href="https://twitter.com/admizz_official" target="_blank">
+                <TwitterIcon
+                  style={{ fill: "#2F80ED", marginRight: 47, marginLeft: 47 }}
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/admizz_official/"
+                target="_blank"
+              >
+                <InstagramIcon style={{ fill: "#2F80ED" }} />
+              </a>
             </div>
           </div>
           <div className="contact-form__submit">
             <Button
               onClick={handleRegister}
               className="contact-form__send-message"
+              disabled={loading}
             >
               Send Message
             </Button>
           </div>
         </div>
       </div>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="success">
+          Thanks for contacting us. We will get in touch with u as possible.
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

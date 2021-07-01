@@ -50,7 +50,7 @@ const blogDetail = () => {
   const blog = useSelector((state) => state.blog.blog);
 
   return (
-    <Layout>
+    <Layout title={blog?.blog_title}>
       <div className="container">
         <main className="blog-detail">
           <div className="blog-detail__container">

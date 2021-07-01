@@ -1,18 +1,17 @@
 import React from "react";
 import { Register } from "../../components/register";
-import { Navbar } from "../../layouts/navbar";
-import { Footer } from "../../layouts/footer";
+import Layout from "../../layouts";
 import { withRestrictedRoute } from "../withRestrictedRoute";
 
 const RegisterPage = () => {
   return (
-    <div className="container">
-      <main className="main">
-        <Navbar />
-        <Register />
-      </main>
-      <Footer />
-    </div>
+    <Layout title="Register">
+      <div className="container">
+        <main className="main">
+          <Register />
+        </main>
+      </div>
+    </Layout>
   );
 };
 export default withRestrictedRoute(RegisterPage);

@@ -1,25 +1,16 @@
 import React from "react";
-import Head from "next/head";
-import { Navbar } from "../../layouts/navbar";
-import { Topbar } from "../../layouts/topbar";
+import Layout from "../../layouts";
 import { Footer } from "../../layouts/footer";
 import CollegeCompare from "../../components/CollegeCompare";
 
 const index = () => {
   return (
-    <>
+    <Layout title="College Compare">
       <div className="container">
-        <Head>
-          <Topbar />
-          <title>Admizz - College Compare</title>
-          <link rel="icon" href="favicon.svg" />
-        </Head>
-        <Navbar />
-
         <CollegeCompare />
         <Footer />
       </div>
-    </>
+    </Layout>
   );
 };
 

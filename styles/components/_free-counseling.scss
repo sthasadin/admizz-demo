@@ -1,11 +1,12 @@
 .free-counseling {
   display: flex;
   justify-content: center;
+  background-color: #f4f4f4;
   &__container {
     width: 80%;
     padding: 22px 29px;
     border-radius: 10px;
-    margin-top: 23px;
+    margin: 60px 0;
     box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.08);
     background-color: white;
     @media (max-width: 800px) {

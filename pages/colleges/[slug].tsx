@@ -37,7 +37,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <Layout>
+      <Layout title={name}>
         <main className="main">
           <CollegeHeader
             name={name}

@@ -4,12 +4,12 @@ import { Topbar } from "./topbar";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 
-const index = ({ children }) => {
+const index = ({ children, title }) => {
   return (
     <>
       <Topbar />
       <Head>
-        <title>Admizz - Home</title>
+        <title>Admizz - {title}</title>
         <link rel="icon" href="favicon.svg" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

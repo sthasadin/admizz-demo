@@ -10,7 +10,7 @@ import { FAQAccordian } from "../../components/FAQ/accordian";
 
 const FAQ = () => {
   return (
-    <Layout>
+    <Layout title="FAQs">
       <div className="faq">
         <div className="faq-container">
           <div className="faq__header section-wrapper">

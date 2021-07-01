@@ -29,7 +29,7 @@ const index = () => {
     (state: any) => state.student_application
   );
   return (
-    <DashboardLayout>
+    <DashboardLayout title="Application Status">
       <div className="student-dashboard-main__mainpage">
         <div className="student-dashboard-main__detailInfo">
           <DashboardApplicationStatus application={application} />

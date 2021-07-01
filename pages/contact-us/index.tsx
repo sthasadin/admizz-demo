@@ -7,7 +7,7 @@ import marker from "../../public/marker.png";
 
 const ContactUs = () => {
   return (
-    <Layout>
+    <Layout title="Contact Us">
       <div>
         <div className="contact-container">
           <div className="banner section-wrapper">

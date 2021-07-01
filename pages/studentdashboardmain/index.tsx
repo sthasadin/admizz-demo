@@ -29,7 +29,7 @@ const index = () => {
   );
 
   return (
-    <DashboardLayout>
+    <DashboardLayout title="Dashboard">
       <div className="student-dashboard-main__mainpage">
         {!application?.id && (
           <div className="student-dashboard-main__welcomeCard">

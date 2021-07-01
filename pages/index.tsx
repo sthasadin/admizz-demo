@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <Layout>
+      <Layout title="Home">
         <Introduction />
 
         <About />

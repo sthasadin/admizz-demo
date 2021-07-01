@@ -20,7 +20,7 @@ const blogList = () => {
   }, []);
 
   return (
-    <Layout>
+    <Layout title="Blogs">
       <div className="container">
         <main className="blog-list">
           <div className="section-wrapper">

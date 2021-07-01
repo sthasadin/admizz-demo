@@ -169,7 +169,7 @@ const DashboardBasicInfoPage = () => {
   };
 
   return (
-    <DashboardLayout>
+    <DashboardLayout title="Apply">
       <div className="dashboard-basic-info-page__mainpage">
         {getStepContent(activeStep)}
       </div>

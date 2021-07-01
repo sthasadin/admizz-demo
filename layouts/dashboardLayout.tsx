@@ -3,11 +3,11 @@ import Head from "next/head";
 import { DashboardNavbar } from "./dashboardnavbar";
 import { DashboardSidebar } from "../components/DashboardSidebar";
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ children, title }) => {
   return (
     <>
       <Head>
-        <title>Admizz - Home</title>
+        <title>Admizz - {title}</title>
         <link rel="icon" href="favicon.svg" />
       </Head>
       <DashboardNavbar />

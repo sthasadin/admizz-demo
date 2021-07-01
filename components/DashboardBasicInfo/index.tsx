@@ -6,7 +6,7 @@ import * as yup from "yup";
 import { getLevels, getStreams } from "../../store/Action/courses.action";
 import { useDispatch, useSelector } from "react-redux";
 import { Select } from "../Select";
-
+import { stage1 } from "../../store/Action/studentdashboard.action";
 import { Button } from "../Button";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
@@ -92,7 +92,7 @@ const DashboardBasicInfo = (props) => {
       setNationality(
         authUser?.country === "Nepal"
           ? { label: "Nepali", value: "nepal" }
-          : { label: "Indain", value: "india" }
+          : { label: "Indian", value: "india" }
       );
       setCountryCode(authUser?.phoneNumber?.split("-")[0]);
       setPhoneNumber(authUser?.phoneNumber?.split("-")[1]);
@@ -283,7 +283,7 @@ const DashboardBasicInfo = (props) => {
       const isValid = await validate();
 
       if (isValid) {
-        props.getData({
+        let data = {
           selectedLevel: selectedLevel.value,
           fullName,
           DOB,
@@ -296,8 +296,10 @@ const DashboardBasicInfo = (props) => {
           guardianCountry: guardianCountry.value,
           guardianState: guardianState.value,
           guardianCity,
-          // guardianZipCode,
-        });
+        };
+
+        await dispatch(stage1(data));
+        props.getData(data);
         props.handleNext();
       }
     } catch (err) {}

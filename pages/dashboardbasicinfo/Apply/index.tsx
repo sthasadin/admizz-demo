@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+
 import { useDispatch } from "react-redux";
 // import { useRouter } from "next/router";
 import StickyBox from "react-sticky-box";
@@ -98,7 +99,7 @@ const DashboardBasicInfoPage = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     const newActiveStep =
       isLastStep() && !allStepsCompleted()
         ? // It's the last step, but not all steps have been completed,

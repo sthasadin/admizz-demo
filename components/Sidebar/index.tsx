@@ -18,9 +18,9 @@ const Sidebar = () => {
   }, [college]);
   return len > 10 ? (
     <aside className="sidebar">
-      <CallToAction className="filled full-width">
-        <Link href={`/dashboardbasicinfo/Apply`}>Apply Now</Link>
-      </CallToAction>
+      <Link href={`/dashboardbasicinfo/Apply`}>
+        <CallToAction className="filled full-width">Apply Now</CallToAction>
+      </Link>
       <div className="sidebar__cta">
         <CallToAction
           className="full-width"

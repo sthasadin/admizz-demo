@@ -5,7 +5,7 @@ import ErrorImage from "../public/404error.png";
 import { Button } from "../components/Button";
 const index = () => {
   return (
-    <Layout>
+    <Layout title="Page Not Found">
       <div className="error__container">
         <div className="text__container">
           <div className="text__section">

@@ -196,7 +196,12 @@ const Login = () => {
                 className="signin__submit column"
                 style={{ flexDirection: "column", gap: "1rem" }}
               >
-                <Button loading={loading} htmlType={"submit"} fullWidth>
+                <Button
+                  loading={loading}
+                  htmlType={"submit"}
+                  fullWidth
+                  disabled={loading}
+                >
                   Login
                 </Button>
                 {/* <CallToAction className="filled login">Login</CallToAction> */}

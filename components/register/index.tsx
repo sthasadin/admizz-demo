@@ -41,18 +41,19 @@ const Register = () => {
 
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    setFormError(() => ({ ...formError, [e.target.name]: null }));
   };
 
   const validationSchema = yup.object().shape<signUpFormValue>({
-    fullName: yup.string().required("Required"),
+    fullName: yup.string().required("Please enter your full name"),
     email: yup
       .string()
-      .required("Required")
+      .required("Please enter your gmail")
       .email("Please provide a valid email"),
-    password: yup.string().required("Required"),
-    confirmPassword: yup.string().required("Required"),
-    country: yup.string().required("Required"),
-    phoneNumber: yup.string().required("Required"),
+    password: yup.string().required("Please enter your password"),
+    confirmPassword: yup.string().required("Please enter your password"),
+    country: yup.string().required("Please select your country"),
+    phoneNumber: yup.string().required("Please enter your phone number"),
     countryCode: yup.string().required("Required"),
   });
 
@@ -303,7 +304,12 @@ const Register = () => {
                 <div className="signin__change">
                   <a href="/login">Already Registered? Click Here To Login.</a>
                 </div>
-                <Button htmlType={"submit"} loading={loading} fullWidth>
+                <Button
+                  htmlType={"submit"}
+                  loading={loading}
+                  fullWidth
+                  disabled={loading}
+                >
                   Register Now
                 </Button>
 

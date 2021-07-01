@@ -1,7 +1,7 @@
 .dashboard-sidebar {
   position: sticky;
   background-color: white;
-  padding: 25px 0 30px 0;
+  padding: 25px 0 30px 5px;
   height: 100%;
   &__logout {
     margin-top: 150px;
@@ -14,8 +14,7 @@
     text-align: left;
     color: #5f1802;
     cursor: pointer;
-    &:hover{
-
+    &:hover {
       text-decoration: underline;
     }
   }

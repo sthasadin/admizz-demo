@@ -29,8 +29,8 @@
     text-align: left;
   }
   &__formContainer {
-    padding: 5px 40px;
-
+    padding: 5px 25px;
+    padding-right: 15px;
     width: 100%;
     background-color: white;
     border-radius: 5px;
@@ -123,12 +123,13 @@
     text-align: left;
     color: #333333;
     // margin-top: 12px;
-    // align-items: center;
+    align-items: center;
     height: 100%;
     // margin-top: 25px;
   }
   .language-score {
     margin-top: 12px !important;
+    align-items: flex-start !important;
   }
   &__formTitleSecond {
     display: flex;
@@ -166,11 +167,12 @@
     display: flex;
     height: 100%;
     font-family: Mplus 1p;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: 24px;
     letter-spacing: 0em;
+    color: #333333;
     text-align: left;
     align-items: center;
     // margin-left: 30px;
@@ -288,6 +290,19 @@
       background-color: #5f1802;
     }
   }
+  .student-dashboard-button {
+    background-color: #e0e0e0;
+    color: #000000;
+    border-radius: 5px;
+    padding: 10px 40px;
+    padding-right: 45px !important;
+    text-transform: inherit !important;
+    box-shadow: none !important;
+    &:hover {
+      background-color: #e0e0e0;
+      color: #000000;
+    }
+  }
 
   .dashboard-basic-info__formContent {
     @media (max-width: 600px) {
@@ -317,4 +332,22 @@
       flex-direction: column-reverse;
     }
   }
+}
+
+.personal-details-form {
+  padding: 20px 15px;
+  padding-left: 25px;
+}
+
+.upload-success-img {
+  margin: auto 0;
+  margin-left: 30px;
+  margin-top: 7px;
+  width: 24px;
+  height: 24px;
+}
+
+.form--title {
+  font-weight: 800;
+  width: 100%;
 }

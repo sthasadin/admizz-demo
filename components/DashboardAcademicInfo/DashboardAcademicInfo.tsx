@@ -7,7 +7,18 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Button } from "../Button";
+import { withStyles } from "@material-ui/core/styles";
 import { UploadButton } from "../Button/uploadButton";
+
+const CustomRadio = withStyles({
+  root: {
+    color: "#FFA200",
+    "&$checked": {
+      color: "#FFA200",
+    },
+  },
+  checked: {},
+})((props) => <Radio color="default" {...props} />);
 
 interface AcademicFormField {
   schoolMarks: string;
@@ -146,7 +157,7 @@ export const DashboardAcademicInfo = (props) => {
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
+                <div className="dashboard-basic-info__formTitle form--title">
                   Academics Scores
                 </div>
                 <hr className="dashboard-basic-info__horizontalLine" />
@@ -331,8 +342,8 @@ export const DashboardAcademicInfo = (props) => {
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
-                  Academic Identification
+                <div className="dashboard-basic-info__formTitle form--title">
+                  Academic Documents
                 </div>
                 <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
@@ -378,19 +389,22 @@ export const DashboardAcademicInfo = (props) => {
                       }}
                     />
 
-                    <UploadButton startIcon="" className="btn-color">
-                      Upload button
+                    <UploadButton
+                      startIcon=""
+                      className="btn-color student-dashboard-button"
+                    >
+                      Choose File
                     </UploadButton>
                   </label>
                 </Grid>
-                <Grid item sm={12} md={4} xs={12}>
+                <Grid item sm={12} md={4} xs={12} style={{ display: "flex" }}>
                   {certificatesImage?.school && (
-                    <div style={{ display: "flex", marginTop: "10px" }}>
+                    <div style={{ display: "flex", alignItems: "center" }}>
                       {truncateString(certificatesImage.school.name, 10)}{" "}
                       <img
                         src="/check.png"
                         alt="check"
-                        style={{ marginLeft: "20px" }}
+                        className="upload-success-img"
                       />{" "}
                     </div>
                   )}
@@ -433,19 +447,22 @@ export const DashboardAcademicInfo = (props) => {
                         }}
                       />
 
-                      <UploadButton startIcon="" className="btn-color">
-                        Upload button
+                      <UploadButton
+                        startIcon=""
+                        className="btn-color student-dashboard-button"
+                      >
+                        Choose File
                       </UploadButton>
                     </label>
                   </Grid>
-                  <Grid item sm={12} md={4} xs={12}>
+                  <Grid item sm={12} md={4} xs={12} style={{ display: "flex" }}>
                     {certificatesImage?.highSchool && (
-                      <div style={{ display: "flex", marginTop: "10px" }}>
+                      <div style={{ display: "flex", alignItems: "center" }}>
                         {truncateString(certificatesImage.highSchool.name, 10)}{" "}
                         <img
                           src="/check.png"
                           alt="check"
-                          style={{ marginLeft: "20px" }}
+                          className="upload-success-img"
                         />{" "}
                       </div>
                     )}
@@ -491,14 +508,17 @@ export const DashboardAcademicInfo = (props) => {
                       }}
                     />
 
-                    <UploadButton startIcon="" className="btn-color">
-                      Upload button
+                    <UploadButton
+                      startIcon=""
+                      className="btn-color student-dashboard-button"
+                    >
+                      Choose File
                     </UploadButton>
                   </label>
                 </Grid>
-                <Grid item sm={12} md={4} xs={12}>
+                <Grid item sm={12} md={4} xs={12} style={{ display: "flex" }}>
                   {certificatesImage?.under_Graduate && (
-                    <div style={{ display: "flex", marginTop: "10px" }}>
+                    <div style={{ display: "flex", alignItems: "center" }}>
                       {truncateString(
                         certificatesImage?.under_Graduate.name,
                         20
@@ -506,7 +526,7 @@ export const DashboardAcademicInfo = (props) => {
                       <img
                         src="/check.png"
                         alt="check"
-                        style={{ marginLeft: "20px" }}
+                        className="upload-success-img"
                       />{" "}
                     </div>
                   )}
@@ -549,19 +569,22 @@ export const DashboardAcademicInfo = (props) => {
                       }}
                     />
 
-                    <UploadButton startIcon="" className="btn-color">
-                      Upload button
+                    <UploadButton
+                      startIcon=""
+                      className="btn-color student-dashboard-button"
+                    >
+                      Choose File
                     </UploadButton>
                   </label>
                 </Grid>
-                <Grid item sm={12} md={4} xs={12}>
+                <Grid item sm={12} md={4} xs={12} style={{ display: "flex" }}>
                   {certificatesImage?.post_Gradute && (
-                    <div style={{ display: "flex", marginTop: "10px" }}>
+                    <div style={{ display: "flex", alignItems: "center" }}>
                       {truncateString(certificatesImage?.post_Gradute.name, 10)}{" "}
                       <img
                         src="/check.png"
                         alt="check"
-                        style={{ marginLeft: "20px" }}
+                        className="upload-success-img"
                       />{" "}
                     </div>
                   )}
@@ -611,20 +634,23 @@ export const DashboardAcademicInfo = (props) => {
                       }}
                     />
 
-                    <UploadButton startIcon="" className="btn-color">
-                      Upload Button
+                    <UploadButton
+                      startIcon=""
+                      className="btn-color student-dashboard-button"
+                    >
+                      Choose File
                     </UploadButton>
                   </label>
                 </div>
               </Grid>
-              <Grid item sm={12} md={3} xs={12}>
+              <Grid item sm={12} md={3} xs={12} style={{ display: "flex" }}>
                 {certificatesImage?.other && (
-                  <div style={{ display: "flex", marginTop: "10px" }}>
+                  <div style={{ display: "flex", alignItems: "center" }}>
                     {truncateString(certificatesImage.other.name, 10)}{" "}
                     <img
                       src="/check.png"
                       alt="check"
-                      style={{ marginLeft: "20px" }}
+                      className="upload-success-img"
                     />{" "}
                   </div>
                 )}
@@ -642,7 +668,7 @@ export const DashboardAcademicInfo = (props) => {
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
+                <div className="dashboard-basic-info__formTitle form--title">
                   Exam Scores
                 </div>
                 <hr className="dashboard-basic-info__horizontalLine" />
@@ -677,12 +703,12 @@ export const DashboardAcademicInfo = (props) => {
                     >
                       <FormControlLabel
                         value="yes"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="Yes"
                       />
                       <FormControlLabel
                         value="no"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="No"
                       />
                     </RadioGroup>
@@ -717,12 +743,12 @@ export const DashboardAcademicInfo = (props) => {
                     >
                       <FormControlLabel
                         value="yes"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="Yes"
                       />
                       <FormControlLabel
                         value="no"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="No"
                       />
                     </RadioGroup>
@@ -764,12 +790,12 @@ export const DashboardAcademicInfo = (props) => {
                     >
                       <FormControlLabel
                         value="yes"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="Yes"
                       />
                       <FormControlLabel
                         value="no"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="No"
                       />
                     </RadioGroup>
@@ -805,12 +831,12 @@ export const DashboardAcademicInfo = (props) => {
                     >
                       <FormControlLabel
                         value="yes"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="Yes"
                       />
                       <FormControlLabel
                         value="no"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="No"
                       />
                     </RadioGroup>
@@ -853,12 +879,12 @@ export const DashboardAcademicInfo = (props) => {
                     >
                       <FormControlLabel
                         value="yes"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="Yes"
                       />
                       <FormControlLabel
                         value="no"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="No"
                       />
                     </RadioGroup>
@@ -897,12 +923,12 @@ export const DashboardAcademicInfo = (props) => {
                     >
                       <FormControlLabel
                         value="yes"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="Yes"
                       />
                       <FormControlLabel
                         value="no"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="No"
                       />
                     </RadioGroup>
@@ -948,12 +974,12 @@ export const DashboardAcademicInfo = (props) => {
                     >
                       <FormControlLabel
                         value="yes"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="Yes"
                       />
                       <FormControlLabel
                         value="no"
-                        control={<Radio />}
+                        control={<CustomRadio />}
                         label="No"
                       />
                     </RadioGroup>

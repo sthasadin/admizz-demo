@@ -72,8 +72,14 @@ const DashboardBasicInfo = (props) => {
   const allLevels = useSelector((state) => state.courses.allLevels);
   const selectLevelOption = useMemo(() => {
     return allLevels.map((level) => {
+      let name =
+        level.name === "postgraduate"
+          ? "Post Graduate"
+          : level.name === "undergraduate"
+          ? "Under Graduate"
+          : level.name;
       return {
-        label: level.name,
+        label: name,
         value: level.name,
       };
     });
@@ -216,7 +222,7 @@ const DashboardBasicInfo = (props) => {
   };
 
   const validationSchema = yup.object().shape<studentInfoFormValue>({
-    fullName: yup.string().required("Required name"),
+    fullName: yup.string().required("Name field cannot be empty"),
     email: yup
       .string()
       .required("Required gmail")
@@ -334,10 +340,10 @@ const DashboardBasicInfo = (props) => {
     <div className="dashboard-basic-info">
       {/* Apply For */}
       <div className="dashboard-basic-info__sectionContainer">
-        <div className="dashboard-basic-info__pageTitle">
+        {/* <div className="dashboard-basic-info__pageTitle">
           {"Dashboard > "}
           <p className="dashboard-basic-info__pageTitleHighlight">Apply</p>
-        </div>
+        </div> */}
         <div className="dashboard-basic-info__sectionTitle">Applying For</div>
         <div className="dashboard-basic-info__formContainer">
           <Grid
@@ -375,7 +381,7 @@ const DashboardBasicInfo = (props) => {
         <div className="dashboard-basic-info__sectionTitle">
           Personal Detail
         </div>
-        <div className="dashboard-basic-info__formContainer">
+        <div className="dashboard-basic-info__formContainer personal-details-form">
           <form>
             <Grid
               container
@@ -469,6 +475,7 @@ const DashboardBasicInfo = (props) => {
                     minWidth={"83px"}
                     width={"90px"}
                     value={countryCode}
+                    error={!!formError.countryCode}
                     onChange={(e) => setCountryCode(e.target.value)}
                     className={"student-info__phone-separator"}
                   />
@@ -496,9 +503,10 @@ const DashboardBasicInfo = (props) => {
                 xs={12}
               >
                 <Input
-                  className={"student-info__input student-info__phone"}
+                  className={"dashboard-basic-info__input"}
                   type="date"
                   fullWidth
+                  label="DOB"
                   value={DOB}
                   onChange={(e) => {
                     setDob(e.target.value);

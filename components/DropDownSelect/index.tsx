@@ -20,12 +20,18 @@ const DropDownSelect = ({
   name,
 }: DropDownSelect) => {
   const customStyles = {
-    menu: (provided) => ({ ...provided, zIndex: 9999, marginTop: "60px" }),
+    menu: (provided) => ({
+      ...provided,
+      zIndex: 9999,
+      marginTop: "60px",
+      textTransform: "capitalize",
+    }),
     control: (base) => ({
       ...base,
       height: 53,
       minHeight: 50,
       position: "absolute",
+      textTransform: "capitalize",
       left: 0,
       // top: 0,
       right: 0,
@@ -46,7 +52,7 @@ const DropDownSelect = ({
           height: 15,
           background: "white",
           zIndex: 1,
-          paddingLeft: 2,
+          padding: "0 2px",
           // paddingRight: 10,
         }}
       >

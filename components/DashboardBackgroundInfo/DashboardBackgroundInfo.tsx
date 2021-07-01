@@ -7,6 +7,7 @@ import Radio from "@material-ui/core/Radio";
 import Snackbar from "@material-ui/core/Snackbar";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { withStyles } from "@material-ui/core/styles";
 import { Button } from "../Button";
 import { UploadButton } from "../Button/uploadButton";
 import { DropDownSelect } from "../DropDownSelect";
@@ -23,6 +24,16 @@ interface BackgroundInfo {
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
+
+const CustomRadio = withStyles({
+  root: {
+    color: "#FFA200",
+    "&$checked": {
+      color: "#FFA200",
+    },
+  },
+  checked: {},
+})((props) => <Radio color="default" {...props} />);
 
 const DashboardBackgroundInfo = (props) => {
   const [havePassport, setHavePassport] = useState(false);
@@ -195,13 +206,13 @@ const DashboardBackgroundInfo = (props) => {
                 >
                   <FormControlLabel
                     value="yes"
-                    control={<Radio />}
+                    control={<CustomRadio />}
                     label="Yes"
                     onChange={() => setHavePassport(true)}
                   />
                   <FormControlLabel
                     value="no"
-                    control={<Radio />}
+                    control={<CustomRadio />}
                     label="No"
                     onChange={() => setHavePassport(false)}
                   />
@@ -366,13 +377,13 @@ const DashboardBackgroundInfo = (props) => {
                   >
                     <FormControlLabel
                       value="yes"
-                      control={<Radio />}
+                      control={<CustomRadio />}
                       label="Yes"
                       onChange={() => setHaveAppliedPassport(true)}
                     />
                     <FormControlLabel
                       value="no"
-                      control={<Radio />}
+                      control={<CustomRadio />}
                       label="No"
                       onChange={() => setHaveAppliedPassport(false)}
                     />
@@ -434,9 +445,13 @@ const DashboardBackgroundInfo = (props) => {
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
+                <div
+                  className="dashboard-basic-info__formTitle"
+                  style={{ fontWeight: 800 }}
+                >
                   Personal Identification
                 </div>
+                <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
             <Grid
@@ -460,8 +475,11 @@ const DashboardBackgroundInfo = (props) => {
                     onChange={handleImageChange}
                   />
 
-                  <UploadButton startIcon=" " className="btn-color">
-                    Upload button
+                  <UploadButton
+                    startIcon=" "
+                    className="btn-color student-dashboard-button"
+                  >
+                    Choose File
                   </UploadButton>
                 </label>
               </Grid>
@@ -482,7 +500,7 @@ const DashboardBackgroundInfo = (props) => {
                     <img
                       src="/check.png"
                       alt="check"
-                      style={{ marginLeft: "20px" }}
+                      className="upload-success-img"
                     />{" "}
                   </>
                 )}

@@ -14,9 +14,7 @@ const AppliedCollege = ({ selectedCollege }) => {
     <>
       <div
         style={{
-          backgroundColor: "white",
-          borderRadius: "5px",
-          marginBottom: "20px",
+          paddingRight: "15px",
         }}
       >
         <Grid

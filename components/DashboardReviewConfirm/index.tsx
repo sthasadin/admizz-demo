@@ -293,7 +293,7 @@ const DashboardReviewConfirm = (props) => {
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
+                <div className="dashboard-basic-info__formTitle form--title">
                   Basic Information
                 </div>
                 <hr className="dashboard-basic-info__horizontalLine" />
@@ -543,7 +543,7 @@ const DashboardReviewConfirm = (props) => {
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
+                <div className="dashboard-basic-info__formTitle form--title">
                   Background Information
                 </div>
                 <hr className="dashboard-basic-info__horizontalLine" />
@@ -692,30 +692,25 @@ const DashboardReviewConfirm = (props) => {
                     </p>
                   </div>
                 </div>
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "100%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h3
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{
-                        height: 30,
-                        fontSize: 14,
-                        color: "black",
-                        fontWeight: 700,
-                        marginRight: 10,
-                      }}
-                    >
+
+                <Grid
+                  container
+                  className="dashboard-basic-info__row"
+                  justify="space-around"
+                  direction="row"
+                >
+                  <Grid item sm={12} md={12} xs={12}>
+                    <div className="dashboard-basic-info__formTitle form--title">
                       Reference Information
-                    </h3>
-                  </div>
+                    </div>
+                    <hr
+                      className="dashboard-basic-info__horizontalLine"
+                      style={{ width: "100%" }}
+                    />
+                  </Grid>
+                </Grid>
+
+                <div style={{ display: "flex", flexWrap: "wrap" }}>
                   <div
                     style={{
                       display: "flex",
@@ -799,7 +794,7 @@ const DashboardReviewConfirm = (props) => {
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
+                <div className="dashboard-basic-info__formTitle form--title">
                   Academic Information
                 </div>
                 <hr className="dashboard-basic-info__horizontalLine" />
@@ -1188,7 +1183,7 @@ const DashboardReviewConfirm = (props) => {
             >
               <Grid item sm={12} md={12} xs={12}>
                 <div
-                  className="dashboard-basic-info__formTitle"
+                  className="dashboard-basic-info__formTitle form--title"
                   style={{ height: "auto" }}
                 >
                   Choice Filing

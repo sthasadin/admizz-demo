@@ -171,6 +171,10 @@ const DashboardBasicInfoPage = () => {
   return (
     <DashboardLayout title="Apply">
       <div className="dashboard-basic-info-page__mainpage">
+        {/* <div className="dashboard-basic-info__pageTitle">
+          {"Dashboard > "}
+          <p className="dashboard-basic-info__pageTitleHighlight">Apply</p>
+        </div> */}
         {getStepContent(activeStep)}
       </div>
 

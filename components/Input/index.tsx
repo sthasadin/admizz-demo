@@ -62,6 +62,8 @@ const Input = (props: Props) => {
     },
     inputLabel: {
       color: "rgb(130, 130, 130);",
+      paddingRight: "5px",
+      backgroundColor: "#fff",
       "&.focused": {
         color: "rgb(130, 130, 130);",
         fontWeight: 400,
@@ -105,6 +107,7 @@ const Input = (props: Props) => {
             root: classes.inputLabel,
             focused: "focused",
           },
+          shrink: true,
         }}
         InputProps={
           Icon && {

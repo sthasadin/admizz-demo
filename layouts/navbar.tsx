@@ -192,6 +192,11 @@ const Navbar = (props: any) => {
                 >
                   <Link href="/contact-us">Contact</Link>
                 </li>
+                <li className={`menu-item `}>
+                  <Link href="/colleges">
+                    <img src="/search.png" alt=".." />
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>

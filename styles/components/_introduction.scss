@@ -136,7 +136,7 @@
   &__desc {
     font-size: 14px;
     line-height: 21px;
-    color: #333333;
+    color: #828282;
     margin-bottom: 14px;
     @media (max-width: 450px) {
       margin-top: 36px;
@@ -155,12 +155,19 @@
       cursor: pointer;
       height: 75px;
       width: 75px;
-      margin-right: 22px;
+      margin-right: 12px;
     }
     &__label {
       font-size: 14px;
       line-height: 21px;
       color: #828282;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+        color: #333333;
+        transition: 0.2s all ease-in;
+      }
     }
   }
   &__modalContainer {

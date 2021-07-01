@@ -34,8 +34,16 @@ const index = () => {
         </div>
 
         <Carousel bulletdot={false}>
-          <Introduction title="hello" imgSrc="/male-intro.png" />
-          <Introduction title="world" imgSrc="/female-intro.png" />
+          <Introduction
+            title="hello"
+            imgSrc="/male-intro.png"
+            videoUrl="https://youtu.be/CDknjC9aFmg"
+          />
+          <Introduction
+            title="world"
+            imgSrc="/female-intro.png"
+            videoUrl="https://youtu.be/CDknjC9aFmg"
+          />
           <Introduction title="helloworld" imgSrc="/male-intro.png" />
         </Carousel>
       </div>

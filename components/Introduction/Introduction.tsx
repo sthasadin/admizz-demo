@@ -9,7 +9,8 @@ import Slide from "@material-ui/core/Slide";
 import ReactPlayer from "react-player";
 import Link from "next/link";
 
-const Introduction = ({ title, imgSrc }) => {
+const Introduction = (props) => {
+  const { title, imgSrc, videoUrl } = props;
   const router = useRouter();
 
   const [open, setOpen] = React.useState(false);
@@ -41,58 +42,64 @@ const Introduction = ({ title, imgSrc }) => {
             >
               Book counseling session
             </CallToAction>
-            <div className="introduction__watch">
-              <div className="introduction__watch__icon" onClick={handleOpen}>
-                <svg
-                  width="75"
-                  height="75"
-                  viewBox="0 0 75 75"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+            {videoUrl && (
+              <div className="introduction__watch">
+                <div className="introduction__watch__icon" onClick={handleOpen}>
+                  <svg
+                    width="75"
+                    height="75"
+                    viewBox="0 0 75 75"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      opacity="0.05"
+                      cx="37.5"
+                      cy="37.5"
+                      r="37.5"
+                      fill="#5F1802"
+                    />
+                    <circle
+                      opacity="0.3"
+                      cx="37.4999"
+                      cy="37.5"
+                      r="32.197"
+                      fill="#5F1802"
+                    />
+                    <circle cx="37.5" cy="37.5" r="26.1364" fill="#5F1802" />
+                    <path
+                      d="M31.3141 30.1399C31.3141 28.6003 32.9808 27.638 34.3141 28.4078L47.3224 35.9182C48.6557 36.688 48.6557 38.6125 47.3224 39.3823L34.3141 46.8926C32.9808 47.6624 31.3141 46.7001 31.3141 45.1605L31.3141 30.1399Z"
+                      fill="#FFA200"
+                    />
+                  </svg>
+                </div>
+
+                <Modal
+                  aria-labelledby="transition-modal-title"
+                  aria-describedby="transition-modal-description"
+                  open={open}
+                  onClose={handleClose}
+                  className="introduction__modalContainer"
+                  closeAfterTransition
+                  BackdropComponent={Backdrop}
+                  BackdropProps={{
+                    timeout: 500,
+                  }}
                 >
-                  <circle
-                    opacity="0.05"
-                    cx="37.5"
-                    cy="37.5"
-                    r="37.5"
-                    fill="#5F1802"
-                  />
-                  <circle
-                    opacity="0.3"
-                    cx="37.4999"
-                    cy="37.5"
-                    r="32.197"
-                    fill="#5F1802"
-                  />
-                  <circle cx="37.5" cy="37.5" r="26.1364" fill="#5F1802" />
-                  <path
-                    d="M31.3141 30.1399C31.3141 28.6003 32.9808 27.638 34.3141 28.4078L47.3224 35.9182C48.6557 36.688 48.6557 38.6125 47.3224 39.3823L34.3141 46.8926C32.9808 47.6624 31.3141 46.7001 31.3141 45.1605L31.3141 30.1399Z"
-                    fill="#FFA200"
-                  />
-                </svg>
+                  <Fade in={open}>
+                    <div>
+                      <ReactPlayer url={videoUrl} />
+                    </div>
+                  </Fade>
+                </Modal>
+
+                <div className="introduction__watch__label">
+                  <a href={videoUrl} target="_blank">
+                    Watch Video
+                  </a>
+                </div>
               </div>
-
-              <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                open={open}
-                onClose={handleClose}
-                className="introduction__modalContainer"
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                  timeout: 500,
-                }}
-              >
-                <Fade in={open}>
-                  <div>
-                    <ReactPlayer url="https://youtu.be/CDknjC9aFmg" />
-                  </div>
-                </Fade>
-              </Modal>
-
-              <div className="introduction__watch__label">Watch Video</div>
-            </div>
+            )}
           </div>
 
           <div className="introduction__meta">

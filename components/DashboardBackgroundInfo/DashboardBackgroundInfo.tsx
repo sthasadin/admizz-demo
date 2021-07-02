@@ -61,8 +61,26 @@ const DashboardBackgroundInfo = (props) => {
   });
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
+  useEffect(() => {
+    const getData = JSON.parse(localStorage.getItem("backgroundInformation"));
+    if (getData) {
+      setHaveAppliedPassport(getData?.haveAppliedForPassport);
+      setHavePassport(getData?.havePassport);
+      setPassportDetails(getData?.passportDetails);
+      setPassportDetails({
+        ...getData?.passportDetails,
+        passportIssuedCountry: {
+          label: getData?.passportDetails?.passportIssuingAuthority,
+          value: getData?.passportDetails?.passportIssuingAuthority,
+        },
+      });
+      setPassportId(getData?.passportId);
+      setReferences(getData?.references);
+    }
+  }, [localStorage.getItem("backgroundInformation")]);
+
   const saveDate = () => {
-    props.getData({
+    let data = {
       havePassport,
       passportDetails: havePassport
         ? {
@@ -75,7 +93,9 @@ const DashboardBackgroundInfo = (props) => {
 
       documentImage,
       references,
-    });
+    };
+    window.localStorage.setItem("backgroundInformation", JSON.stringify(data));
+    props.getData(data);
   };
 
   const countryOption = [
@@ -200,7 +220,6 @@ const DashboardBackgroundInfo = (props) => {
                   aria-label="passport"
                   name="passport1"
                   row
-                  onChange={(e) => console.log(e)}
                   defaultValue="no"
                   value={havePassport ? "yes" : "no"}
                 >
@@ -306,6 +325,7 @@ const DashboardBackgroundInfo = (props) => {
                   >
                     <Input
                       className={"dashboard-basic-info__input"}
+                      type="date"
                       fullWidth
                       label="Expiry Date of Passport"
                       value={passportDetails.passportExpireDate}

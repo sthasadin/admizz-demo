@@ -64,10 +64,39 @@ export const DashboardAcademicInfo = (props) => {
 
   const [showClass11Marks, setShowClass11Marks] = useState(false);
 
+  useEffect(() => {
+    const getData = JSON.parse(localStorage.getItem("academicInformation"));
+    console.log(getData);
+    if (getData) {
+      setDiplomaScore(getData?.diplomaScore);
+      setGmat(getData?.gmat);
+      setGre(getData?.gre);
+      // setIelts(getData?.ielts);
+      setIelts({
+        haveDone: getData?.ielts?.haveDone,
+        score: getData?.ielts?.score,
+        subMars: {
+          listining: getData?.ielts?.subMars?.listinng,
+          writing: getData?.ielts?.subMars?.writting,
+          reading: getData?.ielts?.subMars?.reading,
+          speaking: getData?.ielts?.subMars?.speaking,
+        },
+      });
+      setJeeAdvance(getData?.jeeAdvance);
+      setLevel1Score(getData?.level1Score);
+      setLevel2Score(getData?.level2Score);
+      setPostGraduteScore(getData?.postGraduteScore);
+      setSat(getData?.sat);
+      setSatII(getData?.satII);
+      setSchoolMarks(getData?.schoolMarks);
+      setTofel(getData?.tofel);
+      setUnderGraduate(getData?.underGraduate);
+    }
+  }, [localStorage.getItem("academicInformation")]);
+
   const saveData = () => {
-    props.getData({
+    const data = {
       schoolMarks,
-      // level0Score,
       level1Score,
       level2Score,
       diplomaScore,
@@ -91,7 +120,11 @@ export const DashboardAcademicInfo = (props) => {
             : ielts.subMars,
       },
       certificatesImage,
-    });
+    };
+
+    window.localStorage.setItem("academicInformation", JSON.stringify(data));
+
+    props.getData(data);
   };
 
   const sendData = async () => {

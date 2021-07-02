@@ -101,6 +101,39 @@ const DashboardBasicInfo = (props) => {
   }, [props.authUser]);
 
   useEffect(() => {
+    const getData = JSON.parse(localStorage.getItem("basicInformation"));
+    if (getData) {
+      setGender({ label: getData?.gender, value: getData?.gender });
+      setDob(getData?.DOB);
+      setGuardianAddress(getData?.guardianAddress);
+      setGuardianCity(getData?.guardianCity);
+      setGuardianCountry({
+        label: getData?.guardianCountry,
+        value: getData?.guardianCountry,
+      });
+      setGuardianState({
+        label: getData?.guardianState,
+        value: getData?.guardianState,
+      });
+      setSelectedLevel({
+        label: getData?.selectedLevel,
+        value: getData?.selectedLevel,
+      });
+      setEmail(getData?.email);
+      setNationality({
+        label: getData?.nationality,
+        value: getData?.nationality,
+      });
+      setCountryCode({
+        label: getData?.countryCode,
+        value: getData?.countryCode,
+      });
+      setPhoneNumber(getData?.phoneNumber);
+      setFullName(getData?.fullName);
+    }
+  }, [localStorage.getItem("basicInformation")]);
+
+  useEffect(() => {
     dispatch(getLevels());
   }, []);
 
@@ -298,7 +331,7 @@ const DashboardBasicInfo = (props) => {
           guardianCity,
         };
 
-        await dispatch(stage1(data));
+        window.localStorage.setItem("basicInformation", JSON.stringify(data));
         props.getData(data);
         props.handleNext();
       }
@@ -549,7 +582,7 @@ const DashboardBasicInfo = (props) => {
         <div className="dashboard-basic-info__sectionTitle">Address Detail</div>
         <div className="dashboard-basic-info__formContainer">
           <div className="dashboard-basic-info__marginContainer">
-            <div className="dashboard-basic-info__formTitle">
+            <div className="dashboard-basic-info__formTitle form--title">
               Personal Address
             </div>
             <hr className="dashboard-basic-info__horizontalLine" />

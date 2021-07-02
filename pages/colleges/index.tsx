@@ -30,20 +30,7 @@ const collegeList = () => {
   }, []);
 
   const collegeList = useSelector((state) => state.college.colleges);
-
-  // const allCoursesWithCounts = useMemo(() => {
-  //   const courses = [];
-  //   if (collegeList?.length) {
-  //     collegeList?.forEach((college) => {
-  //       college.courses?.forEach((course) => courses.push(course.course_name));
-  //     });
-  //   }
-  //   const withCounts = {};
-  //   courses.forEach(function (x) {
-  //     withCounts[x] = (withCounts[x] || 0) + 1;
-  //   });
-  //   return withCounts;
-  // }, [collegeList]);
+  const Loading = useSelector((state) => state.college.multiLoading);
 
   useEffect(() => {
     if (collegeList.length) {
@@ -104,25 +91,6 @@ const collegeList = () => {
     setCollegeListSearchQuery(e.target.value);
   };
 
-  // const handleSearch = () => {
-  //   if (collegeListSearchQuery.length && collegeList.length) {
-  //     const filteredColleges = collegeList.filter((college) => {
-  //       if (
-  //         college.name
-  //           .trim()
-  //           .toLowerCase()
-  //           .search(collegeListSearchQuery.trim().toLowerCase()) > -1 || //by name
-  //         college.address
-  //           .trim()
-  //           .toLowerCase()
-  //           .search(collegeListSearchQuery.trim().toLowerCase()) > -1 //by address
-  //       ) {
-  //         return college;
-  //       }
-  //     });
-  //     setCollegeList(filteredColleges);
-  //   }
-  // };
   const handleSearch = () => {
     const filteredColleges = collegeList.filter((college) => {
       return (
@@ -196,7 +164,10 @@ const collegeList = () => {
                 />
               </div>
               <div className="college-list__collegeResultContainer">
-                <CollegeListResult collegeList={_collegeList} />
+                <CollegeListResult
+                  collegeList={_collegeList}
+                  loader={Loading}
+                />
               </div>
             </div>
           </div>

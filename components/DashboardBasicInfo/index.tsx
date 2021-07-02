@@ -142,6 +142,7 @@ const DashboardBasicInfo = (props) => {
         label: getData?.selectedLevel,
         value: getData?.selectedLevel,
       });
+
       setEmail(getData?.email);
       setNationality({
         label: getData?.nationality,

@@ -2,18 +2,15 @@ import React, { FC } from "react";
 
 import SortImage from "../../public/SortImage.png";
 import { CollegesCard } from "../collegesBlock/collegesCard";
+import { CollegeCardLoader } from "../SkeletonLoading/CollegeCardLoader";
 
 interface CollegeProps {
   collegeList: Array<any>;
+  loader: boolean;
 }
 
-const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
-  const sortArray = () => {
-    //  const sortedArray =  collegeList.sort((a, b) => a.average_fee > b.average_fee)
-    //  console.log(sortedArray);
-  };
-
-  console.log(collegeList);
+const CollegeListResult: FC<CollegeProps> = ({ collegeList, loader }) => {
+  // console.log(loader);
 
   return (
     <div className="college-list-result">
@@ -31,7 +28,7 @@ const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
             Popularity{" "}
             <img src={SortImage} alt=".." className="image-sort-icon" />
           </p>
-          <p className="college-list-result__sortItem" onClick={sortArray}>
+          <p className="college-list-result__sortItem">
             Ratings <img src={SortImage} alt=".." className="image-sort-icon" />
           </p>
           <p className="college-list-result__sortItem">
@@ -40,11 +37,13 @@ const CollegeListResult: FC<CollegeProps> = ({ collegeList }) => {
         </div>
       </div>
       <div className="college-list-result__resultContainer">
+        {loader && <CollegeCardLoader count={10} />}
+
         {collegeList &&
           collegeList.map((college, index) => {
             return (
               <div key={index} className="college-list-result__cardContainer">
-                <CollegesCard {...college} />
+                <CollegesCard {...college} loader={loader} />
               </div>
             );
           })}

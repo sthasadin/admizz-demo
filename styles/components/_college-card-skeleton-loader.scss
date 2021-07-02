@@ -1,0 +1,54 @@
+.college-card-skeleton-loader {
+  width: 295px;
+  height: 371px;
+
+  .college-thumbnail {
+    position: relative;
+    height: 173px;
+
+    .college-logo {
+      position: absolute;
+      bottom: -30px;
+      right: 30px;
+      z-index: 2;
+    }
+  }
+
+  .card-line {
+    z-index: 1;
+  }
+
+  .college-details {
+    position: relative;
+
+    .college-review-container {
+      position: absolute;
+      top: 20px;
+      display: flex;
+      gap: 2rem;
+      left: 1rem;
+    }
+
+    .college-line {
+      position: absolute;
+      top: 50px;
+    }
+
+    .college-course-details-container {
+      position: absolute;
+      top: 90px;
+      display: flex;
+      gap: 2rem;
+      left: 1rem;
+    }
+
+    .college-topcourse-details-container {
+      position: absolute;
+      top: 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      left: 1rem;
+    }
+  }
+}

@@ -251,6 +251,7 @@ const DashboardReviewConfirm = (props) => {
           })
           .then((res) => {
             handleClose();
+            localStorage.clear();
           })
           .catch((e) => {
             console.log(e);

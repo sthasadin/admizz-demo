@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { CollegeCourse } from "./collegeCourse";
+import { CollegeCardLoader } from "../SkeletonLoading/CollegeCardLoader";
 
 import { useRouter } from "next/router";
 
-const CollegesCard = (college, props) => {
+const CollegesCard = (college) => {
   const router = useRouter();
 
   function truncateString(str, num) {
@@ -13,6 +14,12 @@ const CollegesCard = (college, props) => {
     } else {
       return str;
     }
+  }
+
+  console.log(college.loader);
+
+  if (college.loader) {
+    return <CollegeCardLoader />;
   }
   return (
     <div className="colleges-card">

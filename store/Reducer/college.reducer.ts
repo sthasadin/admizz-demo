@@ -4,8 +4,8 @@ import { COLLEGES_TYPES, COLLEGE_TYPES } from "../const";
 const initialState = {
     college : {},
     colleges: [],
-    multiLoading: true,
-    singleLoading: true,
+    multiLoading: false,
+    singleLoading: false,
 }
 
 export default (state = initialState, action) => {

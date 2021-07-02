@@ -81,7 +81,7 @@ export const DashboardAcademicInfo = (props) => {
         score: getData?.ielts?.score,
         subMars: {
           listining: getData?.ielts?.subMars?.listinng,
-          writing: getData?.ielts?.subMars?.writting,
+          writing: getData?.ielts?.subMars?.writing,
           reading: getData?.ielts?.subMars?.reading,
           speaking: getData?.ielts?.subMars?.speaking,
         },
@@ -1073,6 +1073,7 @@ export const DashboardAcademicInfo = (props) => {
                         className={"dashboard-basic-info__input"}
                         fullWidth
                         placeholder="eg: 50.50"
+                        value={ielts.subMars.writing}
                         onChange={(e) => {
                           let _itels = {
                             ...ielts,
@@ -1094,6 +1095,7 @@ export const DashboardAcademicInfo = (props) => {
                         className={"dashboard-basic-info__input"}
                         fullWidth
                         placeholder="eg: 50.50"
+                        value={ielts.subMars.reading}
                         onChange={(e) => {
                           let _itels = {
                             ...ielts,
@@ -1115,6 +1117,7 @@ export const DashboardAcademicInfo = (props) => {
                         className={"dashboard-basic-info__input"}
                         fullWidth
                         placeholder="eg: 50.50"
+                        value={ielts.subMars.speaking}
                         onChange={(e) => {
                           let _itels = {
                             ...ielts,

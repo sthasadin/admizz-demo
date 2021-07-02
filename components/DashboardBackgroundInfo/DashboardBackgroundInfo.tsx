@@ -62,6 +62,10 @@ const DashboardBackgroundInfo = (props) => {
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   useEffect(() => {
+    props.setShowExitPrompt(true); //to prevent from refreshing page
+  }, []);
+
+  useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("backgroundInformation"));
     if (getData) {
       setHaveAppliedPassport(getData?.haveAppliedForPassport);

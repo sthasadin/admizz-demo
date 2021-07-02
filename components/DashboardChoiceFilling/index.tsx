@@ -27,6 +27,7 @@ const DashboardChoiceFilling = ({
   selectedChoice,
   info,
   setInfo,
+  setShowExitPrompt,
 }) => {
   const dispatch = useDispatch();
   const [choices, setChoices] = useState([_choice]);
@@ -39,6 +40,10 @@ const DashboardChoiceFilling = ({
       value,
     }))
   );
+
+  useEffect(() => {
+    setShowExitPrompt(true); //to prevent from refreshing the page
+  }, []);
 
   useEffect(() => {
     selectedChoice.length && setAppliedColleges([...selectedChoice]);

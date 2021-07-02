@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 
 import { useDispatch } from "react-redux";
-// import { useRouter } from "next/router";
+
 import StickyBox from "react-sticky-box";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -48,6 +48,20 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+const initBeforeUnLoad = (showExitPrompt, setShowExitPrompt) => {
+  window.onbeforeunload = (event) => {
+    if (showExitPrompt) {
+      const e = event || window.event;
+      e.preventDefault();
+      if (e) {
+        e.returnValue = "";
+        setShowExitPrompt(false);
+      }
+      return "";
+    }
+  };
+};
+
 const DashboardBasicInfoPage = () => {
   const { authenticated, user } = useContext(AuthContext);
   const dispatch = useDispatch();
@@ -67,16 +81,30 @@ const DashboardBasicInfoPage = () => {
   const [academicInfo, setAcademicInfo] = useState({});
   const [selectedChoice, setSelectedChoice] = useState([]);
   const [info, setInfo] = useState([]);
+  const [showExitPrompt, setShowExitPrompt] = useState(false as boolean);
 
   const getUser = async (id: string) => {
     const user = await dispatch(getAuthUser(id));
     setAuthUser(user);
   };
 
+  window.onload = function () {
+    initBeforeUnLoad(showExitPrompt, setShowExitPrompt);
+  };
+
+  useEffect(() => {
+    initBeforeUnLoad(showExitPrompt, setShowExitPrompt);
+
+    // return () => {
+    //   setShowExitPrompt(false);
+    // };
+  }, [showExitPrompt]);
+
   useEffect(() => {
     if (authenticated) {
       getUser(user?.uid);
     }
+    // setShowExitPrompt(true);
   }, [authenticated, user]);
 
   const totalSteps = () => {
@@ -118,6 +146,7 @@ const DashboardBasicInfoPage = () => {
             getData={setBasicInfo}
             data={basicInfo}
             authUser={authUser}
+            setShowExitPrompt={setShowExitPrompt}
           />
         );
       case 1:
@@ -127,6 +156,7 @@ const DashboardBasicInfoPage = () => {
             handleBack={handleBack}
             getData={setBackgroundInfo}
             data={backgroundInfo}
+            setShowExitPrompt={setShowExitPrompt}
           />
         );
       case 2:
@@ -137,6 +167,7 @@ const DashboardBasicInfoPage = () => {
             getData={setAcademicInfo}
             data={academicInfo}
             selectedLevel={basicInfo}
+            setShowExitPrompt={setShowExitPrompt}
           />
         );
       case 3:
@@ -148,6 +179,7 @@ const DashboardBasicInfoPage = () => {
             selectedChoice={selectedChoice}
             info={info}
             setInfo={setInfo}
+            setShowExitPrompt={setShowExitPrompt}
           />
         );
       case 4:
@@ -162,6 +194,7 @@ const DashboardBasicInfoPage = () => {
             setAcademicInfo={setAcademicInfo}
             setBasicInfo={setBasicInfo}
             authUser={authUser}
+            setShowExitPrompt={setShowExitPrompt}
           />
         );
       default:

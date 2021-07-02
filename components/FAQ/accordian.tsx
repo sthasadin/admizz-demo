@@ -6,11 +6,10 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 const FAQAccordian = (props: any) => {
-  console.log(props);
   return (
     <Accordion>
       <AccordionSummary
-        expandIcon={"+"}
+        expandIcon={<div className="accordion-open-tag">+</div>}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >

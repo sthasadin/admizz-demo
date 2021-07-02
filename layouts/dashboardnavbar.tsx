@@ -60,9 +60,9 @@ const DashboardNavbar = () => {
   );
 
   return (
-    <div className="navbar">
+    <div className="navbar" style={{ padding: "10px 0" }}>
       <div className="navbar__inner dashboard-navbar">
-        <div className="navbar__logoImage" style={{ cursor: "pointer" }}>
+        <div className="logo" style={{ cursor: "pointer" }}>
           <img src="/logo.png" alt="" onClick={() => router.push("/")} />
         </div>
         <div className="navbar__dashboardRight">

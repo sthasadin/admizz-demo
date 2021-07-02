@@ -28,7 +28,14 @@ const CollegeCardLoader = (props: any) => {
                   <Skeleton
                     animation="wave"
                     variant="circle"
-                    width={295}
+                    width={202}
+                    height={2}
+                  />
+
+                  <Skeleton
+                    animation="wave"
+                    variant="circle"
+                    width={30}
                     height={2}
                   />
                 </div>
@@ -72,7 +79,7 @@ const CollegeCardLoader = (props: any) => {
                   <Skeleton
                     animation="wave"
                     variant="rect"
-                    width={110}
+                    width={120}
                     height={10}
                   />
                 </div>
@@ -80,13 +87,13 @@ const CollegeCardLoader = (props: any) => {
                   <Skeleton
                     animation="wave"
                     variant="rect"
-                    width={250}
+                    width={260}
                     height={10}
                   />
                   <Skeleton
                     animation="wave"
                     variant="rect"
-                    width={250}
+                    width={260}
                     height={10}
                   />
                 </div>

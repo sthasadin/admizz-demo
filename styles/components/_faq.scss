@@ -47,7 +47,7 @@
   }
 
   &__title {
-    margin: 40px 0;
+    padding: 40px 0;
     font-size: 18px;
     line-height: 27px;
     font-weight: 800;
@@ -174,4 +174,8 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+.faq-content {
+  background-color: #f2f2f2;
 }

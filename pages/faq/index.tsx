@@ -104,41 +104,43 @@ const FAQ = () => {
             </div>
           </div>
         </div>
-        <div className="faq__inner section-wrapper">
-          <div className="faq__title">Frequently Asked Questions</div>
-          <div className="faq__accordian">
-            <div className="faq__accordian__item-wrap">
-              {data.slice(0, 7).map((data, i) => {
-                return <FAQAccordian data={data} key={i} />;
-              })}
+        <div className="faq-content">
+          <div className="faq__inner section-wrapper">
+            <div className="faq__title">Frequently Asked Questions</div>
+            <div className="faq__accordian">
+              <div className="faq__accordian__item-wrap">
+                {data.slice(0, 7).map((data, i) => {
+                  return <FAQAccordian data={data} key={i} />;
+                })}
+              </div>
+              <div className="faq__accordian__item-wrap">
+                {data.slice(7, 15).map((data, i) => {
+                  return <FAQAccordian data={data} key={i} />;
+                })}
+              </div>
             </div>
-            <div className="faq__accordian__item-wrap">
-              {data.slice(7, 15).map((data, i) => {
-                return <FAQAccordian data={data} key={i} />;
-              })}
+            <div className="faq__title">Quick Help Topics</div>
+            <div className="faq__quick-help">
+              <QuickHelp />
+              <QuickHelp />
+              <QuickHelp />
+              <QuickHelp />
+              <QuickHelp />
+              <QuickHelp />
             </div>
-          </div>
-          <div className="faq__title">Quick Help Topics</div>
-          <div className="faq__quick-help">
-            <QuickHelp />
-            <QuickHelp />
-            <QuickHelp />
-            <QuickHelp />
-            <QuickHelp />
-            <QuickHelp />
-          </div>
-          <div className="faq__counseling">
-            <div className="faq__counseling__title">
-              Didn’t find your answer to your question?
-            </div>
-            <div className="faq__counseling__desc">
-              Get in touch with us for details on admissions and application
-              process for scholarship processing.
-            </div>
-            <div className="faq__cta">
-              <CallToAction className="filled">
-                Book a Counseling Session
-              </CallToAction>
+            <div className="faq__counseling">
+              <div className="faq__counseling__title">
+                Didn’t find your answer to your question?
+              </div>
+              <div className="faq__counseling__desc">
+                Get in touch with us for details on admissions and application
+                process for scholarship processing.
+              </div>
+              <div className="faq__cta">
+                <CallToAction className="filled">
+                  Book a Counseling Session
+                </CallToAction>
+              </div>
             </div>
           </div>
         </div>

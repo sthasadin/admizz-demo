@@ -10,8 +10,6 @@ interface CollegeProps {
 }
 
 const CollegeListResult: FC<CollegeProps> = ({ collegeList, loader }) => {
-  // console.log(loader);
-
   return (
     <div className="college-list-result">
       <div className="college-list-result__titleContainer">

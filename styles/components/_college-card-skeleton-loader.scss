@@ -15,7 +15,8 @@
   }
 
   .card-line {
-    z-index: 1;
+    display: flex;
+    gap: 3.8rem;
   }
 
   .college-details {

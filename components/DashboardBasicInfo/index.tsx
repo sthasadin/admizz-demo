@@ -84,14 +84,6 @@ const DashboardBasicInfo = (props) => {
 
   const dispatch = useDispatch();
 
-  // window.onload = function () {
-  //   initBeforeUnLoad(showExitPrompt);
-  // };
-
-  // useEffect(() => {
-  //   initBeforeUnLoad(showExitPrompt);
-  // }, [showExitPrompt]);
-
   const allLevels = useSelector((state) => state.courses.allLevels);
   const selectLevelOption = useMemo(() => {
     return allLevels.map((level) => {

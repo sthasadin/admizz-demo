@@ -51,6 +51,9 @@ const Select = (props: Props) => {
         },
       },
     },
+    "MuiPopover-paper": {
+      top: "172px",
+    },
     errorMessage: {
       fontSize: 12,
       color: "#FF0000",
@@ -95,6 +98,13 @@ const Select = (props: Props) => {
         }
         onChange={props.onChange}
         error={props.error}
+        MenuProps={{
+          anchorOrigin: {
+            vertical: "bottom",
+            horizontal: "left",
+          },
+          getContentAnchorEl: null,
+        }}
       >
         {props.options &&
           props.options.map((item, key) => {

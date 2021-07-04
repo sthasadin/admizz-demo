@@ -104,6 +104,9 @@
   }
   &__left {
     margin-top: 66px;
+    @media (max-width: 600px) {
+      margin: 18px 0;
+    }
   }
   &__header {
     font-size: 24px;
@@ -150,6 +153,7 @@
     align-items: center;
     @media (max-width: 760px) {
       margin-top: 10px;
+      margin-left: 0;
     }
     &__icon {
       cursor: pointer;

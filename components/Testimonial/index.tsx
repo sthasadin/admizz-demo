@@ -6,7 +6,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
 import Carousel from "../../components/Carousel";
-import TestimonialCarousel from "./TestimonialCarousel";
+import TestimonialCarousel from "../TestimonialCarousel";
 
 const Testimonial = (props: any) => {
   const [open, setOpen] = React.useState(false);
@@ -139,14 +139,14 @@ const Testimonial = (props: any) => {
         </div>
       </div>
 
-      <div className="testimonial__formobile">
+      {/* <div className="testimonial__formobile">
         <Carousel bulletdot="false">
           {testimonialList &&
             testimonialList.map((data) => {
               return <TestimonialCarousel key={data.id} data={data} />;
             })}
         </Carousel>
-      </div>
+      </div> */}
     </div>
   );
 };

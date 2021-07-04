@@ -43,7 +43,6 @@ const StudentInfo: React.FC<Props> = ({
       },
     });
   }, [selectedMedium]);
-  console.log(formValue.country_code);
 
   return (
     <div className="student-info">

@@ -95,6 +95,7 @@ const CollegeFinder = () => {
                 imgSrc="/college-finder/travel.png"
                 alt="travel_logo"
               />
+
               <CollegeFinderCard
                 name="Law Enforcement"
                 count="1259"
@@ -122,7 +123,7 @@ const CollegeFinder = () => {
             </>
           )}
         </div>
-        <div className="collegeFinder__middle formobile">
+        <div className="collegeFinder__middle">
           <CallToAction
             onClick={() => setShowMore((showMore) => !showMore)}
             className="collegeFinder__middle__btn"

@@ -96,7 +96,6 @@ const CollegeListSelectedStream = ({
         </div>
         <div style={{ padding: "10px 0 10px 0" }}>
           {Object.keys(searchedCourses).map((course, i) => {
-            console.log(searchedCourses);
             return (
               <div
                 key={i}

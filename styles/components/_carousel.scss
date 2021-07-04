@@ -9,6 +9,9 @@
     left: 50%;
     bottom: 100px;
     transform: translateX(-50%);
+    @media (max-width: 600px) {
+      bottom: -18px;
+    }
   }
   &__line {
     width: 58px;

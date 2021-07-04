@@ -90,10 +90,14 @@
   background-color: #f6f6f6;
   display: flex;
   justify-content: center;
+
   &__inner {
     display: flex;
     width: 90%;
     margin-top: 18px;
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
   }
 }
 

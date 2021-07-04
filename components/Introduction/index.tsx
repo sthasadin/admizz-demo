@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "../../components/Carousel";
 import Link from "next/link";
 import { Introduction } from "./Introduction";
+import MessengerCustomerChat from "../MessengerCustomerChat";
 
 const index = () => {
   const [active, setActive] = React.useState(false);
@@ -44,9 +45,14 @@ const index = () => {
             imgSrc="/female-intro.png"
             videoUrl="https://youtu.be/CDknjC9aFmg"
           />
-          <Introduction title="helloworld" imgSrc="/male-intro.png" />
+          <Introduction
+            title="helloworld"
+            imgSrc="/male-intro.png"
+            videoUrl="https://youtu.be/CDknjC9aFmg"
+          />
         </Carousel>
       </div>
+      <MessengerCustomerChat />
     </>
   );
 };

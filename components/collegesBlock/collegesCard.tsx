@@ -95,8 +95,6 @@ const CollegesCard = (college) => {
     _getReviews(college?._id);
   }, []);
 
-  console.log(reviews);
-
   return (
     <div className="colleges-card">
       <div

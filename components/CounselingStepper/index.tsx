@@ -192,7 +192,6 @@ const CounselingStepper = () => {
       setFormError({ ...errors });
     }
   };
-  console.log(formError);
 
   const handleBook = async () => {
     setIsDisable(true);

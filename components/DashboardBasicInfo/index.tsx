@@ -102,7 +102,7 @@ const DashboardBasicInfo = (props) => {
 
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("basicInformation"));
-    console.log(getData);
+
     if (getData) {
       setGender({ label: getData?.gender, value: getData?.gender });
       setDob(getData?.DOB);

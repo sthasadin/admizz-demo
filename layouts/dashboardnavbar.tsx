@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import userImage from "./../public/User1.png";
 import notificationIcon from "./../public/NotificationIcon.png";
 import searchIcon from "./../public/SearchIcon.png";
+import StickyBox from "react-sticky-box";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -60,6 +61,7 @@ const DashboardNavbar = () => {
   );
 
   return (
+    // <StickyBox style={{ height: "40px", zIndex: "5" }}>
     <div className="navbar" style={{ padding: "10px 0" }}>
       <div className="navbar__inner dashboard-navbar">
         <div className="logo" style={{ cursor: "pointer" }}>
@@ -111,6 +113,7 @@ const DashboardNavbar = () => {
         </div>
       </div>
     </div>
+    // </StickyBox>
   );
 };
 

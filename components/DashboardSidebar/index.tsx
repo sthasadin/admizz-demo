@@ -9,7 +9,6 @@ const DashboardSidebar = () => {
   const router = useRouter();
   const logout = async () => {
     await auth.signOut();
-    localStorage.clear();
     router.push("/");
   };
   return (
@@ -47,7 +46,7 @@ const DashboardSidebar = () => {
           Back To Home
         </div>
         <div onClick={logout} className="dashboard-sidebar__logout">
-          LogOut
+          Logout
         </div>
       </div>
     </StickyBox>

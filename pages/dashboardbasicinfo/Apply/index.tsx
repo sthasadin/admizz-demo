@@ -137,6 +137,10 @@ const DashboardBasicInfoPage = () => {
     setActiveStep(newActiveStep);
   };
 
+  const handleStep = (step) => () => {
+    setActiveStep(step);
+  };
+
   const getStepContent = (step: number) => {
     switch (step) {
       case 0:
@@ -218,6 +222,7 @@ const DashboardBasicInfoPage = () => {
             Application Steps
           </div>
           <Stepper
+            nonLinear
             activeStep={activeStep}
             orientation="vertical"
             style={{ borderRadius: "5px" }}
@@ -227,6 +232,7 @@ const DashboardBasicInfoPage = () => {
                 <StepButton
                   className={classes.stepper}
                   completed={completed[index]}
+                  onClick={handleStep(index)}
                 >
                   {label}
                 </StepButton>

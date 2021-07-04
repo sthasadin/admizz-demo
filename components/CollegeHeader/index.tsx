@@ -11,6 +11,7 @@ const CollegeHeader = ({
   address,
   estblished,
   collegeBanner,
+  reviews,
 }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
@@ -25,11 +26,20 @@ const CollegeHeader = ({
       <div className="college-header__inner">
         <div className="college-header__rating-wrap">
           <div className="rating-block">
-            <div className="rating-block__title">REVIEWS RATING</div>
-            <div className="rating-block__rating-wrap">
-              <div className="rating-block__rating">8.5</div>
-              <div className="rating-block__total">/10</div>
+            <div className="rating-block__title">
+              {" "}
+              {reviews?.averageRating !== "NaN"
+                ? "Reviews rating"
+                : "No review yet"}
             </div>
+            {reviews?.averageRating && reviews?.averageRating !== "NaN" && (
+              <div className="rating-block__rating-wrap">
+                <div className="rating-block__rating">
+                  {reviews?.averageRating}
+                </div>
+                <div className="rating-block__total">/10</div>
+              </div>
+            )}
           </div>
         </div>
         <div className="college-header__college">

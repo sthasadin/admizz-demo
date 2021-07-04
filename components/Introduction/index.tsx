@@ -1,12 +1,10 @@
 import React from "react";
 import Carousel from "../../components/Carousel";
-import { useRouter } from "next/router";
+import Link from "next/link";
 import { Introduction } from "./Introduction";
 
 const index = () => {
   const [active, setActive] = React.useState(false);
-
-  const router = useRouter();
 
   React.useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -22,16 +20,18 @@ const index = () => {
   return (
     <>
       <div className="introduction__container">
-        <div
-          className={`${
-            active && "active__vertical"
-          } vertical__stickycontainer `}
-        >
-          <div className="text__content">Free Counseling</div>
-          <div className="image">
-            <img src="/vertical-arrow.png" alt="free counseling" />
+        <Link href="/free-counseling">
+          <div
+            className={`${
+              active && "active__vertical"
+            } vertical__stickycontainer `}
+          >
+            <div className="text__content">Free Counseling</div>
+            <div className="image">
+              <img src="/vertical-arrow.png" alt="free counseling" />
+            </div>
           </div>
-        </div>
+        </Link>
 
         <Carousel bulletdot={false}>
           <Introduction

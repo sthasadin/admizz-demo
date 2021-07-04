@@ -24,7 +24,9 @@ const index = () => {
     }
   }, [auth]);
 
-  const { collegeList } = useSelector((state: any) => state.allCollege);
+  // const { collegeList } = useSelector((state: any) => state.allCollege);
+  const collegeList = useSelector((state) => state.college.colleges);
+  const Loading = useSelector((state) => state.college.multiLoading);
   const { application } = useSelector(
     (state: any) => state.student_application
   );
@@ -35,7 +37,7 @@ const index = () => {
           <DashboardApplicationStatus application={application} />
         </div>
         <div className="student-dashboard-main__recommendation">
-          <DashboardRecommend collegeList={collegeList} />
+          <DashboardRecommend collegeList={collegeList} loader={Loading} />
         </div>
       </div>
     </DashboardLayout>

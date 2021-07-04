@@ -5,7 +5,7 @@ const index = () => {
   return (
     <MessengerCustomerChat
       pageId="862468987124863"
-      appId="<APP_ID>"
+      appId="178554924242728"
       htmlRef="<REF_STRING>"
     />
   );

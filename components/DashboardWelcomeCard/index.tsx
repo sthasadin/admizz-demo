@@ -67,7 +67,7 @@ const DashboardWelcomeCard = () => {
         </div>
       </div>
       <div className="dashboard-welcome-card__ButtonContainer">
-        <Link href="/dashboardbasicinfo/apply">
+        <Link href="/dashboardbasicinfo/Apply">
           <Button className="contact-form__send-message">
             Complete Application
           </Button>

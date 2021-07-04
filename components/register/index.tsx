@@ -15,7 +15,7 @@ import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { Select } from "../Select";
 import { countryList } from "../../utils/CountryLists";
-import { DropDownSelect } from "../DropDownSelect";
+import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 
 interface signUpFormValue {
   fullName: string;
@@ -88,6 +88,19 @@ const Register = () => {
       setFormError({ ...errors });
     }
   };
+
+  const CountryCodeOptions = [
+    {
+      label: `+91`,
+      value: "+91 ",
+      imgSrc: "/country-icon/india.png",
+    },
+    {
+      label: "+977",
+      value: "+977",
+      imgSrc: "/country-icon/nepal.png",
+    },
+  ];
 
   const handleRegister = async (e) => {
     try {
@@ -226,12 +239,13 @@ const Register = () => {
                   type="text"
                 />
                 <div className={"student-info__phone-input"}>
-                  <Select
-                    options={countryList}
+                  <CountryCodeDropDown
+                    options={CountryCodeOptions}
                     useValue
                     minWidth={"83px"}
                     width={"90px"}
-                    defaultValue={"+977"}
+                    value={formValue.countryCode}
+                    // defaultValue={"+977"}
                     name={"countryCode"}
                     onChange={handleChange}
                     error={!!formError.countryCode}

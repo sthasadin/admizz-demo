@@ -47,12 +47,12 @@ const DropDownSelect = ({
       <div
         style={{
           position: "absolute",
-          left: 20,
+          left: 9,
           top: -7,
           height: 15,
           background: "white",
           zIndex: 1,
-          padding: "0 2px",
+          padding: "0 4px",
           // paddingRight: 10,
         }}
       >

@@ -20,7 +20,7 @@ function Alert(props: AlertProps) {
 interface studentInfoFormValue {
   name: string;
   email: string;
-  country_code: number;
+  country_code: string;
   phone: number;
   home_country: string;
   course: string;
@@ -98,7 +98,7 @@ const CounselingStepper = () => {
     setFormValue({
       ...formValue,
       [e.target.name]: e.target.value,
-      country_code: 977,
+      country_code: "977",
     });
     setFormError({
       ...formError,
@@ -118,7 +118,7 @@ const CounselingStepper = () => {
       .string()
       .required("Email field should not be empty")
       .email("Please provide a valid email"),
-    country_code: yup.number().required("Required code"),
+    country_code: yup.string().required("Required code"),
     phone: yup
       .number()
       .required("Phone number field should not be empty")

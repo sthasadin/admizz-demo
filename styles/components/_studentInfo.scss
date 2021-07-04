@@ -70,9 +70,9 @@
   &__contact-medium-label {
     display: flex;
     font-size: 14px;
-    line-height: 21px;
-    align-items: center;
-    margin-bottom: 3px;
+    // line-height: 21px;
+    // align-items: center;
+    // margin-bottom: 3px;
   }
   &__mediums-container {
     display: flex;
@@ -85,7 +85,7 @@
     margin-right: 5px;
   }
   &__medium {
-    padding: 6px;
+    padding: 5px 6px;
     display: flex;
     align-items: center;
     cursor: pointer;

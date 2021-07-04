@@ -41,7 +41,9 @@ const Select = (props: Props) => {
     },
     label: {
       color: "#a9a9a9",
-      paddingLeft: 22,
+      // paddingLeft: 22,
+      padding: "0 4px",
+      left: "-4px",
     },
     select: {
       "& .PrivateNotchedOutline-legendLabelled-8": {

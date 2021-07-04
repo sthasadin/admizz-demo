@@ -13,7 +13,8 @@ import whatsapp from "../../public/whatsapp.png";
 import { Button } from "../Button";
 import { Select } from "../Select";
 import { countryList } from "../../utils/CountryLists";
-
+import { CountryCode } from "../../utils/CountryCode";
+import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 interface FormError {
   [key: string]: string;
 }
@@ -22,7 +23,7 @@ interface Props {
   handleNext: () => void;
   handleBack: () => void;
   handleChange: (e: any) => void;
-  formValue: {};
+  formValue?: any;
   formError: FormError;
 }
 
@@ -42,6 +43,7 @@ const StudentInfo: React.FC<Props> = ({
       },
     });
   }, [selectedMedium]);
+  console.log(formValue.country_code);
 
   return (
     <div className="student-info">
@@ -83,16 +85,13 @@ const StudentInfo: React.FC<Props> = ({
         >
           <Grid className={"student-info__grid"} item md={6}>
             <div className={"student-info__phone-input"}>
-              {/* <div className={'student-info__phone-separator'}>
-                +977
-              </div> */}
-              <Select
-                options={countryList}
+              <CountryCodeDropDown
+                options={CountryCode}
                 useValue
                 minWidth={"83px"}
                 width={"90px"}
-                defaultValue={"+977"}
                 name={"countryCode"}
+                value={formValue.countryCode}
                 onChange={handleChange}
                 error={!!formError.countryCode}
                 errorMessage={formError.countryCode}
@@ -112,16 +111,16 @@ const StudentInfo: React.FC<Props> = ({
             </div>
           </Grid>
           <Grid className={"student-info__grid"} item md={6}>
-            <Input
+            <Select
               name={"home_country"}
+              options={countryList}
               onChange={handleChange}
               errorMessage={formError.home_country}
               error={!!formError.home_country}
               className={"student-info__input"}
-              fullWidth
               icon={LocationOnIcon}
-              label={"Home Country"}
-              placeholder="Home Country"
+              title={"Home Country"}
+              // placeholder="Home Country"
             />
           </Grid>
         </Grid>

@@ -43,7 +43,11 @@ const DashboardWelcomeCard = () => {
     }
 
     setProgressValue(percentage);
-  });
+  }, [
+    localStorage.getItem("basicInformation"),
+    localStorage.getItem("backgroundInformation"),
+    localStorage.getItem("acadmicInformation"),
+  ]);
 
   return (
     <div className="dashboard-welcome-card">

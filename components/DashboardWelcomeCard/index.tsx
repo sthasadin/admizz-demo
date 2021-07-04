@@ -1,11 +1,55 @@
 import React from "react";
 import { Button } from "../Button";
 import Link from "next/link";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Box from "@material-ui/core/Box";
+
+function CircularProgressWithLabel(props) {
+  return (
+    <Box className="circle-container">
+      <CircularProgress
+        variant="determinate"
+        {...props}
+        style={{ width: "65px", height: "65px", color: "#FFA200", zIndex: "1" }}
+      />
+      <Box className="circle">{props.value}%</Box>
+    </Box>
+  );
+}
 
 const DashboardWelcomeCard = () => {
+  const [progressValue, setProgressValue] = React.useState(0 as number);
+
+  React.useEffect(() => {
+    const basicInformation = JSON.parse(
+      localStorage.getItem("basicInformation")
+    );
+    const backgroundInformation = JSON.parse(
+      localStorage.getItem("backgroundInformation")
+    );
+    const acadmicInformation = JSON.parse(
+      localStorage.getItem("acadmicInformation")
+    );
+
+    let percentage = 0;
+    if (basicInformation) {
+      percentage = percentage + 34;
+    }
+    if (backgroundInformation) {
+      percentage = percentage + 34;
+    }
+    if (acadmicInformation) {
+      percentage = 100;
+    }
+
+    setProgressValue(percentage);
+  });
+
   return (
     <div className="dashboard-welcome-card">
-      {/* <div className="dashboard-welcome-card__percentContainer">Percent</div> */}
+      <div className="dashboard-welcome-card__percentContainer">
+        <CircularProgressWithLabel value={progressValue} />
+      </div>
       <div className="dashboard-welcome-card__textInfoContainer">
         <div className="dashboard-welcome-card__titleText">
           Welcome to Admizz Student Dashboard!! Complete your application

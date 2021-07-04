@@ -28,7 +28,7 @@ const DashboardWelcomeCard = () => {
       localStorage.getItem("backgroundInformation")
     );
     const acadmicInformation = JSON.parse(
-      localStorage.getItem("acadmicInformation")
+      localStorage.getItem("academicInformation")
     );
 
     let percentage = 0;
@@ -39,7 +39,7 @@ const DashboardWelcomeCard = () => {
       percentage = percentage + 34;
     }
     if (acadmicInformation) {
-      percentage = 100;
+      percentage = 90;
     }
 
     setProgressValue(percentage);

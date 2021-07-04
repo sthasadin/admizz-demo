@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { getAllCollegeList } from "../../store/Action/allCollage.action";
 import { DashboardWelcomeCard } from "../../components/DashboardWelcomeCard";
 import { DashboardDetailInfo } from "../../components/DashboardDetailInfo";
 import { DashboardRecommend } from "../../components/DashboardRecommend";
 import { DashboardLayout } from "../../layouts/dashboardLayout";
-
+import { getColleges } from "../../store/Action/college.action";
 // import { withRestrictedRoute } from "../withRestrictedRoute";
 import { withPrivateRoute } from "../withPrivateRoute";
 import { getStudentApplication } from "../../store/Action/studentapplication.action";
@@ -18,15 +17,16 @@ const index = () => {
   // const { authenticated, user } = useContext(AuthContext);
   useEffect(() => {
     if (auth.currentUser) {
-      dispatch(getAllCollegeList());
+      dispatch(getColleges());
       dispatch(getStudentApplication(auth.currentUser.uid));
     }
   }, [auth]);
 
-  const { collegeList } = useSelector((state: any) => state.allCollege);
+  const collegeList = useSelector((state: any) => state.college.colleges);
   const { application } = useSelector(
     (state: any) => state.student_application
   );
+  const loader = useSelector((state) => state.college.multiLoading);
 
   return (
     <DashboardLayout title="Dashboard">
@@ -40,7 +40,7 @@ const index = () => {
           <DashboardDetailInfo application={application} />
         </div>
         <div className="student-dashboard-main__recommendation">
-          <DashboardRecommend collegeList={collegeList} />
+          <DashboardRecommend collegeList={collegeList} loader={loader} />
         </div>
       </div>
     </DashboardLayout>

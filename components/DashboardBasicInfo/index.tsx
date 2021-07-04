@@ -11,6 +11,7 @@ import { Button } from "../Button";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 import { DropDownSelect } from "../DropDownSelect";
+import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -31,19 +32,6 @@ interface studentInfoFormValue {
   // additional_query: string;
 }
 
-// const initBeforeUnLoad = (showExitPrompt) => {
-//   window.onbeforeunload = (event) => {
-//     if (showExitPrompt) {
-//       const e = event || window.event;
-//       e.preventDefault();
-//       if (e) {
-//         e.returnValue = "";
-//       }
-//       return "";
-//     }
-//   };
-// };
-
 const DashboardBasicInfo = (props) => {
   const [selectedLevel, setSelectedLevel] = useState({
     label: "",
@@ -61,10 +49,7 @@ const DashboardBasicInfo = (props) => {
     label: "",
     value: "",
   });
-  const [countryCode, setCountryCode] = useState({
-    label: "",
-    value: "",
-  });
+  const [countryCode, setCountryCode] = useState("");
 
   const [guardianAddress, setGuardianAddress] = useState("");
   const [guardianCountry, setGuardianCountry] = useState({
@@ -117,6 +102,7 @@ const DashboardBasicInfo = (props) => {
 
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("basicInformation"));
+    console.log(getData);
     if (getData) {
       setGender({ label: getData?.gender, value: getData?.gender });
       setDob(getData?.DOB);
@@ -140,10 +126,7 @@ const DashboardBasicInfo = (props) => {
         label: getData?.nationality,
         value: getData?.nationality,
       });
-      setCountryCode({
-        label: getData?.countryCode,
-        value: getData?.countryCode,
-      });
+      setCountryCode(getData?.countryCode);
       setPhoneNumber(getData?.phoneNumber);
       setFullName(getData?.fullName);
     }
@@ -201,14 +184,24 @@ const DashboardBasicInfo = (props) => {
     },
   ];
 
+  function getFlagEmoji(countryCode) {
+    return countryCode
+      .toUpperCase()
+      .replace(/./g, (char) =>
+        String.fromCodePoint(127397 + char.charCodeAt())
+      );
+  }
+
   const CountryCodeOptions = [
     {
-      label: "+91",
+      label: `+91`,
       value: "+91 ",
+      imgSrc: "/country-icon/india.png",
     },
     {
       label: "+977",
       value: "+977",
+      imgSrc: "/country-icon/nepal.png",
     },
   ];
 
@@ -524,7 +517,7 @@ const DashboardBasicInfo = (props) => {
                 xs={12}
               >
                 <div className="student-info__phone-input">
-                  <Select
+                  <CountryCodeDropDown
                     options={CountryCodeOptions}
                     useValue
                     minWidth={"83px"}

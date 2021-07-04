@@ -17,10 +17,10 @@ export default (state = initialState, action) => {
                 colleges: payload,
             };
         case COLLEGE_TYPES.GET_COLLEGE:
-            return {
+            return { 
                 ...state,
                 college: payload,
-                singleLoading: false
+                singleLoading: true
             };
         case COLLEGES_TYPES.GET_COLLEGES_INIT:
             return {

@@ -24,7 +24,7 @@ interface Props {
   useLabel?: boolean;
 }
 
-const Select = (props: Props) => {
+const CountryCodeDropDown = (props: Props) => {
   const useStyles = makeStyles((theme) => ({
     formControl: {
       display: "relative",
@@ -61,8 +61,32 @@ const Select = (props: Props) => {
       bottom: "-16px",
       left: "4px",
     },
+
+    flagContainer: {
+      display: "flex",
+      alignItems: "center",
+      gap: "2px",
+    },
+    flagContent: {
+      padding: "5px 10px",
+      //   width: "16px",
+      //   height: "16px",
+    },
+    flagImage: {
+      width: "100%",
+      height: "100%",
+    },
+    menuItem: {
+      padding: "0px",
+      //margin: "0px",
+    },
   }));
   const classes = useStyles(props);
+
+  // const getNumberWithImage = (code: any) => {
+  //   console.log(code);
+  //   return <p>asdasd</p>;
+  // };
 
   const Icon = props.icon;
   return (
@@ -79,6 +103,7 @@ const Select = (props: Props) => {
         id="demo-simple-select"
         name={props.name}
         value={props.value}
+        renderValue={() => props.value}
         className={`${classes.select} ${props.className}`}
         label={props.label}
         defaultValue={props.defaultValue ? props.defaultValue : " "}
@@ -107,9 +132,19 @@ const Select = (props: Props) => {
               <MenuItem
                 key={key}
                 value={props.useLabel ? item.label : item.value}
+                className={classes.menuItem}
               >
                 {/* {getNumberWithImage(item.label)} */}
-                {item.label}
+                <div className={classes.flagContainer}>
+                  <div className={classes.flagContent}>
+                    <img
+                      src={item.imgSrc}
+                      alt=".."
+                      //className={classes.flagImage}
+                    />
+                  </div>{" "}
+                  <div>{item.label}</div>
+                </div>
               </MenuItem>
             );
           })}
@@ -120,4 +155,4 @@ const Select = (props: Props) => {
     </FormControl>
   );
 };
-export { Select };
+export { CountryCodeDropDown };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Select } from "../Select";
+import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 import { Input } from "../Input";
 import * as yup from "yup";
 import { Grid, setRef } from "@material-ui/core";
@@ -51,10 +51,7 @@ const DashboardBackgroundInfo = (props) => {
   // const [documentImageThumbnail, setDocumentImageThumbnail] = useState(null);
   const [references, setReferences] = useState({
     fullName: "",
-    countryCode: {
-      label: "",
-      value: "",
-    },
+    countryCode: "",
     phoneNumber: "",
     emailAddress: "",
     address: "",
@@ -115,12 +112,14 @@ const DashboardBackgroundInfo = (props) => {
 
   const CountryCodeOptions = [
     {
-      label: "India (+91)",
-      value: "+91",
+      label: `+91`,
+      value: "+91 ",
+      imgSrc: "/country-icon/india.png",
     },
     {
-      label: "Nepal (+977)",
+      label: "+977",
       value: "+977",
+      imgSrc: "/country-icon/nepal.png",
     },
   ];
 
@@ -582,7 +581,7 @@ const DashboardBackgroundInfo = (props) => {
                   xs={12}
                 >
                   <div className="student-info__phone-input">
-                    <Select
+                    <CountryCodeDropDown
                       options={CountryCodeOptions}
                       useValue
                       minWidth={"83px"}

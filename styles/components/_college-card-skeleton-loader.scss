@@ -1,5 +1,5 @@
 .college-card-skeleton-loader {
-  width: 295px;
+  width: 275px;
   height: 371px;
 
   .college-thumbnail {
@@ -9,7 +9,7 @@
     .college-logo {
       position: absolute;
       bottom: -30px;
-      right: 30px;
+      right: 26px;
       z-index: 2;
     }
   }
@@ -33,6 +33,7 @@
     .college-line {
       position: absolute;
       top: 50px;
+      width: 100%;
     }
 
     .college-course-details-container {
@@ -40,16 +41,19 @@
       top: 90px;
       display: flex;
       gap: 2rem;
-      left: 1rem;
+      padding: 0 10px;
+      width: 100%;
     }
 
     .college-topcourse-details-container {
       position: absolute;
+      padding: 0 10px;
+      overflow: hidden;
       top: 120px;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      left: 1rem;
+      width: 100%;
     }
   }
 }

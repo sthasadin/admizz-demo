@@ -70,7 +70,7 @@ export const DashboardAcademicInfo = (props) => {
 
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("academicInformation"));
-    console.log(getData);
+
     if (getData) {
       setDiplomaScore(getData?.diplomaScore);
       setGmat(getData?.gmat);

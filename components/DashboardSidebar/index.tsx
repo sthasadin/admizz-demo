@@ -9,6 +9,7 @@ const DashboardSidebar = () => {
   const router = useRouter();
   const logout = async () => {
     await auth.signOut();
+    localStorage.clear();
     router.push("/");
   };
   return (

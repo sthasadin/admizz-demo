@@ -12,7 +12,7 @@ const CollegeCardLoader = (props: any) => {
               <div className="college-thumbnail">
                 <Skeleton
                   variant="rect"
-                  width={295}
+                  width={"100%"}
                   height={173}
                   animation="wave"
                 />
@@ -43,7 +43,7 @@ const CollegeCardLoader = (props: any) => {
               <div className="college-details">
                 <Skeleton
                   variant="rect"
-                  width={295}
+                  width={"100%"}
                   height={173}
                   animation="wave"
                 />
@@ -65,7 +65,7 @@ const CollegeCardLoader = (props: any) => {
                   <Skeleton
                     animation="wave"
                     variant="circle"
-                    width={295}
+                    width={"100%"}
                     height={2}
                   />
                 </div>
@@ -73,13 +73,13 @@ const CollegeCardLoader = (props: any) => {
                   <Skeleton
                     animation="wave"
                     variant="rect"
-                    width={110}
+                    width="40%"
                     height={10}
                   />
                   <Skeleton
                     animation="wave"
                     variant="rect"
-                    width={120}
+                    width="50%"
                     height={10}
                   />
                 </div>
@@ -87,13 +87,13 @@ const CollegeCardLoader = (props: any) => {
                   <Skeleton
                     animation="wave"
                     variant="rect"
-                    width={260}
+                    width="100%"
                     height={10}
                   />
                   <Skeleton
                     animation="wave"
                     variant="rect"
-                    width={260}
+                    width={"100%"}
                     height={10}
                   />
                 </div>

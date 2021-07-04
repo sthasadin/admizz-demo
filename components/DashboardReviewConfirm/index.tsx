@@ -274,11 +274,10 @@ const DashboardReviewConfirm = (props) => {
     <div className="dashboard-basic-info">
       {
         <Backdrop className={classes.backdrop} open={open}>
-          {/* <CircularProgress color="inherit" /> */}
           <ClipLoader color={"green"} loading={open} size={150} />
         </Backdrop>
       }
-      {/* Background Information */}
+
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__sectionTitle">
           Review and Confirmation
@@ -566,22 +565,149 @@ const DashboardReviewConfirm = (props) => {
                 className={"dashboard-basic-info__grid"}
                 style={{ width: "100%" }}
               >
-                <div style={{ display: "flex", flexWrap: "wrap" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
+                {backgroundInfo?.havePassport === true ? (
+                  <div style={{ display: "flex", flexWrap: "wrap" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        width: "28%",
+                        minWidth: 250,
+                        height: 40,
+                      }}
+                    >
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                      >
+                        Name on Passport :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30 }}
+                      >
+                        {" "}
+                        {toTitleCase(
+                          backgroundInfo.passportDetails.nameOnPassport
+                        )}
+                      </p>
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        // width: "28%",
+                        minWidth: 250,
+                        height: 40,
+                      }}
+                    >
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                      >
+                        Passport Issuing Authority :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30 }}
+                      >
+                        {" "}
+                        {toTitleCase(
+                          backgroundInfo.passportDetails
+                            .passportIssuingAuthority
+                        )}{" "}
+                      </p>
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        width: "28%",
+                        minWidth: 250,
+                        height: 40,
+                      }}
+                    >
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                      >
+                        Passport Expiry Date :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30 }}
+                      >
+                        {" "}
+                        {backgroundInfo.passportDetails.passportExpireDate}
+                      </p>
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        width: "28%",
+                        minWidth: 250,
+                        height: 40,
+                      }}
+                    >
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                      >
+                        Passport Number :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30 }}
+                      >
+                        {" "}
+                        {backgroundInfo.passportDetails.numberOnPassport}{" "}
+                      </p>
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        width: "28%",
+                        minWidth: 250,
+                        height: 40,
+                      }}
+                    >
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30, fontWeight: 700, marginRight: 10 }}
+                      >
+                        Passport Issuing Country :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30 }}
+                      >
+                        {" "}
+                        {
+                          backgroundInfo.passportDetails.passportIssuedCountry
+                        }{" "}
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <>
                     <h4
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Name on Passport :
+                      Applied for passport :{" "}
+                      {backgroundInfo?.haveAppliedForPassport === true
+                        ? "Yes"
+                        : "No"}
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -592,112 +718,8 @@ const DashboardReviewConfirm = (props) => {
                         backgroundInfo.passportDetails.nameOnPassport
                       )}
                     </p>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      // width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Passport Issuing Authority :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {toTitleCase(
-                        backgroundInfo.passportDetails.passportIssuingAuthority
-                      )}{" "}
-                    </p>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Passport Expiry Date :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {backgroundInfo.passportDetails.passportExpireDate}
-                    </p>
-                  </div>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Passport Number :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {backgroundInfo.passportDetails.numberOnPassport}{" "}
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      marginRight: 40,
-                      width: "28%",
-                      minWidth: 250,
-                      height: 40,
-                    }}
-                  >
-                    <h4
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30, fontWeight: 700, marginRight: 10 }}
-                    >
-                      Passport Issuing Country :
-                    </h4>
-                    <p
-                      className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                      style={{ height: 30 }}
-                    >
-                      {" "}
-                      {
-                        backgroundInfo.passportDetails.passportIssuedCountry
-                      }{" "}
-                    </p>
-                  </div>
-                </div>
-
+                  </>
+                )}
                 <Grid
                   container
                   className="dashboard-basic-info__row"
@@ -754,7 +776,7 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Phone Nubmer:
+                      Phone Nubmer :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -778,7 +800,7 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      Email:
+                      Email :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -964,7 +986,7 @@ const DashboardReviewConfirm = (props) => {
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                       style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                     >
-                      UnderGraduate Marks:
+                      UnderGraduate Marks :
                     </h4>
                     <p
                       className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -990,7 +1012,7 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        GMAT:
+                        GMAT :
                       </h4>
                       <p
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -1019,7 +1041,7 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        GRE:
+                        GRE :
                       </h4>
                       <p
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -1048,7 +1070,7 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        SAT:
+                        SAT :
                       </h4>
                       <p
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -1077,7 +1099,7 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        SAT II:
+                        SAT II :
                       </h4>
                       <p
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -1106,7 +1128,7 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        IELTS:
+                        IELTS :
                       </h4>
                       <p
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -1135,7 +1157,7 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        TOFEL:
+                        TOFEL :
                       </h4>
                       <p
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
@@ -1164,7 +1186,7 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        JEE Advance:
+                        JEE Advance :
                       </h4>
                       <p
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"

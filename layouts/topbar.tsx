@@ -32,12 +32,12 @@ const Topbar = (props: any) => {
           </div>
         </div>
         <div className="topbar__right">
-          <div className="topbar__country">
+          {/* <div className="topbar__country">
             <Link href="/login">
               <span>Study In</span>
-              {/* <Select /> */}
+             
             </Link>
-          </div>
+          </div> */}
 
           <div className="topbar__signup">
             {!auth?.currentUser ? (

@@ -1,60 +1,72 @@
 import React from "react";
 import { SingleBlogCard } from "../SingleBlogCard";
 import { SingleListPostWithImage } from "../SingleListPostWithImage";
+import calculateReadingTime from "../../utils/calculateReadingTime";
 
-const BlogListMember = () => {
+const BlogListMember = ({ blogArray }) => {
+  const removeHtmlChar = (text) => {
+    return text?.replace(/<[^>]+>/g, "");
+  };
   return (
     <div className="blog-list-member">
       <div className="blog-list-member__highlightPost">
-        <div className="blog-list-member__topPost">
-          <SingleBlogCard
-            type="Technology"
-            auther="Stecy James"
-            time="5 min read"
-            title="How I got my job in Google with the help of Admizz"
-            desc="Get the right career advice for you and earn your best career certificates."
-          />
+        <div className="blog-list-member__topPost" style={{ display: "flex" }}>
+          {blogArray &&
+            blogArray.slice(0, 2).map((blog, i) => {
+              return (
+                <div className="blog-list-member__secondaryPost" key="i">
+                  <SingleBlogCard
+                    type="Business"
+                    auther={blog?.author}
+                    time={`${calculateReadingTime(
+                      blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
+                    )} min read`}
+                    title={blog?.blog_title}
+                    desc={removeHtmlChar(blog?.blog_desc)}
+                    backgroundImg={blog?.blog_imageURL}
+                  />
+                </div>
+              );
+            })}
         </div>
         <div className="blog-list-member__secondaryPostContainer">
-          <div className="blog-list-member__secondaryPost">
-            <SingleBlogCard
-              type="Business"
-              auther="David Hoffman"
-              time="5 min read"
-              title="How I got my job in Google with the help of Admizz"
-              desc="Get the right career advice for you and earn your best career certificates."
-            />
-          </div>
-          <div className="blog-list-member__secondaryPost">
-            <SingleBlogCard
-              type="Colleges"
-              auther="Quicy Sean"
-              time="5 min read"
-              title="How I got my job in Google with the help of Admizz"
-              desc="Get the right career advice for you and earn your best career certificates."
-            />
-          </div>
+          {blogArray &&
+            blogArray.slice(2, 4).map((blog, i) => {
+              return (
+                <div className="blog-list-member__secondaryPost" key="i">
+                  <SingleBlogCard
+                    type="Business"
+                    auther={blog?.author}
+                    time={`${calculateReadingTime(
+                      blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
+                    )} min read`}
+                    title={blog?.blog_title}
+                    desc={removeHtmlChar(blog?.blog_desc)}
+                    backgroundImg={blog?.blog_imageURL}
+                  />
+                </div>
+              );
+            })}
         </div>
       </div>
       <div className="blog-list-member__postList">
-        <SingleListPostWithImage
-          author="Stacy james"
-          time="5 min read"
-          title="IIT Bombay Campus to be Opened to a Few UG ..."
-          desc="Get the right career advice for you and earn your best..."
-        />
-        <SingleListPostWithImage
-          author="Jimmy Stews"
-          time="5 min read"
-          title="IIT Bombay Campus to be Opened to a Few UG ..."
-          desc="Get the right career advice for you and earn your best..."
-        />
-        <SingleListPostWithImage
-          author="Robert Brown"
-          time="5 min read"
-          title="IIT Bombay Campus to be Opened to a Few UG ..."
-          desc="Get the right career advice for you and earn your best..."
-        />
+        {blogArray &&
+          blogArray.slice(0, 5).map((blog, i) => {
+            return (
+              <div className="blog-list-member__secondaryPost" key="i">
+                <SingleListPostWithImage
+                  auther={blog?.author}
+                  time={`${calculateReadingTime(
+                    blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
+                  )} min read`}
+                  title={blog?.blog_title}
+                  desc={removeHtmlChar(blog?.blog_desc)}
+                  backgroundImg={blog?.blog_imageURL}
+                  slug={blog?.blog_slug}
+                />
+              </div>
+            );
+          })}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 export default (text) => {
+    
     const wordsPerMinute = 200
     let time
     let textLength = text.split(" ").length; // Split by words

@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addReview, getReviews } from "../../store/Action/review.action";
+import * as yup from "yup";
 import { ReviewInput } from "./ReviewInput";
-import { RatingItem } from "./ratingItem";
 import { auth } from "../../firebase";
 import { getAuthUser } from "@/store/Action/user.action";
 import RatingModal from "./RatingModal";
+
+interface CommentForm {
+  comment: string;
+}
+
 const AddCollegeRatingAndReview = ({
   setIsAddReviewOpen,
   _getReviews,
 }: any) => {
   const [loading, setLoading] = useState(false);
   const [isRatingModal, setIsRatingModal] = React.useState(false);
+  const [formError, setFormError] = useState({} as any);
 
   const [review, setReview] = useState({
     academics: null,
@@ -44,26 +50,40 @@ const AddCollegeRatingAndReview = ({
     }
   };
 
+  const validationSchema = yup.object().shape<CommentForm>({
+    comment: yup.string().required("Review field shouldnot be empty!"),
+  });
+
+  const validate = async () => {
+    try {
+      await validationSchema.validate(
+        {
+          comment: review.comment,
+        },
+        {
+          abortEarly: false,
+        }
+      );
+      setFormError({});
+      return true;
+    } catch (err) {
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0];
+      });
+      setFormError({ ...errors });
+    }
+  };
+
   const handleAlertModal = (res) => {
     setIsRatingModal(res);
   };
-  const onSubmit = () => {
-    handleAlertModal(true);
-    // setLoading(true);
-    // if (user) {
-    //   let reviewToBeSubmited = {
-    //     ...review,
-    //     by: {
-    //       ...user,
-    //     },
-    //     college: college_id,
-    //   };
-    //   let res = await dispatch(addReview(reviewToBeSubmited));
-    //   if (res) {
-    //     _getReviews(college_id);
-    //   }
-    // }
-    // setLoading(false);
+
+  const onSubmit = async () => {
+    const isValid = await validate();
+    if (isValid) {
+      handleAlertModal(true);
+    }
   };
 
   const onSend = async () => {
@@ -106,49 +126,11 @@ const AddCollegeRatingAndReview = ({
         </div>
       </div>
 
-      {/* <div className="rating-review__rating__header">
-        <div className="rating-review__rating__left">
-          <div className="rating-review__rating__title">College Rating</div>
-          <div className="rating-review__rating__subheading">
-            Based on <span>17 Students</span> rating
-          </div>
-        </div>
-        <div className="rating-review__rating__right">
-          <div className="rating-review__rating__heading">Average Rating</div>
-          <div className="rating-review__rating">
-            <span>9/</span>
-            10
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="rating-review__rating-wrap">
-        <RatingItem handleChange={handleChange} title="Academics" />
-        <RatingItem handleChange={handleChange} title="Accomodation" />
-        <RatingItem handleChange={handleChange} title="Faculty" />
-        <RatingItem handleChange={handleChange} title="Infrastructures" />
-        <RatingItem handleChange={handleChange} title="Placements" />
-        <RatingItem handleChange={handleChange} title="Social" />
-      </div> */}
-
-      {/* <div className="rating-review__rating__header border-bottom">
-        <div className="rating-review__rating__left">
-          <div className="rating-review__rating__title">Student Reviews</div>
-          <div className="rating-review__rating__subheading">
-            Showing results for Most relevent reviews
-          </div>
-        </div>
-        <div className="rating-review__rating__right">
-          <div className="rating-review__cta">
-            <span>Sort By</span>Most Helpful
-          </div>
-        </div>
-      </div> */}
-
       <ReviewInput
         handleChange={handleChange}
         onSubmit={onSubmit}
         loading={loading}
+        formError={formError}
       />
     </div>
   );

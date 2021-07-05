@@ -73,7 +73,7 @@ const Input = (props: Props) => {
       fontSize: 12,
       color: "#FF0000",
       position: "absolute",
-      bottom: "-16px",
+      bottom: "-18px",
       left: "4px",
     },
   }));

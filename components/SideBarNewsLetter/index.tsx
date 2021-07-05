@@ -30,8 +30,9 @@ const SideBarNewsLetter = () => {
   const validationSchema = yup.object().shape<studentInfoFormValue>({
     subscriber: yup
       .string()
-      .required("Please enter your gmail")
-      .email("Please provide a valid email"),
+
+      .email("Please provide a valid email")
+      .required("Please enter your gmail"),
   });
 
   const validate = async () => {

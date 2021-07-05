@@ -95,7 +95,7 @@ const ContactForm = () => {
             subject: "",
             query: "",
           });
-          setLoading(false);
+          // setLoading(false);
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);
@@ -103,6 +103,8 @@ const ContactForm = () => {
     }
     setLoading(false);
   };
+
+  console.log(loading);
 
   return (
     <div className="contact-form">
@@ -229,6 +231,7 @@ const ContactForm = () => {
               onClick={handleRegister}
               className="contact-form__send-message"
               disabled={loading}
+              loading={loading}
             >
               Send Message
             </Button>

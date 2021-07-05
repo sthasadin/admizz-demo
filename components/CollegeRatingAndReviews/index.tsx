@@ -110,6 +110,12 @@ const RatingAndReview = (props: any) => {
       _review.noOfLikes = [...review.likesArray, user];
       let id = _review.id;
       const newReview = { ..._review };
+      console.log(newReview);
+      if (newReview?.noOfDisLikes?.length > 0) {
+        newReview.noOfDisLikes = newReview?.noOfDisLikes?.filter(
+          (dislike) => dislike !== user
+        );
+      }
       delete newReview.id;
       await dispatch(updateReview(newReview, id));
       _getReviews(college_id);
@@ -122,6 +128,9 @@ const RatingAndReview = (props: any) => {
       _review.noOfDisLikes = [...review.disLikesArray, user];
       let id = _review.id;
       const newReview = { ..._review };
+      newReview.noOfLikes = newReview?.noOfLikes?.filter(
+        (likes) => likes !== user
+      );
       delete newReview.id;
       await dispatch(updateReview(newReview, id));
       _getReviews(college_id);

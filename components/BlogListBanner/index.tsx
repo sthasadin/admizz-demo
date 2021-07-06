@@ -30,7 +30,7 @@ const BlogListBanner = ({ blog }) => {
           }}
         >
           <div className="blogCard__category" style={{ zIndex: 100 }}>
-            {blogs.length > 0 ? blogs[0].category : ""}
+            {blog?.category}
           </div>
           <div className="blogCard__details">
             <div
@@ -54,7 +54,9 @@ const BlogListBanner = ({ blog }) => {
             </div>
 
             <div className="blogCard__desc">
-              {blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""}
+              {blog?.blog_desc
+                ? removeHtmlChar(text_truncate(blog?.blog_desc))
+                : ""}
             </div>
           </div>
         </div>

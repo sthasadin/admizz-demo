@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import moment from "moment";
 // import Link from 'next/link'
 
 const SingleListPostWithImage = (props: any) => {
@@ -25,8 +26,15 @@ const SingleListPostWithImage = (props: any) => {
           }}
         ></div>
         <div className="single-list-post-with-image__DetailContainer">
-          <div className="single-list-post-with-image__AutherTimeContainer">
-            {props.auther} - {props.time}
+          <div
+            className="single-list-post-with-image__AutherTimeContainer"
+            style={{ display: "flex", justifyContent: "space-between" }}
+          >
+            <div>
+              {" "}
+              {props.auther} - {props.time}{" "}
+            </div>
+            <div>{moment(props.createdAt).fromNow()}</div>
           </div>
           <div className="single-list-post-with-image__Title">
             {/* <Link href={`/blogs/${props.id}`}> */}

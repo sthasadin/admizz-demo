@@ -16,7 +16,7 @@ const BlogListMember = ({ blogArray }) => {
               return (
                 <div className="blog-list-member__secondaryPost" key="i">
                   <SingleBlogCard
-                    type="Business"
+                    type={blog?.category}
                     auther={blog?.author}
                     time={`${calculateReadingTime(
                       blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
@@ -35,7 +35,7 @@ const BlogListMember = ({ blogArray }) => {
               return (
                 <div className="blog-list-member__secondaryPost" key="i">
                   <SingleBlogCard
-                    type="Business"
+                    type={blog?.category}
                     auther={blog?.author}
                     time={`${calculateReadingTime(
                       blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
@@ -43,6 +43,7 @@ const BlogListMember = ({ blogArray }) => {
                     title={blog?.blog_title}
                     desc={removeHtmlChar(blog?.blog_desc)}
                     backgroundImg={blog?.blog_imageURL}
+                    category={blog?.category}
                   />
                 </div>
               );
@@ -63,6 +64,8 @@ const BlogListMember = ({ blogArray }) => {
                   desc={removeHtmlChar(blog?.blog_desc)}
                   backgroundImg={blog?.blog_imageURL}
                   slug={blog?.blog_slug}
+                  createdAt={blog?.createdAt}
+                  category={blog?.category}
                 />
               </div>
             );

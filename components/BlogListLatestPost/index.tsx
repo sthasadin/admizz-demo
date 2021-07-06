@@ -26,41 +26,50 @@ const BlogListLatestPost = ({ blogArray }) => {
       <div className="blog-list-latest-post__highlightPost">
         <div className="blog-list-latest-post__secondaryPostContainer">
           {blogArray &&
-            blogArray.slice(0, 2).map((blog, i) => {
-              return (
-                <div className="blog-list-member__secondaryPost" key={i}>
-                  <SingleBlogCard
-                    type="Business"
-                    auther={blog?.author}
-                    time={`${calculateReadingTime(
-                      blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
-                    )} min read`}
-                    title={blog?.blog_title}
-                    desc={removeHtmlChar(blog?.blog_desc)}
-                    backgroundImg={blog?.blog_imageURL}
-                  />
-                </div>
-              );
-            })}
+            blogArray
+              .sort((a, b) => moment(b.createdAt) - moment(a.createdAt))
+              .slice(0, 2)
+              .map((blog, i) => {
+                return (
+                  <div className="blog-list-member__secondaryPost" key={i}>
+                    <SingleBlogCard
+                      type={blog?.category}
+                      auther={blog?.author}
+                      time={`${calculateReadingTime(
+                        blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
+                      )} min read`}
+                      title={blog?.blog_title}
+                      desc={removeHtmlChar(blog?.blog_desc)}
+                      backgroundImg={blog?.blog_imageURL}
+                    />
+                  </div>
+                );
+              })}
         </div>
         <div className="blog-list-latest-post__smallSecondaryPostContainer">
           {blogArray &&
-            blogArray.slice(0, 4).map((blog, i) => {
-              return (
-                <div className="blog-list-latest-post__secondaryPost" key={i}>
-                  <SingleListPostWithImage
-                    type={blog?.category}
-                    auther={blog?.author}
-                    time={`${calculateReadingTime(blog?.blog_desc)} min read`}
-                    title={blog?.blog_title}
-                    desc={text_truncate(removeHtmlChar(blog?.blog_desc))}
-                    backgroundImg={blog?.blog_imageURL}
-                    // id={_id}
-                    slug={blog?.blog_slug}
-                  />
-                </div>
-              );
-            })}
+            blogArray
+              .sort(
+                (a: any, b: any) => moment(b.createdAt) - moment(a.createdAt)
+              )
+              .slice(0, 4)
+              .map((blog, i) => {
+                return (
+                  <div className="blog-list-latest-post__secondaryPost" key={i}>
+                    <SingleListPostWithImage
+                      type={blog?.category}
+                      auther={blog?.author}
+                      time={`${calculateReadingTime(blog?.blog_desc)} min read`}
+                      title={blog?.blog_title}
+                      desc={text_truncate(removeHtmlChar(blog?.blog_desc))}
+                      backgroundImg={blog?.blog_imageURL}
+                      // id={_id}
+                      slug={blog?.blog_slug}
+                      createdAt={blog?.createdAt}
+                    />
+                  </div>
+                );
+              })}
         </div>
       </div>
       <div className="blog-list-latest-post__postList">
@@ -75,6 +84,7 @@ const BlogListLatestPost = ({ blogArray }) => {
                 id={blog?._id}
                 slug={blog?.blog_slug}
                 key={i}
+                createdAt={blog?.createdAt}
               />
             );
           })}

@@ -24,7 +24,7 @@ const BlogListRandomBlog = ({ blogArray }) => {
               return (
                 <div className="blog-list-member__secondaryPost" key={i}>
                   <SingleBlogCard
-                    type="Business"
+                    type={blog?.category}
                     auther={blog?.author}
                     time={`${calculateReadingTime(
                       blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BlogLayout } from "../../layouts/BlogLayout";
-
+import moment from "moment";
 import { BlogListBanner } from "../../components/BlogListBanner";
 import { SectionTitle } from "../../components/SectionTitle";
 import { BlogListMember } from "../../components/BlogListMember";
@@ -26,16 +26,20 @@ const blogList = () => {
   const randomNumber = Math.floor(Math.random() * blogs?.length);
   console.log(randomNumber);
 
+  const latestBlog = blogs.sort(
+    (a, b) => moment(b.createdAt) - moment(a.createdAt)
+  );
+
   return (
     <BlogLayout title="Blogs">
       <div className="container">
         <main className="blog-list">
           <div className="section-wrapper">
-            <BlogListBanner blog={blogs[randomNumber]} />
+            <BlogListBanner blog={latestBlog[0]} />
             <SectionTitle title="Featured For Members" />
             <BlogListMember blogArray={blogs} />
             <SectionTitle title="Latest Posts" />
-            <BlogListLatestPost blogArray={blogs} />
+            <BlogListLatestPost blogArray={latestBlog} />
             <SectionTitle title="Random Blogs" />
             <BlogListRandomBlog blogArray={blogs} />
           </div>

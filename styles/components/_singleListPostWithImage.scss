@@ -1,20 +1,19 @@
 .single-list-post-with-image {
   width: 100%;
-  margin: 0px 0px 10px 0px;
+  height: 100%;
   cursor: pointer;
   &__container {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    height: 100%;
   }
   &__imageContainer {
-    width: 40%;
-    height: 145px;
     background-image: url(../../public/memberPost01.png);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 5px;
   }
   &__DetailContainer {
-    width: 60%;
     padding: 10px 10px;
   }
   &__AutherTimeContainer {

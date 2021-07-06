@@ -20,7 +20,7 @@ const BlogListRandomBlog = ({ blogArray }) => {
       <div className="blog-list-random-blog__highlightPost">
         <div className="blog-list-random-blog__secondaryPostContainer">
           {blogArray &&
-            blogArray.slice(0, 4).map((blog, i) => {
+            blogArray.slice(0, 6).map((blog, i) => {
               return (
                 <div className="blog-list-member__secondaryPost" key={i}>
                   <SingleBlogCard
@@ -38,7 +38,6 @@ const BlogListRandomBlog = ({ blogArray }) => {
             })}
         </div>
       </div>
-      <div className="blog-list-random-blog__postList"></div>
     </div>
   );
 };

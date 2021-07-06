@@ -65,7 +65,7 @@ const BlogListLatestPost = ({ blogArray }) => {
       </div>
       <div className="blog-list-latest-post__postList">
         {blogArray &&
-          blogArray.slice(0, 7).map((blog, i) => {
+          blogArray.slice(0, 5).map((blog, i) => {
             return (
               <SingleListPost
                 author={blog?.author}

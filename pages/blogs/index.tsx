@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Layout from "../../layouts";
+import { BlogLayout } from "../../layouts/BlogLayout";
 
 import { BlogListBanner } from "../../components/BlogListBanner";
 import { SectionTitle } from "../../components/SectionTitle";
@@ -27,19 +27,7 @@ const blogList = () => {
   console.log(randomNumber);
 
   return (
-    <Layout title="Blogs">
-      <div className="blog-subnavbar ">
-        <ul className="blog-subnavbarcontainer section-wrapper">
-          <li>All</li>
-          <li>Business</li>
-          <li>Engineering</li>
-          <li>Something</li>
-          <li>Software Dev</li>
-          <li>Science</li>
-          <li>Medical</li>
-          <li>Others</li>
-        </ul>
-      </div>
+    <BlogLayout title="Blogs">
       <div className="container">
         <main className="blog-list">
           <div className="section-wrapper">
@@ -53,7 +41,7 @@ const blogList = () => {
           </div>
         </main>
       </div>
-    </Layout>
+    </BlogLayout>
   );
 };
 

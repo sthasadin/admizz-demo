@@ -10,9 +10,9 @@ const BlogListMember = ({ blogArray }) => {
   return (
     <div className="blog-list-member">
       <div className="blog-list-member__highlightPost">
-        <div className="blog-list-member__topPost" style={{ display: "flex" }}>
+        <div className="blog-list-member__topPost">
           {blogArray &&
-            blogArray.slice(0, 2).map((blog, i) => {
+            blogArray.slice(0, 1).map((blog, i) => {
               return (
                 <div className="blog-list-member__secondaryPost" key="i">
                   <SingleBlogCard

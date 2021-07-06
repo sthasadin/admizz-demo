@@ -45,7 +45,6 @@ const BlogDetailMember = () => {
         <SingleBlog />
         <SingleBlog />
         <SingleBlog />
-        <SingleBlog />
       </div>
     </div>
   );

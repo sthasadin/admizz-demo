@@ -83,10 +83,19 @@
   display: flex;
   justify-content: center;
   background-color: #f2f2f2;
+  &__humburger-icon {
+    display: none;
+    @media (max-width: 760px) {
+      display: block;
+    }
+  }
 }
 .blog-subnavbarcontainer {
   display: flex;
   list-style: none;
   gap: 20px;
   justify-content: space-between;
+  @media (max-width: 760px) {
+    display: none;
+  }
 }

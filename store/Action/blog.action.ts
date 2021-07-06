@@ -4,9 +4,9 @@ import { finish, init, success, error } from "../commonActions";
 import { BlogService } from "../api/blogApi";
 
 const blogService = new BlogService();
-export const getBlogs = () => async (dispatch: Dispatch) => {
+export const getBlogs = (blog_category) => async (dispatch: Dispatch) => {
   dispatch(init(BLOGS_TYPES.GET_BLOGS));
-  const response = await blogService.getBlogs();
+  const response = await blogService.getBlogs(blog_category);
   dispatch(finish(BLOGS_TYPES.GET_BLOGS));
 
   if (response.isSuccess) {
@@ -30,6 +30,26 @@ export const getBlog = (blog_slug) => async (dispatch: Dispatch) => {
   }
 };
 
+// export const getBlogByCategory = (blog_slug) => async (dispatch: Dispatch) => {
+//   dispatch(init(BLOG_TYPES.GET_BLOG));
+
+//   const response:any = await blogService.getBlog(blog_slug);
+
+//   dispatch(finish(BLOG_TYPES.GET_BLOG));
+
+//   if (response.isSuccess) {
+//     dispatch(success(BLOG_TYPES.GET_BLOG, response.data));
+//   } else if (!response.isSuccess) {
+//     dispatch(error(response.errorMessage));
+//   }
+// };
+
+
+
+
+
+
+
 export const getNewsOfCollege = (college_slug) => async (dispatch: Dispatch) => {
   const response:any = await blogService.getNewsOfCollege(college_slug);
   if (response.isSuccess) {
@@ -37,4 +57,6 @@ export const getNewsOfCollege = (college_slug) => async (dispatch: Dispatch) => 
   } else if (!response.isSuccess) {
     dispatch(error(response.errorMessage));
   }
+
+ 
 };

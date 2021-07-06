@@ -8,7 +8,7 @@ import {
 } from "react-share";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import Layout from "../../layouts";
+import { BlogLayout } from "../../layouts/BlogLayout";
 import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 import { BlogDetailContent } from "../../components/BlogDetailContent";
 import { BlogDetailMember } from "../../components/BlogDetailMember";
@@ -49,19 +49,7 @@ const blogDetail = () => {
   const blog = useSelector((state) => state.blog.blog);
 
   return (
-    <Layout title={blog?.blog_title}>
-      <div className="blog-subnavbar ">
-        <ul className="blog-subnavbarcontainer section-wrapper">
-          <li>All</li>
-          <li>Business</li>
-          <li>Engineering</li>
-          <li>Something</li>
-          <li>Software Dev</li>
-          <li>Science</li>
-          <li>Medical</li>
-          <li>Others</li>
-        </ul>
-      </div>
+    <BlogLayout title={blog?.blog_title}>
       <div className="container section-wrapper">
         <main className="blog-detail">
           <div className="blog-detail__container">
@@ -195,7 +183,7 @@ const blogDetail = () => {
           </div>
         </main>
       </div>
-    </Layout>
+    </BlogLayout>
   );
 };
 

@@ -4,8 +4,8 @@ import { BLOGS_TYPES, BLOG_TYPES,GET_COLLEGE_NEWS } from "../const";
 const initialState = {
     blog : {},
     blogs: [],
-    multiLoading: true,
-    singleLoading: true,
+    multiLoading: false,
+    singleLoading: false,
     collegeNews:[]
 }
 

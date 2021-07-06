@@ -32,7 +32,7 @@ const SideBarNewsLetter = () => {
       .string()
 
       .email("Please provide a valid email")
-      .required("Please enter your gmail"),
+      .required("Please enter your email"),
   });
 
   const validate = async () => {
@@ -76,7 +76,7 @@ const SideBarNewsLetter = () => {
       </div>
       <div className="side-bar-news-letter__input">
         <Input
-          placeholder={"Email Address"}
+          placeholder={"Email address"}
           name="subscriber"
           value={subscriber}
           onChange={onChange}

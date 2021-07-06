@@ -32,7 +32,7 @@ const Footer = () => {
       .string()
 
       .email("Please provide a valid email")
-      .required("Please enter your gmail"),
+      .required("Please enter your email"),
   });
 
   const validate = async () => {

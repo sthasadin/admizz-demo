@@ -1,8 +1,8 @@
 import { postService, getService } from "../commonServices";
 export class BlogService {
-  getBlogs() {
-    let url = "/blogs";
-    let data = getService(url);;
+  getBlogs(blog_category) {
+    let url = `/blogs/${blog_category}`;
+    let data = getService(url);
     return data;
   }
 
@@ -15,5 +15,11 @@ export class BlogService {
     let url = `/blogs/getNewsCollege/${college_slug}`
     let data = getService(url)
     return data
+  }
+
+  getBlogByCategory(blog_category){
+    let url = `/blog/${blog_category}`;
+    let data = getService(url);
+    return data;
   }
 }

@@ -27,7 +27,7 @@ const Newsletter = (props: any) => {
   const validationSchema = yup.object().shape<studentInfoFormValue>({
     subscriber: yup
       .string()
-      .required("Please enter your gmail")
+      .required("Please enter your email")
       .email("Please provide a valid email"),
   });
 
@@ -83,7 +83,7 @@ const Newsletter = (props: any) => {
               value={subscriber}
               onChange={onChange}
               type="text"
-              placeholder="Enter email Address"
+              placeholder="Enter email address"
               className="subscribe-newsletter-field"
             />
             <p className="error-subscribe-msg news-letter-email">

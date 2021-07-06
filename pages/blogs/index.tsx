@@ -14,20 +14,18 @@ import { getBlogs } from "../../store/Action/blog.action";
 const blogList = () => {
   const blogs = useSelector((state) => state.blog.blogs);
 
-  console.log(blogs);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     // dispatch(getAllBLog());
-    dispatch(getBlogs());
+    dispatch(getBlogs("All"));
   }, []);
 
   const randomNumber = Math.floor(Math.random() * blogs?.length);
   console.log(randomNumber);
 
   const latestBlog = blogs.sort(
-    (a, b) => moment(b.createdAt) - moment(a.createdAt)
+    (a: any, b: any) => moment(b.createdAt) - moment(a.createdAt)
   );
 
   return (

@@ -56,7 +56,7 @@ const BlogListLatestPost = ({ blogArray }) => {
                 (a: any, b: any) =>
                   (moment(b.createdAt) as any) - (moment(a.createdAt) as any)
               )
-              .slice(0, 4)
+              .slice(2, 6)
               .map((blog, i) => {
                 return (
                   <div className="blog-list-latest-post__secondaryPost" key={i}>
@@ -78,20 +78,26 @@ const BlogListLatestPost = ({ blogArray }) => {
       </div>
       <div className="blog-list-latest-post__postList">
         {blogArray &&
-          blogArray.slice(0, 5).map((blog, i) => {
-            return (
-              <SingleListPost
-                author={blog?.author}
-                time={`${calculateReadingTime(blog?.blog_desc)} min read`}
-                title={blog?.blog_title}
-                desc={text_truncate(removeHtmlChar(blog?.blog_desc))}
-                id={blog?._id}
-                slug={blog?.blog_slug}
-                key={i}
-                createdAt={blog?.createdAt}
-              />
-            );
-          })}
+          blogArray
+            .sort(
+              (a: any, b: any) =>
+                (moment(b.createdAt) as any) - (moment(a.createdAt) as any)
+            )
+            .slice(6, 11)
+            .map((blog, i) => {
+              return (
+                <SingleListPost
+                  author={blog?.author}
+                  time={`${calculateReadingTime(blog?.blog_desc)} min read`}
+                  title={blog?.blog_title}
+                  desc={text_truncate(removeHtmlChar(blog?.blog_desc))}
+                  id={blog?._id}
+                  slug={blog?.blog_slug}
+                  key={i}
+                  createdAt={blog?.createdAt}
+                />
+              );
+            })}
       </div>
     </div>
   );

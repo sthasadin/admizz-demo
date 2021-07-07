@@ -21,6 +21,14 @@ const CollegesCard = (college) => {
     }
   }
 
+  const truncateCourse = (str, num) => {
+    if (str.toString().length > num) {
+      return str.toString().slice(0, num) + "+";
+    } else {
+      return str;
+    }
+  };
+
   const _getReviews = async (college_id) => {
     let res = await dispatch(getReviews(college_id));
     setOriginalReviews(res);
@@ -154,7 +162,7 @@ const CollegesCard = (college) => {
               <div className="colleges-card__key-value lg">
                 <div className="colleges-card__key lg">Total Course:</div>
                 <div className="colleges-card__value lg">
-                  {college?.total_course}+
+                  {truncateCourse(college?.total_course, 2)}
                 </div>
               </div>
               {college?.total_students && (

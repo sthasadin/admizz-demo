@@ -8,8 +8,13 @@ import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import menuIcon from "../public/menuIcon.png";
 import mobileVersionLogo from "../public/mobileVersionLogo.png";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+
+function ListItemLink(props) {
+  return <ListItem button component="a" {...props} />;
+}
 
 const Navbar = (props: any) => {
   const router = useRouter();
@@ -26,30 +31,30 @@ const Navbar = (props: any) => {
       return;
     }
 
-    setState({ ...state, [anchor]: open });
+    setState({ ...state, top: open });
   };
 
   const list = (anchor) => (
     <div
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      // onClick={toggleDrawer(anchor, false)}
+      // onKeyDown={toggleDrawer(anchor, false)}
       className="navbar__drawer__container"
     >
       <div className="drawer__header">
         <img src="/whiteLogo.png" alt="admizz_logo" className="img__logo" />
-        <div className="select__boxcontainer">
+        {/* <div className="select__boxcontainer">
           <div className="selectbox__text">Study In</div>
           <Select className="selectBox">
             <MenuItem value="usa">USA</MenuItem>
             <MenuItem value="nepal">NEPAL</MenuItem>
           </Select>
-        </div>
+        </div> */}
         <img
           src="/crossIcon.png"
           alt="crossIcon_logo"
           className="cross_logo"
-          onClick={toggleDrawer("top", false)}
+          onClick={toggleDrawer(anchor, false)}
         />
       </div>
 
@@ -80,9 +85,13 @@ const Navbar = (props: any) => {
           </Link>
         </ListItem>
         <ListItem button key={"Contact"} className="navbar__list">
-          <Link href="/contact-us">
-            <ListItemText primary={"Sign Up/Login"} />
-          </Link>
+          {/* <Link href="/contact-us"> */}
+          <ListItemIcon>
+            <img src="/user-icon.png" alt="..." />
+          </ListItemIcon>
+
+          <ListItemText primary={"Sign Up/Login"} />
+          {/* </Link> */}
         </ListItem>
       </List>
 

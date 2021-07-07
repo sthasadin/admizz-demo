@@ -52,10 +52,12 @@
 .stream-container {
   height: 0px;
   overflow: hidden;
-  transition: height 4s ease-out;
+
+  transition: height 500ms;
 }
 
 .active-stream-container {
   height: 100%;
-  transition: height 12s ease-in;
+
+  transition: height 500ms;
 }

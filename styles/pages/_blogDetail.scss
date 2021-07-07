@@ -83,25 +83,20 @@
   display: flex;
   justify-content: center;
   background-color: #f2f2f2;
-  &__humburger-icon {
-    display: none;
-    @media (max-width: 760px) {
-      display: block;
-    }
-  }
 }
 .blog-subnavbarcontainer {
   display: flex;
   list-style: none;
   gap: 20px;
   justify-content: space-between;
-  @media (max-width: 760px) {
+  overflow-x: auto;
+  &::-webkit-scrollbar {
     display: none;
   }
-
   .blog-subnavbar {
     position: relative;
     color: #828282;
+    white-space: nowrap;
     &::before {
       content: "";
       position: absolute;
@@ -111,7 +106,6 @@
       bottom: -5px;
       transition: 0.2s all ease-in;
       transition: width 500ms;
-
       width: 0;
     }
 
@@ -129,42 +123,5 @@
       background-color: #ffa200;
       width: 100%;
     }
-  }
-}
-
-.mobile-sub-menu {
-  position: absolute;
-  height: 100vh;
-  width: 60%;
-  top: 60px;
-  left: -80%;
-  // left: -10%;
-  z-index: 100;
-  background-color: #fff;
-  transition: left 500ms;
-  display: none;
-  @media (max-width: 760px) {
-    display: initial;
-  }
-
-  .sub-menu-close-icon {
-    width: 100%;
-    float: right;
-    padding: 0 20px;
-  }
-}
-.active-subnav-bar {
-  left: 0;
-  transition: left 500ms;
-}
-.mobile-subnav-bar-container {
-  display: flex;
-  margin-top: 40px;
-  gap: 20px;
-  display: flex;
-  flex-direction: column;
-
-  .blog-msubnavbar {
-    padding-left: 20px;
   }
 }

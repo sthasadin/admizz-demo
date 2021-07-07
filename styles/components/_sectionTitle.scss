@@ -2,10 +2,6 @@
   width: 100%;
   margin: 20px 0px;
   &__memberTitle {
-    // width: 20%;
-    border: 0px solid;
-    // border-bottom-color: #5f1802;
-    // border-bottom-width: 4px;
     @media (max-width: 414px) {
       width: 40%;
     }
@@ -17,6 +13,7 @@
     color: #333333;
     font-weight: 500;
     font-size: 24px;
+    white-space: nowrap;
     &::after {
       content: "";
       position: absolute;

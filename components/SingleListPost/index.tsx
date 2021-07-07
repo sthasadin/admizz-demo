@@ -18,7 +18,7 @@ const SingleListPost = (props: any) => {
             style={{ display: "flex", justifyContent: "space-between" }}
           >
             <div>
-              {props.author} - {props.time}
+              {props.author} <span className="blog-readtime">{props.time}</span>
             </div>
             <div>{moment(props.createdAt).fromNow()}</div>
           </div>

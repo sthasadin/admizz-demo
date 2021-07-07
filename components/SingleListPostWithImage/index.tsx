@@ -32,7 +32,7 @@ const SingleListPostWithImage = (props: any) => {
           >
             <div>
               {" "}
-              {props.auther} - {props.time}{" "}
+              {props.auther} <span className="blog-readtime">{props.time}</span>
             </div>
             <div>{moment(props.createdAt).fromNow()}</div>
           </div>

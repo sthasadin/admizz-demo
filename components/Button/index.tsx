@@ -41,6 +41,7 @@ const Button: React.FC<Props> = ({
       button: {
         position: "relative",
         whiteSpace: "nowrap",
+        textTransform: "capitalize",
         "& .ant-btn-primary": {
           border: "none",
           borderColor: "none",

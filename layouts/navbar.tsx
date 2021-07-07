@@ -12,10 +12,6 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
-function ListItemLink(props) {
-  return <ListItem button component="a" {...props} />;
-}
-
 const Navbar = (props: any) => {
   const router = useRouter();
 

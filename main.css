@@ -2274,7 +2274,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 .teams-list__full-team {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr) [7];
+  -ms-grid-columns: (1fr);
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 5px;
   overflow-x: auto;
@@ -2282,7 +2282,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 
 @media (max-width: 450px) {
   .teams-list__full-team {
-    -ms-grid-columns: (1fr) [2];
+    -ms-grid-columns: (1fr);
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -5149,7 +5149,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 }
 
 .student-info__phone-separator .MuiOutlinedInput-input {
-  padding: 17px 14px ;
+  padding: 17px 14px;
 }
 
 .student-info__phone-separator .MuiOutlinedInput-notchedOutline {

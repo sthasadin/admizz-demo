@@ -8,7 +8,9 @@
   position: relative;
   padding-left: 10%;
   padding-top: 113px;
-  @media (max-width: 414px) {
+  margin-bottom: 40px;
+  @media (max-width: 600px) {
+    padding-top: 30px;
     padding-right: 10%;
   }
 }
@@ -39,7 +41,7 @@
   line-height: 24px;
   color: white;
   flex-wrap: wrap;
-  @media (max-width: 530px) {
+  @media (max-width: 600px) {
     width: 100%;
   }
 }
@@ -63,11 +65,20 @@
   }
 }
 .form-wrapper {
-  margin-top: -220px;
+  margin-top: -260px;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding-bottom: 81px;
   position: relative;
   z-index: 2;
+  @media (max-width: 550px) {
+    margin-top: -291px;
+  }
+  // @media (max-width: 1024px) {
+  //   margin-top: -200px;
+  // }
+  // @media (max-width: 600px) {
+  //   margin-top: -254px;
+  // }
 }

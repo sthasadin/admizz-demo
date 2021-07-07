@@ -36,24 +36,24 @@ const DashboardNavbar = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem button key={"Home"}>
+        <ListItem button key={"Dashboard"}>
+          <Link href="/studentdashboardmain">
+            <ListItemText primary={"Dashboard"} />
+          </Link>
+        </ListItem>
+        <ListItem button key={"Application Status"}>
+          <Link href="/dashboardbasicinfo/Status">
+            <ListItemText primary={"Application Status"} />
+          </Link>
+        </ListItem>
+        <ListItem button key={"back"}>
           <Link href="/">
-            <ListItemText primary={"Home"} />
+            <ListItemText primary={"Back To Home"} />
           </Link>
         </ListItem>
-        <ListItem button key={"Colleges"}>
-          <Link href="/colleges">
-            <ListItemText primary={"Colleges"} />
-          </Link>
-        </ListItem>
-        <ListItem button key={"Blogs"}>
-          <Link href="/blogs">
-            <ListItemText primary={"Blogs"} />
-          </Link>
-        </ListItem>
-        <ListItem button key={"Contact"}>
+        <ListItem button key={"logout"}>
           <Link href="/contact-us">
-            <ListItemText primary={"Contact"} />
+            <ListItemText primary={"logout"} />
           </Link>
         </ListItem>
       </List>
@@ -61,39 +61,16 @@ const DashboardNavbar = () => {
   );
 
   return (
-    // <StickyBox style={{ height: "40px", zIndex: "5" }}>
     <div className="navbar" style={{ padding: "10px 0" }}>
-      <div className="navbar__inner dashboard-navbar">
+      <div className={`navbar__inner dashboard-navbar`}>
         <div className="logo" style={{ cursor: "pointer" }}>
           <img src="/logo.png" alt="" onClick={() => router.push("/")} />
         </div>
         <div className="navbar__dashboardRight">
           <div className="navbar__menu">
-            <nav className="navigation">
-              <ul className="menu">
-                <li className="menu-item">
-                  <img src={userImage} />
-                </li>
-                <li className="menu-item">
-                  <div className="navbar__hamburger">
-                    <Button onClick={toggleDrawer("left", true)}>
-                      <MenuIcon />
-                    </Button>
-                    <Drawer
-                      anchor={"left"}
-                      open={state["left"]}
-                      onClose={toggleDrawer("left", false)}
-                    >
-                      {list("anchor")}
-                    </Drawer>
-                  </div>
-                </li>
-              </ul>
-            </nav>
             <div className="navbar__hamburger">
               <Button onClick={toggleDrawer("left", true)}>
                 <MenuIcon />
-                Ham
               </Button>
               <Drawer
                 anchor={"left"}
@@ -113,7 +90,6 @@ const DashboardNavbar = () => {
         </div>
       </div>
     </div>
-    // </StickyBox>
   );
 };
 

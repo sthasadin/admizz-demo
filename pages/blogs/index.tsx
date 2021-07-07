@@ -25,7 +25,7 @@ const blogList = () => {
   console.log(randomNumber);
 
   const latestBlog = blogs.sort(
-    (a: any, b: any) => moment(b.createdAt) - moment(a.createdAt)
+    (a, b) => (moment(b.createdAt) as any) - (moment(a.createdAt) as any)
   );
 
   return (

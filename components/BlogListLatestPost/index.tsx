@@ -27,7 +27,10 @@ const BlogListLatestPost = ({ blogArray }) => {
         <div className="blog-list-latest-post__secondaryPostContainer">
           {blogArray &&
             blogArray
-              .sort((a, b) => moment(b.createdAt) - moment(a.createdAt))
+              .sort(
+                (a, b) =>
+                  (moment(b.createdAt) as any) - (moment(a.createdAt) as any)
+              )
               .slice(0, 2)
               .map((blog, i) => {
                 return (
@@ -50,7 +53,8 @@ const BlogListLatestPost = ({ blogArray }) => {
           {blogArray &&
             blogArray
               .sort(
-                (a: any, b: any) => moment(b.createdAt) - moment(a.createdAt)
+                (a: any, b: any) =>
+                  (moment(b.createdAt) as any) - (moment(a.createdAt) as any)
               )
               .slice(0, 4)
               .map((blog, i) => {

@@ -13,6 +13,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
 const Navbar = (props: any) => {
+  const [navbarSticky, setNavbarSticky] = React.useState(false);
   const router = useRouter();
 
   const [state, setState] = React.useState({
@@ -132,8 +133,24 @@ const Navbar = (props: any) => {
     </div>
   );
 
+  const handleScroll = () => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setNavbarSticky(true);
+      } else {
+        setNavbarSticky(false);
+      }
+    });
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="navbar">
+    <div className={`navbar  ${navbarSticky && "sticky-nab-bar"} `}>
       <div className="navbar__inner">
         <div className="navbar__logo">
           <div className="logo" onClick={() => router.push("/")}>

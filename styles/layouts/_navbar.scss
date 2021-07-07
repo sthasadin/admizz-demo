@@ -1,7 +1,6 @@
 .navbar {
   background: #fff;
-  box-shadow: 0 -3px 12px 0 #000;
-  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
   &__inner {
     display: flex;
     align-items: center;
@@ -191,4 +190,15 @@
   &__navImage {
     margin-right: 20px;
   }
+}
+
+.sticky-nab-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 80px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+  z-index: 1000;
 }

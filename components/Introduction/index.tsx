@@ -7,7 +7,7 @@ import MessengerCustomerChat from "../MessengerCustomerChat";
 const index = () => {
   const [active, setActive] = React.useState(false);
 
-  React.useEffect(() => {
+  const handleScroll = () => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 600) {
         setActive(true);
@@ -15,7 +15,12 @@ const index = () => {
         setActive(false);
       }
     });
-    // return () => { window.removeEventListener( );};
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

@@ -31,6 +31,12 @@
   // border: none;
   border-radius: 10px;
   border: 1px solid white;
+
+  &:hover {
+    background-color: #ffa200;
+    border: 1px solid #ffa200;
+    transition: all 0.2s ease-in-out;
+  }
 }
 .cta-button.full-width {
   width: 100%;

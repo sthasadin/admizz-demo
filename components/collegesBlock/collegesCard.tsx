@@ -105,83 +105,86 @@ const CollegesCard = (college) => {
 
   return (
     <div className="colleges-card">
-      <div
-        className="colleges-card__inner"
-        onClick={() => router.push(`colleges/${college?.college_slug}`)}
-      >
-        <div className="colleges-card__thumbnail">
-          <div className="review-rating-container">
-            <div className="review-title">
-              {" "}
-              {reviews?.averageRating !== "NaN"
-                ? "Reviews rating"
-                : "No review yet"}
-            </div>
-            {reviews?.averageRating && reviews?.averageRating !== "NaN" && (
-              <div className="rating-container">
-                <img src="/heart.png" alt="..." className="like-icon" />
-                <span className="review-detail">{reviews?.averageRating} </span>
-                <span className="review-number">/ 10</span>
+      <Link href={`colleges/${college?.college_slug}`}>
+        <div className="colleges-card__inner">
+          <div className="colleges-card__thumbnail">
+            <div className="review-rating-container">
+              <div className="review-title">
+                {" "}
+                {reviews?.averageRating !== "NaN"
+                  ? "Reviews rating"
+                  : "No review yet"}
               </div>
-            )}
-          </div>
-          <img
-            src={college?.banner ? college?.banner : "/colleges.png"}
-            alt="college"
-          />
-          <div className="colleges-card__title-wrap">
-            <div className="colleges-card__title">
-              <Link href={`colleges/${college?.college_slug}`}>
-                <a>{college?.name}</a>
-              </Link>
-            </div>
-            <div className="colleges-card__location">
-              <img src="/location3.png" alt="location" />
-              {college?.address}
-            </div>
-          </div>
-        </div>
-        <div className="colleges-card__details">
-          <div className="colleges-card__top">
-            <div className="colleges-card__key-value-wrap">
-              <div className="colleges-card__key-value">
-                <div className="colleges-card__key">ESTD:</div>
-                <div className="colleges-card__value">{college?.estd_year}</div>
-              </div>
-              <div className="colleges-card__key-value">
-                <div className="colleges-card__key">Type:</div>
-                <div className="colleges-card__value">Private</div>
-              </div>
-            </div>
-            <div className="colleges-card__logo">
-              <img src={college?.college_logo} alt="" />
-            </div>
-          </div>
-          <div className="colleges-card__bottom">
-            <div className="colleges-card__key-value-wrap lg">
-              <div className="colleges-card__key-value lg">
-                <div className="colleges-card__key lg">Total Course:</div>
-                <div className="colleges-card__value lg">
-                  {truncateCourse(college?.total_course, 2)}
-                </div>
-              </div>
-              {college?.total_students && (
-                <div className="colleges-card__key-value lg">
-                  <div className="colleges-card__key lg">Total students:</div>
-                  <div className="colleges-card__value lg">
-                    {truncateString(college?.total_students, 2)}
-                  </div>
+              {reviews?.averageRating && reviews?.averageRating !== "NaN" && (
+                <div className="rating-container">
+                  <img src="/heart.png" alt="..." className="like-icon" />
+                  <span className="review-detail">
+                    {reviews?.averageRating}{" "}
+                  </span>
+                  <span className="review-number">/ 10</span>
                 </div>
               )}
             </div>
-            {college?.top_courses && (
-              <div className="colleges-card__course">
-                <CollegeCourse courses={college?.top_courses} />
+            <img
+              src={college?.banner ? college?.banner : "/colleges.png"}
+              alt="college"
+            />
+            <div className="colleges-card__title-wrap">
+              <div className="colleges-card__title">
+                <Link href={`colleges/${college?.college_slug}`}>
+                  {college?.name}
+                </Link>
               </div>
-            )}
+              <div className="colleges-card__location">
+                <img src="/location3.png" alt="location" />
+                {college?.address}
+              </div>
+            </div>
+          </div>
+          <div className="colleges-card__details">
+            <div className="colleges-card__top">
+              <div className="colleges-card__key-value-wrap">
+                <div className="colleges-card__key-value">
+                  <div className="colleges-card__key">ESTD:</div>
+                  <div className="colleges-card__value">
+                    {college?.estd_year}
+                  </div>
+                </div>
+                <div className="colleges-card__key-value">
+                  <div className="colleges-card__key">Type:</div>
+                  <div className="colleges-card__value">Private</div>
+                </div>
+              </div>
+              <div className="colleges-card__logo">
+                <img src={college?.college_logo} alt="" />
+              </div>
+            </div>
+            <div className="colleges-card__bottom">
+              <div className="colleges-card__key-value-wrap lg">
+                <div className="colleges-card__key-value lg">
+                  <div className="colleges-card__key lg">Total Course:</div>
+                  <div className="colleges-card__value lg">
+                    {truncateCourse(college?.total_course, 2)}
+                  </div>
+                </div>
+                {college?.total_students && (
+                  <div className="colleges-card__key-value lg">
+                    <div className="colleges-card__key lg">Total students:</div>
+                    <div className="colleges-card__value lg">
+                      {truncateString(college?.total_students, 2)}
+                    </div>
+                  </div>
+                )}
+              </div>
+              {college?.top_courses && (
+                <div className="colleges-card__course">
+                  <CollegeCourse courses={college?.top_courses} />
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

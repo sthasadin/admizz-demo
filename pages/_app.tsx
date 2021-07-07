@@ -25,6 +25,16 @@ if (typeof window !== "undefined") {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  React.useEffect(() => {
+    Router.events.on("routeChangeComplete", () => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        // behavior: "smooth",
+      });
+    });
+  }, []);
+
   return (
     <AuthProvider>
       <Provider store={store}>

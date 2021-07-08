@@ -1,6 +1,9 @@
 .merit {
   margin: 36px 0;
   width: 100%;
+  @media (max-width: 500px) {
+    margin: 20px 0;
+  }
 
   // @media (min-width: 768px) {
   //   width: 720px;
@@ -60,10 +63,6 @@
   &__left {
     align-self: center;
     justify-self: flex-start;
-    @media (max-width: 500px) {
-      margin: 20px 10px;
-      margin-bottom: 0;
-    }
 
     .list-item-wrap {
       .list-item__icon {

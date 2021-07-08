@@ -20,12 +20,13 @@ const index = () => {
     (a, b) => moment(b.createdAt) - moment(a.createdAt)
   );
 
+  console.log(blogs);
+
   const settings = {
     dots: true,
     dotsClass: "slick-custom-scroll slick-thumb",
     infinite: false,
     speed: 500,
-    className: "blog-carousel",
     slidesToShow: 1.5,
     slidesToScroll: 1,
     // nextArrow: <SampleNextArrow />,
@@ -62,7 +63,7 @@ const index = () => {
       <Slider {...settings}>
         {latestBlog &&
           latestBlog.slice(0, 4).map((blog, i) => {
-            return <BlogCard index={i} key={i} data={blog} />;
+            return <BlogCard key={i} data={blog} />;
           })}
       </Slider>
     </div>

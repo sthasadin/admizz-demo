@@ -47,7 +47,7 @@
       align-items: center;
       justify-content: space-between;
       @media (max-width: 414px) {
-        flex-direction: column;
+        // flex-direction: column;
       }
       &__left {
         display: flex;

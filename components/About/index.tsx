@@ -8,7 +8,7 @@ const About = () => {
         {/* <div className="container" style={{ border: "1px solid black" }}> */}
         <div className="about-country__heading block-heading">about india</div>
         <div className="about-country__title block-title">
-          learn something about INDIA
+          Learn Something About INDIA
         </div>
         <div className="about-country__desc">
           <p>

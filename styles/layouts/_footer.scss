@@ -72,6 +72,10 @@
   }
   &__logo {
     margin-bottom: 55px;
+    @media (max-width: 500px) {
+      display: flex;
+      justify-content: center;
+    }
     img {
       object-fit: cover;
       height: auto;
@@ -79,6 +83,9 @@
     }
   }
   &__newsletter {
+    @media (max-width: 500px) {
+      display: none;
+    }
     &__title {
       font-size: 18px;
       font-weight: 500;
@@ -97,6 +104,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 500px) {
+      flex-direction: column;
+      gap: 40px;
+    }
     &__left {
       display: flex;
       align-items: center;

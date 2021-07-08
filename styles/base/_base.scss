@@ -151,10 +151,8 @@ a {
   margin: 0 auto;
   max-width: 1440px;
   @media (max-width: 500px) {
-    display: none;
-    width: unset;
-    margin: unset;
-    max-width: unset;
+    width: 100%;
+    padding: 0 10px !important;
   }
 }
 .dashboard-wrapper {

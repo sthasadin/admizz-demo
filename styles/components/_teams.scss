@@ -2,21 +2,8 @@
   padding: 80px 0;
   background: #f6f6f6;
   padding-top: 50px;
-  &__inner {
-    // @media (min-width: 768px) {
-    //   width: 720px;
-    //   margin: 0 auto;
-    // }
-    // @media (min-width: 1024px) {
-    //   width: 940px;
-    // }
-    // @media (min-width: 1200px) {
-    //   width: 1170px;
-    // }
-    // @media (min-width: 1360px) {
-    //   width: 1240px;
-    // }
-  }
+  overflow: hidden;
+
   &__heading {
     margin-bottom: 12px;
   }
@@ -113,6 +100,9 @@
     display: flex;
     align-items: center;
     color: $secondary-color;
+    @media (max-width: 500px) {
+      display: none;
+    }
 
     &__address {
       display: flex;

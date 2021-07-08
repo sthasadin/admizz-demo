@@ -34,11 +34,16 @@
     margin-bottom: 30px;
   }
   &__list {
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    // justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
+    // margin-top: 16px;
+    // display: flex;
+    // align-items: center;
+    // // justify-content: space-between;
+    // gap: 2rem;
+    // flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    @media (max-width: 500px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }

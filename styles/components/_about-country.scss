@@ -13,6 +13,9 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    @media (max-width: 500px) {
+      padding: 20px 10px !important;
+    }
   }
 
   &__desc {

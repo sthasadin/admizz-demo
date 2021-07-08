@@ -95,4 +95,7 @@
 
 .blog-carousel .blogCard {
   padding-right: 15px;
+  @media screen {
+    padding-right: 0;
+  }
 }

@@ -161,24 +161,24 @@ const Footer = () => {
             </div>
             <div className="footer__col">
               <div className="footer__col__title">other links</div>
-              <a href="#" className="footer__col__item">
-                About Admix
-              </a>
-              <a className="footer__col__item" href="/contact-us">
-                Contact Us
-              </a>
-              <a className="footer__col__item" href="#">
-                Careers
-              </a>
-              <a className="footer__col__item" href="/faq">
-                FAQs
-              </a>
-              <a href="#" className="footer__col__item">
-                Terms & Condition
-              </a>
-              <a href="#" className="footer__col__item">
-                Sign In/Register
-              </a>
+              <div className="footer__col__item">
+                <Link href="#about-us">About Admizz</Link>
+              </div>
+              <div className="footer__col__item">
+                <Link href="/contact-us">Contact Us</Link>
+              </div>
+              <div className="footer__col__item">
+                <Link href="#">Careers</Link>
+              </div>
+              <div className="footer__col__item">
+                <Link href="/faq">FAQs</Link>
+              </div>
+              <div className="footer__col__item">
+                <Link href="#">Terms & Condition</Link>
+              </div>
+              <div className="footer__col__item">
+                <Link href="/register">Sign In/Register</Link>
+              </div>
             </div>
           </div>
         </div>

@@ -12,21 +12,10 @@
 
     max-width: 1440px;
     margin: auto;
-    // width: calc(100% - 30px);
-    // margin: 0 15px;
-    // @media (min-width: 768px) {
-    //   width: 720px;
-    //   margin: 0 auto;
-    // }
-    // @media (min-width: 1024px) {
-    //   width: 940px;
-    // }
-    // @media (min-width: 1200px) {
-    //   width: 1170px;
-    // }
-    // @media (min-width: 1360px) {
-    //   width: 90%;
-    // }
+    @media (max-width: 500px) {
+      width: 100%;
+      padding: 0 7px;
+    }
   }
   &__logo {
     cursor: pointer;

@@ -45,7 +45,7 @@ const index = () => {
             imgSrc="/male-intro.png"
             videoUrl="https://youtu.be/CDknjC9aFmg"
           />
-          {/* <Introduction
+          <Introduction
             title="world"
             imgSrc="/female-intro.png"
             videoUrl="https://youtu.be/CDknjC9aFmg"
@@ -54,7 +54,7 @@ const index = () => {
             title="helloworld"
             imgSrc="/male-intro.png"
             videoUrl="https://youtu.be/CDknjC9aFmg"
-          /> */}
+          />
         </Carousel>
       </div>
       <MessengerCustomerChat />

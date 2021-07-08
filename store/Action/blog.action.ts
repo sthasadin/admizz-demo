@@ -1,5 +1,5 @@
 import { Dispatch } from "react-redux";
-import { BLOGS_TYPES, BLOG_TYPES, GET_COLLEGE_NEWS, SUCCESS} from "../const";
+import { BLOGS_TYPES, BLOG_TYPES, GET_COLLEGE_NEWS} from "../const";
 import { finish, init, success, error } from "../commonActions";
 import { BlogService } from "../api/blogApi";
 
@@ -30,34 +30,7 @@ export const getBlog = (blog_slug) => async (dispatch: Dispatch) => {
   }
 };
 
-// export const getBlogByCategory = (blog_slug) => async (dispatch: Dispatch) => {
-//   dispatch(init(BLOG_TYPES.GET_BLOG));
 
-//   const response:any = await blogService.getBlog(blog_slug);
-
-//   dispatch(finish(BLOG_TYPES.GET_BLOG));
-
-//   if (response.isSuccess) {
-//     dispatch(success(BLOG_TYPES.GET_BLOG, response.data));
-//   } else if (!response.isSuccess) {
-//     dispatch(error(response.errorMessage));
-//   }
-// };
-
-
-
-// export const comment = (comment:String, id:any, blogId: any) => async(dispatch: Dispatch) => {
- 
-//   const response = await  blogService.getBlogComment(comment, id, blogId);
-  
-//   if(response.isSuccess ){
-//       dispatch(success(response.data));
-//   }else if(!response.isSuccess){
-//       dispatch(error(response.errorMessage));
-//   }
-  
-
-// }
 
 
 

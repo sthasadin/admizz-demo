@@ -199,8 +199,14 @@
   top: 0;
   width: 100%;
   background-color: #fff;
-  height: 80px;
+
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease-in-out;
   z-index: 1000;
+}
+
+.mobile-logo {
+  width: 46px;
+  height: 43px;
+  margin: 3px 0;
 }

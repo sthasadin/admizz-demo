@@ -41,6 +41,11 @@
 .college-list-selected-filter__filterTitle {
   color: #4f4f4f;
   font-style: normal;
+  @media (max-width: 500px) {
+    display: flex;
+    align-items: center;
+    
+  }
 }
 
 .college-list-count {

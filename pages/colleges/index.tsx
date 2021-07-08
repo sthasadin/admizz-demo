@@ -146,6 +146,16 @@ const collegeList = () => {
                     className="right-arrow-icon"
                   />
                 </div>
+                <div
+                  className="college-list__searchmobileButton"
+                  onClick={handleSearch}
+                >
+                  <img
+                    src="/color-rightarrow.png"
+                    alt=".."
+                    className="right-arrow-icon"
+                  />
+                </div>
               </div>
               <div className="college-list__headerSubtitle">
                 Eg: Jain University, Manipur, BMS

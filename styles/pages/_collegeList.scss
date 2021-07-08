@@ -56,6 +56,9 @@
     height: 54px;
     z-index: 1;
     margin-left: -2px;
+    @media (max-width: 500px) {
+      display: none;
+    }
   }
   &__listContainer {
     display: flex;
@@ -106,4 +109,23 @@
   height: 17px;
   margin: auto;
   margin-left: 5px;
+}
+
+.college-list__searchmobileButton {
+  background-color: #5f1802;
+  display: none;
+  /* border: 1px solid #5f1802; */
+  color: white;
+  padding: 0 10px;
+  margin: 1 0 0 0;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  line-height: 53px;
+  height: 54px;
+  z-index: 1;
+  margin-left: -2px;
+  @media (max-width: 500px) {
+    display: flex;
+  }
 }

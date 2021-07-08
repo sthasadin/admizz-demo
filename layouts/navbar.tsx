@@ -14,6 +14,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 
 const Navbar = (props: any) => {
   const [navbarSticky, setNavbarSticky] = React.useState(false);
+  const [mobileSize, setMobilesize] = React.useState(false);
   const router = useRouter();
 
   const [state, setState] = React.useState({
@@ -143,22 +144,41 @@ const Navbar = (props: any) => {
     });
   };
 
+  const windowResize = () => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 600) {
+        setMobilesize(true);
+      } else {
+        setMobilesize(false);
+      }
+    });
+  };
+
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  React.useEffect(() => {
+    window.addEventListener("resize", windowResize);
+
+    return () => window.removeEventListener("resize", windowResize);
+  }, [mobileSize]);
+
   return (
     <div className={`navbar  ${navbarSticky && "sticky-nab-bar"} `}>
       <div className="navbar__inner">
         <div className="navbar__logo">
-          <div className="logo" onClick={() => router.push("/")}>
-            <img
-              src={props.windowsSize < 550 ? mobileVersionLogo : "/logo.png"}
-              alt="Admizz_logo"
-            />
-          </div>
+          {mobileSize ? (
+            <div className="logo mobile-logo" onClick={() => router.push("/")}>
+              <img src="/mobileVersionLogo.png" alt="Admizz_logo" />
+            </div>
+          ) : (
+            <div className="logo " onClick={() => router.push("/")}>
+              <img src="/logo.png" alt="Admizz_logo" />
+            </div>
+          )}
         </div>
 
         <div className="navbar__hamburger">

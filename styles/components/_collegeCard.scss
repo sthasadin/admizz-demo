@@ -1,8 +1,6 @@
 .colleges-card {
   width: 100%;
-  @media (max-width: 450px) {
-    margin-bottom: 22px;
-  }
+
   &__inner {
     cursor: pointer;
   }

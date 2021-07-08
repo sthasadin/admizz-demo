@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCollegeList } from "../store/Action/allCollage.action";
+import { getBlogs } from "../store/Action/blog.action";
 import { About } from "../components/About";
 import { BlogList } from "../components/BlogList";
 import { CollegeFinder } from "../components/collegeFinder";
 import { CollegesBlock } from "../components/collegesBlock";
-import { FiveSteps } from "../components/FiveSteps";
+import { FiveSteps } from "../components/FiveSteps/index";
 import Introduction from "../components/Introduction";
 import { Merits } from "../components/mertis";
 import { Statistics } from "../components/statistics";
@@ -20,26 +21,28 @@ export default function Home() {
   useEffect(() => {
     dispatch(getAllCollegeList());
   }, []);
+  useEffect(() => {
+    dispatch(getBlogs("All"));
+  }, []);
 
   const { collegeList } = useSelector((state) => state.allCollege);
+  const blogs = useSelector((state) => state.blog.blogs);
 
   return (
-    <div className="container">
-      <Layout title="Home">
-        <Introduction />
+    <Layout title="Home">
+      <Introduction />
 
-        <About />
-        <Merits />
-        <Us />
+      <About />
+      <Merits />
+      <Us college={collegeList[1]} blog={blogs[blogs?.length - 1]} />
 
-        <Statistics />
-        <FiveSteps />
-        <CollegesBlock collegeList={collegeList} />
-        <CollegeFinder />
-        <Testimonial />
-        <BlogList />
-        <Teams />
-      </Layout>
-    </div>
+      <Statistics />
+      <FiveSteps />
+      <CollegesBlock collegeList={collegeList} />
+      <CollegeFinder />
+      <Testimonial />
+      <BlogList />
+      <Teams />
+    </Layout>
   );
 }

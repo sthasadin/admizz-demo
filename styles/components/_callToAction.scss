@@ -33,7 +33,7 @@
   border: 1px solid white;
 
   &:hover {
-    background-color: #ffa200;
+    background-color: #ffa200 !important;
     border: 1px solid #ffa200;
     transition: all 0.2s ease-in-out;
   }

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Input } from "../../components/Input";
 import {
   FacebookShareButton,
   WhatsappShareButton,
@@ -24,8 +23,9 @@ import Dialog from "@material-ui/core/Dialog";
 // import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 // import { getBlogDetail } from "../../store/Action/blogDetails.action";
 import { getBlog } from "../../store/Action/blog.action";
+import BlogComment from "../../components/BlogComment";
 
-const blogDetail = () => {
+const blogDetail = (props) => {
   const router = useRouter();
   const { slug } = router.query;
   const dispatch = useDispatch();
@@ -35,6 +35,7 @@ const blogDetail = () => {
   const handleClickOpen = () => {
     setOpen(true);
   };
+  console.log(props);
 
   const handleClose = () => {
     setOpen(false);
@@ -157,29 +158,28 @@ const blogDetail = () => {
             </div>
           </div>
           <div className="container ">
+            <BlogComment data={blog} />
             <div
               className="blog-detail__imageContainer"
               style={{ height: "100%" }}
             >
               <BlogDetailMember />
             </div>
-            <div className="blog-detail-content__commentContainer">
+            {/* <div className="blog-detail-content__commentContainer">
               <p className="blog-detail-content__commentTitle">
                 Leave A Comment
               </p>
               <Input
                 name={"query"}
-                // onChange={handleChange}
-                // value={formValue.query}
+                
                 multiline
                 placeholder={"Add additional query you have"}
-                // errorMessage={formError.query}
-                // error={!!formError.query}
+                
                 margin={"0px 0px 16px 0px"}
                 fullWidth
               />
               <Button>SUBMIT</Button>
-            </div>
+            </div> */}
           </div>
         </main>
       </div>

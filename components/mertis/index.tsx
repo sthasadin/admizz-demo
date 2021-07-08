@@ -3,6 +3,7 @@ import { CallToAction } from "../Button/callToAction";
 import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
 import Modal from "@material-ui/core/Modal";
+import Link from "next/link";
 import Backdrop from "@material-ui/core/Backdrop";
 
 const Merits = () => {
@@ -21,7 +22,7 @@ const Merits = () => {
         <div className="merit__left">
           <div className="merit__heading block-heading">study in india</div>
           <div className="merit__title block-title">
-            Why to study in <span>india</span>
+            Why to Study In <span>india</span>
           </div>
           <div className="merit__desc">
             We continuously strive towards facilitating campus-drives where
@@ -62,7 +63,7 @@ const Merits = () => {
           </div>
 
           <CallToAction className="learnmore__btn hideofmobile">
-            Learn More
+            <Link href="/blogs">Learn More</Link>
           </CallToAction>
         </div>
         <div className="merit__right">

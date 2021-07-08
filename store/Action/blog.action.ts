@@ -46,6 +46,19 @@ export const getBlog = (blog_slug) => async (dispatch: Dispatch) => {
 
 
 
+// export const comment = (comment:String, id:any, blogId: any) => async(dispatch: Dispatch) => {
+ 
+//   const response = await  blogService.getBlogComment(comment, id, blogId);
+  
+//   if(response.isSuccess ){
+//       dispatch(success(response.data));
+//   }else if(!response.isSuccess){
+//       dispatch(error(response.errorMessage));
+//   }
+  
+
+// }
+
 
 
 

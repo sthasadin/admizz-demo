@@ -51,13 +51,11 @@
       @media (max-width: 1024px) {
         height: 640px;
       }
+      @media (max-width: 500px) {
+        padding-left: 10px;
+      }
 
       .us__btncontainer {
-        position: relative;
-        margin-top: -75px;
-        display: flex;
-        justify-content: flex-end;
-
         .btn__left {
           border: 1px solid #ffffff;
           margin-right: 3px;
@@ -111,6 +109,9 @@
       height: 320px;
       color: #fff;
       display: grid;
+      @media (max-width: 500px) {
+        padding-right: 40px;
+      }
     }
   }
   &__title {
@@ -125,7 +126,7 @@
     }
   }
   &__desc {
-    line-height: 21px;
+    line-height: 1.7;
   }
   &__feature {
     margin-top: 30px;
@@ -137,17 +138,63 @@
   &__info {
     display: flex;
     align-items: center;
-
+    position: relative;
+    gap: 20px;
     @media (max-width: 450px) {
       flex-direction: column;
       align-items: flex-start;
     }
+    svg {
+      width: 156px;
+      position: absolute;
+      transform: rotate(89deg);
+
+      left: -18px;
+      top: -23px;
+    }
+    path {
+      fill: transparent;
+      stroke: #f4c851;
+      stroke-dasharray: 0.1, 3;
+      stroke-linecap: round;
+    }
+
+    .hexagon-border {
+      height: 140px;
+      width: 140px;
+      position: absolute;
+      border-right: 2px dotted red;
+      border-left: 2px dotted red;
+      left: -10px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        width: 212.13px;
+        height: 212.13px;
+        -webkit-transform: scaleY(0.5774) rotate(-45deg);
+        -ms-transform: scaleY(0.5774) rotate(-45deg);
+        transform: scaleY(0.5774) rotate(-45deg);
+        background-color: inherit;
+        left: 40.934px;
+        top: -106.066px;
+        border-top: 3px dotted #f00;
+        border-right: 3px dotted #f00;
+      }
+    }
     &__logo {
-      margin-right: 27px;
+      height: 111px;
+      width: 130px;
+      position: relative;
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      border: 1px solid black;
+
       img {
-        height: 100px;
-        width: 115px;
-        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        // object-fit: contain;
+
         @media (max-width: 450px) {
           margin-bottom: 10px;
         }
@@ -175,7 +222,7 @@
         border-radius: 50%;
         display: block;
         margin-left: 6px;
-        margin-top: 2px;
+        margin-top: 4px;
         background-color: $secondary-color;
       }
     }
@@ -188,7 +235,7 @@
     &__details-wrap {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 20px;
     }
     &__details {
       line-height: 20px;
@@ -210,5 +257,12 @@
   &__cta {
     line-height: 20px;
     color: $secondary-color;
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 500px) {
+      float: right;
+    }
   }
 }

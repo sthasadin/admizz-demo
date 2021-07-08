@@ -1,15 +1,23 @@
 import React from "react";
 import { Feature } from "../feature";
-import leftArrow from "../../public/leftArrow.png";
-import rightArrow from "../../public/rightArrow.png";
+
+import Link from "next/link";
 import chatIcon from "../../public/chatIcon.png";
 import awardIcon from "../../public/awardIcon.png";
 import collegeIcon from "../../public/collegeIcon.png";
 import supportIcon from "../../public/supportIcon.png";
 
-const Us = () => {
+const Us = ({ college, blog }) => {
   const [counter, setCounter] = React.useState(0);
   const [showData, setShowData] = React.useState({});
+
+  const removeHtmlChar = (text) => {
+    return text?.replace(/<[^>]+>/g, "");
+  };
+
+  const text_truncate = (str) => {
+    return str?.substring(0, 70 - 3) + "...";
+  };
 
   const array = [
     {
@@ -58,6 +66,8 @@ const Us = () => {
     }
   };
 
+  console.log(blog);
+
   return (
     <div className="us">
       <div className="us__inner">
@@ -70,16 +80,20 @@ const Us = () => {
               step ahead of others.
             </div>
             <div className="us__feature">
-              <Feature data={showData} />
+              <Feature
+                data={showData}
+                handleIncrease={handleIncrease}
+                handleDescrease={handleDescrease}
+              />
             </div>
-            <div className="us__btncontainer">
+            {/* <div className="us__btncontainer">
               <button className="btn__left" onClick={handleDescrease}>
                 <img src={leftArrow} />
               </button>
               <button className="btn__right" onClick={handleIncrease}>
                 <img src={rightArrow} />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="us__right">
@@ -90,38 +104,58 @@ const Us = () => {
               </div>
             </div>
             <div className="us__info">
+              {/* <div className="hexagon-border"></div> */}
+              {/* <svg viewBox="0 0 100 100">
+                <path d="M5,30 L50,0 95,30 95,70 50,100 5,70z" />
+              </svg> */}
               <div className="us__info__logo">
-                <img src="/us-logo.png" alt="logo" />
+                <img src={college?.college_profile_image} alt="logo" />
               </div>
+
               <div className="us__info__text">
                 <div className="us__info__cat-wrap">
                   <div className="us__info__estd">
                     Estd:
-                    <span>1995</span>
+                    <span>{college?.estd_year}</span>
                   </div>
                   <div className="us__info__cat">
-                    DCI, INC, MCI, AICTE, UGC, NBA, NAAC-A
+                    {college &&
+                      college?.top_courses?.map((course, i) => {
+                        return (
+                          <span key={i}>
+                            {course}
+                            {i < college?.top_courses.length - 1 && ","}{" "}
+                          </span>
+                        );
+                      })}
                   </div>
                 </div>
-                <div className="us__info__name">
-                  kalinga Institute of Industrial Technology
-                </div>
+                <div className="us__info__name">{college?.name}</div>
                 <div className="us__info__details-wrap">
                   <div className="us__info__details">
-                    Some of the detail about KIIT here.
+                    Some of the detail about this university here.
                   </div>
-                  <div className="us__cta">View Details</div>
+
+                  <div className="us__cta">
+                    <Link href={`/colleges/${college?.college_slug}`}>
+                      View Details
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="us__right__bottom">
             <div className="us__read">
-              <div className="us__read__title">We are now International</div>
-              <div className="us__read__desc">
-                We accept and register students from all over the world
+              <div className="us__read__title">
+                {text_truncate(blog?.blog_title)}
               </div>
-              <div className="us__cta">Learn More</div>
+              <div className="us__read__desc">
+                {text_truncate(removeHtmlChar(blog?.blog_desc))}
+              </div>
+              <div className="us__cta">
+                <Link href={`/blogs/${blog?.blog_slug}`}>Learn More</Link>
+              </div>
             </div>
           </div>
         </div>

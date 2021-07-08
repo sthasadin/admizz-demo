@@ -150,6 +150,12 @@ a {
   width: 90%;
   margin: 0 auto;
   max-width: 1440px;
+  @media (max-width: 500px) {
+    display: none;
+    width: unset;
+    margin: unset;
+    max-width: unset;
+  }
 }
 .dashboard-wrapper {
   width: 99%;

@@ -17,7 +17,6 @@ const blogList = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(getAllBLog());
     dispatch(getBlogs("All"));
   }, []);
 

@@ -22,4 +22,14 @@ export class BlogService {
     let data = getService(url);
     return data;
   }
+
+  getBlogComment(comment,id,blogId){
+    let body = JSON.stringify(comment)
+    let url = '/comment';
+    let data = postService(url,body);
+    return data;
+    
+  }
 }
+
+

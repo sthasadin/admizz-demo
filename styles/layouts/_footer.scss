@@ -132,13 +132,13 @@
   background: transparent;
   border: none;
   outline: none;
-  border-bottom: 2px solid $primary-color;
+  border-bottom: 1px solid $primary-color;
   @media (max-width: 600px) {
     height: 2.7rem;
   }
 }
 .newsletter_go {
-  margin-top: 12px;
+  margin-top: 11px;
   background-color: #ffd2dd;
   color: $primary-color;
   height: 40px;

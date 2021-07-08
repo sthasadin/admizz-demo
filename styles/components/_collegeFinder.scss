@@ -67,8 +67,10 @@
     @media (max-width: 760px) {
       grid-template-columns: 1fr 1fr 1fr;
     }
-    @media (max-width: 494px) {
+    @media (max-width: 500px) {
       grid-template-columns: 1fr 1fr;
+      padding: 0 10px;
+      gap: 10px;
     }
   }
 

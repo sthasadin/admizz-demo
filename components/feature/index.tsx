@@ -1,6 +1,7 @@
 import React from "react";
+import Link from "next/link";
 
-const Feature = ({ data }) => {
+const Feature = ({ data, handleDescrease, handleIncrease }) => {
   return (
     <div className="feature">
       <div className="feature__heading">Our Features:</div>
@@ -14,7 +15,20 @@ const Feature = ({ data }) => {
       </div>
 
       <div className="feature__btn">
-        <button className="btn btn--block btn--light">Learn More</button>
+        <button
+          className="cta-button white-border"
+          style={{ backgroundColor: "transparent" }}
+        >
+          <Link href="/blogs">Learn More</Link>
+        </button>
+        <div className="us__btncontainer">
+          <button className="btn__left" onClick={handleDescrease}>
+            <img src="/leftArrow.png" alt=".." />
+          </button>
+          <button className="btn__right" onClick={handleIncrease}>
+            <img src="/rightArrow.png" alt="..." />
+          </button>
+        </div>
       </div>
     </div>
   );

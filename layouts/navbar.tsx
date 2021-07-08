@@ -135,23 +135,19 @@ const Navbar = (props: any) => {
   );
 
   const handleScroll = () => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        setNavbarSticky(true);
-      } else {
-        setNavbarSticky(false);
-      }
-    });
+    if (window.scrollY > 100) {
+      setNavbarSticky(true);
+    } else {
+      setNavbarSticky(false);
+    }
   };
 
   const windowResize = () => {
-    window.addEventListener("resize", () => {
-      if (window.innerWidth < 600) {
-        setMobilesize(true);
-      } else {
-        setMobilesize(false);
-      }
-    });
+    if (window.innerWidth < 600) {
+      setMobilesize(true);
+    } else {
+      setMobilesize(false);
+    }
   };
 
   React.useEffect(() => {
@@ -161,6 +157,7 @@ const Navbar = (props: any) => {
   }, []);
 
   React.useEffect(() => {
+    windowResize();
     window.addEventListener("resize", windowResize);
 
     return () => window.removeEventListener("resize", windowResize);

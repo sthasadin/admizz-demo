@@ -111,7 +111,10 @@ const Merits = () => {
       >
         <Fade in={open}>
           <div>
-            <ReactPlayer url="https://www.youtube.com/watch?v=_xMXR5_CnQM" />
+            <ReactPlayer
+              className="react-player"
+              url="https://www.youtube.com/watch?v=_xMXR5_CnQM"
+            />
           </div>
         </Fade>
       </Modal>

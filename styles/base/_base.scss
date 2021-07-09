@@ -317,3 +317,10 @@ a {
 .team-social-icon:hover {
   fill: #333;
 }
+
+.react-player {
+  @media (max-width: 1024px) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}

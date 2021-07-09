@@ -3,6 +3,7 @@
 
   @media (max-width: 450px) {
     display: none;
+    // overflow-x: auto;
   }
 }
 
@@ -74,6 +75,9 @@
   .college_content__right {
     display: flex;
     gap: 30px;
+    @media (max-width: 700px) {
+      display: none;
+    }
 
     .college-right-content {
       display: flex;

@@ -5,12 +5,14 @@ import { useDispatcher, useSelector } from "react-redux";
 const CollegeFacility = () => {
   const facilities = useSelector((state) => state.college.college.facilities);
 
+  console.log(facilities);
+
   return facilities?.length ? (
     <div className="college-facility">
       <div className="college-facility__inner">
         <div className="sidebar__title">Facilities</div>
         <div className="college-facility__list">
-          {facilities && facilities.includes("wifi") && (
+          {facilities && facilities.includes("Wifi") && (
             <FacilityItem
               icon={
                 <svg
@@ -41,7 +43,7 @@ const CollegeFacility = () => {
               label="wifi"
             />
           )}
-          {facilities && facilities.includes("ambulance") && (
+          {facilities && facilities.includes("Ambulance") && (
             <FacilityItem
               icon={
                 <svg
@@ -76,7 +78,7 @@ const CollegeFacility = () => {
               label="Ambulance"
             />
           )}
-          {facilities && facilities.includes("event") && (
+          {facilities && facilities.includes("Event") && (
             <FacilityItem
               icon={
                 <svg
@@ -107,7 +109,7 @@ const CollegeFacility = () => {
               label="Event"
             />
           )}
-          {facilities && facilities.includes("games") && (
+          {facilities && facilities.includes("Games") && (
             <FacilityItem
               icon={
                 <svg
@@ -126,7 +128,7 @@ const CollegeFacility = () => {
               label="Games"
             />
           )}
-          {facilities && facilities.includes("pool") && (
+          {facilities && facilities.includes("Pool") && (
             <FacilityItem
               icon={
                 <svg
@@ -153,7 +155,7 @@ const CollegeFacility = () => {
               label="Pool"
             />
           )}
-          {facilities && facilities.includes("library") && (
+          {facilities && facilities.includes("Library") && (
             <FacilityItem
               icon={
                 <svg

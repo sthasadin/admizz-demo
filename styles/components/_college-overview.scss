@@ -3,6 +3,14 @@
   background-color: #fff;
   border-radius: 5px;
   padding: 25px;
+
+  &__collegesubtitle {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 800;
+    margin: 18px 0 14px 0;
+    color: #333;
+  }
   &__title-wrap {
     display: flex;
     align-items: center;

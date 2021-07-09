@@ -33,6 +33,8 @@ const FeeStructure = (props: any) => {
     }
   };
 
+  console.log(streams);
+
   React.useEffect(() => {
     let _levels = [];
 
@@ -124,50 +126,6 @@ const FeeStructure = (props: any) => {
                   </div>
                 );
               })}
-
-            {/* 
-            <div
-              onClick={() => onLevelClick("diploma")}
-              className={
-                selectLevel === "diploma"
-                  ? "level-list__item active"
-                  : "level-list__item"
-              }
-            >
-              DIPLOMA
-            </div> */}
-
-            {/* <div
-              onClick={() => onLevelClick("undergraduate")}
-              className={
-                selectLevel === "undergraduate"
-                  ? "level-list__item active"
-                  : "level-list__item"
-              }
-            >
-              UNDER GRADUATE
-            </div> */}
-
-            {/* <div
-              onClick={() => onLevelClick("postgraduate")}
-              className={
-                selectLevel === "postgraduate"
-                  ? "level-list__item active"
-                  : "level-list__item"
-              }
-            >
-              POST GRADUATE
-            </div> */}
-            {/* <div
-              onClick={() => onLevelClick("phd")}
-              className={
-                selectLevel === "phd"
-                  ? "level-list__item active"
-                  : "level-list__item"
-              }
-            >
-              PH.D
-            </div> */}
           </div>
         </div>
         <div className="fee-structure__courses">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
@@ -8,8 +8,10 @@ import ReactPlayer from "react-player";
 
 const CollegeOverview = () => {
   const [open, setOpen] = useState(false);
-  const dispatch = useDispatch();
+
   const college = useSelector((state) => state.college.college);
+
+  console.log(college);
 
   return (
     <div id="overview" className="overview">
@@ -20,8 +22,16 @@ const CollegeOverview = () => {
         </time>
       </div>
       {college.overview && (
-        <div className="overview__desc">{college.overview}</div>
+        <div className="overview__desc">{college?.overview}</div>
       )}
+      <div className="overview__collegesubtitle">Profile</div>
+
+      <div className="overview__desc">{college?.college_profile}</div>
+
+      <div className="overview__collegesubtitle">Description</div>
+
+      <div className="overview__desc">{college?.description}</div>
+
       <div className="overview__block-wrap">
         {college.QS_ranking && (
           <div className="overview__block">

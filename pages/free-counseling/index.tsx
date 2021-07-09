@@ -4,7 +4,7 @@ import { CounselingStepper } from "../../components";
 
 const FreeCounseling = () => {
   return (
-    <Layout title="Booking">
+    <Layout title="Booking" stickyBar={true}>
       <div className="free-counseling">
         <div className="free-counseling__container">
           <div className="free-counseling__header">

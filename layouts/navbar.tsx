@@ -149,6 +149,7 @@ const Navbar = (props: any) => {
       setMobilesize(false);
     }
   };
+  console.log(props.stickyBar);
 
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -164,7 +165,11 @@ const Navbar = (props: any) => {
   }, [mobileSize]);
 
   return (
-    <div className={`navbar  ${navbarSticky && "sticky-nab-bar"} `}>
+    <div
+      className={`navbar  ${
+        navbarSticky && props.stickyBar && "sticky-nab-bar"
+      } `}
+    >
       <div className="navbar__inner">
         <div className="navbar__logo">
           {mobileSize ? (

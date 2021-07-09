@@ -29,7 +29,7 @@ export default function Home() {
   const blogs = useSelector((state) => state.blog.blogs);
 
   return (
-    <Layout title="Home">
+    <Layout title="Home" stickyBar={true}>
       <Introduction />
 
       <About />

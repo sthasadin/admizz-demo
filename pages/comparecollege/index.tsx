@@ -5,7 +5,7 @@ import CollegeCompare from "../../components/CollegeCompare";
 
 const index = () => {
   return (
-    <Layout title="College Compare">
+    <Layout title="College Compare" stickyBar={true}>
       <div className="container">
         <CollegeCompare />
         <Footer />

@@ -7,7 +7,7 @@ import marker from "../../public/marker.png";
 
 const ContactUs = () => {
   return (
-    <Layout title="Contact Us">
+    <Layout title="Contact Us" stickyBar={true}>
       <div>
         <div className="contact-container">
           <div className="banner section-wrapper">

@@ -113,7 +113,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <Layout title={name}>
+      <Layout title={name} stickyBar={false}>
         <main className="main">
           <CollegeHeader
             name={name}

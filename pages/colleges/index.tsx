@@ -114,7 +114,7 @@ const collegeList = () => {
   };
   return (
     <div className="container">
-      <Layout title="Colleges">
+      <Layout title="Colleges" stickyBar={true}>
         <main className="college-list">
           <div className="college-list__container section-wrapper">
             <div className="college-list__searchContainer">

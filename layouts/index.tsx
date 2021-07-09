@@ -4,12 +4,12 @@ import { Topbar } from "./topbar";
 import { Navbar } from "./navbar";
 import { Footer } from "./footer";
 
-const index = ({ children, title }) => {
+const index = (props) => {
   return (
     <>
       <Topbar />
       <Head>
-        <title>Admizz - {title}</title>
+        <title>Admizz - {props.title}</title>
         <link rel="icon" href="favicon.svg" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
@@ -17,8 +17,8 @@ const index = ({ children, title }) => {
           rel="stylesheet"
         />
       </Head>
-      <Navbar />
-      {children}
+      <Navbar stickyBar={props.stickyBar} />
+      {props.children}
       <Footer />
     </>
   );

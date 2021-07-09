@@ -91,7 +91,7 @@ const FAQ = () => {
   ];
 
   return (
-    <Layout title="FAQs">
+    <Layout title="FAQs" stickyBar={true}>
       <div className="faq">
         <div className="faq-container">
           <div className="faq__header section-wrapper">

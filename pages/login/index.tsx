@@ -5,7 +5,7 @@ import { withRestrictedRoute } from "../withRestrictedRoute";
 
 const LoginPage = () => {
   return (
-    <Layout title="Login">
+    <Layout title="Login" stickyBar={true}>
       <div className="container">
         <main className="main">
           <Login />

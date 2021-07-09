@@ -88,7 +88,7 @@ const Introduction = (props) => {
                 >
                   <Fade in={open}>
                     <div>
-                      <ReactPlayer url={videoUrl} />
+                      <ReactPlayer url={videoUrl} className="react-player" />
                     </div>
                   </Fade>
                 </Modal>

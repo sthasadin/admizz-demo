@@ -228,7 +228,7 @@ const index = () => {
           )}
         </div>
       </div>
-      <div className="placement__heading">Top Recurting Companies</div>
+      <div className="placement__heading">Top Recruiting Companies</div>
       <div className="placement_imagelist">
         {recurtingCompanies ? (
           <>

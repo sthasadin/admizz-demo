@@ -86,7 +86,7 @@ const index = ({ data }) => {
     <Slider {...settings}>
       {data &&
         data.slice(0, 6).map((data) => {
-          return <TeamCard showClickedMember={data} />;
+          return <TeamCard teamMember={data} />;
         })}
     </Slider>
   );

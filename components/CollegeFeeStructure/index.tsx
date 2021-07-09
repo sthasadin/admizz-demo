@@ -12,6 +12,7 @@ const FeeStructure = (props: any) => {
   const [levels, setLevels] = useState([]);
   const [streams, setStreams] = useState([]);
   const [programs, setPrograms] = useState([]);
+  const [collegeLevels, setCollegeLevels] = useState([]);
   const [courses, setCourses] = useState([]);
   const dispatch = useDispatch();
   const college = useSelector((state: any) => state.college.college);
@@ -31,6 +32,22 @@ const FeeStructure = (props: any) => {
       setPrograms([]);
     }
   };
+
+  React.useEffect(() => {
+    let _levels = [];
+
+    courses?.forEach((course) => {
+      let level = levels.find((l) => l._id === course?.courselevel?._id);
+
+      if (level) {
+        _levels.push(level);
+      }
+    });
+    setCollegeLevels(_.uniqBy(_levels, "_id"));
+  }, [courses, levels]);
+
+  console.log(collegeLevels);
+
   const getCourses = async (id: string) => {
     let res = await dispatch(getCollegeCourses(id));
     setCourses(res);
@@ -74,6 +91,9 @@ const FeeStructure = (props: any) => {
     college?._id && getCourses(college?._id);
   }, [college]);
 
+  // console.log(streams);
+  // console.log(levels);
+
   return (
     <div id="course_fee" className="fee-structure">
       <div className="fee-structure__inner">
@@ -83,6 +103,29 @@ const FeeStructure = (props: any) => {
         </div>
         <div className="fee-structure__level">
           <div className="level-list">
+            {collegeLevels &&
+              collegeLevels.map((course) => {
+                return (
+                  <div
+                    onClick={() => onLevelClick(course.name)}
+                    style={{ textTransform: "uppercase" }}
+                    className={`
+                      ${selectLevel === course.name}
+                        ? level-list__item  ${
+                          selectLevel === course.name ? "active" : ""
+                        }
+                        : level-list__item`}
+                  >
+                    {course.name === "undergraduate"
+                      ? "under graduate"
+                      : course.name === "postgraduate"
+                      ? "post graduate"
+                      : course.name}
+                  </div>
+                );
+              })}
+
+            {/* 
             <div
               onClick={() => onLevelClick("diploma")}
               className={
@@ -92,9 +135,9 @@ const FeeStructure = (props: any) => {
               }
             >
               DIPLOMA
-            </div>
+            </div> */}
 
-            <div
+            {/* <div
               onClick={() => onLevelClick("undergraduate")}
               className={
                 selectLevel === "undergraduate"
@@ -103,8 +146,9 @@ const FeeStructure = (props: any) => {
               }
             >
               UNDER GRADUATE
-            </div>
-            <div
+            </div> */}
+
+            {/* <div
               onClick={() => onLevelClick("postgraduate")}
               className={
                 selectLevel === "postgraduate"
@@ -113,8 +157,8 @@ const FeeStructure = (props: any) => {
               }
             >
               POST GRADUATE
-            </div>
-            <div
+            </div> */}
+            {/* <div
               onClick={() => onLevelClick("phd")}
               className={
                 selectLevel === "phd"
@@ -123,7 +167,7 @@ const FeeStructure = (props: any) => {
               }
             >
               PH.D
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="fee-structure__courses">
@@ -162,59 +206,9 @@ const FeeStructure = (props: any) => {
                     <span className="title">{p.eligibility}</span>
                     <span>Eligibility</span>
                   </div>
-                  {/* <a href="#" className="course-fee__cta">
-                view details
-              </a> */}
                 </div>
               );
             })}
-
-            {/* 
-            <div className="course-fee__item">
-              <div className="course-fee__course">M.Pharm</div>
-              <div className="course-fee__fee">
-                <span className="title">Rs. 2.04 Lakh (1st Year Fees)</span>
-                <span>Estimated Fee</span>
-              </div>
-              <div className="course-fee__eligibility">
-                <span className="title">Graduation with 60% + NIPERJEE</span>
-                <span>Eligibility</span>
-              </div>
-              <a href="#" className="course-fee__cta">
-                view details
-              </a>
-            </div>
-
-            <div className="course-fee__item">
-              <div className="course-fee__course">M.S</div>
-              <div className="course-fee__fee">
-                <span className="title">Rs. 2.04 Lakh (1st Year Fees)</span>
-                <span>Estimated Fee</span>
-              </div>
-              <div className="course-fee__eligibility">
-                <span className="title">Graduation with 60% + NIPERJEE</span>
-                <span>Eligibility</span>
-              </div>
-              <a href="#" className="course-fee__cta">
-                view details
-              </a>
-            </div>
-
-            <div className="course-fee__item">
-              <div className="course-fee__course">M.Tech</div>
-              <div className="course-fee__fee">
-                <span className="title">Rs. 2.04 Lakh (1st Year Fees)</span>
-                <span>Estimated Fee</span>
-              </div>
-              <div className="course-fee__eligibility">
-                <span className="title">Graduation with 60% + NIPERJEE</span>
-                <span>Eligibility</span>
-              </div>
-              <a href="#" className="course-fee__cta">
-                view details
-              </a>
-            </div>
-           */}
           </div>
         </div>
       </div>

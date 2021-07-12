@@ -232,8 +232,13 @@ const index = () => {
       <div className="placement_imagelist">
         {recurtingCompanies ? (
           <>
-            {recurtingCompanies.map((company) => {
-              return <img src={company} alt="recurting_company_logo" />;
+            {recurtingCompanies.map((company, i) => {
+              return (
+                <div key={i}>
+                  <img src={company} alt="recurting_company_logo" />
+                  <div className="recurting-details">Placement {i}</div>
+                </div>
+              );
             })}
           </>
         ) : null}
@@ -251,8 +256,10 @@ const index = () => {
                 <div className="placement__student">
                   <img src={alumni.image} />
                   <div className="placement__studentdetails">
-                    <span>{alumni.name}</span>
-                    <span>{alumni.batch_year}</span>
+                    <span className="almoni-batch-name">{alumni.name}</span>
+                    <span className="almoni-batch-details">
+                      batch {alumni.batch_year}
+                    </span>
                   </div>
                 </div>
               );

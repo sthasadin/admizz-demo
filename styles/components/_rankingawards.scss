@@ -34,15 +34,16 @@
     overflow: auto;
 
     .rankingawards__awardsbox {
-      padding: 20px;
+      padding: 20px 0;
       background-color: #f2f2f2;
       margin-top: 15px;
     }
     .rankingawards_contents {
       display: flex;
       justify-content: space-between;
-      width: 96%;
+      width: 95%;
       margin: auto;
+      padding-right: 30px;
 
       div {
         display: flex;
@@ -68,21 +69,13 @@
   }
   .award__container {
     margin-top: 22px;
-    display: flex;
-
-    flex-wrap: wrap;
-
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px;
     .award__content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-right: 10px;
-      @media (max-width: 1024px) {
-        margin-top: 10px;
-      }
-
-      .award__title {
-        margin-top: -4px;
+      .award__details {
+        font-weight: 800;
+        text-align: center;
         color: #4f4f4f;
         font-size: 14px;
         line-height: 21px;

@@ -6,10 +6,8 @@ const AwardsList = (props) => {
   return (
     <>
       <div className="award__content">
-        <div className="award__logo">
-          <img src={logo} style={{ maxWidth: "100px", maxHeight: "60px" }} />
-        </div>
-        {/* <div className="award__title">{name}</div> */}
+        <img src={logo} style={{ width: "100%" }} />
+        <div className="award__details">Award {props.count}</div>
       </div>
     </>
   );

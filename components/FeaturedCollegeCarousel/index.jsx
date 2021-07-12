@@ -45,20 +45,20 @@ const index = ({ data }) => {
     slidesToShow: 4,
     slidesToScroll: 1,
     className: "college-list-slider",
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1366,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 4,
+          slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          nextArrow: <SampleNextArrow />,
+          prevArrow: <SamplePrevArrow />,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -81,7 +81,7 @@ const index = ({ data }) => {
     <div>
       <Slider {...settings}>
         {data &&
-          data.slice(0, 4).map((college, index) => {
+          data.map((college, index) => {
             return (
               <div style={{ display: "none" }}>
                 <CollegesCard {...college} key={index} />

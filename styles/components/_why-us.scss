@@ -66,6 +66,12 @@
           outline: none;
           background-color: transparent;
           cursor: pointer;
+
+          &:hover {
+            background-color: #ffa200;
+            border-color: #ffa200;
+            transition: 0.2s all ease-in;
+          }
         }
 
         .btn__right {

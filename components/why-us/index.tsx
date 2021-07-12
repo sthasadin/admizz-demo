@@ -138,7 +138,7 @@ const Us = ({ college, blog }) => {
 
                   <div className="us__cta">
                     <Link href={`/colleges/${college?.college_slug}`}>
-                      View Details
+                      View details
                     </Link>
                   </div>
                 </div>
@@ -154,7 +154,7 @@ const Us = ({ college, blog }) => {
                 {text_truncate(removeHtmlChar(blog?.blog_desc))}
               </div>
               <div className="us__cta">
-                <Link href={`/blogs/${blog?.blog_slug}`}>Learn More</Link>
+                <Link href={`/blogs/${blog?.blog_slug}`}>Learn more</Link>
               </div>
             </div>
           </div>

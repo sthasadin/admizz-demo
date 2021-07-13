@@ -29,37 +29,6 @@ const AuthProvider = (props: any) => {
     });
   };
 
-  //   const setTokenToAPI = async (user: firebase.User) => {
-  //     setUser(user);
-  //     setLoading(true);
-  //     if (user !== null) {
-  //       try {
-  //         const token = await user.getIdTokenResult(true);
-  //         const decodedToken = jwt_decode(token.token);
-  //         const response = await API.get(`/user/profile-picture/${user?.uid}`);
-  //         if (
-  //           response.data.msg != "User not found" &&
-  //           response.data.data.profile_picture
-  //         ) {
-  //           setProfileUrl(response?.data?.data?.profile_picture);
-  //         } else {
-  //           setProfileUrl("");
-  //         }
-  //         setPendingCount(response?.data?.data?.pendingCount);
-
-  //         setCookie(null, "accessToken", token.token, {
-  //           maxAge: 30 * 24 * 60 * 60,
-  //           path: "/",
-  //         });
-  //         setAuthenticated(true);
-  //       } catch (error) {
-  //       }
-  //     } else {
-  //       setAuthenticated(false);
-  //     }
-  //     setLoading(false);
-  //   };
-
   return (
     <AuthContext.Provider
       value={{

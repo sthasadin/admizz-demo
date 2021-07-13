@@ -66,8 +66,6 @@ const Us = ({ college, blog }) => {
     }
   };
 
-  console.log(blog);
-
   return (
     <div className="us">
       <div className="us__inner">

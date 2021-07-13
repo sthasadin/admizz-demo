@@ -3,7 +3,7 @@ import calculateReadingTime from "../../utils/calculateReadingTime";
 
 const BlogCard = ({ data }) => {
   const text_truncate = (str) => {
-    return str.substring(0, 70 - 3) + "...";
+    return str?.substring(0, 70 - 3) + "...";
   };
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");

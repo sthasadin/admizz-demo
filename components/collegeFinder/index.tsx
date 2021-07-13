@@ -32,6 +32,7 @@ const CollegeFinder = () => {
             count="1259"
             imgSrc="/college-finder/engineering.png"
             alt="engineering_logo"
+            stream="management"
           />
           <CollegeFinderCard
             name="Science"

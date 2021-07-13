@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import _ from "lodash";
-
+import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
 
@@ -10,7 +10,10 @@ import { Input } from "../../components/Input";
 import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
 import { CollegeListResult } from "../../components/CollegeListResult";
 // import { getAllCollegeList } from "../../store/Action/allCollage.action";
-import { getColleges } from "../../store/Action/college.action";
+import {
+  getColleges,
+  getCollegesByStream,
+} from "../../store/Action/college.action";
 import { getFilters } from "../../store/Action/courses.action";
 
 const collegeList = () => {
@@ -20,17 +23,25 @@ const collegeList = () => {
   const [_collegeList, setCollegeList] = useState([]);
   const dispatch = useDispatch();
 
+  const router = useRouter();
+  const { query } = router.query;
+
   const _getFilters = async () => {
     const filters = await dispatch(getFilters());
     setFilters(filters);
   };
-  useEffect(() => {
-    _getFilters();
-    dispatch(getColleges());
-  }, []);
 
   const collegeList = useSelector((state) => state.college.colleges);
   const Loading = useSelector((state) => state.college.multiLoading);
+
+  useEffect(() => {
+    if (query) {
+      dispatch(getCollegesByStream(query as any));
+    } else {
+      _getFilters();
+      dispatch(getColleges());
+    }
+  }, [query]);
 
   useEffect(() => {
     if (collegeList.length) {
@@ -112,6 +123,8 @@ const collegeList = () => {
     setCollegeList(collegeList); //the old list
     setSeletedCourses([]);
   };
+
+  console.log(collegeList);
   return (
     <div className="container">
       <Layout title="Colleges" stickyBar={true}>
@@ -177,6 +190,7 @@ const collegeList = () => {
                 <CollegeListResult
                   collegeList={_collegeList}
                   loader={Loading}
+                  query={query}
                 />
               </div>
             </div>

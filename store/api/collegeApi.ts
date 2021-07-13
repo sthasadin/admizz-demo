@@ -1,7 +1,13 @@
 import { postService, getService } from "../commonServices";
 export class CollegeService {
   getColleges() {
-    let url = "/college";
+    let url = `/college`;
+    let data = getService(url);;
+    return data;
+  }
+
+  getCollegesByStream(stream) {
+    let url = `/college/byStream?stream=${stream}`;
     let data = getService(url);;
     return data;
   }

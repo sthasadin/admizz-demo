@@ -14,16 +14,16 @@ const CollegesCard = (college) => {
   const dispatch = useDispatch();
 
   function truncateString(str, num) {
-    if (str.toString().length > num) {
-      return str.toString().slice(0, num) + "K+";
+    if (str?.toString().length > num) {
+      return str?.toString().slice(0, num) + "K+";
     } else {
       return str;
     }
   }
 
   const truncateCourse = (str, num) => {
-    if (str.toString().length > num) {
-      return str.toString().slice(0, num) + "+";
+    if (str?.toString().length > num) {
+      return str?.toString().slice(0, num) + "+";
     } else {
       return str;
     }

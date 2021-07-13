@@ -13,28 +13,25 @@ function Carousel({ children, bulletdot }) {
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = Children.count(children);
   const handleStepChange = (step) => {
+    console.log("asdas");
     setActiveStep(step);
   };
 
-  const inactivestyle = React.useMemo(() => {
-    return {
-      width: bulletdot ? "10px" : "45px",
-      height: "5px",
-      background: "#828282",
-      borderRadius: bulletdot ? "50%" : null,
-      outline: "none",
-    };
-  }, [bulletdot]);
+  const inactivestyle = {
+    width: "45px",
+    height: "5px",
+    background: "#828282",
 
-  const activestyle = React.useMemo(() => {
-    return {
-      width: bulletdot ? "10px" : "45px",
-      height: "5px",
-      background: "#5f1802",
-      borderRadius: bulletdot ? "50%" : null,
-      outline: "none",
-    };
-  }, [bulletdot]);
+    outline: "none",
+  };
+
+  const activestyle = {
+    width: "45px",
+    height: "5px",
+    background: "#5f1802",
+
+    outline: "none",
+  };
 
   return (
     <div className="carousel">

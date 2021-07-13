@@ -20,8 +20,6 @@ const index = () => {
     (a, b) => moment(b.createdAt) - moment(a.createdAt)
   );
 
-  console.log(blogs);
-
   const settings = {
     dots: true,
     dotsClass: "slick-custom-scroll slick-thumb",

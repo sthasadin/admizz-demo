@@ -10,7 +10,7 @@ const RankingTable = (props) => {
       <div className="rankingawards_contents">
         <img
           src={authorityLogo || award}
-          style={{ maxHeight: "80px", maxWidth: "100px" }}
+          style={{ maxHeight: "80px", maxWidth: "100px", width: "100px" }}
         />
         <div style={{ color: "#ffa200" }}>
           {

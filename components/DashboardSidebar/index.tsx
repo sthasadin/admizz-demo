@@ -31,7 +31,7 @@ const DashboardSidebar = () => {
 
         <div
           className={`dashboard-sidebar-tab ${
-            router.pathname === "/dashboardbasicinfo/Status"
+            router.pathname === "/dashboardbasicinfo/status"
               ? "active-dashboard"
               : ""
           }`}

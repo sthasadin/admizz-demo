@@ -30,3 +30,16 @@ export const getCollege = (college_slug) => async (dispatch: Dispatch) => {
     dispatch(error(response.errorMessage));
   }
 };
+
+export const getCollegesByStream = (stream) => async (dispatch: Dispatch) => {
+  dispatch(init(COLLEGES_TYPES.GET_COLLEGES));
+  const response = await collegeService.getCollegesByStream(stream);
+  dispatch(finish(COLLEGES_TYPES.GET_COLLEGES));
+
+  if (response.isSuccess) {
+    dispatch(success(COLLEGES_TYPES.GET_COLLEGES, response.data));
+  } else if (!response.isSuccess) {
+    dispatch(error(response.errorMessage));
+  }
+};
+

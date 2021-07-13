@@ -149,7 +149,6 @@ const Navbar = (props: any) => {
       setMobilesize(false);
     }
   };
-  console.log(props.stickyBar);
 
   React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);

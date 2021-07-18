@@ -42,11 +42,17 @@
     }
 
     .placement__bargraphlist {
-      display: flex;
-      //width: 80%;
-      justify-content: space-evenly;
-      // border: 1px solid black;
-      flex-wrap: wrap;
+      // display: flex;
+      // //width: 80%;
+      // justify-content: space-evenly;
+      // // border: 1px solid black;
+      // flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      place-items: center;
+      @media (max-width: 950px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
       .bargraph__container {
         //border: 1px solid black;

@@ -40,7 +40,7 @@ const AdmissionProcess = () => {
           <div className="admission-process__list">
             {scholarships ? (
               <>
-                {scholarships.map((scholarship, i) => {
+                {scholarships?.slice(0, 6).map((scholarship, i) => {
                   return (
                     <ScholarshipOption image={scholarship} key={i} count={i} />
                   );

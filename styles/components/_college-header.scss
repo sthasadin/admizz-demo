@@ -87,7 +87,7 @@
   &__meta {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 4rem;
 
     @media (max-width: 900px) {
       flex-direction: column;
@@ -103,7 +103,7 @@
       &:nth-child(2)::before,
       &:nth-child(3)::before {
         position: absolute;
-        left: -3rem;
+        left: -2rem;
         content: "";
         height: 6px;
         width: 6px;

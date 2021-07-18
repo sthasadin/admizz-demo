@@ -7,7 +7,7 @@ import {
 } from "../../store/Action/courses.action";
 
 const FeeStructure = (props: any) => {
-  const [selectLevel, setSelectLevel] = useState("all-courses");
+  const [selectLevel, setSelectLevel] = useState("");
   const [selectStream, setSelectStream] = useState(null);
   const [levels, setLevels] = useState([]);
   const [streams, setStreams] = useState([]);
@@ -104,10 +104,6 @@ const FeeStructure = (props: any) => {
     selectStream && getAllPrograms(selectStream);
   }, [selectStream]);
 
-  useEffect(() => {
-    courses && onLevelClick(selectLevel);
-  }, []);
-
   return (
     <div id="course_fee" className="fee-structure">
       <div className="fee-structure__inner">
@@ -150,7 +146,7 @@ const FeeStructure = (props: any) => {
         </div>
         <div className="fee-structure__courses">
           <div className="courses-list">
-            <div className="courses-list__title">All Courses</div>
+            {/* <div className="courses-list__title">All Courses</div> */}
             <div className="courses-list__itemContainer">
               {streams &&
                 streams.map((stream, i) => {

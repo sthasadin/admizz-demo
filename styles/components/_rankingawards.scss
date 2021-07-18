@@ -73,6 +73,11 @@
     grid-template-columns: repeat(6, 1fr);
     grid-gap: 10px;
     .award__content {
+      width: 85px;
+      height: 85px;
+      max-height: 85px;
+      max-width: 85px;
+      min-height: 85px;
       .award__details {
         font-weight: 800;
         text-align: center;

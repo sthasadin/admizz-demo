@@ -4,13 +4,14 @@ import moment from "moment";
 
 const RankingTable = (props) => {
   const { authorityLogo, rank } = props;
+  console.log(authorityLogo);
 
   return (
     <div className="rankingawards__awardsbox">
       <div className="rankingawards_contents">
         <img
           src={authorityLogo || award}
-          style={{ maxHeight: "80px", maxWidth: "100px", width: "100px" }}
+          style={{ maxHeight: "80px", maxWidth: "80px", width: "80px" }}
         />
         <div style={{ color: "#ffa200" }}>
           {

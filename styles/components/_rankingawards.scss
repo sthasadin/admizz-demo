@@ -41,9 +41,10 @@
     .rankingawards_contents {
       display: flex;
       justify-content: space-between;
-      width: 95%;
+      width: 100%;
       margin: auto;
-      padding-right: 30px;
+      padding-left: 30px;
+      padding-right: 40px;
 
       div {
         display: flex;

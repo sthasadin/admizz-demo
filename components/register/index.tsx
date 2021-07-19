@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Input } from "../Input";
 import { PasswordField } from "../Input/PasswordField";
 import PersonIcon from "@material-ui/icons/Person";
@@ -16,6 +16,7 @@ import Alert from "@material-ui/lab/Alert";
 import { Select } from "../Select";
 import { countryList } from "../../utils/CountryLists";
 import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
+import Link from "next/link";
 
 interface signUpFormValue {
   fullName: string;
@@ -33,6 +34,7 @@ const Register = () => {
     countryCode: "+977",
   } as signUpFormValue);
   const [formError, setFormError] = useState({} as any);
+  const [msgType, setMsgType] = useState("" as any);
   const [showPassword, setShowPassword] = useState(false as boolean);
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
@@ -122,7 +124,24 @@ const Register = () => {
               phoneNumber: formValue.countryCode + "-" + formValue.phoneNumber,
               country: formValue.country,
             });
-          router.push("/studentdashboardmain");
+
+          authUser.user
+            .sendEmailVerification()
+            .then(() => {
+              setMsgType("success");
+              handleOpenSnackbar();
+              setFormError({
+                ...formError,
+                otherErrors: "Please verify your email address",
+              });
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+
+          //  axios.post(`${API_BASE_URL}/sendmail`, { email: formValue.email });
+
+          // router.push("/studentdashboardmain");
         }
       }
       setLoading(false);
@@ -130,6 +149,7 @@ const Register = () => {
       setLoading(false);
       const errorMessage = ErrorMessages[err.code];
       handleOpenSnackbar();
+      setMsgType("error");
       if (errorMessage) {
         setFormError({ ...formError, otherErrors: errorMessage });
       } else {
@@ -316,7 +336,9 @@ const Register = () => {
               </div>
               <div className="signin__submit">
                 <div className="signin__change">
-                  <a href="/login">Already Registered? Click Here To Login.</a>
+                  <Link href="/login">
+                    Already Registered? Click Here To Login.
+                  </Link>
                 </div>
                 <Button
                   htmlType={"submit"}
@@ -338,7 +360,7 @@ const Register = () => {
         autoHideDuration={6000}
         onClose={handleCloseSnackbar}
       >
-        <Alert onClose={handleCloseSnackbar} severity="error">
+        <Alert onClose={handleCloseSnackbar} severity={msgType}>
           {formError.otherErrors}
         </Alert>
       </Snackbar>

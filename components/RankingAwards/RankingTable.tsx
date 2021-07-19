@@ -9,10 +9,12 @@ const RankingTable = (props) => {
   return (
     <div className="rankingawards__awardsbox">
       <div className="rankingawards_contents">
-        <img
-          src={authorityLogo || award}
-          style={{ maxHeight: "80px", maxWidth: "80px", width: "80px" }}
-        />
+        <div>
+          <img
+            src={authorityLogo || award}
+            style={{ maxHeight: "80px", maxWidth: "80px", width: "80px" }}
+          />
+        </div>
         <div style={{ color: "#ffa200" }}>
           {
             rank.find((r: any) => r.date == moment().subtract(3, "year").year())

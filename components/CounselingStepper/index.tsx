@@ -12,6 +12,8 @@ import { StudentInfo } from "./StudentInfo";
 import ConfirmBook from "./ConfirmSection";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
+import axios from "axios";
+import { API_BASE_URL } from "../../store/const";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -215,9 +217,11 @@ const CounselingStepper = () => {
       })
       .then(function (docRef) {
         setSnackOpen(true);
+        axios.post(`${API_BASE_URL}/sendmail`, { email: formValue.email });
         setTimeout(() => {
           setIsDisable(false);
           setLoading(false);
+
           router.push("/");
         }, 2000);
       })

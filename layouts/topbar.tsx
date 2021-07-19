@@ -40,7 +40,7 @@ const Topbar = (props: any) => {
           </div> */}
 
           <div className="topbar__signup">
-            {!auth?.currentUser ? (
+            {!auth?.currentUser?.emailVerified ? (
               <div className="signup">
                 <div className="signup__icon">
                   <FontAwesomeIcon icon={faUserTie} />

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CallToAction } from "../Button/callToAction";
 import { Input } from "../Input";
 import { PasswordField } from "../Input/PasswordField";
+import Link from "next/link";
 import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
 import { Button } from "../Button";
@@ -26,6 +27,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false as boolean);
   const [formError, setFormError] = useState({} as any);
   const [loading, setLoading] = useState(false as boolean);
+  const [msgType, setMsgType] = useState("" as any);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   const router = useRouter();
@@ -64,6 +66,21 @@ const Login = () => {
     }
   };
 
+  const sendVerification = (user) => {
+    user
+      .sendEmailVerification()
+      .then(() => {
+        setMsgType("success");
+        setFormError({
+          ...formError,
+          otherErrors: "Email verification sent",
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   const handleSubmit = async (e: any) => {
     try {
       e.preventDefault();
@@ -74,12 +91,32 @@ const Login = () => {
           formValue.email,
           formValue.password
         );
-        router.push("/studentdashboardmain");
+
+        if (!res.user.emailVerified) {
+          setMsgType("error");
+          setFormError({
+            otherErrors: (
+              <div>
+                Please verify your email to access the dashboard.{" "}
+                <span
+                  onClick={() => sendVerification(res.user)}
+                  className="send-email-verification"
+                >
+                  Click here to resend the email verification
+                </span>
+              </div>
+            ),
+          });
+          handleOpenSnackbar();
+        } else {
+          router.push("/studentdashboardmain");
+        }
       }
       setLoading(false);
     } catch (err) {
       setLoading(false);
       const errorMessage = ErrorMessages[err.code];
+      setMsgType("error");
       handleOpenSnackbar();
       if (errorMessage) {
         setFormError({ ...formError, otherErrors: errorMessage });
@@ -206,9 +243,9 @@ const Login = () => {
                 </Button>
                 {/* <CallToAction className="filled login">Login</CallToAction> */}
                 <div className="signin__change login">
-                  <a href="/register">
+                  <Link href="/register">
                     New Here? Click Here To Create our Account.
-                  </a>
+                  </Link>
                 </div>
               </div>
             </form>
@@ -220,7 +257,7 @@ const Login = () => {
         autoHideDuration={6000}
         onClose={handleCloseSnackbar}
       >
-        <Alert onClose={handleCloseSnackbar} severity="error">
+        <Alert onClose={handleCloseSnackbar} severity={msgType}>
           {formError.otherErrors}
         </Alert>
       </Snackbar>

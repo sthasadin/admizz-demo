@@ -12,7 +12,7 @@ const withPrivateRoute = (AuthComponent) => {
       if (authenticated === null) {
         return;
       }
-      if (!authenticated) {
+      if (!authenticated || !user?.emailVerified) {
         Router.push("/login");
         return;
       }

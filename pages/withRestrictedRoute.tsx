@@ -1,29 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
-import Router from "next/router";
-import CircularProgress from "@material-ui/core/CircularProgress";
 
 const withRestrictedRoute = (AuthComponent) => {
   function RestrictedComponent({ children }) {
-    const { authenticated, loading, user } = useContext(AuthContext);
-    const [toRender, setToRender] = useState(false);
+    const { authenticated, user } = useContext(AuthContext);
+
     useEffect(() => {
       if (authenticated == null) {
-        return;
-      }
-      if (authenticated && user !== null) {
-        Router.push("/");
-      } else {
-        setToRender(true);
+        return null;
       }
     }, [authenticated, user]);
-    if (!toRender || loading) {
-      return (
-        <div className={"route-load"}>
-          <CircularProgress />
-        </div>
-      );
-    }
+
     return <>{children}</>;
   }
   return class Higher extends React.Component {

@@ -9,8 +9,9 @@ interface FormError {
 }
 interface Props {
   handleNext: () => void;
+  handleBack: () => void;
   handleChange: (e: any) => void;
-  formValue: Object;
+  formValue: any;
   formError: FormError;
 }
 
@@ -18,6 +19,7 @@ const ConfirmDateTime: React.FC<Props> = ({
   handleNext,
   handleChange,
   formValue,
+  handleBack,
   formError,
 }) => {
   const [selectedTime, setSelectedTime] = useState("03:00" as string);
@@ -46,6 +48,8 @@ const ConfirmDateTime: React.FC<Props> = ({
       },
     });
   }, [selectedTime]);
+
+  console.log(formValue);
 
   return (
     <div className="confirm-date-container">
@@ -110,10 +114,15 @@ const ConfirmDateTime: React.FC<Props> = ({
         </div>
       </div>
       <div className="select-counsellor-container">
-        <SelectCounseler handleChange={handleChange} formError={formError} />
+        <SelectCounseler
+          handleChange={handleChange}
+          formError={formError}
+          selectedCountry={formValue?.home_country}
+        />
       </div>
 
-      <div className={"confirm-date-container__action-button"}>
+      <div className={"student-info__action-buttons"}>
+        <div onClick={handleBack}>Back</div>
         <Button onClick={handleNext}>Continue</Button>
       </div>
     </div>

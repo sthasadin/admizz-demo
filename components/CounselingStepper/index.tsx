@@ -27,9 +27,9 @@ interface studentInfoFormValue {
   home_country: string;
   course: string;
   description: string;
-  date: string;
-  time: string;
-  counsellor: string;
+  // date: string;
+  // time: string;
+  // counsellor: string;
   contact_medium: string;
   contact_id: string;
   // additional_query: string;
@@ -86,13 +86,17 @@ const CounselingStepper = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [isDisable, setIsDisable] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+  const [homeCountry, setHomeCountry] = React.useState({
+    label: "",
+    value: "",
+  });
   const [completed, setCompleted] = React.useState<{ [k: number]: boolean }>(
     {}
   );
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   //State for Student Info Stepper
-  const [formValue, setFormValue] = useState({} as studentInfoFormValue);
+  const [formValue, setFormValue] = useState({} as any);
 
   const [formError, setFormError] = useState({} as any);
 
@@ -100,7 +104,6 @@ const CounselingStepper = () => {
     setFormValue({
       ...formValue,
       [e.target.name]: e.target.value,
-      country_code: "977",
     });
     setFormError({
       ...formError,
@@ -131,9 +134,9 @@ const CounselingStepper = () => {
     course: yup.string().required("Course field should not be empty"),
     description: yup.string().required("Description field should not be empty"),
 
-    date: yup.string().required("Date field should not be empty"),
-    time: yup.string().required("Time field should not be empty"),
-    counsellor: yup.string().required("Select one counselor"),
+    // date: yup.string().required("Date field should not be empty"),
+    // time: yup.string().required("Time field should not be empty"),
+    // counsellor: yup.string().required("Select one counselor"),
     // additional_query: yup.string().required("Required query"),
     contact_medium: yup.string().required("Select one medium"),
     contact_id: yup.string().required("Contact id field should not be empty"),
@@ -173,9 +176,9 @@ const CounselingStepper = () => {
           home_country: formValue.home_country,
           course: formValue.course,
           description: formValue.description,
-          date: formValue.date,
-          time: formValue.time,
-          counsellor: formValue.counsellor,
+          // date: formValue.date,
+          // time: formValue.time,
+          // counsellor: formValue.counsellor,
           // additional_query: formValue.additional_query,
           contact_medium: formValue.contact_medium,
           contact_id: formValue.contact_id,
@@ -194,6 +197,7 @@ const CounselingStepper = () => {
       setFormError({ ...errors });
     }
   };
+  console.log(formValue);
 
   const handleBook = async () => {
     setIsDisable(true);
@@ -231,8 +235,8 @@ const CounselingStepper = () => {
   };
 
   const steps = [
-    "Confirm Date & Time",
     "Student’s Detail",
+    "Confirm Date & Time",
     "Confirm Your Session",
   ];
 
@@ -258,6 +262,7 @@ const CounselingStepper = () => {
 
   const handleNext = async () => {
     const valid = await firstStepValidate();
+    console.log(formError);
     if (valid) {
       const newActiveStep =
         isLastStep() && !allStepsCompleted()
@@ -271,7 +276,7 @@ const CounselingStepper = () => {
 
   const handleNextFormValidation = async () => {
     const valid = await validate();
-
+    console.log(valid);
     if (valid) {
       const newActiveStep =
         isLastStep() && !allStepsCompleted()
@@ -287,8 +292,8 @@ const CounselingStepper = () => {
     switch (step) {
       case 0:
         return (
-          <ConfirmDateTime
-            handleNext={handleNext}
+          <StudentInfo
+            handleNext={handleNextFormValidation}
             handleChange={handleChange}
             formValue={formValue}
             formError={formError}
@@ -296,8 +301,8 @@ const CounselingStepper = () => {
         );
       case 1:
         return (
-          <StudentInfo
-            handleNext={handleNextFormValidation}
+          <ConfirmDateTime
+            handleNext={handleNext}
             handleBack={handleBack}
             handleChange={handleChange}
             formValue={formValue}

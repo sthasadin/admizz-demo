@@ -21,7 +21,7 @@ interface FormError {
 
 interface Props {
   handleNext: () => void;
-  handleBack: () => void;
+
   handleChange: (e: any) => void;
   formValue?: any;
   formError: FormError;
@@ -29,7 +29,7 @@ interface Props {
 
 const StudentInfo: React.FC<Props> = ({
   handleNext,
-  handleBack,
+
   handleChange,
   formValue,
   formError,
@@ -55,6 +55,7 @@ const StudentInfo: React.FC<Props> = ({
               onChange={handleChange}
               errorMessage={formError.name}
               error={!!formError.name}
+              value={formValue.name}
               className={"student-info__input"}
               fullWidth
               icon={PersonIcon}
@@ -67,6 +68,7 @@ const StudentInfo: React.FC<Props> = ({
               name={"email"}
               onChange={handleChange}
               errorMessage={formError.email}
+              value={formValue.email}
               error={!!formError.email}
               className={"student-info__input"}
               fullWidth
@@ -103,6 +105,7 @@ const StudentInfo: React.FC<Props> = ({
                 error={!!formError.phone}
                 className={"student-info__input student-info__phone"}
                 fullWidth
+                value={formValue.phone}
                 icon={CallIcon}
                 label="Phone Number"
                 placeholder="Phone Number"
@@ -114,6 +117,7 @@ const StudentInfo: React.FC<Props> = ({
               name={"home_country"}
               options={countryList}
               onChange={handleChange}
+              value={formValue.home_country}
               errorMessage={formError.home_country}
               error={!!formError.home_country}
               className={"student-info__input"}
@@ -167,6 +171,7 @@ const StudentInfo: React.FC<Props> = ({
                 errorMessage={formError.contact_id}
                 error={!!formError.contact_id}
                 placeholder="Facebook ID"
+                value={formValue.contact_id}
               />
             )}
             {selectedMedium === "whatsapp" && (
@@ -178,6 +183,7 @@ const StudentInfo: React.FC<Props> = ({
                 errorMessage={formError.contact_id}
                 error={!!formError.contact_id}
                 placeholder="Whatsapp ID"
+                value={formValue.contact_id}
               />
             )}
           </Grid>
@@ -192,6 +198,7 @@ const StudentInfo: React.FC<Props> = ({
               icon={MenuBookIcon}
               label={"Select Course"}
               placeholder="Select Course"
+              value={formValue.course}
             />
           </Grid>
         </Grid>
@@ -201,13 +208,14 @@ const StudentInfo: React.FC<Props> = ({
           errorMessage={formError.description}
           error={!!formError.description}
           multiline
+          value={formValue.description}
           // icon={CommentIcon}
           placeholder={"Add additional query you have"}
           fullWidth
           margin={"29px 0px 0px 0px"}
         />
         <div className={"student-info__action-buttons"}>
-          <div onClick={handleBack}>Back</div>
+          {/* <div onClick={handleBack}>Back</div> */}
           <Button onClick={handleNext}>Continue</Button>
         </div>
       </form>

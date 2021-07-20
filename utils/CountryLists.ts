@@ -1,11 +1,11 @@
 const countryList = [
 	{
 		label: 'India',
-		value: '+97'
+		value: 'india'
 	},
 	{
 		label:'Nepal',
-		value: '+977'
+		value: 'nepal'
 	}
 
 

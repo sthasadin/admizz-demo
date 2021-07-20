@@ -84,6 +84,8 @@ const Input = (props: Props) => {
     Icon = props.icon;
   }
 
+  console.log(props.value);
+
   return (
     <div className={classes.container}>
       <TextField

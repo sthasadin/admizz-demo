@@ -9,12 +9,19 @@ interface FormError {
 interface Props {
   handleChange: (e: any) => void;
   formError: FormError;
+  selectedCountry?: any;
 }
 
-const SelectCounseler: React.FC<Props> = ({ handleChange, formError }) => {
+const SelectCounseler: React.FC<Props> = ({
+  handleChange,
+  formError,
+  selectedCountry,
+}) => {
   const [counsellorArray, setCounsellorArray] = useState([]);
+  const [loader, setLoader] = React.useState(false);
 
   const getFireStoreCounselor = async () => {
+    setLoader(true);
     const counsellor = [];
     await db
       .collection("counsellor")
@@ -33,11 +40,18 @@ const SelectCounseler: React.FC<Props> = ({ handleChange, formError }) => {
         });
       });
     setCounsellorArray([...counsellor]);
+    setLoader(false);
   };
 
   useEffect(() => {
     getFireStoreCounselor();
   }, []);
+
+  console.log(counsellorArray);
+
+  const filteredCounsellor = counsellorArray?.filter(
+    (counsellor) => counsellor.country === selectedCountry
+  );
 
   const [selectedCounseler, setSelectedCounseler] = useState(1 as number);
 
@@ -56,34 +70,38 @@ const SelectCounseler: React.FC<Props> = ({ handleChange, formError }) => {
         <div>Select Counseler</div>
       </div>
       <div className="select-counseler__counseler-list">
-        {counsellorArray.map((item) => {
-          return (
-            <div
-              key={item.id}
-              onClick={() => setSelectedCounseler(item.id)}
-              className={`select-counseler__counseler-card`}
-            >
-              <img
-                className={"select-counseler__counsellorImage"}
-                src={item.image}
-              />
+        {filteredCounsellor &&
+          filteredCounsellor.map((item) => {
+            return (
               <div
-                className={`select-counseler__counseler-info 
+                key={item.id}
+                onClick={() => setSelectedCounseler(item.id)}
+                className={`select-counseler__counseler-card`}
+              >
+                <img
+                  className={"select-counseler__counsellorImage"}
+                  src={item.image}
+                />
+                <div
+                  className={`select-counseler__counseler-info 
                                  ${
                                    selectedCounseler === item.id &&
                                    "select-counseler__counseler-info-selected"
                                  }`}
-              >
-                <div className="select-counseler__counseler-name">
-                  {item.name}
-                </div>
-                <div className="select-counseler__counseler-nationaliy">
-                  {item.country}
+                >
+                  <div className="select-counseler__counseler-name">
+                    {item.name}
+                  </div>
+                  <div className="select-counseler__counseler-nationaliy">
+                    {item.country}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        {filteredCounsellor.length === 0 && !loader
+          ? "Sorry there no counsellor in your region right now"
+          : ""}
       </div>
       <div className="error-msg">{formError.counsellor} </div>
     </div>

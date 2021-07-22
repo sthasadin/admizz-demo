@@ -1,279 +1,137 @@
 .us {
   position: relative;
   font-size: 14px;
-  &__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    @media (max-width: 820px) {
-      grid-template-columns: 1fr;
-    }
+  font-family: "Mplus 1p", sans-serif;
+
+  @media (max-width: 700px) {
+    margin-top: 50px;
   }
-  &__left {
-    background-image: linear-gradient(
-        rgba(79, 79, 79, 0.7),
-        rgba(79, 79, 79, 0.7)
-      ),
-      url(/us.png);
-    background-position: center center;
+
+  &__backgroundimage {
+    background-image: url("/public/why-us-bg-image.png");
     background-size: cover;
+    background-position: center;
+    height: 341px;
+    border: 1px solid black;
     background-repeat: no-repeat;
-    color: #fff;
-    &__inner {
-      width: 100%;
-      display: flex;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    @media (max-width: 700px) {
       flex-direction: column;
-      justify-content: space-between;
-      padding: 36px 38px 38px 0;
-      @media (min-width: 768px) {
-        width: 90%;
-        margin-left: auto;
-        margin-right: 0;
-      }
-      @media (min-width: 1024px) {
-        width: 90%;
-        margin-left: auto;
-        margin-right: 0;
-      }
-      @media (min-width: 1200px) {
-        width: 90%;
-        margin-left: auto;
-        margin-right: 0;
-      }
-      @media (min-width: 1360px) {
-        width: 100%;
-        margin-left: auto;
-        margin-right: 0;
-        padding-left: 60px;
-      }
-      @media (max-width: 820px) {
-        padding-left: 24px;
-      }
-      @media (max-width: 1024px) {
-        height: 640px;
-      }
-      @media (max-width: 500px) {
-        padding-left: 10px;
-      }
-
-      .us__btncontainer {
-        display: flex;
-        align-items: flex-end;
-        .btn__left {
-          border: 1px solid #ffffff;
-          margin-right: 3px;
-          width: 48px;
-          height: 48px;
-          outline: none;
-          background-color: transparent;
-          cursor: pointer;
-
-          &:hover {
-            background-color: #ffa200;
-            border-color: #ffa200;
-            transition: 0.2s all ease-in;
-          }
-        }
-
-        .btn__right {
-          border: 1px solid #ffa200;
-          cursor: pointer;
-          width: 48px;
-          height: 48px;
-          outline: none;
-          background-color: #ffa200;
-        }
-      }
+      gap: 20px;
     }
   }
-  &__right {
-    &__top {
-      background-image: linear-gradient(
-          rgba(1, 1, 1, 0) 0%,
-          rgba(2, 2, 2, 0.4) 45.31%,
-          rgba(3, 3, 3, 0.77) 100%
-        ),
-        url(/us1.png);
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding: 36px 0px 32px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: #fff;
-      height: 320px;
-      @media (max-width: 500px) {
-        padding: 20px 10px;
-      }
-    }
-    &__bottom {
-      background-image: linear-gradient(
-          rgba(1, 1, 1, 0) 0%,
-          rgba(2, 2, 2, 0.4) 45.31%,
-          rgba(3, 3, 3, 0.77) 100%
-        ),
-        url(/us2.png);
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding: 36px 100px 32px 24px;
-      height: 320px;
-      color: #fff;
-      display: grid;
-      @media (max-width: 500px) {
-        padding: 20px 10px;
-      }
+  &__leftcontent {
+    width: 50%;
+    @media (max-width: 700px) {
+      width: 100%;
     }
   }
   &__title {
+    font-weight: 800;
+    color: #fff;
     font-size: 36px;
-    line-height: 54px;
-    font-weight: 700;
-    @media (max-width: 450px) {
-      font-size: 24px;
-    }
-    &--mini {
-      font-size: 30px;
-    }
+    font-style: normal;
   }
-  &__desc {
-    line-height: 1.7;
+  &__helpertext {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: #fff;
   }
+
   &__feature {
-    margin-top: 30px;
-    margin-bottom: 32px;
-  }
-  &__btn {
-    margin-top: 40px;
-  }
-  &__info {
-    display: flex;
-    align-items: center;
+    background-image: url("/public/tieups-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f3f3f2;
     position: relative;
-    gap: 20px;
-    @media (max-width: 450px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    svg {
-      width: 156px;
-      position: absolute;
-      transform: rotate(89deg);
+    padding-bottom: 50px;
+  }
 
-      left: -18px;
-      top: -23px;
-    }
-    path {
-      fill: transparent;
-      stroke: #f4c851;
-      stroke-dasharray: 0.1, 3;
-      stroke-linecap: round;
-    }
+  &__feature_container {
+    position: absolute;
+    top: -120px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
 
-    .hexagon-border {
-      height: 140px;
-      width: 140px;
-      position: absolute;
-      border-right: 2px dotted red;
-      border-left: 2px dotted red;
-      left: -10px;
-
-      &::before {
-        content: "";
-        position: absolute;
-        z-index: 1;
-        width: 212.13px;
-        height: 212.13px;
-        -webkit-transform: scaleY(0.5774) rotate(-45deg);
-        -ms-transform: scaleY(0.5774) rotate(-45deg);
-        transform: scaleY(0.5774) rotate(-45deg);
-        background-color: inherit;
-        left: 40.934px;
-        top: -106.066px;
-        border-top: 3px dotted #f00;
-        border-right: 3px dotted #f00;
-      }
+    @media (max-width: 1024px) {
+      position: unset;
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 20px;
     }
-    &__logo {
-      height: 111px;
-      width: 130px;
-      position: relative;
-      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-      border: 1px solid black;
-
-      img {
-        height: 100%;
-        width: 100%;
-        // object-fit: contain;
-
-        @media (max-width: 450px) {
-          margin-bottom: 10px;
-        }
-      }
-    }
-    &__cat-wrap {
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      margin-bottom: 8px;
-    }
-    &__cat {
-      margin-left: 8px;
-    }
-    &__estd {
-      display: flex;
-      align-self: center;
-      span {
-        font-weight: 700;
-      }
-      &::after {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        display: block;
-        margin-left: 6px;
-        margin-top: 4px;
-        background-color: $secondary-color;
-      }
-    }
-    &__name {
-      font-size: 18px;
-      line-height: 24px;
-      font-weight: 700;
-      margin-bottom: 7px;
-    }
-    &__details-wrap {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    &__details {
-      line-height: 20px;
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
-  &__read {
-    align-self: flex-end;
-    &__title {
-      font-size: 18px;
-      line-height: 24px;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-    &__desc {
-      line-height: 20px;
-      margin-bottom: 12px;
+}
+
+.our-exclusive-container {
+  // height: 600px;
+
+  .our-exclusive-content {
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @media (max-width: 1024px) {
+      padding-top: 50px;
     }
   }
-  &__cta {
-    line-height: 20px;
-    color: $secondary-color;
-    font-weight: 600;
-    &:hover {
-      text-decoration: underline;
+  .our-trusted-text {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 900;
+    line-height: 33px;
+    color: #5f1802;
+  }
+  .our-exclusive-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #333;
+    font-family: "Mplus 1p";
+  }
+}
+
+.university-list {
+  // border: 1px solid black;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 8%;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 800px) {
+    width: 50%;
+  }
+  @media (max-width: 600px) {
+    width: 80%;
+  }
+  .university-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
     }
-    @media (max-width: 500px) {
-      float: right;
-    }
+  }
+  .university-name {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 800;
   }
 }

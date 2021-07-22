@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCollegeList } from "../store/Action/allCollage.action";
-import { getBlogs } from "../store/Action/blog.action";
 import { About } from "../components/About";
 import { BlogList } from "../components/BlogList";
 import { CollegeFinder } from "../components/collegeFinder";
@@ -21,12 +20,8 @@ export default function Home() {
   useEffect(() => {
     dispatch(getAllCollegeList());
   }, []);
-  useEffect(() => {
-    dispatch(getBlogs("All"));
-  }, []);
 
   const { collegeList } = useSelector((state) => state.allCollege);
-  const blogs = useSelector((state) => state.blog.blogs);
 
   return (
     <Layout title="Home" stickyBar={true}>
@@ -34,7 +29,7 @@ export default function Home() {
 
       <About />
       <Merits />
-      <Us college={collegeList[1]} blog={blogs[blogs?.length - 1]} />
+      <Us college={collegeList.slice(0, 2)} />
 
       <Statistics />
       <FiveSteps />

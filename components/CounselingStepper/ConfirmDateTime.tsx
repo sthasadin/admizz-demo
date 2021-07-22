@@ -49,8 +49,6 @@ const ConfirmDateTime: React.FC<Props> = ({
     });
   }, [selectedTime]);
 
-  console.log(formValue);
-
   return (
     <div className="confirm-date-container">
       <div className="confirm-date-container__date-time">

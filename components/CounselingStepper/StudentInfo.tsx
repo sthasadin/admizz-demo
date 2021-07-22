@@ -95,7 +95,6 @@ const StudentInfo: React.FC<Props> = ({
                 value={formValue.countryCode}
                 onChange={handleChange}
                 error={!!formError.countryCode}
-                errorMessage={formError.countryCode}
                 className={"student-info__phone-separator"}
               />
               <Input

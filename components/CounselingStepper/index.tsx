@@ -22,7 +22,7 @@ function Alert(props: AlertProps) {
 interface studentInfoFormValue {
   name: string;
   email: string;
-  country_code: string;
+  countryCode: string;
   phone: number;
   home_country: string;
   course: string;
@@ -86,10 +86,7 @@ const CounselingStepper = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [isDisable, setIsDisable] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
-  const [homeCountry, setHomeCountry] = React.useState({
-    label: "",
-    value: "",
-  });
+
   const [completed, setCompleted] = React.useState<{ [k: number]: boolean }>(
     {}
   );
@@ -123,7 +120,7 @@ const CounselingStepper = () => {
       .string()
       .required("Email field should not be empty")
       .email("Please provide a valid email"),
-    country_code: yup.string().required("Required code"),
+    countryCode: yup.string().required("Required code"),
     phone: yup
       .number()
       .required("Phone number field should not be empty")
@@ -171,15 +168,11 @@ const CounselingStepper = () => {
         {
           name: formValue.name,
           email: formValue.email,
-          country_code: formValue.country_code,
+          countryCode: formValue.countryCode,
           phone: formValue.phone,
           home_country: formValue.home_country,
           course: formValue.course,
           description: formValue.description,
-          // date: formValue.date,
-          // time: formValue.time,
-          // counsellor: formValue.counsellor,
-          // additional_query: formValue.additional_query,
           contact_medium: formValue.contact_medium,
           contact_id: formValue.contact_id,
         },
@@ -206,7 +199,7 @@ const CounselingStepper = () => {
       .add({
         name: formValue.name,
         email: formValue.email,
-        country_code: formValue.country_code,
+        countryCode: formValue.countryCode,
         phone: formValue.phone,
         home_country: formValue.home_country,
         course: formValue.course,
@@ -226,7 +219,7 @@ const CounselingStepper = () => {
           setIsDisable(false);
           setLoading(false);
 
-          router.push("/");
+          // router.push("/");
         }, 2000);
       })
       .catch(function (error) {

@@ -47,8 +47,6 @@ const SelectCounseler: React.FC<Props> = ({
     getFireStoreCounselor();
   }, []);
 
-  console.log(counsellorArray);
-
   const filteredCounsellor = counsellorArray?.filter(
     (counsellor) => counsellor.country === selectedCountry
   );

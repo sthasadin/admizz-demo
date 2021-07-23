@@ -1,0 +1,66 @@
+.program-header {
+  height: 256px;
+  font-family: "Mplus 1p", sans-serif;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.program-header__program {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 140px;
+
+  @media (max-width: 800px) {
+    padding-top: 50px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+}
+.program-header__task {
+  display: flex;
+  align-items: flex-end;
+
+  .task__title {
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+.program-title {
+  font-family: "Mplus 1p", sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 46px;
+  color: #fff;
+}
+.detail-container {
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: 800px) {
+    margin-top: 10px;
+  }
+}
+.course-update-container {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.course-text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.course-date {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.program-header__right {
+  display: flex;
+  align-self: flex-end;
+  @media (max-width: 800px) {
+    align-self: flex-start;
+  }
+}

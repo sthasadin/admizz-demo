@@ -25,6 +25,10 @@
     line-height: 21px;
     font-weight: 500;
     color: #333;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   &__level {
     font-size: 12px;

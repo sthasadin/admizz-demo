@@ -63,13 +63,15 @@
     line-height: 40px;
     width: 50%;
     background-color: $secondary-color;
+    border-color: $secondary-color;
     color: #fff;
     font-size: 16px;
     text-align: center;
+    outline: none;
     font-weight: 800;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
-    border: none;
+    // border: none;
     @media (max-width: 414px) {
       width: 100%;
     }

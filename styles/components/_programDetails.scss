@@ -1,0 +1,142 @@
+.section-container {
+  padding: 20px;
+  background-color: #fff;
+  font-family: "Mplus 1p", sans-serif;
+  border-radius: 5px;
+}
+
+.title-content {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .title-text {
+    font-size: 18px;
+    color: #ffa200;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .title-date {
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    align-items: flex-end;
+  }
+}
+.overview-text-description {
+  font-size: 14px;
+  line-height: 21px;
+  color: #333;
+  font-weight: 400;
+  margin-top: 20px;
+}
+
+.course-highlights {
+  .course-title {
+    margin: 10px 0;
+    color: #333;
+    font-weight: 800;
+  }
+  .course-highlights-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  .course-highlights-container {
+    display: flex;
+    gap: 30px;
+    .content-left {
+      width: 40%;
+      border-right: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      color: #333;
+      font-size: 14px;
+      @media (max-width: 1024px) {
+        width: unset;
+      }
+    }
+    .content-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      color: #333;
+      font-weight: 800;
+      font-size: 14px;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.admission-container {
+  .course-title {
+    margin: 10px 0;
+    color: #333;
+    font-weight: 800;
+  }
+  .course-start-date-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .course-start-content {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .course-start-date {
+      font-size: 14px;
+      color: #333;
+      font-weight: 800;
+    }
+  }
+  .course-description {
+    color: #333;
+    line-height: 21px;
+    font-size: 14px;
+    margin-top: 25px;
+  }
+}
+
+.course-outline {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.course-syallbus-container {
+  .course-title {
+    margin: 10px 0;
+    color: #333;
+    font-weight: 800;
+  }
+  .course-syallbus-detail {
+    color: #333;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .syallbus-container {
+    background-color: #f2f2f2;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    @media (max-width: 800px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
+  }
+}

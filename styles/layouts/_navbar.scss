@@ -33,7 +33,7 @@
   &__hamburger {
     display: none;
     text-align: right;
-    @media (max-width: 600px) {
+    @media (max-width: 1175px) {
       display: block;
     }
   }

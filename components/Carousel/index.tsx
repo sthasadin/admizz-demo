@@ -13,7 +13,6 @@ function Carousel({ children, bulletdot }) {
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = Children.count(children);
   const handleStepChange = (step) => {
-    console.log("asdas");
     setActiveStep(step);
   };
 

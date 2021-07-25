@@ -26,7 +26,7 @@ const DropDownSelect = ({
       marginTop: "60px",
       textTransform: "capitalize",
     }),
-    control: (base) => ({
+    control: (base, state) => ({
       ...base,
       height: 53,
       minHeight: 50,
@@ -35,9 +35,11 @@ const DropDownSelect = ({
       left: 0,
       // top: 0,
       right: 0,
-      borderColor: error ? "red" : "#c4c4c4",
+      border: state.isFocused ? "2px solid #3f51b5" : "",
+      borderColor: state.isFocused ? "#3f51b5" : "#c4c4c4",
+      boxShadow: state.isFocused ? "#3f51b5" : 0,
       "&:hover": {
-        borderColor: "black",
+        borderColor: state.isFocused ? "#3f51b5" : "black",
       },
     }),
   };

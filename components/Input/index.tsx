@@ -42,7 +42,7 @@ const Input = (props: Props) => {
           return props.borderRadius ? props.borderRadius : "5px";
         },
         outline: "none",
-        fontFamily: "'M PLUS 1p'",
+        fontFamily: "Mplus 1p",
         borderColor: "none",
         fontWeight: 400,
         fontSize: 14,

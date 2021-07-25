@@ -23,10 +23,15 @@ const Navbar = (props: any) => {
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
-      event.type === "keydown" &&
+      event.type === "keyup" &&
       (event.key === "Tab" || event.key === "Shift")
     ) {
       return;
+    }
+
+    if (event.type === "scrollup") {
+      console.log("asdasd");
+      setState({ ...state, top: open });
     }
 
     setState({ ...state, top: open });
@@ -83,13 +88,22 @@ const Navbar = (props: any) => {
           </Link>
         </ListItem>
         <ListItem button key={"Contact"} className="navbar__list">
-          {/* <Link href="/contact-us"> */}
-          <ListItemIcon>
-            <img src="/user-icon.png" alt="..." />
-          </ListItemIcon>
-
-          <ListItemText primary={"Sign Up/Login"} />
-          {/* </Link> */}
+          <Link href="/contact-us">
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <div>
+                {" "}
+                <img src="/user-icon.png" alt="..." />
+              </div>
+              <div className="MuiTypography-body1">Sign up/Login</div>
+            </div>
+          </Link>
         </ListItem>
       </List>
 

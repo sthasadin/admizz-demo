@@ -110,7 +110,10 @@ const Merits = () => {
         }}
       >
         <Fade in={open}>
-          <div>
+          <div className="react-player-container">
+            <div className="cross-icon" onClick={handleClose}>
+              X
+            </div>
             <ReactPlayer
               className="react-player"
               url="https://www.youtube.com/watch?v=_xMXR5_CnQM"

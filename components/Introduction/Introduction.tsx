@@ -87,7 +87,10 @@ const Introduction = (props) => {
                   }}
                 >
                   <Fade in={open}>
-                    <div>
+                    <div className="react-player-container ">
+                      <div className="cross-icon" onClick={handleClose}>
+                        X
+                      </div>
                       <ReactPlayer url={videoUrl} className="react-player" />
                     </div>
                   </Fade>

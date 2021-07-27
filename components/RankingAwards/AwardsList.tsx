@@ -1,13 +1,12 @@
 import React from "react";
 import award_logo from "../../public/award_logo.png";
 
-const AwardsList = (props) => {
-  const { name, logo } = props;
+const AwardsList = ({ data }) => {
   return (
     <>
       <div className="award__content">
-        <img src={logo} style={{ width: "100%" }} />
-        <div className="award__details">Award {props.count}</div>
+        <img src={data.logo} style={{ width: "100%" }} />
+        <div className="award__details">{data.title}</div>
       </div>
     </>
   );

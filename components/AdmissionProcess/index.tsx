@@ -41,9 +41,7 @@ const AdmissionProcess = () => {
             {scholarships ? (
               <>
                 {scholarships?.slice(0, 6).map((scholarship, i) => {
-                  return (
-                    <ScholarshipOption image={scholarship} key={i} count={i} />
-                  );
+                  return <ScholarshipOption data={scholarship} key={i} />;
                 })}{" "}
               </>
             ) : null}

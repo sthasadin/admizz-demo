@@ -18,8 +18,8 @@ import { useSelector } from "react-redux";
 // }
 
 const index = () => {
-  const recurtingCompanies = useSelector(
-    (state: any) => state.college.college?.top_recurtng_companies
+  const recruiting = useSelector(
+    (state: any) => state.college.college?.top_recruiting_companies
   );
   const alumnis = useSelector((state: any) => state.college.college?.alumni);
   const statistics = useSelector(
@@ -36,7 +36,10 @@ const index = () => {
     return "md";
   };
 
+  console.log({ recruiting });
+
   const getMoneyAsString = (money: number) => {
+    return money;
     if (money < 100000) {
       return `${Number(money / 1000)}K`;
     } else {
@@ -47,7 +50,7 @@ const index = () => {
       }L`;
     }
   };
-  return statistics || recurtingCompanies?.length || alumnis?.length ? (
+  return statistics || recruiting?.length || alumnis?.length ? (
     <div id="placement" className="placement">
       <div className="placement__title">PLACEMENTS</div>
       <div className="placement__bargrapcontainer">
@@ -230,13 +233,13 @@ const index = () => {
       </div>
       <div className="placement__heading">Top Recruiting Companies</div>
       <div className="placement_imagelist">
-        {recurtingCompanies ? (
+        {recruiting ? (
           <>
-            {recurtingCompanies.map((company, i) => {
+            {recruiting.map((data, i) => {
               return (
                 <div key={i}>
-                  <img src={company} alt="recurting_company_logo" />
-                  <div className="recurting-details">Placement {i}</div>
+                  <img src={data.logo} alt="recurting_company_logo" />
+                  <div className="recurting-details">{data.title}</div>
                 </div>
               );
             })}
@@ -266,28 +269,6 @@ const index = () => {
             })}
           </>
         ) : null}
-
-        {/* <div className="placement__student">
-          <img src={student} />
-          <div className="placement__studentdetails">
-            <span>Mathew Perry</span>
-            <span>Batch 2019</span>
-          </div>
-        </div> */}
-        {/* <div className="placement__student">
-          <img src={student} />
-          <div className="placement__studentdetails">
-            <span>Mathew Perry</span>
-            <span>Batch 2019</span>
-          </div>
-        </div> */}
-        {/* <div className="placement__student">
-          <img src={student} />
-          <div className="placement__studentdetails">
-            <span>Mathew Perry</span>
-            <span>Batch 2019</span>
-          </div>
-        </div> */}
       </div>
     </div>
   ) : null;

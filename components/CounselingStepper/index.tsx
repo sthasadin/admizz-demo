@@ -190,7 +190,6 @@ const CounselingStepper = () => {
       setFormError({ ...errors });
     }
   };
-  console.log(formValue);
 
   const handleBook = async () => {
     setIsDisable(true);
@@ -255,7 +254,7 @@ const CounselingStepper = () => {
 
   const handleNext = async () => {
     const valid = await firstStepValidate();
-    console.log(formError);
+
     if (valid) {
       const newActiveStep =
         isLastStep() && !allStepsCompleted()
@@ -269,7 +268,7 @@ const CounselingStepper = () => {
 
   const handleNextFormValidation = async () => {
     const valid = await validate();
-    console.log(valid);
+
     if (valid) {
       const newActiveStep =
         isLastStep() && !allStepsCompleted()

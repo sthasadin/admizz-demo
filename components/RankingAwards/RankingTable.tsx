@@ -4,7 +4,6 @@ import moment from "moment";
 
 const RankingTable = (props) => {
   const { authorityLogo, rank } = props;
-  console.log(authorityLogo);
 
   return (
     <div className="rankingawards__awardsbox">

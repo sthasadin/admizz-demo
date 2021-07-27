@@ -83,11 +83,6 @@ const CountryCodeDropDown = (props: Props) => {
   }));
   const classes = useStyles(props);
 
-  // const getNumberWithImage = (code: any) => {
-  //   console.log(code);
-  //   return <p>asdasd</p>;
-  // };
-
   const Icon = props.icon;
   return (
     <FormControl className={classes.formControl} variant="outlined">

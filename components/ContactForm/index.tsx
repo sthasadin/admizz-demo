@@ -104,8 +104,6 @@ const ContactForm = () => {
     setLoading(false);
   };
 
-  console.log(loading);
-
   return (
     <div className="contact-form">
       <div className="contact-form__contact-us">

@@ -7,8 +7,6 @@ import { useSelector } from "react-redux";
 const index = () => {
   const college = useSelector((state: any) => state.college.college);
 
-  console.log("asdasd", college.college_awards);
-
   const ranking = useMemo(() => {
     let clgRank = college?.college_rankings;
     let newStructOfRank = [];

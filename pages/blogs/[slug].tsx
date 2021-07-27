@@ -25,7 +25,7 @@ import Dialog from "@material-ui/core/Dialog";
 import { getBlog } from "../../store/Action/blog.action";
 import BlogComment from "../../components/BlogComment";
 
-const blogDetail = (props) => {
+const blogDetail = () => {
   const router = useRouter();
   const { slug } = router.query;
   const dispatch = useDispatch();
@@ -35,7 +35,6 @@ const blogDetail = (props) => {
   const handleClickOpen = () => {
     setOpen(true);
   };
-  console.log(props);
 
   const handleClose = () => {
     setOpen(false);

@@ -20,9 +20,6 @@ const blogList = () => {
     dispatch(getBlogs("All"));
   }, []);
 
-  const randomNumber = Math.floor(Math.random() * blogs?.length);
-  console.log(randomNumber);
-
   const latestBlog = blogs.sort(
     (a, b) => (moment(b.createdAt) as any) - (moment(a.createdAt) as any)
   );

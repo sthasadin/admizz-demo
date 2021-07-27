@@ -30,7 +30,6 @@ const Navbar = (props: any) => {
     }
 
     if (event.type === "scrollup") {
-      console.log("asdasd");
       setState({ ...state, top: open });
     }
 

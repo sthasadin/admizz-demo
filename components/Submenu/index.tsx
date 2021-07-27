@@ -27,7 +27,6 @@ const Submenu = (props: any) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log(college);
   return (
     <div
       className={`submenu-bars  ${

@@ -15,12 +15,6 @@ const CollegeListResult: FC<CollegeProps> = ({
   loader,
   query,
 }) => {
-  // console.log({ collegeList, query });
-  if (query) {
-    console.log("query cha");
-  } else {
-    console.log("query chaena");
-  }
   return (
     <div className="college-list-result">
       {loader ? (

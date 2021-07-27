@@ -62,9 +62,8 @@ const FeeStructure = (props: any) => {
 
   const getAllPrograms = async (programStream: any) => {
     let thisPrograms = [];
-    console.log("aoutside");
+
     if (programStream === "all-courses") {
-      console.log("inside");
       courses.forEach((course) => {
         let programDetail = {
           _id: course?._id,
@@ -93,7 +92,6 @@ const FeeStructure = (props: any) => {
 
     setPrograms(thisPrograms);
   };
-  console.log(programs);
 
   useEffect(() => {
     getAllLevels();

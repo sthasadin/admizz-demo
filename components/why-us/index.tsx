@@ -122,7 +122,6 @@ const Us = ({ college }) => {
       ),
     },
   ];
-  console.log(college);
 
   return (
     <div className="us">

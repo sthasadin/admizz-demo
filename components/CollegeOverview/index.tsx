@@ -11,8 +11,6 @@ const CollegeOverview = () => {
 
   const college = useSelector((state) => state.college.college);
 
-  console.log(college);
-
   return (
     <div id="overview" className="overview">
       <div className="overview__title-wrap">

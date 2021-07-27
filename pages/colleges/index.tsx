@@ -124,7 +124,6 @@ const collegeList = () => {
     setSeletedCourses([]);
   };
 
-  console.log(collegeList);
   return (
     <div className="container">
       <Layout title="Colleges" stickyBar={true}>

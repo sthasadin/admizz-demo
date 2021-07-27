@@ -5,8 +5,6 @@ import { useDispatcher, useSelector } from "react-redux";
 const CollegeFacility = () => {
   const facilities = useSelector((state) => state.college.college.facilities);
 
-  console.log(facilities);
-
   return facilities?.length ? (
     <div className="college-facility">
       <div className="college-facility__inner">

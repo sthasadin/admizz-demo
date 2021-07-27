@@ -9,8 +9,6 @@ const BlogCategory = () => {
   const blogArray = useSelector((state) => state.blog.blogs);
   const multiLoading = useSelector((state) => state.blog.multiLoading);
 
-  console.log(multiLoading);
-
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");
   };

@@ -110,7 +110,7 @@ const RatingAndReview = (props: any) => {
       _review.noOfLikes = [...review.likesArray, user];
       let id = _review.id;
       const newReview = { ..._review };
-      console.log(newReview);
+
       if (newReview?.noOfDisLikes?.length > 0) {
         newReview.noOfDisLikes = newReview?.noOfDisLikes?.filter(
           (dislike) => dislike !== user

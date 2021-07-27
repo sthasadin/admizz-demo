@@ -36,8 +36,6 @@ const index = () => {
     return "md";
   };
 
-  console.log({ recruiting });
-
   const getMoneyAsString = (money: number) => {
     return money;
     if (money < 100000) {

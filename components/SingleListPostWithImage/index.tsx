@@ -7,7 +7,7 @@ const SingleListPostWithImage = (props: any) => {
   const router = useRouter();
 
   function truncateString(str, num) {
-    if (str.length > num) {
+    if (str?.length > num) {
       return str.slice(0, num) + "...";
     } else {
       return str;
@@ -42,7 +42,7 @@ const SingleListPostWithImage = (props: any) => {
             {/* </Link> */}
           </div>
           <div className="single-list-post-with-image__Description">
-            {truncateString(props.desc, 90)}
+            {truncateString(props?.desc, 90)}
           </div>
         </div>
       </div>

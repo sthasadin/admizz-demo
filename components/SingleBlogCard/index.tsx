@@ -6,7 +6,7 @@ const SingleBlogCard = (props: any) => {
   const router = useRouter();
 
   function truncateString(str, num) {
-    if (str.length > num) {
+    if (str?.length > num) {
       return str.slice(0, num) + "...";
     } else {
       return str;
@@ -38,7 +38,7 @@ const SingleBlogCard = (props: any) => {
               {/* </Link> */}
             </div>
             <div className="blogCard__desc">
-              {truncateString(props.desc, 20)}
+              {truncateString(props?.desc, 20)}
             </div>
           </div>
         </div>

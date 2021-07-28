@@ -12,6 +12,13 @@ export class CollegeService {
     return data;
   }
 
+  getCollegesByCity(city) {
+    let body = city;
+    let url = `/college/filter`;
+    let data = postService(url,body);
+    return data;
+  }
+
   getCollege(college_slug) {
     let url = `/college/getOneCollege/${college_slug}`;//temporarly slug is id
     let data = getService(url);

@@ -48,6 +48,8 @@ const blogDetail = () => {
   // const { blog } = useSelector((state) => state.blogDetails);
   const blog = useSelector((state) => state.blog.blog);
 
+  console.log(blog);
+
   return (
     <BlogLayout title={blog?.blog_title}>
       <div className="container section-wrapper">

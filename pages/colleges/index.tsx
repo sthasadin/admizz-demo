@@ -13,6 +13,7 @@ import { CollegeListResult } from "../../components/CollegeListResult";
 import {
   getColleges,
   getCollegesByStream,
+  getCollegesByCity,
 } from "../../store/Action/college.action";
 import { getFilters } from "../../store/Action/courses.action";
 
@@ -30,6 +31,14 @@ const collegeList = () => {
     const filters = await dispatch(getFilters());
     setFilters(filters);
   };
+
+  React.useEffect(() => {
+    dispatch(
+      getCollegesByCity({
+        city: selectedCourses[0],
+      })
+    );
+  }, [selectedCourses]);
 
   const collegeList = useSelector((state) => state.college.colleges);
   const Loading = useSelector((state) => state.college.multiLoading);
@@ -91,6 +100,8 @@ const collegeList = () => {
       );
     }
   };
+
+  console.log(selectedCourses);
 
   const deSelectCourse = (name) => {
     setSeletedCourses(

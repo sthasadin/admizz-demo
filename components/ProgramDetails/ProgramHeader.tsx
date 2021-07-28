@@ -19,7 +19,7 @@ const ProgramHeader = ({}) => {
         <div className="program-header__program">
           <div className="program-header__left">
             <div className="program-title">
-              Master Of Bussiness Adminstrative
+              Master Of Business Adminstrative
             </div>
             <div className="detail-container">
               <div className="course-update-container">

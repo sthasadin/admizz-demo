@@ -1,41 +1,37 @@
-import React, {useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import news from "../../public/news.png";
 import news1 from "../../public/news1.png";
 import news2 from "../../public/news2.png";
 import news3 from "../../public/news3.png";
 import ThumbnailText from "./thumnaiil-text";
-import {useDispatch,useSelector} from 'react-redux'
-import moment from 'moment'
-import {getNewsOfCollege} from '../../store/Action/blog.action'
+import { useDispatch, useSelector } from "react-redux";
+import moment from "moment";
+import { getNewsOfCollege } from "../../store/Action/blog.action";
 
-
-const NewsOnCollege = () => {
-  const dispatch = useDispatch()
-  const college = useSelector(state => state.college.college)
-  const collegeNews = useSelector(state => state.blog.collegeNews)
-  const getCoverNewsLetter = async(college_slug) => {
-    dispatch(getNewsOfCollege(college_slug))
-  }
-  useEffect(()=>{
-    college && getCoverNewsLetter(college.college_slug)
-  },[college])
+const NewsOnCollege = ({ title }) => {
+  const dispatch = useDispatch();
+  const college = useSelector((state) => state.college.college);
+  const collegeNews = useSelector((state) => state.blog.collegeNews);
+  const getCoverNewsLetter = async (college_slug) => {
+    dispatch(getNewsOfCollege(college_slug));
+  };
+  useEffect(() => {
+    college && getCoverNewsLetter(college.college_slug);
+  }, [college]);
   return collegeNews.length ? (
     <div className="news-o-c">
       <div className="news-o-c__inner">
-        <div className="sidebar__title">College Covered on News</div>
+        <div className="sidebar__title">{title}</div>
         <div className="news-o-c__list">
-          {
-            collegeNews.map(news => (
-              <ThumbnailText
+          {collegeNews.map((news) => (
+            <ThumbnailText
               key={Math.random().toString(36).slice(1)}
-                title={`${news.blog_title.substring(0,20)}...`}
-                image={news.blog_imageURL}
-                data={moment(news.createdAt).format('MMMM Do YYYY')}
-                slug={news.blog_slug}
-              />
-
-            ))
-          }
+              title={`${news.blog_title.substring(0, 20)}...`}
+              image={news.blog_imageURL}
+              data={moment(news.createdAt).format("MMMM Do YYYY")}
+              slug={news.blog_slug}
+            />
+          ))}
           {/* <ThumbnailText
             title="IIT Bombay Campus to be Opened to a Few UG IIT Bombay Campus"
             image={news1}
@@ -57,7 +53,7 @@ const NewsOnCollege = () => {
         </a> */}
       </div>
     </div>
-  ): null
+  ) : null;
 };
 
 export default NewsOnCollege;

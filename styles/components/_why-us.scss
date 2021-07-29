@@ -105,17 +105,14 @@
 
 .university-list {
   // border: 1px solid black;
-  width: 30%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 8%;
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-content: space-between;
-  @media (max-width: 800px) {
-    width: 50%;
-  }
-  @media (max-width: 600px) {
-    width: 80%;
-  }
+
   .university-icon {
     width: 100px;
     height: 100px;
@@ -133,5 +130,9 @@
     color: #333;
     font-size: 14px;
     font-weight: 800;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

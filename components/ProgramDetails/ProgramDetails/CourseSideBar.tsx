@@ -16,7 +16,7 @@ const CourseSideBar = () => {
       </Link>
 
       <SimilarCourses />
-      <NewsOnCollege />
+      <NewsOnCollege title="Subjects covered" />
     </aside>
   );
 };

@@ -29,7 +29,7 @@ export default function Home() {
 
       <About />
       <Merits />
-      <Us college={collegeList.slice(0, 2)} />
+      <Us college={collegeList.slice(0, 6)} />
 
       <Statistics />
       <FiveSteps />

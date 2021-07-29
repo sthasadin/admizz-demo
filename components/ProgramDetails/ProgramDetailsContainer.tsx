@@ -2,7 +2,7 @@ import React from "react";
 import { ProgramOverview } from "./ProgramDetails/ProgramOverview";
 import { CourseOutline } from "./ProgramDetails/CourseOutline";
 import { Newsletter } from "../Newsletter";
-import { AdmissionProcess } from "../AdmissionProcess";
+import { CareerOption } from "./ProgramDetails/CareerOptions";
 import { CourseSideBar } from "./ProgramDetails/CourseSideBar";
 
 const ProgramDetailsContainer = () => {
@@ -13,7 +13,7 @@ const ProgramDetailsContainer = () => {
           <ProgramOverview />
           <CourseOutline />
           <Newsletter />
-          <AdmissionProcess />
+          <CareerOption />
 
           {/* <StudentQuestionAnswer /> */}
         </div>

@@ -52,7 +52,7 @@ const index = () => {
   return college.college_rankings?.length ? (
     <div className="rankingawards__section">
       <div className="rankingawards__title">RANKING & AWARDS</div>
-      <div className="rankingawards__heading">Ranking Information</div>
+      {/* <div className="rankingawards__heading">Ranking Information</div> */}
       <div className="rankingawards__tabletitle">
         <div>Ranking Authority</div>
 

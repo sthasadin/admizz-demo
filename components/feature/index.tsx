@@ -6,7 +6,6 @@ const Feature = ({ data }) => {
       <div className="feature-image">{data.icon}</div>
       <div className="feature-title">{data.title}</div>
       <div className="feature-description">{data.description}</div>
-      <div className="learn-more">Learn More</div>
     </div>
   );
 };

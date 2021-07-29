@@ -106,7 +106,7 @@ const FeeStructure = (props: any) => {
     <div id="course_fee" className="fee-structure">
       <div className="fee-structure__inner">
         <div className="fee-structure__title-wrap">
-          <div className="fee-structure__title">COURSES & FEE STRUCTURE</div>
+          <div className="fee-structure__title">COURSES OFFERED</div>
           {/* <div className="fee-structure__cta">View All Courses</div> */}
         </div>
         <div className="fee-structure__level">

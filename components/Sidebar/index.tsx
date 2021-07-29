@@ -31,7 +31,7 @@ const Sidebar = () => {
       </div>
       <FacultyInformation />
       <TrendingCourses />
-      <NewsOnCollege />
+      <NewsOnCollege title="College Covered on News" />
       <CollegeFacility />
       <InternationalCollaboration />
     </aside>

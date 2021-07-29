@@ -1,5 +1,6 @@
 import React from "react";
 import { Feature } from "../feature";
+import Link from "next/link";
 import whyusBg from "../../public/why-us-bg-image.png";
 import tieupsBg from "../../public/tieups-background.png";
 
@@ -169,7 +170,9 @@ const Us = ({ college }) => {
                         <div className="university-icon">
                           <img src={college?.college_logo} />
                         </div>
-                        <div className="university-name">{college?.name}</div>
+                        <Link href={`colleges/${college?.college_slug}`}>
+                          <div className="university-name">{college?.name}</div>
+                        </Link>
                       </div>
                     );
                   })}

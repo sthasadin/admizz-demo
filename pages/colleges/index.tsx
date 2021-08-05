@@ -1,36 +1,43 @@
-import React, { useEffect, useState } from "react";
-import _ from "lodash";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
-
 import Layout from "../../layouts";
 
 import { Input } from "../../components/Input";
 import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
 import { CollegeListResult } from "../../components/CollegeListResult";
-// import { getAllCollegeList } from "../../store/Action/allCollage.action";
+
 import {
-  getColleges,
-  getCollegesByStream,
   getCollegesByCity,
+  getCollegeByLimit,
 } from "../../store/Action/college.action";
-import { getFilters } from "../../store/Action/courses.action";
+
+import {
+  getCountryList,
+  getStateList,
+  getCityList,
+  getTotalCollegeCount,
+} from "../../store/Action/filter.action";
 
 const collegeList = () => {
   const [collegeListSearchQuery, setCollegeListSearchQuery] = useState("");
   const [selectedCourses, setSeletedCourses] = useState([]);
   const [filters, setFilters] = useState({});
   const [_collegeList, setCollegeList] = useState([]);
+  const [limit, setLimit] = useState(2);
+  //redux state
+  const { countryList } = useSelector((state) => state.filter);
+  const { collegeByLimitLoader } = useSelector((state) => state.college);
+  const { stateList } = useSelector((state) => state.filter);
+  const { cityList } = useSelector((state) => state.filter);
+  const { collegesByLimit } = useSelector((state) => state.college);
+  const { totalCollegeCount } = useSelector((state) => state.college);
+
   const dispatch = useDispatch();
 
   const router = useRouter();
   const { query } = router.query;
-
-  const _getFilters = async () => {
-    const filters = await dispatch(getFilters());
-    setFilters(filters);
-  };
 
   React.useEffect(() => {
     dispatch(
@@ -40,55 +47,26 @@ const collegeList = () => {
     );
   }, [selectedCourses]);
 
-  const collegeList = useSelector((state) => state.college.colleges);
-  const Loading = useSelector((state) => state.college.multiLoading);
-
-  useEffect(() => {
-    if (query) {
-      dispatch(getCollegesByStream(query as any));
-    } else {
-      _getFilters();
-      dispatch(getColleges());
-    }
-  }, [query]);
-
-  useEffect(() => {
-    if (collegeList.length) {
-      // collegeList.length = 10;
-      setCollegeList(collegeList);
-    }
-  }, [collegeList]);
-
-  const handleSideSearch = () => {
-    if (collegeList.length) {
-      // collegeList.length = 10;
-      let colleges = [];
-      let _seletedColleges = [];
-
-      for (const stream in filters) {
-        if (Object.prototype.hasOwnProperty.call(filters, stream)) {
-          const element = filters[stream];
-          if (selectedCourses.includes(stream.toUpperCase())) {
-            _seletedColleges.push(...element.colleges);
-          }
-        }
-      }
-      _seletedColleges = _.uniqBy(_seletedColleges, "_id");
-      colleges = _.intersectionBy(collegeList, _seletedColleges, "_id");
-
-      if (selectedCourses.length) {
-        colleges = _.uniqBy(colleges, "_id");
-        setCollegeList(colleges);
-      } else {
-        setCollegeList(collegeList);
-      }
-    }
+  const getAllFilterList = async () => {
+    await dispatch(getCountryList({ filter: "country" }));
+    await dispatch(getStateList({ filter: "state" }));
+    await dispatch(getCityList({ filter: "city" }));
+    await dispatch(getCollegeByLimit(1));
+    await dispatch(getTotalCollegeCount());
   };
-  useEffect(() => {
-    handleSideSearch();
-  }, [selectedCourses.length]);
+
+  React.useEffect(() => {
+    getAllFilterList();
+  }, []);
+
+  const getCollegesArray = async () => {
+    await dispatch(getCollegeByLimit(limit));
+    console.log(limit);
+    setLimit(limit + 1);
+  };
 
   const onSelecteCourse = (e) => {
+    setFilters("asd");
     if (e.target.checked) {
       setSeletedCourses([...selectedCourses, e.target.name.toUpperCase()]);
     }
@@ -101,8 +79,6 @@ const collegeList = () => {
     }
   };
 
-  console.log(selectedCourses);
-
   const deSelectCourse = (name) => {
     setSeletedCourses(
       selectedCourses.filter((course) => course !== name.toUpperCase())
@@ -114,7 +90,7 @@ const collegeList = () => {
   };
 
   const handleSearch = () => {
-    const filteredColleges = collegeList.filter((college) => {
+    const filteredColleges = collegesByLimit.filter((college) => {
       return (
         college?.name
           .trim()
@@ -131,12 +107,12 @@ const collegeList = () => {
 
   const resetFilter = () => {
     setCollegeListSearchQuery("");
-    setCollegeList(collegeList); //the old list
+    setCollegeList(_collegeList); //the old list
     setSeletedCourses([]);
   };
 
   return (
-    <div className="container">
+    <div className="container" id="asd">
       <Layout title="Colleges" stickyBar={true}>
         <main className="college-list">
           <div className="college-list__container section-wrapper">
@@ -194,13 +170,21 @@ const collegeList = () => {
                   onSelecteCourse={onSelecteCourse}
                   selectedCourses={selectedCourses}
                   deSelectCourse={deSelectCourse}
+                  countryList={countryList}
+                  stateList={stateList}
+                  cityList={cityList}
                 />
               </div>
-              <div className="college-list__collegeResultContainer">
+              <div
+                className="college-list__collegeResultContainer "
+                id="college-list-container"
+              >
                 <CollegeListResult
-                  collegeList={_collegeList}
-                  loader={Loading}
+                  collegeList={collegesByLimit}
+                  loader={collegeByLimitLoader}
                   query={query}
+                  getMoreCollege={getCollegesArray}
+                  totalCollegeCount={totalCollegeCount}
                 />
               </div>
             </div>

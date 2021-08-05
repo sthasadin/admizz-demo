@@ -5,6 +5,7 @@ import {
   getCollegeCourses,
   getLevels,
 } from "../../store/Action/courses.action";
+import Link from "next/link";
 
 const FeeStructure = (props: any) => {
   const [selectLevel, setSelectLevel] = useState("");
@@ -70,6 +71,7 @@ const FeeStructure = (props: any) => {
           name: course?.courseprogram?.name,
           fee_per_sem: course?.fee_per_sem,
           eligibility: course?.eligibility,
+          slug: course?.courseprogram?.slug,
         };
         thisPrograms.push(programDetail);
       });
@@ -84,6 +86,7 @@ const FeeStructure = (props: any) => {
             name: course?.courseprogram?.name,
             fee_per_sem: course?.fee_per_sem,
             eligibility: course?.eligibility,
+            slug: course?.courseprogram?.slug,
           };
           thisPrograms.push(programDetail);
         }
@@ -101,6 +104,8 @@ const FeeStructure = (props: any) => {
   useEffect(() => {
     selectStream && getAllPrograms(selectStream);
   }, [selectStream]);
+
+  // console.log(courses);
 
   return (
     <div id="course_fee" className="fee-structure">
@@ -167,7 +172,9 @@ const FeeStructure = (props: any) => {
             {programs.map((p, i) => {
               return (
                 <div key={i} className="course-fee__item">
-                  <div className="course-fee__course">{p.name}</div>
+                  <Link href={`/colleges/program/${p.slug}`}>
+                    <div className="course-fee__course">{p.name}</div>
+                  </Link>
                   <div className="course-fee__fee">
                     <span className="title">{p.fee_per_sem}</span>
                     <span>Estimated Fee</span>

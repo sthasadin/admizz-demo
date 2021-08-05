@@ -7,7 +7,7 @@ export class BlogService {
   }
 
   getBlog(blog_slug) {
-    let url = `/blogs/${blog_slug}`;
+    let url = `/blogs/slug/${blog_slug}`;
     let data = getService(url);
     return data;
   }

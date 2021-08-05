@@ -1,7 +1,7 @@
 .section-container {
   padding: 20px;
   background-color: #fff;
-  font-family: "Mplus 1p", sans-serif;
+
   border-radius: 5px;
 }
 
@@ -33,6 +33,13 @@
   color: #333;
   font-weight: 400;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  ul,
+  ol {
+    padding-inline-start: 19px;
+  }
 }
 
 .course-highlights {

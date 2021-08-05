@@ -20,7 +20,7 @@
   &__sectionTitle {
     padding: 10px 0px;
     color: #333333;
-    font-family: Mplus 1p;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -114,7 +114,7 @@
   }
   &__formTitle {
     display: flex;
-    font-family: Mplus 1p;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -133,7 +133,7 @@
   }
   &__formTitleSecond {
     display: flex;
-    font-family: Mplus 1p;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -166,7 +166,7 @@
   &__subformTitle {
     display: flex;
     height: 100%;
-    font-family: Mplus 1p;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -181,7 +181,6 @@
     }
   }
   &__formText {
-    font-family: Mplus 1p;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -198,7 +197,7 @@
   }
   &__viewText {
     color: #ffa200;
-    font-family: Mplus 1p;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -209,7 +208,7 @@
   &__editText {
     margin-left: 30px;
     color: #5f1802;
-    font-family: Mplus 1p;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -223,7 +222,7 @@
     width: 100%;
     min-height: 40px;
     align-items: center;
-    font-family: Mplus 1p;
+
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
@@ -232,7 +231,6 @@
     text-align: left;
   }
   &__tableText {
-    font-family: Mplus 1p;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -242,7 +240,6 @@
     color: #464e5f;
   }
   &__tableSubText {
-    font-family: Mplus 1p;
     font-size: 13px;
     font-style: normal;
     font-weight: 500;
@@ -350,5 +347,4 @@
 .form--title {
   font-weight: 800;
   width: 100%;
-  font-family: "Mplus 1p", sans-serif;
 }

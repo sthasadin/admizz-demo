@@ -3,7 +3,7 @@
   border-radius: 10px;
   padding: 10px 15px;
   margin: 10px 0px;
-  font-family: "Mplus 1p";
+
   border: 1px solid #e0e0e0;
   &__filterTitleContainer {
     display: flex;
@@ -44,7 +44,6 @@
   @media (max-width: 500px) {
     display: flex;
     align-items: center;
-    
   }
 }
 

@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     margin-left: 257px;
-    font-family: "M Plus 1P", sans-serif;
+
     color: #333333;
     padding-right: 8px;
     margin-bottom: 12px;
@@ -36,7 +36,7 @@
       display: flex;
       align-items: center;
     }
-  
+
     .compare-table-label {
       display: flex;
       min-width: 200px;
@@ -46,7 +46,7 @@
       font-weight: 800;
       color: #4f4f4f;
     }
-  
+
     .comparetable__data_attributes {
       font-size: 18px;
       color: #4f4f4f;
@@ -60,25 +60,21 @@
       border: 1px solid #e0e0e0;
       margin-left: 24px;
       background-color: white;
-    
 
-      .comparetable__datavalue{
-          display: flex;
-          align-items: center;
-          margin-left: 10px;
+      .comparetable__datavalue {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
 
-          .compare__datavalue__forranking{
-              margin-left: 20px;
+        .compare__datavalue__forranking {
+          margin-left: 20px;
 
-              span{
-                  color: #FFA200;
-                  font-weight: 800;
-              }
+          span {
+            color: #ffa200;
+            font-weight: 800;
           }
+        }
       }
     }
   }
-  
-
-
 }

@@ -2,7 +2,6 @@
   height: 237px;
   // width: 288px;
 
-  font-family: "Mplus 1p", sans-serif;
   background-color: #fff;
   padding: 10px 5px 10px 15px;
   cursor: pointer;
@@ -13,7 +12,7 @@
     transition: all 0.2s ease-in-out;
 
     .feature-title {
-      font-weight: 800;
+      font-weight: 600;
     }
     .feature-icon {
       stroke: #ffa200 !important;
@@ -33,14 +32,12 @@
   }
 
   .feature-title {
-    font-family: "Mplus 1p";
     color: #333;
     font-weight: 500;
     font-size: 20px;
-    width: 70%;
+    width: 90%;
   }
   .feature-description {
-    font-family: "Mplus 1p";
     font-size: 14px;
     color: #333;
     padding-right: 75px;

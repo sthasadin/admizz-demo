@@ -8,6 +8,7 @@ import college from './college.reducer'
 import user from './user.reducer'
 import student_application from './studentapplication.reducer'
 import courses from './courses.reducer'
+import filterList from './filterList.reducer'
 
 export default combineReducers({
     collageDetails : collageDetailsReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
     college,
     user,
     student_application,
-    courses
+    courses,
+    filter:filterList
 })

@@ -4,8 +4,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import { Input } from "../../components/Input";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { API_BASE_URL } from "../../store/const";
-import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,27 +41,10 @@ const CustomizeCheckBox = withStyles({
   checked: {},
 })(Checkbox);
 
-const CollegeListFilteredByCity = (props) => {
+const FilteredByCity = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
 
   const { cityList, onSelecteCourse, selectedCourses } = props;
-
-  // const getCityList = async () => {
-  //   let locations: any = [];
-  //   let res = await axios.get(`${API_BASE_URL}/college/meta`);
-
-  //   res &&
-  //     res.data.length > 0 &&
-  //     res.data.map((item: any) => {
-  //       return locations.push(item?.city);
-  //     });
-  //   let uniqueData = Array.from(new Set(locations));
-  //   const LocationArray = uniqueData.filter(
-  //     (location) => location !== undefined
-  //   );
-
-  //   setCityList(LocationArray);
-  // };
 
   const onChange = () => {
     console.log("asdasdasd");
@@ -132,4 +113,4 @@ const CollegeListFilteredByCity = (props) => {
   );
 };
 
-export { CollegeListFilteredByCity };
+export { FilteredByCity };

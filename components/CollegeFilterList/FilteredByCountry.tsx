@@ -4,8 +4,6 @@ import Checkbox from "@material-ui/core/Checkbox";
 import { Input } from "../../components/Input";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { API_BASE_URL } from "../../store/const";
-import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,27 +41,10 @@ const CustomizeCheckBox = withStyles({
   checked: {},
 })(Checkbox);
 
-const CollegeListFilteredByCity = (props) => {
+const FilteredByCountry = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
 
-  const { cityList, onSelecteCourse, selectedCourses } = props;
-
-  // const getCityList = async () => {
-  //   let locations: any = [];
-  //   let res = await axios.get(`${API_BASE_URL}/college/meta`);
-
-  //   res &&
-  //     res.data.length > 0 &&
-  //     res.data.map((item: any) => {
-  //       return locations.push(item?.city);
-  //     });
-  //   let uniqueData = Array.from(new Set(locations));
-  //   const LocationArray = uniqueData.filter(
-  //     (location) => location !== undefined
-  //   );
-
-  //   setCityList(LocationArray);
-  // };
+  const { countryList, onSelecteCourse, selectedCourses } = props;
 
   const onChange = () => {
     console.log("asdasdasd");
@@ -74,7 +55,9 @@ const CollegeListFilteredByCity = (props) => {
   return (
     <div className="college-list-selected-filter">
       <div className="college-list-selected-filter__filterTitleContainer">
-        <p className="college-list-selected-filter__filterTitle">City</p>
+        <p className="college-list-selected-filter__filterTitle">
+          Country List
+        </p>
         <p className="college-list-selected-filter__filterAdd">
           {" "}
           <img
@@ -100,24 +83,24 @@ const CollegeListFilteredByCity = (props) => {
           />
         </div>
         <div style={{ padding: "10px 0 10px 0" }}>
-          {cityList &&
-            cityList?.map((city, i) => {
+          {countryList &&
+            countryList?.map((country, i) => {
               return (
                 <div
                   key={i}
                   className="college-list-selected-filter__filterStreamContainer"
                 >
                   <FormControlLabel
-                    name={city}
+                    name={country}
                     onChange={onSelecteCourse}
                     control={
                       <CustomizeCheckBox
-                        name={city}
+                        name={country}
                         style={{ paddingBottom: "0" }}
                       />
                     }
-                    checked={selectedCourses.includes(city.toUpperCase())}
-                    label={city}
+                    checked={selectedCourses.includes(country.toUpperCase())}
+                    label={country}
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />
                   {/* <div className="college-list-count">
@@ -132,4 +115,4 @@ const CollegeListFilteredByCity = (props) => {
   );
 };
 
-export { CollegeListFilteredByCity };
+export { FilteredByCountry };

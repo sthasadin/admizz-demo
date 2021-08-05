@@ -10,6 +10,15 @@
     color: $secondary-color;
     margin-bottom: 15px;
   }
+  .course-syallbus-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    ul,
+    ol {
+      padding-inline-start: 19px;
+    }
+  }
   &__heading {
     font-size: 18px;
     line-height: 27px;

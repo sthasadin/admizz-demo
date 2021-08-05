@@ -1,5 +1,5 @@
 import { Dispatch } from "react-redux";
-import { COLLEGE_TYPES, SUCCESS, COLLEGES_TYPES} from "../const";
+import { COLLEGE_TYPES, SUCCESS, COLLEGES_TYPES, COLLEGE_BY_LIMIT_BEGIN, COLLEGE_BY_LIMIT } from "../const";
 import { finish, init, success, error } from "../commonActions";
 import { CollegeService } from "../api/collegeApi";
 
@@ -19,7 +19,7 @@ export const getColleges = () => async (dispatch: Dispatch) => {
 export const getCollege = (college_slug) => async (dispatch: Dispatch) => {
   dispatch(init(COLLEGE_TYPES.GET_COLLEGE));
 
-  const response:any = await collegeService.getCollege(college_slug);
+  const response: any = await collegeService.getCollege(college_slug);
 
 
   dispatch(finish(COLLEGE_TYPES.GET_COLLEGE));
@@ -47,11 +47,38 @@ export const getCollegesByCity = (stream) => async (dispatch: Dispatch) => {
   dispatch(init(COLLEGES_TYPES.GET_COLLEGES));
   const response = await collegeService.getCollegesByCity(stream);
   dispatch(finish(COLLEGES_TYPES.GET_COLLEGES));
-  
+
   if (response.isSuccess) {
     dispatch(success(COLLEGES_TYPES.GET_COLLEGES, response.data));
   } else if (!response.isSuccess) {
     dispatch(error(response.errorMessage));
   }
 };
+
+export const getCollegeFilter = (filterType) => async (dispatch: Dispatch) => {
+  dispatch(init(COLLEGES_TYPES.GET_COLLEGES));
+  const response = await collegeService.getFilterList(filterType);
+  dispatch(finish(COLLEGES_TYPES.GET_COLLEGES));
+
+  if (response.isSuccess) {
+    dispatch(success(COLLEGES_TYPES.GET_COLLEGES, response.data));
+  } else if (!response.isSuccess) {
+    dispatch(error(response.errorMessage));
+  }
+}
+
+export const getCollegeByLimit = (limit) => async (dispatch: Dispatch) => {
+  try {
+    dispatch({
+      type: COLLEGE_BY_LIMIT_BEGIN
+    })
+    const res = await collegeService.getCollegeByLimit(limit)
+    await dispatch({
+      type: COLLEGE_BY_LIMIT,
+      payload: res.data
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
 

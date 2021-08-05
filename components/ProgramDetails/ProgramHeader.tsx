@@ -6,9 +6,11 @@ function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const ProgramHeader = ({}) => {
+const ProgramHeader = ({ data }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
+  // console.log(data?.courseLevel?.name);
+  console.log(data);
 
   return (
     <div
@@ -18,9 +20,7 @@ const ProgramHeader = ({}) => {
       <div className="section-wrapper">
         <div className="program-header__program">
           <div className="program-header__left">
-            <div className="program-title">
-              Master Of Business Adminstrative
-            </div>
+            <div className="program-title">{data?.name}</div>
             <div className="detail-container">
               <div className="course-update-container">
                 <div className="course-text">Last updated:</div>
@@ -28,7 +28,7 @@ const ProgramHeader = ({}) => {
               </div>
               <div className="course-update-container">
                 <div className="course-text">Level:</div>
-                <div className="course-date">Post Graduate</div>
+                <div className="course-date">{data?.courselevel?.name}</div>
               </div>
             </div>
           </div>

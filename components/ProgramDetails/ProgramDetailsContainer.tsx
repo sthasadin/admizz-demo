@@ -5,15 +5,15 @@ import { Newsletter } from "../Newsletter";
 import { CareerOption } from "./ProgramDetails/CareerOptions";
 import { CourseSideBar } from "./ProgramDetails/CourseSideBar";
 
-const ProgramDetailsContainer = () => {
+const ProgramDetailsContainer = ({ data }) => {
   return (
     <div className="sidebar-container">
       <div className="sidebar-container__inner section-wrapper">
         <div className="content-with-sidebar">
-          <ProgramOverview />
+          <ProgramOverview data={data} />
           <CourseOutline />
           <Newsletter />
-          <CareerOption />
+          <CareerOption data={data} />
 
           {/* <StudentQuestionAnswer /> */}
         </div>

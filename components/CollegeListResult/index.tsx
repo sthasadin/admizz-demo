@@ -3,18 +3,25 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import SortImage from "../../public/SortImage.png";
 import { CollegesCard } from "../collegesBlock/collegesCard";
 import { CollegeCardLoader } from "../SkeletonLoading/CollegeCardLoader";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 interface CollegeProps {
   collegeList: Array<any>;
   loader: boolean;
   query?: any;
+  getMoreCollege?: any;
+  totalCollegeCount?: any;
 }
 
 const CollegeListResult: FC<CollegeProps> = ({
   collegeList,
   loader,
+  getMoreCollege,
   query,
+  totalCollegeCount,
 }) => {
+  console.log(totalCollegeCount);
+
   return (
     <div className="college-list-result">
       {loader ? (
@@ -49,17 +56,35 @@ const CollegeListResult: FC<CollegeProps> = ({
           </div>
         </div>
       )}
-      <div className="college-list-result__resultContainer">
-        {loader && <CollegeCardLoader count={10} />}
-        {collegeList &&
+      {/* <CollegeCardLoader count={10} /> */}
+      {/* {collegeList &&
           collegeList.map((college, index) => {
             return (
               <div key={index} className="college-list-result__cardContainer">
-                <CollegesCard {...college} />
+              <InfiniteScroll
+              dataLength={collegeList}
+              loader={<p>sdasd</p>}
+              next={getMoreCollege}
+              hasMore={true}
+              >
+              <CollegesCard {...college} />
+              </InfiniteScroll>
               </div>
-            );
-          })}
-      </div>
+              );
+            })}  */}
+      <InfiniteScroll
+        dataLength={collegeList.length}
+        loader={<CollegeCardLoader count={3} />}
+        next={getMoreCollege}
+        hasMore={collegeList.length === totalCollegeCount ? false : true}
+      >
+        <div className="college-list-result__resultContainer">
+          {collegeList &&
+            collegeList.map((college, index) => {
+              return <CollegesCard {...college} key="index" />;
+            })}
+        </div>
+      </InfiniteScroll>
     </div>
   );
 };

@@ -1,6 +1,12 @@
+.college-card-loader-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin: 15px 0;
+}
+
 .college-card-skeleton-loader {
-  width: 275px;
-  height: 371px;
+  // height: 371px;
 
   .college-thumbnail {
     position: relative;

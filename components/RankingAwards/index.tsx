@@ -9,6 +9,7 @@ const index = () => {
 
   const ranking = useMemo(() => {
     let clgRank = college?.college_rankings;
+    console.log(clgRank);
     let newStructOfRank = [];
     if (clgRank?.length) {
       clgRank.forEach((r: any) => {
@@ -49,6 +50,7 @@ const index = () => {
     }
     return newStructOfRank;
   }, [college]);
+  console.log(ranking);
   return college.college_rankings?.length ? (
     <div className="rankingawards__section">
       <div className="rankingawards__title">RANKING & AWARDS</div>
@@ -59,6 +61,7 @@ const index = () => {
         <div>{moment().subtract(3, "year").year()}</div>
         <div>{moment().subtract(2, "year").year()}</div>
         <div>{moment().subtract(1, "year").year()}</div>
+        <div>{moment().subtract(0, "year").year()}</div>
       </div>
       <div className="rankingawards__awardscontainer">
         {college.college_rankings ? (

@@ -183,6 +183,9 @@ const FeeStructure = (props: any) => {
                     <span className="title">{p.eligibility}</span>
                     <span>Eligibility</span>
                   </div>
+                  <Link href={`/colleges/program/${p.slug}`}>
+                    <div className="course-fee__details">VIEW DETAIL</div>
+                  </Link>
                 </div>
               );
             })}

@@ -82,3 +82,19 @@ export const getCollegeByLimit = (limit) => async (dispatch: Dispatch) => {
   }
 }
 
+export const getCollegeByFilter = (filter) => async (dispatch: Dispatch) => {
+  try {
+    dispatch({
+      type: COLLEGE_BY_LIMIT_BEGIN
+    })
+
+    const res = await collegeService.getCollegeByFilter(filter)
+    await dispatch({
+      type: COLLEGE_BY_LIMIT,
+      payload: res.data
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+

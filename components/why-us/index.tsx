@@ -128,7 +128,9 @@ const Us = ({ college }) => {
     <div className="us">
       <div
         className="us__backgroundimage"
-        style={{ backgroundImage: `url(${whyusBg})` }}
+        style={{
+          backgroundImage: `linear-gradient(0deg, rgba(95, 24, 2, 0.7), rgba(95, 24, 2, 0.7)), url(${whyusBg});`,
+        }}
       >
         <div className="section-wrapper">
           <div className="us__content">

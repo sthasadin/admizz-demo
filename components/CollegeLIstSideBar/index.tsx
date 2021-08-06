@@ -6,16 +6,20 @@ import { CollegeListFilteredByCity } from "../CollegeListFilteredByCity";
 import { FilteredByCity } from "../CollegeFilterList/FilteredByCity";
 import { FilteredByState } from "../CollegeFilterList/FilteredByState";
 import { FilteredByCountry } from "../CollegeFilterList/FilteredByCountry";
+import { FilteredByCourseLevel } from "../CollegeFilterList/FilteredByCourseLevel";
+import { FilteredByStream } from "../CollegeFilterList/FilteredByStream";
 
 const CollegeListSideBar = ({
   resetFilter,
   allCoursesWithCounts,
-  onSelecteCourse,
+  onSelectedCourse,
   selectedCourses,
   deSelectCourse,
   countryList,
   stateList,
   cityList,
+  courseLevel,
+  programName,
 }) => {
   return (
     <div className="college-list-side-bar">
@@ -29,26 +33,44 @@ const CollegeListSideBar = ({
         selectedCourses={selectedCourses}
         deSelectCourse={deSelectCourse}
       />
-      <CollegeListSelectedStream
+      {/* <CollegeListSelectedStream
         allCoursesWithCounts={allCoursesWithCounts}
         selectedCourses={selectedCourses}
-        onSelecteCourse={onSelecteCourse}
-      />
+        onSelecteCourse={onSelectedCourse}
+      /> */}
       {/* <CollegeListFilteredByCity
         cityList={cityList}
         selectedCourses={selectedCourses}
         onSelecteCourse={onSelecteCourse}
       /> */}
 
+      <FilteredByStream
+        programName={programName}
+        selectedCourses={selectedCourses}
+        onSelecteCourse={onSelectedCourse}
+      />
+
+      <FilteredByCourseLevel
+        courseLevel={courseLevel}
+        selectedCourses={selectedCourses}
+        onSelecteCourse={onSelectedCourse}
+      />
+
       <FilteredByCountry
         countryList={countryList}
         selectedCourses={selectedCourses}
+        onSelecteCourse={onSelectedCourse}
       />
       <FilteredByState
         stateList={stateList}
         selectedCourses={selectedCourses}
+        onSelecteCourse={onSelectedCourse}
       />
-      <FilteredByCity cityList={cityList} selectedCourses={selectedCourses} />
+      <FilteredByCity
+        cityList={cityList}
+        selectedCourses={selectedCourses}
+        onSelecteCourse={onSelectedCourse}
+      />
 
       <div className="college-list-side-bar__newsletterContainer">
         <SideBarNewsLetter />

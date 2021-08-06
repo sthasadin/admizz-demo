@@ -32,6 +32,13 @@ export class CollegeService {
     return data
   }
 
+  getCollegeByFilter(filter) {
+    let body = filter;
+    let url = '/college/filter'
+    let data = postService(url, body);
+    return data;
+  }
+
   getFilterList(listBy) {
     let body = listBy;
     let url = '/college/list';

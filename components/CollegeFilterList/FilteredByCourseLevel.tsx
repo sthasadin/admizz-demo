@@ -17,6 +17,7 @@ const CustomizeCheckBox = withStyles({
   root: {
     "& .MuiSvgIcon-root": {
       fill: "#828282",
+      textTransform: "capitalize",
       "&:hover": {
         backgroundColor: "transparent",
       },
@@ -41,10 +42,10 @@ const CustomizeCheckBox = withStyles({
   checked: {},
 })(Checkbox);
 
-const FilteredByCountry = (props) => {
+const FilteredByCourseLevel = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
 
-  const { countryList, onSelecteCourse, selectedCourses } = props;
+  const { courseLevel, onSelecteCourse, selectedCourses } = props;
 
   const onChange = () => {
     console.log("asdasdasd");
@@ -57,7 +58,9 @@ const FilteredByCountry = (props) => {
   return (
     <div className="college-list-selected-filter">
       <div className="college-list-selected-filter__filterTitleContainer">
-        <p className="college-list-selected-filter__filterTitle">Country</p>
+        <p className="college-list-selected-filter__filterTitle">
+          Course Level
+        </p>
         <p className="college-list-selected-filter__filterAdd">
           {" "}
           <img
@@ -83,24 +86,24 @@ const FilteredByCountry = (props) => {
           />
         </div>
         <div style={{ padding: "10px 0 10px 0" }}>
-          {countryList &&
-            countryList?.map((country, i) => {
+          {courseLevel &&
+            courseLevel?.map((course, i) => {
               return (
                 <div
                   key={i}
                   className="college-list-selected-filter__filterStreamContainer"
                 >
                   <FormControlLabel
-                    name={country}
+                    name={course}
                     onChange={onSelecteCourse}
                     control={
                       <CustomizeCheckBox
-                        name={country}
+                        name={course}
                         style={{ paddingBottom: "0" }}
                       />
                     }
-                    // checked={selectedCourses.includes(country.toUpperCase())}
-                    label={country}
+                    checked={selectedCourses.includes(course.toUpperCase())}
+                    label={course}
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />
                   {/* <div className="college-list-count">
@@ -115,4 +118,4 @@ const FilteredByCountry = (props) => {
   );
 };
 
-export { FilteredByCountry };
+export { FilteredByCourseLevel };

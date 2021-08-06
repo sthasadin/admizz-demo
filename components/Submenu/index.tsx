@@ -146,12 +146,12 @@ const Submenu = (props: any) => {
             >
               <a href="#placement">Placements</a>
             </li>
-            <li
+            {/* <li
               className={`submenu__item ${state === "qa" ? "active" : ""} `}
               onClick={() => setState("qa")}
             >
               <a href="#qna">Q&A</a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

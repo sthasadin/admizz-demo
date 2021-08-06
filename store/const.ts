@@ -61,6 +61,8 @@ export const GET_STATE_LIST_BEGIN = 'GET_STATE_LIST_BEGIN'
 export const GET_STATE_LIST = 'GET_STATE_LIST'
 export const GET_CITY_LIST_BEGIN = 'GET_CITY_LIST_BEGIN'
 export const GET_CITY_LIST = 'GET_CITY_LIST'
+export const GET_COURSE_LEVEL = 'GET_COURSE_LEVEL'
+export const GET_PROGRAM_NAME = 'GET_PROGRAM_NAME'
 
 
 //college by limit

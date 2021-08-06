@@ -11,6 +11,7 @@ import { CollegeListResult } from "../../components/CollegeListResult";
 import {
   getCollegesByCity,
   getCollegeByLimit,
+  getCollegeByFilter,
 } from "../../store/Action/college.action";
 
 import {
@@ -18,6 +19,8 @@ import {
   getStateList,
   getCityList,
   getTotalCollegeCount,
+  getCourseLevel,
+  getProgramName,
 } from "../../store/Action/filter.action";
 
 const collegeList = () => {
@@ -31,10 +34,14 @@ const collegeList = () => {
   const { collegeByLimitLoader } = useSelector((state) => state.college);
   const { stateList } = useSelector((state) => state.filter);
   const { cityList } = useSelector((state) => state.filter);
+  const { programName } = useSelector((state) => state.filter);
+  const { courseLevel } = useSelector((state) => state.filter);
   const { collegesByLimit } = useSelector((state) => state.college);
   const { totalCollegeCount } = useSelector((state) => state.college);
 
   const dispatch = useDispatch();
+
+  console.log(courseLevel);
 
   const router = useRouter();
   const { query } = router.query;
@@ -51,6 +58,8 @@ const collegeList = () => {
     await dispatch(getCountryList({ filter: "country" }));
     await dispatch(getStateList({ filter: "state" }));
     await dispatch(getCityList({ filter: "city" }));
+    await dispatch(getCourseLevel({ filter: "courses.course_level" }));
+    await dispatch(getProgramName({ filter: "courses.course_name" }));
     await dispatch(getCollegeByLimit(1));
     await dispatch(getTotalCollegeCount());
   };
@@ -61,11 +70,14 @@ const collegeList = () => {
 
   const getCollegesArray = async () => {
     await dispatch(getCollegeByLimit(limit));
-    console.log(limit);
+
     setLimit(limit + 1);
   };
 
-  const onSelecteCourse = (e) => {
+  const onSelectedCourse = (e) => {
+    console.log(e.target.name);
+
+    dispatch(getCollegeByFilter({ country: e.target.name }));
     setFilters("asd");
     if (e.target.checked) {
       setSeletedCourses([...selectedCourses, e.target.name.toUpperCase()]);
@@ -167,12 +179,14 @@ const collegeList = () => {
                 <CollegeListSideBar
                   resetFilter={resetFilter}
                   allCoursesWithCounts={filters}
-                  onSelecteCourse={onSelecteCourse}
+                  onSelectedCourse={onSelectedCourse}
                   selectedCourses={selectedCourses}
                   deSelectCourse={deSelectCourse}
                   countryList={countryList}
                   stateList={stateList}
                   cityList={cityList}
+                  courseLevel={courseLevel}
+                  programName={programName}
                 />
               </div>
               <div

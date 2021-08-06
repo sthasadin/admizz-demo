@@ -32,6 +32,12 @@ const RankingTable = (props) => {
               ?.rank
           }
         </div>
+        <div style={{ color: "#ffa200" }}>
+          {
+            rank.find((r: any) => r.date == moment().subtract(0, "year").year())
+              ?.rank
+          }
+        </div>
       </div>
     </div>
   );

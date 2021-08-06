@@ -44,6 +44,16 @@
       text-transform: capitalize;
     }
   }
+  &__details {
+    color: #5f1802;
+    font-weight: 600;
+    font-size: 14px;
+    margin: auto 0;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   &__cta {
     font-size: 14px;
     line-height: 21px;

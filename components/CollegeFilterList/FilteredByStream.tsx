@@ -41,10 +41,10 @@ const CustomizeCheckBox = withStyles({
   checked: {},
 })(Checkbox);
 
-const FilteredByCountry = (props) => {
+const FilteredByStream = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
 
-  const { countryList, onSelecteCourse, selectedCourses } = props;
+  const { programName, onSelecteCourse, selectedCourses } = props;
 
   const onChange = () => {
     console.log("asdasdasd");
@@ -57,7 +57,7 @@ const FilteredByCountry = (props) => {
   return (
     <div className="college-list-selected-filter">
       <div className="college-list-selected-filter__filterTitleContainer">
-        <p className="college-list-selected-filter__filterTitle">Country</p>
+        <p className="college-list-selected-filter__filterTitle">Stream</p>
         <p className="college-list-selected-filter__filterAdd">
           {" "}
           <img
@@ -83,24 +83,24 @@ const FilteredByCountry = (props) => {
           />
         </div>
         <div style={{ padding: "10px 0 10px 0" }}>
-          {countryList &&
-            countryList?.map((country, i) => {
+          {programName &&
+            programName?.map((program, i) => {
               return (
                 <div
                   key={i}
                   className="college-list-selected-filter__filterStreamContainer"
                 >
                   <FormControlLabel
-                    name={country}
+                    name={program}
                     onChange={onSelecteCourse}
                     control={
                       <CustomizeCheckBox
-                        name={country}
+                        name={program}
                         style={{ paddingBottom: "0" }}
                       />
                     }
-                    // checked={selectedCourses.includes(country.toUpperCase())}
-                    label={country}
+                    checked={selectedCourses.includes(program.toUpperCase())}
+                    label={program}
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />
                   {/* <div className="college-list-count">
@@ -115,4 +115,4 @@ const FilteredByCountry = (props) => {
   );
 };
 
-export { FilteredByCountry };
+export { FilteredByStream };

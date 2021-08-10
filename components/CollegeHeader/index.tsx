@@ -8,10 +8,14 @@ function Alert(props: AlertProps) {
 const CollegeHeader = ({
   collageLogo,
   name,
-  address,
   estblished,
   collegeBanner,
   reviews,
+  state,
+  city,
+  institution_type,
+  college_board,
+  affliated_by,
 }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
@@ -48,21 +52,36 @@ const CollegeHeader = ({
               <img src={collageLogo} alt="college" />
             </div>
             <div className="college-header__info">
-              <div className="college-header__estd">ESTD: {estblished}</div>
+              <div className="college-header__info-top">
+                <div className="college-header__estd">ESTD : {estblished}</div>
+                {affliated_by && (
+                  <div className="college-header__affiliated-by-container">
+                    <div className="college-header__affliated-by">
+                      Affiliated By :{" "}
+                    </div>
+                    <div className="college-header__affliated-content">
+                      {affliated_by}
+                    </div>
+                  </div>
+                )}
+              </div>
               <div className="college-header__name">{name}</div>
+
               <div className="college-header__meta">
                 <div className="college-header__meta__item">
                   <div className="college-header__meta__logo">
                     <img src="/location4.png" alt="..." />
                   </div>
-                  <div className="college-header__meta__title">{address}</div>
+                  <div className="college-header__meta__title">
+                    {state},&nbsp;{city}
+                  </div>
                 </div>
                 <div className="college-header__meta__item">
                   <div className="college-header__meta__logo">
                     <img src="/star.png" alt="..." />
                   </div>
                   <div className="college-header__meta__title">
-                    Central University
+                    {institution_type}
                   </div>
                 </div>
                 <div className="college-header__meta__item">
@@ -70,7 +89,18 @@ const CollegeHeader = ({
                     <img src="/shield-tick.png" alt="..." />
                   </div>
                   <div className="college-header__meta__title">
-                    AICTE | UGC | NBA | NAAA-A
+                    {college_board &&
+                      college_board?.map((item, i) => {
+                        return (
+                          <div
+                            className="college-header__college_board"
+                            key={i}
+                          >
+                            {item}
+                          </div>
+                        );
+                      })}
+                    {!college_board && <div>No Board</div>}
                   </div>
                 </div>
               </div>

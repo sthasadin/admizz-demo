@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import { addSubscriber } from "../store/Action/subscriber.action";
 import { valueOf } from "*.jpg";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
+import { getTopColleges, getTopCourses } from "../store/Action/footer.action";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -26,6 +27,14 @@ const Footer = () => {
     setSubscriber(e.target.value);
     setFormError({ subscriber: null });
   };
+
+  const topColleges = useSelector((state) => state.footer.topColleges);
+  const topCourses = useSelector((state) => state.footer.topCourses);
+
+  React.useEffect(() => {
+    dispatch(getTopColleges());
+    dispatch(getTopCourses());
+  }, []);
 
   const validationSchema = yup.object().shape<studentInfoFormValue>({
     subscriber: yup
@@ -102,9 +111,18 @@ const Footer = () => {
           <div className="footer__mobileCol">
             <div className="footer__col">
               <div className="footer__col__title">top colleges</div>
-              <a href="#" className="footer__col__item">
-                Engineering
-              </a>
+              {topColleges &&
+                topColleges?.map((college) => {
+                  return (
+                    <a
+                      href={`/college/${college?.college_slug}`}
+                      className="footer__col__item"
+                    >
+                      {college?.college_name}
+                    </a>
+                  );
+                })}
+              {/* 
               <a href="#" className="footer__col__item">
                 Management
               </a>
@@ -122,14 +140,21 @@ const Footer = () => {
               </a>
               <a href="#" className="footer__col__item">
                 Arts
-              </a>
+              </a> */}
             </div>
             <div className="footer__col">
               <div className="footer__col__title">top courses</div>
-              <a href="#" className="footer__col__item">
-                M.B.A
-              </a>
-              <a href="#" className="footer__col__item">
+
+              {topCourses &&
+                topCourses?.map((item) => {
+                  return (
+                    <a href="#" className="footer__col__item">
+                      {item?.course_name}
+                    </a>
+                  );
+                })}
+
+              {/* <a href="#" className="footer__col__item">
                 B.Tech/B.E
               </a>
               <a href="#" className="footer__col__item">
@@ -146,7 +171,7 @@ const Footer = () => {
               </a>
               <a href="#" className="footer__col__item">
                 BCA
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="footer__mobileCol">

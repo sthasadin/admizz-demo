@@ -16,8 +16,9 @@ const Home = () => {
 
   const {
     _id,
+    city,
+    state,
     name,
-    address,
     college_logo,
     estd_year,
     total_students,
@@ -28,9 +29,16 @@ const Home = () => {
     graduation_percentage,
     placement_percentage,
     banner,
+    institution_type,
+    college_board,
+    affliated_by,
   } = useSelector((state) => state.college.college);
+
+  const _college = useSelector((state) => state.college.college);
   const router = useRouter();
   const { slug } = router.query;
+
+  console.log(_college);
 
   const _getReviews = async (college_id) => {
     const res = await dispatch(getReviews(college_id));
@@ -118,10 +126,14 @@ const Home = () => {
           <CollegeHeader
             name={name}
             collageLogo={college_logo}
-            address={address}
             estblished={estd_year}
             collegeBanner={banner}
             reviews={reviews}
+            city={city}
+            state={state}
+            college_board={college_board}
+            institution_type={institution_type}
+            affliated_by={affliated_by}
           />
           <Submenu />
           <SidebarContainer

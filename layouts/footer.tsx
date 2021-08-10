@@ -114,33 +114,13 @@ const Footer = () => {
               {topColleges &&
                 topColleges?.map((college) => {
                   return (
-                    <a
-                      href={`/college/${college?.college_slug}`}
-                      className="footer__col__item"
-                    >
-                      {college?.college_name}
-                    </a>
+                    <Link href={`/colleges/${college?.college_slug}`}>
+                      <div className="footer__col__item">
+                        {college?.college_name}
+                      </div>
+                    </Link>
                   );
                 })}
-              {/* 
-              <a href="#" className="footer__col__item">
-                Management
-              </a>
-              <a href="#" className="footer__col__item">
-                Medical
-              </a>
-              <a href="#" className="footer__col__item">
-                Law
-              </a>
-              <a href="#" className="footer__col__item">
-                Commerce
-              </a>
-              <a href="#" className="footer__col__item">
-                Science
-              </a>
-              <a href="#" className="footer__col__item">
-                Arts
-              </a> */}
             </div>
             <div className="footer__col">
               <div className="footer__col__title">top courses</div>
@@ -148,9 +128,11 @@ const Footer = () => {
               {topCourses &&
                 topCourses?.map((item) => {
                   return (
-                    <a href="#" className="footer__col__item">
-                      {item?.course_name}
-                    </a>
+                    <Link href={`colleges/program/${item?.course_slug}`}>
+                      <div className="footer__col__item">
+                        {item?.course_name}
+                      </div>
+                    </Link>
                   );
                 })}
 

@@ -32,7 +32,11 @@ const TrendingCourses = () => {
                   </Link>
 
                   <div className="trending-courses__level">
-                    {course?.courselevel?.name}
+                    {course?.courselevel?.name === "undergraduate"
+                      ? "under graduate"
+                      : course?.courselevel?.name === "postgraduate"
+                      ? "post graduate"
+                      : course?.courselevel?.name}
                   </div>
                 </div>
                 <div className="trending-courses__info">

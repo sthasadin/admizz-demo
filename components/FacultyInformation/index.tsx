@@ -19,7 +19,7 @@ const FacultyInformation = (props: any) => {
             zIndex: "1",
           }}
         />
-        <Box className="circle">{props.value}%</Box>
+        <Box className="circle">{props.value}</Box>
       </Box>
     );
   }
@@ -38,10 +38,7 @@ const FacultyInformation = (props: any) => {
             {faculty?.major_faculty.map((c) => {
               return (
                 <div className="faculty-information__circle">
-                  {/* <div className="faculty-information__circle-text border-top half">
-                    <span>{c.percentage}</span>
-                  </div> */}
-                  <div className="dashboard-welcome-card__percentContainer">
+                  <div className="dashboard-welcome-card__percentContainer information-circle">
                     <CircularProgressWithLabel value={c.percentage} />
                   </div>
                   <div className="faculty-information__circle__label">

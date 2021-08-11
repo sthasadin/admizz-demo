@@ -42,12 +42,16 @@
   }
   &__circle {
     text-align: center;
-    margin: 0 14px;
+    // margin: 0 14px;
+    .information-circle {
+      width: 100%;
+    }
 
     &__label {
       margin-top: 15px;
       font-size: 12px;
       line-height: 16px;
+      text-transform: capitalize;
     }
     &__desc {
       font-size: 8px;
@@ -58,6 +62,8 @@
   &__circle-wrap {
     display: flex;
     align-items: center;
+    width: 100%;
+    justify-content: space-between;
     z-index: 1;
   }
   &__circle-text {

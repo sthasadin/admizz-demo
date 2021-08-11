@@ -42,6 +42,7 @@ const selectCollege = ({
       stream,
       program
     );
+    console.log(rawColleges);
     if (response.isSuccess) {
       setRawColleges(response.data);
       setallColleges(
@@ -127,6 +128,8 @@ const selectCollege = ({
           clg.collegeProgram === selectedProgram?.label
       );
 
+      console.log(thisCollege);
+
       if (!isAlreadyExist) {
         data[i].selectedCollege = {
           ...e,
@@ -136,7 +139,7 @@ const selectCollege = ({
           college_slug: thisCollege.college?.college_slug || "",
           collegeStream: selectedStream?.label,
           collegeProgram: selectedProgram?.label,
-          collegeEmail: thisCollege.college?.email || "",
+          collegeEmail: thisCollege.college?.email,
         };
         setChoices(data);
       }

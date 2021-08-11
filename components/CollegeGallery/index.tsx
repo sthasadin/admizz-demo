@@ -32,7 +32,7 @@ const CollegeGallery = (props) => {
           {/* <div className="college-gallery__title__cta">Explore Gallery</div> */}
         </div>
         <div className="college-gallery__heading">
-          Photos <span>({photos?.length})</span>
+          Photos <span>{photos?.length}</span>
         </div>
         <div className="college-gallery__list">
           <div className="college-gallery__left">

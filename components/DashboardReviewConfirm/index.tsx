@@ -108,6 +108,8 @@ const DashboardReviewConfirm = (props) => {
     authUser,
   } = props;
 
+  console.log(selectedChoice);
+
   function truncateString(str, num = 20) {
     if (str.length <= num) {
       return str;
@@ -262,11 +264,12 @@ const DashboardReviewConfirm = (props) => {
         router.push("/studentdashboardmain");
       }
     } catch (err) {
-      const errors = {};
-      err.inner.forEach((item: any) => {
-        errors[item.path] = item.errors[0];
-      });
-      setFormError({ ...errors });
+      console.log(err);
+      // const errors = {};
+      // err.inner.forEach((item: any) => {
+      //   errors[item.path] = item.errors[0];
+      // });
+      // setFormError({ ...errors });
     }
   };
 

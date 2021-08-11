@@ -12,6 +12,8 @@
   align-items: center;
   justify-content: space-between;
   margin: 0;
+  list-style: none;
+  height: 45px;
   &__item {
     list-style-type: none;
     position: relative;
@@ -34,7 +36,7 @@
       width: 100%;
       position: absolute;
       background-color: $secondary-color;
-      bottom: 2px;
+      bottom: -13px;
       left: 0;
     }
   }

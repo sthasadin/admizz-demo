@@ -101,7 +101,13 @@ const FilteredByCourseLevel = (props) => {
                       />
                     }
                     checked={filterObj.course_level.includes(course)}
-                    label={course}
+                    label={
+                      course === "postgraduate"
+                        ? "post graduate"
+                        : course === "undergraduate"
+                        ? "under graduate"
+                        : course
+                    }
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />
                   {/* <div className="college-list-count">

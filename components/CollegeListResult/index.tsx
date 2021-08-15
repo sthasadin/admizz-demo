@@ -11,6 +11,7 @@ interface CollegeProps {
   query?: any;
   getMoreCollege?: any;
   totalCollegeCount?: any;
+  loadMoreCollege: boolean;
 }
 
 const CollegeListResult: FC<CollegeProps> = ({
@@ -19,6 +20,7 @@ const CollegeListResult: FC<CollegeProps> = ({
   getMoreCollege,
   query,
   totalCollegeCount,
+  loadMoreCollege,
 }) => {
   return (
     <div className="college-list-result">
@@ -51,7 +53,7 @@ const CollegeListResult: FC<CollegeProps> = ({
         dataLength={collegeList.length}
         loader={<CollegeCardLoader count={3} />}
         next={getMoreCollege}
-        hasMore={collegeList.length === totalCollegeCount ? false : true}
+        hasMore={loadMoreCollege == true ? true : false}
       >
         <div className="college-list-result__resultContainer">
           {collegeList &&

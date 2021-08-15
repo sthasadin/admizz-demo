@@ -137,7 +137,7 @@ const CollegesCard = (college) => {
               </div>
               <div className="colleges-card__location">
                 <img src="/location3.png" alt="location" />
-                {college?.address}
+                {college?.state}, {college?.city}
               </div>
             </div>
           </div>

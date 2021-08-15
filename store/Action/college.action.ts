@@ -1,5 +1,5 @@
 import { Dispatch } from "react-redux";
-import { COLLEGE_TYPES, SUCCESS, COLLEGES_TYPES, COLLEGE_BY_LIMIT_BEGIN, COLLEGE_BY_LIMIT } from "../const";
+import { COLLEGE_TYPES, SUCCESS, COLLEGES_TYPES, COLLEGE_BY_LIMIT_BEGIN, COLLEGE_BY_FILTER, COLLEGE_BY_LIMIT, COLLEGE_BY_SEARCH } from "../const";
 import { finish, init, success, error } from "../commonActions";
 import { CollegeService } from "../api/collegeApi";
 
@@ -73,7 +73,7 @@ export const getCollegeByLimit = (limit) => async (dispatch: Dispatch) => {
       type: COLLEGE_BY_LIMIT_BEGIN
     })
     const res = await collegeService.getCollegeByLimit(limit)
-    await dispatch({
+    dispatch({
       type: COLLEGE_BY_LIMIT,
       payload: res.data
     })
@@ -89,12 +89,29 @@ export const getCollegeByFilter = (filter) => async (dispatch: Dispatch) => {
     })
 
     const res = await collegeService.getCollegeByFilter(filter)
-    await dispatch({
-      type: COLLEGE_BY_LIMIT,
+    dispatch({
+      type: COLLEGE_BY_FILTER,
       payload: res.data
     })
   } catch (error) {
     console.log(error)
   }
 }
+
+export const getCollegeBySearch = (text) => async (dispatch) => {
+  try {
+    dispatch({
+      type: COLLEGE_BY_LIMIT_BEGIN
+    })
+    const res = await collegeService.getCollegeBySearch(text);
+    dispatch({
+      type: COLLEGE_BY_SEARCH,
+      payload: res.data
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 

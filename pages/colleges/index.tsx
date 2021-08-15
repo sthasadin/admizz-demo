@@ -12,6 +12,7 @@ import {
   getCollegesByCity,
   getCollegeByLimit,
   getCollegeByFilter,
+  getCollegeBySearch,
 } from "../../store/Action/college.action";
 
 import {
@@ -25,8 +26,15 @@ import {
 
 const collegeList = () => {
   const [collegeListSearchQuery, setCollegeListSearchQuery] = useState("");
+  const [filterObj, setFilterObj] = useState({
+    country: [],
+    state: [],
+    city: [],
+    stream: [],
+    course_level: [],
+  });
+  const [loadMoreCollege, setLoadMoreCollege] = useState(false as boolean);
   const [selectedCourses, setSeletedCourses] = useState([]);
-  const [filters, setFilters] = useState({});
   const [_collegeList, setCollegeList] = useState([]);
   const [limit, setLimit] = useState(2);
   //redux state
@@ -41,10 +49,30 @@ const collegeList = () => {
 
   const dispatch = useDispatch();
 
-  console.log(courseLevel);
-
   const router = useRouter();
   const { query } = router.query;
+
+  const getFilterByFilter = async () => {
+    await dispatch(getCollegeByFilter(filterObj as any));
+  };
+
+  React.useEffect(() => {
+    if (
+      filterObj.country.length ||
+      filterObj.state.length ||
+      filterObj.city.length ||
+      filterObj.stream.length ||
+      filterObj.course_level.length
+    ) {
+      console.log("in");
+      setLoadMoreCollege(false);
+      getFilterByFilter();
+    } else {
+      getCollegesArray();
+      setLoadMoreCollege(true);
+      console.log("out");
+    }
+  }, [filterObj]);
 
   React.useEffect(() => {
     dispatch(
@@ -74,47 +102,110 @@ const collegeList = () => {
     setLimit(limit + 1);
   };
 
-  const onSelectedCourse = (e) => {
-    console.log(e.target.name);
-
-    dispatch(getCollegeByFilter({ country: e.target.name }));
-    setFilters("asd");
+  const handleStreamChange = (e) => {
     if (e.target.checked) {
-      setSeletedCourses([...selectedCourses, e.target.name.toUpperCase()]);
+      setFilterObj({
+        ...filterObj,
+        stream: [...filterObj.stream, e.target.name],
+      });
     }
+
     if (!e.target.checked) {
-      setSeletedCourses(
-        selectedCourses.filter(
-          (course) => course !== e.target.name.toUpperCase()
-        )
+      const remove = filterObj.stream.filter(
+        (stream) => stream !== e.target.name
       );
+      setFilterObj({
+        ...filterObj,
+        stream: remove,
+      });
     }
   };
 
-  const deSelectCourse = (name) => {
-    setSeletedCourses(
-      selectedCourses.filter((course) => course !== name.toUpperCase())
-    );
+  const handleCourseChange = (e) => {
+    if (e.target.checked) {
+      setFilterObj({
+        ...filterObj,
+        course_level: [...filterObj.course_level, e.target.name],
+      });
+    }
+
+    if (!e.target.checked) {
+      const remove = filterObj.course_level.filter(
+        (course) => course !== e.target.name
+      );
+
+      setFilterObj({
+        ...filterObj,
+        course_level: remove,
+      });
+    }
+  };
+
+  const handleCountryChange = (e) => {
+    if (e.target.checked) {
+      setFilterObj({
+        ...filterObj,
+        country: [...filterObj.country, e.target.name],
+      });
+    }
+
+    if (!e.target.checked) {
+      const remove = filterObj.country.filter(
+        (country) => country !== e.target.name
+      );
+      setFilterObj({
+        ...filterObj,
+        country: remove,
+      });
+    }
+  };
+
+  const handleStateChange = (e) => {
+    if (e.target.checked) {
+      setFilterObj({
+        ...filterObj,
+        state: [...filterObj.state, e.target.name],
+      });
+    }
+    if (!e.target.checked) {
+      const remove = filterObj.state.filter((state) => state !== e.target.name);
+      setFilterObj({
+        ...filterObj,
+        state: remove,
+      });
+    }
+  };
+
+  const handleCityChange = (e) => {
+    if (e.target.checked) {
+      setFilterObj({
+        ...filterObj,
+        city: [...filterObj.city, e.target.name],
+      });
+    }
+
+    if (!e.target.checked) {
+      const remove = filterObj.city.filter((city) => city !== e.target.name);
+      setFilterObj({
+        ...filterObj,
+        city: remove,
+      });
+    }
   };
 
   const onChangeCollegeListSearchQuery = (e) => {
     setCollegeListSearchQuery(e.target.value);
   };
 
-  const handleSearch = () => {
-    const filteredColleges = collegesByLimit.filter((college) => {
-      return (
-        college?.name
-          .trim()
-          .toLowerCase()
-          .includes(collegeListSearchQuery.trim().toLowerCase()) ||
-        college?.address
-          .trim()
-          .toLowerCase()
-          .includes(collegeListSearchQuery.trim().toLowerCase())
-      );
-    });
-    setCollegeList(filteredColleges);
+  const handleSearch = async () => {
+    if (collegeListSearchQuery) {
+      setLoadMoreCollege(false);
+      await dispatch(getCollegeBySearch(collegeListSearchQuery));
+      console.log(collegeListSearchQuery);
+    } else {
+      getCollegesArray();
+      setLoadMoreCollege(true);
+    }
   };
 
   const resetFilter = () => {
@@ -178,15 +269,18 @@ const collegeList = () => {
               <div className="college-list__sideBarContainer">
                 <CollegeListSideBar
                   resetFilter={resetFilter}
-                  allCoursesWithCounts={filters}
-                  onSelectedCourse={onSelectedCourse}
                   selectedCourses={selectedCourses}
-                  deSelectCourse={deSelectCourse}
                   countryList={countryList}
                   stateList={stateList}
                   cityList={cityList}
                   courseLevel={courseLevel}
                   programName={programName}
+                  handleStreamChange={handleStreamChange}
+                  filterObj={filterObj}
+                  handleStateChange={handleStateChange}
+                  handleCityChange={handleCityChange}
+                  handleCountryChange={handleCountryChange}
+                  handleCourseChange={handleCourseChange}
                 />
               </div>
               <div
@@ -199,6 +293,7 @@ const collegeList = () => {
                   query={query}
                   getMoreCollege={getCollegesArray}
                   totalCollegeCount={totalCollegeCount}
+                  loadMoreCollege={loadMoreCollege}
                 />
               </div>
             </div>

@@ -1,7 +1,11 @@
 import React from "react";
 import { FilterKeyword } from "../FilterKeyword";
 
-const CollegeListSelectedFilter = ({ selectedCourses, deSelectCourse }) => {
+const CollegeListSelectedFilter = ({
+  selectedCourses,
+
+  filterObj,
+}) => {
   return (
     <div className="college-list-selected-filter">
       <div className="college-list-selected-filter__filterTitleContainer">
@@ -13,11 +17,7 @@ const CollegeListSelectedFilter = ({ selectedCourses, deSelectCourse }) => {
       <div className="college-list-selected-filter__filterKeyContainer">
         {selectedCourses.map((course, i) => {
           return (
-            <FilterKeyword
-              key={`${course}${i}`}
-              title={course.toUpperCase()}
-              deSelectCourse={deSelectCourse}
-            />
+            <FilterKeyword key={`${course}${i}`} title={course.toUpperCase()} />
           );
         })}
         {/* <FilterKeyword title="ART" />

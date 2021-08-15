@@ -2,21 +2,36 @@ import React from "react";
 import { useSelector } from "react-redux";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Box from "@material-ui/core/Box";
+import { Value } from "@material-ui/lab";
 
 const FacultyInformation = (props: any) => {
   const faculty = useSelector((state) => state.college.college.faculty);
+
+  const getValue = (value) => {
+    const splitText = value.split("%");
+    if (splitText.length == 2) {
+      return parseInt(splitText);
+    }
+    const splitByColon = value.split(":");
+    if (splitByColon.length == 2) {
+      const splitByColon = value.split(":");
+      return (parseInt(splitByColon[0]) * 100) / parseInt(splitByColon[1]);
+    } else {
+      return parseInt(value);
+    }
+  };
 
   function CircularProgressWithLabel(props) {
     return (
       <Box className="circle-container">
         <CircularProgress
           variant="determinate"
-          {...props}
+          value={getValue(props.value)}
           style={{
             width: "65px",
             height: "65px",
             color: "#FFA200",
-            zIndex: "1",
+            zIndex: 1,
           }}
         />
         <Box className="circle">{props.value}</Box>

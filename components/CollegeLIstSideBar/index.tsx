@@ -1,8 +1,6 @@
 import React from "react";
 import { CollegeListSelectedFilter } from "../CollegeListSelectedFilter";
 import { SideBarNewsLetter } from "../SideBarNewsLetter";
-import { CollegeListSelectedStream } from "../CollegeListSelectedStream";
-import { CollegeListFilteredByCity } from "../CollegeListFilteredByCity";
 import { FilteredByCity } from "../CollegeFilterList/FilteredByCity";
 import { FilteredByState } from "../CollegeFilterList/FilteredByState";
 import { FilteredByCountry } from "../CollegeFilterList/FilteredByCountry";
@@ -11,15 +9,20 @@ import { FilteredByStream } from "../CollegeFilterList/FilteredByStream";
 
 const CollegeListSideBar = ({
   resetFilter,
-  allCoursesWithCounts,
-  onSelectedCourse,
+
   selectedCourses,
-  deSelectCourse,
+
   countryList,
   stateList,
   cityList,
   courseLevel,
   programName,
+  handleStreamChange,
+  filterObj,
+  handleStateChange,
+  handleCityChange,
+  handleCountryChange,
+  handleCourseChange,
 }) => {
   return (
     <div className="college-list-side-bar">
@@ -31,45 +34,35 @@ const CollegeListSideBar = ({
       </div>
       <CollegeListSelectedFilter
         selectedCourses={selectedCourses}
-        deSelectCourse={deSelectCourse}
+        filterObj={filterObj}
       />
-      {/* <CollegeListSelectedStream
-        allCoursesWithCounts={allCoursesWithCounts}
-        selectedCourses={selectedCourses}
-        onSelecteCourse={onSelectedCourse}
-      /> */}
-      {/* <CollegeListFilteredByCity
-        cityList={cityList}
-        selectedCourses={selectedCourses}
-        onSelecteCourse={onSelecteCourse}
-      /> */}
 
       <FilteredByStream
         programName={programName}
-        selectedCourses={selectedCourses}
-        onSelecteCourse={onSelectedCourse}
+        handleStreamChange={handleStreamChange}
+        filterObj={filterObj}
       />
 
       <FilteredByCourseLevel
         courseLevel={courseLevel}
-        selectedCourses={selectedCourses}
-        onSelecteCourse={onSelectedCourse}
+        handleCourseChange={handleCourseChange}
+        filterObj={filterObj}
       />
 
       <FilteredByCountry
         countryList={countryList}
-        selectedCourses={selectedCourses}
-        onSelecteCourse={onSelectedCourse}
+        filterObj={filterObj}
+        handleCountryChange={handleCountryChange}
       />
       <FilteredByState
         stateList={stateList}
-        selectedCourses={selectedCourses}
-        onSelecteCourse={onSelectedCourse}
+        handleStateChange={handleStateChange}
+        filterObj={filterObj}
       />
       <FilteredByCity
         cityList={cityList}
-        selectedCourses={selectedCourses}
-        onSelecteCourse={onSelectedCourse}
+        handleCityChange={handleCityChange}
+        filterObj={filterObj}
       />
 
       <div className="college-list-side-bar__newsletterContainer">

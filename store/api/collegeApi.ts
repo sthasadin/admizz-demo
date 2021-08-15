@@ -27,7 +27,7 @@ export class CollegeService {
 
   getCollegeByLimit(limit) {
     let body = {};
-    let url = `college/getCollegeByLimit/${limit}`;
+    let url = `/college/getCollegeByLimit/${limit}`;
     let data = postService(url, body);
     return data
   }
@@ -43,6 +43,12 @@ export class CollegeService {
     let body = listBy;
     let url = '/college/list';
     let data = postService(url, body);
+    return data;
+  }
+  getCollegeBySearch(query) {
+    console.log(query)
+    let url = `/college/results?query=${query}`
+    let data = getService(url);
     return data;
   }
 }

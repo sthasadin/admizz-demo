@@ -44,13 +44,16 @@ const CustomizeCheckBox = withStyles({
 const FilteredByCountry = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
 
-  const { countryList, onSelecteCourse, selectedCourses } = props;
+  const {
+    countryList,
+
+    handleCountryChange,
+    filterObj,
+  } = props;
 
   const onChange = () => {
     console.log("asdasdasd");
   };
-
-  console.log(selectedCourses);
 
   const classes = useStyles();
 
@@ -92,14 +95,14 @@ const FilteredByCountry = (props) => {
                 >
                   <FormControlLabel
                     name={country}
-                    onChange={onSelecteCourse}
+                    onChange={handleCountryChange}
                     control={
                       <CustomizeCheckBox
                         name={country}
                         style={{ paddingBottom: "0" }}
                       />
                     }
-                    // checked={selectedCourses.includes(country.toUpperCase())}
+                    checked={filterObj.country.includes(country)}
                     label={country}
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />

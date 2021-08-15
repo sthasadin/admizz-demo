@@ -1,4 +1,4 @@
-import { COLLEGES_TYPES, COLLEGE_TYPES, COLLEGE_BY_LIMIT_BEGIN, COLLEGE_BY_LIMIT, TOTAL_COLLEGE } from "../const";
+import { COLLEGES_TYPES, COLLEGE_BY_FILTER, COLLEGE_TYPES, COLLEGE_BY_LIMIT_BEGIN, COLLEGE_BY_LIMIT, TOTAL_COLLEGE, COLLEGE_BY_SEARCH } from "../const";
 
 
 const initialState = {
@@ -25,6 +25,18 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 collegesByLimit: [...state.collegesByLimit, ...payload],
+                collegeByLimitLoader: false
+            }
+        case COLLEGE_BY_FILTER:
+            return {
+                ...state,
+                collegesByLimit: payload,
+                collegeByLimitLoader: false
+            }
+        case COLLEGE_BY_SEARCH:
+            return {
+                ...state,
+                collegesByLimit: payload,
                 collegeByLimitLoader: false
             }
 
@@ -66,6 +78,7 @@ export default (state = initialState, action) => {
                 singleLoading: true,
                 college: {}
             }
+
         default:
             return state;
     }

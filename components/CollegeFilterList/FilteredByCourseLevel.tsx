@@ -45,13 +45,11 @@ const CustomizeCheckBox = withStyles({
 const FilteredByCourseLevel = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
 
-  const { courseLevel, onSelecteCourse, selectedCourses } = props;
+  const { courseLevel, handleCourseChange, filterObj } = props;
 
   const onChange = () => {
     console.log("asdasdasd");
   };
-
-  console.log(selectedCourses);
 
   const classes = useStyles();
 
@@ -95,14 +93,14 @@ const FilteredByCourseLevel = (props) => {
                 >
                   <FormControlLabel
                     name={course}
-                    onChange={onSelecteCourse}
+                    onChange={handleCourseChange}
                     control={
                       <CustomizeCheckBox
                         name={course}
                         style={{ paddingBottom: "0" }}
                       />
                     }
-                    checked={selectedCourses.includes(course.toUpperCase())}
+                    checked={filterObj.course_level.includes(course)}
                     label={course}
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />

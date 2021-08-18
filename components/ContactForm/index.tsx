@@ -84,7 +84,7 @@ const ContactForm = () => {
           email: formValue.email,
           subject: formValue.subject,
           query: formValue.query,
-          createdAt: moment().format(),
+          createdAt: new Date(),
         })
         .then(function (docRef) {
           setSnackOpen(true);
@@ -96,12 +96,13 @@ const ContactForm = () => {
             query: "",
           });
           // setLoading(false);
+          setLoading(false);
         })
         .catch(function (error) {
+          setLoading(false);
           console.error("Error adding document: ", error);
         });
     }
-    setLoading(false);
   };
 
   return (

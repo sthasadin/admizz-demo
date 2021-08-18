@@ -30,18 +30,6 @@ const Program = () => {
     getProgram();
   }, [query]);
 
-  // React.useEffect(() => {
-  //   if (Object.keys(program).length > 0) {
-  //     setLoader(false);
-  //   }
-  // }, [program]);
-
-  console.log(loader, program, query);
-
-  // if (loader) {
-  //   return "loading...";
-  // }
-
   return (
     <>
       {loader ? (

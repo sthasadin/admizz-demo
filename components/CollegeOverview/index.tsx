@@ -5,6 +5,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import moment from "moment";
 import ReactPlayer from "react-player";
+import renderHTML from "react-render-html";
 
 const CollegeOverview = () => {
   const [open, setOpen] = useState(false);
@@ -20,15 +21,26 @@ const CollegeOverview = () => {
         </time>
       </div>
       {college.overview && (
-        <div className="overview__desc">{college?.overview}</div>
+        <div className="overview__desc">{renderHTML(college?.overview)}</div>
       )}
-      <div className="overview__collegesubtitle">Profile</div>
+      {college?.college_profile && (
+        <>
+          <div className="overview__collegesubtitle">Profile</div>
+          <div className="overview__desc">
+            {renderHTML(college?.college_profile)}
+          </div>
+        </>
+      )}
 
-      <div className="overview__desc">{college?.college_profile}</div>
+      {college?.description && (
+        <>
+          <div className="overview__collegesubtitle">Description</div>
 
-      <div className="overview__collegesubtitle">Description</div>
-
-      <div className="overview__desc">{college?.description}</div>
+          <div className="overview__desc">
+            {renderHTML(college?.description)}
+          </div>
+        </>
+      )}
 
       <div className="overview__block-wrap">
         {college.QS_ranking && (

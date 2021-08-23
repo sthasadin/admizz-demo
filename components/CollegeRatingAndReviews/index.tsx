@@ -137,7 +137,6 @@ const RatingAndReview = (props: any) => {
       _getReviews(college_id);
     }
   };
-  console.log(parseInt(reviews?.averageRating));
 
   return (
     <div id="rating" className="rating-review">

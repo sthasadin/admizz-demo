@@ -42,7 +42,7 @@ const selectCollege = ({
       stream,
       program
     );
-    console.log(rawColleges);
+
     if (response.isSuccess) {
       setRawColleges(response.data);
       setallColleges(
@@ -127,8 +127,6 @@ const selectCollege = ({
           clg.collegeStream === selectedStream?.label &&
           clg.collegeProgram === selectedProgram?.label
       );
-
-      console.log(thisCollege);
 
       if (!isAlreadyExist) {
         data[i].selectedCollege = {

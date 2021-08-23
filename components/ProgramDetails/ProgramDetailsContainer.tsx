@@ -11,7 +11,7 @@ const ProgramDetailsContainer = ({ data }) => {
       <div className="sidebar-container__inner section-wrapper">
         <div className="content-with-sidebar">
           <ProgramOverview data={data} />
-          <CourseOutline />
+          <CourseOutline data={data} />
           <Newsletter />
           <CareerOption data={data} />
 

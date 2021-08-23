@@ -7,12 +7,6 @@ const TrendingCourses = () => {
     (state) => state.college.college.trending_courses
   );
 
-  console.log(trending_courses);
-
-  // const collegeSlug = useSelector(
-  //   (state) => state.college.college.college_slug
-  // );
-
   return trending_courses?.length ? (
     <div className="trending-courses">
       <div className="trending-courses__inner">

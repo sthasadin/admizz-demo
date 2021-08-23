@@ -108,8 +108,6 @@ const DashboardReviewConfirm = (props) => {
     authUser,
   } = props;
 
-  console.log(selectedChoice);
-
   function truncateString(str, num = 20) {
     if (str.length <= num) {
       return str;

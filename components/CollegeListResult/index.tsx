@@ -1,9 +1,16 @@
 import React, { FC } from "react";
-import Skeleton from "@material-ui/lab/Skeleton";
+
 import SortImage from "../../public/SortImage.png";
 import { CollegesCard } from "../collegesBlock/collegesCard";
 import { CollegeCardLoader } from "../SkeletonLoading/CollegeCardLoader";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { success } from "@/store/commonActions";
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 interface CollegeProps {
   collegeList: Array<any>;
@@ -22,6 +29,11 @@ const CollegeListResult: FC<CollegeProps> = ({
   totalCollegeCount,
   loadMoreCollege,
 }) => {
+  const [showFinishMsg, setShowFinishMsg] = React.useState(false as boolean);
+
+  const handleCloseSnackbar = () => {
+    setShowFinishMsg(false);
+  };
   return (
     <div className="college-list-result">
       <div className="college-list-result__titleContainer">
@@ -47,11 +59,19 @@ const CollegeListResult: FC<CollegeProps> = ({
         </div>
       </div>
 
-      {loader && <CollegeCardLoader count={9} />}
+      {loader && (
+        <div className="college-list-result-loader-container">
+          <CollegeCardLoader count={9} />
+        </div>
+      )}
 
       <InfiniteScroll
         dataLength={collegeList.length}
-        loader={<CollegeCardLoader count={3} />}
+        loader={
+          <div className="college-list-result-loader-container">
+            <CollegeCardLoader count={3} />
+          </div>
+        }
         next={getMoreCollege}
         hasMore={loadMoreCollege == true ? true : false}
       >
@@ -62,6 +82,16 @@ const CollegeListResult: FC<CollegeProps> = ({
             })}
         </div>
       </InfiniteScroll>
+
+      <Snackbar
+        open={showFinishMsg}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
+        <Alert onClose={handleCloseSnackbar} severity="success">
+          End of Result
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

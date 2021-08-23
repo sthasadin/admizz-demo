@@ -64,13 +64,11 @@ const collegeList = () => {
       filterObj.stream.length ||
       filterObj.course_level.length
     ) {
-      console.log("in");
       setLoadMoreCollege(false);
       getFilterByFilter();
     } else {
       getCollegesArray();
       setLoadMoreCollege(true);
-      console.log("out");
     }
   }, [filterObj]);
 
@@ -201,7 +199,6 @@ const collegeList = () => {
     if (collegeListSearchQuery) {
       setLoadMoreCollege(false);
       await dispatch(getCollegeBySearch(collegeListSearchQuery));
-      console.log(collegeListSearchQuery);
     } else {
       getCollegesArray();
       setLoadMoreCollege(true);

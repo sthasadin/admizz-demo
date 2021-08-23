@@ -112,9 +112,9 @@ const Footer = () => {
             <div className="footer__col">
               <div className="footer__col__title">top colleges</div>
               {topColleges &&
-                topColleges?.map((college) => {
+                topColleges?.map((college, i) => {
                   return (
-                    <Link href={`/colleges/${college?.college_slug}`}>
+                    <Link href={`/colleges/${college?.college_slug}`} key={i}>
                       <div className="footer__col__item">
                         {college?.college_name}
                       </div>
@@ -126,9 +126,12 @@ const Footer = () => {
               <div className="footer__col__title">top courses</div>
 
               {topCourses &&
-                topCourses?.map((item) => {
+                topCourses?.map((item, i) => {
                   return (
-                    <Link href={`colleges/program/${item?.course_slug}`}>
+                    <Link
+                      href={`colleges/program/${item?.course_slug}`}
+                      key={i}
+                    >
                       <div className="footer__col__item">
                         {item?.course_name}
                       </div>

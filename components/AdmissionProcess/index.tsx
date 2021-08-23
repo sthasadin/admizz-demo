@@ -8,7 +8,6 @@ const AdmissionProcess = () => {
   const admission = useSelector(
     (state) => state.college.college?.addmission_process
   );
-  console.log(admission);
   const scholarships = useSelector(
     (state) => state.college.college?.scholarships
   );

@@ -1,10 +1,20 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getColleges } from "../../../store/Action/college.action";
+
 import renderHTML from "react-render-html";
+import Carousel from "../../ProgramCollegeCarousel";
 
 const ProgramOverview = ({ data }) => {
-  console.log(data);
+  const dispatch = useDispatch();
+  const collegeList = useSelector((state: any) => state.college.colleges);
+
+  React.useEffect(() => {
+    dispatch(getColleges());
+  }, []);
+
   return (
-    <div className="program-overview section-container" id="overview">
+    <div className="program-overview section-container">
       <div className="title-content">
         <div className="title-text">Overview</div>
         <div className="title-date">Updated On: 20 Nov, 2021</div>
@@ -13,8 +23,8 @@ const ProgramOverview = ({ data }) => {
         {renderHTML(data?.overview)}
         {/* {data?.overview} */}
       </div>
-      <div className="course-highlights">
-        <div className="course-title">MBA Highlights</div>
+      <div className="course-highlights" id="overview">
+        <div className="course-title">{data?.name} Highlights</div>
         <div className="course-highlights-container">
           <div className="content-left">
             <div className="content-left-text">Level</div>
@@ -53,24 +63,10 @@ const ProgramOverview = ({ data }) => {
         </div>
       </div>
 
-      <div className="admission-container">
-        <div className="course-title">Easy Admission Process</div>
-        <div className="course-start-date-container">
-          <div className="course-start-content">
-            Application Open for jan Session:
-          </div>
-          <div className="course-start-date">
-            Start Date: 18dec, 2020 / End Date: 28 Dec, 2020
-          </div>
-        </div>
-        <div className="course-description">
-          By Karam Chand Thapar in 1956. Karam Chand Thapar, one the great
-          captains of Indian Industry established this institute to provide
-          close interaction with industry, and a strong emphasis on basic and
-          applied research. The mission of the institution as embodied in the
-          Trust Deed dated April 9, 1956. It was granted full autonomy and the
-          status of deemed-to-be-university by the University Grants Commission
-          in 1985.
+      <div className="admission-container" id="similar-colleges">
+        <div className="course-title">Similar Colleges</div>
+        <div className="collegeBlock_list">
+          <Carousel data={collegeList} />
         </div>
       </div>
     </div>

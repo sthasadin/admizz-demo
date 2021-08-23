@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CollegesCard } from "../collegesBlock/collegesCard";
+import rightSideArrow from "../../public/right-side-arrow.png";
+import leftSideArrow from "../../public/left-side-arrow.png";
 
 const index = ({ data }) => {
   function SampleNextArrow(props) {
@@ -13,11 +15,7 @@ const index = ({ data }) => {
         style={{ ...style, display: "block", zIndex: 1 }}
         onClick={onClick}
       >
-        <img
-          src="./right-side-arrow.png"
-          alt=".."
-          style={{ marginLeft: "-30px" }}
-        />
+        <img src={rightSideArrow} alt=".." style={{ marginLeft: "-30px" }} />
       </div>
     );
   }
@@ -30,9 +28,9 @@ const index = ({ data }) => {
         onClick={onClick}
       >
         <img
-          src="./left-side-arrow.png"
+          src={leftSideArrow}
           alt=".."
-          style={{ marginLeft: "15px", zIndex: 10 }}
+          style={{ marginLeft: "3px", zIndex: 10 }}
         />
       </div>
     );
@@ -42,21 +40,13 @@ const index = ({ data }) => {
     infinite: true,
     dotsClass: "rounded-scroll slick-thumb",
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    className: "college-list-slider",
+    className: "program-college-list-slider",
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
 
     responsive: [
-      {
-        breakpoint: 1366,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
       {
         breakpoint: 1024,
         settings: {
@@ -66,7 +56,7 @@ const index = ({ data }) => {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,

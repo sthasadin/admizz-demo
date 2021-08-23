@@ -9,7 +9,7 @@ export class FooterService {
 
     addTopColleges(top_college) {
         let body = JSON.stringify(top_college);
-        console.log(body);
+
         let url = "/footer/addTopColleges";
         let data = postService(url, body);
         return data;

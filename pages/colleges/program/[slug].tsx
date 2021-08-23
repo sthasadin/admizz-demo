@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { ProgramHeader } from "../../../components/ProgramDetails/ProgramHeader";
 import { ProgramSubMenu } from "../../../components/ProgramDetails/ProgramSubMenu";
 import { ProgramDetailsContainer } from "../../../components/ProgramDetails/ProgramDetailsContainer";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import axios from "axios";
 
 const Program = () => {
@@ -19,7 +20,7 @@ const Program = () => {
     const res = await axios.get(
       `${API_BASE_URL}/courses/get-program/${query.slug}`
     );
-    // console.log(res);
+
     if (res) {
       setProgram(res?.data);
       setLoader(false);
@@ -33,11 +34,13 @@ const Program = () => {
   return (
     <>
       {loader ? (
-        <p>asdasd</p>
+        <div className={"route-load"}>
+          <CircularProgress />
+        </div>
       ) : (
         <Layout title={"program?.name"} stickyBar={false}>
           <ProgramHeader data={program} />
-          <ProgramSubMenu />
+          <ProgramSubMenu data={program} />
           <ProgramDetailsContainer data={program} />
         </Layout>
       )}

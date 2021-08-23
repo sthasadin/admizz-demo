@@ -9,8 +9,6 @@ function Alert(props: AlertProps) {
 const ProgramHeader = ({ data }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
-  // console.log(data?.courseLevel?.name);
-  console.log(data);
 
   return (
     <div

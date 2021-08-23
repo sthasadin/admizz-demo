@@ -46,7 +46,7 @@ export class CollegeService {
     return data;
   }
   getCollegeBySearch(query) {
-    console.log(query)
+
     let url = `/college/results?query=${query}`
     let data = getService(url);
     return data;

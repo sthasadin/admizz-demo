@@ -9,7 +9,7 @@ const index = () => {
 
   const ranking = useMemo(() => {
     let clgRank = college?.college_rankings;
-    console.log(clgRank);
+
     let newStructOfRank = [];
     if (clgRank?.length) {
       clgRank.forEach((r: any) => {
@@ -50,7 +50,7 @@ const index = () => {
     }
     return newStructOfRank;
   }, [college]);
-  console.log(ranking);
+
   return college.college_rankings?.length ? (
     <div className="rankingawards__section">
       <div className="rankingawards__title">RANKING & AWARDS</div>

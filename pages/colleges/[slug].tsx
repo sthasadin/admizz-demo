@@ -34,11 +34,8 @@ const Home = () => {
     affliated_by,
   } = useSelector((state) => state.college.college);
 
-  const _college = useSelector((state) => state.college.college);
   const router = useRouter();
   const { slug } = router.query;
-
-  console.log(_college);
 
   const _getReviews = async (college_id) => {
     const res = await dispatch(getReviews(college_id));

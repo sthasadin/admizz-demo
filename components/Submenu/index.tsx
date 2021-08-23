@@ -1,14 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+import { Link } from "react-scroll";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 function Alert(props: AlertProps) {
@@ -17,7 +9,6 @@ function Alert(props: AlertProps) {
 
 const Submenu = (props: any) => {
   const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
-  const [state, setState] = React.useState("overview");
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const college = useSelector((state) => state.college.college);
@@ -39,7 +30,7 @@ const Submenu = (props: any) => {
   return (
     <div
       className={`submenu-bars  ${
-        collegeBarSticky ? "active-college-sticky" : ""
+        collegeBarSticky ? "'active-college-sticky'" : ""
       }`}
     >
       {collegeBarSticky && (

@@ -9,7 +9,7 @@ import Link from "next/link";
 const CourseSideBar = () => {
   return (
     <aside className="sidebar">
-      <Link href={`/dashboardbasicinfo/Apply`}>
+      <Link href={`/dashboardbasicinfo/apply`}>
         <CallToAction className="filled full-width">
           Apply for this course
         </CallToAction>

@@ -66,8 +66,8 @@ const ProgramHeader = ({ data }) => {
       >
         <Alert onClose={() => setSnackOpen(false)} severity="success">
           {click
-            ? `${"MBA"} has been added to your favourite list.`
-            : `${"MBA"} Removed from your favourite list`}
+            ? `${data?.name} has been added to your favourite list.`
+            : `${data?.name} Removed from your favourite list`}
         </Alert>
       </Snackbar>
     </div>

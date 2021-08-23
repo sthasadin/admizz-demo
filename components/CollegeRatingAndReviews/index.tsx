@@ -6,6 +6,7 @@ import {
   getReviews,
   updateReview,
 } from "../../store/Action/review.action";
+import Rating from "@material-ui/lab/Rating";
 import { AddCollegeRatingAndReview } from "../AddCollegeRatingAndReviews";
 import { Review } from "../Review";
 import { RatingItem } from "./ratingItem";
@@ -136,6 +137,7 @@ const RatingAndReview = (props: any) => {
       _getReviews(college_id);
     }
   };
+  console.log(parseInt(reviews?.averageRating));
 
   return (
     <div id="rating" className="rating-review">
@@ -155,16 +157,25 @@ const RatingAndReview = (props: any) => {
       <div className="rating-review__rating__header">
         <div className="rating-review__rating__left">
           <div className="rating-review__rating__title">College Rating</div>
+
           <div className="rating-review__rating__subheading">
             Based on <span>{reviews?.length} Students</span> rating
           </div>
         </div>
         <div className="rating-review__rating__right">
           <div className="rating-review__rating__heading">Average Rating</div>
-          <div className="rating-review__rating">
+
+          <Rating
+            precision={0.5}
+            value={reviews?.averageRating / 2 || 0}
+            readOnly
+          />
+
+          {/* <div className="rating-review__rating">
+            
             <span>{reviews?.averageRating || 0}/</span>
             10
-          </div>
+          </div> */}
         </div>
       </div>
 

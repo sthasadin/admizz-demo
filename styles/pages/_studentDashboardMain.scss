@@ -6,14 +6,13 @@
     flex-wrap: wrap-reverse;
   }
   &__sidebar {
-    width: 280px;
-    max-width: 180px;
     @media (max-width: 1175px) {
       display: none;
     }
   }
   &__mainpage {
     padding: 10px;
+    width: 100%;
     @media (max-width: 1175px) {
       width: 100%;
     }

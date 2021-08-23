@@ -35,7 +35,7 @@ const DashboardSidebar = () => {
               ? "active-dashboard"
               : ""
           }`}
-          onClick={() => router.push("/dashboardbasicinfo/Status")}
+          onClick={() => router.push("/dashboardbasicinfo/status")}
         >
           Application Status
         </div>

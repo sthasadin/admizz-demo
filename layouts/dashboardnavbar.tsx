@@ -42,7 +42,7 @@ const DashboardNavbar = () => {
           </Link>
         </ListItem>
         <ListItem button key={"Application Status"}>
-          <Link href="/dashboardbasicinfo/Status">
+          <Link href="/dashboardbasicinfo/status">
             <ListItemText primary={"Application Status"} />
           </Link>
         </ListItem>
@@ -63,7 +63,7 @@ const DashboardNavbar = () => {
   return (
     <div
       className="navbar"
-      style={{ padding: "10px 0", borderBottom: "1px solid #e0e0e0" }}
+      style={{ padding: "10px", borderBottom: "1px solid #e0e0e0" }}
     >
       <div className={`navbar__inner dashboard-navbar`}>
         <div className="logo" style={{ cursor: "pointer" }}>

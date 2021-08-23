@@ -8,6 +8,7 @@ const AdmissionProcess = () => {
   const admission = useSelector(
     (state) => state.college.college?.addmission_process
   );
+  console.log(admission);
   const scholarships = useSelector(
     (state) => state.college.college?.scholarships
   );
@@ -24,12 +25,7 @@ const AdmissionProcess = () => {
               </div>
               <div className="admission-process__start">
                 {/* Application Open for Jan Session: */}
-                <span>
-                  {" "}
-                  Start Date:{" "}
-                  {moment(admission?.start_date).format("DD MMM YYYY")} / End
-                  Date: {moment(admission?.end_date).format("DD MMM YYYY")}
-                </span>
+                <span> Start Date : {admission?.start_date}</span>
               </div>
               <div className="admission-process__desc">
                 {admission?.description}

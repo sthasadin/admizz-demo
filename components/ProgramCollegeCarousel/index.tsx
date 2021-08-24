@@ -38,7 +38,7 @@ const index = ({ data }) => {
   const settings = {
     dots: false,
     infinite: true,
-    dotsClass: "rounded-scroll slick-thumb",
+    dotsClass: "rounded-scroll rounded-program-college slick-thumb",
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,

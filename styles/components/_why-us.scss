@@ -7,21 +7,30 @@
   }
 
   &__backgroundimage {
-    background-image: url("/public/why-us-bg-image.png");
+    // background-image: linear-gradient(
+    //     0deg,
+    //     rgba(95, 24, 2, 0.7),
+    //     rgba(95, 24, 2, 0.7)
+    //   ),
+    //   url("/public/why-us-bg-image.png");
     background-size: cover;
     background-position: center;
     height: 341px;
-    border: 1px solid black;
+    padding-top: 40px;
     background-repeat: no-repeat;
   }
   &__content {
     display: flex;
     justify-content: space-between;
-    margin-top: 70px;
+
     @media (max-width: 700px) {
       flex-direction: column;
       gap: 20px;
     }
+  }
+  &__rightcontent {
+    display: flex;
+    align-items: center;
   }
   &__leftcontent {
     width: 50%;
@@ -106,10 +115,20 @@
   width: 100%;
   margin: 0 auto;
   margin-top: 8%;
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
   gap: 10px;
-  justify-content: space-between;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   .university-icon {
     width: 100px;
@@ -129,6 +148,7 @@
     font-size: 14px;
     font-weight: 800;
     cursor: pointer;
+    text-align: center;
     &:hover {
       text-decoration: underline;
     }

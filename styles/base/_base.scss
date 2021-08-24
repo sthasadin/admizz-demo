@@ -310,6 +310,9 @@ a {
     margin-left: 0;
   }
 }
+.rounded-program-college li button::before {
+  margin-top: 10px;
+}
 .rounded-scroll li.slick-active button::before {
   background-color: #5f1802;
   @media (max-width: 480px) {

@@ -66,7 +66,7 @@ const ProgramOverview = ({ data }) => {
       <div className="admission-container" id="similar-colleges">
         <div className="course-title">Similar Colleges</div>
         <div className="collegeBlock_list">
-          <Carousel data={collegeList} />
+          <Carousel data={collegeList.slice(0, 6)} />
         </div>
       </div>
     </div>

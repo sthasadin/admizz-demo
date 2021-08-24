@@ -40,6 +40,13 @@
       left: 0;
     }
   }
+
+  @media (max-width: 1024px) {
+    white-space: nowrap;
+    width: 100%;
+    gap: 20px;
+    overflow-x: auto;
+  }
 }
 
 .college_container {

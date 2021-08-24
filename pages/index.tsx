@@ -16,12 +16,12 @@ import { Us } from "../components/why-us";
 import Layout from "../layouts/index";
 
 export default function Home() {
+  const { collegeList } = useSelector((state) => state.allCollege);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCollegeList());
   }, []);
-
-  const { collegeList } = useSelector((state) => state.allCollege);
 
   return (
     <Layout title="Home" stickyBar={true}>
@@ -33,7 +33,7 @@ export default function Home() {
 
       <Statistics />
       <FiveSteps />
-      <CollegesBlock collegeList={collegeList} />
+      <CollegesBlock collegeList={collegeList.slice(0, 6)} />
       <CollegeFinder />
       <Testimonial />
       <BlogList />

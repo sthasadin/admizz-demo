@@ -26,11 +26,12 @@ const Submenu = (props: any) => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  console.log(collegeBarSticky);
 
   return (
     <div
       className={`submenu-bars  ${
-        collegeBarSticky ? "'active-college-sticky'" : ""
+        collegeBarSticky ? "active-college-sticky" : ""
       }`}
     >
       {collegeBarSticky && (

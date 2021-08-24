@@ -4,6 +4,7 @@ import { useDispatcher, useSelector } from "react-redux";
 
 const CollegeFacility = () => {
   const facilities = useSelector((state) => state.college.college.facilities);
+  console.log(facilities);
 
   return facilities?.length ? (
     <div className="college-facility">
@@ -12,7 +13,7 @@ const CollegeFacility = () => {
         <div className="college-facility__list">
           {facilities.map((data, i) => {
             return (
-              <FacilityItem icon={data.value} label={data.label} key={i} />
+              <FacilityItem icon={data.values} label={data.label} key={i} />
             );
           })}
         </div>

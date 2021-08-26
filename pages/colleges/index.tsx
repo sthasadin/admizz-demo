@@ -9,7 +9,6 @@ import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
 import { CollegeListResult } from "../../components/CollegeListResult";
 
 import {
-  getCollegesByCity,
   getCollegeByLimit,
   getCollegeByFilter,
   getCollegeBySearch,
@@ -34,8 +33,7 @@ const collegeList = () => {
     course_level: [],
   });
   const [loadMoreCollege, setLoadMoreCollege] = useState(false as boolean);
-  const [selectedCourses, setSeletedCourses] = useState([]);
-  const [_collegeList, setCollegeList] = useState([]);
+
   const [limit, setLimit] = useState(2);
   //redux state
   const { countryList } = useSelector((state) => state.filter);
@@ -71,14 +69,6 @@ const collegeList = () => {
       setLoadMoreCollege(true);
     }
   }, [filterObj]);
-
-  React.useEffect(() => {
-    dispatch(
-      getCollegesByCity({
-        city: selectedCourses[0],
-      })
-    );
-  }, [selectedCourses]);
 
   const getAllFilterList = async () => {
     await dispatch(getCountryList({ filter: "country" }));
@@ -206,9 +196,13 @@ const collegeList = () => {
   };
 
   const resetFilter = () => {
-    setCollegeListSearchQuery("");
-    setCollegeList(_collegeList); //the old list
-    setSeletedCourses([]);
+    setFilterObj({
+      country: [],
+      state: [],
+      city: [],
+      stream: [],
+      course_level: [],
+    });
   };
 
   return (
@@ -266,7 +260,6 @@ const collegeList = () => {
               <div className="college-list__sideBarContainer">
                 <CollegeListSideBar
                   resetFilter={resetFilter}
-                  selectedCourses={selectedCourses}
                   countryList={countryList}
                   stateList={stateList}
                   cityList={cityList}
@@ -278,6 +271,7 @@ const collegeList = () => {
                   handleCityChange={handleCityChange}
                   handleCountryChange={handleCountryChange}
                   handleCourseChange={handleCourseChange}
+                  setFilterObj={setFilterObj}
                 />
               </div>
               <div

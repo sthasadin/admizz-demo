@@ -43,6 +43,7 @@ const CustomizeCheckBox = withStyles({
 
 const FilteredByStream = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
+  const [searchKey, setSearchKey] = React.useState("");
 
   const {
     programName,
@@ -51,23 +52,22 @@ const FilteredByStream = (props) => {
     filterObj,
   } = props;
 
-  const onChange = () => {
-    console.log("asd");
-  };
-
   const classes = useStyles();
+
+  const filtercourse = programName?.filter((item) => {
+    return item?.toLowerCase().includes(searchKey.toLowerCase());
+  });
 
   return (
     <div className="college-list-selected-filter">
       <div className="college-list-selected-filter__filterTitleContainer">
         <p className="college-list-selected-filter__filterTitle">Stream</p>
-        <p className="college-list-selected-filter__filterAdd">
+        <p
+          className="college-list-selected-filter__filterAdd"
+          onClick={() => setToggleStream((toggleStream) => !toggleStream)}
+        >
           {" "}
-          <img
-            src="./plus-icon.png"
-            alt="..."
-            onClick={() => setToggleStream((toggleStream) => !toggleStream)}
-          />
+          <img src="./plus-icon.png" alt="..." />
         </p>
       </div>
       <div
@@ -80,14 +80,15 @@ const FilteredByStream = (props) => {
             placeholder={"Find Stream"}
             margin={"0px 0px 0px 0px"}
             name="stream_search"
-            onChange={onChange}
+            onChange={(e) => setSearchKey(e.target.value)}
             fullWidth
+            value={searchKey}
             icon={SearchIcon}
           />
         </div>
         <div style={{ padding: "10px 0 10px 0" }}>
-          {programName &&
-            programName?.map((program, i) => {
+          {filtercourse &&
+            filtercourse?.map((program, i) => {
               return (
                 <div
                   key={i}

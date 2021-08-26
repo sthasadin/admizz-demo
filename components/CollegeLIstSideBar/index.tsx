@@ -10,8 +10,7 @@ import { FilteredByStream } from "../CollegeFilterList/FilteredByStream";
 const CollegeListSideBar = ({
   resetFilter,
 
-  selectedCourses,
-
+  setFilterObj,
   countryList,
   stateList,
   cityList,
@@ -33,8 +32,8 @@ const CollegeListSideBar = ({
         </p>
       </div>
       <CollegeListSelectedFilter
-        selectedCourses={selectedCourses}
         filterObj={filterObj}
+        setFilterObj={setFilterObj}
       />
 
       <FilteredByStream

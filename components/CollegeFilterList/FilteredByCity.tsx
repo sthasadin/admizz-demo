@@ -43,6 +43,7 @@ const CustomizeCheckBox = withStyles({
 
 const FilteredByCity = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
+  const [searchKey, setSearchKey] = React.useState("");
 
   const {
     cityList,
@@ -51,10 +52,9 @@ const FilteredByCity = (props) => {
     filterObj,
   } = props;
 
-  const onChange = () => {
-    console.log("asdasdasd");
-  };
-
+  const filterItem = cityList.filter((item) => {
+    return item.toLowerCase().includes(searchKey.toLowerCase());
+  });
   const classes = useStyles();
 
   return (
@@ -80,14 +80,15 @@ const FilteredByCity = (props) => {
             placeholder={"Find Stream"}
             margin={"0px 0px 0px 0px"}
             name="stream_search"
-            onChange={onChange}
+            onChange={(e) => setSearchKey(e.target.value)}
+            value={searchKey}
             fullWidth
             icon={SearchIcon}
           />
         </div>
         <div style={{ padding: "10px 0 10px 0" }}>
-          {cityList &&
-            cityList?.map((city, i) => {
+          {filterItem &&
+            filterItem?.map((city, i) => {
               return (
                 <div
                   key={i}

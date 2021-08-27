@@ -427,7 +427,7 @@ const DashboardBasicInfo = (props) => {
           Personal Detail
         </div>
         <div className="dashboard-basic-info__formContainer personal-details-form">
-          <form>
+          <form className="form-container">
             <Grid
               container
               className="dashboard-basic-info__row"

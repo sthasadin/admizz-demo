@@ -12,12 +12,8 @@ const AppliedCollege = ({ selectedCollege }) => {
 
   return (
     <>
-      <div
-        style={{
-          paddingRight: "15px",
-        }}
-      >
-        <Grid
+      <div>
+        {/* <Grid
           container
           className="dashboard-basic-info__row"
           justify="space-around"
@@ -28,19 +24,23 @@ const AppliedCollege = ({ selectedCollege }) => {
               You have selected these colleges Study
             </div>
           </Grid>
-        </Grid>
-        <div className="dashboard-basic-info__rowTableTitle">
+        </Grid> */}
+        <div
+          className="dashboard-basic-info__rowTableTitle"
+          style={{ marginTop: "10px", paddingLeft: "0" }}
+        >
           <Grid
             container
-            className="dashboard-basic-info__row"
-            justify="space-around"
+            // className="dashboard-basic-info__row"
+
             direction="row"
+            style={{ gap: "0" }}
           >
             <Grid
               className={"dashboard-basic-info__gridNoPadding"}
               item
               sm={12}
-              md={3}
+              md={6}
             >
               <div className="dashboard-basic-info__tableTitle">
                 COLLEGE/UNIVERSITY
@@ -50,7 +50,7 @@ const AppliedCollege = ({ selectedCollege }) => {
               className={"dashboard-basic-info__gridNoPadding"}
               item
               sm={12}
-              md={2}
+              md={3}
             >
               <div className="dashboard-basic-info__tableTitle">STREAM</div>
             </Grid>
@@ -58,12 +58,18 @@ const AppliedCollege = ({ selectedCollege }) => {
               className={"dashboard-basic-info__gridNoPadding"}
               item
               sm={12}
-              md={7}
+              md={3}
             >
               <div className="dashboard-basic-info__tableTitle">
                 SPECIALIZATION
               </div>
             </Grid>
+            <Grid
+              className={"dashboard-basic-info__gridNoPadding"}
+              item
+              sm={12}
+              md={3}
+            ></Grid>
           </Grid>
         </div>
 
@@ -73,7 +79,7 @@ const AppliedCollege = ({ selectedCollege }) => {
               <div className="dashboard-basic-info__rowTable" key={i}>
                 <Grid
                   container
-                  className="dashboard-basic-info__row"
+                  style={{ marginTop: "10px" }}
                   justify="space-around"
                   direction="row"
                 >
@@ -81,39 +87,38 @@ const AppliedCollege = ({ selectedCollege }) => {
                     className={"dashboard-basic-info__grid"}
                     item
                     sm={12}
-                    md={1}
-                    xs={12}
+                    md={6}
+                    xs={2}
                   >
-                    <div className="dashboard-basic-info__tableCell">
-                      <div className="dashboard-basic-info__imageCell">
+                    <div
+                      className="dashboard-basic-info__tableCell"
+                      style={{ display: "flex", gap: "10px" }}
+                    >
+                      <div
+                        className="dashboard-basic-info__imageCell"
+                        style={{ maxWidth: "90px" }}
+                      >
                         <img
                           src={college?.image}
                           style={{ width: "100%", height: "100%" }}
                         />
                       </div>
+                      <div className="dashboard-basic-info__tableCell">
+                        <div className="dashboard-basic-info__tableText">
+                          {college.collegeName}
+                        </div>
+                        <div className="dashboard-basic-info__tableSubText">
+                          {truncateString(college.address)}
+                        </div>
+                      </div>
                     </div>
                   </Grid>
+
                   <Grid
                     className={"dashboard-basic-info__grid"}
                     item
                     sm={12}
-                    md={2}
-                    xs={12}
-                  >
-                    <div className="dashboard-basic-info__tableCell">
-                      <div className="dashboard-basic-info__tableText">
-                        {college.collegeName}
-                      </div>
-                      <div className="dashboard-basic-info__tableSubText">
-                        {truncateString(college.address)}
-                      </div>
-                    </div>
-                  </Grid>
-                  <Grid
-                    className={"dashboard-basic-info__grid"}
-                    item
-                    sm={12}
-                    md={2}
+                    md={3}
                     xs={12}
                   >
                     <div className="dashboard-basic-info__tableCell">
@@ -126,7 +131,7 @@ const AppliedCollege = ({ selectedCollege }) => {
                     className={"dashboard-basic-info__grid"}
                     item
                     sm={12}
-                    md={4}
+                    md={3}
                     xs={12}
                   >
                     <div className="dashboard-basic-info__tableCell">

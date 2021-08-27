@@ -206,7 +206,7 @@ const DashboardBackgroundInfo = (props) => {
           Background Information
         </div>
         <div className="dashboard-basic-info__formContainer background-info-container">
-          <form>
+          <form className="form-container">
             <Grid
               container
               className="dashboard-basic-info__row"
@@ -421,7 +421,10 @@ const DashboardBackgroundInfo = (props) => {
               direction="row"
             >
               <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
+                <div
+                  className="dashboard-basic-info__formTitle"
+                  style={{ padding: "9px 0" }}
+                >
                   Enter your Citizenship / National ID
                 </div>
               </Grid>
@@ -429,7 +432,7 @@ const DashboardBackgroundInfo = (props) => {
             <Grid
               container
               className="dashboard-basic-info__row"
-              justify="space-around"
+              justify="flex-start"
               direction="row"
             >
               <Grid
@@ -453,13 +456,6 @@ const DashboardBackgroundInfo = (props) => {
                   error={!!formError.passportId}
                 />
               </Grid>
-              <Grid
-                className={"dashboard-basic-info__grid"}
-                item
-                sm={12}
-                md={6}
-                xs={12}
-              ></Grid>
             </Grid>
             <Grid
               container
@@ -540,9 +536,7 @@ const DashboardBackgroundInfo = (props) => {
         </div>
         <div className="dashboard-basic-info__formContainer ">
           <div className="dashboard-basic-info__marginContainer">
-            {/* <div className="dashboard-basic-info__formTitle">Parents</div>
-            <hr className="dashboard-basic-info__horizontalLine" /> */}
-            <form>
+            <form className="form-container">
               <Grid
                 container
                 className="dashboard-basic-info__row"

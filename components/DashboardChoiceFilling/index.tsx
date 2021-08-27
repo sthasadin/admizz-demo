@@ -188,6 +188,7 @@ const DashboardChoiceFilling = ({
                 className="dashboard-basic-info__row"
                 justify="space-around"
                 direction="row"
+                style={{ gap: "0px " }}
               >
                 <Grid
                   className={"dashboard-basic-info__gridNoPadding"}
@@ -238,10 +239,13 @@ const DashboardChoiceFilling = ({
                         item
                         sm={12}
                         md={1}
-                        xs={12}
+                        xs={2}
                       >
                         <div className="dashboard-basic-info__tableCell">
-                          <div className="dashboard-basic-info__imageCell">
+                          <div
+                            className="dashboard-basic-info__imageCell"
+                            style={{ maxWidth: "80px" }}
+                          >
                             <img
                               src={college?.image}
                               style={{ width: "100%", height: "100%" }}
@@ -252,9 +256,9 @@ const DashboardChoiceFilling = ({
                       <Grid
                         className={"dashboard-basic-info__grid"}
                         item
-                        sm={12}
+                        sm={8}
                         md={2}
-                        xs={12}
+                        xs={8}
                       >
                         <div className="dashboard-basic-info__tableCell">
                           <div className="dashboard-basic-info__tableText">

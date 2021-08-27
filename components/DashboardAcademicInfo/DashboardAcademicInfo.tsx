@@ -183,304 +183,240 @@ export const DashboardAcademicInfo = (props) => {
         <div className="dashboard-basic-info__sectionTitle">
           Academic Information
         </div>
-        <hr className="dashboard-basic-info__horizontalLine" />
-        <div className="dashboard-basic-info__formContainer">
-          <form>
-            {/* Academic Heading score */}
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="flex-start"
-              direction="row"
-            >
-              <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle form--title">
-                  Academics Scores
-                </div>
-                <hr className="dashboard-basic-info__horizontalLine" />
-              </Grid>
-            </Grid>
 
-            {/* -----------end-------------------- */}
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="flex-start"
-              direction="row"
-            >
+        <div className="dashboard-basic-info__formContainer">
+          <div className="dashboard-basic-info__marginContainer">
+            <div className="dashboard-basic-info__formTitle form--title">
+              Academics Scores
+            </div>
+            <hr className="dashboard-basic-info__horizontalLine" />
+
+            <form className="form-container">
+              {/* -----------end-------------------- */}
+              <Grid
+                container
+                className="dashboard-basic-info__row academic-marks-input-container"
+              >
+                {(selectedLevel == "diploma" ||
+                  selectedLevel == "postgraduate" ||
+                  selectedLevel == "undergraduate" ||
+                  selectedLevel == "phd") && (
+                  <Grid
+                    className={
+                      "dashboard-basic-info__grid academic-marks-field"
+                    }
+                    item
+                    sm={12}
+                    md={12}
+                    xs={12}
+                  >
+                    <div className="dashboard-basic-info__formText">
+                      School Marks / Class 10(X)
+                    </div>
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      placeholder="eg: 50.50"
+                      value={schoolMarks}
+                      onChange={(e) => setSchoolMarks(e.target.value)}
+                      name="schoolMarks"
+                      errorMessage={formError.schoolMarks}
+                      error={!!formError.schoolMarks}
+                    />
+                  </Grid>
+                )}
+                {(selectedLevel == "phd" ||
+                  // selectedLevel === "diploma" ||
+                  selectedLevel === "postgraduate" ||
+                  selectedLevel == "undergraduate") && (
+                  <>
+                    <Grid
+                      className={"dashboard-basic-info__grid"}
+                      item
+                      sm={12}
+                      md={12}
+                      xs={12}
+                    >
+                      <div className="dashboard-basic-info__formText">
+                        High School Marks /{" "}
+                        {showClass11Marks ? "Class 11" : "Class 12"} / Level 0
+                        Marks
+                      </div>
+                      <div style={{ display: "flex" }}>
+                        {showClass11Marks ? (
+                          <Input
+                            className={"dashboard-basic-info__input"}
+                            fullWidth
+                            placeholder="eg: 50.50 class 11"
+                            value={level1Score}
+                            onChange={(e) => setLevel1Score(e.target.value)}
+                            name="level1Score"
+                            errorMessage={formError.level1Score}
+                            error={!!formError.level1Score}
+                          />
+                        ) : (
+                          <Input
+                            className={"dashboard-basic-info__input"}
+                            fullWidth
+                            placeholder="eg: 50.50 class 12"
+                            value={level2Score}
+                            onChange={(e) => setLevel2Score(e.target.value)}
+                            name="level2Score"
+                            errorMessage={formError.level2Score}
+                            error={!!formError.level2Score}
+                          />
+                        )}
+
+                        <div
+                          onClick={() =>
+                            setShowClass11Marks(
+                              (showClass11Marks) => !showClass11Marks
+                            )
+                          }
+                          style={{ cursor: "pointer", marginLeft: "5px" }}
+                        >
+                          {selectedLevel === "undergraduate" && (
+                            <u>
+                              {showClass11Marks
+                                ? "Have completed ?"
+                                : `Haven't completed yet?`}
+                            </u>
+                          )}
+                        </div>
+                      </div>
+                    </Grid>
+                  </>
+                )}
+
+                {(selectedLevel == "postgraduate" ||
+                  selectedLevel == "undergraduate" ||
+                  selectedLevel == "phd") && (
+                  <Grid
+                    className={
+                      "dashboard-basic-info__grid academic-marks-field"
+                    }
+                    item
+                    sm={12}
+                    md={12}
+                    xs={12}
+                  >
+                    <div className="dashboard-basic-info__formText">
+                      Diploma Scroes
+                    </div>
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      placeholder="eg: 50.50"
+                      value={diplomaScore}
+                      onChange={(e) => setDiplomaScore(e.target.value)}
+                      name="diplomaScore"
+                      errorMessage={formError.diplomaScore}
+                      error={!!formError.diplomaScore}
+                    />
+                  </Grid>
+                )}
+
+                {selectedLevel == "phd" && (
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={12}
+                    xs={12}
+                  >
+                    <div className="dashboard-basic-info__formText">
+                      Post graduate Marks
+                    </div>
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      placeholder="eg: 50.50"
+                      value={postGraduteScore}
+                      onChange={(e) => setPostGraduteScore(e.target.value)}
+                      name="postGraduteScore"
+                      errorMessage={formError.postGraduteScore}
+                      error={!!formError.postGraduteScore}
+                    />
+                  </Grid>
+                )}
+                {(selectedLevel == "postgraduate" ||
+                  selectedLevel == "phd") && (
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={12}
+                    xs={12}
+                  >
+                    <div className="dashboard-basic-info__formText">
+                      UnderGraduate Marks
+                    </div>
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      placeholder="eg: 50.50"
+                      value={underGraduate}
+                      onChange={(e) => setUnderGraduate(e.target.value)}
+                      name="underGraduate"
+                      errorMessage={formError.underGraduate}
+                      error={!!formError.underGraduate}
+                    />
+                  </Grid>
+                )}
+              </Grid>
+
+              {/* -------------academic indentification section------------ */}
+              <Grid
+                container
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
+              >
+                <Grid item sm={12} md={12} xs={12}>
+                  <div className="dashboard-basic-info__formTitle form--title">
+                    Academic Documents
+                  </div>
+                  <hr className="dashboard-basic-info__horizontalLine" />
+                </Grid>
+              </Grid>
+
               {(selectedLevel == "diploma" ||
                 selectedLevel == "postgraduate" ||
                 selectedLevel == "undergraduate" ||
                 selectedLevel == "phd") && (
                 <Grid
-                  className={"dashboard-basic-info__grid academic-marks-field"}
-                  item
-                  sm={12}
-                  md={6}
-                  xs={12}
-                >
-                  <div className="dashboard-basic-info__formText">
-                    School Marks / Class 10(X)
-                  </div>
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    placeholder="eg: 50.50"
-                    value={schoolMarks}
-                    onChange={(e) => setSchoolMarks(e.target.value)}
-                    name="schoolMarks"
-                    errorMessage={formError.schoolMarks}
-                    error={!!formError.schoolMarks}
-                  />
-                </Grid>
-              )}
-              {(selectedLevel == "phd" ||
-                // selectedLevel === "diploma" ||
-                selectedLevel === "postgraduate" ||
-                selectedLevel == "undergraduate") && (
-                <>
-                  <Grid
-                    className={"dashboard-basic-info__grid"}
-                    item
-                    sm={12}
-                    md={6}
-                    xs={12}
-                  >
-                    <div className="dashboard-basic-info__formText">
-                      High School Marks /{" "}
-                      {showClass11Marks ? "Class 11" : "Class 12"} / Level 0
-                      Marks
-                    </div>
-                    <div style={{ display: "flex" }}>
-                      {showClass11Marks ? (
-                        <Input
-                          className={"dashboard-basic-info__input"}
-                          fullWidth
-                          placeholder="eg: 50.50 class 11"
-                          value={level1Score}
-                          onChange={(e) => setLevel1Score(e.target.value)}
-                          name="level1Score"
-                          errorMessage={formError.level1Score}
-                          error={!!formError.level1Score}
-                        />
-                      ) : (
-                        <Input
-                          className={"dashboard-basic-info__input"}
-                          fullWidth
-                          placeholder="eg: 50.50 class 12"
-                          value={level2Score}
-                          onChange={(e) => setLevel2Score(e.target.value)}
-                          name="level2Score"
-                          errorMessage={formError.level2Score}
-                          error={!!formError.level2Score}
-                        />
-                      )}
-
-                      <div
-                        onClick={() =>
-                          setShowClass11Marks(
-                            (showClass11Marks) => !showClass11Marks
-                          )
-                        }
-                        style={{ cursor: "pointer", marginLeft: "5px" }}
-                      >
-                        {selectedLevel === "undergraduate" && (
-                          <u>
-                            {showClass11Marks
-                              ? "Have completed ?"
-                              : `Haven't completed yet?`}
-                          </u>
-                        )}
-                      </div>
-                    </div>
-                  </Grid>
-                </>
-              )}
-
-              {(selectedLevel == "postgraduate" ||
-                selectedLevel == "undergraduate" ||
-                selectedLevel == "phd") && (
-                <Grid
-                  className={"dashboard-basic-info__grid academic-marks-field"}
-                  item
-                  sm={12}
-                  md={6}
-                  xs={12}
-                >
-                  <div className="dashboard-basic-info__formText">
-                    Diploma Scroes
-                  </div>
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    placeholder="eg: 50.50"
-                    value={diplomaScore}
-                    onChange={(e) => setDiplomaScore(e.target.value)}
-                    name="diplomaScore"
-                    errorMessage={formError.diplomaScore}
-                    error={!!formError.diplomaScore}
-                  />
-                </Grid>
-              )}
-
-              {selectedLevel == "phd" && (
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={6}
-                  xs={12}
-                >
-                  <div className="dashboard-basic-info__formText">
-                    Post graduate Marks
-                  </div>
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    placeholder="eg: 50.50"
-                    value={postGraduteScore}
-                    onChange={(e) => setPostGraduteScore(e.target.value)}
-                    name="postGraduteScore"
-                    errorMessage={formError.postGraduteScore}
-                    error={!!formError.postGraduteScore}
-                  />
-                </Grid>
-              )}
-              {(selectedLevel == "postgraduate" || selectedLevel == "phd") && (
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={6}
-                  xs={12}
-                >
-                  <div className="dashboard-basic-info__formText">
-                    UnderGraduate Marks
-                  </div>
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    placeholder="eg: 50.50"
-                    value={underGraduate}
-                    onChange={(e) => setUnderGraduate(e.target.value)}
-                    name="underGraduate"
-                    errorMessage={formError.underGraduate}
-                    error={!!formError.underGraduate}
-                  />
-                </Grid>
-              )}
-            </Grid>
-
-            {/* -------------academic indentification section------------ */}
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="flex-start"
-              direction="row"
-            >
-              <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle form--title">
-                  Academic Documents
-                </div>
-                <hr className="dashboard-basic-info__horizontalLine" />
-              </Grid>
-            </Grid>
-
-            {(selectedLevel == "diploma" ||
-              selectedLevel == "postgraduate" ||
-              selectedLevel == "undergraduate" ||
-              selectedLevel == "phd") && (
-              <Grid
-                container
-                className="dashboard-basic-info__row acdemic-certificate-upload"
-                justify="flex-start"
-                direction="row"
-              >
-                <Grid item sm={12} md={4} xs={12}>
-                  <div className="dashboard-basic-info__subformTitle">
-                    School Certificate
-                  </div>
-                </Grid>
-
-                <Grid
                   container
-                  sm={12}
-                  md={4}
-                  xs={12}
-                  justify="center"
-                  alignContent="center"
-                  className="academic-document-upload"
-                >
-                  <label htmlFor="upload-photo">
-                    <input
-                      style={{ display: "none" }}
-                      id="upload-photo"
-                      name="upload-photo"
-                      type="file"
-                      onChange={(e) => {
-                        addImage(e, "school");
-                        // setCertificateThumbnail({
-                        //   ...certificateThumbnail,
-                        //   school: URL.createObjectURL(e.target.files[0]),
-                        // });
-                      }}
-                    />
-
-                    <UploadButton
-                      startIcon=""
-                      className="btn-color student-dashboard-button"
-                    >
-                      Choose File
-                    </UploadButton>
-                  </label>
-                </Grid>
-                <Grid item sm={12} md={4} xs={12} style={{ display: "flex" }}>
-                  {certificatesImage?.school && (
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      {truncateString(certificatesImage.school.name, 10)}{" "}
-                      <img
-                        src="/check.png"
-                        alt="check"
-                        className="upload-success-img"
-                      />{" "}
-                    </div>
-                  )}
-                </Grid>
-              </Grid>
-            )}
-            {
-              // selectedLevel == "diploma" ||
-              (selectedLevel == "postgraduate" ||
-                selectedLevel == "undergraduate" ||
-                selectedLevel == "phd") && (
-                <Grid
-                  container
-                  className="dashboard-basic-info__row"
+                  className="dashboard-basic-info__row acdemic-certificate-upload"
                   justify="flex-start"
                   direction="row"
                 >
                   <Grid item sm={12} md={4} xs={12}>
                     <div className="dashboard-basic-info__subformTitle">
-                      High School Marks
+                      School Certificate
                     </div>
                   </Grid>
+
                   <Grid
                     container
-                    sm={12}
+                    sm={6}
                     md={4}
-                    xs={12}
+                    xs={6}
                     justify="center"
                     alignContent="center"
                     className="academic-document-upload"
                   >
-                    <label htmlFor="upload-photo-High-School">
+                    <label htmlFor="upload-photo">
                       <input
                         style={{ display: "none" }}
-                        id="upload-photo-High-School"
+                        id="upload-photo"
                         name="upload-photo"
                         type="file"
                         onChange={(e) => {
-                          addImage(e, "highSchool");
+                          addImage(e, "school");
+                          // setCertificateThumbnail({
+                          //   ...certificateThumbnail,
+                          //   school: URL.createObjectURL(e.target.files[0]),
+                          // });
                         }}
                       />
 
@@ -492,10 +428,16 @@ export const DashboardAcademicInfo = (props) => {
                       </UploadButton>
                     </label>
                   </Grid>
-                  <Grid item sm={12} md={4} xs={12} style={{ display: "flex" }}>
-                    {certificatesImage?.highSchool && (
+                  <Grid
+                    item
+                    sm={5}
+                    md={4}
+                    xs={5}
+                    style={{ alignSelf: "center" }}
+                  >
+                    {certificatesImage?.school && (
                       <div style={{ display: "flex", alignItems: "center" }}>
-                        {truncateString(certificatesImage.highSchool.name, 10)}{" "}
+                        {truncateString(certificatesImage.school.name, 10)}{" "}
                         <img
                           src="/check.png"
                           alt="check"
@@ -505,650 +447,736 @@ export const DashboardAcademicInfo = (props) => {
                     )}
                   </Grid>
                 </Grid>
-              )
-            }
-            {(selectedLevel == "postgraduate" || selectedLevel == "phd") && (
-              <Grid
-                container
-                className="dashboard-basic-info__row"
-                justify="flex-start"
-                direction="row"
-              >
-                <Grid item sm={12} md={4} xs={12}>
-                  <div className="dashboard-basic-info__subformTitle">
-                    Under Graduate Marks
-                  </div>
-                </Grid>
+              )}
+              {
+                // selectedLevel == "diploma" ||
+                (selectedLevel == "postgraduate" ||
+                  selectedLevel == "undergraduate" ||
+                  selectedLevel == "phd") && (
+                  <Grid
+                    container
+                    className="dashboard-basic-info__row"
+                    justify="flex-start"
+                    direction="row"
+                  >
+                    <Grid item sm={12} md={4} xs={12}>
+                      <div className="dashboard-basic-info__subformTitle">
+                        High School Marks
+                      </div>
+                    </Grid>
+                    <Grid
+                      container
+                      sm={12}
+                      md={4}
+                      xs={6}
+                      justify="center"
+                      alignContent="center"
+                      className="academic-document-upload"
+                    >
+                      <label htmlFor="upload-photo-High-School">
+                        <input
+                          style={{ display: "none" }}
+                          id="upload-photo-High-School"
+                          name="upload-photo"
+                          type="file"
+                          onChange={(e) => {
+                            addImage(e, "highSchool");
+                          }}
+                        />
+
+                        <UploadButton
+                          startIcon=""
+                          className="btn-color student-dashboard-button"
+                        >
+                          Choose File
+                        </UploadButton>
+                      </label>
+                    </Grid>
+                    <Grid
+                      item
+                      sm={5}
+                      md={4}
+                      xs={5}
+                      style={{ alignSelf: "center" }}
+                    >
+                      {certificatesImage?.highSchool && (
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          {truncateString(
+                            certificatesImage.highSchool.name,
+                            10
+                          )}{" "}
+                          <img
+                            src="/check.png"
+                            alt="check"
+                            className="upload-success-img"
+                          />{" "}
+                        </div>
+                      )}
+                    </Grid>
+                  </Grid>
+                )
+              }
+              {(selectedLevel == "postgraduate" || selectedLevel == "phd") && (
                 <Grid
                   container
-                  sm={12}
-                  md={4}
-                  xs={12}
-                  justify="center"
-                  alignContent="center"
-                  className="academic-document-upload"
-                >
-                  <label htmlFor="upload-photo-Under">
-                    <input
-                      style={{ display: "none" }}
-                      id="upload-photo-Under"
-                      name="upload-photo"
-                      type="file"
-                      onChange={(e) => {
-                        addImage(e, "under_Graduate");
-                        // setCertificateThumbnail({
-                        //   ...certificateThumbnail,
-                        //   under_Graduate: URL.createObjectURL(
-                        //     e.target.files[0]
-                        //   ),
-                        // });
-                      }}
-                    />
-
-                    <UploadButton
-                      startIcon=""
-                      className="btn-color student-dashboard-button"
-                    >
-                      Choose File
-                    </UploadButton>
-                  </label>
-                </Grid>
-                <Grid item sm={12} md={4} xs={12} style={{ display: "flex" }}>
-                  {certificatesImage?.under_Graduate && (
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      {truncateString(
-                        certificatesImage?.under_Graduate.name,
-                        20
-                      )}{" "}
-                      <img
-                        src="/check.png"
-                        alt="check"
-                        className="upload-success-img"
-                      />{" "}
-                    </div>
-                  )}
-                </Grid>
-              </Grid>
-            )}
-            {selectedLevel == "phd" && (
-              <Grid
-                container
-                className="dashboard-basic-info__row"
-                justify="flex-start"
-                direction="row"
-              >
-                <Grid item sm={12} md={4} xs={12}>
-                  <div className="dashboard-basic-info__subformTitle">
-                    Post Graduate Marks
-                  </div>
-                </Grid>
-                <Grid
-                  container
-                  sm={12}
-                  md={4}
-                  xs={12}
-                  justify="center"
-                  alignContent="center"
-                  className="academic-document-upload"
-                >
-                  <label htmlFor="upload-photo-Post">
-                    <input
-                      style={{ display: "none" }}
-                      id="upload-photo-Post"
-                      name="upload-photo"
-                      type="file"
-                      onChange={(e) => {
-                        addImage(e, "post_Gradute");
-                        // setCertificateThumbnail({
-                        //   ...certificateThumbnail,
-                        //   post_Gradute: URL.createObjectURL(e.target.files[0]),
-                        // });
-                      }}
-                    />
-
-                    <UploadButton
-                      startIcon=""
-                      className="btn-color student-dashboard-button"
-                    >
-                      Choose File
-                    </UploadButton>
-                  </label>
-                </Grid>
-                <Grid item sm={12} md={4} xs={12} style={{ display: "flex" }}>
-                  {certificatesImage?.post_Gradute && (
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      {truncateString(certificatesImage?.post_Gradute.name, 10)}{" "}
-                      <img
-                        src="/check.png"
-                        alt="check"
-                        className="upload-success-img"
-                      />{" "}
-                    </div>
-                  )}
-                </Grid>
-              </Grid>
-            )}
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="flex-start"
-              direction="row"
-            >
-              <Grid item sm={12} md={4} xs={12}>
-                <Input
-                  type="text"
-                  className={"dashboard-basic-info__input"}
-                  fullWidth
-                  label="Other Certificate"
-                />
-              </Grid>
-
-              <Grid
-                container
-                sm={12}
-                md={4}
-                xs={12}
-                justify="center"
-                alignContent="center"
-                className="academic-document-upload"
-              >
-                <div
-                  className="dashboard-basic-info__uploadButtonContainer"
-                  style={{ marginLeft: 0 }}
-                >
-                  <label htmlFor="upload-photo-other">
-                    <input
-                      style={{ display: "none" }}
-                      id="upload-photo-other"
-                      name="upload-photo"
-                      type="file"
-                      onChange={(e) => {
-                        addImage(e, "other");
-                        // setCertificateThumbnail({
-                        //   ...certificateThumbnail,
-                        //   other: URL.createObjectURL(e.target.files[0]),
-                        // });
-                      }}
-                    />
-
-                    <UploadButton
-                      startIcon=""
-                      className="btn-color student-dashboard-button"
-                    >
-                      Choose File
-                    </UploadButton>
-                  </label>
-                </div>
-              </Grid>
-              <Grid item sm={12} md={3} xs={12} style={{ display: "flex" }}>
-                {certificatesImage?.other && (
-                  <div style={{ display: "flex", alignItems: "center" }}>
-                    {truncateString(certificatesImage.other.name, 10)}{" "}
-                    <img
-                      src="/check.png"
-                      alt="check"
-                      className="upload-success-img"
-                    />{" "}
-                  </div>
-                )}
-              </Grid>
-            </Grid>
-            {/* </Grid> */}
-          </form>
-
-          {/* Reference Information */}
-          <div className="dashboard-basic-info__sectionContainer">
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="flex-start"
-              direction="row"
-            >
-              <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle form--title">
-                  Exam Scores
-                </div>
-                <hr className="dashboard-basic-info__horizontalLine" />
-              </Grid>
-            </Grid>
-            <div
-              className="dashboard-basic-info__formContainer exam-score-container"
-              style={{ paddingLeft: "0px", paddingTop: "0px" }}
-            >
-              <form>
-                <Grid
-                  container
-                  className="dashboard-basic-info__row exam-score"
-                  justify="space-around"
-                  direction="row"
-                >
-                  <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle language-score">
-                      GRE
-                    </div>
-                  </Grid>
-                  <Grid item sm={12} md={4} xs={12}>
-                    <RadioGroup
-                      aria-label="passport"
-                      name="passport1"
-                      row
-                      defaultValue="no"
-                      value={gre.haveDone}
-                      onChange={(e) =>
-                        setGre({ ...gre, haveDone: e.target.value })
-                      }
-                    >
-                      <FormControlLabel
-                        value="yes"
-                        control={<CustomRadio />}
-                        label="Yes"
-                      />
-                      <FormControlLabel
-                        value="no"
-                        control={<CustomRadio />}
-                        label="No"
-                      />
-                    </RadioGroup>
-                    {gre.haveDone === "yes" ? (
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        placeholder="eg: 50"
-                        value={gre.score}
-                        onChange={(e) =>
-                          setGre({ ...gre, score: e.target.value })
-                        }
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </Grid>
-                  <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle language-score">
-                      SAT
-                    </div>
-                  </Grid>
-                  <Grid item sm={12} md={4} xs={12}>
-                    <RadioGroup
-                      aria-label="passport"
-                      name="passport1"
-                      row
-                      defaultValue="no"
-                      value={sat.haveDone}
-                      onChange={(e) =>
-                        setSat({ ...sat, haveDone: e.target.value })
-                      }
-                    >
-                      <FormControlLabel
-                        value="yes"
-                        control={<CustomRadio />}
-                        label="Yes"
-                      />
-                      <FormControlLabel
-                        value="no"
-                        control={<CustomRadio />}
-                        label="No"
-                      />
-                    </RadioGroup>
-                    {sat.haveDone === "yes" ? (
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        placeholder="eg: 50"
-                        value={sat.score}
-                        onChange={(e) =>
-                          setSat({ ...sat, score: e.target.value })
-                        }
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  className="dashboard-basic-info__row exam-score"
-                  justify="space-around"
-                  direction="row"
-                >
-                  <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle language-score">
-                      GMAT
-                    </div>
-                  </Grid>
-                  <Grid item sm={12} md={4} xs={12}>
-                    <RadioGroup
-                      aria-label="passport"
-                      name="passport1"
-                      row
-                      defaultValue="no"
-                      value={gmat.haveDone}
-                      onChange={(e) =>
-                        setGmat({ ...gmat, haveDone: e.target.value })
-                      }
-                    >
-                      <FormControlLabel
-                        value="yes"
-                        control={<CustomRadio />}
-                        label="Yes"
-                      />
-                      <FormControlLabel
-                        value="no"
-                        control={<CustomRadio />}
-                        label="No"
-                      />
-                    </RadioGroup>
-
-                    {gmat.haveDone === "yes" ? (
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        placeholder="eg: 50"
-                        value={gmat.score}
-                        onChange={(e) =>
-                          setGmat({ ...gmat, score: e.target.value })
-                        }
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </Grid>
-                  <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle language-score">
-                      SAT II
-                    </div>
-                  </Grid>
-                  <Grid item sm={12} md={4} xs={12}>
-                    <RadioGroup
-                      aria-label="passport"
-                      name="passport1"
-                      row
-                      defaultValue="no"
-                      value={satII.haveDone}
-                      onChange={(e) =>
-                        setSatII({ ...satII, haveDone: e.target.value })
-                      }
-                    >
-                      <FormControlLabel
-                        value="yes"
-                        control={<CustomRadio />}
-                        label="Yes"
-                      />
-                      <FormControlLabel
-                        value="no"
-                        control={<CustomRadio />}
-                        label="No"
-                      />
-                    </RadioGroup>
-
-                    {satII.haveDone === "yes" ? (
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        placeholder="eg: 50.50"
-                        value={satII.score}
-                        onChange={(e) =>
-                          setSatII({ ...satII, score: e.target.value })
-                        }
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  className="dashboard-basic-info__row exam-score"
-                  justify="space-around"
-                  direction="row"
-                >
-                  <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle language-score">
-                      TOEFL
-                    </div>
-                  </Grid>
-                  <Grid item sm={12} md={4} xs={12}>
-                    <RadioGroup
-                      aria-label="passport"
-                      name="passport1"
-                      row
-                      defaultValue="no"
-                      value={tofel.haveDone}
-                      onChange={(e) =>
-                        setTofel({ ...tofel, haveDone: e.target.value })
-                      }
-                    >
-                      <FormControlLabel
-                        value="yes"
-                        control={<CustomRadio />}
-                        label="Yes"
-                      />
-                      <FormControlLabel
-                        value="no"
-                        control={<CustomRadio />}
-                        label="No"
-                      />
-                    </RadioGroup>
-
-                    {tofel.haveDone === "yes" ? (
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        placeholder="eg: 50"
-                        value={tofel.score}
-                        onChange={(e) =>
-                          setTofel({ ...tofel, score: e.target.value })
-                        }
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </Grid>
-                  <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle language-score">
-                      JEE Advance
-                    </div>
-                  </Grid>
-                  <Grid item sm={12} md={4} xs={12}>
-                    <RadioGroup
-                      aria-label="passport"
-                      name="passport1"
-                      row
-                      defaultValue="no"
-                      value={jeeAdvance.haveDone}
-                      onChange={(e) =>
-                        setJeeAdvance({
-                          ...jeeAdvance,
-                          haveDone: e.target.value,
-                        })
-                      }
-                    >
-                      <FormControlLabel
-                        value="yes"
-                        control={<CustomRadio />}
-                        label="Yes"
-                      />
-                      <FormControlLabel
-                        value="no"
-                        control={<CustomRadio />}
-                        label="No"
-                      />
-                    </RadioGroup>
-
-                    {jeeAdvance.haveDone === "yes" ? (
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        placeholder="eg: 50"
-                        value={jeeAdvance.score}
-                        onChange={(e) =>
-                          setJeeAdvance({
-                            ...jeeAdvance,
-                            score: e.target.value,
-                          })
-                        }
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </Grid>
-                </Grid>
-                <Grid
-                  container
-                  className="dashboard-basic-info__row exam-score"
+                  className="dashboard-basic-info__row"
                   justify="flex-start"
                   direction="row"
                 >
-                  <Grid item sm={12} md={2} xs={12}>
-                    <div className="dashboard-basic-info__formTitle language-score">
-                      IELTS
+                  <Grid item sm={12} md={4} xs={12}>
+                    <div className="dashboard-basic-info__subformTitle">
+                      Under Graduate Marks
                     </div>
                   </Grid>
-                  <Grid item sm={12} md={4} xs={12}>
-                    <RadioGroup
-                      aria-label="passport"
-                      name="passport1"
-                      row
-                      defaultValue="no"
-                      value={ielts?.haveDone}
-                      onChange={(e) =>
-                        setIelts({ ...ielts, haveDone: e.target.value })
-                      }
-                    >
-                      <FormControlLabel
-                        value="yes"
-                        control={<CustomRadio />}
-                        label="Yes"
+                  <Grid
+                    container
+                    sm={6}
+                    md={4}
+                    xs={6}
+                    justify="center"
+                    alignContent="center"
+                    className="academic-document-upload"
+                  >
+                    <label htmlFor="upload-photo-Under">
+                      <input
+                        style={{ display: "none" }}
+                        id="upload-photo-Under"
+                        name="upload-photo"
+                        type="file"
+                        onChange={(e) => {
+                          addImage(e, "under_Graduate");
+                          // setCertificateThumbnail({
+                          //   ...certificateThumbnail,
+                          //   under_Graduate: URL.createObjectURL(
+                          //     e.target.files[0]
+                          //   ),
+                          // });
+                        }}
                       />
-                      <FormControlLabel
-                        value="no"
-                        control={<CustomRadio />}
-                        label="No"
-                      />
-                    </RadioGroup>
 
-                    {ielts.haveDone === "yes" ? (
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        placeholder="eg: 50"
-                        value={ielts.score}
-                        onChange={(e) =>
-                          setIelts({ ...ielts, score: e.target.value })
-                        }
-                      />
-                    ) : (
-                      ""
+                      <UploadButton
+                        startIcon=""
+                        className="btn-color student-dashboard-button"
+                      >
+                        Choose File
+                      </UploadButton>
+                    </label>
+                  </Grid>
+                  <Grid
+                    item
+                    sm={5}
+                    md={4}
+                    xs={5}
+                    style={{ alignSelf: "center" }}
+                  >
+                    {certificatesImage?.under_Graduate && (
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        {truncateString(
+                          certificatesImage?.under_Graduate.name,
+                          10
+                        )}{" "}
+                        <img
+                          src="/check.png"
+                          alt="check"
+                          className="upload-success-img"
+                        />{" "}
+                      </div>
                     )}
                   </Grid>
                 </Grid>
+              )}
+              {selectedLevel == "phd" && (
+                <Grid
+                  container
+                  className="dashboard-basic-info__row"
+                  justify="flex-start"
+                  direction="row"
+                >
+                  <Grid item sm={12} md={4} xs={12}>
+                    <div className="dashboard-basic-info__subformTitle">
+                      Post Graduate Marks
+                    </div>
+                  </Grid>
+                  <Grid
+                    container
+                    sm={6}
+                    md={4}
+                    xs={6}
+                    justify="center"
+                    alignContent="center"
+                    className="academic-document-upload"
+                  >
+                    <label htmlFor="upload-photo-Post">
+                      <input
+                        style={{ display: "none" }}
+                        id="upload-photo-Post"
+                        name="upload-photo"
+                        type="file"
+                        onChange={(e) => {
+                          addImage(e, "post_Gradute");
+                          // setCertificateThumbnail({
+                          //   ...certificateThumbnail,
+                          //   post_Gradute: URL.createObjectURL(e.target.files[0]),
+                          // });
+                        }}
+                      />
 
-                {ielts.haveDone == "yes" ? (
+                      <UploadButton
+                        startIcon=""
+                        className="btn-color student-dashboard-button"
+                      >
+                        Choose File
+                      </UploadButton>
+                    </label>
+                  </Grid>
+                  <Grid
+                    item
+                    sm={5}
+                    md={4}
+                    xs={5}
+                    style={{ alignSelf: "center" }}
+                  >
+                    {certificatesImage?.post_Gradute && (
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        {truncateString(
+                          certificatesImage?.post_Gradute.name,
+                          10
+                        )}{" "}
+                        <img
+                          src="/check.png"
+                          alt="check"
+                          className="upload-success-img"
+                        />{" "}
+                      </div>
+                    )}
+                  </Grid>
+                </Grid>
+              )}
+              <Grid
+                container
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
+              >
+                <Grid item sm={12} md={4} xs={12}>
+                  <Input
+                    type="text"
+                    className={"dashboard-basic-info__input"}
+                    fullWidth
+                    label="Other Certificate"
+                  />
+                </Grid>
+
+                <Grid
+                  container
+                  sm={6}
+                  md={4}
+                  xs={6}
+                  justify="center"
+                  alignContent="center"
+                  className="academic-document-upload"
+                >
+                  <div
+                    className="dashboard-basic-info__uploadButtonContainer"
+                    style={{ marginLeft: 0 }}
+                  >
+                    <label htmlFor="upload-photo-other">
+                      <input
+                        style={{ display: "none" }}
+                        id="upload-photo-other"
+                        name="upload-photo"
+                        type="file"
+                        onChange={(e) => {
+                          addImage(e, "other");
+                          // setCertificateThumbnail({
+                          //   ...certificateThumbnail,
+                          //   other: URL.createObjectURL(e.target.files[0]),
+                          // });
+                        }}
+                      />
+
+                      <UploadButton
+                        startIcon=""
+                        className="btn-color student-dashboard-button"
+                      >
+                        Choose File
+                      </UploadButton>
+                    </label>
+                  </div>
+                </Grid>
+                <Grid item sm={5} md={4} xs={5} style={{ alignSelf: "center" }}>
+                  {certificatesImage?.other && (
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      {truncateString(certificatesImage.other.name, 10)}{" "}
+                      <img
+                        src="/check.png"
+                        alt="check"
+                        className="upload-success-img"
+                      />{" "}
+                    </div>
+                  )}
+                </Grid>
+              </Grid>
+              {/* </Grid> */}
+            </form>
+
+            {/* Reference Information */}
+            <div className="dashboard-basic-info__sectionContainer">
+              <Grid
+                container
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
+              >
+                <Grid item sm={12} md={12} xs={12}>
+                  <div className="dashboard-basic-info__formTitle form--title">
+                    Exam Scores
+                  </div>
+                  <hr className="dashboard-basic-info__horizontalLine" />
+                </Grid>
+              </Grid>
+              <div
+                className="dashboard-basic-info__formContainer exam-score-container"
+                style={{ paddingLeft: "0px", paddingTop: "0px" }}
+              >
+                <form className="form-container">
                   <Grid
                     container
                     className="dashboard-basic-info__row exam-score"
                     justify="space-around"
                     direction="row"
                   >
-                    <Grid item sm={12} md={1} xs={12}></Grid>
                     <Grid item sm={12} md={2} xs={12}>
-                      <div className="dashboard-basic-info__formTitleSecond">
-                        Listening
+                      <div className="dashboard-basic-info__formTitle language-score">
+                        GRE
                       </div>
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        fullWidth
-                        placeholder="eg: 50.50"
-                        value={ielts.subMars.listining}
-                        onChange={(e) => {
-                          let _itels = {
-                            ...ielts,
-                            subMars: {
-                              ...ielts.subMars,
-                              listining: e.target.value,
-                            },
-                          };
-                          setIelts(_itels);
-                        }}
-                      />
+                    </Grid>
+                    <Grid item sm={12} md={4} xs={12}>
+                      <RadioGroup
+                        aria-label="passport"
+                        name="passport1"
+                        row
+                        defaultValue="no"
+                        value={gre.haveDone}
+                        onChange={(e) =>
+                          setGre({ ...gre, haveDone: e.target.value })
+                        }
+                      >
+                        <FormControlLabel
+                          value="yes"
+                          control={<CustomRadio />}
+                          label="Yes"
+                        />
+                        <FormControlLabel
+                          value="no"
+                          control={<CustomRadio />}
+                          label="No"
+                        />
+                      </RadioGroup>
+                      {gre.haveDone === "yes" ? (
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          placeholder="eg: 50"
+                          value={gre.score}
+                          onChange={(e) =>
+                            setGre({ ...gre, score: e.target.value })
+                          }
+                        />
+                      ) : (
+                        ""
+                      )}
                     </Grid>
                     <Grid item sm={12} md={2} xs={12}>
-                      <div className="dashboard-basic-info__formTitleSecond">
-                        Writing
+                      <div className="dashboard-basic-info__formTitle language-score">
+                        SAT
                       </div>
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        fullWidth
-                        placeholder="eg: 50.50"
-                        value={ielts.subMars.writing}
-                        onChange={(e) => {
-                          let _itels = {
-                            ...ielts,
-                            subMars: {
-                              ...ielts.subMars,
-                              writing: e.target.value,
-                            },
-                          };
-
-                          setIelts(_itels);
-                        }}
-                      />
                     </Grid>
-                    <Grid item sm={12} md={2} xs={12}>
-                      <div className="dashboard-basic-info__formTitleSecond">
-                        Reading
-                      </div>
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        fullWidth
-                        placeholder="eg: 50.50"
-                        value={ielts.subMars.reading}
-                        onChange={(e) => {
-                          let _itels = {
-                            ...ielts,
-                            subMars: {
-                              ...ielts.subMars,
-                              reading: e.target.value,
-                            },
-                          };
-
-                          setIelts(_itels);
-                        }}
-                      />
-                    </Grid>
-                    <Grid item sm={12} md={2} xs={12}>
-                      <div className="dashboard-basic-info__formTitleSecond">
-                        Speaking
-                      </div>
-                      <Input
-                        className={"dashboard-basic-info__input"}
-                        fullWidth
-                        placeholder="eg: 50.50"
-                        value={ielts.subMars.speaking}
-                        onChange={(e) => {
-                          let _itels = {
-                            ...ielts,
-                            subMars: {
-                              ...ielts.subMars,
-                              speaking: e.target.value,
-                            },
-                          };
-
-                          setIelts(_itels);
-                        }}
-                      />
+                    <Grid item sm={12} md={4} xs={12}>
+                      <RadioGroup
+                        aria-label="passport"
+                        name="passport1"
+                        row
+                        defaultValue="no"
+                        value={sat.haveDone}
+                        onChange={(e) =>
+                          setSat({ ...sat, haveDone: e.target.value })
+                        }
+                      >
+                        <FormControlLabel
+                          value="yes"
+                          control={<CustomRadio />}
+                          label="Yes"
+                        />
+                        <FormControlLabel
+                          value="no"
+                          control={<CustomRadio />}
+                          label="No"
+                        />
+                      </RadioGroup>
+                      {sat.haveDone === "yes" ? (
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          placeholder="eg: 50"
+                          value={sat.score}
+                          onChange={(e) =>
+                            setSat({ ...sat, score: e.target.value })
+                          }
+                        />
+                      ) : (
+                        ""
+                      )}
                     </Grid>
                   </Grid>
-                ) : (
-                  ""
-                )}
-              </form>
-              {/* </div> */}
-            </div>
-            <div className="dashboard-basic-info__buttonContainer">
-              <div
-                className="dashboard-basic-info__backContainer"
-                onClick={() => {
-                  saveData();
-                  props.handleBack();
-                }}
-              >
-                Back
+                  <Grid
+                    container
+                    className="dashboard-basic-info__row exam-score"
+                    justify="space-around"
+                    direction="row"
+                  >
+                    <Grid item sm={12} md={2} xs={12}>
+                      <div className="dashboard-basic-info__formTitle language-score">
+                        GMAT
+                      </div>
+                    </Grid>
+                    <Grid item sm={12} md={4} xs={12}>
+                      <RadioGroup
+                        aria-label="passport"
+                        name="passport1"
+                        row
+                        defaultValue="no"
+                        value={gmat.haveDone}
+                        onChange={(e) =>
+                          setGmat({ ...gmat, haveDone: e.target.value })
+                        }
+                      >
+                        <FormControlLabel
+                          value="yes"
+                          control={<CustomRadio />}
+                          label="Yes"
+                        />
+                        <FormControlLabel
+                          value="no"
+                          control={<CustomRadio />}
+                          label="No"
+                        />
+                      </RadioGroup>
+
+                      {gmat.haveDone === "yes" ? (
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          placeholder="eg: 50"
+                          value={gmat.score}
+                          onChange={(e) =>
+                            setGmat({ ...gmat, score: e.target.value })
+                          }
+                        />
+                      ) : (
+                        ""
+                      )}
+                    </Grid>
+                    <Grid item sm={12} md={2} xs={12}>
+                      <div className="dashboard-basic-info__formTitle language-score">
+                        SAT II
+                      </div>
+                    </Grid>
+                    <Grid item sm={12} md={4} xs={12}>
+                      <RadioGroup
+                        aria-label="passport"
+                        name="passport1"
+                        row
+                        defaultValue="no"
+                        value={satII.haveDone}
+                        onChange={(e) =>
+                          setSatII({ ...satII, haveDone: e.target.value })
+                        }
+                      >
+                        <FormControlLabel
+                          value="yes"
+                          control={<CustomRadio />}
+                          label="Yes"
+                        />
+                        <FormControlLabel
+                          value="no"
+                          control={<CustomRadio />}
+                          label="No"
+                        />
+                      </RadioGroup>
+
+                      {satII.haveDone === "yes" ? (
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          placeholder="eg: 50.50"
+                          value={satII.score}
+                          onChange={(e) =>
+                            setSatII({ ...satII, score: e.target.value })
+                          }
+                        />
+                      ) : (
+                        ""
+                      )}
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    className="dashboard-basic-info__row exam-score"
+                    justify="space-around"
+                    direction="row"
+                  >
+                    <Grid item sm={12} md={2} xs={12}>
+                      <div className="dashboard-basic-info__formTitle language-score">
+                        TOEFL
+                      </div>
+                    </Grid>
+                    <Grid item sm={12} md={4} xs={12}>
+                      <RadioGroup
+                        aria-label="passport"
+                        name="passport1"
+                        row
+                        defaultValue="no"
+                        value={tofel.haveDone}
+                        onChange={(e) =>
+                          setTofel({ ...tofel, haveDone: e.target.value })
+                        }
+                      >
+                        <FormControlLabel
+                          value="yes"
+                          control={<CustomRadio />}
+                          label="Yes"
+                        />
+                        <FormControlLabel
+                          value="no"
+                          control={<CustomRadio />}
+                          label="No"
+                        />
+                      </RadioGroup>
+
+                      {tofel.haveDone === "yes" ? (
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          placeholder="eg: 50"
+                          value={tofel.score}
+                          onChange={(e) =>
+                            setTofel({ ...tofel, score: e.target.value })
+                          }
+                        />
+                      ) : (
+                        ""
+                      )}
+                    </Grid>
+                    <Grid item sm={12} md={2} xs={12}>
+                      <div className="dashboard-basic-info__formTitle language-score">
+                        JEE Advance
+                      </div>
+                    </Grid>
+                    <Grid item sm={12} md={4} xs={12}>
+                      <RadioGroup
+                        aria-label="passport"
+                        name="passport1"
+                        row
+                        defaultValue="no"
+                        value={jeeAdvance.haveDone}
+                        onChange={(e) =>
+                          setJeeAdvance({
+                            ...jeeAdvance,
+                            haveDone: e.target.value,
+                          })
+                        }
+                      >
+                        <FormControlLabel
+                          value="yes"
+                          control={<CustomRadio />}
+                          label="Yes"
+                        />
+                        <FormControlLabel
+                          value="no"
+                          control={<CustomRadio />}
+                          label="No"
+                        />
+                      </RadioGroup>
+
+                      {jeeAdvance.haveDone === "yes" ? (
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          placeholder="eg: 50"
+                          value={jeeAdvance.score}
+                          onChange={(e) =>
+                            setJeeAdvance({
+                              ...jeeAdvance,
+                              score: e.target.value,
+                            })
+                          }
+                        />
+                      ) : (
+                        ""
+                      )}
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    className="dashboard-basic-info__row exam-score"
+                    justify="flex-start"
+                    direction="row"
+                  >
+                    <Grid item sm={12} md={2} xs={12}>
+                      <div className="dashboard-basic-info__formTitle language-score">
+                        IELTS
+                      </div>
+                    </Grid>
+                    <Grid item sm={12} md={4} xs={12}>
+                      <RadioGroup
+                        aria-label="passport"
+                        name="passport1"
+                        row
+                        defaultValue="no"
+                        value={ielts?.haveDone}
+                        onChange={(e) =>
+                          setIelts({ ...ielts, haveDone: e.target.value })
+                        }
+                      >
+                        <FormControlLabel
+                          value="yes"
+                          control={<CustomRadio />}
+                          label="Yes"
+                        />
+                        <FormControlLabel
+                          value="no"
+                          control={<CustomRadio />}
+                          label="No"
+                        />
+                      </RadioGroup>
+
+                      {ielts.haveDone === "yes" ? (
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          placeholder="eg: 50"
+                          value={ielts.score}
+                          onChange={(e) =>
+                            setIelts({ ...ielts, score: e.target.value })
+                          }
+                        />
+                      ) : (
+                        ""
+                      )}
+                    </Grid>
+                  </Grid>
+
+                  {ielts.haveDone == "yes" ? (
+                    <Grid
+                      container
+                      className="dashboard-basic-info__row exam-score"
+                      direction="row"
+                      item
+                      sm={12}
+                      md={12}
+                      xs={12}
+                    >
+                      <Grid item sm={12} md={2} xs={12}></Grid>
+                      <Grid item sm={12} md={2} xs={12}>
+                        <div className="dashboard-basic-info__formTitleSecond">
+                          Listening
+                        </div>
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          fullWidth
+                          placeholder="eg: 50.50"
+                          value={ielts.subMars.listining}
+                          onChange={(e) => {
+                            let _itels = {
+                              ...ielts,
+                              subMars: {
+                                ...ielts.subMars,
+                                listining: e.target.value,
+                              },
+                            };
+                            setIelts(_itels);
+                          }}
+                        />
+                      </Grid>
+                      <Grid item sm={12} md={2} xs={12}>
+                        <div className="dashboard-basic-info__formTitleSecond">
+                          Writing
+                        </div>
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          fullWidth
+                          placeholder="eg: 50.50"
+                          value={ielts.subMars.writing}
+                          onChange={(e) => {
+                            let _itels = {
+                              ...ielts,
+                              subMars: {
+                                ...ielts.subMars,
+                                writing: e.target.value,
+                              },
+                            };
+
+                            setIelts(_itels);
+                          }}
+                        />
+                      </Grid>
+                      <Grid item sm={12} md={2} xs={12}>
+                        <div className="dashboard-basic-info__formTitleSecond">
+                          Reading
+                        </div>
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          fullWidth
+                          placeholder="eg: 50.50"
+                          value={ielts.subMars.reading}
+                          onChange={(e) => {
+                            let _itels = {
+                              ...ielts,
+                              subMars: {
+                                ...ielts.subMars,
+                                reading: e.target.value,
+                              },
+                            };
+
+                            setIelts(_itels);
+                          }}
+                        />
+                      </Grid>
+                      <Grid item sm={12} md={2} xs={12}>
+                        <div className="dashboard-basic-info__formTitleSecond">
+                          Speaking
+                        </div>
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          fullWidth
+                          placeholder="eg: 50.50"
+                          value={ielts.subMars.speaking}
+                          onChange={(e) => {
+                            let _itels = {
+                              ...ielts,
+                              subMars: {
+                                ...ielts.subMars,
+                                speaking: e.target.value,
+                              },
+                            };
+
+                            setIelts(_itels);
+                          }}
+                        />
+                      </Grid>
+                    </Grid>
+                  ) : (
+                    ""
+                  )}
+                </form>
+                {/* </div> */}
               </div>
-              <Button onClick={sendData}>Save And Continue</Button>
+              <div className="dashboard-basic-info__buttonContainer">
+                <div
+                  className="dashboard-basic-info__backContainer"
+                  onClick={() => {
+                    saveData();
+                    props.handleBack();
+                  }}
+                >
+                  Back
+                </div>
+                <Button onClick={sendData}>Save And Continue</Button>
+              </div>
             </div>
           </div>
         </div>

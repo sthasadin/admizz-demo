@@ -130,12 +130,14 @@ const Register = () => {
             .then(() => {
               setMsgType("success");
               handleOpenSnackbar();
+
+              router.push("/login");
+            })
+            .catch((err) => {
               setFormError({
                 ...formError,
                 otherErrors: "Please verify your email address",
               });
-            })
-            .catch((err) => {
               console.error(err);
             });
 

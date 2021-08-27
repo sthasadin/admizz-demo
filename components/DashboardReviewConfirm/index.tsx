@@ -1341,6 +1341,7 @@ const DashboardReviewConfirm = (props) => {
                       setIstermsChecked((isTermsChecked) => !isTermsChecked);
                       setSignatureImage(null);
                     }}
+                    style={{ paddingLeft: "0" }}
                   />
                   <label>
                     &nbsp; Click to agree <u>terms and conditions</u>

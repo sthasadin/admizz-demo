@@ -9,14 +9,14 @@ interface Props {
   handleBack: () => void;
   handleBook: () => void;
   formValue: any;
-  disable: boolean;
+
   loading: boolean;
 }
 
 const ConfirmBook: React.FC<Props> = ({
   handleBack,
   handleBook,
-  disable,
+
   formValue,
   loading,
 }) => {
@@ -67,7 +67,7 @@ const ConfirmBook: React.FC<Props> = ({
         <Button
           className={"confirm-section__confirm-button"}
           onClick={handleBook}
-          disabled={disable}
+          disabled={loading}
           loading={loading}
         >
           Confirm and Book

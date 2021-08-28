@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import * as yup from "yup";
 import { useRouter } from "next/router";
+import { bookingCounsellorMail } from "../../store/Action/sendMail.action";
 import moment from "moment";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import { db } from "../../firebase";
@@ -84,7 +86,6 @@ const CounselingStepper = () => {
   const router = useRouter();
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
-  const [isDisable, setIsDisable] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
   const [completed, setCompleted] = React.useState<{ [k: number]: boolean }>(
@@ -93,9 +94,13 @@ const CounselingStepper = () => {
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   //State for Student Info Stepper
-  const [formValue, setFormValue] = useState({} as any);
+  const [formValue, setFormValue] = useState({
+    date: new Date(),
+  } as any);
 
   const [formError, setFormError] = useState({} as any);
+
+  const dispatch = useDispatch();
 
   const handleChange = (e: any) => {
     setFormValue({
@@ -106,9 +111,10 @@ const CounselingStepper = () => {
       ...formError,
       [e.target.name]: null,
     });
+    console.log(formValue);
   };
 
-  const firstStepValidateSchema = yup.object().shape<FirstStepValidateSchema>({
+  const dateTimeValidateSchema = yup.object().shape<FirstStepValidateSchema>({
     date: yup.string().required("Please select one date"),
     time: yup.string().required("Required time"),
     counsellor: yup.string().required("Please select  counselor"),
@@ -139,9 +145,9 @@ const CounselingStepper = () => {
     contact_id: yup.string().required("Contact id field should not be empty"),
   });
 
-  const firstStepValidate = async () => {
+  const dateTimeValidate = async () => {
     try {
-      await firstStepValidateSchema.validate(
+      await dateTimeValidateSchema.validate(
         {
           date: formValue.date,
           time: formValue.time,
@@ -192,10 +198,9 @@ const CounselingStepper = () => {
   };
 
   const handleBook = async () => {
-    setIsDisable(true);
-    setLoading(true);
-    db.collection("appointment")
-      .add({
+    try {
+      setLoading(true);
+      await db.collection("appointment").add({
         name: formValue.name,
         email: formValue.email,
         countryCode: formValue.countryCode,
@@ -206,24 +211,24 @@ const CounselingStepper = () => {
         date: formValue.date,
         time: formValue.time,
         counsellor: formValue.counsellor,
-        // additional_query: formValue.additional_query,
         contact_medium: formValue.contact_medium,
         contact_id: formValue.contact_id,
         createdAt: moment().format(),
-      })
-      .then(function (docRef) {
-        setSnackOpen(true);
-        axios.post(`${API_BASE_URL}/sendmail`, { email: formValue.email });
-        setTimeout(() => {
-          setIsDisable(false);
-          setLoading(false);
-
-          // router.push("/");
-        }, 2000);
-      })
-      .catch(function (error) {
-        console.error("Error adding document: ", error);
       });
+
+      const res = await dispatch(bookingCounsellorMail(formValue.email));
+      if (res.isSuccess) {
+        setSnackOpen(true);
+        setLoading(false);
+        setTimeout(() => {
+          router.push("/");
+        }, 1000);
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error("Error adding document: ", error);
+    }
   };
 
   const steps = [
@@ -253,7 +258,7 @@ const CounselingStepper = () => {
   };
 
   const handleNext = async () => {
-    const valid = await firstStepValidate();
+    const valid = await dateTimeValidate();
 
     if (valid) {
       const newActiveStep =
@@ -307,7 +312,6 @@ const CounselingStepper = () => {
             handleBack={handleBack}
             handleBook={handleBook}
             formValue={formValue}
-            disable={isDisable}
             loading={loading}
           />
         );

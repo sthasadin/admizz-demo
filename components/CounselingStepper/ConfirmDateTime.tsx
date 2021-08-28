@@ -57,7 +57,7 @@ const ConfirmDateTime: React.FC<Props> = ({
             <CalendarTodayIcon className="confirm-date-container__calendar-icon" />
             <span>Confirm Date</span>
           </div>
-          <Datepicker handleChange={handleChange} />
+          <Datepicker handleChange={handleChange} formValue={formValue} />
           <div className="error-msg">{formError.date} </div>
         </div>
 

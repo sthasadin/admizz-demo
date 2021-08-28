@@ -1,15 +1,16 @@
 .confirm-section {
-  padding-left: 35px;
+  padding: 0 32px;
   position: relative;
   @media (max-width: 510px) {
     padding: 5px;
   }
   &__header {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 40px;
     margin-top: 36px;
+    color: #4f4f4f;
   }
   &__confirm-details {
     padding: 34px 44px;
@@ -37,6 +38,7 @@
     font-size: 16px;
     line-height: 24px;
     word-break: break-word;
+    color: $gray-2;
     // @media (max-width: 630px) {
     //     width: 50%;
     // }
@@ -85,6 +87,7 @@
     font-size: 14px;
     line-height: 21px;
     margin-bottom: 32px;
+    color: $gray-2;
     span {
       color: #2f80ed;
       cursor: pointer;

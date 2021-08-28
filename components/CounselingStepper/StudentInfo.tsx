@@ -59,7 +59,7 @@ const StudentInfo: React.FC<Props> = ({
               className={"student-info__input"}
               fullWidth
               icon={PersonIcon}
-              label="Full Name"
+              // label="Full Name"
               placeholder="Full Name"
             />
           </Grid>
@@ -73,7 +73,7 @@ const StudentInfo: React.FC<Props> = ({
               className={"student-info__input"}
               fullWidth
               icon={MailIcon}
-              label="Email"
+              // label="Email"
               placeholder="Email"
             />
           </Grid>
@@ -106,7 +106,7 @@ const StudentInfo: React.FC<Props> = ({
                 fullWidth
                 value={formValue.phone}
                 icon={CallIcon}
-                label="Phone Number"
+                // label="Phone Number"
                 placeholder="Phone Number"
               />
             </div>
@@ -121,7 +121,7 @@ const StudentInfo: React.FC<Props> = ({
               error={!!formError.home_country}
               className={"student-info__input"}
               icon={LocationOnIcon}
-              title={"Home Country"}
+              // title={"Home Country"}
               // placeholder="Home Country"
             />
           </Grid>
@@ -166,7 +166,7 @@ const StudentInfo: React.FC<Props> = ({
                 name={"contact_id"}
                 onChange={handleChange}
                 fullWidth
-                label={"Facebook ID"}
+                //label={"Facebook ID"}
                 errorMessage={formError.contact_id}
                 error={!!formError.contact_id}
                 placeholder="Facebook ID"
@@ -178,7 +178,7 @@ const StudentInfo: React.FC<Props> = ({
                 name={"contact_id"}
                 onChange={handleChange}
                 fullWidth
-                label={"Whatsapp ID"}
+                //label={"Whatsapp ID"}
                 errorMessage={formError.contact_id}
                 error={!!formError.contact_id}
                 placeholder="Whatsapp ID"
@@ -195,7 +195,7 @@ const StudentInfo: React.FC<Props> = ({
               className={"student-info__input"}
               fullWidth
               icon={MenuBookIcon}
-              label={"Select Course"}
+              // label={"Select Course"}
               placeholder="Select Course"
               value={formValue.course}
             />
@@ -213,7 +213,10 @@ const StudentInfo: React.FC<Props> = ({
           fullWidth
           margin={"29px 0px 0px 0px"}
         />
-        <div className={"student-info__action-buttons"}>
+        <div
+          className={"student-info__action-buttons"}
+          style={{ justifyContent: "flex-end", padding: "0" }}
+        >
           {/* <div onClick={handleBack}>Back</div> */}
           <Button onClick={handleNext}>Continue</Button>
         </div>

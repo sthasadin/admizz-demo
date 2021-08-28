@@ -11,7 +11,8 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+    color: $gray-2;
   }
   &____input {
     margin-left: 10px;
@@ -104,6 +105,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 23px;
+    padding: 0 32px;
     align-items: center;
     div {
       cursor: pointer;

@@ -119,7 +119,7 @@ const ConfirmDateTime: React.FC<Props> = ({
         />
       </div>
 
-      <div className={"student-info__action-buttons"}>
+      <div className={"student-info__action-buttons "}>
         <div onClick={handleBack}>Back</div>
         <Button onClick={handleNext}>Continue</Button>
       </div>

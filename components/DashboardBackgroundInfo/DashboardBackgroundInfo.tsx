@@ -245,7 +245,7 @@ const DashboardBackgroundInfo = (props) => {
             {!havePassport ? (
               ""
             ) : (
-              <div>
+              <div className="passport-field-container">
                 <Grid
                   container
                   className="dashboard-basic-info__row"
@@ -344,7 +344,7 @@ const DashboardBackgroundInfo = (props) => {
                 <Grid
                   container
                   className="dashboard-basic-info__row"
-                  justify="space-around"
+                  justify="flex-start"
                   direction="row"
                 >
                   <Grid
@@ -366,13 +366,6 @@ const DashboardBackgroundInfo = (props) => {
                       }}
                     />
                   </Grid>
-                  <Grid
-                    className={"dashboard-basic-info__grid"}
-                    item
-                    sm={12}
-                    md={6}
-                    xs={12}
-                  ></Grid>
                 </Grid>
               </div>
             )}

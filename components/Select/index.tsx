@@ -110,7 +110,6 @@ const Select = (props: Props) => {
                 key={key}
                 value={props.useLabel ? item.label : item.value}
               >
-                {/* {getNumberWithImage(item.label)} */}
                 {item.label}
               </MenuItem>
             );

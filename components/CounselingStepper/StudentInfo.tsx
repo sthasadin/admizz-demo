@@ -122,7 +122,7 @@ const StudentInfo: React.FC<Props> = ({
               className={"student-info__input"}
               icon={LocationOnIcon}
               // title={"Home Country"}
-              // placeholder="Home Country"
+              defaultValue="Home Country"
             />
           </Grid>
         </Grid>

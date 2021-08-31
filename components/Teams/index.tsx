@@ -1,28 +1,11 @@
 import React from "react";
-import { TeamArray } from "./TeamArray";
-import Link from "next/link";
-import TeamMemberList from "./TeamMemberList";
+
 import Carousel from "../TeamCarousel";
-import youtubeIcon from "../../public/youtubeIcon.png";
-import instagramIcon from "../../public/instagramIcon.png";
-import facebookIcon from "../../public/facebookIcon.png";
-import twitterIcon from "../../public/twitterIcon.png";
-import mIcon from "../../public/mIcon.png";
-import { db, storage } from "../../firebase";
+
+import { db } from "../../firebase";
 
 const Teams = () => {
   const [teamMemberArray, setTeamMemberArray] = React.useState([]);
-  const [allTeamMemberArray, setAllTeamMemberArray] = React.useState([]);
-  const [showClickedMember, setShowClickedMember] = React.useState({
-    name: "",
-    image: "",
-    email: "",
-    description: "",
-    facebook: "",
-    medium: "",
-    instagram: "",
-    twitter: "",
-  });
 
   React.useEffect(() => {
     getFireStoreCounselor();
@@ -46,22 +29,12 @@ const Teams = () => {
             medium: data.medium_link,
             instagram: data.insta_link,
             twitter: data.twitter_link,
+            type: data.type,
           });
         });
       });
-    setShowClickedMember(teamArray[0]);
+
     setTeamMemberArray(teamArray);
-    setAllTeamMemberArray(teamArray);
-  };
-
-  const handleClick = (id: string) => {
-    const selectedMember = teamMemberArray.find((data) => data.id === id);
-    setShowClickedMember(selectedMember);
-
-    const filterTeamMemberArray = allTeamMemberArray.filter(
-      (data) => data.id !== id
-    );
-    setTeamMemberArray(filterTeamMemberArray);
   };
 
   return (

@@ -6,6 +6,7 @@ import twitterIcon from "../../public/twitterIcon.png";
 import mIcon from "../../public/mIcon.png";
 
 const TeamCard = ({ teamMember }) => {
+  console.log(teamMember);
   return (
     <>
       <div className="teams-list__details">
@@ -21,8 +22,8 @@ const TeamCard = ({ teamMember }) => {
               <span>{teamMember.name}</span>
             </div>
             <div className="teams-list__designation">
-              <span>Owner</span>
-              <span>Leader</span>
+              <span>Type</span>
+              <span>{teamMember?.type}</span>
             </div>
             <div className="teams-list__desc">{teamMember.description}</div>
           </div>

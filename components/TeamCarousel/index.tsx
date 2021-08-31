@@ -66,6 +66,7 @@ const index = ({ data }) => {
       {
         breakpoint: 600,
         settings: {
+          className: "center",
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
@@ -74,6 +75,7 @@ const index = ({ data }) => {
       {
         breakpoint: 480,
         settings: {
+          className: "center",
           slidesToShow: 1,
           slidesToScroll: 1,
           prevArrow: null,

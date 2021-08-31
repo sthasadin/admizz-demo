@@ -6,7 +6,7 @@ import NewsOnCollege from "../../NewsOnCollege";
 import { TrendingCourses } from "../../TrendingCourses";
 import Link from "next/link";
 
-const CourseSideBar = () => {
+const CourseSideBar = ({ data }) => {
   return (
     <aside className="sidebar">
       <Link href={`/dashboardbasicinfo/apply`}>
@@ -15,7 +15,7 @@ const CourseSideBar = () => {
         </CallToAction>
       </Link>
 
-      <SimilarCourses />
+      <SimilarCourses data={data} />
       <NewsOnCollege title="Subjects covered" />
     </aside>
   );

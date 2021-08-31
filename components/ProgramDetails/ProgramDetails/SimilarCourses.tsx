@@ -1,8 +1,8 @@
 import React from "react";
 import { SimilarCoursesList } from "./SimilarCoursesList";
 
-const SimilarCourses = () => {
-  const data = [
+const SimilarCourses = ({ data }) => {
+  const list = [
     {
       coursename: "Chemical Engineering",
       eligibility: "UG",
@@ -32,12 +32,12 @@ const SimilarCourses = () => {
       review: "10 Reviews",
     },
   ];
-
+  console.log(data);
   return (
     <div className="similar-courses">
-      <div className="similar-courses-title">Similar to MBA</div>
+      <div className="similar-courses-title">Similar to {data?.name}</div>
       <div className="course-container">
-        {data.map((data, i) => {
+        {list.map((data, i) => {
           return <SimilarCoursesList key={i} data={data} />;
         })}
 

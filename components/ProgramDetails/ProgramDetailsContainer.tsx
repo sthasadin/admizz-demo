@@ -17,7 +17,7 @@ const ProgramDetailsContainer = ({ data }) => {
 
           {/* <StudentQuestionAnswer /> */}
         </div>
-        <CourseSideBar />
+        <CourseSideBar data={data} />
       </div>
     </div>
   );

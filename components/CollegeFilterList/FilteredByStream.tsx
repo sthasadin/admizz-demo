@@ -67,7 +67,11 @@ const FilteredByStream = (props) => {
           onClick={() => setToggleStream((toggleStream) => !toggleStream)}
         >
           {" "}
-          <img src="./plus-icon.png" alt="..." />
+          {toggleStream ? (
+            <img src="./minus.png" alt="..." />
+          ) : (
+            <img src="./plus-icon.png" alt="..." />
+          )}
         </p>
       </div>
       <div

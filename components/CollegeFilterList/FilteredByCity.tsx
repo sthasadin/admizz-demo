@@ -61,13 +61,15 @@ const FilteredByCity = (props) => {
     <div className="college-list-selected-filter">
       <div className="college-list-selected-filter__filterTitleContainer">
         <p className="college-list-selected-filter__filterTitle">City</p>
-        <p className="college-list-selected-filter__filterAdd">
-          {" "}
-          <img
-            src="./plus-icon.png"
-            alt="..."
-            onClick={() => setToggleStream((toggleStream) => !toggleStream)}
-          />
+        <p
+          className="college-list-selected-filter__filterAdd"
+          onClick={() => setToggleStream((toggleStream) => !toggleStream)}
+        >
+          {toggleStream ? (
+            <img src="./minus.png" alt="..." />
+          ) : (
+            <img src="./plus-icon.png" alt="..." />
+          )}
         </p>
       </div>
       <div

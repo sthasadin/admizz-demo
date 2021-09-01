@@ -165,6 +165,7 @@ const collegeList = () => {
   };
 
   const handleCityChange = (e) => {
+    console.log(e);
     if (e.target.checked) {
       setFilterObj({
         ...filterObj,

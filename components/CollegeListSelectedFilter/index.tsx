@@ -31,8 +31,10 @@ const CollegeListSelectedFilter = ({ setFilterObj, filterObj }) => {
 
   const handleDeselect = (title) => {
     const removeSelectedCity = filterObj.city.filter((item) => item !== title);
+
     if (removeSelectedCity) {
-      setFilterObj({ ...filterObj, city: removeSelectedCity || [] });
+      console.log("asd");
+      setFilterObj({ ...filterObj, city: removeSelectedCity });
     }
     const removeSelectedCountry = filterObj.country.filter(
       (item) => item !== title

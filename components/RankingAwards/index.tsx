@@ -51,21 +51,20 @@ const index = () => {
     return newStructOfRank;
   }, [college]);
 
-  return college.college_rankings?.length ? (
+  return (
     <div className="rankingawards__section">
-      <div className="rankingawards__title">RANKING & AWARDS</div>
-      {/* <div className="rankingawards__heading">Ranking Information</div> */}
-      <div className="rankingawards__tabletitle">
-        <div>Ranking Authority</div>
+      {college.college_rankings?.length && (
+        <>
+          <div className="rankingawards__title">RANKING & AWARDS</div>
+          <div className="rankingawards__tabletitle">
+            <div>Ranking Authority</div>
 
-        <div>{moment().subtract(3, "year").year()}</div>
-        <div>{moment().subtract(2, "year").year()}</div>
-        <div>{moment().subtract(1, "year").year()}</div>
-        <div>{moment().subtract(0, "year").year()}</div>
-      </div>
-      <div className="rankingawards__awardscontainer">
-        {college.college_rankings ? (
-          <>
+            <div>{moment().subtract(3, "year").year()}</div>
+            <div>{moment().subtract(2, "year").year()}</div>
+            <div>{moment().subtract(1, "year").year()}</div>
+            <div>{moment().subtract(0, "year").year()}</div>
+          </div>
+          <div className="rankingawards__awardscontainer">
             {ranking.map((rank, i) => {
               return (
                 <Fragment key={i}>
@@ -73,9 +72,9 @@ const index = () => {
                 </Fragment>
               );
             })}
-          </>
-        ) : null}
-      </div>
+          </div>
+        </>
+      )}
       <div className="award__title">Awards Received</div>
       <div className="award__container">
         {college.college_awards ? (
@@ -87,7 +86,7 @@ const index = () => {
         ) : null}
       </div>
     </div>
-  ) : null;
+  );
 };
 
 export default index;

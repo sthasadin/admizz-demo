@@ -9,7 +9,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import axios from "axios";
 
 const Program = () => {
-  const [program, setProgram] = React.useState({});
+  const [program, setProgram] = React.useState({} as any);
   const [loader, setLoader] = React.useState(true);
 
   const router = useRouter();
@@ -31,6 +31,8 @@ const Program = () => {
     getProgram();
   }, [query]);
 
+  console.log(program);
+
   return (
     <>
       {loader ? (
@@ -38,7 +40,7 @@ const Program = () => {
           <CircularProgress />
         </div>
       ) : (
-        <Layout title={"program?.name"} stickyBar={false}>
+        <Layout title={program?.name} stickyBar={false}>
           <ProgramHeader data={program} />
           <ProgramSubMenu data={program} />
           <ProgramDetailsContainer data={program} />

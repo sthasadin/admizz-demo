@@ -29,6 +29,7 @@ const Home = () => {
     graduation_percentage,
     placement_percentage,
     banner,
+    video_360,
     institution_type,
     college_board,
     affliated_by,
@@ -131,6 +132,7 @@ const Home = () => {
             college_board={college_board}
             institution_type={institution_type}
             affliated_by={affliated_by}
+            video_360={video_360}
           />
           <Submenu />
           <SidebarContainer

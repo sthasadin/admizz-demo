@@ -1,6 +1,10 @@
 import React from "react";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import Modal from "@material-ui/core/Modal";
+import Fade from "@material-ui/core/Fade";
+import Backdrop from "@material-ui/core/Backdrop";
+import ReactPlayer from "react-player";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -16,9 +20,19 @@ const CollegeHeader = ({
   institution_type,
   college_board,
   affliated_by,
+  video_360,
 }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div
@@ -133,7 +147,7 @@ const CollegeHeader = ({
               <div className="task__title">Add to Favourite</div>
             </div>
             <div className="college-header__task">
-              <div className="task__logo">
+              <div className="task__logo" onClick={handleOpen}>
                 <svg
                   width="24"
                   height="24"
@@ -159,6 +173,28 @@ const CollegeHeader = ({
           </div>
         </div>
       </div>
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        className="introduction__modalContainer"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className="react-player-container ">
+            <div className="cross-icon" onClick={handleClose}>
+              X
+            </div>
+            <ReactPlayer url={video_360} className="react-player" controls />
+          </div>
+        </Fade>
+      </Modal>
       <Snackbar
         open={snackOpen}
         autoHideDuration={1000}

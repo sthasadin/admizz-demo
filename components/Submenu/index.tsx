@@ -2,6 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import Snackbar from "@material-ui/core/Snackbar";
+import Modal from "@material-ui/core/Modal";
+import Fade from "@material-ui/core/Fade";
+import Backdrop from "@material-ui/core/Backdrop";
+import ReactPlayer from "react-player";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -9,9 +13,18 @@ function Alert(props: AlertProps) {
 
 const Submenu = (props: any) => {
   const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const college = useSelector((state) => state.college.college);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleScroll = () => {
     if (window.scrollY > 390) {
@@ -70,7 +83,7 @@ const Submenu = (props: any) => {
                   <div className="task__title">Add to Favourite</div>
                 </div>
                 <div className="college-right-content">
-                  <div className="task__logo">
+                  <div className="task__logo" onClick={handleOpen}>
                     <svg
                       width="24"
                       height="24"
@@ -86,6 +99,31 @@ const Submenu = (props: any) => {
                       </g>
                     </svg>
                   </div>
+                  <Modal
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    open={open}
+                    onClose={handleClose}
+                    className="introduction__modalContainer"
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                      timeout: 500,
+                    }}
+                  >
+                    <Fade in={open}>
+                      <div className="react-player-container ">
+                        <div className="cross-icon" onClick={handleClose}>
+                          X
+                        </div>
+                        <ReactPlayer
+                          url={college?.video_360}
+                          className="react-player"
+                          controls
+                        />
+                      </div>
+                    </Fade>
+                  </Modal>
                   <div className="task__title">College 360 Tour</div>
                 </div>
               </div>

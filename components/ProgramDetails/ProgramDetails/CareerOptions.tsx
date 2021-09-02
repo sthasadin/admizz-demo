@@ -6,7 +6,7 @@ const CareerOption = ({ data }) => {
     <div id="career-option" className="admission-process">
       <div className="admission-process__inner">
         <div className="admission-process__title">Career Options</div>
-        <div className="course-syallbus-detail">
+        <div className="course-syallbus-detail" style={{ fontSize: "14px" }}>
           {renderHTML(data?.carrer_options)}
         </div>
       </div>

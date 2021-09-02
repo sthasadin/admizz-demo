@@ -53,7 +53,7 @@ const index = () => {
 
   return (
     <div className="rankingawards__section">
-      {college.college_rankings?.length && (
+      {college.college_rankings?.length ? (
         <>
           <div className="rankingawards__title">RANKING & AWARDS</div>
           <div className="rankingawards__tabletitle">
@@ -74,7 +74,7 @@ const index = () => {
             })}
           </div>
         </>
-      )}
+      ) : null}
       <div className="award__title">Awards Received</div>
       <div className="award__container">
         {college.college_awards ? (

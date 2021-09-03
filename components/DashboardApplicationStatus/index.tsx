@@ -1,8 +1,8 @@
 import React from "react";
-import { useRouter } from "next/router";
+import moment from "moment";
 const DashboardApplicationStatus = ({ application }) => {
-  const router = useRouter();
   const { basicInformation, ...rest } = application || {};
+  // console.log(application);
   return (
     <div className="dashboard-detail-info">
       {/* <Basic Card Info */}
@@ -54,12 +54,20 @@ const DashboardApplicationStatus = ({ application }) => {
                 style={{
                   textAlign: "left",
                   width: "100%",
-                  backgroundColor: "#e5e5e5",
-                  padding: "0 5px",
+                  color: "#333",
                   fontWeight: 400,
                 }}
               >
-                {application?.remark}
+                {application?.remark.map((item, i) => {
+                  return (
+                    <div key={i} className="remark-container">
+                      <div className="remark-content">{item.remark} </div>
+                      <div>
+                        {moment(item.createdAt).format("dddd MM YYYY")}{" "}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className="dashboard-detail-info__cardRowButton">

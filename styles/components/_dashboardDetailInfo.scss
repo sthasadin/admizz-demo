@@ -171,3 +171,14 @@
 .approve {
   background-color: green;
 }
+
+.remark-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 5px;
+}
+.remark-content {
+  word-break: break-all;
+  width: 69%;
+}

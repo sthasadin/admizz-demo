@@ -111,7 +111,6 @@ const CounselingStepper = () => {
       ...formError,
       [e.target.name]: null,
     });
-    console.log(formValue);
   };
 
   const dateTimeValidateSchema = yup.object().shape<FirstStepValidateSchema>({

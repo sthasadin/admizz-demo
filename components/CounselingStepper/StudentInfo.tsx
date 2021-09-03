@@ -35,6 +35,13 @@ const StudentInfo: React.FC<Props> = ({
   formError,
 }) => {
   const [selectedMedium, setSelectedMedium] = useState("messenger");
+
+  useEffect(() => {
+    if (formValue.contact_medium) {
+      setSelectedMedium(formValue.contact_medium);
+    }
+  }, []);
+
   useEffect(() => {
     handleChange({
       target: {

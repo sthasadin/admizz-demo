@@ -41,6 +41,16 @@ const ConfirmDateTime: React.FC<Props> = ({
   const amTimeList = ["10:00", "10:30", "11:00", "11:30"];
 
   useEffect(() => {
+    if (formValue.time) {
+      const time = formValue?.time?.split(" ");
+      setSelectedTime(time[0]);
+      setMeridium(time[1]);
+    }
+  }, []);
+
+  console.log(formValue?.time?.split(" "));
+
+  useEffect(() => {
     handleChange({
       target: {
         name: "time",

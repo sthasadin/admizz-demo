@@ -1,23 +1,11 @@
 import React from "react";
 import moment from "moment";
-import jiologo from "../../public/jio.png";
-import student from "../../public/placement_student.png";
+
 import Bargraph from "./Bargraph";
 import { useSelector } from "react-redux";
-// let itels = {
-//               haveDone: "no",
-//               score: "",
-//               subMars: { listining: "", writing: "", reading: "", speaking: "" },
-//             }
-// let a = {
-//   ...itels,
-//   subMars:{
-//     ...itels.subMars,
-//     listining:e.target.value
-//   }
-// }
 
 const index = () => {
+  const [viewAllAlmuni, setViewAllAlmuni] = React.useState(false);
   const recruiting = useSelector(
     (state: any) => state.college.college?.top_recruiting_companies
   );
@@ -247,12 +235,14 @@ const index = () => {
 
       <div className="placement__notablealumni">
         <span>Our Notable Alumni</span>
-        {/* <span className="text__right">View all Alumni</span> */}
+        <span className="text__right" onClick={() => setViewAllAlmuni(true)}>
+          {viewAllAlmuni ? null : "View all Alumni"}
+        </span>
       </div>
       <div className="placement__studentlist">
         {alumnis ? (
           <>
-            {alumnis?.slice(0, 4).map((alumni) => {
+            {alumnis?.slice(0, viewAllAlmuni ? 1000 : 3).map((alumni) => {
               return (
                 <div className="placement__student">
                   <img src={alumni.image} />

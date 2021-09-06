@@ -10,6 +10,7 @@ import student_application from './studentapplication.reducer'
 import courses from './courses.reducer'
 import filterList from './filterList.reducer'
 import footer from './footer.reducer'
+import search from './allSearch.reducer'
 
 export default combineReducers({
     collageDetails: collageDetailsReducer,
@@ -22,5 +23,6 @@ export default combineReducers({
     student_application,
     courses,
     filter: filterList,
-    footer
+    footer,
+    search
 })

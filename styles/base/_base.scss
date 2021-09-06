@@ -347,3 +347,8 @@ a {
     }
   }
 }
+
+.d-none {
+  display: none;
+  transition: display 4s;
+}

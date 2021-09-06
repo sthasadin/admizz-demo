@@ -1,13 +1,17 @@
 nav.navigation {
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   ul.menu {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     text-decoration-style: none;
+    // transition: display 4s;
     li.menu-item {
       list-style-type: none;
+
       cursor: pointer;
+
       margin: 0 5px;
       a {
         padding: 0 10px;
@@ -30,6 +34,53 @@ nav.navigation {
         &:hover::after {
           width: 100%;
           transition: width 500ms;
+        }
+      }
+    }
+    .search-bar {
+      width: 35px;
+      transition: width 500ms;
+    }
+
+    .search-bar-active {
+      width: 100%;
+      transition: width 500ms;
+      position: relative;
+
+      .search-result-container {
+        position: absolute;
+        top: 35px;
+        max-height: 250px;
+        background-color: #fff;
+        width: 100%;
+        overflow-y: auto;
+        padding: 10px;
+        box-shadow: -1px 8px 12px 0px rgba(0, 0, 0, 0.75);
+        .search-loader {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-self: center;
+
+          padding: 20px;
+        }
+
+        .search-item-content {
+          display: flex;
+          gap: 10px;
+          padding: 0 5px;
+          margin: 10px 0;
+
+          .search-image-content {
+            width: 50px;
+            min-width: 50px;
+            height: 50px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
         }
       }
     }

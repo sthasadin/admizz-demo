@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -7,19 +8,30 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import menuIcon from "../public/menuIcon.png";
-import mobileVersionLogo from "../public/mobileVersionLogo.png";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
+import SearchField from "../components/SearchField";
+import { searchAllItem } from "../store/Action/search.action";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const Navbar = (props: any) => {
   const [navbarSticky, setNavbarSticky] = React.useState(false);
+  const [searchField, setSearchField] = React.useState(false as boolean);
+  const [keyword, setKeyword] = React.useState("");
   const [mobileSize, setMobilesize] = React.useState(false);
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  const data = useSelector((state) => state.search.data);
+  const loader = useSelector((state) => state.search.loader);
 
   const [state, setState] = React.useState({
     top: false,
   });
+
+  React.useEffect(() => {
+    if (keyword) {
+      dispatch(searchAllItem({ keyword: keyword }));
+    }
+  }, [keyword]);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -176,6 +188,8 @@ const Navbar = (props: any) => {
     return () => window.removeEventListener("resize", windowResize);
   }, [mobileSize]);
 
+  console.log(loader);
+
   return (
     <div
       className={`navbar  ${
@@ -210,48 +224,98 @@ const Navbar = (props: any) => {
         </div>
 
         <div className="navbar__right">
-          <div className="navbar__menu">
+          <div className="navbar__menu" style={{ width: "100%" }}>
             <nav className="navigation">
               <ul className="menu">
                 <li
-                  className={`menu-item ${
+                  className={`menu-item  ${
                     router.pathname == "/" ? "active-navlink" : ""
-                  }`}
+                  } ${searchField ? "d-none" : ""}`}
                 >
                   <Link href="/">Home</Link>
                 </li>
                 <li
                   className={`menu-item ${
                     router.pathname == "/colleges" ? "active-navlink" : ""
-                  }`}
+                  } ${searchField ? "d-none" : ""}`}
                 >
                   <Link href="/colleges">Colleges</Link>
                 </li>
                 <li
-                  className={`menu-item ${
+                  className={`menu-item  ${
                     router.pathname == "/blogs" ? "active-navlink" : ""
-                  }`}
+                  } ${searchField ? "d-none" : ""}`}
                 >
                   <Link href="/blogs">Blogs</Link>
                 </li>
                 <li
-                  className={`menu-item ${
+                  className={`menu-item   ${
                     router.pathname == "/faq" ? "active-navlink" : ""
-                  }`}
+                  } ${searchField ? "d-none" : ""}`}
                 >
                   <Link href="/faq">FAQs</Link>
                 </li>
                 <li
-                  className={`menu-item ${
+                  className={`menu-item  ${
                     router.pathname == "/contact-us" ? "active-navlink" : ""
-                  }`}
+                  } ${searchField ? "d-none" : ""}`}
                 >
                   <Link href="/contact-us">Contact</Link>
                 </li>
-                <li className={`menu-item `}>
-                  <Link href="/colleges">
-                    <img src="/search.png" alt=".." />
-                  </Link>
+                <li
+                  className={`menu-item ${
+                    searchField ? "search-bar-active" : "search-bar"
+                  }`}
+                >
+                  <SearchField
+                    icon={"/search.png"}
+                    isSearch={searchField}
+                    setSearchField={setSearchField}
+                    setKeyword={setKeyword}
+                    value={keyword}
+                    onChange={(e) => setKeyword(e.target.value)}
+                  />
+                  <div
+                    className={`${
+                      keyword ? "search-result-container" : "d-none"
+                    }`}
+                  >
+                    {loader && (
+                      <div className="search-loader">
+                        {" "}
+                        <CircularProgress />
+                      </div>
+                    )}
+                    {data &&
+                      !loader &&
+                      data?.map((item, i) => {
+                        return (
+                          <div className="search-item-content" key={i}>
+                            <div className="search-image-content">
+                              <img
+                                src={
+                                  item.college_logo
+                                    ? item.college_logo
+                                    : item.blog_imageURL
+                                }
+                                alt="..."
+                              />
+                            </div>
+                            <div className="search-text-content">
+                              {/* <Link
+                                href={`${
+                                  item.college_slug
+                                    ? `college/${item.college_slug}`
+                                    : `/blogs/${item.slug}`
+                                }`}
+                              > */}
+                              {item.name ? item.name : item.blog_title}
+                              {/* </Link> */}
+                            </div>
+                          </div>
+                        );
+                      })}
+                  </div>
                 </li>
               </ul>
             </nav>

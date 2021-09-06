@@ -126,6 +126,7 @@ const ConfirmDateTime: React.FC<Props> = ({
           handleChange={handleChange}
           formError={formError}
           selectedCountry={formValue?.home_country}
+          formValue={formValue}
         />
       </div>
 

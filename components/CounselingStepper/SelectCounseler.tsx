@@ -10,12 +10,14 @@ interface Props {
   handleChange: (e: any) => void;
   formError: FormError;
   selectedCountry?: any;
+  formValue?: any;
 }
 
 const SelectCounseler: React.FC<Props> = ({
   handleChange,
   formError,
   selectedCountry,
+  formValue,
 }) => {
   const [counsellorArray, setCounsellorArray] = useState([]);
   const [loader, setLoader] = React.useState(false);
@@ -52,6 +54,14 @@ const SelectCounseler: React.FC<Props> = ({
   );
 
   const [selectedCounseler, setSelectedCounseler] = useState(1 as number);
+
+  console.log(formValue.counsellor);
+
+  useEffect(() => {
+    if (formValue.counsellor) {
+      setSelectedCounseler(formValue.counsellor);
+    }
+  }, []);
 
   useEffect(() => {
     handleChange({

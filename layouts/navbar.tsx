@@ -7,7 +7,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
-import menuIcon from "../public/menuIcon.png";
+
 import SearchField from "../components/SearchField";
 import { searchAllItem } from "../store/Action/search.action";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -99,7 +99,7 @@ const Navbar = (props: any) => {
           </Link>
         </ListItem>
         <ListItem button key={"Contact"} className="navbar__list">
-          <Link href="/contact-us">
+          <Link href="/login">
             <div
               style={{
                 display: "flex",
@@ -206,8 +206,8 @@ const Navbar = (props: any) => {
         navbarSticky && props.stickyBar && "sticky-nab-bar"
       } `}
     >
-      <div className="navbar__inner">
-        <div className="navbar__logo">
+      <div className={`navbar__inner `}>
+        <div className={` navbar__logo ${searchField ? "d-none" : ""}`}>
           {mobileSize ? (
             <div className="logo mobile-logo" onClick={() => router.push("/")}>
               <img src="/mobileVersionLogo.png" alt="Admizz_logo" />
@@ -220,8 +220,79 @@ const Navbar = (props: any) => {
         </div>
 
         <div className="navbar__hamburger">
-          <Button onClick={toggleDrawer("top", true)}>
-            <img src={menuIcon} />
+          <div
+            className={`search-item ${
+              searchField ? "mobile-search-bar-active" : "mobile-search-bar"
+            }`}
+          >
+            <SearchField
+              icon={"/search.png"}
+              isSearch={searchField}
+              setSearchField={setSearchField}
+              setKeyword={setKeyword}
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+            />
+
+            <div
+              className={`${
+                keyword ? "mobile-search-result-container" : "d-none"
+              }`}
+            >
+              {loader && (
+                <div className="mobile-search-loader">
+                  {" "}
+                  <CircularProgress />
+                </div>
+              )}
+              {data &&
+                !loader &&
+                data?.map((item, i) => {
+                  return (
+                    <div className="mobile-search-item-content" key={i}>
+                      <div className="search-image-content">
+                        <img
+                          src={
+                            item.college_logo
+                              ? item.college_logo
+                              : item.blog_imageURL
+                          }
+                          alt="..."
+                        />
+                      </div>
+                      <div className="search-text-content">
+                        <Link
+                          href={`${
+                            item.college_slug
+                              ? `colleges/${item.college_slug}`
+                              : `/blogs/${item.blog_slug}`
+                          }`}
+                        >
+                          {item.name
+                            ? truncateString(item.name, 35)
+                            : truncateString(item.blog_title, 35)}
+                        </Link>
+                        <div className="search-text-description">
+                          {item.description
+                            ? truncateString(cleanText(item.description), 80)
+                            : truncateString(cleanText(item.blog_desc), 80)}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              {data && !loader && data?.length === 0 && (
+                <div className="search-sorry-text">Sorry data not found</div>
+              )}
+            </div>
+          </div>
+
+          <Button
+            onClick={toggleDrawer("top", true)}
+            className={`${searchField ? "d-none" : ""}`}
+            style={{ minWidth: "38px", padding: "0" }}
+          >
+            <img src="/menuIcon.png" />
           </Button>
           <Drawer
             anchor={"top"}

@@ -47,6 +47,7 @@ const Index = ({
       <FormControl className={classes.margin}>
         <TextField
           fullWidth
+          // variant="outlined"
           className={classes.searchField}
           value={value}
           onChange={(e) => onChange(e)}

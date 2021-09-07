@@ -14,9 +14,13 @@
 
     max-width: 1440px;
     margin: auto;
+
     @media (max-width: 500px) {
       width: 100%;
       padding: 0 7px;
+    }
+    @media (max-width: 1175px) {
+      height: 45px;
     }
   }
   &__logo {
@@ -35,7 +39,10 @@
     display: none;
     text-align: right;
     @media (max-width: 1175px) {
-      display: block;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
     }
   }
   &__drawer {
@@ -200,5 +207,54 @@
 .mobile-logo {
   width: 46px;
   height: 43px;
-  margin: 3px 0;
+}
+
+.mobile-search-bar {
+  width: 35px;
+}
+
+.mobile-search-bar-active {
+  width: 100%;
+  transition: width 500ms;
+  position: relative;
+}
+
+.mobile-search-result-container {
+  position: absolute;
+  box-shadow: -1px 8px 12px 0px rgba(0, 0, 0, 0.75);
+  width: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  top: 36px;
+  background-color: #fff;
+  :hover {
+    background-color: #f2f2f2;
+  }
+}
+.mobile-search-loader {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-search-item-content {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+
+  .search-image-content {
+    max-width: 60px;
+    height: 50px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .search-text-content {
+    text-align: left;
+  }
 }

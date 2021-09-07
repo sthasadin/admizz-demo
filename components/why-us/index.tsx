@@ -1,8 +1,6 @@
 import React from "react";
 import { Feature } from "../feature";
 import Link from "next/link";
-import whyusBg from "../../public/why-us-bg-image.png";
-import tieupsBg from "../../public/tieups-background.png";
 
 import { CallToAction } from "../Button/callToAction";
 
@@ -126,12 +124,7 @@ const Us = ({ college }) => {
 
   return (
     <div className="us">
-      <div
-        className="us__backgroundimage"
-        style={{
-          backgroundImage: `linear-gradient(0deg, rgba(95, 24, 2, 0.7), rgba(95, 24, 2, 0.7)), url(${whyusBg});`,
-        }}
-      >
+      <div className="us__backgroundimage">
         <div className="section-wrapper">
           <div className="us__content">
             <div className="us__leftcontent">
@@ -150,10 +143,7 @@ const Us = ({ college }) => {
           </div>
         </div>
       </div>
-      <div
-        className="us__feature"
-        style={{ backgroundImage: `url(${tieupsBg})` }}
-      >
+      <div className="us__feature">
         <div className="section-wrapper">
           <div className="us__feature_container">
             {data.map((data) => {

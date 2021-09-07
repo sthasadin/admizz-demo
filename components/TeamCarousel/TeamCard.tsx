@@ -33,7 +33,7 @@ const TeamCard = ({ teamMember }) => {
                 <img src="/email-icon.png" alt="..." />
               </div>
               <div className="teams-list__email__address">
-                <a href="mailto:EMAILADDRESS">{teamMember.email}</a>
+                <a href={`mailto:${teamMember.email}`}>{teamMember.email}</a>
               </div>
             </div>
 

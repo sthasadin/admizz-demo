@@ -207,7 +207,7 @@ const Navbar = (props: any) => {
       } `}
     >
       <div className={`navbar__inner `}>
-        <div className={` navbar__logo ${searchField ? "d-none" : ""}`}>
+        <div className={` navbar__logo ${searchField ? "mobile-navbar" : ""}`}>
           {mobileSize ? (
             <div className="logo mobile-logo" onClick={() => router.push("/")}>
               <img src="/mobileVersionLogo.png" alt="Admizz_logo" />

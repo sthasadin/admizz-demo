@@ -258,3 +258,8 @@
     text-align: left;
   }
 }
+.mobile-navbar {
+  @media (max-width: 1175px) {
+    display: none;
+  }
+}

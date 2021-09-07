@@ -188,7 +188,17 @@ const Navbar = (props: any) => {
     return () => window.removeEventListener("resize", windowResize);
   }, [mobileSize]);
 
-  console.log(loader);
+  function truncateString(str, num) {
+    if (str?.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
+
+  const cleanText = (text) => {
+    return text?.replace(/<\/?[^>]+(>|$)/g, " ");
+  };
 
   return (
     <div
@@ -263,7 +273,7 @@ const Navbar = (props: any) => {
                   <Link href="/contact-us">Contact</Link>
                 </li>
                 <li
-                  className={`menu-item ${
+                  className={`search-item ${
                     searchField ? "search-bar-active" : "search-bar"
                   }`}
                 >
@@ -302,19 +312,37 @@ const Navbar = (props: any) => {
                               />
                             </div>
                             <div className="search-text-content">
-                              {/* <Link
+                              <Link
                                 href={`${
                                   item.college_slug
-                                    ? `college/${item.college_slug}`
-                                    : `/blogs/${item.slug}`
+                                    ? `colleges/${item.college_slug}`
+                                    : `/blogs/${item.blog_slug}`
                                 }`}
-                              > */}
-                              {item.name ? item.name : item.blog_title}
-                              {/* </Link> */}
+                              >
+                                {item.name
+                                  ? truncateString(item.name, 35)
+                                  : truncateString(item.blog_title, 35)}
+                              </Link>
+                              <div className="search-text-description">
+                                {item.description
+                                  ? truncateString(
+                                      cleanText(item.description),
+                                      80
+                                    )
+                                  : truncateString(
+                                      cleanText(item.blog_desc),
+                                      80
+                                    )}
+                              </div>
                             </div>
                           </div>
                         );
                       })}
+                    {data && !loader && data?.length === 0 && (
+                      <div className="search-sorry-text">
+                        Sorry data not found
+                      </div>
+                    )}
                   </div>
                 </li>
               </ul>

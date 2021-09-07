@@ -37,6 +37,12 @@ nav.navigation {
         }
       }
     }
+    li.search-item {
+      list-style-type: none;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+
     .search-bar {
       width: 35px;
       transition: width 500ms;
@@ -54,7 +60,10 @@ nav.navigation {
         background-color: #fff;
         width: 100%;
         overflow-y: auto;
-        padding: 10px;
+        // padding: 10px;
+        :hover {
+          background-color: #fdfdfd;
+        }
         box-shadow: -1px 8px 12px 0px rgba(0, 0, 0, 0.75);
         .search-loader {
           display: flex;
@@ -68,8 +77,8 @@ nav.navigation {
         .search-item-content {
           display: flex;
           gap: 10px;
-          padding: 0 5px;
-          margin: 10px 0;
+          padding: 10px 15px;
+          // margin: 10px 0;
 
           .search-image-content {
             width: 50px;
@@ -93,4 +102,20 @@ nav.navigation {
 }
 .menu-item:last-child a {
   padding-right: 5px !important;
+}
+
+.search-text-content a {
+  color: $gray-2;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.search-text-description {
+  font-size: 12px;
+  margin-top: 5px;
+  color: $gray-2;
+}
+.search-sorry-text {
+  padding: 20px;
+  text-align: center;
 }

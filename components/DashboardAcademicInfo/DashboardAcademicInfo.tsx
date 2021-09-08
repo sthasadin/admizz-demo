@@ -64,9 +64,9 @@ export const DashboardAcademicInfo = (props) => {
 
   const [showClass11Marks, setShowClass11Marks] = useState(false);
 
-  useEffect(() => {
-    props.setShowExitPrompt(true); //prevent from refreshing the page
-  }, []);
+  // useEffect(() => {
+  //   props.setShowExitPrompt(true); //prevent from refreshing the page
+  // }, []);
 
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("academicInformation"));

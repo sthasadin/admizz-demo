@@ -48,21 +48,21 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const initBeforeUnLoad = (showExitPrompt, setShowExitPrompt) => {
-  window.onbeforeunload = (event) => {
-    if (showExitPrompt) {
-      const e = event || window.event;
-      e.preventDefault();
-      if (e) {
-        e.returnValue = "";
-        setShowExitPrompt(false);
-      }
-      return "";
-    }
-  };
-};
-
 const DashboardBasicInfoPage = () => {
+  // const initBeforeUnLoad = (showExitPrompt, setShowExitPrompt) => {
+  //   window.onbeforeunload = (event) => {
+  //     if (showExitPrompt) {
+  //       const e = event || window.event;
+  //       e.preventDefault();
+  //       if (e) {
+  //         e.returnValue = "";
+  //         setShowExitPrompt(false);
+  //       }
+  //       return "";
+  //     }
+  //   };
+  // };
+
   const { authenticated, user } = useContext(AuthContext);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -81,24 +81,23 @@ const DashboardBasicInfoPage = () => {
   const [academicInfo, setAcademicInfo] = useState({});
   const [selectedChoice, setSelectedChoice] = useState([]);
   const [info, setInfo] = useState([]);
-  const [showExitPrompt, setShowExitPrompt] = useState(false as boolean);
 
   const getUser = async (id: string) => {
     const user = await dispatch(getAuthUser(id));
     setAuthUser(user);
   };
 
-  window.onload = function () {
-    initBeforeUnLoad(showExitPrompt, setShowExitPrompt);
-  };
+  // window.onload = function () {
+  //   initBeforeUnLoad(showExitPrompt, setShowExitPrompt);
+  // };
 
-  useEffect(() => {
-    initBeforeUnLoad(showExitPrompt, setShowExitPrompt);
+  // useEffect(() => {
+  //   initBeforeUnLoad(showExitPrompt, setShowExitPrompt);
 
-    // return () => {
-    //   setShowExitPrompt(false);
-    // };
-  }, [showExitPrompt]);
+  //   // return () => {
+  //   //   setShowExitPrompt(false);
+  //   // };
+  // }, [showExitPrompt]);
 
   useEffect(() => {
     if (authenticated) {
@@ -150,7 +149,7 @@ const DashboardBasicInfoPage = () => {
             getData={setBasicInfo}
             data={basicInfo}
             authUser={authUser}
-            setShowExitPrompt={setShowExitPrompt}
+            // setShowExitPrompt={setShowExitPrompt}
           />
         );
       case 1:
@@ -160,7 +159,7 @@ const DashboardBasicInfoPage = () => {
             handleBack={handleBack}
             getData={setBackgroundInfo}
             data={backgroundInfo}
-            setShowExitPrompt={setShowExitPrompt}
+            // setShowExitPrompt={setShowExitPrompt}
           />
         );
       case 2:
@@ -171,7 +170,7 @@ const DashboardBasicInfoPage = () => {
             getData={setAcademicInfo}
             data={academicInfo}
             selectedLevel={basicInfo}
-            setShowExitPrompt={setShowExitPrompt}
+            // setShowExitPrompt={setShowExitPrompt}
           />
         );
       case 3:
@@ -183,7 +182,7 @@ const DashboardBasicInfoPage = () => {
             selectedChoice={selectedChoice}
             info={info}
             setInfo={setInfo}
-            setShowExitPrompt={setShowExitPrompt}
+            // setShowExitPrompt={setShowExitPrompt}
           />
         );
       case 4:
@@ -198,7 +197,7 @@ const DashboardBasicInfoPage = () => {
             setAcademicInfo={setAcademicInfo}
             setBasicInfo={setBasicInfo}
             authUser={authUser}
-            setShowExitPrompt={setShowExitPrompt}
+            // setShowExitPrompt={setShowExitPrompt}
           />
         );
       default:

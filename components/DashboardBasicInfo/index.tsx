@@ -117,8 +117,8 @@ const DashboardBasicInfo = (props) => {
         value: getData?.guardianState,
       });
       setSelectedLevel({
-        label: getData?.selectedLevel,
-        value: getData?.selectedLevel,
+        label: getData?.selectedLevel.label,
+        value: getData?.selectedLevel.value,
       });
 
       setEmail(getData?.email);
@@ -137,15 +137,15 @@ const DashboardBasicInfo = (props) => {
   }, []);
 
   useEffect(() => {
-    if (selectedLevel.label) {
+    if (selectedLevel.value) {
       const _selectedLevel = allLevels.find(
-        (level) => level.name === selectedLevel.label
+        (level) => level.name === selectedLevel.value
       );
       dispatch(getStreams(_selectedLevel?._id));
       //saving to store so that we can it use on choice filling comp
       dispatch({ type: "SELECTED_LEVEL", payload: _selectedLevel });
     }
-  }, [selectedLevel]);
+  }, [allLevels, selectedLevel]);
 
   const GenderOptions = [
     {
@@ -183,14 +183,6 @@ const DashboardBasicInfo = (props) => {
       value: "India",
     },
   ];
-
-  function getFlagEmoji(countryCode) {
-    return countryCode
-      .toUpperCase()
-      .replace(/./g, (char) =>
-        String.fromCodePoint(127397 + char.charCodeAt())
-      );
-  }
 
   const CountryCodeOptions = [
     {
@@ -326,7 +318,10 @@ const DashboardBasicInfo = (props) => {
 
       if (isValid) {
         let data = {
-          selectedLevel: selectedLevel.value,
+          selectedLevel: {
+            label: selectedLevel.label,
+            value: selectedLevel.value,
+          },
           fullName,
           DOB,
           nationality: nationality.value,
@@ -349,11 +344,12 @@ const DashboardBasicInfo = (props) => {
 
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
+      console.log(props.data);
       setFullName(props.data.fullName);
       setDob(props.data.DOB);
       setSelectedLevel({
-        label: props.data.selectedLevel,
-        value: props.data.selectedLevel,
+        label: props.data.selectedLevel.label,
+        value: props.data.selectedLevel.value,
       });
       setNationality({
         label: props.data.nationality,
@@ -382,12 +378,7 @@ const DashboardBasicInfo = (props) => {
 
   return (
     <div className="dashboard-basic-info">
-      {/* Apply For */}
       <div className="dashboard-basic-info__sectionContainer">
-        {/* <div className="dashboard-basic-info__pageTitle">
-          {"Dashboard > "}
-          <p className="dashboard-basic-info__pageTitleHighlight">Apply</p>
-        </div> */}
         <div className="dashboard-basic-info__sectionTitle">Applying For</div>
         <div className="dashboard-basic-info__formContainer">
           <Grid
@@ -409,7 +400,7 @@ const DashboardBasicInfo = (props) => {
                 handleChange={(e) => {
                   setSelectedLevel(e);
                   setFormError((prev) => ({ ...prev, selectedLevel: null }));
-                  props.setShowExitPrompt(true);
+                  // props.setShowExitPrompt(true);
                 }}
                 defaultvalue={selectedLevel}
                 name={"selectedLevel"}
@@ -449,7 +440,7 @@ const DashboardBasicInfo = (props) => {
                   onChange={(e) => {
                     setFullName(e.target.value);
                     setFormError((prev) => ({ ...prev, fullName: null }));
-                    props.setShowExitPrompt(true);
+                    // props.setShowExitPrompt(true);
                   }}
                   label="Full Name"
                   error={!!formError.fullName}
@@ -472,7 +463,7 @@ const DashboardBasicInfo = (props) => {
                   onChange={(e) => {
                     setEmail(e.target.value);
                     setFormError((prev) => ({ ...prev, email: null }));
-                    props.setShowExitPrompt(true);
+                    // props.setShowExitPrompt(true);
                   }}
                   name={"email"}
                   errorMessage={formError.email}
@@ -494,7 +485,7 @@ const DashboardBasicInfo = (props) => {
                     handleChange={(e) => {
                       setNationality(e);
                       setFormError((prev) => ({ ...prev, nationality: null }));
-                      props.setShowExitPrompt(true);
+                      // props.setShowExitPrompt(true);
                     }}
                     name={"nationality"}
                     errorMessage={formError.nationality}
@@ -536,7 +527,7 @@ const DashboardBasicInfo = (props) => {
                     onChange={(e) => {
                       setPhoneNumber(e.target.value);
                       setFormError((prev) => ({ ...prev, phoneNumber: null }));
-                      props.setShowExitPrompt(true);
+                      // props.setShowExitPrompt(true);
                     }}
                     name={"phoneNumber"}
                     errorMessage={formError.phoneNumber}
@@ -560,7 +551,7 @@ const DashboardBasicInfo = (props) => {
                   onChange={(e) => {
                     setDob(e.target.value);
                     setFormError((prev) => ({ ...prev, DOB: null }));
-                    props.setShowExitPrompt(true);
+                    // props.setShowExitPrompt(true);
                   }}
                   name={"DOB"}
                   errorMessage={formError.DOB}
@@ -580,7 +571,7 @@ const DashboardBasicInfo = (props) => {
                   handleChange={(e) => {
                     setGender(e);
                     setFormError((prev) => ({ ...prev, gender: null }));
-                    props.setShowExitPrompt(true);
+                    // props.setShowExitPrompt(true);
                   }}
                   defaultvalue={gender}
                   name={"gender"}
@@ -627,7 +618,7 @@ const DashboardBasicInfo = (props) => {
                         ...prev,
                         guardianAddress: null,
                       }));
-                      props.setShowExitPrompt(true);
+                      // props.setShowExitPrompt(true);
                     }}
                     name={"guardianAddress"}
                     errorMessage={formError.guardianAddress}
@@ -656,7 +647,7 @@ const DashboardBasicInfo = (props) => {
                     onChange={(e) => {
                       setGuardianCity(e.target.value);
                       setFormError((prev) => ({ ...prev, guardianCity: null }));
-                      props.setShowExitPrompt(true);
+                      // props.setShowExitPrompt(true);
                     }}
                     name={"guardianCity"}
                     errorMessage={formError.guardianCity}
@@ -679,7 +670,7 @@ const DashboardBasicInfo = (props) => {
                         ...prev,
                         guardianCountry: null,
                       }));
-                      props.setShowExitPrompt(true);
+                      // props.setShowExitPrompt(true);
                     }}
                     defaultvalue={guardianCountry}
                     name={"guardianCountry"}
@@ -702,7 +693,7 @@ const DashboardBasicInfo = (props) => {
                         ...prev,
                         guardianState: null,
                       }));
-                      props.setShowExitPrompt(true);
+                      // props.setShowExitPrompt(true);
                     }}
                     defaultvalue={guardianState}
                     options={

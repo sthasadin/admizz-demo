@@ -2,11 +2,11 @@ import { postService, getService } from "../commonServices";
 
 export class CoursesService {
 
-  getFilters() {
-    let url = "/courses/get-filters";
-    let data = getService(url);
-    return data;
-  }
+  // getFilters() {
+  //   let url = "/courses/get-filters";
+  //   let data = getService(url);
+  //   return data;
+  // }
   getPrograms() {
     let url = "/courses";
     let data = getService(url);;
@@ -35,7 +35,7 @@ export class CoursesService {
   addProgram(program) {
     let body = JSON.stringify(program)
     let url = `/courses/add-program`;
-    let data = postService(url,body);
+    let data = postService(url, body);
     return data;
   }
   deleteProgram(program_id) {
@@ -64,7 +64,7 @@ export class CoursesService {
   editCollegeCourse(course) {
     let body = JSON.stringify(course)
     let url = `/courses/update-college-course`;
-    let data = postService(url, body,"PUT");
+    let data = postService(url, body, "PUT");
     return data;
   }
   deleteCollegeCourse(course_id) {

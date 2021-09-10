@@ -38,7 +38,7 @@ const CollegeHeader = ({
     <div
       className="college-header"
       style={{
-        backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39)),url(${collegeBanner})`,
+        backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)),url(${collegeBanner})`,
       }}
     >
       <div className="college-header__inner">

@@ -10,6 +10,7 @@ import axios from "axios";
 
 const Program = () => {
   const [program, setProgram] = React.useState({} as any);
+  const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
   const [loader, setLoader] = React.useState(true);
 
   const router = useRouter();
@@ -23,30 +24,44 @@ const Program = () => {
 
     if (res) {
       setProgram(res?.data);
-      setLoader(false);
+      // setLoader(false);
     }
+    setLoader(false);
   };
 
   React.useEffect(() => {
     getProgram();
   }, [query]);
 
-  console.log(program);
+  const handleScroll = () => {
+    if (window.scrollY > 390) {
+      setCollegeBarSticky(true);
+    } else {
+      setCollegeBarSticky(false);
+    }
+  };
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (program === null || loader)
+    return (
+      <div className={"route-load"}>
+        <CircularProgress />
+      </div>
+    );
 
   return (
-    <>
-      {loader ? (
-        <div className={"route-load"}>
-          <CircularProgress />
-        </div>
-      ) : (
-        <Layout title={program?.name} stickyBar={false}>
-          <ProgramHeader data={program} />
-          <ProgramSubMenu data={program} />
-          <ProgramDetailsContainer data={program} />
-        </Layout>
-      )}
-    </>
+    <Layout title={program?.name} stickyBar={false}>
+      <ProgramHeader data={program} />
+      <ProgramSubMenu data={program} collegeBarSticky={collegeBarSticky} />
+      <ProgramDetailsContainer
+        data={program}
+        collegeBarSticky={collegeBarSticky}
+      />
+    </Layout>
   );
 };
 

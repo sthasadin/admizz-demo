@@ -8,10 +8,11 @@ import {
 import Link from "next/link";
 
 const FeeStructure = (props: any) => {
-  const [selectLevel, setSelectLevel] = useState("");
-  const [selectStream, setSelectStream] = useState(null);
+  const [selectLevel, setSelectLevel] = useState("all-courses");
+
   const [levels, setLevels] = useState([]);
   const [streams, setStreams] = useState([]);
+  const [selectStream, setSelectStream] = useState("");
   const [programs, setPrograms] = useState([]);
   const [collegeLevels, setCollegeLevels] = useState([]);
   const [courses, setCourses] = useState([]);
@@ -49,6 +50,7 @@ const FeeStructure = (props: any) => {
       }
     });
     setCollegeLevels(_.uniqBy(_levels, "_id"));
+    onLevelClick(selectLevel);
   }, [courses, levels]);
 
   const getCourses = async (id: string) => {
@@ -61,7 +63,7 @@ const FeeStructure = (props: any) => {
     setLevels(res);
   };
 
-  const getAllPrograms = async (programStream: any) => {
+  const getAllPrograms = (programStream: any) => {
     let thisPrograms = [];
 
     if (programStream === "all-courses") {
@@ -101,11 +103,9 @@ const FeeStructure = (props: any) => {
     college?._id && getCourses(college?._id);
   }, [college]);
 
-  useEffect(() => {
-    selectStream && getAllPrograms(selectStream);
-  }, [selectStream]);
-
-  // console.log(courses);
+  // useEffect(() => {
+  //   selectStream && getAllPrograms(selectStream);
+  // }, [selectStream]);
 
   return (
     <div id="course_fee" className="fee-structure">
@@ -117,7 +117,10 @@ const FeeStructure = (props: any) => {
         <div className="fee-structure__level">
           <div className="level-list">
             <div
-              onClick={() => onLevelClick("all-courses")}
+              onClick={() => {
+                onLevelClick("all-courses");
+                setSelectStream("");
+              }}
               className={`level-list__item ${
                 selectLevel === "all-courses" ? "active" : ""
               } `}
@@ -128,7 +131,10 @@ const FeeStructure = (props: any) => {
               collegeLevels.map((course) => {
                 return (
                   <div
-                    onClick={() => onLevelClick(course.name)}
+                    onClick={() => {
+                      onLevelClick(course.name);
+                      setSelectStream("");
+                    }}
                     style={{ textTransform: "uppercase" }}
                     className={`
                       ${selectLevel === course.name}
@@ -157,8 +163,13 @@ const FeeStructure = (props: any) => {
                     <div
                       style={{ cursor: "pointer" }}
                       key={i}
-                      onClick={() => setSelectStream(stream)}
-                      className="courses-list__item"
+                      onClick={() => {
+                        getAllPrograms(stream);
+                        setSelectStream(stream.name);
+                      }}
+                      className={`courses-list__item  ${
+                        selectStream === stream.name ? "active" : ""
+                      }`}
                     >
                       {stream.name}
                     </div>
@@ -189,6 +200,11 @@ const FeeStructure = (props: any) => {
                 </div>
               );
             })}
+            {!programs.length && !streams.length && (
+              <div style={{ textAlign: "center" }}>
+                Sorry course is not aviable at the moment.
+              </div>
+            )}
           </div>
         </div>
       </div>

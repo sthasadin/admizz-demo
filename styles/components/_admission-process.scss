@@ -15,10 +15,13 @@
     flex-direction: column;
     gap: 10px;
     color: #333;
-    // ul,
-    // ol {
-    //   padding-inline-start: 19px;
-    // }
+    line-height: 21px;
+    ul,
+    ol {
+      padding-inline-start: 19px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
   }
   &__heading {
     font-size: 18px;

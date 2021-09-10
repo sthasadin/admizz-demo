@@ -4,6 +4,11 @@
   @media (max-width: 414px) {
     flex-direction: column;
   }
+  .active {
+    border-color: #ffa200;
+    background-color: #ffa200;
+    color: #fff;
+  }
   &__title {
     margin-right: 32px;
     font-size: 16px;
@@ -15,6 +20,12 @@
     &:not(:last-child) {
       margin-right: 32px;
     }
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 2px 10px;
+    background-color: #f7f7f7;
     font-size: 16px;
     line-height: 24px;
     color: #828288;

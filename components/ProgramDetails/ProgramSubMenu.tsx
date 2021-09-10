@@ -6,23 +6,23 @@ function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const ProgramSubMenu = ({ data }) => {
-  const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
+const ProgramSubMenu = ({ data, collegeBarSticky }) => {
+  // const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
 
-  const handleScroll = () => {
-    if (window.scrollY > 390) {
-      setCollegeBarSticky(true);
-    } else {
-      setCollegeBarSticky(false);
-    }
-  };
-  React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+  // const handleScroll = () => {
+  //   if (window.scrollY > 390) {
+  //     setCollegeBarSticky(true);
+  //   } else {
+  //     setCollegeBarSticky(false);
+  //   }
+  // };
+  // React.useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <div
@@ -79,28 +79,28 @@ const ProgramSubMenu = ({ data }) => {
           <li>
             <Link
               to="overview"
-              offset={-140}
+              offset={-118}
               spy={true}
               className="submenu__item"
             >
-              About {data?.name}
+              About Course
             </Link>
           </li>
           <li>
             <Link
               to="similar-colleges"
-              offset={-140}
+              offset={-118}
               spy={true}
               className="submenu__item"
             >
-              {data?.name} Colleges
+              Colleges
             </Link>
           </li>
 
           <li>
             <Link
               to="outline"
-              offset={-140}
+              offset={-118}
               spy={true}
               className="submenu__item"
             >
@@ -110,11 +110,11 @@ const ProgramSubMenu = ({ data }) => {
           <li>
             <Link
               to="career-option"
-              offset={-140}
+              offset={-118}
               spy={true}
               className="submenu__item"
             >
-              Career Options
+              Career Opportunities
             </Link>
           </li>
         </ul>

@@ -11,7 +11,6 @@ const CollegeOverview = () => {
   const [open, setOpen] = useState(false);
 
   const college = useSelector((state) => state.college.college);
-  console.log(college.video_360);
 
   return (
     <div id="overview" className="overview">

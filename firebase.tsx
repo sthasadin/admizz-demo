@@ -5,7 +5,7 @@ import _ from "lodash";
 import axios, { AxiosResponse } from "axios";
 import "firebase/storage";
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCjxChYN70lSg57xRAqicg2lgMrFSDvCy4",
   authDomain: "admizz.firebaseapp.com",
   projectId: "admizz",

@@ -4,52 +4,41 @@ import { GET_APPLICATION } from "../const";
 export const getStudentApplication = (id) => {
   return async (dispatch) => {
     try {
-
       let applications = {} as any;
-      let remark = []
-      let querySnapshot = await db.collection('students-application').where('student_id', '==', id).get()
-
-
+      let remark = [];
+      let querySnapshot = await db
+        .collection("students-application")
+        .where("student_id", "==", id)
+        .get();
 
       querySnapshot.forEach(async (doc) => {
-
-
-
-
         applications = {
           ...doc.data(),
-          id: doc.id
-        }
+          id: doc.id,
+        };
+      });
 
-      })
-
-      let remarkRef = await db.collection('students-application').doc(applications.id).collection('remarks').get();
-
+      let remarkRef = await db
+        .collection("students-application")
+        .doc(applications.id)
+        .collection("remarks")
+        .get();
 
       remarkRef.forEach((doc) => {
-
         remark.push({
+          ...doc.data(),
+        });
+      });
 
-          ...doc.data()
-        })
-      })
+      applications = { ...applications, remark: remark };
 
-
-
-      applications = { ...applications, remark: remark }
-
-
-
-
-
-      dispatch({ type: GET_APPLICATION, payload: applications })
-
+      dispatch({ type: GET_APPLICATION, payload: applications });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       // return {}
     }
-  }
-}
+  };
+};
 
 // export const getStudentRemark = (id) => async () => {
 //   try {
@@ -63,13 +52,14 @@ export const getStudentApplication = (id) => {
 export const updateStudentApplication = (status, id) => {
   return async (dispatch) => {
     try {
-      await db.collection('students-application').doc(id).update({
-        status
-      })
-      return true
+      await db.collection("students-application").doc(id).update({
+        status,
+      });
+      return true;
     } catch (error) {
-      console.log(error)
-      return false
+      console.log(error);
+      return false;
     }
-  }
-}
+  };
+};
+

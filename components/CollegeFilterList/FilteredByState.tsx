@@ -55,7 +55,7 @@ const FilteredByState = (props) => {
   const classes = useStyles();
 
   const filterItem = stateList.filter((item) => {
-    return item.toLowerCase().includes(searchKey.toLowerCase());
+    return item._id.toLowerCase().includes(searchKey.toLowerCase());
   });
 
   return (
@@ -98,16 +98,16 @@ const FilteredByState = (props) => {
                   className="college-list-selected-filter__filterStreamContainer"
                 >
                   <FormControlLabel
-                    name={state}
+                    name={state._id}
                     onChange={handleStateChange}
                     control={
                       <CustomizeCheckBox
-                        name={state}
+                        name={state._id}
                         style={{ paddingBottom: "0" }}
                       />
                     }
-                    checked={filterObj.state.includes(state)}
-                    label={state}
+                    checked={filterObj.state.includes(state._id)}
+                    label={state._id}
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />
                   {/* <div className="college-list-count">

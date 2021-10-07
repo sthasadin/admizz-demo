@@ -4,7 +4,7 @@ const inititalState = {
   collegeList: [],
 };
 
-const collegeReducer = (state = inititalState,{ type, payload }) => {
+const collegeReducer = (state = inititalState, { type, payload }) => {
   switch (type) {
     case GET_ALL_COLLAGE:
       return {

@@ -36,6 +36,7 @@ const collegeList = () => {
 
   const [limit, setLimit] = useState(2);
   //redux state
+
   const { countryList } = useSelector((state) => state.filter);
   const { collegeByLimitLoader } = useSelector((state) => state.college);
   const { stateList } = useSelector((state) => state.filter);
@@ -74,8 +75,8 @@ const collegeList = () => {
     await dispatch(getCountryList({ filter: "country" }));
     await dispatch(getStateList({ filter: "state" }));
     await dispatch(getCityList({ filter: "city" }));
-    await dispatch(getCourseLevel({ filter: "courses.course_level" }));
-    await dispatch(getProgramName({ filter: "courses.course_name" }));
+    await dispatch(getCourseLevel({ filter: "_courseLevel.name" }));
+    await dispatch(getProgramName({ filter: "_courseStream.name" }));
     await dispatch(getCollegeByLimit(1));
     await dispatch(getTotalCollegeCount());
   };

@@ -386,7 +386,7 @@ const Navbar = (props: any) => {
                               <Link
                                 href={`${
                                   item.college_slug
-                                    ? `colleges/${item.college_slug}`
+                                    ? `/colleges/${item.college_slug}`
                                     : `/blogs/${item.blog_slug}`
                                 }`}
                               >

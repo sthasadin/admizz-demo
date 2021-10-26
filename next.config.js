@@ -5,15 +5,18 @@ const withImages = require("next-images");
 module.exports = withPlugins([withImages], {
   // module.exports = withPlugins([withTM(), withImages], {
 
-//   distDir: "../../dist/functions/.next_admin",
+  //   distDir: "../../dist/functions/.next_admin",
+
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
       issuer: {
         test: /\.(js|ts)x?$/,
       },
+
       use: ["@svgr/webpack"],
     });
+
     return config;
   },
 });

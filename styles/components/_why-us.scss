@@ -1,184 +1,156 @@
 .us {
   position: relative;
   font-size: 14px;
-  &__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 700px) {
+    margin-top: 50px;
   }
 
-  &__left {
+  &__backgroundimage {
     background-image: linear-gradient(
-        rgba(79, 79, 79, 0.7),
-        rgba(79, 79, 79, 0.7)
+        0deg,
+        rgba(95, 24, 2, 0.7),
+        rgba(95, 24, 2, 0.7)
       ),
-      url(/us.png);
-    background-position: center center;
+      url("/why-us-bg-image.png");
     background-size: cover;
+    background-position: center;
+    height: 341px;
+    padding-top: 40px;
     background-repeat: no-repeat;
-    color: #fff;
+  }
+  &__content {
+    display: flex;
+    justify-content: space-between;
 
-    &__inner {
+    @media (max-width: 700px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  &__rightcontent {
+    display: flex;
+    align-items: center;
+  }
+  &__leftcontent {
+    width: 50%;
+    @media (max-width: 700px) {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 36px 38px 38px 0;
-      @media (min-width: 768px) {
-        width: 360px;
-        margin-left: auto;
-        margin-right: 0;
-      }
-      @media (min-width: 1024px) {
-        width: 470px;
-        margin-left: auto;
-        margin-right: 0;
-      }
-      @media (min-width: 1200px) {
-        width: 585px;
-        margin-left: auto;
-        margin-right: 0;
-      }
-      @media (min-width: 1360px) {
-        width: 620px;
-        margin-left: auto;
-        margin-right: 0;
-      }
     }
   }
-
-  &__right {
-    &__top {
-      background-image: linear-gradient(
-          rgba(1, 1, 1, 0) 0%,
-          rgba(2, 2, 2, 0.4) 45.31%,
-          rgba(3, 3, 3, 0.77) 100%
-        ),
-        url(/us1.png);
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding: 36px 0px 32px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: #fff;
-      height: 320px;
-    }
-
-    &__bottom {
-      background-image: linear-gradient(
-          rgba(1, 1, 1, 0) 0%,
-          rgba(2, 2, 2, 0.4) 45.31%,
-          rgba(3, 3, 3, 0.77) 100%
-        ),
-        url(/us2.png);
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding: 36px 100px 32px 24px;
-      height: 320px;
-      color: #fff;
-      display: grid;
-    }
-  }
-
   &__title {
+    font-weight: 800;
+    color: #fff;
     font-size: 36px;
-    line-height: 54px;
-    font-weight: 700;
-    &--mini {
-      font-size: 30px;
-    }
+    font-style: normal;
   }
-
-  &__desc {
-    line-height: 21px;
+  &__helpertext {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: #fff;
   }
 
   &__feature {
-    margin-top: 30px;
-    margin-bottom: 32px;
+    background-image: url("/tieups-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f3f3f2;
+    position: relative;
+    padding-bottom: 50px;
   }
 
-  &__btn {
-    margin-top: 40px;
-  }
+  &__feature_container {
+    position: absolute;
+    top: -120px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
 
-  &__info {
+    @media (max-width: 1024px) {
+      position: unset;
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 20px;
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+.our-exclusive-container {
+  // height: 600px;
+
+  .our-exclusive-content {
+    padding-top: 200px;
     display: flex;
-    align-items: center;
-    &__logo {
-      margin-right: 27px;
-      img {
-        height: 100px;
-        width: 115px;
-        object-fit: cover;
-      }
-    }
-
-    &__cat-wrap {
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      margin-bottom: 8px;
-    }
-
-    &__cat {
-      margin-left: 8px;
-    }
-
-    &__estd {
-      display: flex;
-      align-self: center;
-      span {
-        font-weight: 700;
-      }
-      &::after {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        display: block;
-        margin-left: 6px;
-        background-color: $secondary-color;
-      }
-    }
-
-    &__name {
-      font-size: 18px;
-      line-height: 24px;
-      font-weight: 700;
-      margin-bottom: 7px;
-    }
-
-    &__details-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    &__details {
-      line-height: 20px;
+    justify-content: center;
+    flex-direction: column;
+    @media (max-width: 1024px) {
+      padding-top: 50px;
     }
   }
+  .our-trusted-text {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 900;
+    line-height: 33px;
+    color: #5f1802;
+  }
+  .our-exclusive-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #333;
+  }
+}
 
-  &__read {
-    align-self: flex-end;
-    &__title {
-      font-size: 18px;
-      line-height: 24px;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
+.university-list {
+  // border: 1px solid black;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 8%;
+  // display: flex;
+  // flex-wrap: wrap;
+  gap: 10px;
 
-    &__desc {
-      line-height: 20px;
-      margin-bottom: 12px;
-    }
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  &__cta {
-    line-height: 20px;
-    color: $secondary-color;
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .university-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  .university-name {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

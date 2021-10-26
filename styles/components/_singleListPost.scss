@@ -1,6 +1,7 @@
 .single-list-post {
   width: 100%;
   margin: 0px 0px 10px 0px;
+  cursor: pointer;
   &__container {
     display: flex;
   }
@@ -9,18 +10,16 @@
     padding: 10px 10px;
   }
   &__AutherTimeContainer {
-      color: #828282;
-      font-family: Mplus 1p;
-      font-size: 10px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 14px;
-      letter-spacing: 0em;
-      text-align: left;
-      
+    color: #828282;
+
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
   }
   &__Title {
-    font-family: Mplus 1p;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -30,7 +29,7 @@
   }
   &__Description {
     color: #828282;
-    font-family: Mplus 1p;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

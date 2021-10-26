@@ -1,5 +1,6 @@
 import React from "react";
 import { CallToAction } from "../Button/callToAction";
+import Link from "next/link";
 
 const FiveSteps = (props: any) => {
   return (
@@ -16,15 +17,17 @@ const FiveSteps = (props: any) => {
                   Your 5 Step to Success With Us
                 </div>
                 <div className="five-steps__circle__cta">
-                  <CallToAction classNam="filled">
-                    Find Colleges/Universities
-                  </CallToAction>
+                  <Link href="/colleges">
+                    <CallToAction className="white-border">
+                      Find Colleges/Universities
+                    </CallToAction>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="five-steps__list">
-              <div className="five-steps__inner">
-                <div className="five-steps__item">
+              <div className="five-steps__list__inner">
+                <div className="five-steps__item active">
                   <div className="five-steps__item__text">
                     <div className="five-steps__item__title">
                       Research Your Options
@@ -49,7 +52,8 @@ const FiveSteps = (props: any) => {
                     </svg>
                   </div>
                 </div>
-                <div className="five-steps__item">
+
+                <div className="five-steps__item ">
                   <div className="five-steps__item__text">
                     <div className="five-steps__item__title">
                       Register Yourself - Online/Offline

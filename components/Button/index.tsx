@@ -1,8 +1,8 @@
-import { Button as ButtonComponent } from "@material-ui/core"
+import { Button as ButtonComponent } from "@material-ui/core";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { makeStyles } from "@material-ui/core/styles";
-
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 type ButtonType = "secondary" | "primary" | "default";
 
@@ -20,8 +20,8 @@ export interface Props {
   prefix?: any;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   background?: string;
+  fullWidth?: boolean;
 }
-
 
 const Button: React.FC<Props> = ({
   type = "primary",
@@ -32,13 +32,16 @@ const Button: React.FC<Props> = ({
   className,
   htmlType,
   children,
+  fullWidth,
+  loading,
+  disabled,
 }) => {
-
   const useStyles = makeStyles(() => {
     return {
       button: {
         position: "relative",
         whiteSpace: "nowrap",
+        textTransform: "capitalize",
         "& .ant-btn-primary": {
           border: "none",
           borderColor: "none",
@@ -89,11 +92,11 @@ const Button: React.FC<Props> = ({
           background: ({ type }: Props) => {
             switch (type) {
               case "default":
-                return "#9C27B0";
+                return "#5F1802";
               case "primary":
-                return "#009688";
+                return "#5F1802";
               default:
-                return "#009688";
+                return "#5F1802";
             }
           },
           color: "#ffffff",
@@ -138,6 +141,7 @@ const Button: React.FC<Props> = ({
               return 252;
             case "large":
               return 331;
+
             default:
               return 252;
           }
@@ -166,11 +170,19 @@ const Button: React.FC<Props> = ({
       className={`${classes.button} ${className}`}
       variant="contained"
       onClick={onClick}
+      fullWidth={fullWidth}
+      type={htmlType}
+      disabled={disabled}
     >
+      {loading && (
+        <CircularProgress
+          size={20}
+          style={{ marginRight: 10, color: "#fff" }}
+        />
+      )}
       {children}
     </ButtonComponent>
   );
 };
 
 export { Button };
-

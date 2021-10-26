@@ -19,7 +19,7 @@ const RatingItem = (props: any) => {
       </div>
       <div className="rating-review__rating__item__info">
         <div className="rating-review__rating__item__rating">
-          <span>9/</span>
+          <span>{props.rating}/</span>
           10
         </div>
         <div className="rating-review__rating__item__title">{props.title}</div>

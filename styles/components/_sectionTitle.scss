@@ -1,0 +1,28 @@
+.section-title {
+  width: 100%;
+  margin: 20px 0px;
+  &__memberTitle {
+    @media (max-width: 414px) {
+      width: 40%;
+    }
+  }
+  &__memberTitleText {
+    position: relative;
+    padding: 20px 20px;
+    padding-left: 0;
+    color: #333333;
+    font-weight: 500;
+    font-size: 24px;
+    white-space: nowrap;
+    &::after {
+      content: "";
+      position: absolute;
+
+      left: 0;
+      bottom: 0;
+      width: 21%;
+      height: 2px;
+      background-color: #5f1802;
+    }
+  }
+}

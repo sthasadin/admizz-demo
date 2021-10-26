@@ -6,7 +6,7 @@ const Statistics = () => {
       <div className="stat__inner">
         <div className="stat__heading block-heading">Our statistics</div>
         <div className="stat__title block-title">
-          What we do more than you can imangine, belive us.
+          What we do more than you can imagine, belive us.
         </div>
         <div className="stat__info">
           <div className="stat__info__top">
@@ -22,12 +22,18 @@ const Statistics = () => {
               <div className="stat__item__count secondary">20</div>
               <div className="stat__item__title">countries connected</div>
             </div>
-          </div>
-          <div className="stat__info__bottom">
-            <div className="stat__item">
+
+            <div className="stat__item formobileview-stat">
               <div className="stat__item__count blue2">200+</div>
               <div className="stat__item__title">SCHOLARSHIP DELIVERED</div>
             </div>
+          </div>
+          <div className="stat__info__bottom">
+            <div className="stat__item  hideformobile">
+              <div className="stat__item__count blue2">200+</div>
+              <div className="stat__item__title">SCHOLARSHIP DELIVERED</div>
+            </div>
+
             <div className="stat__item">
               <div className="stat__item__count green2">10000+</div>
               <div className="stat__item__title">REGISTERED STUDNTS</div>

@@ -1,72 +1,53 @@
 import React from "react";
 
+import Carousel from "../TeamCarousel";
+
+import { db } from "../../firebase";
+
 const Teams = () => {
+  const [teamMemberArray, setTeamMemberArray] = React.useState([]);
+
+  React.useEffect(() => {
+    getFireStoreCounselor();
+  }, []);
+
+  const getFireStoreCounselor = async () => {
+    const teamArray = [];
+    await db
+      .collection("team_member")
+      .get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          const data = doc.data();
+          teamArray.push({
+            id: doc.id,
+            name: data.name,
+            image: data.image,
+            email: data.email,
+            description: data.description,
+            facebook: data.facebook_link,
+            medium: data.medium_link,
+            instagram: data.insta_link,
+            twitter: data.twitter_link,
+            type: data.type,
+          });
+        });
+      });
+
+    setTeamMemberArray(teamArray);
+  };
+
   return (
     <div className="teams-list">
-      <div className="teams-list__inner">
+      <div className="teams-list__inner section-wrapper">
         <div className="teams-list__heading block-heading">
           our awesome teams
         </div>
         <div className="teams-list__title block-title">
           Meet Our Dedicated Teams
         </div>
-        <div className="teams-list__details">
-          <div className="teams-list__left">
-            <div className="teams-list__thumbnail lead">
-              <img src="./team-lead.png" alt="" />
-            </div>
-          </div>
-          <div className="teams-list__right">
-            <div className="teams-list__md">
-              <div className="teams-list__md__name">
-                <span>Manish</span> shah
-              </div>
-              <div className="teams-list__designation">
-                <span>Managing Director</span>
-                <span>Country Counseler</span>
-              </div>
-              <div className="teams-list__desc">
-                In the present world of huge competition, choosing the right
-                institute is as important as choosing the right course. Admizz
-                helps selecting a right institution for you with ease. Admizz is
-                registered under INRA EduTech Services Pvt. Ltd. Bangalore,
-                India. We have our partnered office in Kathmandu for counselling
-                and admissions from Nepal.
-              </div>
-            </div>
-            <div className="teams-list__contact">
-              <div className="teams-list__email">
-                <div className="teams-list__email__icon"></div>
-                <div className="teams-list__email__address">
-                  email@domainname.com
-                </div>
-              </div>
-            </div>
-            <div className="teams-list__full-team">
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-              <div className="teams-list__full-team__thumbnail">
-                <img src="./team-member.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
+
+        <Carousel data={teamMemberArray} />
       </div>
     </div>
   );

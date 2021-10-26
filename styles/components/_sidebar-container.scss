@@ -3,10 +3,16 @@
   padding-top: 17px;
   &__inner {
     display: flex;
+    @media (max-width: 680px) {
+      flex-direction: column;
+    }
   }
 }
 
 .content-with-sidebar {
   width: calc(100% - 324px);
   margin-right: 24px;
+  @media (max-width: 680px) {
+    width: 100%;
+  }
 }

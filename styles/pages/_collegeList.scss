@@ -1,20 +1,23 @@
 .college-list {
-  display: flex;
-  justify-content: center;
-  background-color: #E5E5E5;
+  // display: flex;
+  // justify-content: center;
+  background-color: #e5e5e5;
   &__container {
-    width: 80%;
+    width: 90%;
+    margin: 0 auto;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
   &__searchContainer {
     display: flex;
     flex-direction: column;
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     justify-content: center;
     align-items: center;
     height: 200px;
   }
   &__headerTitle {
-    font-family: Mplus 1p;
     font-size: 24px;
     font-style: normal;
     font-weight: 800;
@@ -28,10 +31,13 @@
     width: 80%;
     align-items: center;
     margin-bottom: 15px;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
   &__headerSubtitle {
     width: 80%;
-    font-family: Roboto;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -40,21 +46,96 @@
     text-align: left;
     color: #828282;
     align-items: flex-start;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
   &__searchButton {
-    background-color:#5F1802;
+    background-color: #5f1802;
+    display: flex;
+    /* border: 1px solid #5f1802; */
     color: white;
-    padding: 18px 30px;
+    padding: 0 30px;
+    margin-left: -5px;
     cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    line-height: 53px;
+    height: 54px;
+    z-index: 1;
+    margin-left: -2px;
+    @media (max-width: 500px) {
+      display: none;
+    }
   }
   &__listContainer {
     display: flex;
+    background-color: #f6f6f6;
+    @media (max-width: 870px) {
+      flex-direction: column;
+    }
   }
   &__sideBarContainer {
     width: 25%;
+    @media (max-width: 870px) {
+      width: 100%;
+    }
   }
   &__collegeResultContainer {
     padding: 0px 10px;
     width: 75%;
+    @media (max-width: 870px) {
+      width: 100%;
+      padding: 0px 0px;
+    }
+  }
+  &__sideBarNewsletterContainer {
+    display: none;
+    @media (max-width: 870px) {
+      display: block;
+    }
+  }
+}
+
+.college-list__college-container {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+
+  &__inner {
+    display: flex;
+    width: 90%;
+    margin-top: 18px;
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+}
+
+.right-arrow-icon {
+  width: 22px;
+  height: 17px;
+  margin: auto;
+  margin-left: 5px;
+}
+
+.college-list__searchmobileButton {
+  background-color: #5f1802;
+  display: none;
+  /* border: 1px solid #5f1802; */
+  color: white;
+  padding: 0 10px;
+  margin: 1 0 0 0;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  line-height: 53px;
+  height: 54px;
+  z-index: 1;
+  margin-left: -2px;
+  @media (max-width: 500px) {
+    display: flex;
+    margin-left: -5px;
   }
 }

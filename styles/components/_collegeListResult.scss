@@ -4,22 +4,36 @@
     display: flex;
     background-color: white;
     justify-content: space-between;
-    padding: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #e0e0e0;
+    padding: 10px 10px 10px 30px;
+    height: 56px;
+    width: 100%;
+    @media (max-width: 500px) {
+      flex-direction: column;
+      justify-content: center;
+      padding: 10px 10px 10px 20px;
+    }
   }
   &__titleText {
     display: flex;
-    color: #4F4F4F;
-    font-family: Mplus 1p;
-    font-size: 14px;
+    color: #4f4f4f;
+
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 21px;
     letter-spacing: 0em;
+    align-items: center;
+
+    @media (max-width: 500px) {
+      margin-bottom: 0px;
+    }
   }
   &__titleTextNumber {
     padding: 0px 5px;
-    color:#FFA200;    ;
-    font-family: Mplus 1p;
+    color: #ffa200;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -28,22 +42,25 @@
   }
   &__sortContainer {
     display: flex;
+    align-items: center;
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
   &__sortItemTitle {
     padding: 0px 5px;
-    font-family: Mplus 1p;
+
     font-size: 14px;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 600;
     line-height: 21px;
     letter-spacing: 0em;
     text-align: center;
     color: #828282;
-    ;
   }
   &__sortItem {
     padding: 0px 5px;
-    font-family: Mplus 1p;
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -54,13 +71,47 @@
     cursor: pointer;
   }
   &__resultContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 10px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+    margin-top: 18px;
+    margin-bottom: 15px;
+    grid-row-gap: 18px;
+    @media (max-width: 1050px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+      grid-row-gap: 5px;
+    }
   }
   &__cardContainer {
     margin: 5px 0px 0px 0px;
-    width: 32%;
+    border-radius: 5px;
+    overflow: hidden;
+    @media (max-width: 414px) {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.image-sort-icon {
+  margin-left: 5px;
+}
+
+.college-list-result-loader-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 15px;
+  margin-top: 18px;
+  margin-bottom: 15px;
+  grid-row-gap: 18px;
+  @media (max-width: 1050px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
   }
 }

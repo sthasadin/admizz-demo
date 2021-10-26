@@ -1,7 +1,9 @@
 .blog-detail-content {
   margin: 20px 0px;
   &__contentText {
-    color:#333333;
+    color: #333333;
+    line-height: 2.4;
+    font-size: 16px;
   }
   &__contentTitle {
     margin: 20px 0px;

@@ -1,38 +1,48 @@
 .blog-detail {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   &__container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 1080px;
+    width: 100%;
   }
   &__main {
-    width: 1080px;
+    width: 80%;
+    margin: 0 auto;
   }
   &__imageContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin: 10px 0px;
+    width: 100%;
+    height: 420px;
   }
   &__image {
-    display: flex;
-    width: 1240px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   &__postDetail {
     display: flex;
     justify-content: space-between;
-    width: 1080px;
+    width: 80%;
+
+    @media (max-width: 630px) {
+      flex-direction: column;
+    }
   }
   &__postValueContainer {
     display: flex;
   }
   &__postValue {
     padding: 20px 20px;
+    padding-left: 0;
   }
   &__shareInfoContainer {
     display: flex;
+    @media (max-width: 450px) {
+      flex-direction: column;
+    }
   }
   &__buttonContainer {
     display: flex;
@@ -40,26 +50,78 @@
     align-items: center;
   }
   &__button {
-    &.makeStyles-button-2{
+    &.makeStyles-button-2 {
       padding: 10px 50px;
       border-radius: 8px;
-      background-color: #FFA200;
-      ;
+      background-color: #ffa200;
     }
   }
   &__sharetitle {
     padding: 20px 20px;
+    cursor: pointer;
   }
   &__sharetext {
     font-size: 14px;
     font-weight: 800;
     line-height: 19px;
-    color:#5F1802;
+    color: #5f1802;
   }
   &__listContainer {
     padding: 20px 30px;
   }
   &__listItemContainer {
     height: 60px;
+  }
+}
+
+.blog-detail-content__commentTitle {
+  margin-bottom: 20px;
+}
+.blog-subnavbar {
+  padding: 7px 10px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+.blog-subnavbarcontainer {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  justify-content: space-between;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .blog-subnavbar {
+    position: relative;
+    color: #828282;
+    white-space: nowrap;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 3px;
+      background-color: #ffa200;
+      left: 0;
+      bottom: -5px;
+      transition: 0.2s all ease-in;
+      transition: width 500ms;
+      width: 0;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+        transition: width 500ms;
+      }
+    }
+  }
+  .active-blognav {
+    color: #5f1802;
+    font-weight: 500;
+    &::before {
+      background-color: #ffa200;
+      width: 100%;
+    }
   }
 }

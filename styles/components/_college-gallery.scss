@@ -99,14 +99,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 8px;
+    height: 228px;
     &__left,
     &__right {
       position: relative;
     }
     &__thumbnail {
       cursor: pointer;
+      height: 100%;
       img {
-        height: auto;
+        min-height: 250px;
+        height: 250px;
         width: 100%;
         object-fit: cover;
         border-radius: 5px;

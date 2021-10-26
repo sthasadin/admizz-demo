@@ -1,23 +1,63 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import calculateReadingTime from "../../utils/calculateReadingTime";
+import { url } from "inspector";
+const BlogListBanner = ({ blog }) => {
+  const router = useRouter();
+  // const blogs = useSelector(state => state.allBlog.allBlog)
+  const blogs = useSelector((state) => state.blog.blogs);
+  const text_truncate = (str) => {
+    return str.substring(0, 70 - 3) + "...";
+  };
 
-const BlogListBanner = () => {
+  const removeHtmlChar = (text) => {
+    return text?.replace(/<[^>]+>/g, "");
+  };
+
   return (
-    <div className="blog-list-banner">
-      <div className="blogCard">
-        <div className="blogCard__inner">
-          <div className="blogCard__category">technology</div>
+    <div
+      className="blog-list-banner"
+      style={{ position: "relative" }}
+      onClick={() => router.push(`/blogs/${blog?.blog_slug}`)}
+    >
+      <div className="blogCard" style={{ zIndex: 100 }}>
+        <div
+          className="blogCard__inner"
+          style={{
+            backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39)),url(${blog?.blog_imageURL})`,
+          }}
+        >
+          <div className="blogCard__category" style={{ zIndex: 100 }}>
+            {blog?.category}
+          </div>
           <div className="blogCard__details">
-            <div className="blogCard__meta">
-              <div className="blogCard__author">Stecy James</div>
-              <div className="blogCard__time">5 min read</div>
+            <div
+              className="blogCard__meta"
+              style={{ zIndex: 100, color: "black" }}
+            >
+              <div className="blogCard__author"> {blog?.author} </div>
+              <div className="blogCard__time">{`${calculateReadingTime(
+                blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
+              )} min read`}</div>
             </div>
-            <div className="blogCard__title">
-              How I got my job in Google with the help of Admizz
-          </div>
+
+            <div className="blogCard__title" style={{ cursor: "pointer" }}>
+              {/* {
+                blogs.length > 0? (
+                  <Link href = {`/blogs/${blogs[0]._id}`}> */}
+              {blog?.blog_title ? blog?.blog_title : ""}
+              {/* </Link>
+                ) : ''
+              } */}
+            </div>
+
             <div className="blogCard__desc">
-              Get the right career advice for you and earn your best career
-              certificates.
-          </div>
+              {blog?.blog_desc
+                ? removeHtmlChar(text_truncate(blog?.blog_desc))
+                : ""}
+            </div>
           </div>
         </div>
       </div>

@@ -5,19 +5,52 @@
   text-transform: capitalize;
   border-radius: 10px;
   padding: 15px 36px;
+  color: #5f1802;
   border: 1px solid #5f1802;
   background-color: #fff;
   cursor: pointer;
   white-space: nowrap;
   font-weight: 700;
+  &:hover {
+    background-color: #5f1802;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+  }
 }
 
 .cta-button.filled {
   color: #f2f2f2;
   background-color: $primary-color;
-  border: none;
+  // border: none;
+  border-radius: 10px;
+  border: 1px solid $primary-color;
 }
+.cta-button.white-border {
+  color: #f2f2f2;
+  background-color: $primary-color;
+  // border: none;
+  border-radius: 10px;
+  border: 1px solid white;
 
+  &:hover {
+    background-color: #ffa200 !important;
+    border: 1px solid #ffa200;
+    transition: all 0.2s ease-in-out;
+  }
+}
+.cta-button.white-outline {
+  color: #f2f2f2;
+  background-color: transparent;
+  // border: none;
+  border-radius: 10px;
+  border: 1px solid white;
+
+  &:hover {
+    background-color: #ffa200 !important;
+    border: 1px solid #ffa200;
+    transition: all 0.2s ease-in-out;
+  }
+}
 .cta-button.full-width {
   width: 100%;
 }

@@ -1,0 +1,60 @@
+.collegelist__collegecontainer {
+  width: 311px;
+  height: 103px;
+  margin-left: 24px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  padding: 10px;
+  background-color: #fff;
+
+  @media (max-width: 450px) {
+    max-height: 250px;
+  }
+
+  .card__removeicon {
+    position: absolute;
+    top: -10%;
+    right: -10px;
+    cursor: pointer;
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  .collegelist__collegeimage {
+    width: 64px;
+    height: 64px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  .collegelist__collegedetails {
+    padding: 5px 10px;
+    width: 100%;
+
+    .collegelist__collegename {
+      font-size: 16px;
+      font-weight: 800;
+      color: $primary-color;
+    }
+    .collegelist__collegeaddress {
+      color: #4f4f4f;
+      font-weight: normal;
+      font-size: 14px;
+      display: flex;
+      margin-top: 9px;
+      font-size: 14px;
+      align-items: center;
+
+      @media (max-width: 450px) {
+        display: none;
+      }
+    }
+  }
+}

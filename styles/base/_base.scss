@@ -8,16 +8,34 @@
 
 html {
   box-sizing: inherit;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  // font-family: "Roboto", sans-serif;
+  font-family: "Mplus 1p", sans-serif !important;
   font-weight: 400;
-	background-color: #F4F4F4;
+  background-color: white;
+}
+
+.hideformobile {
+  @media (max-width: 450px) {
+    display: none !important;
+  }
 }
 
 .container {
   min-height: 100vh;
+}
+
+.inner {
+  @media (min-width: 1366px) {
+    width: 1200px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 }
 
 .title a {
@@ -108,4 +126,228 @@ a {
   &:hover {
     color: inherit;
   }
+}
+
+.makeStyles-input-74 .MuiOutlinedInput-root {
+  border-radius: 0 !important;
+  border: none !important;
+  outline: none !important;
+  background-color: #fff !important;
+}
+
+.slick-next:before {
+  display: none;
+}
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before {
+  display: none;
+}
+.slick-prev:before,
+.slick-next:before {
+  font-size: 0 !important;
+}
+
+.section-wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1440px;
+  position: relative;
+  @media (max-width: 1024px) {
+    width: 100%;
+    padding: 0 10px !important;
+  }
+}
+.dashboard-wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+.custom-pagination-team-member {
+  position: absolute;
+  height: 156px;
+  bottom: 0;
+  display: flex;
+  left: 27.5rem;
+  width: auto;
+  @media (max-width: 1024px) {
+    position: initial;
+    display: flex !important;
+    overflow: auto;
+    height: 170px;
+  }
+}
+.custom-pagination-team-member li {
+  margin-right: 2rem;
+  position: relative;
+  display: inline-block;
+  width: 104px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 10px;
+  @media (max-width: 1024px) {
+    min-width: 150px !important;
+    height: 156px;
+  }
+}
+
+.custom-pagination-team-member li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slick-custom-scroll {
+  display: flex !important;
+  list-style: none;
+  justify-content: center;
+}
+
+.slick-custom-scroll li {
+  list-style: none;
+  margin-left: 5px;
+}
+.slick-custom-scroll li button {
+  position: relative;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 40px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.slick-custom-scroll li button::before {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 40px;
+  margin-top: 20px;
+  background-color: #828282;
+  margin-left: 5px;
+  @media (max-width: 600px) {
+    left: 0;
+    margin-left: 0;
+  }
+}
+.slick-custom-scroll li.slick-active button::before {
+  background-color: #5f1802;
+  @media (max-width: 480px) {
+    background-color: #ffa200;
+  }
+}
+.active-navlink a::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100% !important;
+  background-color: #ffa200;
+}
+
+.active-navlink a {
+  position: relative;
+  color: #5f1802 !important;
+  font-weight: 600;
+}
+
+.college-list-slider .slick-slide > div {
+  margin: 0 0.5rem;
+}
+.program-college-list-slider .slick-slide > div {
+  margin-right: 0.5rem;
+}
+.dashboard-navbar {
+  width: 100% !important;
+}
+.accordion-open-tag {
+  color: #ffa200;
+}
+
+.rounded-scroll {
+  display: flex !important;
+  list-style: none;
+  justify-content: center;
+}
+
+.rounded-scroll li {
+  list-style: none;
+}
+.rounded-scroll li button {
+  position: relative;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 27px;
+  height: 20px;
+  padding: 5px;
+  cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.rounded-scroll li button::before {
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin-top: 20px;
+  background-color: #828282;
+  margin-left: 5px;
+  @media (max-width: 600px) {
+    left: 0;
+    top: 0;
+    margin-left: 0;
+  }
+}
+.rounded-program-college li button::before {
+  margin-top: 10px;
+}
+.rounded-scroll li.slick-active button::before {
+  background-color: #5f1802;
+  @media (max-width: 480px) {
+    background-color: #ffa200;
+  }
+}
+
+.team-social-icon:hover {
+  fill: #333;
+}
+
+.react-player {
+  @media (max-width: 1024px) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+.react-player-container {
+  position: relative;
+  .cross-icon {
+    position: absolute;
+    top: -10%;
+    right: 0;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    @media (max-width: 1024px) {
+      top: -20%;
+    }
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.d-none {
+  display: none !important;
 }

@@ -3,6 +3,10 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 12px;
   margin-bottom: 17px;
+  text-align: center;
+  @media (max-width: 1020px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 .info-block {
   width: 100%;
@@ -22,6 +26,9 @@
     line-height: 18px;
     font-weight: 400;
     color: #bdbdbd;
+    @media (max-width: 414px) {
+      text-align: center;
+    }
   }
   &__title {
     font-size: 18px;

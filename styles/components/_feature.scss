@@ -1,34 +1,56 @@
 .feature {
-  &__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 42px;
-    grid-column-gap: 60px;
+  height: 237px;
+  // width: 288px;
+
+  background-color: #fff;
+  padding: 10px 5px 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  &:hover {
+    box-shadow: 0px 17px 37px rgba(0, 0, 0, 0.14);
+    transition: all 0.2s ease-in-out;
+
+    .feature-title {
+      font-weight: 600;
+    }
+    .feature-icon {
+      stroke: #ffa200 !important;
+      //
+    }
+    .feature-icon-fill {
+      fill: #ffa200 !important;
+    }
+    .learn-more {
+      display: block;
+    }
   }
-  &__heading {
+
+  .feature-image {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .feature-title {
+    color: #333;
+    font-weight: 500;
+    font-size: 20px;
+    width: 90%;
+  }
+  .feature-description {
     font-size: 14px;
-    font-weight: 700;
-    line-height: 20px;
-    margin-bottom: 30px;
+    color: #333;
+    padding-right: 75px;
+    line-height: 1.4;
+    margin-top: 10px;
   }
-  &__item {
-    &__title-wrap {
-      display: flex;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    &__icon {
-      margin-right: 18px;
-      color: $secondary-color;
-    }
-    &__title {
-      font-size: 16px;
-      font-weight: 700;
-      line-height: 22px;
-    }
-    &__desc {
-      font-size: 14px;
-      line-height: 20px;
+  .learn-more {
+    color: #333;
+    font-weight: 800;
+    font-size: 14px;
+    margin-top: 20px;
+    display: none;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }

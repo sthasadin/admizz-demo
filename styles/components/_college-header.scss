@@ -1,27 +1,30 @@
 .college-header {
   width: 100%;
   margin: 0;
-  background-image: url(/college-background.png);
+  // background-image: url(/college-background.png);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   padding: 28px 0;
   &__inner {
-    width: calc(100% - 30px);
-    margin: 0px 15px;
-    @media (min-width: 768px) {
-      width: 720px;
-      margin: 0px auto;
-    }
-    @media (min-width: 1024px) {
-      width: 940px;
-    }
-    @media (min-width: 1200px) {
-      width: 1170px;
-    }
-    @media (min-width: 1360px) {
-      width: 1240px;
-    }
+    // width: calc(100% - 30px);
+    width: 90%;
+    max-width: 1440px;
+    margin: 0px auto;
+
+    // @media (min-width: 768px) {
+    //   width: 720px;
+    //   margin: 0px auto;
+    // }
+    // @media (min-width: 1024px) {
+    //   width: 940px;
+    // }
+    // @media (min-width: 1200px) {
+    //   width: 1170px;
+    // }
+    // @media (min-width: 1360px) {
+    //   width: 1240px;
+    // }
   }
   &__rating-wrap {
     display: flex;
@@ -32,19 +35,37 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 620px) {
+      flex-direction: column;
+    }
   }
   &__left {
     display: flex;
     align-items: center;
+    width: 100%;
+    gap: 12px;
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
   }
   &__logo {
-    margin-right: 12px;
     height: 130px;
-    width: 130px;
+    max-width: 130px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #fff;
+    @media (max-width: 414px) {
+      height: 100px;
+      width: 100px;
+    }
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
+
+      @media (max-width: 450px) {
+        display: none;
+      }
     }
   }
   &__info {
@@ -52,7 +73,38 @@
     flex-direction: column;
     justify-content: center;
     color: #fff;
+    width: 100%;
   }
+  &__info-top {
+    display: flex;
+    gap: 50px;
+  }
+  &__affiliated-by-container {
+    display: flex;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-transform: capitalize;
+    position: relative;
+    &::before {
+      position: absolute;
+      left: -2rem;
+      content: "";
+      height: 6px;
+      width: 6px;
+      border-radius: 50%;
+      background-color: #fff;
+      top: 50%;
+      transform: translateY(-100%);
+    }
+  }
+  // &__affliated-content {
+  //   font-size: 14px;
+  //   font-weight: 500;
+  //   line-height: 21px;
+  //   text-transform: capitalize;
+  // }
   &__estd {
     font-size: 14px;
     font-weight: 500;
@@ -62,22 +114,38 @@
   &__name {
     font-size: 30px;
     font-weight: 800;
-    line-height: 45px;
+    line-height: 38px;
     margin-bottom: 4px;
+    text-transform: uppercase;
   }
   &__meta {
     display: flex;
     align-items: center;
+    gap: 4rem;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: 5px;
+    }
     &__item {
       display: flex;
       align-items: center;
-      &::after {
-        margin: 0 35px;
+      position: relative;
+
+      &:nth-child(2)::before,
+      &:nth-child(3)::before {
+        position: absolute;
+        left: -2rem;
         content: "";
         height: 6px;
         width: 6px;
         border-radius: 50%;
         background-color: #fff;
+        @media (max-width: 1180px) {
+          background-color: transparent;
+        }
       }
     }
     &__logo {
@@ -87,13 +155,40 @@
       font-size: 14px;
       font-weight: 500;
       line-height: 21px;
+      display: flex;
+      gap: 20px;
+      text-transform: capitalize;
+    }
+  }
+  &__college_board {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 1px;
+      height: 100%;
+      background-color: #fff;
+      right: -10px;
+      height: 60%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:last-child::after {
+      background-color: transparent;
     }
   }
   &__right {
+    width: 37%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
+    @media (max-width: 620px) {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 20px;
+    }
   }
   &__task {
     display: flex;
@@ -106,6 +201,8 @@
   &__logo {
     font-size: 22px;
     margin-right: 10px;
+    cursor: pointer;
+    display: flex;
   }
   &__title {
     font-size: 16px;

@@ -1,14 +1,203 @@
-import React from "react";
-import { Select } from "../Select";
+import React, { useEffect, useState } from "react";
+import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 import { Input } from "../Input";
-import { Grid } from '@material-ui/core';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Button } from '../Button';
-import { UploadButton } from '../Button/uploadButton';
+import * as yup from "yup";
+import { Grid, setRef } from "@material-ui/core";
+import Radio from "@material-ui/core/Radio";
+import Snackbar from "@material-ui/core/Snackbar";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { withStyles } from "@material-ui/core/styles";
+import { Button } from "../Button";
+import { UploadButton } from "../Button/uploadButton";
+import { DropDownSelect } from "../DropDownSelect";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+
+interface BackgroundInfo {
+  fullName: string;
+  phoneNumber: string;
+  emailAddress: string;
+  address: string;
+  passportId: string;
+}
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+const CustomRadio = withStyles({
+  root: {
+    color: "#FFA200",
+    "&$checked": {
+      color: "#FFA200",
+    },
+  },
+  checked: {},
+})((props) => <Radio color="default" {...props} />);
 
 const DashboardBackgroundInfo = (props) => {
+  const [havePassport, setHavePassport] = useState(false);
+  const [formError, setFormError] = useState({} as any);
+  const [passportDetails, setPassportDetails] = useState({
+    nameOnPassport: "",
+    numberOnPassport: "",
+    passportIssuingAuthority: "",
+    passportExpireDate: "",
+    passportIssuedCountry: { label: "", value: "" },
+  });
+  const [haveAppliedForPassport, setHaveAppliedPassport] = useState(false);
+  const [passportId, setPassportId] = useState("");
+  const [documentImage, setDocumentImage] = useState(null);
+  // const [documentImageThumbnail, setDocumentImageThumbnail] = useState(null);
+  const [references, setReferences] = useState({
+    fullName: "",
+    countryCode: "",
+    phoneNumber: "",
+    emailAddress: "",
+    address: "",
+  });
+  const [snackOpen, setSnackOpen] = useState(false as boolean);
+
+  // useEffect(() => {
+  //   props.setShowExitPrompt(true); //to prevent from refreshing page
+  // }, []);
+
+  useEffect(() => {
+    const getData = JSON.parse(localStorage.getItem("backgroundInformation"));
+    if (getData) {
+      setHaveAppliedPassport(getData?.haveAppliedForPassport);
+      setHavePassport(getData?.havePassport);
+      setPassportDetails(getData?.passportDetails);
+      setPassportDetails({
+        ...getData?.passportDetails,
+        passportIssuedCountry: {
+          label: getData?.passportDetails?.passportIssuingAuthority,
+          value: getData?.passportDetails?.passportIssuingAuthority,
+        },
+      });
+      setPassportId(getData?.passportId);
+      setReferences(getData?.references);
+    }
+  }, [localStorage.getItem("backgroundInformation")]);
+
+  const saveDate = () => {
+    let data = {
+      havePassport,
+      passportDetails: havePassport
+        ? {
+            ...passportDetails,
+            passportIssuedCountry: passportDetails.passportIssuedCountry?.value,
+          }
+        : {},
+      haveAppliedForPassport: havePassport ? false : haveAppliedForPassport,
+      passportId,
+
+      documentImage,
+      references,
+    };
+    window.localStorage.setItem("backgroundInformation", JSON.stringify(data));
+    props.getData(data);
+  };
+
+  const countryOption = [
+    {
+      label: "Nepal",
+      value: "Nepal",
+    },
+    {
+      label: "India",
+      value: "India",
+    },
+  ];
+
+  const CountryCodeOptions = [
+    {
+      label: `+91`,
+      value: "+91 ",
+      imgSrc: "/country-icon/india.png",
+    },
+    {
+      label: "+977",
+      value: "+977",
+      imgSrc: "/country-icon/nepal.png",
+    },
+  ];
+
+  useEffect(() => {
+    if (Object.keys(props.data).length > 0) {
+      setHavePassport(props.data.havePassport);
+      setPassportDetails({
+        ...props.data?.passportDetails,
+        passportIssuedCountry: {
+          label: props.data?.passportDetails?.passportIssuedCountry,
+          value: props.data?.passportDetails?.passportIssuedCountry,
+        },
+      });
+      setHaveAppliedPassport(props.data.haveAppliedForPassport);
+      setPassportId(props.data.passportId);
+      setDocumentImage(props.data.documentImage);
+      setReferences(props.data.references);
+    }
+  }, [props.data]);
+
+  const handleImageChange = (e) => {
+    setDocumentImage(e.target.files[0]);
+    // setDocumentImageThumbnail(URL.createObjectURL(e.target.files[0]));
+  };
+
+  const truncateString = (str, num) => {
+    if (str?.length > num) {
+      return str?.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  };
+
+  const validationSchema = yup.object().shape<BackgroundInfo>({
+    fullName: yup.string().required("Required fullname"),
+    phoneNumber: yup.string().required("Required phonenumber"),
+    emailAddress: yup.string().required("Required emailAddress"),
+    address: yup.string().required("Required address"),
+    passportId: yup.string().required("Required passport id"),
+  });
+
+  const validate = async () => {
+    try {
+      await validationSchema.validate(
+        {
+          fullName: references.fullName,
+          phoneNumber: references.phoneNumber,
+          emailAddress: references.emailAddress,
+          address: references.address,
+          passportId: passportId,
+        },
+        {
+          abortEarly: false,
+        }
+      );
+      setFormError({});
+      return true;
+    } catch (err) {
+      setSnackOpen(true);
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        errors[item.path] = item.errors[0];
+      });
+      setFormError({ ...errors });
+    }
+  };
+
+  const sendData = async () => {
+    try {
+      const isValid = await validate();
+
+      if (isValid) {
+        saveDate();
+        props.handleNext();
+      }
+    } catch (err) {}
+  };
+
   return (
     <div className="dashboard-basic-info">
       {/* Background Information */}
@@ -16,114 +205,317 @@ const DashboardBackgroundInfo = (props) => {
         <div className="dashboard-basic-info__sectionTitle">
           Background Information
         </div>
-        <div className="dashboard-basic-info__formContainer">
-          <form>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
+        <div className="dashboard-basic-info__formContainer background-info-container">
+          <form className="form-container">
+            <Grid
+              container
+              className="dashboard-basic-info__row"
+              justify="space-around"
+              direction="row"
+            >
+              <Grid item sm={12} md={5} xs={12}>
                 <div className="dashboard-basic-info__formTitle">
                   Do you have a passport?
-              </div>
-              </Grid>
-              <Grid item sm={12} md={7}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
-                </RadioGroup>
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="Name On Passport" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="Passport Number" />
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="Issuing Authority" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Input
-                  className={'dashboard-basic-info__input'}
-                  fullWidth
-                  placeholder="Expiry Date of Passport" />
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-                <Select title="Issuing Country" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
-              </Grid>
-            </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
-                <div className="dashboard-basic-info__formTitle">
-                  Have you applied for Passport?
                 </div>
               </Grid>
-              <Grid item sm={12} md={7}>
-                <RadioGroup aria-label="passport" name="passport1" row>
-                  <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                  <FormControlLabel value="no" control={<Radio />} label="No" />
+              <Grid item sm={12} md={7} xs={12}>
+                <RadioGroup
+                  aria-label="passport"
+                  name="passport1"
+                  row
+                  defaultValue="no"
+                  value={havePassport ? "yes" : "no"}
+                >
+                  <FormControlLabel
+                    value="yes"
+                    control={<CustomRadio />}
+                    label="Yes"
+                    onChange={() => setHavePassport(true)}
+                  />
+                  <FormControlLabel
+                    value="no"
+                    control={<CustomRadio />}
+                    label="No"
+                    onChange={() => setHavePassport(false)}
+                  />
                 </RadioGroup>
               </Grid>
             </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={12}>
-                <div className="dashboard-basic-info__formTitle">
+            {/*  */}
+            {!havePassport ? (
+              ""
+            ) : (
+              <div className="passport-field-container">
+                <Grid
+                  container
+                  className="dashboard-basic-info__row"
+                  justify="space-around"
+                  direction="row"
+                >
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={6}
+                    xs={12}
+                  >
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      label="Name On Passport"
+                      value={passportDetails.nameOnPassport}
+                      onChange={(e) =>
+                        setPassportDetails({
+                          ...passportDetails,
+                          nameOnPassport: e.target.value,
+                        })
+                      }
+                    />
+                  </Grid>
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={6}
+                    xs={12}
+                  >
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      label="Passport Number"
+                      value={passportDetails.numberOnPassport}
+                      onChange={(e) =>
+                        setPassportDetails({
+                          ...passportDetails,
+                          numberOnPassport: e.target.value,
+                        })
+                      }
+                    />
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  className="dashboard-basic-info__row"
+                  justify="space-around"
+                  direction="row"
+                >
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={6}
+                    xs={12}
+                  >
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      label="Issuing Authority"
+                      value={passportDetails.passportIssuingAuthority}
+                      onChange={(e) =>
+                        setPassportDetails({
+                          ...passportDetails,
+                          passportIssuingAuthority: e.target.value,
+                        })
+                      }
+                    />
+                  </Grid>
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={6}
+                    xs={12}
+                  >
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      type="date"
+                      fullWidth
+                      label="Expiry Date of Passport"
+                      value={passportDetails.passportExpireDate}
+                      onChange={(e) =>
+                        setPassportDetails({
+                          ...passportDetails,
+                          passportExpireDate: e.target.value,
+                        })
+                      }
+                    />
+                  </Grid>
+                </Grid>
+                <Grid
+                  container
+                  className="dashboard-basic-info__row"
+                  justify="flex-start"
+                  direction="row"
+                >
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={6}
+                    xs={12}
+                  >
+                    <DropDownSelect
+                      title="Issuing Country"
+                      options={countryOption}
+                      defaultvalue={passportDetails.passportIssuedCountry}
+                      handleChange={(e) => {
+                        setPassportDetails({
+                          ...passportDetails,
+                          passportIssuedCountry: e,
+                        });
+                      }}
+                    />
+                  </Grid>
+                </Grid>
+              </div>
+            )}
+            {havePassport ? (
+              ""
+            ) : (
+              <Grid
+                container
+                className="dashboard-basic-info__row"
+                justify="space-around"
+                direction="row"
+              >
+                <Grid item sm={12} md={5} xs={12}>
+                  <div className="dashboard-basic-info__formTitle">
+                    Have you applied for Passport?
+                  </div>
+                </Grid>
+                <Grid item sm={12} md={7} xs={12}>
+                  <RadioGroup
+                    aria-label="passport"
+                    name="passport1"
+                    row
+                    defaultValue="no"
+                    value={haveAppliedForPassport ? "yes" : "no"}
+                  >
+                    <FormControlLabel
+                      value="yes"
+                      control={<CustomRadio />}
+                      label="Yes"
+                      onChange={() => setHaveAppliedPassport(true)}
+                    />
+                    <FormControlLabel
+                      value="no"
+                      control={<CustomRadio />}
+                      label="No"
+                      onChange={() => setHaveAppliedPassport(false)}
+                    />
+                  </RadioGroup>
+                </Grid>
+              </Grid>
+            )}
+            <Grid
+              container
+              className="dashboard-basic-info__row"
+              justify="space-around"
+              direction="row"
+            >
+              <Grid item sm={12} md={12} xs={12}>
+                <div
+                  className="dashboard-basic-info__formTitle"
+                  style={{ padding: "9px 0" }}
+                >
                   Enter your Citizenship / National ID
                 </div>
               </Grid>
             </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+            <Grid
+              container
+              className="dashboard-basic-info__row"
+              justify="flex-start"
+              direction="row"
+            >
+              <Grid
+                className={"dashboard-basic-info__grid"}
+                item
+                sm={12}
+                md={6}
+                xs={12}
+              >
                 <Input
-                  className={'dashboard-basic-info__input'}
+                  className={"dashboard-basic-info__input"}
                   fullWidth
-                  placeholder="Citizenship ID / National ID" />
-              </Grid>
-              <Grid className={'dashboard-basic-info__grid'} item sm={12} md={6}>
+                  label="Citizenship ID / National ID"
+                  value={passportId}
+                  onChange={(e) => {
+                    setPassportId(e.target.value);
+                    setFormError((prev) => ({ ...prev, passportId: null }));
+                  }}
+                  name="passportId"
+                  errorMessage={formError.passportId}
+                  error={!!formError.passportId}
+                />
               </Grid>
             </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={12}>
-                <div className="dashboard-basic-info__formTitle">
+            <Grid
+              container
+              className="dashboard-basic-info__row"
+              justify="space-around"
+              direction="row"
+            >
+              <Grid item sm={12} md={12} xs={12}>
+                <div
+                  className="dashboard-basic-info__formTitle"
+                  style={{ fontWeight: 800 }}
+                >
                   Personal Identification
                 </div>
+                <hr className="dashboard-basic-info__horizontalLine" />
               </Grid>
             </Grid>
-            <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-              <Grid item sm={12} md={5}>
+            <Grid
+              container
+              className="dashboard-basic-info__row"
+              justify="flex-start"
+              direction="row"
+            >
+              <Grid item sm={12} md={4} xs={12}>
                 <div className="dashboard-basic-info__subformTitle">
                   Passport/Citizenship/National ID
                 </div>
               </Grid>
-              <Grid item sm={12} md={7}>
-
+              <Grid container alignContent="center" sm={12} md={4} xs={12}>
                 <label htmlFor="upload-photo">
                   <input
-                    style={{ display: 'none' }}
+                    style={{ display: "none" }}
                     id="upload-photo"
                     name="upload-photo"
                     type="file"
+                    onChange={handleImageChange}
                   />
 
-                  <UploadButton>
-                    Upload button
+                  <UploadButton
+                    startIcon=" "
+                    className="btn-color student-dashboard-button"
+                  >
+                    Choose File
                   </UploadButton>
                 </label>
+              </Grid>
 
+              <Grid
+                item
+                sm={12}
+                md={4}
+                xs={12}
+                justify="flex-start"
+                style={{ display: "flex" }}
+              >
+                {documentImage && (
+                  <>
+                    <div style={{ alignSelf: "center" }}>
+                      {truncateString(documentImage.name, 20)}
+                    </div>{" "}
+                    <img
+                      src="/check.png"
+                      alt="check"
+                      className="upload-success-img"
+                    />{" "}
+                  </>
+                )}
               </Grid>
             </Grid>
           </form>
@@ -133,90 +525,167 @@ const DashboardBackgroundInfo = (props) => {
       {/* Reference Information */}
       <div className="dashboard-basic-info__sectionContainer">
         <div className="dashboard-basic-info__sectionTitle">
-          Reference Information
+          Parents Information
         </div>
-        <div className="dashboard-basic-info__formContainer">
+        <div className="dashboard-basic-info__formContainer ">
           <div className="dashboard-basic-info__marginContainer">
-            <div className="dashboard-basic-info__formTitle">
-              At least 2 references
-            </div>
-            <hr className="dashboard-basic-info__horizontalLine" />
-            <form>
-              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+            <form className="form-container">
+              <Grid
+                container
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
+              >
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={4}
+                  xs={12}
+                >
                   <Input
-                    className={'dashboard-basic-info__input'}
+                    className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="Full Name" />
+                    label="Full Name"
+                    value={references.fullName}
+                    onChange={(e) => {
+                      setReferences({
+                        ...references,
+                        fullName: e.target.value,
+                      });
+                      setFormError((prev) => ({ ...prev, fullName: null }));
+                    }}
+                    errorMessage={formError.fullName}
+                    error={!!formError.fullName}
+                  />
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
-                  <div className={'student-info__phone-input'}>
-                    <div className={'student-info__phone-separator'}>
-                      +977
-                  </div>
+
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={4}
+                  xs={12}
+                >
+                  <div className="student-info__phone-input">
+                    <CountryCodeDropDown
+                      options={CountryCodeOptions}
+                      useValue
+                      minWidth={"83px"}
+                      width={"90px"}
+                      value={references.countryCode}
+                      // name={"countryCode"}
+                      onChange={(e) =>
+                        setReferences({
+                          ...references,
+                          countryCode: e.target.value,
+                        })
+                      }
+                      className={"student-info__phone-separator"}
+                    />
                     <Input
-                      className={'student-info__input student-info__phone'}
+                      className={"student-info__input student-info__phone"}
                       fullWidth
-                      placeholder="Phone Number" />
+                      label="Phone Number"
+                      value={references.phoneNumber}
+                      onChange={(e) => {
+                        setReferences({
+                          ...references,
+                          phoneNumber: e.target.value,
+                        });
+                        setFormError((prev) => ({
+                          ...prev,
+                          phoneNumber: null,
+                        }));
+                      }}
+                      name="phoneNumber"
+                      errorMessage={formError.phoneNumber}
+                      error={!!formError.phoneNumber}
+                    />
                   </div>
                 </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={4}
+                  xs={12}
+                >
                   <Input
-                    className={'dashboard-basic-info__input'}
+                    className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="Email Address" />
-                </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
-                  <Input
-                    className={'dashboard-basic-info__input'}
-                    fullWidth
-                    placeholder="Address" />
+                    label="Email Address"
+                    value={references.emailAddress}
+                    onChange={(e) => {
+                      setReferences({
+                        ...references,
+                        emailAddress: e.target.value,
+                      });
+                      setFormError((prev) => ({ ...prev, emailAddress: null }));
+                    }}
+                    name="emailAddress"
+                    errorMessage={formError.emailAddress}
+                    error={!!formError.emailAddress}
+                  />
                 </Grid>
               </Grid>
-              <Grid container className="dashboard-basic-info__row" justify="space-around" direction='row' >
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
+
+              <Grid
+                container
+                className="dashboard-basic-info__row"
+                justify="flex-start"
+                direction="row"
+              >
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={12}
+                  xs={12}
+                >
                   <Input
-                    className={'dashboard-basic-info__input'}
+                    className={"dashboard-basic-info__input"}
                     fullWidth
-                    placeholder="Full Name" />
-                </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
-                  <div className={'student-info__phone-input'}>
-                    <div className={'student-info__phone-separator'}>
-                      +977
-                  </div>
-                    <Input
-                      className={'student-info__input student-info__phone'}
-                      fullWidth
-                      placeholder="Phone Number" />
-                  </div>
-                </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
-                  <Input
-                    className={'dashboard-basic-info__input'}
-                    fullWidth
-                    placeholder="Email Address" />
-                </Grid>
-                <Grid className={'dashboard-basic-info__grid'} item sm={12} md={3}>
-                  <Input
-                    className={'dashboard-basic-info__input'}
-                    fullWidth
-                    placeholder="Address" />
+                    label="Address"
+                    value={references.address}
+                    onChange={(e) => {
+                      setReferences({
+                        ...references,
+                        address: e.target.value,
+                      });
+                      setFormError((prev) => ({ ...prev, address: null }));
+                    }}
+                    name="address"
+                    errorMessage={formError.address}
+                    error={!!formError.address}
+                  />
                 </Grid>
               </Grid>
             </form>
           </div>
         </div>
         <div className="dashboard-basic-info__buttonContainer">
-          <div className="dashboard-basic-info__backContainer" onClick={props.handleBack}>
+          <div
+            className="dashboard-basic-info__backContainer"
+            onClick={() => {
+              saveDate();
+              props.handleBack();
+            }}
+          >
             Back
           </div>
-          <Button
-            onClick={props.handleNext}>
-            Save And Continue
-          </Button>
+          <Button onClick={sendData}>Save And Continue</Button>
         </div>
       </div>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="error">
+          Please check the field and try again!
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

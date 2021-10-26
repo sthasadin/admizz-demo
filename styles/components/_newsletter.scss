@@ -3,10 +3,16 @@
   border-radius: 5px;
   padding: 35px 40px;
   margin-bottom: 16px;
+  @media (max-width: 500px) {
+    padding: 35px 0;
+  }
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
   }
   &__title {
     font-size: 16px;
@@ -18,17 +24,27 @@
     max-width: 150px;
     margin-left: auto;
     margin-right: auto;
+    @media (max-width: 450px) {
+      width: 100%;
+    }
   }
   &__form {
     display: flex;
     align-items: center;
     width: 65%;
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
   }
   &__input {
     width: calc(50% - 8px);
     margin-right: 8px;
+    @media (max-width: 414px) {
+      width: 100%;
+      margin: 10px 0px;
+    }
     input[type="text"] {
-      padding: 0px 40px;
+      padding: 0px 20px;
       background: transparent;
       border-radius: 5px;
       border: 1px solid $border-color;
@@ -36,6 +52,7 @@
       color: #fff;
       width: 100%;
       line-height: 40px;
+      outline: none;
       &::placeholder {
         font-size: 12px;
         color: #fff;
@@ -46,11 +63,24 @@
     line-height: 40px;
     width: 50%;
     background-color: $secondary-color;
+    border-color: $secondary-color;
     color: #fff;
     font-size: 16px;
     text-align: center;
+    outline: none;
     font-weight: 800;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
+    // border: none;
+    @media (max-width: 414px) {
+      width: 100%;
+    }
   }
+}
+
+.subscribe-newsletter-field {
+  position: relative;
+}
+.news-letter-email {
+  position: absolute;
 }

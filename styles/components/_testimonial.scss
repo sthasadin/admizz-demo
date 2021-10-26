@@ -1,23 +1,41 @@
 .testimonial {
-  margin: 80px 0;
+  //margin: 80px 0;
   background-image: url("../../public/testimonial-background.svg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100%;
+  // @media (max-width: 1024) {
+  //   overflow: auto;
+  // }
+  @media (max-width: 450px) {
+    background-size: initial;
+  }
+
   &__inner {
     display: grid;
     place-items: center;
-    padding: 80px 0;
+    // padding: 80px 0;
+    overflow: auto;
+    @media (max-width: 450px) {
+      display: none;
+    }
   }
   &__left {
     display: flex;
     align-items: center;
+
     &__thumbnail {
       &:nth-child(3) {
-        margin-top: 135px;
+        margin-top: 120px;
+        margin-left: -120px;
+      }
+      &:nth-child(2) {
+        margin-top: -120px;
+        margin-left: -55px;
       }
       &:nth-child(1) {
-        margin-top: 210px;
+        margin-top: 120px;
       }
     }
   }
@@ -30,17 +48,28 @@
     position: relative;
     box-sizing: content-box;
     img {
-      height: 100%;
+      max-height: 304px;
       width: 100%;
+      //max-width: 304px;
       border-radius: 50%;
+      object-fit: fill;
     }
   }
   &__right {
     display: flex;
     align-items: center;
+
+    @media (max-width: 450px) {
+      display: none;
+    }
+
     &__thumbnail {
       &:nth-child(1) {
-        margin-top: 80px;
+        margin-top: 180px;
+        margin-left: -50px;
+        @media (max-width: 1024px) {
+          margin: 0;
+        }
       }
     }
   }
@@ -55,13 +84,12 @@
     bottom: 15px;
   }
   &__text {
-    font-family: "Noticia Text", serif;
     font-style: italic;
     font-size: 24px;
     line-height: 42.5px;
     text-align: center;
     margin-bottom: 17px;
-    max-width: 750px;
+    // max-width: 750px;
   }
   &__quote {
     position: absolute;
@@ -75,6 +103,12 @@
     text-align: center;
     span {
       font-weight: 700;
+    }
+  }
+  .testimonial__formobile {
+    display: none;
+    @media (max-width: 450px) {
+      display: block;
     }
   }
 }

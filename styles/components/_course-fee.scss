@@ -6,15 +6,30 @@
     background-color: #f2f2f2;
     border-radius: 5px;
     margin-bottom: 16px;
+    @media (max-width: 414px) {
+      flex-direction: column;
+    }
   }
   &__course {
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     color: #333;
+    width: 20%;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 414px) {
+      text-align: center;
+      margin-bottom: 10px;
+    }
   }
   &__fee,
   &__eligibility {
+    @media (max-width: 414px) {
+      margin-bottom: 10px;
+    }
     span {
       display: block;
       font-size: 12px;
@@ -26,6 +41,17 @@
       font-size: 14px;
       line-height: 21px;
       color: #333;
+      text-transform: capitalize;
+    }
+  }
+  &__details {
+    color: #5f1802;
+    font-weight: 600;
+    font-size: 14px;
+    margin: auto 0;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
     }
   }
   &__cta {
@@ -34,5 +60,9 @@
     text-transform: uppercase;
     font-weight: 500;
     color: $primary-color;
+    @media (max-width: 414px) {
+      text-align: center;
+      margin-bottom: 10px;
+    }
   }
 }

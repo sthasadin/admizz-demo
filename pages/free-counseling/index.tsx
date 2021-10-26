@@ -1,11 +1,10 @@
 import React from "react";
-import { Navbar } from "../../layouts/navbar";
+import Layout from "../../layouts";
 import { CounselingStepper } from "../../components";
 
 const FreeCounseling = () => {
   return (
-    <div>
-      <Navbar />
+    <Layout title="Booking" stickyBar={true}>
       <div className="free-counseling">
         <div className="free-counseling__container">
           <div className="free-counseling__header">
@@ -15,7 +14,7 @@ const FreeCounseling = () => {
           <CounselingStepper />
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

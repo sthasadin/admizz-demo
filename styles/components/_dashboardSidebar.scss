@@ -1,18 +1,33 @@
-.dashboard-sidebar{
-    position: sticky;
-    background-color: white;
-    padding: 100px 30px;
-    &__logout {
-      margin-top: 150px;
-      font-family: Mplus 1p;
-      font-size: 16px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 24px;
-      letter-spacing: 0em;
-      text-align: left;
-      color: #5F1802;
-      cursor: pointer;
-      ;
+.dashboard-sidebar {
+  position: sticky;
+  background-color: white;
+  padding: 25px 0 30px 10px;
+  // padding: 30px 40px;
+
+  height: 100%;
+  &__logout {
+    margin-top: 150px;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5f1802;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
     }
+  }
+}
+
+.active-dashboard {
+  color: #5f1802 !important;
+  font-weight: 500 !important;
+  text-decoration: underline !important;
+}
+
+.student-dashboard-main__sidebar {
+  width: 15%;
 }

@@ -1,25 +1,44 @@
 .merit {
-  margin: 20px 15px;
-  width: calc(100% - 30px);
-  position: relative;
-  @media (min-width: 768px) {
-    width: 720px;
-    margin: 20px auto;
+  margin: 36px 0;
+  width: 100%;
+  @media (max-width: 500px) {
+    margin: 20px 0;
   }
-  @media (min-width: 1024px) {
-    width: 940px;
-  }
-  @media (min-width: 1200px) {
-    width: 1170px;
-  }
-  @media (min-width: 1360px) {
-    width: 1240px;
-  }
+
+  // @media (min-width: 768px) {
+  //   width: 720px;
+  //   margin: 20px auto;
+  // }
+  // @media (max-width: 450px) {
+  //   width: 100%;
+
+  //   margin: 0;
+  // }
+  // @media (min-width: 1024px) {
+  //   width: 940px;
+  // }
+  // @media (min-width: 1200px) {
+  //   width: 1170px;
+  // }
+  // @media (min-width: 1360px) {
+  //   width: 1240px;
+  // }
   &__inner {
     padding: 20px 0;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background-image: url("/dotted.png");
+    background-repeat: no-repeat;
+    background-position: top;
     grid-gap: 30px;
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      background-image: none;
+    }
+    @media (max-width: 500px) {
+      grid-gap: 0;
+    }
   }
   &__title {
     text-align: left;
@@ -27,14 +46,30 @@
       color: $secondary-color;
       text-transform: uppercase;
     }
+
+    @media (max-width: 450px) {
+      font-size: 24px;
+    }
   }
   &__heading {
     text-align: left;
     margin-bottom: 12px;
+    @media (max-width: 500px) {
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 0;
+    }
   }
   &__left {
     align-self: center;
     justify-self: flex-start;
+
+    .list-item-wrap {
+      .list-item__icon {
+        display: flex;
+        align-self: flex-start;
+      }
+    }
   }
   &__right {
     align-self: center;
@@ -48,8 +83,19 @@
   }
   &__thumbnail {
     overflow: hidden;
+    position: relative;
     margin-left: 74px;
     margin-bottom: 61px;
+    width: 613px;
+    height: 336px;
+    @media (max-width: 750px) {
+      margin-left: 0;
+    }
+    @media (max-width: 580px) {
+      margin-bottom: 20px;
+      height: 100%;
+      width: 100%;
+    }
     img {
       height: auto;
       width: 100%;
@@ -60,16 +106,24 @@
       background-color: $primary-color;
       border-radius: 5px;
       position: absolute;
+      width: 409px;
       left: 0;
-      bottom: 0;
+      bottom: -20px;
       color: #fff;
-      width: 400px;
+      @media (max-width: 450px) {
+        padding: 0;
+        background-color: transparent;
+        display: none;
+      }
     }
     &__title {
       margin-bottom: 31px;
       font-size: 28px;
       line-height: 41px;
       font-weight: 700;
+      @media (max-width: 420px) {
+        font-size: 16px;
+      }
     }
     &__cta {
       font-size: 14px;
@@ -78,6 +132,41 @@
       a {
         text-decoration: underline;
       }
+      img {
+        position: absolute;
+
+        top: -100%;
+        left: 110%;
+        transform: translate(-30%, -100%);
+      }
     }
+  }
+  .playicon-formobileversion {
+    // display: none;
+    // @media (max-width: 450px) {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    // }
+  }
+  .formobile {
+    display: none;
+    @media (max-width: 450px) {
+      display: block;
+      margin: auto;
+
+      text-align: center;
+    }
+  }
+}
+
+.hideofmobile {
+  @media (max-width: 450px) {
+    display: none;
   }
 }

@@ -1,6 +1,9 @@
 .blogCard {
   &__inner {
-    background-image: url(../../public/blog.png);
+    width: 100%;
+    // margin: 0 auto;
+    max-width: 1440px;
+    // background-image: url(../../public/blog.png);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -10,6 +13,15 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    padding-top: 200px;
+    cursor: pointer;
+    // margin-right: 1.5rem;
+    // margin: 0px 20px;
+    @media (max-width: 450px) {
+      padding-top: 0;
+      margin: 0;
+      margin-bottom: 20px;
+    }
   }
   &__category {
     font-size: 10px;
@@ -39,6 +51,7 @@
     position: relative;
     display: flex;
     align-items: center;
+    white-space: nowrap;
     &::after {
       content: "";
       height: 6px;
@@ -54,6 +67,7 @@
     font-size: 14px;
     line-height: 20px;
     color: #fff;
+    white-space: nowrap;
   }
   &__title {
     margin-top: 16px;
@@ -76,5 +90,12 @@
       rgba(2, 2, 2, 0.4) 45.31%,
       rgba(3, 3, 3, 0.77) 100%
     );
+  }
+}
+
+.blog-carousel .blogCard {
+  padding-right: 15px;
+  @media (max-width: 1024px) {
+    padding: 0 7.5px;
   }
 }

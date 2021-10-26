@@ -1,19 +1,27 @@
 .blog-list-random-blog {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  &__highlightPost {
-    width: 65%;
-  }
   &__topPost {
     margin: 0px;
   }
   &__secondaryPostContainer {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-list-member__secondaryPost {
+      height: 356px;
+    }
   }
   &__postList {
     width: 33%;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
-
 }

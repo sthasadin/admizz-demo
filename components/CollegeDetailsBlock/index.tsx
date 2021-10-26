@@ -1,10 +1,11 @@
 import React from "react";
 
-const CollegeDetailsBlock = (props: any) => {
+const CollegeDetailsBlock = ({ totalStudents, totalCourse,average_fee,graduation_percentage,placement_percentage}) => {
   return (
     <div className="college-details-block">
+        {totalStudents &&
       <div className="info-block">
-        <div className="info-block__inner">
+         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
               width="33"
@@ -20,10 +21,10 @@ const CollegeDetailsBlock = (props: any) => {
             </svg>
           </div>
           <div className="info-block__heading">Total Students</div>
-          <div className="info-block__title">50,000</div>
+          <div className="info-block__title">{totalStudents}</div>
         </div>
-      </div>
-      <div className="info-block">
+      </div>}
+      {totalCourse && <div className="info-block">
         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
@@ -40,10 +41,10 @@ const CollegeDetailsBlock = (props: any) => {
             </svg>
           </div>
           <div className="info-block__heading">Courses Offered</div>
-          <div className="info-block__title">21</div>
+          <div className="info-block__title">{totalCourse}</div>
         </div>
-      </div>
-      <div className="info-block">
+      </div>}
+      {average_fee && <div className="info-block">
         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
@@ -66,10 +67,10 @@ const CollegeDetailsBlock = (props: any) => {
             </svg>
           </div>
           <div className="info-block__heading">Average Fee</div>
-          <div className="info-block__title">INR 3.04 L</div>
+          <div className="info-block__title">{average_fee}</div>
         </div>
-      </div>
-      <div className="info-block">
+      </div>}
+      {graduation_percentage && <div className="info-block">
         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
@@ -98,10 +99,10 @@ const CollegeDetailsBlock = (props: any) => {
             </svg>
           </div>
           <div className="info-block__heading">Graduaton Percentage</div>
-          <div className="info-block__title">98%</div>
+          <div className="info-block__title">{graduation_percentage}</div>
         </div>
-      </div>
-      <div className="info-block">
+      </div>}
+      {placement_percentage && <div className="info-block">
         <div className="info-block__inner">
           <div className="info-block__icon">
             <svg
@@ -118,9 +119,9 @@ const CollegeDetailsBlock = (props: any) => {
             </svg>
           </div>
           <div className="info-block__heading">Placement Percentage</div>
-          <div className="info-block__title">80%</div>
+          <div className="info-block__title">{placement_percentage}</div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

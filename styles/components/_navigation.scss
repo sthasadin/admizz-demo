@@ -1,12 +1,17 @@
 nav.navigation {
-  overflow: hidden;
+  // overflow: hidden;
   position: relative;
   ul.menu {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     text-decoration-style: none;
+    // transition: display 4s;
     li.menu-item {
       list-style-type: none;
+
+      cursor: pointer;
+
       margin: 0 5px;
       a {
         padding: 0 10px;
@@ -32,5 +37,86 @@ nav.navigation {
         }
       }
     }
+    li.search-item {
+      list-style-type: none;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+
+    .search-bar {
+      width: 35px;
+      transition: width 500ms;
+    }
+
+    .search-bar-active {
+      width: 100%;
+      transition: width 500ms;
+      position: relative;
+
+      .search-result-container {
+        position: absolute;
+        top: 35px;
+        max-height: 250px;
+        background-color: #fff;
+        width: 100%;
+        overflow-y: auto;
+        border-radius: 5px;
+        // padding: 10px;
+        :hover {
+          background-color: #f2f2f2;
+        }
+        box-shadow: -1px 8px 12px 0px rgba(0, 0, 0, 0.75);
+        .search-loader {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-self: center;
+
+          padding: 20px;
+        }
+
+        .search-item-content {
+          display: flex;
+          gap: 10px;
+          padding: 10px 15px;
+          // margin: 10px 0;
+
+          .search-image-content {
+            width: 50px;
+            min-width: 50px;
+            height: 50px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
   }
+}
+
+.menu-item:last-child {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+.menu-item:last-child a {
+  padding-right: 5px !important;
+}
+
+.search-text-content a {
+  color: $gray-2;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.search-text-description {
+  font-size: 12px;
+  margin-top: 5px;
+  color: $gray-2;
+}
+.search-sorry-text {
+  padding: 20px;
+  text-align: center;
 }

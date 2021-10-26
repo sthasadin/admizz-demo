@@ -2,7 +2,7 @@
   &__title {
     color: #333333;
     margin-bottom: 20px;
-    font-family: Mplus 1p;
+
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -13,6 +13,12 @@
   &__collegeList {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 8px;
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 550px) {
+      grid-template-columns: 1fr;
+    }
   }
 }

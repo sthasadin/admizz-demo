@@ -1,12 +1,19 @@
 .college-list-selected-filter {
   background-color: white;
   border-radius: 10px;
-  padding: 10px 10px;
+  padding: 10px 15px;
   margin: 10px 0px;
+
+  border: 1px solid #e0e0e0;
   &__filterTitleContainer {
     display: flex;
     justify-content: space-between;
     padding: 5px 5px;
+
+    &__filterTitle {
+      color: #4f4f4f;
+      font-style: normal;
+    }
   }
   &__filterAdd {
     cursor: pointer;
@@ -14,8 +21,8 @@
   &__filterKeyContainer {
     display: flex;
     flex-wrap: wrap;
-    padding: 5px 5px;
-    margin-top: 10px;
+    // padding: 5px 5px;
+    // margin-top: 10px;
   }
   &__searchContainer {
     margin: 3px 0px;
@@ -24,8 +31,39 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-transform: capitalize;
+    // margin-bottom: 5px;
   }
   &__checkboxLabel {
     color: #828282;
   }
+}
+
+.college-list-selected-filter__filterTitle {
+  color: #4f4f4f;
+  font-style: normal;
+  margin: auto 0;
+  @media (max-width: 500px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.college-list-count {
+  color: #828282;
+  font-style: 12px;
+  font-weight: 500;
+  font-style: normal;
+}
+.stream-container {
+  height: 0px;
+  overflow: hidden;
+
+  // transition: height 500ms;
+}
+
+.active-stream-container {
+  height: 100%;
+
+  transition: height 500ms;
 }

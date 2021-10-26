@@ -1,12 +1,10 @@
 import React from "react";
 
-const ScholarshipOption = (props: any) => {
+const ScholarshipOption = ({ data }) => {
   return (
     <div className="scholarship-item">
-      <div className="scholoarship-item__logo">
-        <img src={props.image} alt="" />
-      </div>
-      <div className="scholarship-item__title">{props.title}</div>
+      <img src={data.logo} alt="" style={{ width: "100%" }} />
+      <div className="scholarship-item__title">{data.title}</div>
     </div>
   );
 };

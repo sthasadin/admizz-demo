@@ -1,17 +1,17 @@
-.side-bar-news-letter{
+.side-bar-news-letter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #FFA200;
+  text-align: center;
+  background-color: #ffa200;
   margin: 10px 0px;
   border-radius: 5px;
   padding: 30px 30px;
   &__title {
     text-align: center;
-    width: 40%;
+    width: 47%;
     margin: 0px 0px 20px 0px;
     color: white;
-    font-family: Mplus 1p;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -23,5 +23,6 @@
   }
   &__button {
     width: 100%;
+    margin-top: 5px;
   }
 }

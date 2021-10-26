@@ -31,5 +31,8 @@
     cursor: pointer;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
+    @media (max-width: 500px) {
+      display: none;
+    }
   }
 }

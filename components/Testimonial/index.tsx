@@ -1,12 +1,27 @@
 import React from "react";
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import ReactPlayer from "react-player"
-
+import { useDispatch } from "react-redux";
+import { getTestimonial } from "../../store/Action/testimonial.actions";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import ReactPlayer from "react-player";
+import Carousel from "../../components/Carousel";
+import TestimonialCarousel from "../TestimonialCarousel";
 
 const Testimonial = (props: any) => {
   const [open, setOpen] = React.useState(false);
+  const [testimonialList, setTestimonialList] = React.useState([]);
+
+  const dispatch = useDispatch();
+
+  const getAllTestimonal = async () => {
+    const fetchTestimonal = await dispatch(getTestimonial());
+    setTestimonialList(fetchTestimonal);
+  };
+
+  React.useEffect(() => {
+    getAllTestimonal();
+  }, []);
 
   const handleOpen = () => {
     setOpen(true);
@@ -22,18 +37,18 @@ const Testimonial = (props: any) => {
         <div className="testimonial__item-wrap">
           <div className="testimonial__left">
             <div className="testimonial__left__thumbnail">
-              <img src="/testimonial1.png" alt="" />
+              <img src="/testimonial1.png" alt="testimonial1" />
             </div>
             <div className="testimonial__left__thumbnail">
-              <img src="/testimonial2.png" alt="" />
+              <img src="/testimonial2.png" alt="testimonial2" />
             </div>
             <div className="testimonial__left__thumbnail">
-              <img src="/testimonial3.png" alt="" />
+              <img src="/testimonial3.png" alt="testimonial3" />
             </div>
           </div>
           <div className="testimonial__center">
             <div className="testimonial__center__thumbnail">
-              <img src="/testimonial.png" alt="" />
+              <img src="/testimonial.png" alt="testimonial" />
             </div>
             <div className="testimonial__quote">
               <svg
@@ -80,40 +95,37 @@ const Testimonial = (props: any) => {
             </div>
 
             <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                open={open}
-                onClose={handleClose}
-                className="introduction__modalContainer"
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                  timeout: 500,
-                }}
-              >
-                <Fade in={open}>
-                  <div>
-                    <ReactPlayer
-                      url="https://www.youtube.com/watch?v=_xMXR5_CnQM"
-                    />
-                  </div>
-                </Fade>
-              </Modal>
-
+              aria-labelledby="transition-modal-title"
+              aria-describedby="transition-modal-description"
+              open={open}
+              onClose={handleClose}
+              className="introduction__modalContainer"
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <Fade in={open}>
+                <div>
+                  <ReactPlayer url="https://www.youtube.com/watch?v=_xMXR5_CnQM" />
+                </div>
+              </Fade>
+            </Modal>
           </div>
           <div className="testimonial__right">
             <div className="testimonial__right__thumbnail">
-              <img src="/testimonial4.png" alt="" />
+              <img src="/testimonial4.png" alt="testimonial4" />
             </div>
             <div className="testimonial__right__thumbnail">
-              <img src="/testimonial5.png" alt="" />
+              <img src="/testimonial5.png" alt="testimonial5" />
             </div>
             <div>
               <div className="testimonial__right__thumbnail">
-                <img src="/testimonial6.png" alt="" />
+                <img src="/testimonial6.png" alt="testimonial6" />
               </div>
               <div className="testimonial__right__thumbnail">
-                <img src="/testimonial7.png" alt="" />
+                <img src="/testimonial7.png" alt="testimonial7" />
               </div>
             </div>
           </div>
@@ -126,6 +138,15 @@ const Testimonial = (props: any) => {
           <span>Kerry Johnes</span> - Some Company
         </div>
       </div>
+
+      {/* <div className="testimonial__formobile">
+        <Carousel bulletdot="false">
+          {testimonialList &&
+            testimonialList.map((data) => {
+              return <TestimonialCarousel key={data.id} data={data} />;
+            })}
+        </Carousel>
+      </div> */}
     </div>
   );
 };

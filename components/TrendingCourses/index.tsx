@@ -1,64 +1,58 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import Link from "next/link";
 
 const TrendingCourses = () => {
-  return (
+  const trending_courses = useSelector(
+    (state) => state.college.college.trending_courses
+  );
+
+  return trending_courses?.length ? (
     <div className="trending-courses">
       <div className="trending-courses__inner">
         <div className="sidebar__title">Trending Courses</div>
+
         <div className="trending-courses__list">
-          <div className="trending-courses__item">
-            <div className="trending-courses__title-wrap">
-              <div className="trending-courses__title">
-                Chemical Engineering
+          {trending_courses &&
+            trending_courses?.map((course, i) => (
+              <div key={i} className="trending-courses__item">
+                <div className="trending-courses__title-wrap">
+                  <Link
+                    href={`/colleges/program/${course?.courseprogram?.slug}`}
+                  >
+                    <div className="trending-courses__title">
+                      {course?.courseprogram?.name}
+                    </div>
+                  </Link>
+
+                  <div className="trending-courses__level">
+                    {course?.courselevel?.name === "undergraduate"
+                      ? "under graduate"
+                      : course?.courselevel?.name === "postgraduate"
+                      ? "post graduate"
+                      : course?.courselevel?.name}
+                  </div>
+                </div>
+                <div className="trending-courses__info">
+                  <div className="trending-courses__info__item">
+                    Fee: {course?.fee_per_sem} per{" "}
+                    {course?.courseprogram?.exam_type}
+                  </div>
+                  <div className="trending-courses__info__item">
+                    {course?.courseprogram?.duration}
+                  </div>
+                  {/* <div className="trending-courses__info__item">50 Reviews</div> */}
+                </div>
               </div>
-              <div className="trending-courses__level">UG</div>
-            </div>
-            <div className="trending-courses__info">
-              <div className="trending-courses__info__item">Fee: Rs. 200k</div>
-              <div className="trending-courses__info__item">2 years</div>
-              <div className="trending-courses__info__item">50 Reviews</div>
-            </div>
-          </div>
-          <div className="trending-courses__item">
-            <div className="trending-courses__title-wrap">
-              <div className="trending-courses__title">M.Tech</div>
-              <div className="trending-courses__level">UG</div>
-            </div>
-            <div className="trending-courses__info">
-              <div className="trending-courses__info__item">Fee: Rs. 200k</div>
-              <div className="trending-courses__info__item">2 years</div>
-              <div className="trending-courses__info__item">50 Reviews</div>
-            </div>
-          </div>
-          <div className="trending-courses__item">
-            <div className="trending-courses__title-wrap">
-              <div className="trending-courses__title">MBA</div>
-              <div className="trending-courses__level">UG</div>
-            </div>
-            <div className="trending-courses__info">
-              <div className="trending-courses__info__item">Fee: Rs. 200k</div>
-              <div className="trending-courses__info__item">2 years</div>
-              <div className="trending-courses__info__item">50 Reviews</div>
-            </div>
-          </div>
-          <div className="trending-courses__item">
-            <div className="trending-courses__title-wrap">
-              <div className="trending-courses__title">PHD Programs</div>
-              <div className="trending-courses__level">UG</div>
-            </div>
-            <div className="trending-courses__info">
-              <div className="trending-courses__info__item">Fee: Rs. 200k</div>
-              <div className="trending-courses__info__item">2 years</div>
-              <div className="trending-courses__info__item">50 Reviews</div>
-            </div>
-          </div>
+            ))}
         </div>
-        <a href="#" className="trending-courses__cta">
+        {/* </Link> */}
+        {/* <a href="#" className="trending-courses__cta">
           Explore All Courses
-        </a>
+        </a> */}
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export { TrendingCourses };

@@ -1,0 +1,41 @@
+.comparecollege__filtercontainer {
+  // border: 1px solid black;
+  width: 90%;
+  // margin-top: 26px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  // margin-left: 134px;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: auto;
+  @media (max-width: 450px) {
+    width: 100%;
+    margin-left: 0;
+    align-items: flex-start;
+  }
+
+  .filter__button {
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    height: 41px;
+    border-radius: 20px;
+    border: 1px solid #828282;
+    color: #828282;
+    margin-right: 10px;
+    min-width: 183px;
+
+    &:hover {
+      background-color: #ffa200;
+      border-color: #ffa200;
+      color: white;
+    }
+  }
+  .filter__button.active {
+    border-color: $secondary-color;
+    background-color: $secondary-color;
+    color: #fff;
+  }
+}

@@ -42,7 +42,7 @@ const index = () => {
         <Carousel bulletdot={false}>
           <Introduction
             title="hello"
-            imgSrc="/male-intro.png"
+            imgSrc="/Hero-image.png"
             videoUrl="https://youtu.be/CDknjC9aFmg"
           />
           {/* <Introduction

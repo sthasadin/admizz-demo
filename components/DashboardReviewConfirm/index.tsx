@@ -131,10 +131,10 @@ const DashboardReviewConfirm = (props) => {
   const { basicInfo, backgroundInfo, academicInfo, selectedChoice } = props;
 
   function truncateString(str, num = 20) {
-    if (str.length <= num) {
+    if (str?.length <= num) {
       return str;
     }
-    return str.slice(0, num) + "...";
+    return str?.slice(0, num) + "...";
   }
 
   // submit all form
@@ -607,7 +607,7 @@ const DashboardReviewConfirm = (props) => {
                         >
                           {" "}
                           {toTitleCase(
-                            backgroundInfo.passportDetails.nameOnPassport
+                            backgroundInfo?.passportDetails?.nameOnPassport
                           )}
                         </p>
                       </div>
@@ -749,7 +749,7 @@ const DashboardReviewConfirm = (props) => {
                       >
                         {" "}
                         {toTitleCase(
-                          backgroundInfo.passportDetails.nameOnPassport
+                          backgroundInfo?.passportDetails?.nameOnPassport
                         )}
                       </p>
                     </>
@@ -795,7 +795,7 @@ const DashboardReviewConfirm = (props) => {
                         style={{ height: 30 }}
                       >
                         {" "}
-                        {backgroundInfo.references.fullName}{" "}
+                        {backgroundInfo?.references?.fullName}{" "}
                       </p>
                     </div>
                     <div
@@ -819,7 +819,7 @@ const DashboardReviewConfirm = (props) => {
                         style={{ height: 30 }}
                       >
                         {" "}
-                        {backgroundInfo.references.phoneNumber}{" "}
+                        {backgroundInfo?.references?.phoneNumber}{" "}
                       </p>
                     </div>
                     <div
@@ -843,7 +843,7 @@ const DashboardReviewConfirm = (props) => {
                         style={{ height: 30 }}
                       >
                         {" "}
-                        {backgroundInfo.references.emailAddress}{" "}
+                        {backgroundInfo?.references?.emailAddress}{" "}
                       </p>
                     </div>
                   </div>
@@ -1055,7 +1055,7 @@ const DashboardReviewConfirm = (props) => {
                       </div>
                     )}
                     {/* gmat */}
-                    {academicInfo.gmat.haveDone === "yes" ? (
+                    {academicInfo?.gmat?.haveDone === "yes" ? (
                       <div
                         style={{
                           display: "flex",
@@ -1088,7 +1088,7 @@ const DashboardReviewConfirm = (props) => {
                       ""
                     )}
                     {/* gre */}
-                    {academicInfo.gre.haveDone === "yes" ? (
+                    {academicInfo?.gre?.haveDone === "yes" ? (
                       <div
                         style={{
                           display: "flex",
@@ -1121,7 +1121,7 @@ const DashboardReviewConfirm = (props) => {
                       ""
                     )}
                     {/* sat */}
-                    {academicInfo.sat.haveDone === "yes" ? (
+                    {academicInfo?.sat?.haveDone === "yes" ? (
                       <div
                         style={{
                           display: "flex",
@@ -1154,7 +1154,7 @@ const DashboardReviewConfirm = (props) => {
                       ""
                     )}
                     {/* satii */}
-                    {academicInfo.satII.haveDone === "yes" ? (
+                    {academicInfo?.satII?.haveDone === "yes" ? (
                       <div
                         style={{
                           display: "flex",
@@ -1187,7 +1187,7 @@ const DashboardReviewConfirm = (props) => {
                       ""
                     )}
                     {/* ielts */}
-                    {academicInfo.ielts.haveDone === "yes" ? (
+                    {academicInfo?.ielts?.haveDone === "yes" ? (
                       <div
                         style={{
                           display: "flex",
@@ -1220,7 +1220,7 @@ const DashboardReviewConfirm = (props) => {
                       ""
                     )}
                     {/* tofel */}
-                    {academicInfo.tofel.haveDone === "yes" ? (
+                    {academicInfo?.tofel?.haveDone === "yes" ? (
                       <div
                         style={{
                           display: "flex",
@@ -1253,7 +1253,7 @@ const DashboardReviewConfirm = (props) => {
                       ""
                     )}
                     {/* jeeAdvance */}
-                    {academicInfo.jeeAdvance.haveDone === "yes" ? (
+                    {academicInfo?.jeeAdvance?.haveDone === "yes" ? (
                       <div
                         style={{
                           display: "flex",

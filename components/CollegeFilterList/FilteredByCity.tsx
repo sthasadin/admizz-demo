@@ -45,15 +45,10 @@ const FilteredByCity = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
   const [searchKey, setSearchKey] = React.useState("");
 
-  const {
-    cityList,
-
-    handleCityChange,
-    filterObj,
-  } = props;
+  const { cityList, handleCityChange, filterObj } = props;
 
   const filterItem = cityList.filter((item) => {
-    return item.toLowerCase().includes(searchKey.toLowerCase());
+    return item._id.toLowerCase().includes(searchKey.toLowerCase());
   });
   const classes = useStyles();
 
@@ -97,16 +92,16 @@ const FilteredByCity = (props) => {
                   className="college-list-selected-filter__filterStreamContainer"
                 >
                   <FormControlLabel
-                    name={city}
+                    name={city._id}
                     onChange={handleCityChange}
                     control={
                       <CustomizeCheckBox
-                        name={city}
+                        name={city._id}
                         style={{ paddingBottom: "0" }}
                       />
                     }
-                    checked={filterObj.city.includes(city)}
-                    label={city}
+                    checked={filterObj.city.includes(city._id)}
+                    label={city._id}
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />
                   {/* <div className="college-list-count">

@@ -16,9 +16,9 @@ const index = () => {
     dispatch(getBlogs("All"));
   }, []);
 
-  const latestBlog = blogs.sort(
+  const latestBlog = Array.isArray(blogs)?blogs?.sort(
     (a, b) => moment(b.createdAt) - moment(a.createdAt)
-  );
+  ):[]
 
   const settings = {
     dots: true,

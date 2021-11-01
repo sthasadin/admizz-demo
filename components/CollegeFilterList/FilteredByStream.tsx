@@ -45,17 +45,12 @@ const FilteredByStream = (props) => {
   const [toggleStream, setToggleStream] = React.useState(false);
   const [searchKey, setSearchKey] = React.useState("");
 
-  const {
-    programName,
-
-    handleStreamChange,
-    filterObj,
-  } = props;
+  const { programName, handleStreamChange, filterObj } = props;
 
   const classes = useStyles();
 
   const filtercourse = programName?.filter((item) => {
-    return item?.toLowerCase().includes(searchKey.toLowerCase());
+    return item._id.toLowerCase().includes(searchKey.toLowerCase());
   });
 
   return (
@@ -99,16 +94,16 @@ const FilteredByStream = (props) => {
                   className="college-list-selected-filter__filterStreamContainer"
                 >
                   <FormControlLabel
-                    name={program}
+                    name={program._id}
                     onChange={handleStreamChange}
                     control={
                       <CustomizeCheckBox
-                        name={program}
+                        name={program._id}
                         style={{ paddingBottom: "0" }}
                       />
                     }
-                    checked={filterObj.stream.includes(program)}
-                    label={program}
+                    checked={filterObj.stream.includes(program._id)}
+                    label={program._id}
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />
                   {/* <div className="college-list-count">

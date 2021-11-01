@@ -344,7 +344,6 @@ const DashboardBasicInfo = (props) => {
 
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
-      console.log(props.data);
       setFullName(props.data.fullName);
       setDob(props.data.DOB);
       setSelectedLevel({

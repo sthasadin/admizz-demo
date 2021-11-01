@@ -51,7 +51,7 @@ const FilteredByCourseLevel = (props) => {
   const classes = useStyles();
 
   const filterItem = courseLevel.filter((item) => {
-    return item.toLowerCase().includes(searchKey.toLowerCase());
+    return item._id.toLowerCase().includes(searchKey.toLowerCase());
   });
 
   return (
@@ -96,21 +96,21 @@ const FilteredByCourseLevel = (props) => {
                   className="college-list-selected-filter__filterStreamContainer"
                 >
                   <FormControlLabel
-                    name={course}
+                    name={course._id}
                     onChange={handleCourseChange}
                     control={
                       <CustomizeCheckBox
-                        name={course}
+                        name={course._id}
                         style={{ paddingBottom: "0" }}
                       />
                     }
-                    checked={filterObj.course_level.includes(course)}
+                    checked={filterObj.course_level.includes(course._id)}
                     label={
-                      course === "postgraduate"
+                      course._id === "postgraduate"
                         ? "post graduate"
-                        : course === "undergraduate"
+                        : course._id === "undergraduate"
                         ? "under graduate"
-                        : course
+                        : course._id
                     }
                     className={`${classes.root} college-list-selected-filter__checkboxLabel`}
                   />

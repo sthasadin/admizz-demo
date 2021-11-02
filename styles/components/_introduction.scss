@@ -294,7 +294,7 @@
     &__thumbnail {
       height: 100%;
       z-index: 2;
-      width: 500px;
+      // width: 500px;
       float: right;
       position: relative;
       @media (max-width: 1210px) {
@@ -332,7 +332,7 @@
       img {
         height: 100%;
         width: 100%;
-        object-fit: cover;
+        object-fit: contain;
         z-index: 2;
         @media (max-width: 1210px) {
           height: 84%;

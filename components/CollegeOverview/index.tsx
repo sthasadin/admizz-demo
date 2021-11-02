@@ -16,7 +16,7 @@ const CollegeOverview = () => {
   return (
     <div id="overview" className="overview">
       <div className="overview__title-wrap">
-        <div className="overview__title">OVERVIEW</div>
+        <div className="overview__title">Course Highlights</div>
         <time className="overview__date">
           Update On: {moment(college?.updateAt).format("YYYY MMM DD")}
         </time>

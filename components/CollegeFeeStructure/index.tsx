@@ -187,7 +187,7 @@ const FeeStructure = (props: any) => {
                     <div className="course-fee__course">{p.name}</div>
                   </Link>
                   <div className="course-fee__fee">
-                    <span className="title">{p.fee_per_sem}</span>
+                    <span className="title">{p.fee_per_sem}K</span>
                     <span>Estimated Fee</span>
                   </div>
                   <div className="course-fee__eligibility">

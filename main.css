@@ -1318,6 +1318,10 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   border-top-right-radius: 5px;
   position: relative;
   height: 167px;
+  background-image: linear-gradient(
+    rgba(0, 38, 12, 0.781),
+    rgba(12, 6, 6, 0.918)
+  );
 }
 
 .colleges-card__thumbnail img {
@@ -1338,7 +1342,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 
 .colleges-card__title {
   font-size: 16px;
-  color: #fff;
+  color: #ffffff;
   font-weight: 700;
   line-height: 22px;
   margin-bottom: 4px;

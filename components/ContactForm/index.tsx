@@ -243,7 +243,7 @@ const ContactForm = () => {
         onClose={() => setSnackOpen(false)}
       >
         <Alert onClose={() => setSnackOpen(false)} severity="success">
-          Thanks for contacting us. We will get in touch with u as possible.
+          Thanks for contacting us. We will get in touch with you as possible.
         </Alert>
       </Snackbar>
     </div>

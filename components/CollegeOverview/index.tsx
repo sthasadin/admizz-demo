@@ -11,6 +11,7 @@ const CollegeOverview = () => {
   const [open, setOpen] = useState(false);
 
   const college = useSelector((state) => state.college.college);
+  console.log(college.video_360);
 
   return (
     <div id="overview" className="overview">
@@ -43,7 +44,7 @@ const CollegeOverview = () => {
       )}
 
       <div className="overview__block-wrap">
-        {college.QS_ranking && (
+        {college?.QS_ranking && (
           <div className="overview__block">
             <div className="overview__block__icon">
               <img src="/college-overview.png" alt="" />
@@ -52,7 +53,7 @@ const CollegeOverview = () => {
             <div className="overview__block__subheading">QS Ranking</div>
           </div>
         )}
-        {college.nirf && (
+        {college?.nirf && (
           <div className="overview__block">
             <div className="overview__block__icon">
               <img src="/college-overview.png" alt="" />
@@ -61,7 +62,7 @@ const CollegeOverview = () => {
             <div className="overview__block__subheading">NIRF Ranking</div>
           </div>
         )}
-        {college.university_ranking && (
+        {college?.university_ranking && (
           <div className="overview__block">
             <div className="overview__block__icon">
               <img src="/college-overview.png" alt="" />
@@ -74,7 +75,7 @@ const CollegeOverview = () => {
             </div>
           </div>
         )}
-        {college.highest_package && (
+        {college?.highest_package && (
           <div className="overview__block">
             <div className="overview__block__icon">
               <img src="/college-overview.png" alt="" />
@@ -85,7 +86,7 @@ const CollegeOverview = () => {
             <div className="overview__block__subheading">Highest Package</div>
           </div>
         )}
-        {college.mim_cost_living && (
+        {college?.mim_cost_living && (
           <div className="overview__block">
             <div className="overview__block__icon">
               <img src="/college-overview.png" alt="" />

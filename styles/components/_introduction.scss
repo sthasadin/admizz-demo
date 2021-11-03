@@ -65,6 +65,13 @@
     padding-left: 0;
   }
 
+  &__bannerimg {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    z-index: 10;
+  }
+
   &__freecounseling {
     position: absolute;
     z-index: 10;
@@ -126,6 +133,7 @@
     }
   }
   &__title {
+    width: 60%;
     font-size: 64px;
     line-height: 77px;
     font-weight: 800;

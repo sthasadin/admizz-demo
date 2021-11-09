@@ -24,6 +24,7 @@ const Introduction = (props) => {
 
   return (
     <div className="introduction">
+      <img src={imgSrc} alt="..." className="introduction__bannerimg"/>
       <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
           <div className="introduction__header">{`You just dream it ${title}`}</div>
@@ -194,7 +195,7 @@ const Introduction = (props) => {
         <div className="introduction__right">
           {/* <div className="introduction__right__background"></div> */}
           <div className="introduction__right__thumbnail">
-            <img src={imgSrc} alt="..." />
+            
           </div>
         </div>
       </div>

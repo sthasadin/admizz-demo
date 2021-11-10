@@ -52,7 +52,9 @@ export const DashboardAcademicInfo = (props) => {
     subMars: { listining: "", writing: "", reading: "", speaking: "" },
   });
 
-  const { selectedLevel } = props.selectedLevel;
+ const { value: selectedLevel } = props?.selectedLevel?.selectedLevel;
+//  console.log("selectedLevel",props?.selectedLevel)
+
 
   const [certificatesImage, setCertificatesImage] = useState({
     highSchool: null,

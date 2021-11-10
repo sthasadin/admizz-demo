@@ -67,6 +67,7 @@ const DashboardBasicInfoPage = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const [authUser, setAuthUser] = useState({});
+  const [stepTrack, setStepTrack] = useState(0);
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed] = React.useState<{ [k: number]: boolean }>({});
   const steps = [
@@ -86,7 +87,9 @@ const DashboardBasicInfoPage = () => {
     const user = await dispatch(getAuthUser(id));
     setAuthUser(user);
   };
-
+  useEffect(() => {
+    console.log("stepTrack =>", stepTrack);
+  }, [stepTrack]);
   // window.onload = function () {
   //   initBeforeUnLoad(showExitPrompt, setShowExitPrompt);
   // };
@@ -124,6 +127,7 @@ const DashboardBasicInfoPage = () => {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    // setStepTrack((stepTrack) => stepTrack - 1);
   };
 
   const handleNext = async () => {
@@ -134,10 +138,15 @@ const DashboardBasicInfoPage = () => {
           steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1;
     setActiveStep(newActiveStep);
+    if (newActiveStep > stepTrack) {
+      setStepTrack(newActiveStep);
+    }
   };
 
   const handleStep = (step) => () => {
-    setActiveStep(step);
+    if (step <= stepTrack) {
+      setActiveStep(step);
+    }
   };
 
   const getStepContent = (step: number) => {

@@ -46,12 +46,14 @@ const selectCollege = ({
     if (response.isSuccess) {
       setRawColleges(response.data);
       setallColleges(
-        response?.data?.map(
-          ({ college: { name: label, college_slug: value } }) => ({
-            label,
-            value,
-          })
-        )
+        response?.data?.map((item) => {
+          if (item.college) {
+            return {
+              label: item.college.name,
+              value: item.college.college_slug,
+            };
+          }
+        })
       );
     }
   };

@@ -1,7 +1,5 @@
 import React from "react";
-import { useRouter } from "next/router";
 const DashboardDetailInfo = ({ application }) => {
-  const router = useRouter();
   const { basicInformation, backgroundInformation, selectedChoice } =
     application || {};
   return (
@@ -176,7 +174,7 @@ const DashboardDetailInfo = ({ application }) => {
             <div className="dashboard-detail-info__cardRow">
               <div className="dashboard-detail-info__keyText">Level</div>
               <div className="dashboard-detail-info__valueText">
-                {application?.basicInformation?.selectedLevel}
+                {application?.basicInformation?.selectedLevel.value}
               </div>
             </div>
             <div className="dashboard-detail-info__cardRow">

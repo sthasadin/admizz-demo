@@ -227,7 +227,7 @@ const Login = () => {
                 showPassword={showPassword}
               />
               <div className="signin__forgot">
-                <a href="#">Forgot Password?</a>
+                <a href="/login/forgotPassword">Forgot Password?</a>
               </div>
               <div
                 className="signin__submit column"

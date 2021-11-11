@@ -303,7 +303,7 @@ export const DashboardAcademicInfo = (props) => {
                     xs={12}
                   >
                     <div className="dashboard-basic-info__formText">
-                      Diploma Scroes
+                      Diploma Scores
                     </div>
                     <Input
                       className={"dashboard-basic-info__input"}

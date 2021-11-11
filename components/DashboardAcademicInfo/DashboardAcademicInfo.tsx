@@ -52,8 +52,10 @@ export const DashboardAcademicInfo = (props) => {
     subMars: { listining: "", writing: "", reading: "", speaking: "" },
   });
 
-  const { selectedLevel } = props.selectedLevel;
+ const { value: selectedLevel } = props?.selectedLevel?.selectedLevel;
+ //console.log("selectedLevel",props?.selectedLevel)
 
+//const {selectedLevel}  ="diploma";
   const [certificatesImage, setCertificatesImage] = useState({
     highSchool: null,
     school: null,
@@ -301,7 +303,7 @@ export const DashboardAcademicInfo = (props) => {
                     xs={12}
                   >
                     <div className="dashboard-basic-info__formText">
-                      Diploma Scroes
+                      Diploma Scores
                     </div>
                     <Input
                       className={"dashboard-basic-info__input"}

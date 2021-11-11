@@ -235,9 +235,11 @@ const index = () => {
 
       <div className="placement__notablealumni">
         <span>Our Notable Alumni</span>
+        {viewAllAlmuni && viewAllAlmuni > 0 &&(
         <span className="text__right" onClick={() => setViewAllAlmuni(true)}>
           {viewAllAlmuni ? null : "View all Alumni"}
         </span>
+        )}
       </div>
       <div className="placement__studentlist">
         {alumnis ? (

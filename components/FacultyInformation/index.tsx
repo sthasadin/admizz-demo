@@ -59,9 +59,9 @@ const FacultyInformation = (props: any) => {
                   <div className="faculty-information__circle__label">
                     {c.name}
                   </div>
-                  <div className="faculty-information__circle__desc">
+                  {/* <div className="faculty-information__circle__desc">
                     Description
-                  </div>
+                  </div> */}
                 </div>
               );
             })}

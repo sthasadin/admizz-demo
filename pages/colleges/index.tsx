@@ -252,9 +252,9 @@ const collegeList = () => {
                   />
                 </div>
               </div>
-              <div className="college-list__headerSubtitle">
+              {/* <div className="college-list__headerSubtitle">
                 Eg: Jain University, Manipur, BMS
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="college-list__college-container">

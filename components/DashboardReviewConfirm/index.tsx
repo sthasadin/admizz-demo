@@ -607,7 +607,7 @@ const DashboardReviewConfirm = (props) => {
                         >
                           {" "}
                           {toTitleCase(
-                            backgroundInfo.passportDetails.nameOnPassport
+                            backgroundInfo?.passportDetails?.nameOnPassport
                           )}
                         </p>
                       </div>

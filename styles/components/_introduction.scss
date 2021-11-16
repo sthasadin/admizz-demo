@@ -65,6 +65,13 @@
     padding-left: 0;
   }
 
+  &__bannerimg {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    z-index: 10;
+  }
+
   &__freecounseling {
     position: absolute;
     z-index: 10;
@@ -126,6 +133,7 @@
     }
   }
   &__title {
+    width: 60%;
     font-size: 64px;
     line-height: 77px;
     font-weight: 800;
@@ -294,7 +302,7 @@
     &__thumbnail {
       height: 100%;
       z-index: 2;
-      width: 500px;
+      // width: 500px;
       float: right;
       position: relative;
       @media (max-width: 1210px) {
@@ -332,7 +340,7 @@
       img {
         height: 100%;
         width: 100%;
-        object-fit: cover;
+        object-fit: contain;
         z-index: 2;
         @media (max-width: 1210px) {
           height: 84%;

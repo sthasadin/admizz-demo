@@ -2,7 +2,7 @@ import React from "react";
 import renderHTML from "react-render-html";
 
 const CourseOutline = ({ data }) => {
-  console.log(data);
+ 
 
   return (
     <div id="outline" className="course-outline">
@@ -15,7 +15,9 @@ const CourseOutline = ({ data }) => {
         <div className="course-title">{data?.name} Course Syallbus</div>
 
         <div className="syallbus-container">
+          
           {renderHTML(data?.course_outline)}
+         
         </div>
       </div>
     </div>

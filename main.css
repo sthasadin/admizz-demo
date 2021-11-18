@@ -8363,7 +8363,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 
 .rankingawards__section .rankingawards__tabletitle div {
   font-size: 16px;
-  line-height: 24px;
+  /* line-height: 24px; */
   font-weight: 500;
   color: #828282;
 }

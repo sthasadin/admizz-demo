@@ -183,7 +183,7 @@ const selectCollege = ({
           xs={12}
         >
           <DropDownSelect
-            title="Choose Steam"
+            title="Choose Stream"
             options={allStreams}
             defaultvalue={selectedStream}
             handleChange={(e) => setSelectedStream(e)}

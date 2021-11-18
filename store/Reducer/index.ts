@@ -26,5 +26,5 @@ export default combineReducers({
     filter: filterList,
     footer,
     search,
-    favouriteReducer
+    favourites:favouriteReducer
 })

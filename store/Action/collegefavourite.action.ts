@@ -6,9 +6,9 @@ import { number } from "yup";
 
 const FavouritesService = new favouritesService();
 
-export const getFavourites = () => async (dispatch: Dispatch) => {
+export const getFavourites = (userid : String) => async (dispatch: Dispatch) => {
     dispatch(init(FAVOURITES.USER_FAVOURITES));
-    const response = await FavouritesService.getFavourites({userid: String});
+    const response = await FavouritesService.getFavourites(userid);
     dispatch(finish(FAVOURITES.USER_FAVOURITES));
 
     if(response.isSuccess) {
@@ -18,9 +18,9 @@ export const getFavourites = () => async (dispatch: Dispatch) => {
     }
 }
 
-export const addToFavourites = () => async(dispatch : Dispatch) => {
+export const addToFavourites = (favdata : any) => async(dispatch : Dispatch) => {
     dispatch(init(FAVOURITES.ADD_TO_FAVOURITES));
-    const response = await FavouritesService.addToFavourite({favdata: {}});
+    const response = await FavouritesService.addToFavourite(favdata);
     dispatch(finish(FAVOURITES.ADD_TO_FAVOURITES));
 
     if(response.isSuccess) {

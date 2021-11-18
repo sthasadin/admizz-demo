@@ -9,20 +9,18 @@ import {
 
 interface CollegeProps {
   collegeList: Array<any>;
-  loader: boolean;
 }
 
-const Favourites: FC<CollegeProps> = ({ collegeList, loader }) => {
+const Favourites: FC<CollegeProps> = ({ collegeList}) => {
   return (
     <div className="dashboard-recommend">
       <div className="dashboard-recommend__title">Favourite Colleges</div>
 
       <div className="dashboard-recommend__collegeList">
-        {loader && <CollegeCardLoader count={4} />}
-        {!loader &&
-          collegeList &&
+       
+        { collegeList &&
           collegeList.slice(0, 4).map((college: any, i) => {
-            return <CollegesCard {...college} key={i} />;
+            return <CollegesCard {...college.college} key={i} />;
           })}
       </div>
     </div>

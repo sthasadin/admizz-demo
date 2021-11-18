@@ -3,9 +3,7 @@ import {
 } from "../const";
 
 const initialState = {
-    userFavorite: "No favourites added!", 
-    addToFavourite: {},
-    removeFavorite: {},
+    userFavorite: []
 }
 
 export default (state = initialState, action) => {
@@ -14,7 +12,9 @@ export default (state = initialState, action) => {
     case FAVOURITES.USER_FAVOURITES:
         return {
             ...state,
-            userFavorite: payload.userFavorite,
+            userFavorite: payload,
         }
+    default:
+        return state
     }
 }

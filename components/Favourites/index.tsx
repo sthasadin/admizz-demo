@@ -3,6 +3,10 @@ import React, { FC } from "react";
 import { CollegesCard } from "../collegesBlock/collegesCard";
 import { CollegeCardLoader } from "../SkeletonLoading/CollegeCardLoader";
 
+import {
+  getFavourites
+} from "../../store/Action/collegefavourite.action";
+
 interface CollegeProps {
   collegeList: Array<any>;
   loader: boolean;

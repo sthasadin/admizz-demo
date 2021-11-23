@@ -45,7 +45,7 @@ const SimilarCourses = ({ data }) => {
         <SimilarCoursesList />
         <SimilarCoursesList /> */}
       </div>
-      <div className="explore-all">Explore All Courses</div>
+      {/* <div className="explore-all">Explore All Courses</div> */}
     </div>
   );
 };

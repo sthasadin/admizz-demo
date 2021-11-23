@@ -1,6 +1,6 @@
 // export const API_BASE_URL = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
 export const API_BASE_URL = "https://admizzapi.asterdio.xyz";
-//export const API_BASE_URL ="http://localhost:3005"
+// export const API_BASE_URL ="http://localhost:3005"
 
 export const GLOBAL_ERROR = "GLOBAL_ERROR";
 export const SUCCESS = "SUCCESS";
@@ -17,6 +17,13 @@ export const BLOG_TYPES = {
 };
 
 export const GET_COLLEGE_NEWS = "GET_COLLEGE_NEWS";
+
+// favourites
+export const FAVOURITES = {
+  USER_FAVOURITES: "USER_FAVORITES",
+  ADD_TO_FAVOURITES: "ADD_TO_FAVOURITES",
+  REMOVE_FAVOURITES: "REMOVE_FAVOURITES",
+};
 
 //college
 export const COLLEGES_TYPES = {

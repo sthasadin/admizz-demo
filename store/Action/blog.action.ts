@@ -30,6 +30,8 @@ export const getBlog = (blog_slug) => async (dispatch: Dispatch) => {
   }
 };
 
+
+
 export const getNewsOfCollege = (college_slug) => async (
   dispatch: Dispatch
 ) => {

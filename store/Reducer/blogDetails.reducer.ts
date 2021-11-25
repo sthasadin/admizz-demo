@@ -1,7 +1,9 @@
 import { GET_Blog_Detail } from "../const";
 
+
 const inititalState = {
   blog: {},
+
 };
 
 const BlogReducer = (state = inititalState, { type, payload }) => {

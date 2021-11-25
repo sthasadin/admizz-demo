@@ -12,6 +12,7 @@ import courses from './courses.reducer'
 import filterList from './filterList.reducer'
 import footer from './footer.reducer'
 import search from './allSearch.reducer'
+import singleBlog from './blogDetails.reducer';
 
 export default combineReducers({
     collageDetails: collageDetailsReducer,
@@ -26,5 +27,6 @@ export default combineReducers({
     filter: filterList,
     footer,
     search,
-    favourites:favouriteReducer
+    favourites:favouriteReducer,
+    singleBlog
 })

@@ -21,8 +21,8 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 // import FacebookIcon from "@material-ui/icons/Facebook";
 // import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-// import { getBlogDetail } from "../../store/Action/blogDetails.action";
-import { getBlog } from "../../store/Action/blog.action";
+import { getBlogDetail } from "../../store/Action/blogDetails.action";
+//import { getBlog } from "../../store/Action/blog.action";
 import BlogComment from "../../components/BlogComment";
 
 const blogDetail = () => {
@@ -40,14 +40,12 @@ const blogDetail = () => {
     setOpen(false);
   };
 
+  const { blog } = useSelector((state) => state.blogDetails);
+  //const blog = useSelector((state) => state.blog.blog);
   useEffect(() => {
-    // dispatch(getBlogDetail(slug));
-    dispatch(getBlog(slug));
+    dispatch(getBlogDetail(slug));
+    // dispatch(getBlog(slug));(
   }, [slug]);
-
-  // const { blog } = useSelector((state) => state.blogDetails);
-  const blog = useSelector((state) => state.blog.blog);
-
   return (
     <BlogLayout title={blog?.blog_title}>
       <div className="container section-wrapper">
@@ -64,12 +62,12 @@ const blogDetail = () => {
                 <div className="blog-detail__postValue">
                   <b>{`Posted by: ${blog?.author}`}</b>
                 </div>
-                <div className="blog-detail__postValue">
+                {/* <div className="blog-detail__postValue">
                   <b>50</b> Views
                 </div>
                 <div className="blog-detail__postValue">
                   <b>60</b> Comments
-                </div>
+                </div> */}
               </div>
               <div className="blog-detail__shareInfoContainer">
                 <div className="blog-detail__buttonContainer">
@@ -130,9 +128,9 @@ const blogDetail = () => {
             </div>
           </div>
           <div className="container">
-            <div className="blog-detail__bannerImage">
+            {/* <div className="blog-detail__bannerImage">
               <img className="blog-detail__image" src="/ads-banner.png" />
-            </div>
+            </div> */}
             <div className="blog-detail__main" style={{ marginTop: "30px" }}>
               <BlogDetailContent {...blog} />
             </div>
@@ -150,7 +148,7 @@ const blogDetail = () => {
                     {blog?.author}
                   </p>
                   <p className="blog-detail-content__autherTitle">
-                    Software Engineer
+                    {blog?.author}
                   </p>
                 </div>
               </div>

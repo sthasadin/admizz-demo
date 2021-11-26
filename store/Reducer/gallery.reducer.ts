@@ -3,7 +3,6 @@ import { GET_ALL_GALLERY } from "../const";
 
 const inititalState = {
     gallery: {},
-  
   };
 
   const GalleryReducer = (state = inititalState, {type,payload}) =>{
@@ -11,7 +10,7 @@ const inititalState = {
           case GET_ALL_GALLERY:
               return {
                   ...state,
-                  blog:payload
+                  gallery:payload
               };
               default:
                   return state;

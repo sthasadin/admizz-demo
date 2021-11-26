@@ -3,19 +3,8 @@ import { useSelector,useDispatch } from "react-redux";
 import { getGallery } from "@/store/Action/gallery.action";
 import ReactPlayer from "react-player";
 
-import gallery from "../../public/gallery.png";
-import gallery1 from "../../public/gallery1.png";
-import gallery2 from "../../public/gallery2.png";
-import gallery3 from "../../public/gallery3.png";
-import gallery4 from "../../public/gallery4.png";
-import gallery5 from "../../public/gallery5.png";
-import gallery6 from "../../public/gallery6.png";
-import gallery7 from "../../public/gallery7.png";
-import gallery8 from "../../public/gallery8.png";
-
 const CollegeGallery = (props) => {
-  const photos = useSelector((state) => state.college.college?.college_photos);
-  const videos = useSelector((state) => state.college.college?.college_videos);
+  const college = useSelector((state) => state.college.college);
 
   const gallery = useSelector((state) =>state.gallery.images);
   const dispatch = useDispatch();
@@ -25,6 +14,7 @@ const CollegeGallery = (props) => {
   }, []);
 
   const {images} = gallery;
+  console.log({images});
   return photos?.length || videos?.length ? (
     <div id="gallery" className="college-gallery">
       <div className="college-gallery__inner">
@@ -35,25 +25,21 @@ const CollegeGallery = (props) => {
         <div className="college-gallery__heading">
           Photos <span>{photos?.length}</span>
         </div>
-    {images.map(image) => {
+    {images?.map((image:any) => {
         <div className="college-gallery__list">
           <div className="college-gallery__left">
             <div className="college-gallery__left__t">
               <div className="college-gallery__left__t__l">
-                <div className="college-gallery__item">
-                  return(
+                <div className="college-gallery__item">     
                   <img src={image} alt="" />
-                  )
                 </div>
-               
               </div>
              
             </div>
-           
           </div>
       
         </div>
-        }}
+        })}
         <div className="college-gallery__heading">
           Videos <span>({videos?.length})</span>
         </div>

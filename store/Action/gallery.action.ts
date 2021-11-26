@@ -3,7 +3,7 @@ import { GET_ALL_GALLERY } from "../const";
 import { api } from "../api/api";
 
 
-export const getGallery = () =>async (dispatch:Dispatch) =>{
+export const getGallery = (college_id: string) =>async (dispatch:Dispatch) =>{
     api
     .get("/gallery")
     .then((res)=>{
@@ -15,4 +15,5 @@ export const getGallery = () =>async (dispatch:Dispatch) =>{
     .catch((err)=>{
         console.log(err);
     })
+    return `/gallery/${college_id}`;
 }

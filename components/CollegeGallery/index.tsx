@@ -3,15 +3,6 @@ import { useSelector,useDispatch } from "react-redux";
 import { getGallery } from "@/store/Action/gallery.action";
 import ReactPlayer from "react-player";
 
-import gallery from "../../public/gallery.png";
-import gallery1 from "../../public/gallery1.png";
-import gallery2 from "../../public/gallery2.png";
-import gallery3 from "../../public/gallery3.png";
-import gallery4 from "../../public/gallery4.png";
-import gallery5 from "../../public/gallery5.png";
-import gallery6 from "../../public/gallery6.png";
-import gallery7 from "../../public/gallery7.png";
-import gallery8 from "../../public/gallery8.png";
 
 const CollegeGallery = (props) => {
   const photos = useSelector((state) => state.college.college?.college_photos);

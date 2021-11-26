@@ -43,6 +43,8 @@ const CollegeHeader = ({
   const handleClick = () => {
     let data = {"college":college_id,"user":user.uid}
     dispatch(addToFavourites(data))
+    setClick((click) => !click);
+    setSnackOpen(true);
   }
 
   return (
@@ -135,10 +137,9 @@ const CollegeHeader = ({
             <div className="college-header__task">
               <div
                 className="task__logo"
-                onClick={() => {
-                  setClick((click) => !click);
-                  setSnackOpen(true);
-                }}
+                onClick={
+                  handleClick
+                }
               >
                 <svg
                   width="22"

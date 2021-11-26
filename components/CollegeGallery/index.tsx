@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
-
+import { useSelector,useDispatch } from "react-redux";
+import { getGallery } from "@/store/Action/gallery.action";
 import ReactPlayer from "react-player";
 
 import gallery from "../../public/gallery.png";
@@ -17,6 +17,14 @@ const CollegeGallery = (props) => {
   const photos = useSelector((state) => state.college.college?.college_photos);
   const videos = useSelector((state) => state.college.college?.college_videos);
 
+  const gallery = useSelector((state) =>state.gallery.images);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getGallery());
+  }, []);
+
+  const {images} = gallery;
   return photos?.length || videos?.length ? (
     <div id="gallery" className="college-gallery">
       <div className="college-gallery__inner">
@@ -27,51 +35,25 @@ const CollegeGallery = (props) => {
         <div className="college-gallery__heading">
           Photos <span>{photos?.length}</span>
         </div>
+    {images.map(image) => {
         <div className="college-gallery__list">
           <div className="college-gallery__left">
             <div className="college-gallery__left__t">
               <div className="college-gallery__left__t__l">
                 <div className="college-gallery__item">
-                  <img src={photos?.[0] || gallery} alt="" />
+                  return(
+                  <img src={image} alt="" />
+                  )
                 </div>
-                <div className="college-gallery__item">
-                  <img src={photos?.[1] || gallery1} alt="" />
-                </div>
+               
               </div>
-              <div className="college-gallery__left__t__r">
-                <div className="college-gallery__item">
-                  <img src={photos?.[2] || gallery2} alt="" />
-                </div>
-              </div>
+             
             </div>
-            <div className="college-gallery__left__b">
-              <div className="college-gallery__item">
-                <img src={photos?.[3] || gallery3} alt="" />
-              </div>
-              <div className="college-gallery__item">
-                <img src={photos?.[4] || gallery4} alt="" />
-              </div>
-            </div>
+           
           </div>
-          <div className="college-gallery__right">
-            <div className="college-gallery__right__t">
-              <div className="college-gallery__item left">
-                <img src={photos?.[5] || gallery5} alt="" />
-              </div>
-              <div className="college-gallery__item right">
-                <img src={photos?.[6] || gallery6} alt="" />
-              </div>
-            </div>
-            <div className="college-gallery__right__b">
-              <div className="college-gallery__item">
-                <img src={photos?.[7] || gallery7} alt="" />
-              </div>
-              <div className="college-gallery__item">
-                <img src={photos?.[8] || gallery8} alt="" />
-              </div>
-            </div>
-          </div>
+      
         </div>
+        }}
         <div className="college-gallery__heading">
           Videos <span>({videos?.length})</span>
         </div>

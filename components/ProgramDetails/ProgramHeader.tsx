@@ -1,7 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
+import { useSelector } from "react-redux";
 import Snackbar from "@material-ui/core/Snackbar";
 import bgImage from "../../public/course-bgimage.png";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { useDispatch } from "react-redux";
+import { addToFavourites } from "@/store/Action/collegefavourite.action";
+import { AuthContext } from "pages/AuthContext";
+
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -9,6 +14,17 @@ function Alert(props: AlertProps) {
 const ProgramHeader = ({ data }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
+  const dispatch = useDispatch();
+  const college = useSelector((state) => state.college.college);
+
+  const { user } = useContext(AuthContext);
+
+  const handleClick = () => {
+    let data = {"college":college._id,"user":user.uid}
+    dispatch(addToFavourites(data))
+    setClick((click) => !click);
+    setSnackOpen(true);
+  }
 
   return (
     <div
@@ -54,7 +70,7 @@ const ProgramHeader = ({ data }) => {
                   />
                 </svg>
               </div>
-              <div className="task__title">Add to Favourite</div>
+              <div className="task__title" onClick={handleClick}>Add to Favourite</div>
             </div>
           </div>
         </div>

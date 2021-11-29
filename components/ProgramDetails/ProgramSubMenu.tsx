@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import { useDispatch } from "react-redux";
 import { addToFavourites } from "@/store/Action/collegefavourite.action";
+import { AuthContext } from "pages/AuthContext";
+
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -13,10 +16,14 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const dispatch = useDispatch();
+  const college = useSelector((state) => state.college.college);
+  const { user } = useContext(AuthContext);
 
   const handleClick = () => {
-    let data = {"college":"60138a2c50ccc8fef5b00c8b","user":"rwDHoHpGkpNiF5Ku7jIAAxZKYUq1"}
+    let data = {"college":college._id,"user":user.uid}
     dispatch(addToFavourites(data))
+    setClick((click) => !click);
+    setSnackOpen(true);
   }
 
   // const handleScroll = () => {
@@ -52,10 +59,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
                 <div className="college-right-content">
                   <div
                     className="task__logo"
-                    onClick={() => {
-                      setClick((click) => !click);
-                      setSnackOpen(true);
-                    }}
+                    onClick={handleClick}
                   >
                     <svg
                       width="22"

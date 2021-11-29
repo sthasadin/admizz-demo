@@ -66,7 +66,7 @@ const CollegeListResult: FC<CollegeProps> = ({
       )}
 
       <InfiniteScroll
-        dataLength={collegeList.length}
+        dataLength={collegeList?.length}
         loader={
           <div className="college-list-result-loader-container">
             <CollegeCardLoader count={3} />

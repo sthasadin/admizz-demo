@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-scroll";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { useDispatch } from "react-redux";
+import { addToFavourites } from "@/store/Action/collegefavourite.action";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -10,6 +12,12 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
   // const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    let data = {"college":"60138a2c50ccc8fef5b00c8b","user":"rwDHoHpGkpNiF5Ku7jIAAxZKYUq1"}
+    dispatch(addToFavourites(data))
+  }
 
   // const handleScroll = () => {
   //   if (window.scrollY > 390) {
@@ -64,7 +72,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
                       />
                     </svg>
                   </div>
-                  <div className="task__title">Add to Favourite</div>
+                  <div className="task__title" onClick={handleClick}>Add to Favourite</div>
                 </div>
               </div>
             </div>

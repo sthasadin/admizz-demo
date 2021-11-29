@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Modal from "@material-ui/core/Modal";
 import Fade from "@material-ui/core/Fade";
 import Backdrop from "@material-ui/core/Backdrop";
 import ReactPlayer from "react-player";
+import { useDispatch } from "react-redux";
+import { addToFavourites } from "@/store/Action/collegefavourite.action";
+import { AuthContext } from "pages/AuthContext";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
 const CollegeHeader = ({
+  college_id,
   collageLogo,
   name,
   estblished,
@@ -25,6 +29,8 @@ const CollegeHeader = ({
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
+  const { user } = useContext(AuthContext);
 
   const handleOpen = () => {
     setOpen(true);
@@ -33,6 +39,11 @@ const CollegeHeader = ({
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleClick = () => {
+    let data = {"college":college_id,"user":user.uid}
+    dispatch(addToFavourites(data))
+  }
 
   return (
     <div
@@ -144,7 +155,7 @@ const CollegeHeader = ({
                   />
                 </svg>
               </div>
-              <div className="task__title">Add to Favourite</div>
+              <div className="task__title" onClick={handleClick}>Add to Favourite</div>
             </div>
             <div className="college-header__task">
               <div className="task__logo" onClick={handleOpen}>

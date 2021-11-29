@@ -3,7 +3,7 @@ import award from "../../public/award.png";
 import moment from "moment";
 
 const RankingTable = (props) => {
-  const { authorityLogo, rank } = props;
+  const { authorityLogo, rank , rank_year} = props;
 
   return (
     <div className="rankingawards__awardsbox">
@@ -15,29 +15,18 @@ const RankingTable = (props) => {
           />
         </div>
         <div style={{ color: "#ffa200" }}>
-          {
-            rank.find((r: any) => r.date == moment().subtract(3, "year").year())
-              ?.rank
-          }{" "}
+          { rank_year == moment().subtract(3, "year").year() ? rank : "" }
         </div>
         <div style={{ color: "#ffa200" }}>
-          {
-            rank.find((r: any) => r.date == moment().subtract(2, "year").year())
-              ?.rank
-          }
+          { rank_year == moment().subtract(2, "year").year() ? rank : "" }
         </div>
         <div style={{ color: "#ffa200" }}>
-          {
-            rank.find((r: any) => r.date == moment().subtract(1, "year").year())
-              ?.rank
-          }
+          { rank_year == moment().subtract(1, "year").year() ? rank : "" }
         </div>
         <div style={{ color: "#ffa200" }}>
-          {
-            rank.find((r: any) => r.date == moment().subtract(0, "year").year())
-              ?.rank
-          }
+          { rank_year == moment().subtract(0, "year").year() ? rank : "" }
         </div>
+        
       </div>
     </div>
   );

@@ -36,6 +36,8 @@ const BlogListLatestPost = ({ blogArray }) => {
                 return (
                   <div className="blog-list-member__secondaryPost" key={i}>
                     <SingleBlogCard
+                      slug={blog?.blog_slug}
+                      
                       type={blog?.category}
                       auther={blog?.author}
                       time={`${calculateReadingTime(
@@ -45,6 +47,7 @@ const BlogListLatestPost = ({ blogArray }) => {
                       desc={removeHtmlChar(blog?.blog_desc)}
                       backgroundImg={blog?.blog_imageURL}
                     />
+                   {/* { console.log("slug",blog?.blog_slug)} */}
                   </div>
                 );
               })}

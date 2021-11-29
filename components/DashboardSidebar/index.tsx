@@ -41,6 +41,12 @@ const DashboardSidebar = () => {
         </div>
         <div
           className={`dashboard-sidebar-tab `}
+          onClick={() => router.push("/favourites")}
+        >
+        My Favourites
+        </div>
+        <div
+          className={`dashboard-sidebar-tab `}
           onClick={() => router.push("/")}
         >
           Back To Home

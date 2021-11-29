@@ -122,6 +122,7 @@ const Home = () => {
       <Layout title={name} stickyBar={false}>
         <main className="main">
           <CollegeHeader
+            college_id={_id}
             name={name}
             collageLogo={college_logo}
             estblished={estd_year}

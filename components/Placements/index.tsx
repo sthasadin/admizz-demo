@@ -235,7 +235,7 @@ const index = () => {
 
       <div className="placement__notablealumni">
         <span>Our Notable Alumni</span>
-        {viewAllAlmuni && viewAllAlmuni > 0 &&(
+        {viewAllAlmuni  &&(
         <span className="text__right" onClick={() => setViewAllAlmuni(true)}>
           {viewAllAlmuni ? null : "View all Alumni"}
         </span>

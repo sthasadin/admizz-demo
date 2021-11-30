@@ -12,7 +12,7 @@ const CollegeFacility = () => {
         <div className="college-facility__list">
           {facilities.map((data, i) => {
             return (
-              <FacilityItem icon={data.values} label={data.label} key={i} />
+              <FacilityItem icon={data.logo} label={data.title} key={i} />
             );
           })}
         </div>

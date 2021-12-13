@@ -4,10 +4,10 @@ import Link from "next/link";
 const tieups = () => {
     return (
         <div className="our-exclusive-container">
-            <div className="our-exclusive-content">
+            <div className="aboutus-exclusive-content">
               <div className="our-trusted-text">our trusted partner</div>
               <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
-              <div className="university-list">
+              <div className="aboutus-university-list">
                 {/* {college &&
                   college?.map((college) => { */}
                     {/* return ( */}

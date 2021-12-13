@@ -93,6 +93,11 @@ const Navbar = (props: any) => {
             <ListItemText primary={"FAQs"} />
           </Link>
         </ListItem>
+        <ListItem button key={"aboutus"} className="navbar__list">
+          <Link href="/aboutus">
+            <ListItemText primary={"aboutus"} />
+          </Link>
+        </ListItem>
         <ListItem button key={"Contact"} className="navbar__list">
           <Link href="/contact-us">
             <ListItemText primary={"Contact"} />
@@ -335,6 +340,13 @@ const Navbar = (props: any) => {
                   } ${searchField ? "d-none" : ""}`}
                 >
                   <Link href="/faq">FAQs</Link>
+                </li>
+                <li
+                  className={`menu-item  ${
+                    router.pathname == "/aboutus" ? "active-navlink" : ""
+                  } ${searchField ? "d-none" : ""}`}
+                >
+                  <Link href="/aboutus">About</Link>
                 </li>
                 <li
                   className={`menu-item  ${

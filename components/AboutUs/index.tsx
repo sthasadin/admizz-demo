@@ -1,7 +1,7 @@
 import React from "react";
-// import Carousel from "../../components/Carousel";
 import Link from "next/link";
 import  ABOUTUS from "./aboutus";
+import International from "./international";
 import { Statistics } from "../statistics/index"
 import { Merits } from "./whychoose"
 import { Us } from "../why-us/index"
@@ -35,14 +35,13 @@ const index = () => {
   return (
     <>
       <Layout title="About Us" stickyBar={true}>
-      <div className="introduction__container">
+      <div className="about__introduction__container">
         <Link href="/free-counseling">
           <div
             className={`${
               active && "active__vertical"
             } vertical__stickycontainer `}
           >
-            <div className="text__content">Free Counseling</div>
             <div className="image">
               <img src="/vertical-arrow.png" alt="free counseling" />
             </div>
@@ -60,6 +59,7 @@ const index = () => {
         <Statistics />
         <Features />
         <Tieups />
+        <International />
         <Teams />
       </div>
       </Layout>

@@ -13,7 +13,7 @@ const tieups = () => {
                     {/* return ( */}
                       <div>
                         <div className="university-icon">
-                          <img src="jio.png" />
+                          <img src="jain.png" />
                         </div>
                         <Link href="#">
                           <div className="university-name">Jain University</div>
@@ -21,7 +21,31 @@ const tieups = () => {
                       </div>
                       <div>
                         <div className="university-icon">
-                          <img src="jio.png" />
+                          <img src="kiit.png" />
+                        </div>
+                        <Link href="#">
+                          <div className="university-name">Kalinga Institute of Technology</div>
+                        </Link>
+                      </div>
+                      <div>
+                        <div className="university-icon">
+                          <img src="jain.png" />
+                        </div>
+                        <Link href="#">
+                          <div className="university-name">Jain University</div>
+                        </Link>
+                      </div>
+                      <div>
+                        <div className="university-icon">
+                          <img src="kiit.png" />
+                        </div>
+                        <Link href="#">
+                          <div className="university-name">Kalinga Institute of Technology</div>
+                        </Link>
+                      </div>
+                      <div>
+                        <div className="university-icon">
+                          <img src="jain.png" />
                         </div>
                         <Link href="#">
                           <div className="university-name">Jain University</div>

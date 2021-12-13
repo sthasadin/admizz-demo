@@ -18,7 +18,7 @@ const Merits = () => {
   };
   return (
     <div className="merit">
-      <div className="merit__inner section-wrapper">
+      <div className="merit__aboutus__inner section-wrapper">
         <div className="merit__left">
           <div className="merit__heading block-heading">About Admizz</div>
           <div className="merit__title block-title">

@@ -24,13 +24,12 @@ const ABOUTUS = (props) => {
     return (
         
         <div className="introduction">
-        <img src={imgSrc} alt="..." className="introduction__bannerimg"/>
         <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
           <div className="introduction__title">
             We help you achieve your big dream
           </div>
-          <div className="introduction__desc">
+          <div className="introduction__aboutus__desc">
             Kickstart your career by starting early. Admizz helps you join the
             right diploma course right after 10th grade so you're always a step ahead of others
           </div>
@@ -100,8 +99,8 @@ const ABOUTUS = (props) => {
         </div>
         <div className="introduction__right">
           {/* <div className="introduction__right__background"></div> */}
-          <div className="introduction__right__thumbnail">
-            
+          <div className="aboutus__right__thumbnail">
+          <img src={imgSrc} alt="..." className="introduction__bannerimg"/>
           </div>
         </div>
       </div>

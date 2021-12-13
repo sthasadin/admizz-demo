@@ -23,6 +23,23 @@
   // @media (min-width: 1360px) {
   //   width: 1240px;
   // }
+
+  &__aboutus__inner {
+    padding: 20px 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-repeat: no-repeat;
+    background-position: top;
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+      background-image: none;
+    }
+    @media (max-width: 500px) {
+      grid-gap: 0;
+    }
+  }
+
   &__inner {
     padding: 20px 0;
 
@@ -51,6 +68,7 @@
       font-size: 24px;
     }
   }
+
   &__heading {
     text-align: left;
     margin-bottom: 12px;

@@ -3,10 +3,10 @@ import AboutUsIntroduction from "../../components/AboutUs/index"
 import Layout from "../../layouts";
 
 
-const ABOUTUS = () => {
+const index = () => {
     return (
         <AboutUsIntroduction />
         )
 }
 
-export default ABOUTUS;
+export default index;

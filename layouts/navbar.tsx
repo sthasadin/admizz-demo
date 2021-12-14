@@ -346,7 +346,7 @@ const Navbar = (props: any) => {
                     router.pathname == "/aboutus" ? "active-navlink" : ""
                   } ${searchField ? "d-none" : ""}`}
                 >
-                  <Link href="/aboutus">About</Link>
+                  <Link href="/aboutus">About Us</Link>
                 </li>
                 <li
                   className={`menu-item  ${

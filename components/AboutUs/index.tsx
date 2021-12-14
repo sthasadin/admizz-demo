@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import  ABOUTUS from "./aboutus";
 import International from "./international";
+import Contact from "./contactus";
 import { Statistics } from "../statistics/index"
 import { Merits } from "./whychoose"
 import { Us } from "../why-us/index"
@@ -61,6 +62,7 @@ const index = () => {
         <Tieups />
         <International />
         <Teams />
+        <Contact />
       </div>
       </Layout>
       <MessengerCustomerChat />

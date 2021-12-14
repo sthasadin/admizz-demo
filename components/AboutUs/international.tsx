@@ -13,6 +13,15 @@ const international = () => {
                 <div className="testimonial-exclusive-content">
                     <div className="our-trusted-text">TESTIMONIALS</div>
                     <div className="aboutus-exclusive-title">What our universities are saying about us.</div>
+                    <div className="aboutus-testimonial-wrapper">
+                        <div className="aboutus-testimonial-content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
+                            Morbi ornare vulputate nulla, non vestibulum nisi. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
+                            Morbi ornare vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Sed eu turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum nisi.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

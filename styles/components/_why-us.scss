@@ -93,6 +93,16 @@
       padding-top: 50px;
     }
   }
+
+  .aboutus-exclusive-content {
+    padding: 80px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @media (max-width: 1024px) {
+      padding-top: 50px;
+    }
+  }
   .our-trusted-text {
     font-size: 16px;
     text-transform: uppercase;
@@ -108,6 +118,38 @@
     font-weight: 800;
     color: #333;
   }
+  .aboutus-exclusive-title {
+    padding-top: 16px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #333;
+    width: 50%;
+    margin: auto;
+  }
+  .aboutus-testimonial-wrapper {
+    width: 100%;
+    margin: auto;
+    padding: 56px 180px 163px 180px;
+  }
+
+  .contact-countries {
+    display: grid;
+  }
+
+  .aboutus-testimonial-content {
+    width: 60%;
+    margin: auto;
+    font-size: 14px;
+    color: #000000;
+    text-align: center;
+  }
+
+  .international-map {
+    background-image: url("../../public/grey-world-map.png");
+    width: auto;
+    height: 813px;
+  }
 }
 
 .university-list {
@@ -121,6 +163,51 @@
 
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .university-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  .university-name {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.aboutus-university-list {
+  // border: 1px solid black;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 8%;
+  // display: flex;
+  // flex-wrap: wrap;
+  gap: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);

@@ -7437,6 +7437,14 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   margin-bottom: 14px;
 }
 
+.aboutus__desc {
+  width: 60%;
+  font-size: 14px;
+  line-height: 21px;
+  color: #333333;
+  margin-bottom: 14px;
+}
+
 @media (max-width: 450px) {
   .introduction__desc {
     margin-top: 36px;
@@ -7607,6 +7615,30 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   left: -50px;
   top: -50px;
   border-radius: 50%;
+}
+
+.aboutus__right__background::after {
+  content: "";
+  height: calc(50vw + 100px);
+  width: calc(50vw + 100px);
+  background-color: transparent;
+  display: block;
+  position: absolute;
+  left: -50px;
+  top: -50px;
+  border-radius: 50%;
+}
+
+.aboutus__right__background::before {
+  content: "";
+  width: 569px;
+  background-image: url("about-background.png");
+  height: 548px;
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  bottom: -50px;
+  right: -134px;
 }
 
 .introduction__right__thumbnail {

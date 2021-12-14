@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BlogLayout } from "../../layouts/BlogLayout";
 import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 import { BlogDetailContent } from "../../components/BlogDetailContent";
-import { BlogDetailMember } from "../../components/BlogDetailMember";
+//import { BlogDetailMember } from "../../components/BlogDetailMember";
 import { Button } from "../../components";
 import Avatar from "@material-ui/core/Avatar";
 import List from "@material-ui/core/List";
@@ -160,7 +160,7 @@ const blogDetail = () => {
               className="blog-detail__imageContainer"
               style={{ height: "100%" }}
             >
-              <BlogDetailMember />
+              {/* <BlogDetailMember /> */}
             </div>
             {/* <div className="blog-detail-content__commentContainer">
               <p className="blog-detail-content__commentTitle">

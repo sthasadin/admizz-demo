@@ -75,7 +75,7 @@ const SelectCounseler: React.FC<Props> = ({
     <div className="select-counseler">
       <div className="select-counseler__header">
         <img src={counseler} className="select-counser__counseler-icon" />
-        <div>Select Counseler</div>
+        <div>Select Counselor</div>
       </div>
       <div className="select-counseler__counseler-list">
         {filteredCounsellor &&

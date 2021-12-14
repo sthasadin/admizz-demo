@@ -23,7 +23,7 @@ const ConfirmBook: React.FC<Props> = ({
   return (
     <div className={"confirm-section"}>
       <div className={"confirm-section__header"}>
-        Review and Conform Your Booking Detail
+        Review and Confirm Your Booking Detail
       </div>
       <div className={"confirm-section__confirm-details"}>
         <div className={"confirm-section__row"}>

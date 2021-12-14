@@ -5,7 +5,7 @@ import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
 // import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 // import { BlogDetailContent } from "../../components/BlogDetailContent";
-import { BlogDetailMember } from "../../components/BlogDetailMember";
+//import { BlogDetailMember } from "../../components/BlogDetailMember";
 import BlogImage from "../../public/blog.png";
 import { Button } from "../../components";
 import Avatar from "@material-ui/core/Avatar";
@@ -106,9 +106,9 @@ const blogDetail = () => {
               <div className="blog-detail__main">
                 {/* <BlogDetailContent /> */}
               </div>
-              <div className="blog-detail__imageContainer">
+              {/* <div className="blog-detail__imageContainer">
                 <BlogDetailMember />
-              </div>
+              </div> */}
             </div>
           </div>
         </main>

@@ -91,6 +91,22 @@ const StudentInfo: React.FC<Props> = ({
           justify="space-around"
           direction="row"
         >
+         
+          <Grid className={"student-info__grid"} item md={6}>
+            <Select
+              name={"home_country"}
+              options={countryList}
+              onChange={handleChange}
+              value={formValue.home_country}
+              errorMessage={formError.home_country}
+              error={!!formError.home_country}
+              className={"student-info__input"}
+              icon={LocationOnIcon}
+              // title={"Home Country"}
+              defaultValue="Home Country"
+            />
+          </Grid>
+
           <Grid className={"student-info__grid"} item md={6}>
             <div className={"student-info__phone-input"}>
               <CountryCodeDropDown
@@ -117,20 +133,6 @@ const StudentInfo: React.FC<Props> = ({
                 placeholder="Phone Number"
               />
             </div>
-          </Grid>
-          <Grid className={"student-info__grid"} item md={6}>
-            <Select
-              name={"home_country"}
-              options={countryList}
-              onChange={handleChange}
-              value={formValue.home_country}
-              errorMessage={formError.home_country}
-              error={!!formError.home_country}
-              className={"student-info__input"}
-              icon={LocationOnIcon}
-              // title={"Home Country"}
-              defaultValue="Home Country"
-            />
           </Grid>
         </Grid>
         <Grid

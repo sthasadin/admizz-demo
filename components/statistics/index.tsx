@@ -36,7 +36,7 @@ const Statistics = () => {
 
             <div className="stat__item">
               <div className="stat__item__count green2">10000+</div>
-              <div className="stat__item__title">REGISTERED STUDNTS</div>
+              <div className="stat__item__title">REGISTERED STUDENTS</div>
             </div>
           </div>
         </div>

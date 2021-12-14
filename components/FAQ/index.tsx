@@ -1,8 +1,11 @@
 import React from "react";
 import { CallToAction } from "../Button/callToAction";
+import { Button } from "../Button";
 import QuickHelp from "./quick-help";
+import { useRouter } from 'next/router'
 
 const FAQ = () => {
+  const router = useRouter();
   return (
     <div className="faq">
       <div className="faq__header section-wrapper">
@@ -58,9 +61,7 @@ const FAQ = () => {
               process for scholarship processing.
             </div>
             <div className="faq__cta">
-              <CallToAction className="filled">
-                Book a Counseling Session
-              </CallToAction>
+            <Button onClick={() => router.push('/free-counseling')}>Book a Counseling Session</Button>
             </div>
           </div>
         </div>

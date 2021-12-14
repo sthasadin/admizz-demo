@@ -95,7 +95,7 @@
   }
 
   .aboutus-exclusive-content {
-    padding: 80px 128px;
+    padding: 80px 0px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -117,6 +117,19 @@
     font-size: 36px;
     font-weight: 800;
     color: #333;
+  }
+  .aboutus-exclusive-title {
+    padding-top: 16px;
+    padding-bottom: 87px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #333;
+  }
+  .international-map {
+    background-image: url("../../public/grey-world-map.png");
+    width: auto;
+    height: 813px;
   }
 }
 

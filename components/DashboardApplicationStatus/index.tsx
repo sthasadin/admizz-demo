@@ -63,7 +63,7 @@ const DashboardApplicationStatus = ({ application }) => {
                     <div key={i} className="remark-container">
                       <div className="remark-content">{item.remark} </div>
                       <div>
-                        {moment(item.createdAt).format("dddd MM YYYY")}{" "}
+                        {moment(item.createdAt).format("DD/MMMM/YYYY")}{" "}
                       </div>
                     </div>
                   );

@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { DashboardWelcomeCard } from "../../components/DashboardWelcomeCard";
 import { DashboardDetailInfo } from "../../components/DashboardDetailInfo";
+import { DashboardApplicationStatus } from "../../components/DashboardApplicationStatus";
 import { DashboardRecommend } from "../../components/DashboardRecommend";
 import { DashboardLayout } from "../../layouts/dashboardLayout";
 import { getColleges } from "../../store/Action/college.action";
@@ -41,6 +42,13 @@ const index = () => {
         <div className="student-dashboard-main__detailInfo">
           <DashboardDetailInfo application={application} />
         </div>
+
+        <div className="student-dashboard-main__mainpage">
+          <div className="student-dashboard-main__detailInfo">
+            <DashboardApplicationStatus application={application} />
+          </div>
+        </div>
+
         <div className="student-dashboard-main__recommendation">
           <DashboardRecommend collegeList={collegeList} loader={loader} />
         </div>

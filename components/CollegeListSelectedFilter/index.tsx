@@ -65,9 +65,9 @@ const CollegeListSelectedFilter = ({ setFilterObj, filterObj }) => {
     <div className="college-list-selected-filter">
       <div className="college-list-selected-filter__filterTitleContainer">
         <p className="college-list-selected-filter__filterTitle">Selected</p>
-        <p className="college-list-selected-filter__filterAdd">
+        {/* <p className="college-list-selected-filter__filterAdd">
           <img src="./plus-icon.png" alt="..." />
-        </p>
+        </p> */}
       </div>
       <div className="college-list-selected-filter__filterKeyContainer">
         {selectedData.map((course, i) => {

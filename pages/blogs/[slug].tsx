@@ -10,7 +10,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { BlogLayout } from "../../layouts/BlogLayout";
 import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 import { BlogDetailContent } from "../../components/BlogDetailContent";
-import { BlogDetailMember } from "../../components/BlogDetailMember";
 import { Button } from "../../components";
 import Avatar from "@material-ui/core/Avatar";
 import List from "@material-ui/core/List";
@@ -24,6 +23,8 @@ import Dialog from "@material-ui/core/Dialog";
 import { getBlogDetail } from "../../store/Action/blogDetails.action";
 //import { getBlog } from "../../store/Action/blog.action";
 import BlogComment from "../../components/BlogComment";
+import { getBlogs } from "store/Action/blog.action";
+import { SingleBlog } from "../../components/SingleBlog";
 
 const blogDetail = () => {
   const router = useRouter();
@@ -39,7 +40,12 @@ const blogDetail = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const blogs = useSelector((state) => state.blog.blogs);
 
+  useEffect(() => {
+    dispatch(getBlogs("All"));
+    console.log("blogs", blogs);
+  }, []);
   const { blog } = useSelector((state) => state.blogDetails);
   //const blog = useSelector((state) => state.blog.blog);
   useEffect(() => {
@@ -160,7 +166,22 @@ const blogDetail = () => {
               className="blog-detail__imageContainer"
               style={{ height: "100%" }}
             >
-              <BlogDetailMember />
+              <div className="blog-detail-member__memberTitle">
+                <div className="blog-detail-member__memberTitleText">
+                  SIMILAR BLOGS
+                </div>
+              </div>
+              {blogs &&
+                blogs.map((blog) => {
+                  <SingleBlog
+                    slug={blog.slug}
+                    type={blog.type}
+                    auther={blog.auther}
+                    time={blog.time}
+                    title={blog.title}
+                    desc={blog.desc}
+                  />;
+                })}
             </div>
             {/* <div className="blog-detail-content__commentContainer">
               <p className="blog-detail-content__commentTitle">

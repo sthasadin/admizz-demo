@@ -24,6 +24,7 @@ const BlogListRandomBlog = ({ blogArray }) => {
               return (
                 <div className="blog-list-member__secondaryPost" key={i}>
                   <SingleBlogCard
+                    id={blog?._id}
                     slug={blog?.blog_slug}
                     type={blog?.category}
                     auther={blog?.author}
@@ -31,7 +32,7 @@ const BlogListRandomBlog = ({ blogArray }) => {
                       blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
                     )} min read`}
                     title={blog?.blog_title}
-                    desc={removeHtmlChar(blog?.blog_desc)}
+                    desc={text_truncate(removeHtmlChar(blog?.blog_desc))}
                     backgroundImg={blog?.blog_imageURL}
                   />
                 </div>

@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
+import { useSelector, useDispatch } from "react-redux";
+
 // import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 // import { BlogDetailContent } from "../../components/BlogDetailContent";
-import { BlogDetailMember } from "../../components/BlogDetailMember";
 import BlogImage from "../../public/blog.png";
 import { Button } from "../../components";
 import Avatar from "@material-ui/core/Avatar";
@@ -17,11 +18,12 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
+import { getBlogs } from "../../store/Action/blog.action";
 
 const blogDetail = () => {
   const [open, setOpen] = React.useState(false);
   // const [selectedValue, setSelectedValue] = React.useState();
-
+  const dispatch = useDispatch();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -30,6 +32,12 @@ const blogDetail = () => {
     setOpen(false);
     // setSelectedValue(value);
   };
+  const blogs = useSelector((state) => state.blog.blogs);
+
+  useEffect(() => {
+    dispatch(getBlogs("All"));
+    console.log("blogs", blogs);
+  }, []);
 
   return (
     <div className="container">
@@ -103,12 +111,11 @@ const blogDetail = () => {
                   </Dialog>
                 </div>
               </div>
-              <div className="blog-detail__main">
-                {/* <BlogDetailContent /> */}
-              </div>
-              <div className="blog-detail__imageContainer">
-                <BlogDetailMember />
-              </div>
+              {/* <div className="blog-detail__main">
+                <BlogDetailContent />
+              </div> */}
+
+              <div className="blog-detail__imageContainer">AAAA</div>
             </div>
           </div>
         </main>

@@ -1,6 +1,6 @@
 import React from "react";
 const DashboardDetailInfo = ({ application }) => {
-  const { basicInformation, backgroundInformation, selectedChoice } =
+  const { basicInformation, backgroundInformation, selectedChoice, } =
     application || {};
   return (
     <div className="dashboard-detail-info">

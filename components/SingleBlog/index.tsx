@@ -1,9 +1,8 @@
-// import Link from "next/link";
 import React from "react";
 import { useRouter } from "next/router";
 
-const SingleBlogCard = (props: any) => {
-  //console.log("props", props);
+const SingleBlog = (props: any) => {
+  console.log("props", props.blogArray);
   const router = useRouter();
 
   function truncateString(str, num) {
@@ -13,32 +12,29 @@ const SingleBlogCard = (props: any) => {
       return str;
     }
   }
+
   return (
     <div
       className="single-blog-card"
       onClick={() => router.push(`/blogs/${props.slug}`)}
     >
-      <div className="single-blog-card__memberPost">
-        <div
-          className="single-blog-card__inner"
-          style={{
-            backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39)),url(${props.backgroundImg})`,
-          }}
-        >
-          <div className="single-blog-card__catagoryContainer">
-            <div className="single-blog-card__category">{props.type}</div>
+      <div className="blog-detail-member__memberPost">
+        <div className="blog-detail-member__inner">
+          <div className="blog-detail-member__catagoryContainer">
+            <div className="blog-detail-member__category">{props.type}</div>
           </div>
-          <div className="single-blog-card__details">
+          <div className="blog-detail-member__details">
             <div className="blogCard__meta">
               <div className="blogCard__author">{props.auther}</div>
               <div className="blogCard__time">{props.time}</div>
             </div>
             <div className="blogCard__title" style={{ cursor: "pointer" }}>
-              {/* <Link href = {`/blogs/${props.id}`}> */}
+              {/* How I got my job in Google with the help of Admizz */}
               {props.title}
-              {/* </Link> */}
             </div>
             <div className="blogCard__desc">
+              {/* Get the right career advice for you and earn your best career
+              certificates. */}
               {truncateString(props?.desc, 20)}
             </div>
           </div>
@@ -48,4 +44,4 @@ const SingleBlogCard = (props: any) => {
   );
 };
 
-export { SingleBlogCard };
+export { SingleBlog };

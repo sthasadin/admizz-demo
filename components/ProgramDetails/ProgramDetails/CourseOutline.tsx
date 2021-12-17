@@ -1,5 +1,6 @@
 import React from "react";
 import renderHTML from "react-render-html";
+import moment from "moment";
 
 const CourseOutline = ({ data }) => {
  
@@ -8,7 +9,7 @@ const CourseOutline = ({ data }) => {
     <div id="outline" className="course-outline">
       <div className="title-content">
         <div className="title-text">Course outline</div>
-        <div className="title-date">Updated On: 20 Nov, 2021</div>
+        <div className="title-date">Updated on:{moment(data?.updateAt).format("YYYY MMM DD")}</div>
       </div>
 
       <div className="course-syallbus-container">

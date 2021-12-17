@@ -16,8 +16,6 @@ function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-
-
 const Submenu = (props: any) => {
   const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
   const [open, setOpen] = React.useState(false);

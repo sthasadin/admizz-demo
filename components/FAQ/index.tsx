@@ -11,9 +11,7 @@ const FAQ = () => {
       <div className="faq__header section-wrapper">
         <div className="faq__header__title">
           <div className="faq__header__search">What can we help you? FAQs</div>
-          <div className="faq__header__desc">
-            Eg: Jain University, Manipur, BMS
-          </div>
+          
         </div>
       </div>
       <div className="faq-content">

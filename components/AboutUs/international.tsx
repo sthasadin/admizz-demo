@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from "react-slick";
+import Link from "next/link";
 
 const international = () => {
     var sliderSettings = {
@@ -29,6 +30,12 @@ const international = () => {
                                 Morbi ornare vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Sed eu turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum nisi.
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+                                <div className="testimonial-by aboutus-exclusive-title">
+                                    <Link href="#">
+                                        <h5 className="university-name">Jain University</h5>
+                                    </Link>
+                                </div>
                             </div>
                             <div className="aboutus-testimonial-content">
                                 Slider Test Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
@@ -36,6 +43,11 @@ const international = () => {
                                 Morbi ornare vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Sed eu turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum nisi.
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                <div className="testimonial-by aboutus-exclusive-title">
+                                    <Link href="#">
+                                        <h5 className="university-name">Jain University</h5>
+                                    </Link>
+                                </div>
                             </div>
                             <div className="aboutus-testimonial-content">
                                 Slider Test Again Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
@@ -43,6 +55,11 @@ const international = () => {
                                 Morbi ornare vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 Sed eu turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum nisi.
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                <div className="testimonial-by aboutus-exclusive-title">
+                                    <Link href="#">
+                                        <h5 className="university-name">Jain University</h5>
+                                    </Link>
+                                </div>
                             </div>
                         </Slider>
                     </div>

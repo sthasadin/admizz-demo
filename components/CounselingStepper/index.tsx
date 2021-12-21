@@ -16,11 +16,11 @@ import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 import axios from "axios";
 import { API_BASE_URL } from "../../store/const";
-
+​
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-
+​
 interface studentInfoFormValue {
   name: string;
   email: string;
@@ -36,13 +36,13 @@ interface studentInfoFormValue {
   contact_id: string;
   // additional_query: string;
 }
-
+​
 interface FirstStepValidateSchema {
   date: string;
   time: string;
   counsellor: string;
 }
-
+​
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -81,27 +81,27 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-
+​
 const CounselingStepper = () => {
   const router = useRouter();
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
-
+​
   const [completed, setCompleted] = React.useState<{ [k: number]: boolean }>(
     {}
   );
   const [snackOpen, setSnackOpen] = useState(false as boolean);
-
+​
   //State for Student Info Stepper
   const [formValue, setFormValue] = useState({
     date: new Date(),
   } as any);
-
+​
   const [formError, setFormError] = useState({} as any);
-
+​
   const dispatch = useDispatch();
-
+​
   const handleChange = (e: any) => {
     setFormValue({
       ...formValue,
@@ -111,14 +111,19 @@ const CounselingStepper = () => {
       ...formError,
       [e.target.name]: null,
     });
+    if (e.target.name === "home_country") {
+      if (e.target.value === "nepal")
+        setFormValue({ countryCode: "+977" } as any);
+      else setFormValue({ countryCode: "+91" } as any);
+    }
   };
-
+​
   const dateTimeValidateSchema = yup.object().shape<FirstStepValidateSchema>({
     date: yup.string().required("Please select one date"),
     time: yup.string().required("Required time"),
     counsellor: yup.string().required("Please select  counselor"),
   });
-
+​
   const validationSchema = yup.object().shape<studentInfoFormValue>({
     name: yup.string().required("Name field should not be empty"),
     email: yup
@@ -135,7 +140,7 @@ const CounselingStepper = () => {
       .required("Home country field should not be empty"),
     course: yup.string().required("Course field should not be empty"),
     description: yup.string().required("Description field should not be empty"),
-
+​
     // date: yup.string().required("Date field should not be empty"),
     // time: yup.string().required("Time field should not be empty"),
     // counsellor: yup.string().required("Select one counselor"),
@@ -143,7 +148,7 @@ const CounselingStepper = () => {
     contact_medium: yup.string().required("Select one medium"),
     contact_id: yup.string().required("Contact id field should not be empty"),
   });
-
+​
   const dateTimeValidate = async () => {
     try {
       await dateTimeValidateSchema.validate(
@@ -166,7 +171,7 @@ const CounselingStepper = () => {
       setFormError({ ...errors });
     }
   };
-
+​
   const validate = async () => {
     try {
       await validationSchema.validate(
@@ -195,7 +200,7 @@ const CounselingStepper = () => {
       setFormError({ ...errors });
     }
   };
-
+​
   const handleBook = async () => {
     try {
       setLoading(true);
@@ -214,7 +219,7 @@ const CounselingStepper = () => {
         contact_id: formValue.contact_id,
         createdAt: moment().format(),
       });
-
+​
       const res = await dispatch(bookingCounsellorMail(formValue.email));
       if (res.isSuccess) {
         setSnackOpen(true);
@@ -229,36 +234,36 @@ const CounselingStepper = () => {
       console.error("Error adding document: ", error);
     }
   };
-
+​
   const steps = [
     "Student’s Detail",
     "Confirm Date & Time",
     "Confirm Your Session",
   ];
-
+​
   const totalSteps = () => {
     return steps.length;
   };
-
+​
   const completedSteps = () => {
     return Object.keys(completed).length;
   };
-
+​
   const isLastStep = () => {
     return activeStep === totalSteps() - 1;
   };
-
+​
   const allStepsCompleted = () => {
     return completedSteps() === totalSteps();
   };
-
+​
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
-
+​
   const handleNext = async () => {
     const valid = await dateTimeValidate();
-
+​
     if (valid) {
       const newActiveStep =
         isLastStep() && !allStepsCompleted()
@@ -269,10 +274,10 @@ const CounselingStepper = () => {
       setActiveStep(newActiveStep);
     }
   };
-
+​
   const handleNextFormValidation = async () => {
     const valid = await validate();
-
+​
     if (valid) {
       const newActiveStep =
         isLastStep() && !allStepsCompleted()
@@ -283,7 +288,7 @@ const CounselingStepper = () => {
       setActiveStep(newActiveStep);
     }
   };
-
+​
   const getStepContent = (step: number) => {
     switch (step) {
       case 0:
@@ -318,7 +323,7 @@ const CounselingStepper = () => {
         return "Unknown step";
     }
   };
-
+​
   return (
     <div className={classes.root}>
       <Stepper
@@ -350,5 +355,5 @@ const CounselingStepper = () => {
     </div>
   );
 };
-
+​
 export { CounselingStepper };

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Layout from "../../layouts";
+import SearchIcon from "@material-ui/icons/Search";
+import { useDispatch } from "react-redux";
 
 import { BlockSearch } from "../../components/BlockSearch";
 import { CallToAction } from "../../components/Button/callToAction";
 import QuickHelp from "../../components/FAQ/quick-help";
+import { Input } from "../../components/Input";
 
 import { FAQAccordian } from "../../components/FAQ/accordian";
 
@@ -98,9 +101,6 @@ const FAQ = () => {
             <div className="faq__header__title">What can we help you? FAQs</div>
             <div className="faq__header__search">
               <BlockSearch />
-            </div>
-            <div className="faq__header__desc">
-              Eg: Jain University, Manipur, BMS
             </div>
           </div>
         </div>

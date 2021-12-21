@@ -44,6 +44,12 @@ const Register = () => {
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
+    if (e.target.name === "country") {
+      if (e.target.value === "Nepal") {
+        console.log(e.target.value, "value");
+        setFormValue({ countryCode: "+977" } as signUpFormValue);
+      } else setFormValue({ countryCode: "+91" } as signUpFormValue);
+    }
   };
 
   const validationSchema = yup.object().shape<signUpFormValue>({

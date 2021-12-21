@@ -41,11 +41,11 @@ const DashboardNavbar = () => {
             <ListItemText primary={"Dashboard"} />
           </Link>
         </ListItem>
-        <ListItem button key={"Application Status"}>
+        {/* <ListItem button key={"Application Status"}>
           <Link href="/dashboardbasicinfo/status">
             <ListItemText primary={"Application Status"} />
           </Link>
-        </ListItem>
+        </ListItem> */}
         <ListItem button key={"back"}>
           <Link href="/">
             <ListItemText primary={"Back To Home"} />

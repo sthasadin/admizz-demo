@@ -15,7 +15,7 @@ const CollegeOverview = () => {
   return (
     <div id="overview" className="overview">
       <div className="overview__title-wrap">
-        <div className="overview__title">Course Highlights</div>
+        <div className="overview__title"> HIGHLIGHTS</div>
         <time className="overview__date">
           Update On: {moment(college?.updateAt).format("YYYY MMM DD")}
         </time>
@@ -43,8 +43,7 @@ const CollegeOverview = () => {
       )}
 
       <div className="overview__block-wrap">
-        
-        {/* {college?.QS_ranking && (
+        {college?.QS_ranking && (
           <div className="overview__block">
             <div className="overview__block__icon">
               <img src="/college-overview.png" alt="" />
@@ -98,18 +97,20 @@ const CollegeOverview = () => {
               Min. Cost of Living
             </div>
           </div>
-        )} */}
-        {
-          college?.rankings?.map((item)=>{
-            return (<div className="overview__block">
-            <div className="overview__block__icon">
-              <img src={item.rank.logo} alt="" />
+        )}
+        {college?.rankings?.map((item) => {
+          return (
+            <div className="overview__block">
+              <div className="overview__block__icon">
+                <img src={item.rank.logo} alt="" />
+              </div>
+              <div className="overview__block__title">{item.rank.values}</div>
+              <div className="overview__block__subheading">
+                {item.rank.title}
+              </div>
             </div>
-            <div className="overview__block__title">{item.rank.values}</div>
-            <div className="overview__block__subheading">{item.rank.title}</div>
-          </div>)
-          })
-        }
+          );
+        })}
       </div>
       {college?.video_360 && (
         <div className="overview__thumbnail">

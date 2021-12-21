@@ -1,21 +1,6 @@
 import React from "react";
-import { CallToAction } from "../Button/callToAction";
-import Fade from "@material-ui/core/Fade";
-import ReactPlayer from "react-player";
-import Modal from "@material-ui/core/Modal";
-import Link from "next/link";
-import Backdrop from "@material-ui/core/Backdrop";
 
 const Merits = () => {
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   return (
     <div className="merit">
       <div className="merit__aboutus__inner section-wrapper">

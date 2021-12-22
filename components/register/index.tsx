@@ -266,6 +266,19 @@ const Register = () => {
                   errorMessage={formError.email}
                   type="text"
                 />
+                
+
+                <Select
+                  useLabel
+                  options={countryList}
+                  onChange={handleChange}
+                  icon={LocationOnIcon}
+                  title="Home Country"
+                  // placeholder="Home Country"
+                  name={"country"}
+                  error={!!formError.country}
+                  errorMessage={formError.country}
+                />
                 <div className={"student-info__phone-input"}>
                   <CountryCodeDropDown
                     options={CountryCodeOptions}
@@ -294,18 +307,6 @@ const Register = () => {
                     type="text"
                   />
                 </div>
-
-                <Select
-                  useLabel
-                  options={countryList}
-                  onChange={handleChange}
-                  icon={LocationOnIcon}
-                  title="Home Country"
-                  // placeholder="Home Country"
-                  name={"country"}
-                  error={!!formError.country}
-                  errorMessage={formError.country}
-                />
 
                 <PasswordField
                   fullWidth

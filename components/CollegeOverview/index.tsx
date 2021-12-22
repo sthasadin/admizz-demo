@@ -98,15 +98,19 @@ const CollegeOverview = () => {
             </div>
           </div>
         )}
-        {college?.rankings?.map((item) => {
+        {college?.rankings?.map((item: any) => {
+          {
+            console.log("item", item);
+          }
+
           return (
             <div className="overview__block">
               <div className="overview__block__icon">
-                <img src={item.rank.logo} alt="" />
+                <img src={item.rank?.logo} alt="" />
               </div>
-              <div className="overview__block__title">{item.rank.values}</div>
+              <div className="overview__block__title">{item.rank?.values}</div>
               <div className="overview__block__subheading">
-                {item.rank.title}
+                {item.rank?.title}
               </div>
             </div>
           );

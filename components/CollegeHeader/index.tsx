@@ -80,7 +80,7 @@ const CollegeHeader = ({
         <div className="college-header__college">
           <div className="college-header__left">
             <div className="college-header__logo">
-              <img src={collageLogo} alt="college" />
+              {/* <img src={collageLogo} alt="college" /> */}
             </div>
             <div className="college-header__info">
               <div className="college-header__info-top">

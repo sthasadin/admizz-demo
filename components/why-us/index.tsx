@@ -136,9 +136,11 @@ const Us = ({ college }) => {
               </div>
             </div>
             <div className="us__rightcontent">
-              <CallToAction className="white-outline">
-                Know Admizz Better
-              </CallToAction>
+              <Link href="/aboutus">
+                <CallToAction className="white-outline">
+                  Know Admizz Better
+                </CallToAction>
+              </Link>
             </div>
           </div>
         </div>

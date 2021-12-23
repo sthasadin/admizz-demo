@@ -4,6 +4,7 @@ import SortImage from "../../public/SortImage.png";
 import { CollegesCard } from "../collegesBlock/collegesCard";
 import { CollegeCardLoader } from "../SkeletonLoading/CollegeCardLoader";
 import InfiniteScroll from "react-infinite-scroll-component";
+import LazyLoad from "react-lazyload";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import { success } from "@/store/commonActions";
@@ -65,7 +66,7 @@ const CollegeListResult: FC<CollegeProps> = ({
         </div>
       )}
 
-      <InfiniteScroll
+      <LazyLoad
         dataLength={collegeList?.length}
         loader={
           <div className="college-list-result-loader-container">
@@ -81,7 +82,7 @@ const CollegeListResult: FC<CollegeProps> = ({
               return <CollegesCard {...college} key={i} />;
             })}
         </div>
-      </InfiniteScroll>
+      </LazyLoad>
 
       <Snackbar
         open={showFinishMsg}

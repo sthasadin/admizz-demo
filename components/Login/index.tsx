@@ -159,7 +159,9 @@ const Login = () => {
                   />
                 </svg>
               </div>
-              <div className="signin__item__title">Research Your Options</div>
+              <div className="signin__item__title" style={{ marginLeft: 5 }}>
+                Research Your Options
+              </div>
             </div>
             <div className="signin__item">
               <div className="signin__item__icon">

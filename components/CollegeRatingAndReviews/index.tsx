@@ -102,8 +102,6 @@ const RatingAndReview = (props: any) => {
     if (auth.currentUser) {
       setIsAddReviewOpen(true);
     } else {
-      
-
       router.push("/login");
     }
   };

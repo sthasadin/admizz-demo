@@ -1,0 +1,7 @@
+.team-member-img {
+  img {
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+}

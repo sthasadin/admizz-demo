@@ -9,6 +9,9 @@
   }
   &__title {
     margin-bottom: 80px;
+    @media (max-width: 540px) {
+      margin-bottom: 20px;
+    }
   }
   &__details {
     display: flex;

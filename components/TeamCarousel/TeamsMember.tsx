@@ -1,36 +1,28 @@
 import React from "react";
 import TeamsArray from "./TeamsArray";
 
-const TeamsMember = ({ setData }: any) => {
+const TeamsMember = ({ setSelectedTeam, teamList }: any) => {
   return (
     <>
       <div className="img-grid">
-        {TeamsArray.map((cvalue, index): any => {
+        {teamList.slice(0, 6).map((cvalue, index): any => {
           return (
-            <div className="team-member-img">
+            <div key={cvalue?.id} className="team-member-img">
               <img
                 style={{
                   position: "absolute",
-                  top: cvalue.top,
-                  bottom: cvalue.bottom,
-                  left: cvalue.left,
-                  right: cvalue.right,
-                  width: "55px",
-                  height: 55,
+                  top: TeamsArray[index].top,
+                  bottom: TeamsArray[index].bottom,
+                  left: TeamsArray[index].left,
+                  right: TeamsArray[index].right,
+                  width: "60px",
+                  height: "60px",
                   objectFit: "cover",
                   borderRadius: "12px",
+                  boxShadow: "2px 2px 2px rgba(128, 128, 128, 0.445);",
                 }}
-                src={cvalue.img}
-                onClick={() =>
-                  setData({
-                    img: cvalue.img,
-                    description: cvalue.description,
-                    name: cvalue.name,
-                    desigination1: cvalue.designation1,
-                    designation2: cvalue.designation2,
-                    email: cvalue.email,
-                  })
-                }
+                src={cvalue.image}
+                onClick={() => setSelectedTeam({ ...cvalue, index })}
               />
             </div>
           );

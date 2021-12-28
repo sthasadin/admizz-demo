@@ -1,10 +1,9 @@
-import React from "react";
-
+import React, { useState } from "react";
 import Carousel from "../TeamCarousel";
-
 import { db } from "../../firebase";
 
-const Teams = () => {
+
+const Teams = ({data}) => {
   const [teamMemberArray, setTeamMemberArray] = React.useState([]);
 
   React.useEffect(() => {
@@ -18,6 +17,7 @@ const Teams = () => {
       .get()
       .then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
+          console.log(doc);
           const data = doc.data();
           teamArray.push({
             id: doc.id,
@@ -46,7 +46,7 @@ const Teams = () => {
         <div className="teams-list__title block-title">
           Meet Our Dedicated Teams
         </div>
-
+        {/* <TeamsMember setData={setData} /> */}
         <Carousel data={teamMemberArray} />
       </div>
     </div>

@@ -12,6 +12,8 @@ const TeamArray = [
   {
     id: "2",
     img: "./team-member.png",
+    top: "-25%",
+    right: "-15%",
     name: "MANISH SHAH",
     designation1: "Managing Director",
     designation2: "Country Counselor",
@@ -22,6 +24,8 @@ const TeamArray = [
   {
     id: "3",
     img: "./team-member.png",
+    top: "30%",
+    right: "-30%",
     name: "MANISH SHAH 1",
     designation1: "Managing Director",
     designation2: "Country Counselor",
@@ -32,6 +36,8 @@ const TeamArray = [
   {
     id: "4",
     img: "./team-member.png",
+    top: "85%",
+    right: "-25%",
     name: "MANISH SHAH 2",
     designation1: "Managing Director",
     designation2: "Country Counselor",
@@ -43,6 +49,8 @@ const TeamArray = [
     id: "5",
     img: "./team-member.png",
     name: "MANISH SHAH 3",
+    top: "30%",
+    left: "-30%",
     designation1: "Managing Director",
     designation2: "Country Counselor",
     description:
@@ -53,6 +61,8 @@ const TeamArray = [
     id: "6",
     img: "./team-member.png",
     name: "MANISH SHAH 4",
+    top: "84%",
+    left: "-30%",
     designation1: "Managing Director",
     designation2: "Country Counselor",
     description:
@@ -61,6 +71,8 @@ const TeamArray = [
   },
   {
     id: "7",
+    top: "-25%",
+    left: "-15%",
     img: "./team-member.png",
     name: "MANISH SHAH 5",
     designation1: "Managing Director",

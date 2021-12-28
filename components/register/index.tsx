@@ -199,7 +199,9 @@ const Register = () => {
                   />
                 </svg>
               </div>
-              <div className="signin__item__title">Research Your Options</div>
+              <div className="signin__item__title" style={{ marginLeft: 5 }}>
+                Research Your Options
+              </div>
             </div>
             <div className="signin__item">
               <div className="signin__item__icon">
@@ -266,7 +268,6 @@ const Register = () => {
                   errorMessage={formError.email}
                   type="text"
                 />
-                
 
                 <Select
                   useLabel
@@ -341,7 +342,7 @@ const Register = () => {
               </div>
               <div className="signin__info">
                 By submitting this form, you accept and agree to our
-                <span>Terms & Condition.</span>
+                <span>Terms & Conditions.</span>
               </div>
               <div className="signin__submit">
                 <div className="signin__change">

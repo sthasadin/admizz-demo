@@ -1,69 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillFacebook } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
+import Groupfive from "./Images/Groupfive.png";
+import Group6 from "./Images/Group6.png";
+import TeamsArray from "./TeamsArray";
+import text_truncate from "./Truncate";
+import TeamsMember from "../TeamCarousel/TeamsMember";
+// import "./Team.css";
 
-const TeamCard = ({ teamMember }) => {
+const TeamCard = ({ selectedTeam }: any) => {
   return (
     <>
       <div className="teams-card">
         <div className="teams-card__thumbnail">
           <img
-            src={teamMember.image}
-            alt="member_logo"
+            src={selectedTeam?.image}
+            alt="enlarged pic"
             style={{ objectFit: "cover" }}
           />
         </div>
-
         <div className="teams-info">
-          {/* name */}
           <div className="teams-list__md__name">
-            <span>{teamMember.name}</span>
+            <span>{selectedTeam?.name}</span>
           </div>
-
           <div className="teams-list__designation">
             <span>Market Counsellor</span>
-            <span>{teamMember?.type}</span>
+            <span>{selectedTeam?.designation2}</span>
           </div>
-
-          <div className="teams-list__desc">{teamMember.description}</div>
-
+          <div className="teams-list__desc">
+            {text_truncate(selectedTeam?.description || "", 180, "...")}
+          </div>
           <div className="teams-email">
             <MdEmail className="email-icon" />
-            <a href={`mailto:${teamMember.email}`}>{teamMember.email}</a>
+            {selectedTeam?.email}
           </div>
-
-          <div className="team-social-icons-bo">
-            {/* twitter */}
-            {teamMember?.twitter && (
-              <AiOutlineTwitter className="teams-social-icons" />
-            )}
-            {/* facebook */}
-            {teamMember?.facebook && (
-              <a href={teamMember?.facebook} target="_blank">
-                <AiFillFacebook className="teams-social-icons" />
-              </a>
-            )}
-            {/* instagram */}
-            {teamMember?.instagram && (
-              <a href={teamMember?.instagram} target="_blank">
-                <AiOutlineInstagram className="teams-social-icons" />
-              </a>
-            )}
-
-            {/* youtube */}
-            {teamMember?.youtube && (
-              <a href={teamMember?.instagram} target="_blank">
-                <AiFillYoutube className="teams-social-icons" />
-              </a>
-            )}
+          <div className="team-social-icons-box">
+            <AiOutlineTwitter className="teams-social-icons" />
+            <AiFillFacebook className="teams-social-icons" />
+            <AiOutlineInstagram className="teams-social-icons" />
+            <AiFillYoutube className="teams-social-icons" />
+            <AiFillYoutube className="teams-social-icons" />
           </div>
         </div>
       </div>
     </>
   );
 };
-
 export { TeamCard };

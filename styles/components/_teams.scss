@@ -1,5 +1,5 @@
 .teams-list {
-  padding: 80px 0;
+  padding: 110px 0;
   background: #f6f6f6;
   padding-top: 50px;
   overflow: hidden;
@@ -8,7 +8,7 @@
     margin-bottom: 12px;
   }
   &__title {
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
   &__aboutustitle {
     width: 50%;
@@ -33,7 +33,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 5px;
+      border-radius: 20px;
     }
   }
   &__right {

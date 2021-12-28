@@ -70,6 +70,7 @@ const DashboardBasicInfo = (props) => {
   const dispatch = useDispatch();
 
   const allLevels = useSelector((state) => state.courses.allLevels);
+  console.log("allLevels",allLevels)
   const selectLevelOption = useMemo(() => {
     return allLevels.map((level) => {
       let name =

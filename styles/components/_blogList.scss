@@ -39,12 +39,13 @@
   &__title {
     // max-width: 464px;
     text-align: left;
+
     @media (max-width: 450px) {
       font-size: 24px;
       font-weight: 800;
       line-height: 36px;
 
-      width: 60%;
+      width: 100%;
     }
   }
   &__list {

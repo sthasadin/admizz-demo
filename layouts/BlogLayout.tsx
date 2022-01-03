@@ -40,7 +40,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "All" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/category/all`}> All</Link>
+              <Link href={`/blogs`}> All</Link>
             </li>
 
             <li
@@ -49,7 +49,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Business" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/category/business`}>Business</Link>
+              <Link href={`/blogs/business`}>Business</Link>
             </li>
 
             <li

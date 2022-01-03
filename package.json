@@ -29,6 +29,7 @@
         "next-compose-plugins": "^2.2.1",
         "next-images": "^1.6.2",
         "next-redux-wrapper": "^6.0.2",
+        "next-share": "^0.12.2",
         "nookies": "^2.5.2",
         "nprogress": "^0.2.0",
         "react": "17.0.1",

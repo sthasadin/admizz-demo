@@ -42,7 +42,7 @@ const index = ({ data }) => {
     infinite: true,
     dotsClass: "rounded-scroll slick-thumb",
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     className: "college-list-slider",
     nextArrow: <SampleNextArrow />,

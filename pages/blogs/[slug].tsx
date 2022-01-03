@@ -98,7 +98,8 @@ const blogDetail = () => {
                     <ListItem button className="blog-detail__listItemContainer">
                       <ListItemAvatar>
                         <FacebookShareButton
-                          url={`${process.env.BASE_URL}/blogs/${blog.blog_slug}`} //temporary
+                          url={`${process.env.API_BASE_URL}/blogs/${blogs.slug}`} //temporary
+                        
                           quote={"Admizz - You just dream it."}
                           hashtag="#admizz"
                         >
@@ -114,7 +115,7 @@ const blogDetail = () => {
                     <ListItem button>
                       <ListItemAvatar>
                         <WhatsappShareButton
-                          url={`${process.env.BASE_URL}/blogs/${blog.blog_slug}`}
+                          url={`${process.env.API_BASE_URL}/blogs/${blogs.slug}`}
                           title={`${blog.title}`}
                         >
                           <Avatar>

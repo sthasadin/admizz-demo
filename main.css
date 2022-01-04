@@ -10330,6 +10330,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   margin-left: 11px;
   font-size: 14px;
   color: #f2f2f2;
+  display: flex;
 }
 
 .navbar__drawer__container

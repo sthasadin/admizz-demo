@@ -34,6 +34,7 @@ const Navbar = (props: any) => {
   }, [keyword]);
 
   const toggleDrawer = (anchor, open) => (event) => {
+    console.log({ anchor, open });
     if (
       event.type === "keyup" &&
       (event.key === "Tab" || event.key === "Shift")
@@ -44,15 +45,16 @@ const Navbar = (props: any) => {
     if (event.type === "scrollup") {
       setState({ ...state, top: open });
     }
+    setState({ ...state, [anchor]: open });
 
-    setState({ ...state, top: open });
+    // setState({ ...state, top: open });
   };
 
   const list = (anchor) => (
     <div
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
       className="navbar__drawer__container"
     >
       <div className="drawer__header">
@@ -143,7 +145,7 @@ const Navbar = (props: any) => {
           <div className="navbar__contactdetails">
             <div className="navbar__contactIcons">
               <img src="/contactIcon.png" alt="contact_logo" />
-              <div>Contact us</div>
+              <div>Address</div>
             </div>
             <div className="navbar__contact1">
               <div className="navbar__countryname">Nepal:</div>
@@ -295,12 +297,12 @@ const Navbar = (props: any) => {
             <img src="/menuIcon.png" />
           </Button>
           <Drawer
-            anchor={"top"}
+            anchor={"right"}
             open={state["top"]}
             onClose={toggleDrawer("top", false)}
             className="navbar__drawer"
           >
-            {list("anchor")}
+            {list("top")}
           </Drawer>
         </div>
 

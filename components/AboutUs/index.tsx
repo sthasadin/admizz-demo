@@ -61,7 +61,7 @@ const index = () => {
         <Features />
         <Tieups />
         <International />
-        <Teams />
+        <Teams data={''} />
         <Contact />
       </div>
       </Layout>

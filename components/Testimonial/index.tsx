@@ -70,8 +70,6 @@ const Testimonial = (props: any) => {
     setSelectedIndex(index);
   };
 
-  // onClick={handleClick(item.description,item.designation,item.image_url,item.video_url,item.name,index)}
-
   return (
     <div className="testimonial">
       <div className="testimonial__inner">
@@ -88,8 +86,8 @@ const Testimonial = (props: any) => {
                           src={selectedTestimonial?.image_url}
                           alt="testimonial"
                           style={{
-                            height: "304px",
-                            width: "303px",
+                            // height: "304px",
+                            // width: "303px",
                             objectFit: "cover",
                           }}
                         />
@@ -186,8 +184,6 @@ const Testimonial = (props: any) => {
                         src={item?.image_url}
                         style={{
                           borderRadius: "300px",
-                          height: "73px",
-                          width: "73px",
                         }}
                         alt="testimonial1"
                       />
@@ -202,7 +198,7 @@ const Testimonial = (props: any) => {
             {testimonialList?.map((item, index) => {
               var midepointIndex = testimonialList.length / 2;
               if (index >= midepointIndex) {
-                if (index == 3 ) {
+                if (index == 3) {
                   return (
                     <div className="testimonial__center">
                       <div className="testimonial__center__thumbnail">

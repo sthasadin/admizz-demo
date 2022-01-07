@@ -10219,6 +10219,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 .navbar__drawer__container {
   background-color: #5f1802;
   height: 812px;
+  width: 100%;
 }
 
 .navbar__drawer__container .drawer__header {
@@ -10362,6 +10363,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   margin-left: 11px;
   font-size: 14px;
   color: #f2f2f2;
+  display: flex;
 }
 
 .navbar__drawer__container

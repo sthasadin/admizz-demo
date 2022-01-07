@@ -63,7 +63,7 @@ const Merits = () => {
           </div>
 
           <CallToAction className="learnmore__btn hideofmobile">
-            <Link href="/blogs">Learn More</Link>
+            <Link href="/allindia">Learn More</Link>
           </CallToAction>
         </div>
         <div className="merit__right">
@@ -92,7 +92,9 @@ const Merits = () => {
             </div>
 
             <div className="formobile">
-              <CallToAction className="learnmore__btn">Learn More</CallToAction>
+              <CallToAction className="learnmore__btn">
+                <Link href="/allindia">Learn More</Link>
+              </CallToAction>
             </div>
           </div>
         </div>

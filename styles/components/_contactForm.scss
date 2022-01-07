@@ -39,11 +39,12 @@
     }
   }
   &__india-office-container {
-    margin-top: 47px;
+    // margin-top: 47px;
+    margin-top: 10px;
     display: flex;
     align-items: end;
     @media (max-width: 340px) {
-      flex-direction: column;
+      // flex-direction: column;
     }
   }
   &__office-details {

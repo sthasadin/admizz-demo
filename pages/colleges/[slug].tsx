@@ -6,14 +6,14 @@ import { getReviews } from "../../store/Action/review.action";
 import { CollegeHeader } from "../../components/CollegeHeader";
 import { Submenu } from "../../components/Submenu";
 import { SidebarContainer } from "../../components/SidebarContainer";
-import { AuthContext } from "pages/AuthContext";
+import { AuthContext } from "../../pages/AuthContext";
 
 import Layout from "../../layouts";
-import { getFavourites } from "@/store/Action/collegefavourite.action";
+import { getFavourites } from "../../store/Action/collegefavourite.action";
 
 const Home = () => {
   const [reviews, setReviews] = React.useState(null);
-  const favorites = useSelector((state) => state.favourites.userFavorite);
+  const favorites = useSelector((state: any) => state.favourites.userFavorite);
   const [isFavourite, setIsFavourite] = React.useState(false);
 
   const dispatch = useDispatch();
@@ -38,13 +38,13 @@ const Home = () => {
     institution_type,
     college_board,
     affliated_by,
-  } = useSelector((state) => state.college.college);
+  } = useSelector((state: any) => state.college.college);
 
   const router = useRouter();
   const { slug } = router.query;
 
   const _getReviews = async (college_id) => {
-    const res = await dispatch(getReviews(college_id));
+    const res = await dispatch<any>(getReviews(college_id));
 
     //make proper datastructure
     const collegeReviews: any = {

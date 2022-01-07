@@ -32,7 +32,7 @@ const blogDetail = () => {
     setOpen(false);
     // setSelectedValue(value);
   };
-  const blogs = useSelector((state) => state.blog.blogs);
+  const blogs = useSelector((state: any) => state.blog.blogs);
 
   useEffect(() => {
     dispatch(getBlogs("All"));

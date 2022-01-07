@@ -16,7 +16,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const dispatch = useDispatch();
-  const college = useSelector((state) => state.college.college);
+  const college = useSelector((state:any) => state.college.college);
   const { user } = useContext(AuthContext);
 
   const handleClick = () => {

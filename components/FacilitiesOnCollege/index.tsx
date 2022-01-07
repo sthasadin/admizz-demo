@@ -1,9 +1,9 @@
 import React from "react";
 import FacilityItem from "./facilityItem";
-import { useDispatcher, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CollegeFacility = () => {
-  const facilities = useSelector((state) => state.college.college.facilities);
+  const facilities = useSelector((state:any) => state.college.college.facilities);
 
   return facilities?.length ? (
     <div className="college-facility">

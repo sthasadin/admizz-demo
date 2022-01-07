@@ -6,8 +6,8 @@ import { BlogCardLoader } from "../../../components/SkeletonLoading/BlogCardLoad
 import calculateReadingTime from "../../../utils/calculateReadingTime";
 
 const BlogCategory = () => {
-  const blogArray = useSelector((state) => state.blog.blogs);
-  const multiLoading = useSelector((state) => state.blog.multiLoading);
+  const blogArray = useSelector((state: any) => state.blog.blogs);
+  const multiLoading = useSelector((state: any) => state.blog.multiLoading);
 
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");

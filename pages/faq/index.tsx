@@ -12,7 +12,7 @@ import { FAQAccordian } from "../../components/FAQ/accordian";
 import { getFaq, getSearchFaq } from "../../store/Action/faqs.action";
 
 const FAQ = () => {
-  const data = useSelector((state) => state.faq.faqs);
+  const data = useSelector((state: any) => state.faq.faqs);
   const dispatch = useDispatch();
 
   useEffect(() => {

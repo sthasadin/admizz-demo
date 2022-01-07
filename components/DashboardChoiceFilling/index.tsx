@@ -50,7 +50,7 @@ const DashboardChoiceFilling = ({
     };
   }
 
-  const allStreams = useSelector((state) =>
+  const allStreams = useSelector((state:any) =>
     state.courses.allStreams
       ?.sort(dynamicSort("name"))
       .map(({ name: label, _id: value }) => ({

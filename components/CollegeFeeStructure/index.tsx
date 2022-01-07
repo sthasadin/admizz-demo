@@ -54,12 +54,12 @@ const FeeStructure = (props: any) => {
   }, [courses, levels]);
 
   const getCourses = async (id: string) => {
-    let res = await dispatch(getCollegeCourses(id));
+    let res = await dispatch<any>(getCollegeCourses(id));
     setCourses(res);
   };
 
   const getAllLevels = async () => {
-    let res = await dispatch(getLevels());
+    let res = await dispatch<any>(getLevels());
     setLevels(res);
   };
 

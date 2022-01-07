@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 
 const Sidebar = () => {
   const router = useRouter();
-  const college = useSelector((state) => state.college.college);
+  const college = useSelector((state:any) => state.college.college);
   let len = useMemo(() => {
     return Object.keys(college).length;
   }, [college]);

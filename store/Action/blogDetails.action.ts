@@ -1,5 +1,5 @@
 import { api } from "../api/api";
-import { Dispatch } from 'react-redux';
+import { Dispatch } from 'redux';
 import { GET_Blog_Detail } from "../const";
 
 export const getBlogDetail = (slug) => async (dispatch: Dispatch) => {

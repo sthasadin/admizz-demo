@@ -37,14 +37,14 @@ const collegeList = () => {
   const [limit, setLimit] = useState(2);
   //redux state
 
-  const { countryList } = useSelector((state) => state.filter);
-  const { collegeByLimitLoader } = useSelector((state) => state.college);
-  const { stateList } = useSelector((state) => state.filter);
-  const { cityList } = useSelector((state) => state.filter);
-  const { programName } = useSelector((state) => state.filter);
-  const { courseLevel } = useSelector((state) => state.filter);
-  const { collegesByLimit } = useSelector((state) => state.college);
-  const { totalCollegeCount } = useSelector((state) => state.college);
+  const { countryList } = useSelector((state: any) => state.filter);
+  const { collegeByLimitLoader } = useSelector((state: any) => state.college);
+  const { stateList } = useSelector((state: any) => state.filter);
+  const { cityList } = useSelector((state: any) => state.filter);
+  const { programName } = useSelector((state: any) => state.filter);
+  const { courseLevel } = useSelector((state: any) => state.filter);
+  const { collegesByLimit } = useSelector((state: any) => state.college);
+  const { totalCollegeCount } = useSelector((state: any) => state.college);
 
   const dispatch = useDispatch();
 
@@ -52,7 +52,7 @@ const collegeList = () => {
   const { query } = router.query;
 
   const getFilterByFilter = async () => {
-    await dispatch(getCollegeByFilter(filterObj as any));
+    await dispatch<any>(getCollegeByFilter(filterObj as any));
   };
 
   React.useEffect(() => {
@@ -72,13 +72,13 @@ const collegeList = () => {
   }, [filterObj]);
 
   const getAllFilterList = async () => {
-    await dispatch(getCountryList({ filter: "country" }));
-    await dispatch(getStateList({ filter: "state" }));
-    await dispatch(getCityList({ filter: "city" }));
-    await dispatch(getCourseLevel({ filter: "_courseLevel.name" }));
-    await dispatch(getProgramName({ filter: "_courseStream.name" }));
-    await dispatch(getCollegeByLimit(1));
-    await dispatch(getTotalCollegeCount());
+    await dispatch<any>(getCountryList({ filter: "country" }));
+    await dispatch<any>(getStateList({ filter: "state" }));
+    await dispatch<any>(getCityList({ filter: "city" }));
+    await dispatch<any>(getCourseLevel({ filter: "_courseLevel.name" }));
+    await dispatch<any>(getProgramName({ filter: "_courseStream.name" }));
+    await dispatch<any>(getCollegeByLimit(1));
+    await dispatch<any>(getTotalCollegeCount());
   };
 
   React.useEffect(() => {
@@ -86,7 +86,7 @@ const collegeList = () => {
   }, []);
 
   const getCollegesArray = async () => {
-    await dispatch(getCollegeByLimit(limit));
+    await dispatch<any>(getCollegeByLimit(limit));
 
     setLimit(limit + 1);
   };
@@ -157,7 +157,9 @@ const collegeList = () => {
       });
     }
     if (!e.target.checked) {
-      const remove = filterObj.state.filter((state) => state !== e.target.name);
+      const remove = filterObj.state.filter(
+        (state: any) => state !== e.target.name
+      );
       setFilterObj({
         ...filterObj,
         state: remove,
@@ -190,7 +192,7 @@ const collegeList = () => {
   const handleSearch = async () => {
     if (collegeListSearchQuery) {
       setLoadMoreCollege(false);
-      await dispatch(getCollegeBySearch(collegeListSearchQuery));
+      await dispatch<any>(getCollegeBySearch(collegeListSearchQuery));
     } else {
       getCollegesArray();
       setLoadMoreCollege(true);

@@ -10,8 +10,8 @@ import { getNewsOfCollege } from "../../store/Action/blog.action";
 
 const NewsOnCollege = ({ title }) => {
   const dispatch = useDispatch();
-  const college = useSelector((state) => state.college.college);
-  const collegeNews = useSelector((state) => state.blog.collegeNews);
+  const college = useSelector((state:any) => state.college.college);
+  const collegeNews = useSelector((state:any) => state.blog.collegeNews);
   const getCoverNewsLetter = async (college_slug) => {
     dispatch(getNewsOfCollege(college_slug));
   };

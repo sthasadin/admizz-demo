@@ -1,4 +1,4 @@
-import { Dispatch } from "react-redux";
+import { Dispatch } from "redux";
 import { COLLEGE_TYPES, SUCCESS, COLLEGES_TYPES, COLLEGE_BY_LIMIT_BEGIN, COLLEGE_BY_FILTER, COLLEGE_BY_LIMIT, COLLEGE_BY_SEARCH } from "../const";
 import { finish, init, success, error } from "../commonActions";
 import { CollegeService } from "../api/collegeApi";

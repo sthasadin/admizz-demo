@@ -16,7 +16,7 @@ import { Us } from "../components/why-us";
 import Layout from "../layouts/index";
 
 export default function Home() {
-  const { collegeList } = useSelector((state) => state.allCollege);
+  const { collegeList } = useSelector((state: any) => state.allCollege);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function Home() {
       <CollegeFinder />
       <Testimonial />
       <BlogList />
-      <Teams />
+      <Teams data="" />
     </Layout>
   );
 }

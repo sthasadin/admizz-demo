@@ -1,5 +1,5 @@
 import { db } from "../../firebase";
-import { Dispatch } from "react-redux";
+import { Dispatch } from "redux";
 
 export const stage1 = (data) => async (dispatch: Dispatch) => {
   try {

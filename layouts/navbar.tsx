@@ -20,8 +20,8 @@ const Navbar = (props: any) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const data = useSelector((state) => state.search.data);
-  const loader = useSelector((state) => state.search.loader);
+  const data = useSelector((state:any) => state.search.data);
+  const loader = useSelector((state:any) => state.search.loader);
 
   const [state, setState] = React.useState({
     top: false,

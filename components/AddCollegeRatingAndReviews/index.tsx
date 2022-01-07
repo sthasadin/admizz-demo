@@ -6,6 +6,7 @@ import { ReviewInput } from "./ReviewInput";
 import { auth } from "../../firebase";
 import { getAuthUser } from "@/store/Action/user.action";
 import RatingModal from "./RatingModal";
+import {RootState} from "../../store/store";
 
 interface CommentForm {
   comment: string;
@@ -29,8 +30,8 @@ const AddCollegeRatingAndReview = ({
     comment: "",
   });
   const dispatch = useDispatch();
-  const college_id = useSelector((state) => state.college.college._id);
-  const user = useSelector((state) => state.user.authUser);
+  const college_id = useSelector((state:any) => state.college.college._id);
+  const user = useSelector((state:any) => state.user.authUser);
 
   useEffect(() => {
     auth.currentUser && dispatch(getAuthUser(auth.currentUser.uid));
@@ -96,7 +97,7 @@ const AddCollegeRatingAndReview = ({
         },
         college: college_id,
       };
-      let res = await dispatch(addReview(reviewToBeSubmited));
+      let res = await dispatch<any>(addReview(reviewToBeSubmited));
       if (res) {
         _getReviews(college_id);
       }

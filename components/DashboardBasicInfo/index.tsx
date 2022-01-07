@@ -69,7 +69,7 @@ const DashboardBasicInfo = (props) => {
 
   const dispatch = useDispatch();
 
-  const allLevels = useSelector((state) => state.courses.allLevels);
+  const allLevels = useSelector((state:any) => state.courses.allLevels);
   console.log("allLevels",allLevels)
   const selectLevelOption = useMemo(() => {
     return allLevels.map((level) => {
@@ -238,14 +238,14 @@ const DashboardBasicInfo = (props) => {
     "Uttarakhand",
     "West Bengal",
   ];
-  const NepalStateOption = NepalState.map((state) => {
+  const NepalStateOption = NepalState.map((state:any) => {
     return {
       label: state,
       value: state,
     };
   });
 
-  const IndiaStateOption = IndianState.map((state) => {
+  const IndiaStateOption = IndianState.map((state:any) => {
     return {
       label: state,
       value: state,

@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatcher } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import collaboration from "../../public/collaboration.png";
 import collaboration1 from "../../public/collaboration1.png";
 import collaboration2 from "../../public/collaboration2.png";
@@ -7,7 +7,7 @@ import collaboration3 from "../../public/collaboration3.png";
 
 const InternationalCollaboration = (props: any) => {
   const international_collaboration = useSelector(
-    (state) => state.college.college.international_collaboration
+    (state:any) => state.college.college.international_collaboration
   );
 
   return international_collaboration?.length ? (

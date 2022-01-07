@@ -35,7 +35,7 @@ const CollegeHeader = ({
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
   const { user } = useContext(AuthContext);
-  const favorites = useSelector((state) => state.favourites.userFavorite);
+  const favorites = useSelector((state:any) => state.favourites.userFavorite);
   const handleOpen = () => {
     setOpen(true);
   };

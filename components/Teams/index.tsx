@@ -53,4 +53,4 @@ const Teams = ({data}) => {
   );
 };
 
-export { Teams };
+export {Teams};

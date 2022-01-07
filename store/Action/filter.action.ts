@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Dispatch } from "react-redux";
+import { Dispatch } from "redux";
 import {
   GET_COUNTY_LIST_BEGIN,
   GET_COUNTRY_LIST,
@@ -31,7 +31,7 @@ export const getCountryList = (country: any) => async (dispatch: Dispatch) => {
   }
 };
 
-export const getStateList = (state) => async (dispatch: Dispatch) => {
+export const getStateList = (state:any) => async (dispatch: Dispatch) => {
   try {
     dispatch({
       type: GET_STATE_LIST_BEGIN,

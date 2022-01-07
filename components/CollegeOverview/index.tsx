@@ -10,7 +10,7 @@ import renderHTML from "react-render-html";
 const CollegeOverview = () => {
   const [open, setOpen] = useState(false);
 
-  const college = useSelector((state) => state.college.college);
+  const college = useSelector((state:any) => state.college.college);
 
   return (
     <div id="overview" className="overview">

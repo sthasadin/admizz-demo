@@ -1,5 +1,5 @@
 import { db } from "../../firebase";
-import { Dispatch } from "react-redux";
+import { Dispatch } from "redux";
 
 export const addSubscriber = (email) => async (dispatch: Dispatch) => {
   try {

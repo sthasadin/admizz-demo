@@ -30,7 +30,7 @@ const CollegesCard = (college) => {
   };
 
   const _getReviews = async (college_id) => {
-    let res = await dispatch(getReviews(college_id));
+    let res = await dispatch<any>(getReviews(college_id));
     setOriginalReviews(res);
 
     //make proper datastructure

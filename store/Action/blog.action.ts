@@ -1,4 +1,4 @@
-import { Dispatch } from "react-redux";
+import { Dispatch } from "redux";
 import { BLOGS_TYPES, BLOG_TYPES, GET_COLLEGE_NEWS } from "../const";
 import { finish, init, success, error } from "../commonActions";
 import { BlogService } from "../api/blogApi";

@@ -20,10 +20,10 @@ const RatingAndReview = (props: any) => {
   const [originalReviews, setOriginalReviews] = useState([]);
   const dispatch = useDispatch();
   const router = useRouter();
-  const user = useSelector((state) => state.user.authUser);
-  const college_id = useSelector((state) => state.college.college._id);
+  const user = useSelector((state:any) => state.user.authUser);
+  const college_id = useSelector((state:any) => state.college.college._id);
   const _getReviews = async (college_id) => {
-    let res = await dispatch(getReviews(college_id));
+    let res = await dispatch<any>(getReviews(college_id));
     setOriginalReviews(res);
     
     //make proper datastructure
@@ -120,7 +120,7 @@ const RatingAndReview = (props: any) => {
         );
       }
       delete newReview.id;
-      await dispatch(updateReview(newReview, id));
+      await dispatch<any>(updateReview(newReview, id));
       _getReviews(college_id);
     }
   };
@@ -135,7 +135,7 @@ const RatingAndReview = (props: any) => {
         (likes) => likes !== user
       );
       delete newReview.id;
-      await dispatch(updateReview(newReview, id));
+      await dispatch<any>(updateReview(newReview, id));
       _getReviews(college_id);
     }
   };

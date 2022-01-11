@@ -37,13 +37,13 @@ const blogDetail = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const blogs = useSelector((state) => state.blog.blogs);
+  const blogs = useSelector((state: any) => state.blog.blogs);
 
   useEffect(() => {
     dispatch(getBlogs("All"));
     console.log("blogs", blogs);
   }, []);
-  const { blog } = useSelector((state) => state.blogDetails);
+  const { blog } = useSelector((state: any) => state.blogDetails);
   useEffect(() => {
     dispatch(getBlogDetail(slug));
     // dispatch(getBlog(slug));(
@@ -65,11 +65,12 @@ const blogDetail = () => {
                 <div className="blog-detail__postValue">
                   <b>{`Posted by: ${blog?.author}`}</b>
                 </div>
-               
               </div>
               <div className="blog-detail__shareInfoContainer">
                 <div className="blog-detail__buttonContainer">
-                  <Button className="blog-detail__button">{blog?.category}</Button>
+                  <Button className="blog-detail__button">
+                    {blog?.category}
+                  </Button>
                 </div>
                 <div
                   className="blog-detail__sharetitle"

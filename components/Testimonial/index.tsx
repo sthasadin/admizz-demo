@@ -7,6 +7,8 @@ import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
 import Carousel from "../../components/Carousel";
 import TestimonialCarousel from "../TestimonialCarousel";
+import { CallToAction } from "../Button/callToAction";
+import Link from "next/link";
 
 const Testimonial = (props: any) => {
   const [open, setOpen] = React.useState(false);
@@ -73,6 +75,10 @@ const Testimonial = (props: any) => {
   return (
     <div className="testimonial">
       <div className="testimonial__inner">
+        <CallToAction className="learnmore__btn">
+          <Link href="/testimonialDetailPage">Explore All Testimonials</Link>
+        </CallToAction>
+
         <div className="testimonial__item-wrap">
           <div className="testimonial__left">
             {testimonialList?.map((item, index) => {

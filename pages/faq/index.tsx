@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Layout from "../../layouts";
-import SearchIcon from "@material-ui/icons/Search";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getFAQ } from "../../store/Action/faq.action";
 
 import { BlockSearch } from "../../components/BlockSearch";
 import { CallToAction } from "../../components/Button/callToAction";
 import QuickHelp from "../../components/FAQ/quick-help";
-import { Input } from "../../components/Input";
 
 import { FAQAccordian } from "../../components/FAQ/accordian";
 
 const FAQ = () => {
+  const dispatch = useDispatch();
+  const faqList = useSelector((state) => state.faq.faq);
+
+  useEffect(() => {
+    dispatch(getFAQ);
+    console.log("FAQ", faqList);
+  }, []);
+  
   const data = [
     {
       title:

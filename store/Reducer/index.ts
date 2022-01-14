@@ -14,6 +14,7 @@ import footer from './footer.reducer'
 import search from './allSearch.reducer'
 import singleBlog from './blogDetails.reducer';
 import gallery from './gallery.reducer';
+import faq from './faq.reducer';
 
 export default combineReducers({
     collageDetails: collageDetailsReducer,
@@ -30,5 +31,6 @@ export default combineReducers({
     search,
     favourites:favouriteReducer,
     singleBlog,
-    gallery
+    gallery,
+    faq
 })

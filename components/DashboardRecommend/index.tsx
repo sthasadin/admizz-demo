@@ -11,7 +11,7 @@ interface CollegeProps {
 const DashboardRecommend: FC<CollegeProps> = ({ collegeList, loader }) => {
   return (
     <div className="dashboard-recommend">
-      <div className="dashboard-recommend__title">Recommend Colleges</div>
+      <div className="dashboard-recommend__title">Recommended Colleges</div>
 
       <div className="dashboard-recommend__collegeList">
         {loader && <CollegeCardLoader count={4} />}

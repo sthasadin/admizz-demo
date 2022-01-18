@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getColleges } from "../../../store/Action/college.action";
+import moment from "moment";
 
 import renderHTML from "react-render-html";
 import Carousel from "../../ProgramCollegeCarousel";
@@ -18,7 +19,7 @@ const ProgramOverview = ({ data, collegeBarSticky }) => {
     <div className={`program-overview section-container `} id="overview">
       <div className="title-content">
         <div className="title-text">Overview</div>
-        <div className="title-date">Updated On: 20 Nov, 2021</div>
+        <div className="title-date">Updated On: {moment(data?.updateAt).format("YYYY MMM DD")}</div>
       </div>
       <div className="overview-text-description">
         {renderHTML(data?.overview)}

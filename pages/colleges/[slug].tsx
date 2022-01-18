@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { getCollege } from "../../store/Action/college.action";
@@ -6,13 +6,18 @@ import { getReviews } from "../../store/Action/review.action";
 import { CollegeHeader } from "../../components/CollegeHeader";
 import { Submenu } from "../../components/Submenu";
 import { SidebarContainer } from "../../components/SidebarContainer";
+import { AuthContext } from "pages/AuthContext";
 
 import Layout from "../../layouts";
+import { getFavourites } from "@/store/Action/collegefavourite.action";
 
 const Home = () => {
   const [reviews, setReviews] = React.useState(null);
+  const favorites = useSelector((state) => state.favourites.userFavorite);
+  const [isFavourite, setIsFavourite] = React.useState(false);
 
   const dispatch = useDispatch();
+  const { user } = useContext(AuthContext);
 
   const {
     _id,
@@ -117,11 +122,30 @@ const Home = () => {
     _getReviews(_id);
   }, [_id]);
 
+  useEffect(() => {
+    if (user) {
+      dispatch(getFavourites(user?.uid));
+    }
+
+    checkcollegeFavourite();
+  }, [user]);
+
+  const checkcollegeFavourite = () => {
+    console.log("userFav", favorites);
+    favorites?.map((item) => {
+      if (item._id == _id) {
+        console.log("item", item, _id);
+        setIsFavourite(true);
+      }
+    });
+  };
+
   return (
     <div className="container">
       <Layout title={name} stickyBar={false}>
         <main className="main">
           <CollegeHeader
+            college_id={_id}
             name={name}
             collageLogo={college_logo}
             estblished={estd_year}
@@ -133,6 +157,7 @@ const Home = () => {
             institution_type={institution_type}
             affliated_by={affliated_by}
             video_360={video_360}
+            isFavourite={isFavourite}
           />
           <Submenu />
           <SidebarContainer

@@ -29,7 +29,7 @@ const DashboardSidebar = () => {
           Dashboard
         </div>
 
-        <div
+        {/* <div
           className={`dashboard-sidebar-tab ${
             router.pathname === "/dashboardbasicinfo/status"
               ? "active-dashboard"
@@ -38,6 +38,12 @@ const DashboardSidebar = () => {
           onClick={() => router.push("/dashboardbasicinfo/status")}
         >
           Application Status
+        </div> */}
+        <div
+          className={`dashboard-sidebar-tab `}
+          onClick={() => router.push("/favourites")}
+        >
+        My Favourites
         </div>
         <div
           className={`dashboard-sidebar-tab `}

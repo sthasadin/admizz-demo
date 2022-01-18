@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Layout from "../../layouts";
+import { useDispatch, useSelector } from "react-redux";
+import { getFAQ } from "../../store/Action/faq.action";
 
 import { BlockSearch } from "../../components/BlockSearch";
 import { CallToAction } from "../../components/Button/callToAction";
@@ -9,6 +11,14 @@ import QuickHelp from "../../components/FAQ/quick-help";
 import { FAQAccordian } from "../../components/FAQ/accordian";
 
 const FAQ = () => {
+  const dispatch = useDispatch();
+  const faqList = useSelector((state) => state.faq.faq);
+
+  useEffect(() => {
+    dispatch(getFAQ);
+    console.log("FAQ", faqList);
+  }, []);
+  
   const data = [
     {
       title:
@@ -98,9 +108,6 @@ const FAQ = () => {
             <div className="faq__header__title">What can we help you? FAQs</div>
             <div className="faq__header__search">
               <BlockSearch />
-            </div>
-            <div className="faq__header__desc">
-              Eg: Jain University, Manipur, BMS
             </div>
           </div>
         </div>

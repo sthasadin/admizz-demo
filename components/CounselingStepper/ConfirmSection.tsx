@@ -23,7 +23,7 @@ const ConfirmBook: React.FC<Props> = ({
   return (
     <div className={"confirm-section"}>
       <div className={"confirm-section__header"}>
-        Review and Conform Your Booking Detail
+        Review and Confirm Your Booking Detail
       </div>
       <div className={"confirm-section__confirm-details"}>
         <div className={"confirm-section__row"}>
@@ -60,7 +60,7 @@ const ConfirmBook: React.FC<Props> = ({
       <img src={confirmBookBg} className={"confirm-section__background"} />
       <div className={"confirm-section__agreement"}>
         By submitting this form, you accept and agree to our{" "}
-        <span>Terms & Condition.</span>
+        <span>Terms & Conditions.</span>
       </div>
       <div className={"confirm-section__action-buttons"}>
         <div onClick={handleBack}>Back</div>

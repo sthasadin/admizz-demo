@@ -10,7 +10,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { BlogLayout } from "../../layouts/BlogLayout";
 import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 import { BlogDetailContent } from "../../components/BlogDetailContent";
-import { BlogDetailMember } from "../../components/BlogDetailMember";
 import { Button } from "../../components";
 import Avatar from "@material-ui/core/Avatar";
 import List from "@material-ui/core/List";
@@ -19,11 +18,10 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
-// import FacebookIcon from "@material-ui/icons/Facebook";
-// import WhatsAppIcon from "@material-ui/icons/WhatsApp";
-// import { getBlogDetail } from "../../store/Action/blogDetails.action";
-import { getBlog } from "../../store/Action/blog.action";
+import { getBlogDetail } from "../../store/Action/blogDetails.action";
 import BlogComment from "../../components/BlogComment";
+import { getBlogs } from "store/Action/blog.action";
+import { SingleBlog } from "../../components/SingleBlog";
 
 const blogDetail = () => {
   const router = useRouter();
@@ -39,14 +37,17 @@ const blogDetail = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const blogs = useSelector((state) => state.blog.blogs);
 
   useEffect(() => {
-    // dispatch(getBlogDetail(slug));
-    dispatch(getBlog(slug));
+    dispatch(getBlogs("All"));
+    console.log("blogs", blogs);
+  }, []);
+  const { blog } = useSelector((state) => state.blogDetails);
+  useEffect(() => {
+    dispatch(getBlogDetail(slug));
+    // dispatch(getBlog(slug));(
   }, [slug]);
-
-  // const { blog } = useSelector((state) => state.blogDetails);
-  const blog = useSelector((state) => state.blog.blog);
 
   return (
     <BlogLayout title={blog?.blog_title}>
@@ -64,16 +65,11 @@ const blogDetail = () => {
                 <div className="blog-detail__postValue">
                   <b>{`Posted by: ${blog?.author}`}</b>
                 </div>
-                <div className="blog-detail__postValue">
-                  <b>50</b> Views
-                </div>
-                <div className="blog-detail__postValue">
-                  <b>60</b> Comments
-                </div>
+               
               </div>
               <div className="blog-detail__shareInfoContainer">
                 <div className="blog-detail__buttonContainer">
-                  <Button className="blog-detail__button">TECHNOLOGY</Button>
+                  <Button className="blog-detail__button">{blog?.category}</Button>
                 </div>
                 <div
                   className="blog-detail__sharetitle"
@@ -94,7 +90,7 @@ const blogDetail = () => {
                     <ListItem button className="blog-detail__listItemContainer">
                       <ListItemAvatar>
                         <FacebookShareButton
-                          url={`${process.env.BASE_URL}/blogs/${blog.blog_slug}`} //temporary
+                          url={`${process.env.API_BASE_URL}/blogs/${blogs.slug}`} //temporary
                           quote={"Admizz - You just dream it."}
                           hashtag="#admizz"
                         >
@@ -110,7 +106,7 @@ const blogDetail = () => {
                     <ListItem button>
                       <ListItemAvatar>
                         <WhatsappShareButton
-                          url={`${process.env.BASE_URL}/blogs/${blog.blog_slug}`}
+                          url={`${process.env.API_BASE_URL}/blogs/${blogs.slug}`}
                           title={`${blog.title}`}
                         >
                           <Avatar>
@@ -130,9 +126,9 @@ const blogDetail = () => {
             </div>
           </div>
           <div className="container">
-            <div className="blog-detail__bannerImage">
+            {/* <div className="blog-detail__bannerImage">
               <img className="blog-detail__image" src="/ads-banner.png" />
-            </div>
+            </div> */}
             <div className="blog-detail__main" style={{ marginTop: "30px" }}>
               <BlogDetailContent {...blog} />
             </div>
@@ -150,7 +146,7 @@ const blogDetail = () => {
                     {blog?.author}
                   </p>
                   <p className="blog-detail-content__autherTitle">
-                    Software Engineer
+                    {blog?.author}
                   </p>
                 </div>
               </div>
@@ -162,7 +158,22 @@ const blogDetail = () => {
               className="blog-detail__imageContainer"
               style={{ height: "100%" }}
             >
-              <BlogDetailMember />
+              <div className="blog-detail-member__memberTitle">
+                <div className="blog-detail-member__memberTitleText">
+                  SIMILAR BLOGS
+                </div>
+              </div>
+              {blogs &&
+                blogs.map((blog) => {
+                  <SingleBlog
+                    slug={blog.slug}
+                    type={blog.type}
+                    auther={blog.auther}
+                    time={blog.time}
+                    title={blog.title}
+                    desc={blog.desc}
+                  />;
+                })}
             </div>
             {/* <div className="blog-detail-content__commentContainer">
               <p className="blog-detail-content__commentTitle">

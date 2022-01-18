@@ -11,12 +11,11 @@ const CollegeOverview = () => {
   const [open, setOpen] = useState(false);
 
   const college = useSelector((state) => state.college.college);
-  console.log(college.video_360);
 
   return (
     <div id="overview" className="overview">
       <div className="overview__title-wrap">
-        <div className="overview__title">Course Highlights</div>
+        <div className="overview__title"> HIGHLIGHTS</div>
         <time className="overview__date">
           Update On: {moment(college?.updateAt).format("YYYY MMM DD")}
         </time>
@@ -99,6 +98,23 @@ const CollegeOverview = () => {
             </div>
           </div>
         )}
+        {college?.rankings?.map((item: any) => {
+          {
+            console.log("item", item);
+          }
+
+          return (
+            <div className="overview__block">
+              <div className="overview__block__icon">
+                <img src={item.rank?.logo} alt="" />
+              </div>
+              <div className="overview__block__title">{item.rank?.values}</div>
+              <div className="overview__block__subheading">
+                {item.rank?.title}
+              </div>
+            </div>
+          );
+        })}
       </div>
       {college?.video_360 && (
         <div className="overview__thumbnail">

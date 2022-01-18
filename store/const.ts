@@ -1,6 +1,6 @@
 // export const API_BASE_URL = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
 export const API_BASE_URL = "https://admizzapi.asterdio.xyz";
-//export const API_BASE_URL ="http://localhost:3005"
+// export const API_BASE_URL ="http://localhost:3005"
 
 export const GLOBAL_ERROR = "GLOBAL_ERROR";
 export const SUCCESS = "SUCCESS";
@@ -10,6 +10,12 @@ export const BLOGS_TYPES = {
   GET_BLOGS_INIT: "GET_BLOGS_INIT",
   GET_BLOGS_FINISH: "GET_BLOGS_FINISH",
 };
+//Gallery
+export const GALLERY_TYPES ={
+GET_GALLERY:"GET_GALLERY",
+GET_GALLERY_INIT:"GET_GALLERY_INIT",
+GET_GALLERY_FINISH:"GET_GALLERY_FINISH"
+};
 export const BLOG_TYPES = {
   GET_BLOG: "GET_BLOG",
   GET_BLOG_INIT: "GET_BLOG_INIT",
@@ -17,6 +23,13 @@ export const BLOG_TYPES = {
 };
 
 export const GET_COLLEGE_NEWS = "GET_COLLEGE_NEWS";
+
+// favourites
+export const FAVOURITES = {
+  USER_FAVOURITES: "USER_FAVORITES",
+  ADD_TO_FAVOURITES: "ADD_TO_FAVOURITES",
+  REMOVE_FAVOURITES: "REMOVE_FAVOURITES",
+};
 
 //college
 export const COLLEGES_TYPES = {
@@ -41,6 +54,8 @@ export const GET_AUTH_USER = "GET_AUTH_USER";
 //application
 export const GET_APPLICATION = "GET_APPLICATION";
 export const UPDATE_APPLICATION = "UPDATE_APPLICATION";
+//Gallery
+export const GET_ALL_GALLERY ="GET_ALL_GALLERY";
 
 //courses
 export const GET_LEVELS = "GET_LEVELS";
@@ -77,4 +92,12 @@ export const GET_TOP_COURSES_TYPES = {
   TOP_COURSES_BEGIN: "TOP_COURSES_BEGIN",
   ADD_TOP_COURSES: "ADD_TOP_COURSES",
   GET_TOP_COURSES: "GET_TOP_COURSES",
+};
+//FAQ
+export const GET_FAQ_TYPES = {
+  FAQ_BEGIN: "FAQ_BEGIN",
+  FAQ_GET: "FAQ_GET",
+  FAQ_ADD: "FAQ_ADD",
+  FAQ_END: "FAQ_END",
+  FAQ_ID:"FAQ_ID"
 };

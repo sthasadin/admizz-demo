@@ -44,6 +44,12 @@ const Register = () => {
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
+    if (e.target.name === "country") {
+      if (e.target.value === "Nepal") {
+        console.log(e.target.value, "value");
+        setFormValue({ countryCode: "+977" } as signUpFormValue);
+      } else setFormValue({ countryCode: "+91" } as signUpFormValue);
+    }
   };
 
   const validationSchema = yup.object().shape<signUpFormValue>({
@@ -193,7 +199,9 @@ const Register = () => {
                   />
                 </svg>
               </div>
-              <div className="signin__item__title">Research Your Options</div>
+              <div className="signin__item__title" style={{ marginLeft: 5 }}>
+                Research Your Options
+              </div>
             </div>
             <div className="signin__item">
               <div className="signin__item__icon">
@@ -260,6 +268,18 @@ const Register = () => {
                   errorMessage={formError.email}
                   type="text"
                 />
+
+                <Select
+                  useLabel
+                  options={countryList}
+                  onChange={handleChange}
+                  icon={LocationOnIcon}
+                  title="Home Country"
+                  // placeholder="Home Country"
+                  name={"country"}
+                  error={!!formError.country}
+                  errorMessage={formError.country}
+                />
                 <div className={"student-info__phone-input"}>
                   <CountryCodeDropDown
                     options={CountryCodeOptions}
@@ -288,18 +308,6 @@ const Register = () => {
                     type="text"
                   />
                 </div>
-
-                <Select
-                  useLabel
-                  options={countryList}
-                  onChange={handleChange}
-                  icon={LocationOnIcon}
-                  title="Home Country"
-                  // placeholder="Home Country"
-                  name={"country"}
-                  error={!!formError.country}
-                  errorMessage={formError.country}
-                />
 
                 <PasswordField
                   fullWidth
@@ -334,7 +342,7 @@ const Register = () => {
               </div>
               <div className="signin__info">
                 By submitting this form, you accept and agree to our
-                <span>Terms & Condition.</span>
+                <span>Terms & Conditions.</span>
               </div>
               <div className="signin__submit">
                 <div className="signin__change">

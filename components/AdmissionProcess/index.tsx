@@ -18,7 +18,7 @@ const AdmissionProcess = () => {
         <div className="admission-process__inner">
           {admission && (
             <Fragment>
-              <div className="admission-process__title">Admission Process</div>
+              <div className="admission-process__title">ADMISSION PROCESS</div>
               <div className="admission-process__heading">
                 {admission?.title}
               </div>

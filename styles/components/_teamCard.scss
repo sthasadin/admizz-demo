@@ -1,0 +1,365 @@
+.Our-Awesome-Teams {
+  .dot-image {
+    display: none;
+    .groupsix-dot {
+      width: 100%;
+      object-fit: cover;
+    }
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      width: 300px;
+      position: absolute;
+      right: 5%;
+      top: 40%;
+    }
+    @media only screen and (min-width: 840px) {
+      position: absolute;
+      right: 10%;
+      top: 40%;
+    }
+    @media only screen and (min-width: 992px) {
+      position: absolute;
+      right: 16%;
+    }
+    @media only screen and (min-width: 1200px) {
+      position: absolute;
+      right: 18%;
+    }
+    @media only screen and (min-width: 1280px) {
+      position: absolute;
+      right: 20%;
+    }
+    @media only screen and (min-width: 1366px) {
+      position: absolute;
+      right: 22%;
+    }
+    @media only screen and (min-width: 1500px) {
+      position: absolute;
+      right: 24%;
+    }
+  }
+  .dot-image-second {
+    display: none;
+    .groupfive-dot {
+      width: 100%;
+      object-fit: cover;
+    }
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      width: 300px;
+      position: absolute;
+      left: 5%;
+      bottom: -1%;
+    }
+    @media only screen and (min-width: 840px) {
+      position: absolute;
+      left: 9%;
+      bottom: 1%;
+    }
+    @media only screen and (min-width: 992px) {
+      position: absolute;
+      left: 15%;
+      bottom: 1%;
+    }
+    @media only screen and (min-width: 1200px) {
+      position: absolute;
+      left: 18%;
+    }
+    @media only screen and (min-width: 1280px) {
+      position: absolute;
+      left: 19.5%;
+    }
+    @media only screen and (min-width: 1366px) {
+      position: absolute;
+      left: 21%;
+    }
+    @media only screen and (min-width: 1500px) {
+      position: absolute;
+      left: 24%;
+    }
+  }
+  .team-arrow {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-around;
+      width: 100px;
+      text-align: end;
+      margin-left: 70%;
+      margin-top: 2%;
+    }
+    @media only screen and (min-width: 992px) {
+      margin-left: 65%;
+    }
+    .arrow-icon {
+      background-color: white;
+      box-shadow: 1px 1px rgba(0, 0, 0, 0.247);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      color: #4f4f4f;
+      box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.445);
+    }
+    .icon-disable {
+      background-color: grey;
+      color: white;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+  }
+  .img-grid {
+    // .team-member-img {
+    //   width: 40px;
+    //   height: 40px;
+    //   border-radius: 50%;
+    //   img {
+    //     width: 40px;
+    //     height: 40px;
+    //     border-radius: 50%;
+    //   }
+    // }
+  }
+  .teams-card {
+    width: 300px;
+    background-color: white;
+    border-radius: 20px;
+    position: relative;
+    @media only screen and (min-width: 375px) {
+      width: 355px;
+    }
+    @media only screen and (min-width: 414px) {
+      width: 394px;
+    }
+    @media only screen and (min-width: 540px) {
+      width: 520px;
+      display: flex;
+    }
+    @media only screen and (min-width: 768px) {
+      width: 520px;
+      display: flex;
+      margin: auto;
+    }
+    .teams-card__thumbnail {
+      width: 300px;
+      // min-height: 250px;
+      // height: 200px;
+      // border-radius: 20px;
+      margin: auto;
+      @media only screen and (min-width: 375px) {
+        width: 100%;
+      }
+      @media only screen and (min-width: 540px) {
+        width: 50%;
+      }
+      img {
+        width: 100%;
+
+        height: 260px;
+        object-fit: cover;
+        border-radius: 20px;
+      }
+    }
+    .teams-info {
+      width: 300px;
+      padding: 15px;
+
+      .teams-list__md__name {
+        font-size: 24px;
+        font-weight: 800;
+      }
+      .teams-list__designation {
+        font-size: 12px;
+        color: #828282;
+        line-height: 17px;
+        @media only screen and (min-width: 768px) {
+          width: 14px;
+        }
+      }
+      .teams-list__desc {
+        font-size: 16px;
+        line-height: 24px;
+        color: #4f4f4f;
+        margin-top: 2px;
+      }
+    }
+    .teams-email {
+      display: flex;
+      align-items: center;
+      color: #ffa200;
+      line-height: 21px;
+      .email-icon {
+        color: #ffa200;
+        margin-right: 6px;
+        line-height: 21px;
+      }
+    }
+    .team-social-icons-box {
+      display: flex;
+      align-items: center;
+      .teams-social-icons {
+        color: #828282;
+        font-size: 20px;
+        margin-top: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+// .admiz-teams-page {
+//   background-color: white;
+//   width: 100%;
+//   justify-content: center;
+//   align-items: center;
+//   position: relative;
+//   height: 90vh;
+//   padding: 30px 0;
+//   position: relative;
+
+//   .admiz-teams-page-title {
+//     color: #5f1802;
+//     font-size: 16px;
+//     font-weight: 900;
+//     line-height: 32.26px;
+//     letter-spacing: 2px;
+//     text-transform: uppercase;
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 20px;
+//   }
+//   .admiz-teams-page-second-title {
+//     font-weight: 700;
+//     font-size: 36px;
+//     line-height: 53.46px;
+//     color: #333333;
+//     font-style: normal;
+//     display: flex;
+//     justify-content: center;
+//   }
+//   .groupsix-dot {
+//     position: absolute;
+//     right: 18%;
+//     top: 34%;
+//     z-index: 0;
+//     height: 150px;
+//     object-fit: cover;
+//   }
+//   .teams-card {
+//     width: 600px;
+//     height: 290px;
+//     display: flex;
+//     box-shadow: 4px 4px 10px 2px rgba(128, 128, 128, 0.158);
+//     background-color: white;
+//     border-radius: 20px;
+//     z-index: 999;
+//     margin: 40px auto;
+//     position: relative;
+//     .profile {
+//       img {
+//         width: 250px;
+//         height: 290px;
+//         object-fit: cover;
+//         border-radius: 20px;
+//       }
+//     }
+//     .profile-info {
+//       padding: 20px;
+//       width: 350px;
+//       .name {
+//         font-weight: 700;
+//         font-size: 30px;
+//         margin: 0%;
+//         text-transform: uppercase;
+//         color: #ffa200;
+//       }
+//       // .last-name {
+//       //   font-weight: 700;
+//       //   font-size: 30px;
+//       //   margin: 0%;
+//       //   text-transform: uppercase;
+//       //   color: #333333;
+//       // }
+//       .profile-info-part {
+//         .profile-info-part-post {
+//           color: #828282;
+//           font-size: 12px;
+//           padding-right: 20px;
+//           margin: 10px 0;
+//           line-height: 26px;
+//         }
+//       }
+
+//       p {
+//         width: 100%;
+//         color: #4f4f4f;
+//         font-size: 16px;
+//         line-height: 23px;
+//       }
+
+//       .card-email {
+//         display: flex;
+//         /* justify-content: center; */
+//         align-items: center;
+//         color: #ffa200;
+//         font-size: 14px;
+//         line-height: 21px;
+//         .email-box {
+//           color: #ffa200;
+//           margin-right: 5px;
+//           line-height: 21px;
+//         }
+//       }
+//       .card-social-icons-box {
+//         margin-top: 5px;
+//         .card-social-icons {
+//           color: #828282;
+//           font-size: 18px;
+//           margin-right: 10px;
+//         }
+//       }
+
+//       .groupfive-dot {
+//         z-index: 0;
+//         position: absolute;
+//         bottom: -20%;
+//         left: -16%;
+//         z-index: -9;
+//         height: 150px;
+//         width: 280px;
+//         object-fit: cover;
+//       }
+//       .team-arrow {
+//         position: absolute;
+//         right: 0;
+//         top: 110%;
+//         .arrow-icon {
+//           background-color: rgb(255, 255, 255);
+//           color: #333333;
+//           margin-left: 10px;
+//           border-radius: 50%;
+//           width: 20px;
+//           height: 20px;
+//           text-align: center;
+//           box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.445);
+//         }
+//       }
+//     }
+//   }
+
+//   .position-image {
+//     width: 60px;
+//     height: 60px;
+//     border-radius: 12px;
+//     position: absolute;
+//   }
+// }
+
+// .dot {
+//   color: #ffa200;
+//   background-color: #ffa200;
+//   width: 120px;
+//   height: 4px;
+//   border-radius: 50%;
+// }

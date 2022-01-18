@@ -6,11 +6,13 @@ import {
   getReviews,
   updateReview,
 } from "../../store/Action/review.action";
+import Snackbar from "@material-ui/core/Snackbar";
 import Rating from "@material-ui/lab/Rating";
 import { AddCollegeRatingAndReview } from "../AddCollegeRatingAndReviews";
 import { Review } from "../Review";
 import { RatingItem } from "./ratingItem";
 import { useRouter } from "next/router";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 const RatingAndReview = (props: any) => {
   const [isAddReviewOpen, setIsAddReviewOpen] = useState(false);
@@ -23,7 +25,7 @@ const RatingAndReview = (props: any) => {
   const _getReviews = async (college_id) => {
     let res = await dispatch(getReviews(college_id));
     setOriginalReviews(res);
-
+    
     //make proper datastructure
     let collegeReviews: any = {
       length: res.length,

@@ -1,16 +1,17 @@
 import React from "react";
 import { CallToAction } from "../Button/callToAction";
+import { Button } from "../Button";
 import QuickHelp from "./quick-help";
+import { useRouter } from 'next/router'
 
 const FAQ = () => {
+  const router = useRouter();
   return (
     <div className="faq">
       <div className="faq__header section-wrapper">
         <div className="faq__header__title">
           <div className="faq__header__search">What can we help you? FAQs</div>
-          <div className="faq__header__desc">
-            Eg: Jain University, Manipur, BMS
-          </div>
+          
         </div>
       </div>
       <div className="faq-content">
@@ -58,9 +59,7 @@ const FAQ = () => {
               process for scholarship processing.
             </div>
             <div className="faq__cta">
-              <CallToAction className="filled">
-                Book a Counseling Session
-              </CallToAction>
+            <Button onClick={() => router.push('/free-counseling')}>Book a Counseling Session</Button>
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@ const index = () => {
               active && "active__vertical"
             } vertical__stickycontainer `}
           >
-            <div className="text__content">Free Counseling</div>
+            <div className="text__content">Free Counselling</div>
             <div className="image">
               <img src="/vertical-arrow.png" alt="free counseling" />
             </div>

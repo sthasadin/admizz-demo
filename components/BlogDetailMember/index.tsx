@@ -1,51 +1,43 @@
 import React from "react";
-import BlogImage from "../../public/blog.png";
-import { useRouter } from "next/router";
+import calculateReadingTime from "../../utils/calculateReadingTime";
+import { SingleBlog } from "../SingleBlog";
 
-const SingleBlog = () => {
-  const router = useRouter();
-  return (
-    <div
-      className="blog-detail-member__memberPost"
-      onClick={() => router.push("/blogdetail")}
-    >
-      <div className="blog-detail-member__inner">
-        <div className="blog-detail-member__catagoryContainer">
-          <div className="blog-detail-member__category">technology</div>
-        </div>
-        <div className="blog-detail-member__details">
-          <div className="blogCard__meta">
-            <div className="blogCard__author">Stecy James</div>
-            <div className="blogCard__time">5 min read</div>
-          </div>
-          <div className="blogCard__title">
-            How I got my job in Google with the help of Admizz
-          </div>
-          <div className="blogCard__desc">
-            Get the right career advice for you and earn your best career
-            certificates.
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+const BlogDetailMember = ({blogArray}) => {
+console.log("blogArray",blogArray)
+  const removeHtmlChar = (text) => {
+    return text?.replace(/<[^>]+>/g, "");
+  };
 
-const BlogDetailMember = () => {
+  const text_truncate = (str) => {
+    return str.substring(0, 70 - 3) + "...";
+  };
   return (
     <div className="blog-detail-member">
       <div className="blog-detail-member__memberTitle">
         <div className="blog-detail-member__memberTitleText">
-          Featured for Members
+         SIMILAR BLOGS
         </div>
       </div>
-      <hr />
-      <div className="blog-detail-member__memberList">
-        <SingleBlog />
-        <SingleBlog />
-        <SingleBlog />
-        <SingleBlog />
-      </div>
+     {console.log("blogArray",blogArray)}
+      {blogArray &&
+            blogArray.slice(0, 4).map((blog, i) => {
+              return (
+                <div className="blog-list-member__secondaryPost" key={i}>
+                  <SingleBlog
+                    id={blog?._id}
+                    slug={blog?.blog_slug}
+                    type={blog?.category}
+                    auther={blog?.author}
+                    time={`${calculateReadingTime(
+                      blog?.blog_desc ? removeHtmlChar(blog?.blog_desc) : ""
+                    )} min read`}
+                    title={blog?.blog_title}
+                    desc={text_truncate(removeHtmlChar(blog?.blog_desc))}
+                    backgroundImg={blog?.blog_imageURL}
+                  />
+                </div>
+              );
+            })}
     </div>
   );
 };

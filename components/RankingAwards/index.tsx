@@ -1,4 +1,4 @@
-import React, { Fragment, useMemo } from "react";
+import React, { Fragment, useEffect, useMemo, useState } from "react";
 import moment from "moment";
 import RankingTable from "./RankingTable";
 import AwardList from "./AwardsList";
@@ -6,50 +6,6 @@ import { useSelector } from "react-redux";
 
 const index = () => {
   const college = useSelector((state: any) => state.college.college);
-
-  const ranking = useMemo(() => {
-    let clgRank = college?.college_rankings;
-
-    let newStructOfRank = [];
-    if (clgRank?.length) {
-      clgRank.forEach((r: any) => {
-        let thisRank: any = {};
-        newStructOfRank.forEach((rank) => {
-          if (rank.title == r.title) {
-            thisRank = r;
-          }
-        });
-        let thisIndex = newStructOfRank.findIndex(
-          (rank) => rank.title == r.title
-        );
-        if (thisIndex > -1) {
-          newStructOfRank[thisIndex] = {
-            title: thisRank.title,
-            logo: thisRank.ranking_authority_logo,
-            years: [
-              ...newStructOfRank[thisIndex].years,
-              {
-                date: thisRank.year,
-                rank: thisRank.rank,
-              },
-            ],
-          };
-        } else {
-          newStructOfRank.push({
-            title: r.title,
-            logo: r.ranking_authority_logo,
-            years: [
-              {
-                date: r.year,
-                rank: r.rank,
-              },
-            ],
-          });
-        }
-      });
-    }
-    return newStructOfRank;
-  }, [college]);
 
   return (
     <div className="rankingawards__section">
@@ -65,10 +21,10 @@ const index = () => {
             <div>{moment().subtract(0, "year").year()}</div>
           </div>
           <div className="rankingawards__awardscontainer">
-            {ranking.map((rank, i) => {
+            {college?.college_rankings.map((rank, i) => {
               return (
                 <Fragment key={i}>
-                  <RankingTable authorityLogo={rank.logo} rank={rank.years} />
+                  <RankingTable authorityLogo={rank?.rank_id?.logo} rank_year={rank?.year} rank={rank?.rank} />
                 </Fragment>
               );
             })}

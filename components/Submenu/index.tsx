@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import Snackbar from "@material-ui/core/Snackbar";
 import Modal from "@material-ui/core/Modal";
 import Fade from "@material-ui/core/Fade";
+import { useDispatch } from "react-redux";
+import { addToFavourites } from "@/store/Action/collegefavourite.action";
+import { AuthContext } from "pages/AuthContext";
+
 import Backdrop from "@material-ui/core/Backdrop";
 import ReactPlayer from "react-player";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { auth } from "../../firebase";
+import { useRouter } from "next/router";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -17,9 +23,23 @@ const Submenu = (props: any) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const college = useSelector((state) => state.college.college);
-
+  const { user } = useContext(AuthContext);
+  const users = useSelector((state) => state.user.authUser);
+  const router = useRouter();
+  const dispatch = useDispatch();
   const handleOpen = () => {
     setOpen(true);
+  };
+
+  const handleClick = () => {
+    if (auth.currentUser) {
+      let data = { college: college._id, user: user.uid };
+      dispatch(addToFavourites(data));
+      setClick((click) => !click);
+      setSnackOpen(true);
+    } else {
+      router.push("/login");
+    }
   };
 
   const handleClose = () => {
@@ -58,13 +78,7 @@ const Submenu = (props: any) => {
               </div>
               <div className="college_content__right">
                 <div className="college-right-content">
-                  <div
-                    className="task__logo"
-                    onClick={() => {
-                      setClick((click) => !click);
-                      setSnackOpen(true);
-                    }}
-                  >
+                  <div className="task__logo" onClick={handleClick}>
                     <svg
                       width="22"
                       height="20"
@@ -80,7 +94,14 @@ const Submenu = (props: any) => {
                       />
                     </svg>
                   </div>
-                  <div className="task__title">Add to Favourite</div>
+                  <div
+                    className="task__title"
+                    onClick={() => {
+                      handleClick();
+                    }}
+                  >
+                    Add to Favourite
+                  </div>
                 </div>
                 <div className="college-right-content">
                   <div className="task__logo" onClick={handleOpen}>

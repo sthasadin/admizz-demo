@@ -5,7 +5,7 @@ const AwardsList = ({ data }) => {
   return (
     <>
       <div className="award__content">
-        <img src={data.logo} style={{ width: "100%" }} />
+        <img src={data.logo} style={{ width: "100%",objectFit:'contain' }} />
         <div className="award__details">{data.title}</div>
       </div>
     </>

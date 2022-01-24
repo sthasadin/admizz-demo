@@ -139,11 +139,11 @@ const Navbar = (props: any) => {
             </div>
             <div className="navbar__contact1">
               <div className="navbar__countryname">Nepal:</div>
-              <div className="navbar__contactnumber">+977 87654321</div>
+              <div className="navbar__contactnumber">+977 9802728444 </div>
             </div>
             <div className="navbar__contact2">
               <div className="navbar__countryname">India:</div>
-              <div className="navbar__contactnumber">+977 87654321</div>
+              <div className="navbar__contactnumber">+91 8050259693</div>
             </div>
           </div>
 
@@ -154,11 +154,11 @@ const Navbar = (props: any) => {
             </div>
             <div className="navbar__contact1">
               <div className="navbar__countryname">Nepal:</div>
-              <div className="navbar__contactnumber">+977 87654321</div>
+              <div className="navbar__contactnumber">+977 9802728444</div>
             </div>
             <div className="navbar__contact2">
               <div className="navbar__countryname">India:</div>
-              <div className="navbar__contactnumber">+977 87654321</div>
+              <div className="navbar__contactnumber">+91 8050259693</div>
             </div>
           </div>
         </div>

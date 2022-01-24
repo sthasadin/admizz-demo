@@ -38,8 +38,8 @@ const index = ({ data }) => {
     );
   }
   const settings = {
-    dots: false,
-    infinite: true,
+    dots: true,
+    infinite: false,
     dotsClass: "rounded-scroll slick-thumb",
     speed: 500,
     slidesToShow: 3,

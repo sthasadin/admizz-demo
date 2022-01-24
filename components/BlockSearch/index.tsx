@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-const BlockSearch = () => {
+const BlockSearch = ({searchHandler}) => {
+
+  const [query,setQuery] = useState("");
+
+  const OnClickHandler = (e)=>{
+    console.log(query)
+    searchHandler(query)
+  }
+
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+  }
+
+  const checknull =(event) => {
+    console.log(event)
+    if(!event.target.value) searchHandler(query)
+
+  }
+
   return (
     <div className="block-search">
       <div className="block-search__inner">
@@ -20,8 +38,8 @@ const BlockSearch = () => {
             />
           </svg>
         </div>
-        <input type="text" placeholder="Enter Your Issue here" />
-        <div className="block-search__btn">Search</div>
+        <input type="text" placeholder="Enter Your Issue here" onChange={handleChange} onKeyUp={checknull}/>
+        <div className="block-search__btn" onClick={OnClickHandler}>Search</div>
       </div>
     </div>
   );

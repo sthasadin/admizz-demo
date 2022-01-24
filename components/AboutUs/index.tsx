@@ -60,7 +60,7 @@ const index = () => {
         <Features />
         <Tieups />
         <International />
-      
+        <Teams data={''} />
         <Contact />
       </div>
       </Layout>
@@ -70,3 +70,4 @@ const index = () => {
 };
 
 export default index;
+

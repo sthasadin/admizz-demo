@@ -135,7 +135,19 @@
 
   .contact-countries {
     display: grid;
+    grid-template-columns: 1fr 1fr;
   }
+
+  .contact-india {
+    align-self: center;
+    justify-self: center;
+  }
+
+  .contact-nepal {
+    align-self: center;
+    justify-self: center;
+  }
+
 
   .aboutus-testimonial-content {
     width: 60%;

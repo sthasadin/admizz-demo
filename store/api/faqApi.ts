@@ -32,3 +32,4 @@ export class FAQService {
     return data;
   }
 }
+

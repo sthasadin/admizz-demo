@@ -649,6 +649,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   left: 0;
   bottom: 0;
   color: #fff;
+  text-align: justify;
 }
 
 @media (max-width: 450px) {
@@ -7304,7 +7305,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .introduction__container .vertical__stickycontainer {
@@ -7582,6 +7583,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   color: #333;
   font-weight: 500;
   width: 80px;
+  cursor: pointer;
 }
 
 .introduction__right {

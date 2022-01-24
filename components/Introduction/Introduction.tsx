@@ -146,7 +146,12 @@ const Introduction = (props) => {
                   </svg>
                 </div>
                 <div className="introduction__meta__item__title">
-                  COVID-19 RESPONSE
+                  <a
+                    href="https://covid19.who.int/"
+                    target="_blank"
+                  >
+                    COVID-19 RESPONSE
+                  </a>
                 </div>
               </div>
               <div className="introduction__meta__item">
@@ -169,7 +174,7 @@ const Introduction = (props) => {
                 </div>
               </div>
               <div className="introduction__meta__item">
-                <div className="introduction__meta__item__icon">
+                {/* <div className="introduction__meta__item__icon">
                   <svg
                     width="47"
                     height="47"
@@ -184,10 +189,10 @@ const Introduction = (props) => {
                       fill="#FFA200"
                     />
                   </svg>
-                </div>
-                <div className="introduction__meta__item__title">
+                </div> */}
+                {/* <div className="introduction__meta__item__title">
                   VIRTUAL TOUR
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

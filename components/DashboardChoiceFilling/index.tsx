@@ -103,6 +103,7 @@ const DashboardChoiceFilling = ({
     setLoader(true);
     setAppliedColleges(
       choices.map((c: any) => {
+        console.log(c.selectedCollege)
         return {
           collegeName: c.selectedCollege?.collegeName || "",
           image: c.selectedCollege?.image || "",
@@ -111,6 +112,7 @@ const DashboardChoiceFilling = ({
           collegeStream: c.selectedStream?.label,
           collegeProgram: c.selectedProgram?.label,
           collegeEmail: c.selectedCollege?.email || "",
+          collegeId: c.selectedCollege?._id
         };
       })
     );

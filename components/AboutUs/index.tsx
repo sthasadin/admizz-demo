@@ -9,7 +9,7 @@ import { Us } from "../why-us/index"
 import Features from "./feature";
 import Tieups from "./tieups";
 import MessengerCustomerChat from "../MessengerCustomerChat";
-
+import { Teams } from "../Teams";
 import Layout from "../../layouts";
 
 

@@ -40,7 +40,7 @@ const Us = ({ college }) => {
     {
       title: "End to End Assistance Support",
       description:
-        "Get the right career advice for you and earn your best career certificates.",
+        "From admission to career, Admizz will assist you to achieve your goal in every step.",
       icon: (
         <svg
           width="60"
@@ -62,7 +62,7 @@ const Us = ({ college }) => {
     {
       title: "Get Best Scholarships Facility",
       description:
-        "Get the right career advice for you and earn your best career certificates.",
+        "The Government of India and other organizations are providing scholarships for international students each year.",
       icon: (
         <svg
           width="71"
@@ -82,9 +82,9 @@ const Us = ({ college }) => {
       ),
     },
     {
-      title: "Be Assured About Your Admission",
+      title: "One-on-One Counseling Session",
       description:
-        "Get the right career advice for you and earn your best career certificates.",
+        "Admizz provides you with a unique and effective career counseling program for students.",
       icon: (
         <svg
           width="54"

@@ -137,6 +137,15 @@
   text-decoration: underline;
 }
 
+.colleges-card .colleges-card__thumbnail .college-image {
+  background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(7, 7, 7));
+  opacity: 0.9;
+}
+.college-image {
+  opacity: 0.9;
+  background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(7, 7, 7));
+}
+
 .review-rating-container {
   position: absolute;
   right: 15px;
@@ -144,7 +153,7 @@
 }
 
 .review-title {
-  color: #f2f2f2;
+  color: #fffefe;
   font-size: 11px;
   font-weight: 500;
   line-height: 12px;

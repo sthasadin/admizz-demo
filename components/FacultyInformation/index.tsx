@@ -5,8 +5,9 @@ import Box from "@material-ui/core/Box";
 import { Value } from "@material-ui/lab";
 
 const FacultyInformation = (props: any) => {
-  const faculty = useSelector((state:any) => state.college.college.faculty);
 
+  const faculty = useSelector((state:any) => state.college.college.faculty);
+  console.log("Faculty",faculty)
   const getValue = (value) => {
     const splitText = value.split("%");
     if (splitText.length == 2) {
@@ -39,16 +40,25 @@ const FacultyInformation = (props: any) => {
     );
   }
   return faculty ? (
+ 
     <div className="faculty-information">
+    {faculty && faculty?.major_faculty && faculty?.major_faculty.length > 0 && (
+
+ 
       <div className="faculty-information__inner">
+        
         <div className="sidebar__title">Faculty Information</div>
         <div className="faculty-information__shapes">
+    
           <div className="faculty-information__semi-circle">
+          
             <div className="faculty-information__semi-circle-text">
               {faculty && faculty?.total_faculity}
               <span>Faculty</span>
             </div>
+         
           </div>
+           
           <div className="faculty-information__circle-wrap">
             {faculty?.major_faculty.map((c) => {
               return (
@@ -66,10 +76,14 @@ const FacultyInformation = (props: any) => {
               );
             })}
           </div>
+       
+
         </div>
       </div>
+      )}
     </div>
-  ) : null;
+      
+  ):null;
 };
 
 export default FacultyInformation;

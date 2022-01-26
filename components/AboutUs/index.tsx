@@ -8,9 +8,8 @@ import { Merits } from "./whychoose"
 import { Us } from "../why-us/index"
 import Features from "./feature";
 import Tieups from "./tieups";
-import { Teams } from "../Teams/index";
 import MessengerCustomerChat from "../MessengerCustomerChat";
-
+import { Teams } from "../Teams";
 import Layout from "../../layouts";
 
 
@@ -71,3 +70,4 @@ const index = () => {
 };
 
 export default index;
+

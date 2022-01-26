@@ -10,10 +10,12 @@ import Introduction from "../components/Introduction";
 import { Merits } from "../components/mertis";
 import { Statistics } from "../components/statistics";
 import { Teams } from "../components/Teams";
+
 import { Testimonial } from "../components/Testimonial";
 
 import { Us } from "../components/why-us";
 import Layout from "../layouts/index";
+import AllIndia from "./allindia";
 
 export default function Home() {
   const { collegeList } = useSelector((state: any) => state.allCollege);
@@ -26,7 +28,6 @@ export default function Home() {
   return (
     <Layout title="Home" stickyBar={true}>
       <Introduction />
-
       <About />
       <Merits />
       <Us college={collegeList.slice(0, 6)} />

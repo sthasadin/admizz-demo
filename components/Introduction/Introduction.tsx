@@ -27,13 +27,13 @@ const Introduction = (props) => {
       <img src={imgSrc} alt="..." className="introduction__bannerimg" />
       <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
-          <div className="introduction__header">{`You just dream it ${title}`}</div>
+          <div className="introduction__header">{`You just dream it`}</div>
           <div className="introduction__title">
             We help you achieve your big dream
           </div>
           <div className="introduction__desc">
             Kickstart your career by starting early. Admizz helps you join the
-            right diploma.
+            right course at right university.
           </div>
           <div className="u-align-center">
             <CallToAction
@@ -146,7 +146,12 @@ const Introduction = (props) => {
                   </svg>
                 </div>
                 <div className="introduction__meta__item__title">
-                  COVID-19 RESPONSE
+                  <a
+                    href="https://covid19.who.int/"
+                    target="_blank"
+                  >
+                    COVID-19 RESPONSE
+                  </a>
                 </div>
               </div>
               <div className="introduction__meta__item">
@@ -169,7 +174,7 @@ const Introduction = (props) => {
                 </div>
               </div>
               <div className="introduction__meta__item">
-                <div className="introduction__meta__item__icon">
+                {/* <div className="introduction__meta__item__icon">
                   <svg
                     width="47"
                     height="47"
@@ -184,10 +189,10 @@ const Introduction = (props) => {
                       fill="#FFA200"
                     />
                   </svg>
-                </div>
-                <div className="introduction__meta__item__title">
+                </div> */}
+                {/* <div className="introduction__meta__item__title">
                   VIRTUAL TOUR
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

@@ -19,14 +19,14 @@ const Topbar = (props: any) => {
             </div>
             <div className="contact__item">
               <span className="contact__title">Nepal:</span>
-              <Link href="tel:+977 87654321">
-                <span className="contact__info">+977 87654321</span>
+              <Link href="tel:+977 9802728444 ">
+                <span className="contact__info">+977 9802728444 </span>
               </Link>
             </div>
             <div className="contact__item">
               <span className="contact__title">India:</span>
-              <Link href="tel:+977 87654321">
-                <span className="contact__info">+91 87654321</span>
+              <Link href="tel:+91 8050259693">
+                <span className="contact__info">+91 8050259693</span>
               </Link>
             </div>
           </div>

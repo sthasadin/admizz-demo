@@ -33,9 +33,9 @@ const index = () => {
             } vertical__stickycontainer `}
           >
             <div className="text__content">Free Counselling</div>
-            <div className="image">
+            {/* <div className="image">
               <img src="/vertical-arrow.png" alt="free counseling" />
-            </div>
+            </div> */}
           </div>
         </Link>
 

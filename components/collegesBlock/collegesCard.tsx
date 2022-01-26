@@ -126,6 +126,8 @@ const CollegesCard = (college) => {
               )}
             </div>
             <img
+              style={{ opacity: 1.5 }}
+              className="college-image"
               src={college?.banner ? college?.banner : "/colleges.png"}
               alt="college"
             />

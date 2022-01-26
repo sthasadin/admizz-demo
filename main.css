@@ -649,6 +649,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   left: 0;
   bottom: 0;
   color: #fff;
+  text-align: justify;
 }
 
 @media (max-width: 450px) {
@@ -1351,7 +1352,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 .colleges-card__location {
   font-size: 14px;
   line-height: 21px;
-  color: #f2f2f2;
+  color: #fffbfb;
 }
 
 .colleges-card__details {
@@ -2921,9 +2922,9 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   align-items: center;
 }
 
-.testimonial__left__thumbnail:nth-child(3) {
-  margin-top: 120px;
-  margin-left: -120px;
+/* .testimonial__left__thumbnail:nth-child(3) {
+  margin-top: -120px;
+  margin-left: -220px;
 }
 
 .testimonial__left__thumbnail:nth-child(2) {
@@ -2933,11 +2934,9 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 
 .testimonial__left__thumbnail:nth-child(1) {
   margin-top: 120px;
-}
+} */
 
 .testimonial__center {
-  height: 304px;
-  width: 304px;
   border-radius: 50%;
   border: 3px dashed #5f1802;
   padding: 18px;
@@ -2951,15 +2950,18 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   width: 100%;
   border-radius: 50%;
   -o-object-fit: fill;
-  object-fit: fill;
+  object-fit: contain;
+  height: 304px;
+  width: 304px;
 }
 
 .testimonial__right {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  /* display: flex; */
   -webkit-box-align: center;
   -ms-flex-align: center;
+
   align-items: center;
 }
 
@@ -2969,16 +2971,15 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   }
 }
 
-.testimonial__right__thumbnail:nth-child(1) {
+/* .testimonial__right__thumbnail:nth-child(1) {
   margin-top: 180px;
   margin-left: -50px;
 }
-
 @media (max-width: 1024px) {
   .testimonial__right__thumbnail:nth-child(1) {
     margin: 0;
   }
-}
+} */
 
 .testimonial__item-wrap {
   display: -webkit-box;
@@ -7304,7 +7305,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .introduction__container .vertical__stickycontainer {
@@ -7582,6 +7583,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   color: #333;
   font-weight: 500;
   width: 80px;
+  cursor: pointer;
 }
 
 .introduction__right {
@@ -10219,6 +10221,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 .navbar__drawer__container {
   background-color: #5f1802;
   height: 812px;
+  width: 100%;
 }
 
 .navbar__drawer__container .drawer__header {
@@ -10362,6 +10365,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   margin-left: 11px;
   font-size: 14px;
   color: #f2f2f2;
+  display: flex;
 }
 
 .navbar__drawer__container

@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
-  cursor: pointer;
+ // cursor: pointer;
 
   .vertical__stickycontainer {
     height: 228px;
@@ -157,6 +157,7 @@
     }
   }
   &__desc {
+    width: 450px;
     font-size: 14px;
     line-height: 21px;
     color: #828282;

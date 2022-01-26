@@ -19,6 +19,7 @@ import Dialog from "@material-ui/core/Dialog";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import { getBlogs } from "../../store/Action/blog.action";
+import { FacebookShareButton } from "react-share";
 
 const blogDetail = () => {
   const [open, setOpen] = React.useState(false);
@@ -91,11 +92,14 @@ const blogDetail = () => {
                         button
                         className="blog-detail__listItemContainer"
                       >
-                        <ListItemAvatar>
+                        {/* <ListItemAvatar>
                           <Avatar>
                             <FacebookIcon />
                           </Avatar>
-                        </ListItemAvatar>
+                        </ListItemAvatar> */}
+
+                        
+
                         <ListItemText primary={"Facebook"} />
                       </ListItem>
 

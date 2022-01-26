@@ -9,7 +9,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
 import StudyDetail from "./StudyDetail";
-import { TopUniversities } from "./TopUniversities";
+// import { TopUniversities } from "./TopUniversities";
 
 import { CollegesBlock } from "@/components/collegesBlock";
 import collegeList from "pages/colleges";
@@ -20,7 +20,7 @@ import IndiaBlogArticles from "./IndiaBlogArticles";
 const index = () => {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
-  const { collegeList } = useSelector((state) => state.allCollege);
+  const { collegeList } = useSelector((state:any) => state.allCollege);
   console.log({ collegeList });
   const dispatch = useDispatch();
   useEffect(() => {
@@ -127,7 +127,7 @@ const index = () => {
           <img className="imageten image" src="icon/imageten.svg" />
         </div>
         <StudyDetail />
-        <TopUniversities collegeList={collegeList} />
+     {/* <TopUniversities collegeList={collegeList} /> */}
         <div className="quotes-container">
           <div className="quotes-container-content">
             <div

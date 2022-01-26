@@ -5,8 +5,8 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import TeamsMember from "./TeamsMember";
 import { db } from "../../firebase";
 
-const index = () => {
-  const [selectedTeam, setSelectedTeam] = useState({});
+const index = ({data}) => {
+  const [selectedTeam, setSelectedTeam] = useState({index: 0});
   const [teamsArray, setTeamsArray] = useState([]);
 
   useEffect(() => {

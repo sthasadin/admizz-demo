@@ -7,6 +7,7 @@ import ShowSelectedCollege from "./ShowSelectedCollege";
 import { useSelector } from "react-redux";
 import CollegeListModal from "./CollegeListModal";
 import CollegeCompareTable from "./CollegeCompareTable";
+import {RootState} from "../../store/store";
 
 const index = () => {
   const [isFilterContainer, setIsFilterContainer] = React.useState(false);
@@ -22,7 +23,7 @@ const index = () => {
   const [isAddCollegeModalOpen, setIsAddCollegeModalOpen] = React.useState(
     false
   );
-  const college = useSelector((state) => state.college.college);
+  const college = useSelector((state:any) => state.college.college);
 
   React.useEffect(() => {
     if (college) {

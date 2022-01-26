@@ -25,7 +25,7 @@ const Testimonial = (props: any) => {
   const dispatch = useDispatch();
 
   const getAllTestimonal = async () => {
-    const fetchTestimonal = await dispatch(getTestimonial());
+    const fetchTestimonal = await dispatch<any>(getTestimonial());
     setTestimonialList(fetchTestimonal);
   };
 

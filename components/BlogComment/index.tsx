@@ -2,11 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Input } from "../Input";
 import { Button } from "../../components";
+import {RootState} from "../../store/store";
 
 const index = (props) => {
   const [comment, setComment] = React.useState("");
 
-  const user = useSelector((state) => state.user.authUser);
+  const user = useSelector((state:any) => state.user.authUser);
 
   const handleComment = () => {};
 

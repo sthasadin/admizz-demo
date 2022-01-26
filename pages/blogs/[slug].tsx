@@ -20,7 +20,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import { getBlogDetail } from "../../store/Action/blogDetails.action";
 import BlogComment from "../../components/BlogComment";
-import { getBlogs } from "store/Action/blog.action";
+import { getBlogs } from "../../store/Action/blog.action";
 import { SingleBlog } from "../../components/SingleBlog";
 
 const blogDetail = () => {
@@ -37,13 +37,16 @@ const blogDetail = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const blogs = useSelector((state) => state.blog.blogs);
+  const blogs = useSelector((state: any) => state.blog.blogs);
 
   useEffect(() => {
     dispatch(getBlogs("All"));
     console.log("blogs", blogs);
   }, []);
-  const { blog } = useSelector((state) => state.blogDetails);
+
+  const { blog } = useSelector((state: any) => state.blogDetails);
+  //const blog = useSelector((state:any) => state.blog.blog);
+
   useEffect(() => {
     dispatch(getBlogDetail(slug));
     // dispatch(getBlog(slug));(

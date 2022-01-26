@@ -5,6 +5,20 @@ import QuickHelp from "./quick-help";
 import { useRouter } from 'next/router'
 
 const FAQ = () => {
+  const data = useSelector((state: any) => state.faq.faqs);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFaq());
+  }, []);
+
+  const searchHandler = async (query) => {
+    console.log({ query });
+    if (!query) dispatch(getFaq());
+    dispatch(getSearchFaq(query));
+  };
+
+  console.log(data);
   const router = useRouter();
   return (
     <div className="faq">

@@ -203,7 +203,7 @@ const CounselingStepper = () => {
         contact_id: formValue.contact_id,
         createdAt: moment().format(),
       });
-      const res = await dispatch(bookingCounsellorMail(formValue.email));
+      const res = await dispatch<any>(bookingCounsellorMail(formValue.email));
       if (res.isSuccess) {
         setSnackOpen(true);
         setLoading(false);

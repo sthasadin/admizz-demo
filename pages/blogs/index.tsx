@@ -12,7 +12,7 @@ import { BlogListRandomBlog } from "../../components/BlogListRandomBlog";
 import { getBlogs } from "../../store/Action/blog.action";
 
 const blogList = () => {
-  const blogs = useSelector((state) => state.blog.blogs);
+  const blogs = useSelector((state: any) => state.blog.blogs);
 
   const dispatch = useDispatch();
 

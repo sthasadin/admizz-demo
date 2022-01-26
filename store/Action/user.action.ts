@@ -1,4 +1,4 @@
-import { Dispatch } from "react-redux";
+import { Dispatch } from "redux";
 import { db, storage, auth } from "../../firebase";
 import { GET_AUTH_USER } from "../const";
 

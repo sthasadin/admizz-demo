@@ -28,7 +28,7 @@ const index = () => {
     (state: any) => state.student_application
   );
 
-  const loader = useSelector((state) => state.college.multiLoading);
+  const loader = useSelector((state: any) => state.college.multiLoading);
 
   console.log(application);
   return (

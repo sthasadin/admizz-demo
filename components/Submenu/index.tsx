@@ -22,9 +22,9 @@ const Submenu = (props: any) => {
   const [open, setOpen] = React.useState(false);
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
-  const college = useSelector((state) => state.college.college);
+  const college = useSelector((state:any) => state.college.college);
   const { user } = useContext(AuthContext);
-  const users = useSelector((state) => state.user.authUser);
+  const users = useSelector((state:any) => state.user.authUser);
   const router = useRouter();
   const dispatch = useDispatch();
   const handleOpen = () => {

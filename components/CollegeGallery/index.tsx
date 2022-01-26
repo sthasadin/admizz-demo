@@ -4,10 +4,10 @@ import { getGallery } from "@/store/Action/gallery.action";
 import ReactPlayer from "react-player";
 
 const CollegeGallery = (props) => {
-  const college = useSelector((state) => state.college.college);
-  const videos = useSelector((state) => state.college.videos);
+  const college = useSelector((state:any) => state.college.college);
+  const videos = useSelector((state:any) => state.college.videos);
 
-  const gallery = useSelector((state) =>state.gallery.gallery);
+  const gallery = useSelector((state:any) =>state.gallery.gallery);
   // console.log({gallery})
   const dispatch = useDispatch();
 

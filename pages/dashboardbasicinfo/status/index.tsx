@@ -21,8 +21,8 @@ const index = () => {
   }, [auth]);
 
   // const { collegeList } = useSelector((state: any) => state.allCollege);
-  const collegeList = useSelector((state) => state.college.colleges);
-  const Loading = useSelector((state) => state.college.multiLoading);
+  const collegeList = useSelector((state: any) => state.college.colleges);
+  const Loading = useSelector((state: any) => state.college.multiLoading);
   const { application } = useSelector(
     (state: any) => state.student_application
   );

@@ -28,8 +28,8 @@ const Footer = () => {
     setFormError({ subscriber: null });
   };
 
-  const topColleges = useSelector((state) => state.footer.topColleges);
-  const topCourses = useSelector((state) => state.footer.topCourses);
+  const topColleges = useSelector((state:any) => state.footer.topColleges);
+  const topCourses = useSelector((state:any) => state.footer.topCourses);
 
   React.useEffect(() => {
     dispatch(getTopColleges());
@@ -71,7 +71,7 @@ const Footer = () => {
       const isValid = await validate();
       if (isValid) {
         setSnackOpen(true);
-        await dispatch(addSubscriber(subscriber));
+        await dispatch<any>(addSubscriber(subscriber));
         setSubscriber("");
       }
     } catch (error) {}

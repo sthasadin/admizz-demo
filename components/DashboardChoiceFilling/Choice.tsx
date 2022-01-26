@@ -22,9 +22,8 @@ const selectCollege = ({
   let { selectedStream, selectedProgram, selectedCollege } = choices[i];
   const coursesService = new CoursesService();
 
-  const selectedLevel = useSelector((state) => state.courses.selectedLevel);
-  const _appliedColleges = useSelector(
-    (state) => state.courses.appliedColleges
+  const selectedLevel = useSelector((state:any) => state.courses.selectedLevel);
+  const _appliedColleges = useSelector((state:any) => state.courses.appliedColleges
   );
 
   const _getPrograms = async (level, stream) => {

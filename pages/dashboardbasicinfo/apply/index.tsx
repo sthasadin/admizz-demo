@@ -84,7 +84,7 @@ const DashboardBasicInfoPage = () => {
   const [info, setInfo] = useState([]);
 
   const getUser = async (id: string) => {
-    const user = await dispatch(getAuthUser(id));
+    const user = await dispatch<any>(getAuthUser(id));
     setAuthUser(user);
   };
   useEffect(() => {

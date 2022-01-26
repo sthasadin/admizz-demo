@@ -27,13 +27,13 @@ const Introduction = (props) => {
       <img src={imgSrc} alt="..." className="introduction__bannerimg" />
       <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
-          <div className="introduction__header">{`You just dream it ${title}`}</div>
+          <div className="introduction__header">{`You just dream it`}</div>
           <div className="introduction__title">
             We help you achieve your big dream
           </div>
           <div className="introduction__desc">
             Kickstart your career by starting early. Admizz helps you join the
-            right diploma.
+            right course at right university.
           </div>
           <div className="u-align-center">
             <CallToAction

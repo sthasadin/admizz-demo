@@ -137,10 +137,10 @@
   text-decoration: underline;
 }
 
-// .colleges-card .colleges-card__thumbnail .college-image {
-//   //background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(7, 7, 7));
-//   opacity: 0.9;
-// }
+.colleges-card .colleges-card__thumbnail .college-image {
+  background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(7, 7, 7));
+  opacity: 0.9;
+}
 .college-image {
   opacity: 0.9;
   background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(7, 7, 7));

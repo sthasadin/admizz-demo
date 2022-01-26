@@ -33,8 +33,7 @@ const FiveSteps = (props: any) => {
                       Research Your Options
                     </div>
                     <div className="five-steps__item__desc">
-                      Get the right career advice for you and earn your best
-                      career certificates.
+                    Admizz provides you a wide range of courses from various universities.
                     </div>
                   </div>
                   <div className="five-steps__item__icon active">
@@ -59,8 +58,8 @@ const FiveSteps = (props: any) => {
                       Register Yourself - Online/Offline
                     </div>
                     <div className="five-steps__item__desc">
-                      Get the right career advice for you and earn your best
-                      career certificates.
+                    Admizz provides the online form or you can contact us via telephone.
+
                     </div>
                   </div>
                   <div className="five-steps__item__icon">
@@ -104,8 +103,7 @@ const FiveSteps = (props: any) => {
                       Submit Your Application
                     </div>
                     <div className="five-steps__item__desc">
-                      Get the right career advice for you and earn your best
-                      career certificates.
+                     Submit your Application though Admizz by filling your right information
                     </div>
                   </div>
                   <div className="five-steps__item__icon">
@@ -136,8 +134,8 @@ const FiveSteps = (props: any) => {
                       Download The Offer Letter
                     </div>
                     <div className="five-steps__item__desc">
-                      Get the right career advice for you and earn your best
-                      career certificates.
+                    Download the offer letter to get your dream college/university admission.
+
                     </div>
                   </div>
                   <div className="five-steps__item__icon">
@@ -163,8 +161,7 @@ const FiveSteps = (props: any) => {
                       Prepare For Departure
                     </div>
                     <div className="five-steps__item__desc">
-                      Get the right career advice for you and earn your best
-                      career certificates.
+                    Be prepared to kickstart your journey towards India for your further study.
                     </div>
                   </div>
                   <div className="five-steps__item__icon">

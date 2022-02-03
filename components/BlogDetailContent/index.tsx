@@ -4,7 +4,6 @@ import { getBlogDetail } from "../../store/Action/blogDetails.action";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import renderHTML from "react-render-html";
-import {RootState} from "../../store/store";
 
 
 interface BlogDetailContent {
@@ -30,14 +29,7 @@ const BlogDetailContent: FC<BlogDetailContent> = ({ blog_desc, author }) => {
           {renderHTML(blogs?.blog_desc)}
         </div>
       )}
-      {/* <div className="blog-detail-content__contentTitle">
-        
-      </div> */}
-      {/* {blogs.blog_desc && (
-        <div className="blog-detail-content__contentText">
-          
-        </div>
-      )} */}
+     
     </div>
   );
 };

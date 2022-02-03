@@ -1319,18 +1319,19 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   border-top-right-radius: 5px;
   position: relative;
   height: 167px;
-  background-image: linear-gradient(
-    rgba(0, 38, 12, 0.781),
-    rgba(12, 6, 6, 0.918)
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
+  
+ 
 }
 
 .colleges-card__thumbnail img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+  object-fit: scale-down;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
 }
+
 
 .colleges-card__title-wrap {
   position: absolute;
@@ -1357,10 +1358,10 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 
 .colleges-card__details {
   background: #ffffff;
-  border: 1px solid #bdbdbd;
+  /* border: 1px solid #bdbdbd; */
   -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-top: -4px;
@@ -9284,7 +9285,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0px 30px;
+  margin: 0px 20px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;

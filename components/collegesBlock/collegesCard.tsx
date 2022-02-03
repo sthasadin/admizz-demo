@@ -125,12 +125,28 @@ const CollegesCard = (college) => {
                 </div>
               )}
             </div>
-            <img
-              style={{ opacity: 1.5 }}
+           <div className="college-image"
+           style={{
+            backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39)),
+            url(${college.banner ? college?.banner: "/colleges.png"})`,
+            objectFit:'contain',
+            height:'100%'
+            
+            
+           }}
+           >
+
+           </div>
+            {/* <img
+              style={{ 
+                background:'linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39))'
+
+              }}
               className="college-image"
+              
               src={college?.banner ? college?.banner : "/colleges.png"}
               alt="college"
-            />
+            /> */}
             <div className="colleges-card__title-wrap">
               <div className="colleges-card__title">
                 <Link href={`colleges/${college?.college_slug}`}>

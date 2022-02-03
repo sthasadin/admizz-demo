@@ -21,8 +21,7 @@ import Dialog from "@material-ui/core/Dialog";
 import { getBlogDetail } from "../../store/Action/blogDetails.action";
 import BlogComment from "../../components/BlogComment";
 import { getBlogs } from "../../store/Action/blog.action";
-import { SingleBlog } from "../../components/SingleBlog";
-
+import { BlogListSimilarBlog } from "../../components/BlogListSimilarBlog";
 const blogDetail = () => {
   const router = useRouter();
   const { slug } = router.query;
@@ -38,7 +37,7 @@ const blogDetail = () => {
     setOpen(false);
   };
   const blogs = useSelector((state: any) => state.blog.blogs);
-
+  
   useEffect(() => {
     dispatch(getBlogs("All"));
     console.log("blogs", blogs);
@@ -124,18 +123,10 @@ const blogDetail = () => {
                 </Dialog>
               </div>
             </div>
-            <div className="blog-detail__main">
-              <BlogDetailContent {...blog} />
-            </div>
+          
           </div>
           <div className="container">
-            {/* <div className="blog-detail__bannerImage">
-              <img className="blog-detail__image" src="/ads-banner.png" />
-            </div> */}
-            <div className="blog-detail__main" style={{ marginTop: "30px" }}>
-              <BlogDetailContent {...blog} />
-            </div>
-
+          
             <div className="blog-detail__main">
               <BlogDetailContent {...blog} />
               {/* {author && ( */}
@@ -165,34 +156,12 @@ const blogDetail = () => {
                 <div className="blog-detail-member__memberTitleText">
                   SIMILAR BLOGS
                 </div>
+               
+
               </div>
-              {blogs &&
-                blogs.map((blog) => {
-                  <SingleBlog
-                    slug={blog.slug}
-                    type={blog.type}
-                    auther={blog.auther}
-                    time={blog.time}
-                    title={blog.title}
-                    desc={blog.desc}
-                  />;
-                })}
+              <BlogListSimilarBlog  blogArray={blogs} />
             </div>
-            {/* <div className="blog-detail-content__commentContainer">
-              <p className="blog-detail-content__commentTitle">
-                Leave A Comment
-              </p>
-              <Input
-                name={"query"}
-                
-                multiline
-                placeholder={"Add additional query you have"}
-                
-                margin={"0px 0px 16px 0px"}
-                fullWidth
-              />
-              <Button>SUBMIT</Button>
-            </div> */}
+           
           </div>
         </main>
       </div>

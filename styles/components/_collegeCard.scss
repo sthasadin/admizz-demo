@@ -45,9 +45,9 @@
   }
   &__details {
     background: #ffffff;
-    border: 1px solid #bdbdbd;
+    // border: 1px solid #bdbdbd;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-top: -4px;
@@ -136,14 +136,16 @@
 .colleges-card:hover .colleges-card__title {
   text-decoration: underline;
 }
-
-.colleges-card .colleges-card__thumbnail .college-image {
-  background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(7, 7, 7));
-  opacity: 0.9;
-}
 .college-image {
-  opacity: 0.9;
-  background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(7, 7, 7));
+  width: 100%;
+  margin: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 28px 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  
 }
 
 .review-rating-container {

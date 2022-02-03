@@ -45,7 +45,7 @@ const CollegeListResult: FC<CollegeProps> = ({
           </p>{" "}
           Colleges
         </div>
-        <div className="college-list-result__sortContainer">
+        {/* <div className="college-list-result__sortContainer">
           <p className="college-list-result__sortItemTitle">Sort By</p>
           <p className="college-list-result__sortItem">
             Popularity{" "}
@@ -57,7 +57,7 @@ const CollegeListResult: FC<CollegeProps> = ({
           <p className="college-list-result__sortItem">
             Fees <img src={SortImage} alt=".." className="image-sort-icon" />
           </p>
-        </div>
+        </div> */}
       </div>
 
       {loader && (

@@ -5,7 +5,7 @@ const BlockSearch = ({searchHandler}) => {
   const [query,setQuery] = useState("");
 
   const OnClickHandler = (e)=>{
-    console.log(query)
+    // console.log(query)
     searchHandler(query)
   }
 
@@ -14,7 +14,7 @@ const BlockSearch = ({searchHandler}) => {
   }
 
   const checknull =(event) => {
-    console.log(event)
+    // console.log(event)
     if(!event.target.value) searchHandler(query)
 
   }

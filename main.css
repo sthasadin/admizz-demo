@@ -10540,6 +10540,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   text-transform: uppercase;
   color: #ffd2dd;
   margin-bottom: 36px;
+  margin-left: 20px;
 }
 
 .footer__col__title::after {

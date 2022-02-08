@@ -161,11 +161,11 @@ const Footer = () => {
           </div>
           <div className="footer__mobileCol">
             <div className="footer__col">
-              <div className="footer__col__title">study in</div>
-              <a href="#" className="footer__col__item">
+              <div className="footer__col__title" style={{marginLeft:10}}>study in</div>
+              <a href="#" className="footer__col__item" style={{marginLeft:10}}>
                 India
               </a>
-              <a href="#" className="footer__col__item">
+              <a href="#" className="footer__col__item" style={{marginLeft:10}}>
                 USA
               </a>
             </div>

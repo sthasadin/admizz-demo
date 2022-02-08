@@ -30,7 +30,7 @@ const About = () => {
           />
           <Card1
             bgImage="card-2"
-            title="History Of India in a Min"
+            title="History Of India in a Minute"
             subText="History of India"
           />
           <Card1

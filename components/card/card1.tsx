@@ -2,19 +2,21 @@ import React from "react";
 
 export const Card1 = (props) => {
   return (
-    <div className="card-1">
+    <a className={"card-1"}
+    href = {props.href}
+    >
         
       <div className={`card-1__inner ${props.bgImage}`}>
-      <a href="/blogs"></a>
         <div className="card-1__about">
           <div className="card-1__title">
-            <a href="#">{props.title}</a>
+
+            <div>{props.title}</div>
           </div>
           <div className="card-1__subtitle">
-          <a href="/blogs">{props.subText}</a>
+          <div>{props.subText}</div>
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 };

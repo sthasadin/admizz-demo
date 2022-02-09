@@ -148,7 +148,17 @@
     justify-self: center;
   }
 
-
+.contact-title{
+  display: flex;
+  align-items: center; 
+  span {
+    font-weight: 500;
+    color: $gray-3;
+    font-size: 16px;
+    line-height: 18.8px;
+    margin-left: 22px;
+  }
+}
   .aboutus-testimonial-content {
     width: 60%;
     margin: auto;
@@ -253,3 +263,4 @@
     }
   }
 }
+

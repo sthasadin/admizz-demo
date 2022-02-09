@@ -27,13 +27,16 @@ const About = () => {
             bgImage="card-1"
             title="Learn About Geography"
             subText="All About India"
+            href="blogs/education-system-in-india-2"
           />
           <Card1
             bgImage="card-2"
             title="History Of India in a Minute"
             subText="History of India"
+            href="blogs/life-style-of-indian-people"
           />
           <Card1
+
             bgImage="card-3"
             title="Education System in India"
             subText="Efficient Education"

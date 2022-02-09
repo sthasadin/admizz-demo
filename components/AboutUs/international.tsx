@@ -1,15 +1,6 @@
 import React from 'react';
-import Slider from "react-slick";
-import Link from "next/link";
 
 const international = () => {
-    var sliderSettings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-    }
     return (
         <div className="our-exclusive-container">
             <div className="aboutus-exclusive-content">
@@ -23,45 +14,13 @@ const international = () => {
                     <div className="our-trusted-text">TESTIMONIALS</div>
                     <div className="aboutus-exclusive-title">What our universities are saying about us.</div>
                     <div className="aboutus-testimonial-wrapper">
-                        <Slider {...sliderSettings}>
-                            <div className="aboutus-testimonial-content">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
-                                Morbi ornare vulputate nulla, non vestibulum nisi. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
-                                Morbi ornare vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Sed eu turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum nisi.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-
-                                <div className="testimonial-by aboutus-exclusive-title">
-                                    <Link href="#">
-                                        <h5 className="university-name">Jain University</h5>
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="aboutus-testimonial-content">
-                                Slider Test Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
-                                Morbi ornare vulputate nulla, non vestibulum nisi. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
-                                Morbi ornare vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Sed eu turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum nisi.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                <div className="testimonial-by aboutus-exclusive-title">
-                                    <Link href="#">
-                                        <h5 className="university-name">Jain University</h5>
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="aboutus-testimonial-content">
-                                Slider Test Again Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
-                                Morbi ornare vulputate nulla, non vestibulum nisi. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
-                                Morbi ornare vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Sed eu turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum nisi.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                <div className="testimonial-by aboutus-exclusive-title">
-                                    <Link href="#">
-                                        <h5 className="university-name">Jain University</h5>
-                                    </Link>
-                                </div>
-                            </div>
-                        </Slider>
+                        <div className="aboutus-testimonial-content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
+                            Morbi ornare vulputate nulla, non vestibulum nisi. Sed eu turpis pulvinar justo dictum blandit eget vel diam. 
+                            Morbi ornare vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Sed eu turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum nisi.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        </div>
                     </div>
                 </div>
             </div>

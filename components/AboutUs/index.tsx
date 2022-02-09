@@ -10,6 +10,7 @@ import Features from "./feature";
 import Tieups from "./tieups";
 import MessengerCustomerChat from "../MessengerCustomerChat";
 import { Teams } from "../Teams";
+
 import Layout from "../../layouts";
 
 
@@ -60,7 +61,8 @@ const index = () => {
         <Features />
         <Tieups />
         <International />
-        <Teams data={''} />
+        <Teams data="" />
+
         <Contact />
       </div>
       </Layout>

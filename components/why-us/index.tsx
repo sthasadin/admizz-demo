@@ -7,9 +7,9 @@ import { CallToAction } from "../Button/callToAction";
 const Us = ({ college }) => {
   const data = [
     {
-      title: "Admission Ease with Admizz ",
+      title: "One on One Counselling session",
       description:
-        "Admizz provides one on one counseling sessions with each of the students who are applying for further studies in India.",
+        "Get the right career advice for you and earn your best career certificates.",
       icon: (
         <svg
           width="60"
@@ -40,7 +40,7 @@ const Us = ({ college }) => {
     {
       title: "End to End Assistance Support",
       description:
-        "From admission to career, Admizz will assist you to achieve your goal in every step.",
+        "Get the right career advice for you and earn your best career certificates.",
       icon: (
         <svg
           width="60"
@@ -62,7 +62,7 @@ const Us = ({ college }) => {
     {
       title: "Get Best Scholarships Facility",
       description:
-        "The Government of India and other organizations are providing scholarships for international students each year.",
+        "Get the right career advice for you and earn your best career certificates.",
       icon: (
         <svg
           width="71"
@@ -82,9 +82,9 @@ const Us = ({ college }) => {
       ),
     },
     {
-      title: "One-on-One Counseling Session",
+      title: "Be Assured About Your Admission",
       description:
-        "Admizz provides you with a unique and effective career counseling program for students.",
+        "Get the right career advice for you and earn your best career certificates.",
       icon: (
         <svg
           width="54"

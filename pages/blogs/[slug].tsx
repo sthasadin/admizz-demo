@@ -37,7 +37,7 @@ const blogDetail = () => {
     setOpen(false);
   };
   const blogs = useSelector((state: any) => state.blog.blogs);
-  
+
   useEffect(() => {
     dispatch(getBlogs("All"));
     console.log("blogs", blogs);
@@ -45,7 +45,10 @@ const blogDetail = () => {
 
   const { blog } = useSelector((state: any) => state.blogDetails);
   //const blog = useSelector((state:any) => state.blog.blog);
-
+  const shareUrl = `https://admizz.asterdio.xyz/blogs/${slug}`;
+  {
+    console.log("slug", slug);
+  }
   useEffect(() => {
     dispatch(getBlogDetail(slug));
     // dispatch(getBlog(slug));(
@@ -67,11 +70,12 @@ const blogDetail = () => {
                 <div className="blog-detail__postValue">
                   <b>{`Posted by: ${blog?.author}`}</b>
                 </div>
-               
               </div>
               <div className="blog-detail__shareInfoContainer">
                 <div className="blog-detail__buttonContainer">
-                  <Button className="blog-detail__button">{blog?.category}</Button>
+                  <Button className="blog-detail__button">
+                    {blog?.category}
+                  </Button>
                 </div>
                 <div
                   className="blog-detail__sharetitle"
@@ -90,9 +94,14 @@ const blogDetail = () => {
                   </DialogTitle>
                   <List className="blog-detail__listContainer">
                     <ListItem button className="blog-detail__listItemContainer">
+                      {/* <div>
+                  <a>
+                    {shareUrl}
+                  </a>
+                </div> */}
                       <ListItemAvatar>
                         <FacebookShareButton
-                          url={`${process.env.API_BASE_URL}/blogs/${blogs.slug}`} //temporary
+                          url={shareUrl}
                           quote={"Admizz - You just dream it."}
                           hashtag="#admizz"
                         >
@@ -108,7 +117,7 @@ const blogDetail = () => {
                     <ListItem button>
                       <ListItemAvatar>
                         <WhatsappShareButton
-                          url={`${process.env.API_BASE_URL}/blogs/${blogs.slug}`}
+                          url={shareUrl}
                           title={`${blog.title}`}
                         >
                           <Avatar>
@@ -123,10 +132,8 @@ const blogDetail = () => {
                 </Dialog>
               </div>
             </div>
-          
           </div>
           <div className="container">
-          
             <div className="blog-detail__main">
               <BlogDetailContent {...blog} />
               {/* {author && ( */}
@@ -156,12 +163,9 @@ const blogDetail = () => {
                 <div className="blog-detail-member__memberTitleText">
                   SIMILAR BLOGS
                 </div>
-               
-
               </div>
-              <BlogListSimilarBlog  blogArray={blogs} />
+              <BlogListSimilarBlog blogArray={blogs} />
             </div>
-           
           </div>
         </main>
       </div>

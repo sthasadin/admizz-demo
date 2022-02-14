@@ -191,7 +191,7 @@ const collegeList = () => {
 
   const handleSearch = async () => {
     if (collegeListSearchQuery) {
-      setLoadMoreCollege(false);
+      setLoadMoreCollege(true);
       await dispatch<any>(getCollegeBySearch(collegeListSearchQuery));
     } else {
       getCollegesArray();
@@ -216,7 +216,7 @@ const collegeList = () => {
           <div className="college-list__container section-wrapper">
             <div className="college-list__searchContainer">
               <div className="college-list__headerTitle">
-                College/University Lists in India
+                College/University Lists in India 123
               </div>
               <div className="college-list__headerSearch">
                 <Input

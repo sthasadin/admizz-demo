@@ -36,6 +36,8 @@ const Register = () => {
   const [formError, setFormError] = useState({} as any);
   const [msgType, setMsgType] = useState("" as any);
   const [showPassword, setShowPassword] = useState(false as boolean);
+  const [showconfirmPassword, setShowConfirmPassword] = useState(false as boolean);
+
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
@@ -146,10 +148,6 @@ const Register = () => {
               });
               console.error(err);
             });
-
-          //  axios.post(`${API_BASE_URL}/sendmail`, { email: formValue.email });
-
-          // router.push("/studentdashboardmain");
         }
       }
       setLoading(false);
@@ -333,11 +331,11 @@ const Register = () => {
                   placeholder="Confirm Password"
                   error={!!formError.confirmPassword}
                   errorMessage={formError.confirmPassword}
-                  type={`${showPassword ? "text" : "password"}`}
+                  type={`${showconfirmPassword ? "text" : "password"}`}
                   onClick={() =>
-                    setShowPassword((showPassword) => !showPassword)
+                    setShowConfirmPassword((showconfirmPassword) => !showconfirmPassword)
                   }
-                  showPassword={showPassword}
+                  showconfirmPassword={showconfirmPassword}
                 />
               </div>
               <div className="signin__info">

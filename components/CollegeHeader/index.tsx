@@ -157,7 +157,7 @@ const CollegeHeader = ({
                 </svg>
               </div>
               <div className="task__title" onClick={handleClick}>
-                {console.log("favourites", isFavourite)}
+                {}
                 {isFavourite ? "Remove form Favourite " : "Add to Favourites"}
               </div>
             </div>

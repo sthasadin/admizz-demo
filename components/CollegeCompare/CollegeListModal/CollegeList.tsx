@@ -40,11 +40,11 @@ const CollegeList = (props) => {
     <div className="card__collegecard" onClick={() => cardClick(id)}>
       {selectedCard && (
         <div className="card__checkedicon">
-          <img src={checked} />{" "}
+          <img src={checked} />
         </div>
       )}
       <div className="card__collegecardimage">
-        <img src={collegeProfile} />
+        <img src={logo} />
       </div>
       <div className="card__collegecarddetails">
         <div className="card__collegecardheader">

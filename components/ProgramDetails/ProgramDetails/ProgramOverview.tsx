@@ -13,7 +13,7 @@ const ProgramOverview = ({ data, collegeBarSticky }) => {
   React.useEffect(() => {
     dispatch(getColleges());
   }, []);
-  console.log(data);
+  //console.log(data);
 
   return (
     <div className={`program-overview section-container `} id="overview">

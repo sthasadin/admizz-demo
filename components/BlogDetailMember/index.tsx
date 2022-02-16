@@ -18,9 +18,8 @@ console.log("blogArray",blogArray)
          SIMILAR BLOGS
         </div>
       </div>
-     {console.log("blogArray",blogArray)}
-      {blogArray &&
-            blogArray.slice(0, 4).map((blog, i) => {
+     //{console.log("blogArray",blogArray)}
+      {blogArray && blogArray.slice(0, 4).map((blog, i) => {
               return (
                 <div className="blog-list-member__secondaryPost" key={i}>
                   <SingleBlog
@@ -37,7 +36,9 @@ console.log("blogArray",blogArray)
                   />
                 </div>
               );
-            })}
+            })
+          }
+            
     </div>
   );
 };

@@ -1,8 +1,7 @@
-import React, { FC, useEffect } from "react";
+import React, {useEffect } from "react";
 
-import { BsFillPlayFill } from "react-icons/bs";
 import Layout from "../../layouts";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -11,17 +10,16 @@ import ReactPlayer from "react-player";
 import StudyDetail from "./StudyDetail";
 // import { TopUniversities } from "./TopUniversities";
 
-import { CollegesBlock } from "@/components/collegesBlock";
-import collegeList from "pages/colleges";
-import { useDispatch, useSelector } from "react-redux";
+// import { CollegesBlock } from "@/components/collegesBlock";
+// import collegeList from "pages/colleges";
+import { useDispatch } from "react-redux";
 import { getAllCollegeList } from "@/store/Action/allCollage.action";
 import IndiaBlogArticles from "./IndiaBlogArticles";
 
 const index = () => {
   const [open, setOpen] = React.useState(false);
-  const router = useRouter();
-  const { collegeList } = useSelector((state:any) => state.allCollege);
-  console.log({ collegeList });
+  // const router = useRouter();
+  // const { collegeList } = useSelector((state:any) => state.allCollege);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCollegeList());
@@ -139,13 +137,13 @@ const index = () => {
                 lineHeight: "0px",
               }}
             >
-              "
+              &quot;
             </div>
             <span>
               We own a lot to the Indians,who taught us how to count without
               which no worthwhile scientific discovery could have been made
             </span>
-            <span className="invertedcomma">"</span>
+            <span className="invertedcomma">&quot;</span>
           </div>
           <div className="quotes-container-writername">-ALBERT EINSTEIN</div>
         </div>

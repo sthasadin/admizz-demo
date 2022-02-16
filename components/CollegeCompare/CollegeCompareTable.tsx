@@ -8,7 +8,7 @@ import Graduation from "../../public/graduation.png";
 
 export default function CustomizedTables(props: any) {
   const { selectedCollege, selectedFilters } = props;
-
+console.log({selectedCollege})
   const getIcon = (label: string) => {
     switch (label) {
       case "QS_ranking":

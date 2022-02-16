@@ -3,7 +3,7 @@ import Head from "next/head";
 import { Footer } from "../../layouts/footer";
 import { Navbar } from "../../layouts/navbar";
 import { Topbar } from "../../layouts/topbar";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 // import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 // import { BlogDetailContent } from "../../components/BlogDetailContent";
@@ -16,10 +16,10 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemText from "@material-ui/core/ListItemText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
-import FacebookIcon from "@material-ui/icons/Facebook";
+// import FacebookIcon from "@material-ui/icons/Facebook";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import { getBlogs } from "../../store/Action/blog.action";
-import { FacebookShareButton } from "react-share";
+// import { FacebookShareButton } from "react-share";
 
 const blogDetail = () => {
   const [open, setOpen] = React.useState(false);
@@ -33,11 +33,10 @@ const blogDetail = () => {
     setOpen(false);
     // setSelectedValue(value);
   };
-  const blogs = useSelector((state: any) => state.blog.blogs);
+  // const blogs = useSelector((state: any) => state.blog.blogs);
 
   useEffect(() => {
     dispatch(getBlogs("All"));
-    console.log("blogs", blogs);
   }, []);
 
   return (

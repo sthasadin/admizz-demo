@@ -9,7 +9,6 @@ import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import { TrainRounded } from "@material-ui/icons";
 const preObj = { label: "", value: "" };
 const preArr = [];
-
 const _choice = {
   selectedStream: preObj,
   selectedCollege: preObj,
@@ -72,6 +71,7 @@ const DashboardChoiceFilling = ({
   }, [info]);
 
   function onClickAddChoice() {
+    if(choices[0].selectedCollege.label == "") return
     setChoices([
       ...choices,
       {
@@ -100,10 +100,11 @@ const DashboardChoiceFilling = ({
   };
 
   const handleSave = async () => {
+    console.log({choices});
+    if(JSON.stringify(choices[0].selectedCollege.label == "")) return
     setLoader(true);
     setAppliedColleges(
       choices.map((c: any) => {
-        console.log(c.selectedCollege)
         return {
           collegeName: c.selectedCollege?.collegeName || "",
           image: c.selectedCollege?.image || "",
@@ -117,6 +118,7 @@ const DashboardChoiceFilling = ({
       })
     );
     setLoader(false);
+
   };
 
   return (

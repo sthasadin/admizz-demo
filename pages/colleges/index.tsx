@@ -46,6 +46,8 @@ const collegeList = () => {
   const { collegesByLimit } = useSelector((state: any) => state.college);
   const { totalCollegeCount } = useSelector((state: any) => state.college);
 
+  console.log({collegesByLimit})
+
   const dispatch = useDispatch();
 
   const router = useRouter();
@@ -216,7 +218,7 @@ const collegeList = () => {
           <div className="college-list__container section-wrapper">
             <div className="college-list__searchContainer">
               <div className="college-list__headerTitle">
-                College/University Lists in India 123
+                College/University Lists in India
               </div>
               <div className="college-list__headerSearch">
                 <Input

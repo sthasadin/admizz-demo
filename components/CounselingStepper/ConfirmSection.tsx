@@ -28,7 +28,8 @@ const ConfirmBook: React.FC<Props> = ({
       <div className={"confirm-section__confirm-details"}>
         <div className={"confirm-section__row"}>
           <div className={"confirm-section__details-head"}>{"Date & Time"}</div>
-          <div className={"confirm-section_detail-info"}>{`${moment(
+          <div className={"confirm-section_detail-info"}>
+            {`${moment(
             formValue.date
           ).format("MMM DD YYYY")} - ${formValue.time}`}</div>
         </div>

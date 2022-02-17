@@ -60,13 +60,33 @@
       align-items: center;
       border-radius: 5px;
       margin-left: 230px;
+      justify-content: space-between;
       // overflow: auto;
 
-      @media (max-width: 450px) {
-        width: 100%;
-        overflow-x: auto;
+      @media (max-width: 702px) {
+        flex-direction: row;
+        justify-content: end;
       }
+      @media (max-width: 450px) {
+        //width: 100%;
+        overflow-x: auto;
+        min-width: 200px;
+      }
+        .add__div {
+          flex: 1;
+          position: relative;
+          display: flex;
+          padding: 10px;
+        @media (max-width:725px) {
+          height: 80px;
+          width: 200px;
+          margin-bottom: 35px;
+        }
+        @media (max-width:450px) {
+          max-width: 250px;
+        }
 
+        }
       .comparecollege__addtemplates {
         margin-left: 24px;
         background-color: rgba(95, 24, 2, 0.08);
@@ -75,7 +95,6 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
-
         width: 200px;
         height: 103px;
 

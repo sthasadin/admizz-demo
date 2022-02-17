@@ -202,7 +202,7 @@ const FeeStructure = (props: any) => {
             })}
             {!programs.length && !streams.length && (
               <div style={{ textAlign: "center" }}>
-                Sorry course is not aviable at the moment.
+                Sorry course is not available at the moment.
               </div>
             )}
           </div>

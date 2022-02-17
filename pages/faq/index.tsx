@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Layout from "../../layouts";
 import { useDispatch, useSelector } from "react-redux";
 import { getFAQ } from "../../store/Action/faq.action";
+import { Button } from "../../components/Button"
+import { useRouter } from 'next/router'
 
 import { BlockSearch } from "../../components/BlockSearch";
 import { CallToAction } from "../../components/Button/callToAction";
@@ -13,6 +15,7 @@ import { FAQAccordian } from "../../components/FAQ/accordian";
 const FAQ = () => {
   const dispatch = useDispatch();
   const faqList = useSelector((state:any) => state.faq.faq);
+  const router = useRouter();
 
   useEffect(() => {
     dispatch(getFAQ);
@@ -107,7 +110,7 @@ const FAQ = () => {
           <div className="faq__header section-wrapper">
             <div className="faq__header__title">What can we help you? FAQs</div>
             <div className="faq__header__search">
-              <BlockSearch />
+              <BlockSearch searchHandler={''} />
             </div>
           </div>
         </div>
@@ -144,10 +147,8 @@ const FAQ = () => {
                 process for scholarship processing.
               </div>
               <div className="faq__cta">
-                <CallToAction className="filled">
-                  Book a Counseling Session
-                </CallToAction>
-              </div>
+            <Button onClick={() => router.push('/free-counseling')}>Book a Counseling Session</Button>
+            </div>
             </div>
           </div>
         </div>

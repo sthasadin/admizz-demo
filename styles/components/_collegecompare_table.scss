@@ -1,6 +1,10 @@
 .collegecompare__tablecontainer {
   margin-top: 51px;
   overflow: auto;
+  @media (min-width:590px) {
+
+    overflow: hidden;
+  }
 
   .collegetable_metacontainer {
     display: flex;

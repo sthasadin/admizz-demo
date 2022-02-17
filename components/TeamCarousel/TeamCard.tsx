@@ -4,12 +4,7 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { AiFillFacebook } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
-import Groupfive from "./Images/Groupfive.png";
-import Group6 from "./Images/Group6.png";
-import TeamsArray from "./TeamsArray";
 import text_truncate from "./Truncate";
-import TeamsMember from "../TeamCarousel/TeamsMember";
-// import "./Team.css";
 
 const TeamCard = ({ selectedTeam }: any) => {
   return (

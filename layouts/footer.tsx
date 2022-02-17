@@ -108,7 +108,7 @@ const Footer = () => {
               <p className="error-subscribe-msg">{formError.subscriber}</p>
             </div>
           </div>
-          <div className="footer__mobileCol">
+          <div className="footer__mobileCol" style={{marginRight:20}}>
             <div className="footer__col">
               <div className="footer__col__title">top colleges</div>
               {topColleges &&
@@ -139,29 +139,12 @@ const Footer = () => {
                   );
                 })}
 
-              {/* <a href="#" className="footer__col__item">
-                B.Tech/B.E
-              </a>
-              <a href="#" className="footer__col__item">
-                MCA
-              </a>
-              <a href="#" className="footer__col__item">
-                M.Tech
-              </a>
-              <a href="#" className="footer__col__item">
-                MA
-              </a>
-              <a href="#" className="footer__col__item">
-                BA
-              </a>
-              <a href="#" className="footer__col__item">
-                BCA
-              </a> */}
+              
             </div>
           </div>
-          <div className="footer__mobileCol">
+          <div className="footer__mobileCol" style={{marginLeft:35}}>
             <div className="footer__col">
-              <div className="footer__col__title">study in</div>
+              <div className="footer__col__title" >study in</div>
               <a href="#" className="footer__col__item">
                 India
               </a>
@@ -169,7 +152,7 @@ const Footer = () => {
                 USA
               </a>
             </div>
-            <div className="footer__col">
+            <div className="footer__col" style={{marginRight:20}}>
               <div className="footer__col__title">other links</div>
               <div className="footer__col__item">
                 <Link href="#about-us">About Admizz</Link>

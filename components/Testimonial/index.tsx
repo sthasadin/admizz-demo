@@ -313,9 +313,10 @@ const Testimonial = (props: any) => {
           </div>
         </div>
         <div className="testimonial__text">
-          {selectedTestimonial?.description}
+          <span className="textDescription">{selectedTestimonial?.description}</span>
+          
         </div>
-        <div className="testimonial__author">
+        <div className="testimonial__author" > 
           <span>{selectedTestimonial?.name}</span> -{" "}
           {selectedTestimonial?.designation}
         </div>

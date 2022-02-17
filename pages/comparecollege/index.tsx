@@ -8,7 +8,7 @@ const index = () => {
     <Layout title="College Compare" stickyBar={true}>
       <div className="container">
         <CollegeCompare />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </Layout>
   );

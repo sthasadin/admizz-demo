@@ -42,7 +42,7 @@ const Merits = () => {
                 India is the home of the world's largest university by enrollment, Indira Gandhi National Open University, with 3.5 million students.
                 </div>
               </div>
-            </div>you
+            </div>
             <div className="list-item">
               <div className="list-item__icon">
                 <img src="/packageIcon.png" alt="people_logo" />

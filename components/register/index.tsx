@@ -36,26 +36,23 @@ const Register = () => {
   const [formError, setFormError] = useState({} as any);
   const [msgType, setMsgType] = useState("" as any);
   const [showPassword, setShowPassword] = useState(false as boolean);
+  const [showconfirmPassword, setShowConfirmPassword] = useState(false as boolean);
+
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   const router = useRouter();
 
   const handleChange = (e: any) => {
-    //console.log({e})
-    const newformValue = { ...formValue, [e.target.name]: e.target.value }
-    //console.log({newformValue})
-    setFormValue({...newformValue});
-    const newFormError = { ...formError, [e.target.name]: null }
-    setFormError({...newFormError});
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    setFormError(() => ({ ...formError, [e.target.name]: null }));
     if (e.target.name === "country") {
       if (e.target.value === "Nepal") {
-        //console.log(e.target.value, "value");
-        setFormValue({...newformValue, countryCode: "+977" } as signUpFormValue);
-      } else setFormValue({ ...newformValue, countryCode: "+91" } as signUpFormValue);
+        console.log(e.target.value, "value");
+        setFormValue({ countryCode: "+977" } as signUpFormValue);
+      } else setFormValue({ countryCode: "+91" } as signUpFormValue);
     }
   };
-
 
   const validationSchema = yup.object().shape<signUpFormValue>({
     fullName: yup.string().required("Please enter your full name"),
@@ -94,12 +91,10 @@ const Register = () => {
       }
       return false;
     } catch (err) {
-      //console.log({err})
       const errors = {};
       err.inner.forEach((item: any) => {
         errors[item.path] = item.errors[0];
       });
-      //console.log({errors})
       setFormError({ ...errors });
     }
   };
@@ -119,7 +114,6 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     try {
-      //console.log({formValue})
       e.preventDefault();
       setLoading(true);
       const valid = await validate();
@@ -148,23 +142,16 @@ const Register = () => {
               router.push("/login");
             })
             .catch((err) => {
-              //console.log({err})
               setFormError({
                 ...formError,
                 otherErrors: "Please verify your email address",
               });
               console.error(err);
             });
-
-          //  axios.post(`${API_BASE_URL}/sendmail`, { email: formValue.email });
-
-          // router.push("/studentdashboardmain");
         }
       }
       setLoading(false);
     } catch (err) {
-      //console.log("================ second error ==================")
-      //console.log({err})
       setLoading(false);
       const errorMessage = ErrorMessages[err.code];
       handleOpenSnackbar();
@@ -267,7 +254,6 @@ const Register = () => {
                   error={!!formError.fullName}
                   errorMessage={formError.fullName}
                   type="text"
-                  value={formValue.fullName}
                 />
                 <Input
                   fullWidth
@@ -279,7 +265,6 @@ const Register = () => {
                   error={!!formError.email}
                   errorMessage={formError.email}
                   type="text"
-                  value={formValue.email}
                 />
 
                 <Select
@@ -292,7 +277,6 @@ const Register = () => {
                   name={"country"}
                   error={!!formError.country}
                   errorMessage={formError.country}
-                  value={formValue.country}
                 />
                 <div className={"student-info__phone-input"}>
                   <CountryCodeDropDown
@@ -320,7 +304,6 @@ const Register = () => {
                     error={!!formError.phoneNumber}
                     errorMessage={formError.phoneNumber}
                     type="text"
-                    value={formValue.phoneNumber}
                   />
                 </div>
 
@@ -338,7 +321,6 @@ const Register = () => {
                     setShowPassword((showPassword) => !showPassword)
                   }
                   showPassword={showPassword}
-                  value={formValue.password}
                 />
                 <PasswordField
                   fullWidth
@@ -349,12 +331,11 @@ const Register = () => {
                   placeholder="Confirm Password"
                   error={!!formError.confirmPassword}
                   errorMessage={formError.confirmPassword}
-                  type={`${showPassword ? "text" : "password"}`}
+                  type={`${showconfirmPassword ? "text" : "password"}`}
                   onClick={() =>
-                    setShowPassword((showPassword) => !showPassword)
+                    setShowConfirmPassword((showconfirmPassword) => !showconfirmPassword)
                   }
-                  showPassword={showPassword}
-                  value={formValue.confirmPassword}
+                  showconfirmPassword={showconfirmPassword}
                 />
               </div>
               <div className="signin__info">

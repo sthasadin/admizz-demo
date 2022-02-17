@@ -25,7 +25,9 @@ interface Props {
   borderRadius?: string;
   value?: any;
   showPassword?: boolean;
+  showconfirmPassword?:boolean;
   bgColor?: any;
+  
 }
 
 const PasswordField = (props: Props) => {

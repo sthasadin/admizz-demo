@@ -28,23 +28,6 @@ const BlogList = () => {
             </Link>
           </div>
         </div>
-        {/* <div className="blog-list__list hideformobile"> */}
-        <div>
-          <Carousel />
-
-          {/* <BlogCard />
-          <BlogCard /> */}
-        </div>
-
-        {/* <div className="formobile">
-
-
-
-          <Carousel bulletdot={false}>
-            <BlogCard />
-            <BlogCard />
-          </Carousel>
-        </div> */}
       </div>
     </div>
   );

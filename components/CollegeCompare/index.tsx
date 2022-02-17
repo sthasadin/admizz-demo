@@ -102,7 +102,7 @@ const index = () => {
                   />
                 );
               })}
-
+              <div className="add__div">
             {selectedCollege.length < 3 ? (
               <div
                 className="comparecollege__addtemplates"
@@ -110,9 +110,12 @@ const index = () => {
               >
                 <img src={addCollegeIcon} />
               </div>
+            
             ) : (
               ""
+              
             )}
+              </div>
           </div>
 
           <div className="collegecompare__tablecontainer">

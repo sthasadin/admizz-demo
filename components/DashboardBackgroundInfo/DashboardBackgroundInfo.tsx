@@ -485,6 +485,7 @@ const DashboardBackgroundInfo = (props) => {
                     name="upload-photo"
                     type="file"
                     onChange={handleImageChange}
+                    accept="image/*"
                   />
 
                   <UploadButton

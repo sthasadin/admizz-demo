@@ -666,10 +666,15 @@ const DashboardBasicInfo = (props) => {
                     options={CountryOption}
                     handleChange={(e) => {
                       setGuardianCountry(e);
+                      setGuardianState({
+                        label: "",
+                        value: ""
+                      })
                       setFormError((prev) => ({
                         ...prev,
                         guardianCountry: null,
-                      }));
+                        
+                      }))
                       // props.setShowExitPrompt(true);
                     }}
                     defaultvalue={guardianCountry}

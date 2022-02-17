@@ -64,9 +64,9 @@ const CollegeListSideBar = ({
         filterObj={filterObj}
       />
 
-      <div className="college-list-side-bar__newsletterContainer">
+      {/* <div className="college-list-side-bar__newsletterContainer">
         <SideBarNewsLetter />
-      </div>
+      </div> */}
     </div>
   );
 };

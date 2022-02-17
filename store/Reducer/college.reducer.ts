@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
     case COLLEGE_BY_LIMIT:
       return {
         ...state,
-        collegesByLimit: [...state.collegesByLimit, ...payload],
+        collegesByLimit: [...payload], //...state.collegesByLimit, 
         collegeByLimitLoader: false,
       };
     case COLLEGE_BY_FILTER:

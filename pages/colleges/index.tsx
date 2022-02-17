@@ -46,6 +46,8 @@ const collegeList = () => {
   const { collegesByLimit } = useSelector((state: any) => state.college);
   const { totalCollegeCount } = useSelector((state: any) => state.college);
 
+  console.log({collegesByLimit})
+
   const dispatch = useDispatch();
 
   const router = useRouter();
@@ -191,7 +193,7 @@ const collegeList = () => {
 
   const handleSearch = async () => {
     if (collegeListSearchQuery) {
-      setLoadMoreCollege(false);
+      setLoadMoreCollege(true);
       await dispatch<any>(getCollegeBySearch(collegeListSearchQuery));
     } else {
       getCollegesArray();

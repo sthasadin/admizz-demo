@@ -32,55 +32,71 @@ const CollegeFinder = () => {
             //count="1259"
             imgSrc="/college-finder/engineering.png"
             alt="engineering_logo"
-            stream="management"
+            stream="agriculture"
           />
           <CollegeFinderCard
             name="Architecture"
             //count="1259"
             imgSrc="/college-finder/arts.png"
             alt="art_logo"
+            stream="architecture"
+
           />
           <CollegeFinderCard
             name="Art & Music"
             //count="1259"
             imgSrc="/college-finder/arts-music.png"
             alt="arts-music_logo"
+            stream="art&music"
+
           />
           <CollegeFinderCard
             name="Commerce"
             //count="1259"
             imgSrc="/college-finder/commerce.png"
             alt="commerce_logo"
+            stream="commerce"
+
           />
           <CollegeFinderCard
             name="Computer Application"
             //count="1259"
             imgSrc="/college-finder/computer.png"
             alt="computer_logo"
+            stream="computerapplication"
+
           />
           <CollegeFinderCard
             name="Dental"
            // count="1259"
             imgSrc="/college-finder/science.png"
             alt="science_logo"
+            stream="dental"
+
           />
           <CollegeFinderCard
             name="Design"
            // count="1259"
             imgSrc="/college-finder/multimedia.png"
             alt="multimedia_logo"
+            stream="design"
+
           />
           <CollegeFinderCard
             name="Engineering"
             //count="1259"
             imgSrc="/college-finder/science.png"
             alt="science_logo"
+            stream="engineering"
+
           />
           <CollegeFinderCard
             name="Education"
             //count="1259"
             imgSrc="/college-finder/education.png"
             alt="education_logo"
+            stream="education"
+
           />
 
           <CollegeFinderCard
@@ -88,6 +104,8 @@ const CollegeFinder = () => {
             //count="1259"
             imgSrc="/college-finder/law.png"
             alt="law_logo"
+            stream="law"
+
           />
           {/* {showMore && (
             <> */}
@@ -96,6 +114,8 @@ const CollegeFinder = () => {
             //count="1259"
             imgSrc="/college-finder/management.png"
             alt="management_logo"
+            stream="management"
+
           />
 
           <CollegeFinderCard
@@ -103,6 +123,8 @@ const CollegeFinder = () => {
            // count="1259"
             imgSrc="/college-finder/medical-science.png"
             alt="medical-science_logo"
+            stream="medicalscience"
+
           />
 
           <CollegeFinderCard
@@ -110,6 +132,8 @@ const CollegeFinder = () => {
            // count="1259"
             imgSrc="/college-finder/social-psychology.png"
             alt="social-psychology_logo"
+            stream="paramedical"
+
           />
 
           <CollegeFinderCard
@@ -117,12 +141,16 @@ const CollegeFinder = () => {
            // count="1259"
             imgSrc="/college-finder/travel.png"
             alt="travel_logo"
+            stream="pharmacy"
+
           />
           <CollegeFinderCard
             name="Science"
            // count="1259"
             imgSrc="/college-finder/social-psychology.png"
             alt="social-psychology_logo"
+            stream="science"
+
           />
 
           {/* <CollegeFinderCard

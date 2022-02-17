@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 
-import { CallToAction } from "../../components/Button/callToAction";
+// import { CallToAction } from "../../components/Button/callToAction";
 import Carousel from "../../components/FeaturedCollegeCarousel";
-import Link from "next/link";
+// import Link from "next/link";
 
 interface CollegeProps {
   collegeList: Array<any>;

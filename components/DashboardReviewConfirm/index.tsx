@@ -193,7 +193,7 @@ const DashboardReviewConfirm = (props) => {
                     academicInformation[key] = url;
                   })
                   .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                   });
               });
           }
@@ -215,7 +215,7 @@ const DashboardReviewConfirm = (props) => {
                   backgroundInformation.documentImage = url;
                 })
                 .catch((err) => {
-                  console.log(err);
+                  //console.log(err);
                 });
             });
         }
@@ -236,7 +236,7 @@ const DashboardReviewConfirm = (props) => {
                   basicInformation.profileImage = url;
                 })
                 .catch((err) => {
-                  console.log(err);
+                  //console.log(err);
                 });
             });
         }
@@ -257,10 +257,11 @@ const DashboardReviewConfirm = (props) => {
                   basicInformation.signatureImage = url;
                 })
                 .catch((err) => {
-                  console.log(err);
+                  //console.log(err);
                 });
             });
         }
+        //console.log("++++++++++++++++++++++++++++++++++++++++++++")
         await db
           .collection("students-application")
           .add({
@@ -276,15 +277,16 @@ const DashboardReviewConfirm = (props) => {
             localStorage.clear();
           })
           .catch((e) => {
-            console.log(e);
+            //console.log(e);
             handleClose();
           });
+          //console.log("++++++++++++++++++++++++++++++++++++++++++++")
 
         handleClose();
         router.push("/studentdashboardmain");
       }
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       // const errors = {};
       // err.inner.forEach((item: any) => {
       //   errors[item.path] = item.errors[0];
@@ -468,6 +470,7 @@ const DashboardReviewConfirm = (props) => {
                                 e.target.files[0] &&
                                   setProfileImage(e.target.files[0]);
                               }}
+                              accept="image/*"
                             />
                             <UploadButton
                               className={`dashboard-profileimage-upload ${
@@ -1388,6 +1391,7 @@ const DashboardReviewConfirm = (props) => {
                           e.target.files[0] &&
                             setSignatureImage(e.target.files[0]);
                         }}
+                        accept="image/*"
                       />
 
                       <UploadButton startIcon="" className="btn-color">

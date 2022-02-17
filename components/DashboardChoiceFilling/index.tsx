@@ -100,26 +100,31 @@ const DashboardChoiceFilling = ({
   };
 
   const handleSave = async () => {
-    console.log({choices});
-    if(JSON.stringify(choices[0].selectedCollege.label == "")) return
     setLoader(true);
-    setAppliedColleges(
-      choices.map((c: any) => {
+    
+    const colleges = choices.map((c: any) => {
+      if (c.selectedCollege.label){
         return {
-          collegeName: c.selectedCollege?.collegeName || "",
-          image: c.selectedCollege?.image || "",
-          address: c.selectedCollege?.address || "",
-          college_slug: c.selectedCollege?.college_slug,
-          collegeStream: c.selectedStream?.label,
-          collegeProgram: c.selectedProgram?.label,
-          collegeEmail: c.selectedCollege?.email || "",
-          collegeId: c.selectedCollege?._id
-        };
-      })
-    );
-    setLoader(false);
-
-  };
+                collegeName: c.selectedCollege?.collegeName || "",
+                image: c.selectedCollege?.image || "",
+                address: c.selectedCollege?.address || "",
+                college_slug: c.selectedCollege?.college_slug,
+                collegeStream: c.selectedStream?.label,
+                collegeProgram: c.selectedProgram?.label,
+                collegeEmail: c.selectedCollege?.email || "",
+                collegeId: c.selectedCollege?._id
+              };
+          }
+        })
+      const results = colleges.filter(element => {
+        return element !== undefined;
+      });
+     
+      console.log({results})
+      setAppliedColleges(results);
+      
+      setLoader(false);
+    }
 
   return (
     <div className="dashboard-basic-info">

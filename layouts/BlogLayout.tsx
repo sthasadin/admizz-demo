@@ -49,7 +49,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Business" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/business`}>Business</Link>
+              <Link href={`/blogs/category/business`}>Business</Link>
             </li>
 
             <li
@@ -58,7 +58,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Engineering" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/engineering`}>Engineering</Link>
+              <Link href={`/blogs/category/engineering`}>Engineering</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Something")}
@@ -66,7 +66,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Something" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/something`}>Something</Link>
+              <Link href={`/blogs/category/something`}>Something</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Software-Developer")}
@@ -74,7 +74,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Software-Developer" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/software-developer`}>Software Dev</Link>
+              <Link href={`/blogs/category/software-developer`}>Software Dev</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Science")}
@@ -82,7 +82,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Science" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/science`}>Science</Link>
+              <Link href={`/blogs/category/science`}>Science</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Medical")}

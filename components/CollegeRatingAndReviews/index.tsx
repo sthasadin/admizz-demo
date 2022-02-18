@@ -171,12 +171,6 @@ const RatingAndReview = (props: any) => {
             value={reviews?.averageRating / 2 || 0}
             readOnly
           />
-
-          {/* <div className="rating-review__rating">
-            
-            <span>{reviews?.averageRating || 0}/</span>
-            10
-          </div> */}
         </div>
       </div>
 

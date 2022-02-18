@@ -155,20 +155,18 @@ console.log({topColleges})
             <div className="footer__col" style={{marginRight:20}}>
               <div className="footer__col__title">other links</div>
               <div className="footer__col__item">
-                <Link href="#about-us">About Admizz</Link>
+                <Link href="/aboutus">About Admizz</Link>
               </div>
               <div className="footer__col__item">
                 <Link href="/contact-us">Contact Us</Link>
               </div>
-              <div className="footer__col__item">
-                <Link href="#">Careers</Link>
-              </div>
+           
               <div className="footer__col__item">
                 <Link href="/faq">FAQs</Link>
               </div>
-              <div className="footer__col__item">
+              {/* <div className="footer__col__item">
                 <Link href="#">Terms & Conditions</Link>
-              </div>
+              </div> */}
               <div className="footer__col__item">
                 <Link href="/register">Sign In/Register</Link>
               </div>
@@ -176,14 +174,14 @@ console.log({topColleges})
           </div>
         </div>
         <div className="footer__middle">
-          <div className="footer__middle__left">
+          {/* <div className="footer__middle__left">
             <div className="footer__default">
               <a href="#">Terms & Conditions</a>
             </div>
             <div className="footer__default">
               <a href="#">Privacy Policy</a>
             </div>
-          </div>
+          </div> */}
           <div className="footer__middle__right">
             <div className="social-icons">
               <div>

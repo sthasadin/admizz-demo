@@ -60,21 +60,21 @@ const BlogLayout = ({ children, title }) => {
             >
               <Link href={`/blogs/category/engineering`}>Engineering</Link>
             </li>
-            <li
+            {/* <li
               onClick={() => setBlogCategory("Something")}
               className={`blog-subnavbar ${
                 blogCategory == "Something" ? "active-blognav" : ""
               }`}
             >
               <Link href={`/blogs/category/something`}>Something</Link>
-            </li>
+            </li> */}
             <li
               onClick={() => setBlogCategory("Software-Developer")}
               className={`blog-subnavbar ${
                 blogCategory == "Software-Developer" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/category/software-developer`}>Software Dev</Link>
+              <Link href={`/blogs/category/software-developer`}>Software Development</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Science")}

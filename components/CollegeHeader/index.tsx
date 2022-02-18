@@ -46,7 +46,8 @@ const CollegeHeader = ({
 
   const handleClick = () => {
     let data = { college: college_id, user: user.uid };
-    dispatch(addToFavourites(data));
+    if(click) dispatch(addToFavourites(data));
+    
     setClick((click) => !click);
     setSnackOpen(true);
   };
@@ -157,8 +158,8 @@ const CollegeHeader = ({
                 </svg>
               </div>
               <div className="task__title" onClick={handleClick}>
-                {}
-                {isFavourite ? "Remove form Favourite " : "Add to Favourites"}
+                
+                {click || isFavourite ? "Remove form Favourite " : "Add to Favourites"}
               </div>
             </div>
             <div className="college-header__task">

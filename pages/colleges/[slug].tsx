@@ -136,8 +136,24 @@ const Home = () => {
       if (item._id == _id) {
         console.log("item", item, _id);
         setIsFavourite(true);
+        return true
       }
+
     });
+    return false
+  };
+  
+  const checkcollegeFavouriteWithId = (id) => {
+    console.log("userFav", favorites);
+    favorites?.map((item) => {
+      if (item._id == id) {
+        console.log("item", item, _id);
+        setIsFavourite(true);
+        return true
+      }
+
+    });
+    return false
   };
 
   return (
@@ -157,7 +173,7 @@ const Home = () => {
             institution_type={institution_type}
             affliated_by={affliated_by}
             video_360={video_360}
-            isFavourite={isFavourite}
+            isFavourite={checkcollegeFavouriteWithId(_id)}
           />
           <Submenu />
           <SidebarContainer

@@ -1,6 +1,7 @@
 import { postService, getService } from "../commonServices";
 export class BlogService {
   getBlogs(blog_category) {
+    console.log({blog_category})
     let url = `/blogs/${blog_category}`;
     let data = getService(url);
     return data;

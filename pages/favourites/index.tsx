@@ -23,7 +23,7 @@ const index = () => {
   }, [auth]);
 
   const collegeList = useSelector((state: any) => state.favourites.userFavorite);
-
+console.log({collegeList})
   
   return (
     <DashboardLayout title="Dashboard">

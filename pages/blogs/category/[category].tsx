@@ -1,13 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
 import { SingleBlogCard } from "../../../components/SingleBlogCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BlogLayout } from "../../../layouts/BlogLayout";
 import { BlogCardLoader } from "../../../components/SkeletonLoading/BlogCardLoader";
 import calculateReadingTime from "../../../utils/calculateReadingTime";
+import { useRouter } from "next/router";
+import { getBlogs } from "../../../store/Action/blog.action";
 
 const BlogCategory = () => {
   const blogArray = useSelector((state: any) => state.blog.blogs);
   const multiLoading = useSelector((state: any) => state.blog.multiLoading);
+  const [msg,setMsg] = useState("No Blogs in this category")
+  const router = useRouter();
+console.log({blogArray})
+  const { category } = router.query;
+  const dispatch = useDispatch()
+  console.log({category})
+  React.useEffect(()=>{
+    if(category){
+     dispatch(getBlogs(category));
+    }
+    if(blogArray){
+      setMsg("")
+    }
+  },[])
+
+  React.useEffect(()=>{
+    if(category){
+     dispatch(getBlogs(category));
+    }
+    if(blogArray){
+      setMsg("")
+    }
+  },[category])
 
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");
@@ -21,7 +46,7 @@ const BlogCategory = () => {
         <div className="blog-list-random-blog" style={{ margin: "30px 0" }}>
           <div className="blog-list-random-blog__highlightPost">
             <div className="blog-list-random-blog__secondaryPostContainer">
-              {blogArray &&
+              {blogArray.length>0?
                 blogArray?.map((blog, i) => {
                   return (
                     <div className="blog-list-member__secondaryPost" key={i}>
@@ -37,7 +62,9 @@ const BlogCategory = () => {
                       />
                     </div>
                   );
-                })}
+                })
+              :<div>No blogs in this category </div> }
+               
             </div>
           </div>
         </div>

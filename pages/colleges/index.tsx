@@ -46,6 +46,7 @@ const collegeList = () => {
   const { collegesByLimit } = useSelector((state: any) => state.college);
   const { totalCollegeCount } = useSelector((state: any) => state.college);
 
+  const [collegeList, setCollegeList] = useState(collegesByLimit)
   console.log({collegesByLimit})
 
   const dispatch = useDispatch();
@@ -81,6 +82,7 @@ const collegeList = () => {
     await dispatch<any>(getProgramName({ filter: "_courseStream.name" }));
     await dispatch<any>(getCollegeByLimit(1));
     await dispatch<any>(getTotalCollegeCount());
+
   };
 
   React.useEffect(() => {
@@ -201,7 +203,7 @@ const collegeList = () => {
     }
   };
 
-  const resetFilter = () => {
+  const resetFilter = async () => {
     setFilterObj({
       country: [],
       state: [],
@@ -209,6 +211,7 @@ const collegeList = () => {
       stream: [],
       course_level: [],
     });
+    getAllFilterList()
   };
 
   return (

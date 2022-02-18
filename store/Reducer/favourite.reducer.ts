@@ -1,6 +1,4 @@
-import { 
-    FAVOURITES,
-} from "../const";
+import { FAVOURITES } from "../const";
 
 const initialState = {
     userFavorite: []

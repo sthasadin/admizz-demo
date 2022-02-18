@@ -14,4 +14,11 @@ export class favouritesService {
         let data = postService(url, body);
         return data;
     }
+
+    removeFromFavourite(favdata : String) {
+        let body = favdata;
+        let url = "/favourites";
+        let data = postService(url, body);
+        return data;
+    }
 }

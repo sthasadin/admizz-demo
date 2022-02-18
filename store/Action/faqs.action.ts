@@ -58,5 +58,3 @@ export const getSearchFaq = (query) => async (dispatch: Dispatch) => {
     dispatch(error(response.errorMessage));
   }
 };
-
-

@@ -42,9 +42,9 @@ const Topbar = (props: any) => {
           <div className="topbar__signup">
             {!auth?.currentUser?.emailVerified ? (
               <div className="signup">
-                <div className="signup__icon">
+                {/* <div className="signup__icon">
                   <FontAwesomeIcon icon={faUserTie} />
-                </div>
+                </div> */}
                 <div className="signup__text">
                   <Link href="/register">Sign Up</Link>
                 </div>
@@ -52,7 +52,9 @@ const Topbar = (props: any) => {
             ) : (
               <div className="signup">
                 <div className="signup__icon">
-                  <FontAwesomeIcon icon={faUserTie} />
+                  {/* <FontAwesomeIcon 
+                  icon={faUserTie}
+                   /> */}
                 </div>
                 <div className="signup__text">
                   <Link href="/studentdashboardmain">Student Dashboard</Link>

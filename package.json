@@ -10,6 +10,7 @@
         "fix": "yarn lint:ts --fix"
     },
     "dependencies": {
+        "@emailjs/browser": "^3.4.0",
         "@fortawesome/fontawesome": "^1.1.8",
         "@fortawesome/fontawesome-free-solid": "^5.0.13",
         "@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -52,7 +53,7 @@
         "react-swipeable-views": "^0.13.9",
         "react-swipeable-views-utils": "^0.14.0-alpha.0",
         "react-toastify": "^7.0.3",
-        "redux": "^4.0.5",
+        "redux": "^4.1.2",
         "redux-devtools-extension": "^2.13.8",
         "redux-thunk": "^2.3.0",
         "sass": "^1.29.0",

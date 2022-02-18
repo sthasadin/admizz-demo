@@ -36,17 +36,19 @@ const About = () => {
             href="blogs/life-style-of-indian-people"
           />
           <Card1
-
+            href="blogs/education-system-in-india"
             bgImage="card-3"
             title="Education System in India"
             subText="Efficient Education"
           />
           <Card1
+             href="blogs/education-system-in-india-2"
             bgImage="card-4"
             title="Learn About India Culture"
             subText="Culture of India"
           />
           <Card1
+            href="blogs/life-style-of-indian-people"
             bgImage="card-5"
             title="Lifestyle of Indian People"
             subText="Daily Lifestyle"

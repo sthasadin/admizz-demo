@@ -312,16 +312,17 @@ const Testimonial = (props: any) => {
             })}
           </div>
         </div>
+      
         <div className="testimonial__text">
           <span className="textDescription">{selectedTestimonial?.description}</span>
           
         </div>
         <div className="testimonial__author" > 
-          <span>{selectedTestimonial?.name}</span> -{" "}
+          <span style={{color:'#5F1802',fontWeight:800}}>{selectedTestimonial?.name}</span> -{" "}
           {selectedTestimonial?.designation}
         </div>
       </div>
-
+    
       {/* <div className="testimonial__formobile">
         <Carousel bulletdot="true">
           {testimonialList &&

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Layout from "../../layouts";
 import { useDispatch, useSelector } from "react-redux";
-import { getFAQ } from "../../store/Action/faq.action";
+import { getFaq } from "../../store/Action/faqs.action";
 import { Button } from "../../components/Button"
 import { useRouter } from 'next/router'
 
@@ -11,17 +11,29 @@ import { CallToAction } from "../../components/Button/callToAction";
 import QuickHelp from "../../components/FAQ/quick-help";
 
 import { FAQAccordian } from "../../components/FAQ/accordian";
+import { auth } from "../../firebase";
 
 const FAQ = () => {
   const dispatch = useDispatch();
-  const faqList = useSelector((state:any) => state.faq.faq);
+  const faqList = useSelector((state: any) => state.faqs.faq);
   const router = useRouter();
 
+  const [isOpenCounselling, setIsOpenCounselling] = useState(false);
+
+  const openCounselling = () => {
+    if (auth.currentUser) {
+      setIsOpenCounselling(true);
+      router.push('/free-counseling')
+    } else {
+      router.push("/login");
+    }
+  }
+
   useEffect(() => {
-    dispatch(getFAQ);
+    dispatch(getFaq);
     console.log("FAQ", faqList);
   }, []);
-  
+
   const data = [
     {
       title:
@@ -107,12 +119,12 @@ const FAQ = () => {
     <Layout title="FAQs" stickyBar={true}>
       <div className="faq">
         <div className="faq-container">
-          <div className="faq__header section-wrapper">
+          {/* <div className="faq__header section-wrapper">
             <div className="faq__header__title">What can we help you? FAQs</div>
             <div className="faq__header__search">
               <BlockSearch searchHandler={''} />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="faq-content">
           <div className="faq__inner section-wrapper">
@@ -129,7 +141,7 @@ const FAQ = () => {
                 })}
               </div>
             </div>
-            <div className="faq__title">Quick Help Topics</div>
+            {/* <div className="faq__title">Quick Help Topics</div>
             <div className="faq__quick-help">
               <QuickHelp />
               <QuickHelp />
@@ -137,7 +149,7 @@ const FAQ = () => {
               <QuickHelp />
               <QuickHelp />
               <QuickHelp />
-            </div>
+            </div> */}
             <div className="faq__counseling">
               <div className="faq__counseling__title">
                 Didn’t find your answer to your question?
@@ -147,8 +159,14 @@ const FAQ = () => {
                 process for scholarship processing.
               </div>
               <div className="faq__cta">
-            <Button onClick={() => router.push('/free-counseling')}>Book a Counseling Session</Button>
-            </div>
+                <Button onClick={() => {
+                  openCounselling()
+                }}
+                // router.push('/free-counseling')}
+
+                >
+                  Book a Counseling Session</Button>
+              </div>
             </div>
           </div>
         </div>

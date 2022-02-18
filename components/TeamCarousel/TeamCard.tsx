@@ -34,9 +34,7 @@ const TeamCard = ({ selectedTeam }: any) => {
           </div>
           <div className="team-social-icons-box">
             <AiOutlineTwitter className="teams-social-icons" />
-            <AiFillFacebook className="teams-social-icons" />
             <AiOutlineInstagram className="teams-social-icons" />
-            <AiFillYoutube className="teams-social-icons" />
             <AiFillYoutube className="teams-social-icons" />
           </div>
         </div>

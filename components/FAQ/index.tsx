@@ -41,7 +41,7 @@ const FAQ = () => {
               </div>
             </div>
           </div>
-          <div className="faq__title">Quick Help Topics</div>
+          {/* <div className="faq__title">Quick Help Topics</div>
           <div className="faq__quick-help">
             <QuickHelp />
             <QuickHelp />
@@ -49,7 +49,7 @@ const FAQ = () => {
             <QuickHelp />
             <QuickHelp />
             <QuickHelp />
-          </div>
+          </div> */}
           <div className="faq__counseling">
             <div className="faq__counseling__title">
               Didn’t find your answer to your question?

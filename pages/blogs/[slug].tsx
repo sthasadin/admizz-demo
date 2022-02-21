@@ -20,6 +20,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import { getBlogDetail } from "../../store/Action/blogDetails.action";
 import BlogComment from "../../components/BlogComment";
+import CommentSection from "../../components/BlogComment/comment";
 import { getBlogs } from "../../store/Action/blog.action";
 import { BlogListSimilarBlog } from "../../components/BlogListSimilarBlog";
 const blogDetail = () => {
@@ -40,7 +41,6 @@ const blogDetail = () => {
 
   useEffect(() => {
     dispatch(getBlogs("All"));
-    console.log("blogs", blogs);
   }, []);
 
   const { blog } = useSelector((state: any) => state.blogDetails);
@@ -161,6 +161,8 @@ const blogDetail = () => {
           </div>
           <div className="container ">
             <BlogComment data={blog} />
+            <CommentSection />
+
             <div
               className="blog-detail__imageContainer"
               style={{ height: "100%" }}

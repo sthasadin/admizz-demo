@@ -1,4 +1,4 @@
-import { BLOGS_TYPES, BLOG_TYPES,GET_COLLEGE_NEWS} from "../const";
+import { BLOGS_TYPES, BLOG_TYPES,COMMENT_TYPES,GET_COLLEGE_NEWS} from "../const";
 
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
     multiLoading: false,
     singleLoading: false,
     collegeNews:[],
+    comments:[]
    
 }
 
@@ -50,7 +51,11 @@ export default (state = initialState, action) => {
                 singleLoading: true,
                 blog: {}
             }
-        
+        case COMMENT_TYPES.GET_COMMENT:
+            return{
+                ...state,
+                comments:payload
+            }
         default:
             return state;
     }

@@ -1,10 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import { useRouter } from "next/router";
 import { CallToAction } from "../Button/callToAction";
 
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { auth } from "../../firebase";
 
 import ReactPlayer from "react-player";
 
@@ -12,6 +13,17 @@ const Introduction = (props) => {
   const { title, imgSrc, videoUrl } = props;
   const router = useRouter();
 
+  const [isOpenCounselling, setIsOpenCounselling] = useState(false);
+  const openCounselling = () =>{
+    console.log("counseling")
+    if(auth.currentUser) {
+      setIsOpenCounselling(true);
+      router.push("/free-counseling")
+    }else{
+      router.push("/login");
+
+    }
+  }
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -38,7 +50,10 @@ const Introduction = (props) => {
           <div className="u-align-center">
             <CallToAction
               className="filled"
-              onClick={() => router.push("/free-counseling")}
+              onClick={() => 
+                
+                  openCounselling()
+                }
             >
               Book counselling session
             </CallToAction>

@@ -93,27 +93,33 @@ const blogDetail = () => {
                     Share This Article
                   </DialogTitle>
                   <List className="blog-detail__listContainer">
-                    <ListItem button className="blog-detail__listItemContainer">
-                      {/* <div>
-                  <a>
-                    {shareUrl}
-                  </a>
-                </div> */}
+                   
+                    <ListItem button className="blog-detail__listItemContainer"
+             >
+                   
+                     
                       <ListItemAvatar>
                         <FacebookShareButton
                           url={shareUrl}
                           quote={"Admizz - You just dream it."}
                           hashtag="#admizz"
+                    
                         >
                           <Avatar>
-                            <FacebookIcon size={40} round={true} />
-                            {/* <FacebookIcon /> */}
+                            <FacebookIcon size={40} round={true} name="Facebook" />
+                        
+                       
                           </Avatar>
-                        </FacebookShareButton>
-                      </ListItemAvatar>
-                      <ListItemText primary={"Facebook"} />
-                    </ListItem>
+                        </FacebookShareButton>                   
 
+                      </ListItemAvatar>
+                     
+                    
+                      <ListItemText
+                     
+                      primary="Facebook"/>
+                    </ListItem>
+                    
                     <ListItem button>
                       <ListItemAvatar>
                         <WhatsappShareButton

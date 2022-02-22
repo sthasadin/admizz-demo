@@ -7,7 +7,7 @@ import telephone from "../../public/telephone.png";
 const contact = () => {
     return (
         <div className="our-exclusive-container">
-        <div className="aboutus-exclusive-content">
+        {/* <div className="aboutus-exclusive-content">
             <div className="our-trusted-text">CONTACT US</div>
             <div className="contact-countries">
                 <div className="contact-nepal">
@@ -17,7 +17,7 @@ const contact = () => {
              
                 </div>
             </div>
-        </div>
+        </div> */}
     </div>
     )
 }

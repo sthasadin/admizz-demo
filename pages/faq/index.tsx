@@ -31,12 +31,12 @@ export const FAQ = () => {
     <Layout title="FAQs" stickyBar={true}>
       <div className="faq">
         <div className="faq-container">
-          <div className="faq__header section-wrapper">
+          {/* <div className="faq__header section-wrapper">
             <div className="faq__header__title">What can we help you? FAQs</div>
             <div className="faq__header__search">
               <BlockSearch searchHandler={searchHandler} />
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="faq-content">
           <div className="faq__inner section-wrapper">
@@ -69,13 +69,8 @@ export const FAQ = () => {
               <QuickHelp />
             </div> */}
             <div className="faq__counseling">
-              <div className="faq__counseling__title">
-                Didn’t find your answer to your question?
-              </div>
-              <div className="faq__counseling__desc">
-                Get in touch with us for details on admissions and application
-                process for scholarship processing.
-              </div>
+             
+              
               <div className="faq__cta">
              <BookCounseling/>
               </div>

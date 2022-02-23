@@ -158,7 +158,7 @@ const FiveSteps = (props: any) => {
                 <div className="five-steps__item">
                   <div className="five-steps__item__text">
                     <div className="five-steps__item__title">
-                      Prepare For Departure
+                      Prepare To Departure
                     </div>
                     <div className="five-steps__item__desc">
                     Be prepared to kickstart your journey towards India for your further study.

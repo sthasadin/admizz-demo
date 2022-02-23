@@ -7,6 +7,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
+import { auth } from "../firebase";
 
 import SearchField from "../components/SearchField";
 import { searchAllItem } from "../store/Action/search.action";
@@ -20,13 +21,17 @@ const Navbar = (props: any) => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const data = useSelector((state:any) => state.search.data);
-  const loader = useSelector((state:any) => state.search.loader);
+  const data = useSelector((state: any) => state.search.data);
+  const loader = useSelector((state: any) => state.search.loader);
 
   const [state, setState] = React.useState({
     top: false,
   });
 
+  const logout = async () => {
+    await auth.signOut();
+    router.push("/");
+  };
   React.useEffect(() => {
     if (keyword) {
       dispatch(searchAllItem({ keyword: keyword }));
@@ -97,7 +102,7 @@ const Navbar = (props: any) => {
         </ListItem>
         <ListItem button key={"aboutus"} className="navbar__list">
           <Link href="/aboutus">
-            <ListItemText primary={"aboutus"} />
+            <ListItemText primary={"About us"} />
           </Link>
         </ListItem>
         <ListItem button key={"Contact"} className="navbar__list">
@@ -116,10 +121,20 @@ const Navbar = (props: any) => {
               }}
             >
               <div>
-                {" "}
-                <img src="/user-icon.png" alt="..." />
+                {auth?.currentUser?.emailVerified ? (
+                  <div>
+                    {/* <img src="/user-icon.png" alt="..." /> */}
+                    <div className="MuiTypography-body1"
+                    onClick={logout}
+                    >Logout</div>
+                  </div>
+                ) : (
+                  <div>
+                    {/* <img src="/user-icon.png" alt="..." /> */}
+                    <div className="MuiTypography-body1">Signup/Login</div>
+                  </div>
+                )}
               </div>
-              <div className="MuiTypography-body1">Sign up/Login</div>
             </div>
           </Link>
         </ListItem>
@@ -127,7 +142,6 @@ const Navbar = (props: any) => {
 
       <div className="navbar__applyaddresscontainer">
         <div className="navbar__applynowcontainer">
-          <div className="navbar__applynowtext"> Ready to get started?</div>
           <Button className="navbar__applybtn">Apply Now</Button>
         </div>
 
@@ -162,7 +176,8 @@ const Navbar = (props: any) => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+
     </div>
   );
 

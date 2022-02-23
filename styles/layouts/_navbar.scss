@@ -11,6 +11,7 @@
     position: relative;
     width: 90%;
     height: 80px;
+    
 
     max-width: 1440px;
     margin: auto;
@@ -50,7 +51,10 @@
 
     &__container {
       background-color: #5f1802;
-      height: 812px;
+      height: 100%;
+      
+     
+      // height: 812px;
       .drawer__header {
         display: flex;
         justify-content: space-between;
@@ -136,14 +140,14 @@
               justify-content: center;
               div {
                 margin-left: 11px;
-                font-size: 14px;
+                font-size: 13px;
                 color: #f2f2f2;
               }
             }
             .navbar__contact1 {
               display: flex;
               margin-top: 12px;
-              font-size: 14px;
+              font-size: 13px;
               color: #f2f2f2;
               width: 160px;
               padding: 5px;
@@ -151,7 +155,7 @@
 
               .navbar__contactnumber {
                 font-weight: 700;
-                font-size: 14px;
+                font-size: 13px;
                 margin-left: 1px;
               }
             }
@@ -159,7 +163,7 @@
             .navbar__contact2 {
               display: flex;
               margin-top: 10px;
-              font-size: 14px;
+              font-size: 13px;
               color: #f2f2f2;
               width: 160px;
               padding: 5px;

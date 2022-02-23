@@ -12,12 +12,14 @@ import { getAuthUser } from "@/store/Action/user.action";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-
 interface CommentForm {
-  comment: string;
+    comment: string;
 }
-const index = (props) => {
-  //const [comment, setComment] = React.useState("");
+const index = (props:any) => {
+  //console.log('props', props)
+  const [comments,setComments] = useState({
+    comment:''
+  });
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [loading, setLoading] = useState(false);
   const [formValue, setFormValue] = useState({} as CommentForm);
@@ -25,7 +27,7 @@ const index = (props) => {
 
   const user = useSelector((state: any) => state.user.authUser);
   const blogs_id = useSelector((state: any) => state.blog.blogs);
-
+  
   const dispatch = useDispatch();
   useEffect(() => {
     auth.currentUser && dispatch(getAuthUser(auth.currentUser.uid));
@@ -58,7 +60,6 @@ const index = (props) => {
       setFormError({ ...errors });
     }
   };
-
   const handleComment = async () => {
     setLoading(true);
     const Valid = await validate();
@@ -67,6 +68,7 @@ const index = (props) => {
         .add({
           comment: formValue.comment,
           createdAt: new Date(),
+          blog_id: props?.data?._id
         })
         .then(function (docRef) {
           setSnackOpen(true);
@@ -82,6 +84,7 @@ const index = (props) => {
         });
     }
   };
+
 
   return (
     <div className="blog-detail-content__commentContainer">

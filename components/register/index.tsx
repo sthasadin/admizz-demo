@@ -44,13 +44,17 @@ const Register = () => {
   const router = useRouter();
 
   const handleChange = (e: any) => {
-    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    console.log(e.target)
+    formValue[e.target.name] = e.target.value
+    setFormValue({ ...formValue});
     setFormError(() => ({ ...formError, [e.target.name]: null }));
+    console.log({formValue})
+
     if (e.target.name === "country") {
       if (e.target.value === "Nepal") {
         console.log(e.target.value, "value");
-        setFormValue({ countryCode: "+977" } as signUpFormValue);
-      } else setFormValue({ countryCode: "+91" } as signUpFormValue);
+        setFormValue({ ...formValue, countryCode: "+977" } as signUpFormValue);
+      } else setFormValue({ ...formValue, countryCode: "+91" } as signUpFormValue);
     }
   };
 
@@ -253,6 +257,7 @@ const Register = () => {
                   label="Full Name"
                   error={!!formError.fullName}
                   errorMessage={formError.fullName}
+                  value= {formValue.fullName}
                   type="text"
                 />
                 <Input
@@ -265,6 +270,7 @@ const Register = () => {
                   error={!!formError.email}
                   errorMessage={formError.email}
                   type="text"
+                  value={formValue.email}
                 />
 
                 <Select
@@ -277,6 +283,7 @@ const Register = () => {
                   name={"country"}
                   error={!!formError.country}
                   errorMessage={formError.country}
+                  value={formValue.country}
                 />
                 <div className={"student-info__phone-input"}>
                   <CountryCodeDropDown
@@ -304,6 +311,7 @@ const Register = () => {
                     error={!!formError.phoneNumber}
                     errorMessage={formError.phoneNumber}
                     type="text"
+                    value={formValue.phoneNumber}
                   />
                 </div>
 
@@ -321,6 +329,7 @@ const Register = () => {
                     setShowPassword((showPassword) => !showPassword)
                   }
                   showPassword={showPassword}
+                  value={formValue.password}
                 />
                 <PasswordField
                   fullWidth
@@ -336,6 +345,7 @@ const Register = () => {
                     setShowConfirmPassword((showconfirmPassword) => !showconfirmPassword)
                   }
                   showconfirmPassword={showconfirmPassword}
+                  value={formValue.confirmPassword}
                 />
               </div>
               <div className="signin__info">

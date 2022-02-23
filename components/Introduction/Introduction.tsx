@@ -15,8 +15,10 @@ const Introduction = (props) => {
 
   const [isOpenCounselling, setIsOpenCounselling] = useState(false);
   const openCounselling = () =>{
+    console.log("counseling")
     if(auth.currentUser) {
       setIsOpenCounselling(true);
+      router.push("/free-counseling")
     }else{
       router.push("/login");
 
@@ -49,10 +51,9 @@ const Introduction = (props) => {
             <CallToAction
               className="filled"
               onClick={() => 
-                // router.push("/free-counseling")}
-                {
+                
                   openCounselling()
-                }}
+                }
             >
               Book counselling session
             </CallToAction>

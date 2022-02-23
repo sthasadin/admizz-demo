@@ -261,28 +261,32 @@ const DashboardReviewConfirm = (props) => {
                 });
             });
         }
-        //console.log("++++++++++++++++++++++++++++++++++++++++++++")
-        await db
-          .collection("students-application")
-          .add({
-            basicInformation,
-            selectedChoice,
-            backgroundInformation,
-            academicInformation,
-            status,
-            student_id: auth.currentUser.uid,
-          })
-          .then((res) => {
-            handleClose();
-            localStorage.clear();
-          })
-          .catch((e) => {
-            //console.log(e);
-            handleClose();
-          });
-          //console.log("++++++++++++++++++++++++++++++++++++++++++++")
+        // console.log("++++++++++++++++++++++++++++++++++++++++++++")
+        // console.log({
+        //   basicInformation,
+        //   selectedChoice,
+        //   backgroundInformation,
+        //   academicInformation,
+        //   status,
+        //   student_id: auth.currentUser.uid,
+
+        // })
+        const res = await db.collection("students-application").add({
+          basicInformation,
+          selectedChoice,
+          backgroundInformation,
+          academicInformation,
+          status,
+          student_id: auth.currentUser.uid,
+        })
+
+       
+          // console.log({res})
+          // console.log("++++++++++++++++++++++++++++++++++++++++++++")
 
         handleClose();
+        handleClose();
+        localStorage.clear();
         router.push("/studentdashboardmain");
       }
     } catch (err) {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback  } from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 
 import { useDispatch } from "react-redux";
@@ -16,7 +16,7 @@ import { DashboardLayout } from "../../../layouts/dashboardLayout";
 import { withPrivateRoute } from "../../withPrivateRoute";
 import { AuthContext } from "../../AuthContext";
 import { getAuthUser } from "../../../store/Action/user.action";
-
+import { db } from "../../../firebase";
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -102,9 +102,41 @@ const DashboardBasicInfoPage = () => {
   //   // };
   // }, [showExitPrompt]);
 
+  useEffect( async () => {
+    // let data = {
+    //   basicInformation: {},
+    //   academicInformation: {},
+    //   backgroundInformation: {},
+    //   selectedChoice: []
+    // }
+    const snapshot = await db.collection("students-application").where("student_id","==",user?.uid).get()
+
+    if(!snapshot.empty){
+      const data = snapshot.docs[0].data()
+      console.log({data})
+      if(data?.basicInformation){
+        setBasicInfo(data?.basicInformation)
+      }
+      if(data?.academicInformation){
+        setAcademicInfo(data?.academicInformation)
+      }
+      if(data?.backgroundInformation){
+        setBackgroundInfo(data?.backgroundInformation)
+      }
+      if(data?.selectedChoice){
+        setSelectedChoice(data?.selectedChoice)
+      }
+      
+     }
+       
+    }, [])
+
+
   useEffect(() => {
     if (authenticated) {
       getUser(user?.uid);
+     
+
     }
     // setShowExitPrompt(true);
   }, [authenticated, user]);

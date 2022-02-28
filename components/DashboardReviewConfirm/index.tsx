@@ -3,7 +3,7 @@ import { Grid, Button } from "@material-ui/core";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ClipLoader from "react-spinners/ClipLoader";
-import { storage, db } from "../../firebase";
+import { storage, db, auth } from "../../firebase";
 import { useRouter } from "next/router";
 import * as yup from "yup";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -13,7 +13,6 @@ import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
-import { auth } from "../../firebase";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -261,41 +260,53 @@ const DashboardReviewConfirm = (props) => {
                 });
             });
         }
-        // console.log("++++++++++++++++++++++++++++++++++++++++++++")
-        // console.log({
-        //   basicInformation,
-        //   selectedChoice,
-        //   backgroundInformation,
-        //   academicInformation,
-        //   status,
-        //   student_id: auth.currentUser.uid,
-
-        // })
-        const res = await db.collection("students-application").add({
+        console.log("++++++++++++++++++++++++++++++++++++++++++++")
+       
+        const appdata = {
           basicInformation,
           selectedChoice,
           backgroundInformation,
           academicInformation,
           status,
           student_id: auth.currentUser.uid,
+
+        }
+
+        console.log({appdata})
+
+        const res = await db.collection("students-application").add({
+          basicInformation: basicInformation
         })
+        console.log("++++++++++++++++++++++++++++++++++++++++++++"+res.id)
 
-       
-          // console.log({res})
-          // console.log("++++++++++++++++++++++++++++++++++++++++++++")
+        await db.collection("students-application").doc(res.id).set({
+          selectedChoice: [{}]
+        })
+        console.log("++++++++++++++++++++++++++++++++++++++++++++")
 
-        handleClose();
+        await db.collection("students-application").doc(res.id).set({
+          backgroundInformation: backgroundInformation
+        })
+        console.log("++++++++++++++++++++++++++++++++++++++++++++")
+
+        
+        await db.collection("students-application").doc(res.id).set({
+          academicInformation: academicInformation
+        })
+        console.log("++++++++++++++++++++++++++++++++++++++++++++")
+
+        await db.collection("students-application").doc(res.id).set({
+          status,
+          student_id: auth.currentUser.uid,
+        })
+        console.log("++++++++++++++++++++++++++++++++++++++++++++")
+
         handleClose();
         localStorage.clear();
         router.push("/studentdashboardmain");
       }
     } catch (err) {
-      //console.log(err);
-      // const errors = {};
-      // err.inner.forEach((item: any) => {
-      //   errors[item.path] = item.errors[0];
-      // });
-      // setFormError({ ...errors });
+     
     }
   };
 

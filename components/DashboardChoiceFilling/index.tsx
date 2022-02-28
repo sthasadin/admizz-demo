@@ -33,6 +33,9 @@ const DashboardChoiceFilling = ({
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [_appliedColleges, setAppliedColleges] = useState([]);
 
+  console.log({selectedChoice})
+
+
   function dynamicSort(property) {
     var sortOrder = 1;
     if (property[0] === "-") {
@@ -104,6 +107,7 @@ const DashboardChoiceFilling = ({
     
     const colleges = choices.map((c: any) => {
       if (c.selectedCollege.label){
+        console.log({c})
         return {
                 collegeName: c.selectedCollege?.collegeName || "",
                 image: c.selectedCollege?.image || "",
@@ -112,7 +116,6 @@ const DashboardChoiceFilling = ({
                 collegeStream: c.selectedStream?.label,
                 collegeProgram: c.selectedProgram?.label,
                 collegeEmail: c.selectedCollege?.email || "",
-                collegeId: c.selectedCollege?._id
               };
           }
         })
@@ -120,7 +123,6 @@ const DashboardChoiceFilling = ({
         return element !== undefined;
       });
      
-      console.log({results})
       setAppliedColleges(results);
       
       setLoader(false);

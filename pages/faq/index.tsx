@@ -59,8 +59,9 @@ export const FAQ = () => {
                   })}
               </div>
             </div>
-            {/* <div className="faq__title">Quick Help Topics</div>
-            <div className="faq__quick-help">
+            <div className="faq__title">Quick Help Topics</div>
+            {/* <div className="faq__quick-help">
+
               <QuickHelp />
               <QuickHelp />
               <QuickHelp />

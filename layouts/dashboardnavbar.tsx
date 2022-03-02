@@ -11,6 +11,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
+import { auth } from "../firebase";
 
 const DashboardNavbar = () => {
   const [state, setState] = React.useState({
@@ -28,7 +29,10 @@ const DashboardNavbar = () => {
     }
     setState({ ...state, [anchor]: open });
   };
-
+  const logout = async () => {
+    await auth.signOut();
+    router.push("/");
+  };
   const list = (anchor) => (
     <div
       role="presentation"
@@ -52,9 +56,9 @@ const DashboardNavbar = () => {
           </Link>
         </ListItem>
         <ListItem button key={"logout"}>
-          <Link href="/contact-us">
-            <ListItemText primary={"logout"} />
-          </Link>
+          <div onClick={logout}>
+            <ListItemText primary={"Logout"} />
+          </div>
         </ListItem>
       </List>
     </div>

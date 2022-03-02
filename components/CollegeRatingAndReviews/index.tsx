@@ -6,13 +6,11 @@ import {
   getReviews,
   updateReview,
 } from "../../store/Action/review.action";
-import Snackbar from "@material-ui/core/Snackbar";
 import Rating from "@material-ui/lab/Rating";
 import { AddCollegeRatingAndReview } from "../AddCollegeRatingAndReviews";
 import { Review } from "../Review";
 import { RatingItem } from "./ratingItem";
 import { useRouter } from "next/router";
-import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 const RatingAndReview = (props: any) => {
   const [isAddReviewOpen, setIsAddReviewOpen] = useState(false);

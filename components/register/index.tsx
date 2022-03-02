@@ -234,7 +234,7 @@ const Register = () => {
               <div className="signin__item__icon">
                 <img src="/icon/depature-icon.png" alt="admizz-depature" />
               </div>
-              <div className="signin__item__title">Prepare For Departure</div>
+              <div className="signin__item__title">Prepare To Departure</div>
             </div>
           </div>
           <div className="signin__cta">Learn More About Us</div>

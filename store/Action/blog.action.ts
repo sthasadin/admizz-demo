@@ -20,7 +20,7 @@ export const getBlog = (blog_slug) => async (dispatch: Dispatch) => {
   dispatch(init(BLOG_TYPES.GET_BLOG));
 
   const response: any = await blogService.getBlog(blog_slug);
-
+console.log('blog', response)
   dispatch(finish(BLOG_TYPES.GET_BLOG));
 
   if (response.isSuccess) {

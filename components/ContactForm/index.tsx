@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as yup from "yup";
-import moment from "moment";
 import { auth, db } from "../../firebase";
 import indiaOffice from "../../public/indiaOffice.png";
 import nepalOffice from "../../public/nepalOffice.png";

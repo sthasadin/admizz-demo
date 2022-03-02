@@ -87,7 +87,7 @@ const CounselingStepper = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
-
+  const [bookingError, setBookingError] = React.useState("")
   const [completed, setCompleted] = React.useState<{ [k: number]: boolean }>(
     {}
   );
@@ -152,6 +152,13 @@ const CounselingStepper = () => {
 
   const dateTimeValidate = async () => {
     try {
+      const docRef = await db.collection("appointment").where("counsellor", "==", formValue.counsellor).where("date", "==", formValue.date).where("time", "==",formValue.time).get()
+     const docs = docRef.docs
+      if(docs.length > 0){
+        setBookingError("Sorry! There is already a booking on chosen date and time, Please try changing date and time")
+        return 
+      }
+      setBookingError("")
       await dateTimeValidateSchema.validate(
         {
           date: formValue.date,
@@ -353,6 +360,7 @@ const CounselingStepper = () => {
           Your Booking has been Confirmed. Redirecting to home page.
         </Alert>
       </Snackbar>
+      {bookingError &&  <Alert severity="error">{bookingError}</Alert>}
     </div>
   );
 };

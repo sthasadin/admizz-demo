@@ -102,18 +102,16 @@ const DashboardBasicInfoPage = () => {
   //   // };
   // }, [showExitPrompt]);
 
-  useEffect( async () => {
-    // let data = {
-    //   basicInformation: {},
-    //   academicInformation: {},
-    //   backgroundInformation: {},
-    //   selectedChoice: []
-    // }
-    const snapshot = await db.collection("students-application").where("student_id","==",user?.uid).get()
 
-    if(!snapshot.empty){
+
+  useEffect( () => {
+
+    const getStdApp =  async ()=>{
+     
+    const snapshot =  await db.collection("students-application").where("student_id","==",user?.uid).get()
+
+    if(snapshot && !snapshot.empty){
       const data = snapshot.docs[0].data()
-      console.log({data})
       if(data?.basicInformation){
         setBasicInfo(data?.basicInformation)
       }
@@ -129,6 +127,8 @@ const DashboardBasicInfoPage = () => {
       
      }
        
+    }
+    getStdApp()
     }, [])
 
 

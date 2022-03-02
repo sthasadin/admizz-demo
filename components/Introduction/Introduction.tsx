@@ -211,10 +211,10 @@ const Introduction = (props) => {
             </div>
           </div>
         </div>
-        <div className="introduction__right">
+        {/* <div className="introduction__right"> */}
           {/* <div className="introduction__right__background"></div> */}
-          <div className="introduction__right__thumbnail"></div>
-        </div>
+          {/* <div className="introduction__right__thumbnail"></div> */}
+        {/* </div> */}
       </div>
     </div>
   );

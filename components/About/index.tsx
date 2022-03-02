@@ -27,7 +27,7 @@ const About = () => {
             bgImage="card-1"
             title="Learn About Geography"
             subText="All About India"
-            href="blogs/education-system-in-india-2"
+            href="blogs/learn-about-geography"
           />
           <Card1
             bgImage="card-2"
@@ -42,7 +42,7 @@ const About = () => {
             subText="Efficient Education"
           />
           <Card1
-             href="blogs/education-system-in-india-2"
+             href="blogs/learn-about-indian-culture"
             bgImage="card-4"
             title="Learn About India Culture"
             subText="Culture of India"

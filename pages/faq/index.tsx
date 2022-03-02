@@ -3,9 +3,6 @@ import React, { useEffect } from "react";
 import Layout from "../../layouts";
 import { useSelector, useDispatch } from "react-redux";
 
-import { BlockSearch } from "../../components/BlockSearch";
-import { CallToAction } from "../../components/Button/callToAction";
-import QuickHelp from "../../components/FAQ/quick-help";
 
 import { FAQAccordian } from "../../components/FAQ/accordian";
 import { BookCounseling } from "../../components/BookCounselling";

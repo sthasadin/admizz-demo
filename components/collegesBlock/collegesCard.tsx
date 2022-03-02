@@ -131,10 +131,8 @@ const CollegesCard = (college) => {
             url(${college.banner ? college?.banner: "/colleges.png"})`,
             objectFit:'contain',
             height:'100%'
-            
-            
-           }}
-           >
+                       
+           }}>
 
            </div>
             {/* <img

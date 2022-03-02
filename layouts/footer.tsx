@@ -108,7 +108,7 @@ console.log({topColleges})
               <p className="error-subscribe-msg">{formError.subscriber}</p>
             </div>
           </div>
-          <div className="footer__mobileCol" style={{marginRight:20}}>
+          <div className="footer__mobileCol">
             <div className="footer__col">
               <div className="footer__col__title">top colleges</div>
               {topColleges &&
@@ -123,7 +123,7 @@ console.log({topColleges})
                 })}
             </div>
             <div className="footer__col">
-              <div className="footer__col__title">top courses</div>
+              <div className="footer__col__title" >top courses</div>
 
               {topCourses &&
                 topCourses?.map((item, i) => {
@@ -142,17 +142,9 @@ console.log({topColleges})
               
             </div>
           </div>
-          <div className="footer__mobileCol" style={{marginLeft:35}}>
+          <div className="footer__mobileCol" >
+        
             <div className="footer__col">
-              <div className="footer__col__title" >study in</div>
-              <a href="#" className="footer__col__item">
-                India
-              </a>
-              <a href="#" className="footer__col__item">
-                USA
-              </a>
-            </div>
-            <div className="footer__col" style={{marginRight:20}}>
               <div className="footer__col__title">other links</div>
               <div className="footer__col__item">
                 <Link href="/aboutus">About Admizz</Link>
@@ -172,16 +164,23 @@ console.log({topColleges})
               </div>
             </div>
           </div>
+
+
+        
         </div>
         <div className="footer__middle">
-          {/* <div className="footer__middle__left">
+          <div className="footer__middle__left">
             <div className="footer__default">
-              <a href="#">Terms & Conditions</a>
+              <p className="footer__study">STUDY IN</p>
+              {/* <a href="#">STUDY IN</a> */}
             </div>
             <div className="footer__default">
-              <a href="#">Privacy Policy</a>
+              <a href="#">India </a>
             </div>
-          </div> */}
+            <div className="footer__default">
+              <a href="#">USA </a>
+            </div>
+          </div>
           <div className="footer__middle__right">
             <div className="social-icons">
               <div>

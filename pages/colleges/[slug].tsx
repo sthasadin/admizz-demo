@@ -120,21 +120,18 @@ const Home = () => {
 
   useEffect(() => {
     _getReviews(_id);
+    // checkcollegeFavourite();
   }, [_id]);
 
   useEffect(() => {
     if (user) {
-      dispatch(getFavourites(user?.uid));
+      dispatch(getFavourites(user?.uid));      
     }
-
-    checkcollegeFavourite();
   }, [user]);
 
   const checkcollegeFavourite = () => {
-    console.log("userFav", favorites);
     favorites?.map((item) => {
-      if (item._id == _id) {
-        console.log("item", item, _id);
+      if (item.college._id == _id) {
         setIsFavourite(true);
         return true
       }
@@ -144,16 +141,17 @@ const Home = () => {
   };
   
   const checkcollegeFavouriteWithId = (id) => {
-    console.log("userFav", favorites);
-    favorites?.map((item) => {
-      if (item._id == id) {
-        console.log("item", item, _id);
-        setIsFavourite(true);
-        return true
+    
+    let flag = false;
+    favorites?.forEach((item) => {
+
+      if (item.college._id == id) {
+        // setIsFavourite(true);
+        flag = true
       }
 
     });
-    return false
+    return flag
   };
 
   return (

@@ -30,7 +30,9 @@ const CollegeHeader = ({
   video_360,
   isFavourite,
 }) => {
-  const [click, setClick] = React.useState(false);
+  console.log({isFavourite})
+
+  const [click, setClick] = React.useState(isFavourite);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
@@ -40,15 +42,19 @@ const CollegeHeader = ({
     setOpen(true);
   };
 
+  useEffect(()=>{
+    setClick(isFavourite)
+  }, [isFavourite])
+
   const handleClose = () => {
     setOpen(false);
   };
 
   const handleClick = () => {
-    let data = { college: college_id, user: user.uid };
-    if(click) dispatch(addToFavourites(data));
-    
+    // console.log({isFavourite})
     setClick((click) => !click);
+    let data = { college: college_id, user: user.uid };
+    dispatch(addToFavourites(data));
     setSnackOpen(true);
   };
 
@@ -148,10 +154,9 @@ const CollegeHeader = ({
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  {console.log("favourites", isFavourite)}
                   <path
                     d="M19.8401 2.61C19.3294 2.09901 18.7229 1.69365 18.0555 1.41709C17.388 1.14052 16.6726 0.998177 15.9501 0.998177C15.2276 0.998177 14.5122 1.14052 13.8448 1.41709C13.1773 1.69365 12.5709 2.09901 12.0601 2.61L11.0001 3.67L9.94012 2.61C8.90843 1.57831 7.50915 0.998711 6.05012 0.998711C4.59109 0.998711 3.19181 1.57831 2.16012 2.61C1.12843 3.64169 0.548828 5.04097 0.548828 6.5C0.548828 7.95903 1.12843 9.35831 2.16012 10.39L3.22012 11.45L11.0001 19.23L18.7801 11.45L19.8401 10.39C20.3511 9.87925 20.7565 9.27282 21.033 8.60536C21.3096 7.9379 21.4519 7.22249 21.4519 6.5C21.4519 5.77751 21.3096 5.06211 21.033 4.39465C20.7565 3.72719 20.3511 3.12076 19.8401 2.61V2.61Z"
-                    fill={click || isFavourite ? "white" : ""}
+                    fill={click? "white" : ""}
                     stroke="white"
                     strokeWidth="2px"
                   />
@@ -159,7 +164,7 @@ const CollegeHeader = ({
               </div>
               <div className="task__title" onClick={handleClick}>
                 
-                {click || isFavourite ? "Remove form Favourite " : "Add to Favourites"}
+                {click? "Remove from Favourite " : "Add to Favourites"}
               </div>
             </div>
             <div className="college-header__task">

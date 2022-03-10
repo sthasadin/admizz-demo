@@ -115,7 +115,7 @@ const DashboardChoiceFilling = ({
                 college_slug: c.selectedCollege?.college_slug,
                 collegeStream: c.selectedStream?.label,
                 collegeProgram: c.selectedProgram?.label,
-                collegeEmail: c.selectedCollege?.email || "",
+                collegeEmail: c.selectedCollege?.collegeEmail || "",
               };
           }
         })

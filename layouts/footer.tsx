@@ -142,9 +142,9 @@ console.log({topColleges})
 
               
             </div>
-          </div>
+          {/* </div>
           <div className="footer__mobileCol" >
-        
+         */}
             <div className="footer__col">
               <div className="footer__col__title">other links</div>
               <div className="footer__col__item">
@@ -157,9 +157,6 @@ console.log({topColleges})
               <div className="footer__col__item">
                 <Link href="/faq">FAQs</Link>
               </div>
-              {/* <div className="footer__col__item">
-                <Link href="#">Terms & Conditions</Link>
-              </div> */}
               <div className="footer__col__item">
                 <Link href="/register">Sign In/Register</Link>
               </div>
@@ -172,15 +169,8 @@ console.log({topColleges})
         <div className="footer__middle">
           <div className="footer__middle__left">
             <div className="footer__default">
-              {/* <p className="footer__study">STUDY IN</p> */}
               <a href="#" className="footer__study">STUDY IN India</a>
             </div>
-            {/* <div className="footer__default">
-              <a href="#">India </a>
-            </div> */}
-            {/* <div className="footer__default">
-              <a href="#">USA </a>
-            </div> */}
           </div>
           <div className="footer__middle__right">
             <div className="social-icons">

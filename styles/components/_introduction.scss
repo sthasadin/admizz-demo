@@ -216,23 +216,28 @@
     }
 
     width: calc(100% - 30px);
-    max-width: 1024px;
+    // max-width: 1024px; commented by solanki
     @media (max-width: 1500px) {
       max-width: 1400px;
     }
     @media (max-width: 768px) {
-      width: 720px;
+      // width: 720px; commented by solanki
+      width: 90%;
       margin-top: 50px;
       grid-template-columns: 1fr;
     }
     @media (min-width: 1024px) {
-      width: 940px;
+      // width: 940px; commented by solanki
+      width: 90%;
     }
     @media (min-width: 1200px) {
-      width: 1170px;
+      // width: 1170px; commented by solanki
+      width: 90%;
+
     }
     @media (min-width: 1360px) {
-      width: 1240px;
+      // width: 1240px; commented by solanki
+      width: 90%;
     }
     @media (max-width: 760px) {
       grid-template-columns: 1fr;

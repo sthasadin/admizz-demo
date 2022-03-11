@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCollegeList } from "../store/Action/allCollage.action";
 import { About } from "../components/About";
-import { BlogList } from "../components/BlogList";
 import { CollegeFinder } from "../components/collegeFinder";
 import { CollegesBlock } from "../components/collegesBlock";
 import { FiveSteps } from "../components/FiveSteps/index";
@@ -15,7 +14,6 @@ import { Testimonial } from "../components/Testimonial";
 
 import { Us } from "../components/why-us";
 import Layout from "../layouts/index";
-import AllIndia from "./allindia";
 
 export default function Home() {
   const { collegeList } = useSelector((state: any) => state.allCollege);
@@ -37,7 +35,7 @@ export default function Home() {
       <CollegesBlock collegeList={collegeList.slice(0, 6)} />
       <CollegeFinder />
       <Testimonial />
-      <BlogList />
+      {/* <BlogList /> */}
       <Teams data="" />
     </Layout>
   );

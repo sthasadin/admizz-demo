@@ -39,7 +39,8 @@ console.log({selectedCollege})
               <div className="compare-table-label">
                 <strong>{data.label}</strong>
               </div>
-              <div style={{ display: "flex", marginLeft: "34px" }}>
+              {/* <div style={{ display: "flex", marginLeft: "34px" }}> */}
+              <div style={{display:'flex', marginLeft: '12px'}}>
                 {selectedCollege.map((colegeAttributes: any) => {
                   return (
                     <>

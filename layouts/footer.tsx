@@ -8,6 +8,7 @@ import { valueOf } from "*.jpg";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 import { getTopColleges, getTopCourses } from "../store/Action/footer.action";
+import { Facebook, Instagram, Twitter } from "@icon-park/react";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -171,35 +172,26 @@ console.log({topColleges})
         <div className="footer__middle">
           <div className="footer__middle__left">
             <div className="footer__default">
-              <p className="footer__study">STUDY IN</p>
-              {/* <a href="#">STUDY IN</a> */}
+              {/* <p className="footer__study">STUDY IN</p> */}
+              <a href="#" className="footer__study">STUDY IN India</a>
             </div>
-            <div className="footer__default">
+            {/* <div className="footer__default">
               <a href="#">India </a>
-            </div>
-            <div className="footer__default">
+            </div> */}
+            {/* <div className="footer__default">
               <a href="#">USA </a>
-            </div>
+            </div> */}
           </div>
           <div className="footer__middle__right">
             <div className="social-icons">
               <div>
-                <a href="https://www.facebook.com/admizz" target="_blank">
-                  <img src="/facebook-1.png" alt="facebook_admiz" />
-                </a>
+                <Facebook theme="outline" size="24" fill="#fff"/>
               </div>
               <div>
-                <a href="https://twitter.com/admizz_official" target="_blank">
-                  <img src="/twitter.png" alt="twitter_admiz" />
-                </a>
+              <Twitter theme="outline" size="24" fill="#fff"/>
               </div>
               <div>
-                <a
-                  href="https://www.instagram.com/admizz_official/"
-                  target="_blank"
-                >
-                  <img src="/instagram.png" alt="instagram_admiz" />
-                </a>
+              <Instagram theme="outline" size="24" fill="#fff"/>
               </div>
             </div>
           </div>

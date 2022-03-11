@@ -2,13 +2,9 @@
   .comparecollege__header {
     height: 129px;
     background-color: #e5e5e5;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    //align-items: center;
-    // overflow-x: auto;
-
     .comparecollege__head {
       display: flex;
       justify-content: space-between;
@@ -61,8 +57,7 @@
       border-radius: 5px;
       margin-left: 230px;
       justify-content: space-between;
-      // overflow: auto;
-
+      // flex-direction: column;
       @media (max-width: 702px) {
         flex-direction: row;
         justify-content: end;

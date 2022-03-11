@@ -70,6 +70,11 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
 
+    // @media (max-width: 912px) {
+    //   position: unset;
+    //   grid-template-columns: repeat(2, 1fr);
+    //   padding-top: 20px;
+    // }
     @media (max-width: 1024px) {
       position: unset;
       grid-template-columns: repeat(2, 1fr);
@@ -82,10 +87,8 @@
 }
 
 .our-exclusive-container {
-  // height: 600px;
-
   .our-exclusive-content {
-    padding-top: 200px;
+    padding-top: 250px; //increased by solanki
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -263,4 +266,3 @@
     }
   }
 }
-

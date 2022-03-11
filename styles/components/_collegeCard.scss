@@ -46,8 +46,10 @@
   }
   &__details {
     background: #ffffff;
-    // border: 1px solid #bdbdbd;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #bdbdbd;
+    
+    // box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.02);
+    // box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08); by solanki
     border-radius: 5px 5px 5px 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;

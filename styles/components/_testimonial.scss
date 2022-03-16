@@ -17,6 +17,12 @@
     place-items: center;
     // padding: 80px 0;
     overflow: auto;
+    position: relative;
+    .learnmore__btn {
+      position: absolute;
+      top: 2%;
+      right: 5%;
+    }
     @media (max-width: 450px) {
       display: none;
     }

@@ -144,8 +144,7 @@ export const DashboardAcademicInfo = (props) => {
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
       setSchoolMarks(props.data.schoolMarks);
-      // setLevel0Score(props.data.level0Score);
-
+      // setLevel0Score(props.data.level0Score)
       setLevel1Score(props.data.level1Score);
       setLevel2Score(props.data.level2Score);
       setDiplomaScore(props.data.diplomaScore);

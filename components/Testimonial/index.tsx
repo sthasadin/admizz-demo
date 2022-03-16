@@ -9,8 +9,11 @@ import Carousel from "../../components/Carousel";
 import TestimonialCarousel from "../TestimonialCarousel";
 import { CallToAction } from "../Button/callToAction";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Testimonial = (props: any) => {
+  const router = useRouter();
+
   const [open, setOpen] = React.useState(false);
   const [testimonialList, setTestimonialList] = React.useState([]);
 
@@ -73,11 +76,27 @@ const Testimonial = (props: any) => {
   };
 
   return (
+    <div className="collegeFinder">
+      <div className="collegeFinder__inner section-wrapper">
+       <div className="collegeFinder__titlebar">
+          <div className="collegeFinder__left">
+            <div className="collegeFinder__heading block-heading">
+            Testimonial
+            </div>
+            <div className="collegeFinder__title block-title">
+              Explore and Read Testimonial
+            </div>
+          </div>
+
+          <div className="collegeFinder__right hideformobile">
+            <CallToAction onClick={() => router.push("/testimonialDetailPage")}>
+              Explore all testimonial
+            </CallToAction>
+          </div>
+        </div>
     <div className="testimonial">
       <div className="testimonial__inner">
-        <CallToAction className="learnmore__btn">
-          <Link href="/testimonialDetailPage">Explore All Testimonials</Link>
-        </CallToAction>
+      
         <div className="testimonial__item-wrap">
           <div className="testimonial__left">
             {testimonialList?.map((item, index) => {
@@ -329,8 +348,10 @@ const Testimonial = (props: any) => {
           </span>{" "}
           - {selectedTestimonial?.designation}
         </div>
-      </div>
+    
 
+      </div>
+          
       {/* <div className="testimonial__formobile">
         <Carousel bulletdot="true">
           {testimonialList &&
@@ -339,6 +360,8 @@ const Testimonial = (props: any) => {
             })}
         </Carousel>
       </div> */}
+    </div>
+    </div>
     </div>
   );
 };

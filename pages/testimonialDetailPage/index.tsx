@@ -34,15 +34,16 @@ const index = () => {
 
   const dispatch = useDispatch();
 
-  // const getAllTestimonal = async () => {
-  //   const fetchTestimonal = await dispatch(getTestimonial());
-  //   setTestimonialList(fetchTestimonal);
-  // };
 
-  // React.useEffect(() => {
-  //   getAllTestimonal();
-  // }, []);
+  const getAllTestimonal = async () => {
+    const fetchTestimonal = await dispatch<any>(getTestimonial());
+    setTestimonialList(fetchTestimonal);
+  };
 
+  React.useEffect(() => {
+    getAllTestimonal();
+  }, []);
+  
   React.useEffect(() => {
     if (testimonialList.length > 0) {
       testimonialList.map(function (test: any, index: any) {
@@ -167,12 +168,10 @@ const index = () => {
                     </div>
                     <div className="detailContainer__coursebox">
                       <div className="detailContainer__course">
-                        {/* {selectedTestimonial?.course} */}
-                        course
+                        {/* {selectedTestimonial?.course} */} course
                       </div>
                       <div className="detailContainer__batch_part">
-                        {/* {selectedTestimonial?.subject} */}
-                        subject
+                        {/* {selectedTestimonial?.subject} */} subject
                       </div>
                     </div>
                   </div>

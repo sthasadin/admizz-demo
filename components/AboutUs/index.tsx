@@ -1,20 +1,28 @@
-import React from "react";
+
+import React,{ useEffect } from "react";
+import Carousel from "../../components/Carousel";
 import Link from "next/link";
 import  ABOUTUS from "./aboutus";
+import { useSelector,useDispatch } from "react-redux";
+import { getAllCollegeList } from "../../store/Action/allCollage.action";
+
+import MessengerCustomerChat from "../MessengerCustomerChat";
+import { Teams } from "../Teams";
 import International from "./international";
 import Contact from "./contactus";
 import { Statistics } from "../statistics/index"
 import { Merits } from "./whychoose"
 import Features from "./feature";
 import Tieups from "./tieups";
-import MessengerCustomerChat from "../MessengerCustomerChat";
-import { Teams } from "../Teams";
-
 import Layout from "../../layouts";
-
-
 const index = () => {
   const [active, setActive] = React.useState(false);
+  const  {collegeList}  = useSelector((state: any) => state.allCollege);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllCollegeList());
+  }, []);
 
   const handleScroll = () => {
     window.addEventListener("scroll", () => {
@@ -34,35 +42,35 @@ const index = () => {
 
   return (
     <>
-      <Layout title="About Us" stickyBar={true}>
-      <div className="about__introduction__container">
+        <Layout title="About Us" stickyBar={true}>
+      <div className="introduction__container">
         <Link href="/free-counseling">
           <div
             className={`${
               active && "active__vertical"
             } vertical__stickycontainer `}
           >
-            <div className="image">
-              <img src="/vertical-arrow.png" alt="free counseling" />
-            </div>
+            <div className="text__content">Free Counselling</div>
+         
           </div>
         </Link>
 
-        {/* <Carousel bulletdot={false}> */}
+        <Carousel bulletdot={false}>
           <ABOUTUS
-            title="ABOUTUS"
+            title="hello"
             imgSrc="/about_us.png"
             videoUrl="https://youtu.be/CDknjC9aFmg"
           />
-        {/* </Carousel> */}
+          
+        </Carousel>
         <Merits />
-        <Statistics />
-        <Features />
-        <Tieups />
+         <Statistics />
+         <Features />
+        <Tieups college={collegeList.slice(0, 6)} />
         <International />
         <Teams data="" />
 
-        <Contact />
+         <Contact />
       </div>
       </Layout>
       <MessengerCustomerChat />
@@ -71,4 +79,5 @@ const index = () => {
 };
 
 export default index;
+
 

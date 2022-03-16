@@ -7,9 +7,9 @@ import { CallToAction } from "../Button/callToAction";
 const Us = ({ college }) => {
   const data = [
     {
-      title: "One on One Counselling session",
+      title: "One on One Counselling",
       description:
-        "Admizz provides one on one counseling sessions with each of the students who are applying for further studies in India. It will help you in your journey to study in india.",
+        "Admizz provides one on one counseling sessions with each of the students who are applying for further studies and helps you in your journey to study in india.",
       icon: (
         <svg
           width="60"
@@ -40,7 +40,7 @@ const Us = ({ college }) => {
     {
       title: "End to End Assistance",
       description:
-        "Admizz helps you from beginning to the end of your admission process and ensures that you get admitted in our favourite university or colleges that you choose. It also provides career opportunities of your choice after applying to the universities and being admitted to them.",
+        "Admizz helps from beginning to the end in admission process and ensures that you get admitted in our favourite university or colleges that you choose.",
       icon: (
         <svg
           width="60"
@@ -60,9 +60,9 @@ const Us = ({ college }) => {
       ),
     },
     {
-      title: "Get Best Scholarship facility",
+      title: "Get Best Scholarship",
       description:
-        "You can also apply for a scholarship from Admizz. You can choose from different scholarships that are available in India. It helps to choose a scholarship according to your course of choices and provides guidance to prepare for it.",
+        "You can also apply for a scholarship from Admizz. It helps to choose a scholarship according to your course of choices and provides guidance to prepare for it.",
       icon: (
         <svg
           width="71"
@@ -84,7 +84,7 @@ const Us = ({ college }) => {
     {
       title: " Admission with ease",
       description:
-        "Admizz aims to simplify your admission process to your dream university in India. It helps to provide courses for all students who want to study in India. No matter whether you are planning for your high school or PhD, Admizz provides a wide range of courses for 10+2, under-graduate, graduate and doctorate students from various universities",
+        "Admizz aims to simplify your admission process to your dream university for to study in India. It provides a wide range of courses for 10+2, under-graduate, graduate and doctorate students.",
       icon: (
         <svg
           width="54"

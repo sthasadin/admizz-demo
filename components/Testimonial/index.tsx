@@ -7,6 +7,8 @@ import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
 import Carousel from "../../components/Carousel";
 import TestimonialCarousel from "../TestimonialCarousel";
+import { CallToAction } from "../Button/callToAction";
+import Link from "next/link";
 
 const Testimonial = (props: any) => {
   const [open, setOpen] = React.useState(false);
@@ -73,6 +75,9 @@ const Testimonial = (props: any) => {
   return (
     <div className="testimonial">
       <div className="testimonial__inner">
+        <CallToAction className="learnmore__btn">
+          <Link href="/testimonialDetailPage">Explore All Testimonials</Link>
+        </CallToAction>
         <div className="testimonial__item-wrap">
           <div className="testimonial__left">
             {testimonialList?.map((item, index) => {
@@ -312,17 +317,20 @@ const Testimonial = (props: any) => {
             })}
           </div>
         </div>
-      
+
         <div className="testimonial__text">
-          <span className="textDescription">{selectedTestimonial?.description}</span>
-          
+          <span className="textDescription">
+            {selectedTestimonial?.description}
+          </span>
         </div>
-        <div className="testimonial__author" > 
-          <span style={{color:'#5F1802',fontWeight:800}}>{selectedTestimonial?.name}</span> -{" "}
-          {selectedTestimonial?.designation}
+        <div className="testimonial__author">
+          <span style={{ color: "#5F1802", fontWeight: 800 }}>
+            {selectedTestimonial?.name}
+          </span>{" "}
+          - {selectedTestimonial?.designation}
         </div>
       </div>
-    
+
       {/* <div className="testimonial__formobile">
         <Carousel bulletdot="true">
           {testimonialList &&

@@ -1,8 +1,8 @@
 .introduction__container {
-  position: relative;
+ // position: relative;
   background-image: url("/background-image.jpg");
   background-repeat: no-repeat;
-  background-position: right;
+  //background-position: right;
   background-size: cover;
   cursor: pointer;
 
@@ -50,7 +50,6 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-
   margin: 0 auto;
 
   @media (max-width: 755px) {
@@ -65,12 +64,12 @@
     padding-left: 0;
   }
 
-  &__bannerimg {
-    position: absolute;
-    height: 100%;
-    right: 0;
-    z-index: 10;
-  }
+  // &__bannerimg {
+  //   position: fixed;
+  //   height: 100%;
+  //   right: 0;
+  //   z-index: 10;
+  // }
 
   &__freecounseling {
     position: absolute;

@@ -5,7 +5,6 @@ import International from "./international";
 import Contact from "./contactus";
 import { Statistics } from "../statistics/index"
 import { Merits } from "./whychoose"
-import { Us } from "../why-us/index"
 import Features from "./feature";
 import Tieups from "./tieups";
 import MessengerCustomerChat from "../MessengerCustomerChat";

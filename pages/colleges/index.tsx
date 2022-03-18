@@ -243,11 +243,7 @@ const collegeList = () => {
                   onClick={handleSearch}
                 >
                   Search{" "}
-                  {/* <img
-                    src="/color-rightarrow.png"
-                    alt=".."
-                    className="right-arrow-icon"
-                  /> */}
+                 
                 </div>
                 <div
                   className="college-list__searchmobileButton"

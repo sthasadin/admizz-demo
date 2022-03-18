@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Menu, Dropdown } from "antd";
 import Layout from "../../layouts";
 import { CaretDownOutlined } from "@ant-design/icons";
@@ -8,21 +8,11 @@ import ReactPlayer from "react-player";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { getTestimonial } from "../../store/Action/testimonial.actions";
+import { getTestimonialUniversity } from "../../store/Action/testimonial.actions";
 
 const index = () => {
   const [open, setOpen] = React.useState(false);
-  const [testimonialList, setTestimonialList] = React.useState([]);
 
-  const [selectedIndex, setSelectedIndex] = React.useState(3);
-  const [selectedTestimonial, setselectedTestimonial] = useState({
-    description: "",
-    designation: "",
-    image_url: "",
-    name: "",
-    video_url: "",
-    selectedIndex: selectedIndex,
-  });
   const handleOpen = () => {
     setOpen(true);
   };
@@ -33,44 +23,14 @@ const index = () => {
 
   const dispatch = useDispatch();
 
+  const {universityTestimonial} = useSelector((state:any) =>  state.testimonial)
+  console.log('logss',universityTestimonial)
+useEffect(() =>{
+  dispatch(getTestimonialUniversity());
+},[dispatch]);
 
-  const getAllTestimonal = async () => {
-    const fetchTestimonal = await dispatch<any>(getTestimonial());
-    setTestimonialList(fetchTestimonal);
-  };
 
-  React.useEffect(() => {
-    getAllTestimonal();
-  }, []);
   
-  React.useEffect(() => {
-    if (testimonialList.length > 0) {
-      testimonialList.map(function (test: any, index: any) {
-        if (index === selectedIndex) {
-          setselectedTestimonial(test);
-        }
-      });
-    }
-  }, [testimonialList]);
-
-  const handleClick = (
-    description,
-    designation,
-    image_url,
-    video_url,
-    name,
-    index
-  ) => {
-    setselectedTestimonial({
-      description: description,
-      designation: designation,
-      image_url: image_url,
-      name: name,
-      video_url: video_url,
-      selectedIndex: index,
-    });
-    setSelectedIndex(index);
-  };
   const menu = (
     <Menu>
       <Menu.Item className="menu-item-dropdown">
@@ -148,29 +108,32 @@ const index = () => {
               </div>
             </div>
           </div>
+
+          
           <div className="testimonial-array">
-            {testimonialList?.map((item, index) => {
+            {universityTestimonial?.map((data,i) => {
+             
               return (
                 <div className="testimonial-detail-page__detailContainer">
                   <div className="detailContainer__imagebox">
-                    <img src={selectedTestimonial?.image_url} />
+                    <img src={data?.image_url} />
                   </div>
                   <div className="detailContainer__info">
                     <div className="detailContainer__name">
-                      {selectedTestimonial?.name}
+                      {data?.name}
                     </div>
                     <div className="detailContainer__placebox">
                       <div className="detailContainer__place">
-                        {selectedTestimonial?.designation}
+                        {data?.designation}
                       </div>
                       <div className="detailContainer__batch">Batch: 2019</div>
                     </div>
                     <div className="detailContainer__coursebox">
                       <div className="detailContainer__course">
-                        {/* {selectedTestimonial?.course} */} course
+                       {data?.course}
                       </div>
                       <div className="detailContainer__batch_part">
-                        {/* {selectedTestimonial?.subject} */} subject
+                       {data?.subject}
                       </div>
                     </div>
                   </div>
@@ -242,11 +205,7 @@ const index = () => {
                   <div className="detail_container_content_box">
                     <div className="detail_container_content-arrow">"</div>
                     <div className="detail_container_content">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Sed eu turpis pulvinar justo dictum blandit eget vel diam.
-                      Morbi ornare vulputate nulla, non vestibulum nisi. Sed eu
-                      turpis pulvinar justo dictum blandit eget vel diam. Morbi
-                      ornare vulputate nulla, non vestibulum nisi.
+                    {data?.designation}
                     </div>
                     <div className="detail_container_content-arrow-next">"</div>
                   </div>

@@ -22,7 +22,6 @@ const TeamCard = ({ selectedTeam }: any) => {
             <span>{selectedTeam?.name}</span>
           </div>
           <div className="teams-list__designation">
-            <span>Market Counsellor</span>
             <span>{selectedTeam?.designation2}</span>
           </div>
           <div className="teams-list__desc">

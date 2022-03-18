@@ -106,6 +106,15 @@
       padding-top: 50px;
     }
   }
+  .aboutus-exclusive-contents {
+    padding: 40px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @media (max-width: 1024px) {
+      padding-top: 20px;
+    }
+  }
   .our-trusted-text {
     font-size: 16px;
     text-transform: uppercase;
@@ -114,6 +123,16 @@
     font-weight: 900;
     line-height: 33px;
     color: #5f1802;
+  }
+  .our-trusted-texts {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 900;
+    line-height: 33px;
+    color: #5f1802;
+    margin-top: 40px;
   }
   .our-exclusive-title {
     text-align: center;
@@ -129,6 +148,7 @@
     color: #333;
     width: 50%;
     margin: auto;
+  
   }
   .aboutus-testimonial-wrapper {
     width: 100%;
@@ -171,10 +191,13 @@
   }
 
   .international-map {
-    background-image: url("../../public/grey-world-map.png");
-    width: auto;
-    height: 813px;
-  }
+ margin: 99px auto 20px auto;
+     width: 80%;
+     height: 613px;
+ img{
+   width:100%;
+ }
+}
 }
 
 .university-list {

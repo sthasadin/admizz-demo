@@ -5,10 +5,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
-import Carousel from "../../components/Carousel";
-import TestimonialCarousel from "../TestimonialCarousel";
 import { CallToAction } from "../Button/callToAction";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Testimonial = (props: any) => {

@@ -15,6 +15,7 @@ import search from './allSearch.reducer'
 import singleBlog from './blogDetails.reducer';
 import gallery from './gallery.reducer';
 import faqs from './faq.reducer';
+ import testimonial from './testimonial.reducer';
 
 export default combineReducers({
     collageDetails: collageDetailsReducer,
@@ -32,5 +33,6 @@ export default combineReducers({
     favourites:favouriteReducer,
     singleBlog:singleBlog,
     gallery:gallery,
-    faqs: faqs
+    faqs: faqs,
+    testimonial:testimonial
 })

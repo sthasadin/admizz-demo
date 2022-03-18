@@ -171,7 +171,7 @@ console.log({topColleges})
             <div className="footer__default">
               <a href="#" 
               // className="footer__study"
-              >STUDY IN India</a>
+              >STUDY IN INDIA</a>
             </div>
           </div>
           <div className="footer__middle__right">

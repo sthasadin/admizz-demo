@@ -39,7 +39,7 @@ const Input = (props: Props) => {
     input: {
       "& .MuiOutlinedInput-root": {
         borderRadius: (props: Props) => {
-          return props.borderRadius ? props.borderRadius : "5px";
+          return props.borderRadius ? props.borderRadius : "5px,0px,5px,0px";
         },
         outline: "none",
         fontFamily: "'M PLUS 1p'",

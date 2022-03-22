@@ -5,8 +5,11 @@ import { AiFillFacebook } from "react-icons/ai";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { AiFillYoutube } from "react-icons/ai";
 import text_truncate from "./Truncate";
+import { Facebook, Instagram, Twitter } from "@icon-park/react";
+import Link from "next/link";
 
 const TeamCard = ({ selectedTeam }: any) => {
+  console.log('selecteddd', selectedTeam)
   return (
     <>
       <div className="teams-card">
@@ -32,9 +35,27 @@ const TeamCard = ({ selectedTeam }: any) => {
             {selectedTeam?.email}
           </div>
           <div className="team-social-icons-box">
-            <AiOutlineTwitter className="teams-social-icons" />
-            <AiOutlineInstagram className="teams-social-icons" />
-            <AiFillYoutube className="teams-social-icons" />
+            {selectedTeam?.twitter && selectedTeam?.twitter.length > 0 && (
+              <div className="teams-social-icons">
+                < a href={selectedTeam?.twitter}>
+                  <Twitter theme="outline" size="20" fill="#828282" />
+                </a>
+              </div>
+            )}
+            {selectedTeam?.instagram && selectedTeam?.instagram.length > 0 && (
+              <div className="teams-social-icons">
+                <a href={selectedTeam?.instagram}>
+                  <Instagram theme="outline" size="20" fill="#828282" />
+                </a>
+              </div>
+            )}
+
+            {selectedTeam?.facebook && selectedTeam?.facebook.length > 0 && (
+              <div className="teams-social-icons">
+                <a href={selectedTeam?.facebook}></a>
+                <Facebook theme="outline" size="22" fill="#828282" />
+              </div>
+            )}
           </div>
         </div>
       </div>

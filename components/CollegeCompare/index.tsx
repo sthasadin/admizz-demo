@@ -121,6 +121,20 @@ const index = () => {
             <div className="collegetable_metacontainer">
               <div className="comparecollege__collegelist">
                 {/* here college */}
+                <div className="add__div">
+            {selectedCollege.length < 3 ? (
+              <div
+                className="comparecollege__addtemplates"
+                onClick={() => handleAddCollegeModal(true)}
+              >
+                <img src={addCollegeIcon} />
+              </div>
+            
+            ) : (
+              ""
+              
+            )}
+              </div>
                 {selectedCollege &&
                   selectedCollege.map((collegedata) => {
                     return (

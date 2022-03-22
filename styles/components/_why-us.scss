@@ -148,14 +148,26 @@
     color: #333;
     width: 50%;
     margin: auto;
-  
   }
   .aboutus-testimonial-wrapper {
     width: 100%;
     margin: auto;
     padding: 56px 180px 163px 180px;
   }
+  .about-us {
+    max-width: fit-content;
+  }
+  .about-us_Container {
+    background-color: #fffef7;
+    height: 370px;
+    margin: 56px 180px 163px 180px;
+    padding: 157px;
+    display: block;
+  }
 
+  .about-us__Slider {
+    width: 100%;
+  }
   .contact-countries {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -171,17 +183,17 @@
     justify-self: center;
   }
 
-.contact-title{
-  display: flex;
-  align-items: center; 
-  span {
-    font-weight: 500;
-    color: $gray-3;
-    font-size: 16px;
-    line-height: 18.8px;
-    margin-left: 22px;
+  .contact-title {
+    display: flex;
+    align-items: center;
+    span {
+      font-weight: 500;
+      color: $gray-3;
+      font-size: 16px;
+      line-height: 18.8px;
+      margin-left: 22px;
+    }
   }
-}
   .aboutus-testimonial-content {
     width: 60%;
     margin: auto;
@@ -191,13 +203,13 @@
   }
 
   .international-map {
- margin: 99px auto 20px auto;
-     width: 80%;
-     height: 613px;
- img{
-   width:100%;
- }
-}
+    margin: 99px auto 20px auto;
+    width: 80%;
+    height: 613px;
+    img {
+      width: 100%;
+    }
+  }
 }
 
 .university-list {

@@ -39,27 +39,10 @@ useEffect(() =>{
           rel="noopener noreferrer"
           href="https://www.antgroup.com"
         >
-          2022
+          latest
         </a>
       </Menu.Item>
-      <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          2023
-        </a>
-      </Menu.Item>
-      <Menu.Item>
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.antgroup.com"
-        >
-          2024
-        </a>
-      </Menu.Item>
+     
     </Menu>
   );
   return (

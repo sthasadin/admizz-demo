@@ -35,6 +35,7 @@ const Introduction = (props) => {
   };
 
   return (
+    
     <div className="introduction">
       <img src={imgSrc} alt="..." className="introduction__bannerimg" />
       <div className="introduction__inner section-wrapper">

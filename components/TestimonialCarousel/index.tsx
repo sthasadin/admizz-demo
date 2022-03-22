@@ -76,14 +76,14 @@ const index = ({ data }) => {
   return (
     <div>
       <Slider {...settings}>
-        {/* {data &&
+        {data &&
           data.map((testimonial, index) => {
             return (
               <div style={{ display: "none" }}>
                 <TestimonialData data= {testimonial} key={index} />
               </div>
             );
-          })} */}
+          })}
       </Slider>
     </div>
   );

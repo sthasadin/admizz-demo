@@ -25,6 +25,7 @@ const index = () => {
 
   return (
     <>
+    <div className="wrapper" style={{display:"flex", justifyContent:"center"}}>
       <div className="introduction__container">
         <Link href="/free-counseling">
           <div
@@ -55,7 +56,8 @@ const index = () => {
           /> */}
         </Carousel>
       </div>
-      <MessengerCustomerChat />
+      {/* <MessengerCustomerChat /> */}
+    </div>
     </>
   );
 };

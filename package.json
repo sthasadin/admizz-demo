@@ -60,6 +60,7 @@
         "redux-thunk": "^2.3.0",
         "sass": "^1.29.0",
         "slick-carousel": "^1.8.1",
+        "swiper": "^7.4.1",
         "yup": "^0.29.1"
     },
     "devDependencies": {

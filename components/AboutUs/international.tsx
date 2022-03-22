@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { LeftOne, RightOne } from "@icon-park/react";
-import Image from 'next/image';
+import  {AboutusCard } from "./aboutuscard";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -17,7 +17,7 @@ function SampleNextArrow(props) {
       "#FFAD32", }}
       onClick={onClick}
     >
-      <RightOne theme="filled" size="40" fill="#fff" strokeWidth={2}/>
+      <RightOne theme="outline" size="40" fill="#fff" strokeWidth={2}/>
     </div>
   );
 }
@@ -31,20 +31,19 @@ function SamplePrevArrow(props) {
       "#FFAD32" }}
       onClick={onClick}
     >
-      <LeftOne theme="filled" size="40" fill="#fff" strokeWidth={2}/>
+      <LeftOne theme="outline" size="40" fill="#fff" strokeWidth={2}/>
       </div>
   );
 }
 
-const international = () => {
+const international = ({data}) => {
   const dispatch = useDispatch();
   useState;
   const { universityTestimonial } = useSelector(
     (state: any) => state.testimonial
   );
-  console.log("logss", universityTestimonial);
+  console.log("logssss", universityTestimonial);
   useEffect(() => {
-    console.log("go inside this", universityTestimonial);
     dispatch(getTestimonialUniversity());
   }, [dispatch]);
 
@@ -75,15 +74,12 @@ const international = () => {
             What our universities are saying about us.
           </div>
           <div className="aboutus-testimonial-wrapper">
+            
             <Slider {...settings}>
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+              <AboutusCard data ={universityTestimonial} />
+              
             </Slider>
+
           </div>
         </div>
       </div>
@@ -93,28 +89,28 @@ const international = () => {
 
 export default international;
 
-const Card = () => {
-  return (
-    <>
-    <div className="about-us__card">
-      <blockquote>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis
-          pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate
-          nulla, non vestibulum nisi. Sed eu turpis pulvinar justo dictum
-          blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum
-          nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
-          turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare
-          vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.{" "}
-        </p>{" "}
-      </blockquote>
-    </div>
-      <div className="about-us__cardImage">
-        <Image width={70} height={70} src='/colleges-logo.png' />
-        <p>Kalinga Institute of Industrial Technology</p>
-      </div>
+// const Card = () => {
+//   return (
+//     <>
+//     <div className="about-us__card">
+//       <blockquote>
+//         <p>
+//           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis
+//           pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate
+//           nulla, non vestibulum nisi. Sed eu turpis pulvinar justo dictum
+//           blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum
+//           nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
+//           turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare
+//           vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet,
+//           consectetur adipiscing elit.{" "}
+//         </p>{" "}
+//       </blockquote>
+//     </div>
+//       <div className="about-us__cardImage">
+//         <Image width={70} height={70} src='/colleges-logo.png' />
+//         <p>Kalinga Institute of Industrial Technology</p>
+//       </div>
 
-    </>
-  );
-};
+//     </>
+//   );
+// };

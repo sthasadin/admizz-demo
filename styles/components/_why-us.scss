@@ -155,8 +155,8 @@
     padding: 56px 180px 163px 180px;
     .slick-arrow {
       align-items: center;
-      height: 36px;
-      width: 36px;
+      height: 40px;
+      width: 40px;
       border-radius: 10px;
       z-index: 100;
     }
@@ -175,6 +175,13 @@
       }
       }
     }
+    .about-us__cardImage{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: -35px;
+    }
     blockquote {
       font-family: Georgia, serif;
       position: relative;
@@ -182,7 +189,6 @@
       padding: 0.5em 2em 0.5em 3em;
       // color:#7C7C7C;
     }
-    /* Thanks: http://callmenick.com/post/styling-blockquotes-with-css-pseudo-classes */
     blockquote:before {
       font-family: Georgia, serif;
       position: absolute;

@@ -42,9 +42,8 @@ const international = ({data}) => {
   const { universityTestimonial } = useSelector(
     (state: any) => state.testimonial
   );
-  console.log("logss", universityTestimonial);
+  console.log("logssss", universityTestimonial);
   useEffect(() => {
-    console.log("go inside this", universityTestimonial);
     dispatch(getTestimonialUniversity());
   }, [dispatch]);
 
@@ -75,15 +74,12 @@ const international = ({data}) => {
             What our universities are saying about us.
           </div>
           <div className="aboutus-testimonial-wrapper">
+            
             <Slider {...settings}>
               <AboutusCard data ={universityTestimonial} />
-              {/* <AboutusCard />
-              <AboutusCard />
-              <AboutusCard />
-              <AboutusCard />
-              <AboutusCard />
-              <AboutusCard /> */}
+              
             </Slider>
+
           </div>
         </div>
       </div>
@@ -95,7 +91,7 @@ export default international;
 
 // const Card = () => {
 //   return (
-
+//     <>
 //     <div className="about-us__card">
 //       <blockquote>
 //         <p>
@@ -110,7 +106,11 @@ export default international;
 //         </p>{" "}
 //       </blockquote>
 //     </div>
-    
+//       <div className="about-us__cardImage">
+//         <Image width={70} height={70} src='/colleges-logo.png' />
+//         <p>Kalinga Institute of Industrial Technology</p>
+//       </div>
+
+//     </>
 //   );
 // };
-

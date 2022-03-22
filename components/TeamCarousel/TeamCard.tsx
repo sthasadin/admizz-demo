@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import { MdEmail } from "react-icons/md";
-import { AiOutlineTwitter } from "react-icons/ai";
-import { AiFillFacebook } from "react-icons/ai";
-import { AiOutlineInstagram } from "react-icons/ai";
-import { AiFillYoutube } from "react-icons/ai";
+
 import text_truncate from "./Truncate";
 import { Facebook, Instagram, Twitter } from "@icon-park/react";
-import Link from "next/link";
 
 const TeamCard = ({ selectedTeam }: any) => {
-  console.log('selecteddd', selectedTeam)
   return (
     <>
       <div className="teams-card">

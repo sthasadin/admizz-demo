@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { LeftOne, RightOne } from "@icon-park/react";
+import Image from 'next/image';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -16,7 +17,7 @@ function SampleNextArrow(props) {
       "#FFAD32", }}
       onClick={onClick}
     >
-      <RightOne theme="outline" size="40" fill="#333" strokeWidth={2}/>
+      <RightOne theme="filled" size="40" fill="#fff" strokeWidth={2}/>
     </div>
   );
 }
@@ -30,7 +31,7 @@ function SamplePrevArrow(props) {
       "#FFAD32" }}
       onClick={onClick}
     >
-      <LeftOne theme="outline" size="40" fill="#333" strokeWidth={2}/>
+      <LeftOne theme="filled" size="40" fill="#fff" strokeWidth={2}/>
       </div>
   );
 }
@@ -94,6 +95,7 @@ export default international;
 
 const Card = () => {
   return (
+    <>
     <div className="about-us__card">
       <blockquote>
         <p>
@@ -108,5 +110,11 @@ const Card = () => {
         </p>{" "}
       </blockquote>
     </div>
+      <div className="about-us__cardImage">
+        <Image width={70} height={70} src='/colleges-logo.png' />
+        <p>Kalinga Institute of Industrial Technology</p>
+      </div>
+
+    </>
   );
 };

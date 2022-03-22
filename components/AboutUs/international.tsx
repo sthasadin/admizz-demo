@@ -3,14 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTestimonialUniversity } from "../../store/Action/testimonial.actions";
 import Slider from "react-slick";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { LeftOne, RightOne } from "@icon-park/react";
+
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "red" }}
+      style={{ ...style, display: "block", background:
+      "#FFAD32", }}
       onClick={onClick}
-    />
+    >
+      <RightOne theme="outline" size="40" fill="#333" strokeWidth={2}/>
+    </div>
   );
 }
 
@@ -19,32 +26,34 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background: "green" }}
+      style={{ ...style, display: "block", background:
+      "#FFAD32" }}
       onClick={onClick}
-    />
+    >
+      <LeftOne theme="outline" size="40" fill="#333" strokeWidth={2}/>
+      </div>
   );
 }
 
-
 const international = () => {
   const dispatch = useDispatch();
-  useState
+  useState;
   const { universityTestimonial } = useSelector(
     (state: any) => state.testimonial
   );
   console.log("logss", universityTestimonial);
   useEffect(() => {
-    console.log("go inside this",universityTestimonial);
+    console.log("go inside this", universityTestimonial);
     dispatch(getTestimonialUniversity());
   }, [dispatch]);
 
   const settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />
+    prevArrow: <SamplePrevArrow />,
   };
 
   return (
@@ -55,8 +64,7 @@ const international = () => {
           We Have Served Student’s From 50+ Countries
         </div>
         <div className="international-map">
-            <img src="grey-world-map.png" alt="" />
-         
+          <img src="grey-world-map.png" alt="" />
         </div>
       </div>
       <div className="aboutus-testimonial">
@@ -64,37 +72,17 @@ const international = () => {
           <div className="our-trusted-text">TESTIMONIALS</div>
           <div className="aboutus-exclusive-title">
             What our universities are saying about us.
-           
           </div>
           <div className="aboutus-testimonial-wrapper">
-          <Slider {...settings}>
-         
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-        </Slider>
-            {universityTestimonial?.map((data, i) => {
-              return (
-                <div className="aboutus-testimonial-content">
-                 {data.designation}
-                </div>
-              );
-            })}
+            <Slider {...settings}>
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+              <Card />
+            </Slider>
           </div>
         </div>
       </div>
@@ -103,3 +91,22 @@ const international = () => {
 };
 
 export default international;
+
+const Card = () => {
+  return (
+    <div className="about-us__card">
+      <blockquote>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu turpis
+          pulvinar justo dictum blandit eget vel diam. Morbi ornare vulputate
+          nulla, non vestibulum nisi. Sed eu turpis pulvinar justo dictum
+          blandit eget vel diam. Morbi ornare vulputate nulla, non vestibulum
+          nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu
+          turpis pulvinar justo dictum blandit eget vel diam. Morbi ornare
+          vulputate nulla, non vestibulum nisi. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit.{" "}
+        </p>{" "}
+      </blockquote>
+    </div>
+  );
+};

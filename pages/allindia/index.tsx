@@ -114,15 +114,15 @@ const index = () => {
               </div>
             </div>
           </div>
-          <img className="imageone image" src="icon/image1.svg" />
-          <img className="imagetwo image" src="icon/image2.svg" />
-          <img className="imagethree image" src="icon/imagethree.svg" />
-          <img className="imagefour image" src="icon/image4.svg" />
-          <img className="imagefive image" src="icon/image5.svg" />
-          <img className="imagesix image" src="icon/image6.svg" />
-          <img className="imageEight image" src="icon/image8.svg" />
-          <img className="imageNine image" src="icon/image9.svg" />
-          <img className="imageten image" src="icon/imageten.svg" />
+          <img className="imageone image" src="./icon/Image1.svg" />
+          <img className="imagetwo image" src="./icon/Image2.svg"/>
+          <img className="imagethree image" src="./icon/Imagethree.svg" />
+          <img className="imagefour image" src="./icon/Image4.svg" />
+          <img className="imagefive image" src="./icon/Image5.svg" />
+          <img className="imagesix image" src="./icon/Image6.svg" />
+          <img className="imageEight image" src="./icon/Image8.svg" />
+          <img className="imageNine image" src="./icon/Image9.svg" />
+          <img className="imageten image" src="./icon/Imageten.svg" />
         </div>
         <StudyDetail />
      {/* <TopUniversities collegeList={collegeList} /> */}

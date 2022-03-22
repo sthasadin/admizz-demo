@@ -6,18 +6,21 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { LeftOne, RightOne } from "@icon-park/react";
-import  {AboutusCard } from "./aboutuscard";
+import { AboutusCard } from "./aboutuscard";
+import Image from 'next/image';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background:
-      "#FFAD32", }}
+      style={{
+        ...style, display: "block", background:
+          "#FFAD32",
+      }}
       onClick={onClick}
     >
-      <RightOne theme="outline" size="40" fill="#fff" strokeWidth={2}/>
+      <RightOne theme="outline" size="40" fill="#fff" strokeWidth={2} />
     </div>
   );
 }
@@ -27,16 +30,18 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", background:
-      "#FFAD32" }}
+      style={{
+        ...style, display: "block", background:
+          "#FFAD32"
+      }}
       onClick={onClick}
     >
-      <LeftOne theme="outline" size="40" fill="#fff" strokeWidth={2}/>
-      </div>
+      <LeftOne theme="outline" size="40" fill="#fff" strokeWidth={2} />
+    </div>
   );
 }
 
-const international = ({data}) => {
+const international = () => {
   const dispatch = useDispatch();
   useState;
   const { universityTestimonial } = useSelector(
@@ -74,12 +79,34 @@ const international = ({data}) => {
             What our universities are saying about us.
           </div>
           <div className="aboutus-testimonial-wrapper">
-            
-            <Slider {...settings}>
-              <AboutusCard data ={universityTestimonial} />
-              
-            </Slider>
 
+            <Slider {...settings}>
+              {/* <AboutusCard data={universityTestimonial} /> */}
+
+              {universityTestimonial?.map((item) => {
+                return (
+                  <div>
+                    <div className="about-us__card">
+                      <blockquote>
+                        <p>
+
+                          {item?.designation}
+                        </p>{" "}
+                      </blockquote>
+                    </div>
+                    <div className="about-us__cardImage">
+                      <Image width={70} height={70} src='/colleges-logo.png' />
+                      <p>Kalinga Institute of Industrial Technology</p>
+                    </div>
+                  </div>
+
+
+                )
+              })
+
+              }
+              </Slider>
+              
           </div>
         </div>
       </div>

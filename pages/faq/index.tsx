@@ -20,12 +20,10 @@ export const FAQ = () => {
   }, []);
 
   const searchHandler = async (query) => {
-    console.log({ query });
     if (!query) dispatch(getFaq());
     dispatch(getSearchFaq(query));
   };
 
-  console.log(data);
 
   return (
     <Layout title="FAQs" stickyBar={true}>

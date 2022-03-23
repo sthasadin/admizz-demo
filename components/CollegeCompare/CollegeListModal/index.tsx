@@ -80,7 +80,6 @@ const index = (props: any) => {
             <div className="card__collegecardcontainer">
               {_collegeList &&
                 _collegeList.map((college, index) => {
-                  console.log({college})
                   return (
                     <CollegeList
                       collegeProfile={college.college_profile_image}

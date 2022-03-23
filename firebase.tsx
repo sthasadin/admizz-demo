@@ -24,33 +24,13 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 const seedReviews = () => {
-  // let arr = [{
-  //   academics:8,
-  //   accomodation:9,
-  //   faculty:7,
-  //   infrastructures:7,
-  //   placements:9,
-  //   social:10,
-  //   isReported:false,
-  //   by:'czdSyNe9xuSJceGDy3BswI5XnDe2',
-  //   comment:'this is good college.',
-  //   timestamp:Date.now(),
-  //   noOFLikes:['czdSyNe9xuSJceGDy3BswI5XnDe2'],//student id
-  //   noOFDisLikes:[]
-  // }]
-
-  // db.collection('reviews').doc('60138a2c50ccc8fef5b00c69').set({all_reviews:arr},{ merge: true })
-  // .then(()=>console.log('object'))
-  // .catch(err=>console.log(err))
-
+  
   db.collection("reviews")
     .doc("60138a2c50ccc8fef5b00c69")
     .onSnapshot((snapShot) => {
-      //  db.collection('otherCollection').add({otherDoc: snapShot.ref})
     });
 };
 
-// seedReviews()
 
 const storage = firebase.storage();
 export { db, auth, firebase, storage };

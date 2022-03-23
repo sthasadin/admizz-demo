@@ -28,12 +28,10 @@ export const postService = async (url, body, method:Method = "POST") => {
 
 export const getService = async (url) => {
   try {
-    console.log({url})
 
     const resp = await api(url, {
       method: "GET",
     });
-console.log({resp})
   if (resp.status >= 200 && resp.status < 300) {
       return apiResponse(true,resp.data, null);
     } else {

@@ -7,7 +7,6 @@ const AppliedCollege = ({ selectedCollege }) => {
     if (str.length <= num) {
       return str;
     }
-    console.log("helooooooooooo", str);
     return str?.slice(0, num) + "...";
     
   }

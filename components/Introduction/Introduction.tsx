@@ -15,7 +15,6 @@ const Introduction = (props) => {
 
   const [isOpenCounselling, setIsOpenCounselling] = useState(false);
   const openCounselling = () =>{
-    console.log("counseling")
     if(auth.currentUser) {
       setIsOpenCounselling(true);
       router.push("/free-counseling")

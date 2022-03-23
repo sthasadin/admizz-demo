@@ -44,7 +44,6 @@ const CollegeListSelectedFilter = ({ setFilterObj, filterObj }) => {
         return item !== title
       } 
     );
-    console.log({removeSelectedCountry})
     if (removeSelectedCountry) {
       filterObj.country = removeSelectedCountry
       setFilterObj({ ...filterObj});

@@ -12,10 +12,8 @@ const BlogCategory = () => {
   const multiLoading = useSelector((state: any) => state.blog.multiLoading);
   const [msg,setMsg] = useState("No Blogs in this category")
   const router = useRouter();
-console.log({blogArray})
   const { category } = router.query;
   const dispatch = useDispatch()
-  console.log({category})
   React.useEffect(()=>{
     if(category){
      dispatch(getBlogs(category));

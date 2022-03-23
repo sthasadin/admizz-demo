@@ -32,7 +32,6 @@ const SimilarCourses = ({ data }) => {
       review: "10 Reviews",
     },
   ];
-  console.log(data);
   return (
     <div className="similar-courses">
       <div className="similar-courses-title">Similar to {data?.name}</div>
@@ -41,9 +40,7 @@ const SimilarCourses = ({ data }) => {
           return <SimilarCoursesList key={i} data={data} />;
         })}
 
-        {/* <SimilarCoursesList />
-        <SimilarCoursesList />
-        <SimilarCoursesList /> */}
+    
       </div>
       {/* <div className="explore-all">Explore All Courses</div> */}
     </div>

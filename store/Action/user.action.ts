@@ -14,7 +14,6 @@ export const getAuthUser = (id: string) => async (dispatch: Dispatch) => {
       throw Error("No such document!");
     }
   } catch (error) {
-    console.log(error);
     return null;
   }
 };

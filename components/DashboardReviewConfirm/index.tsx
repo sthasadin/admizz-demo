@@ -192,7 +192,6 @@ const DashboardReviewConfirm = (props) => {
                     academicInformation[key] = url;
                   })
                   .catch((err) => {
-                    //console.log(err);
                   });
               });
           }
@@ -214,7 +213,6 @@ const DashboardReviewConfirm = (props) => {
                   backgroundInformation.documentImage = url;
                 })
                 .catch((err) => {
-                  //console.log(err);
                 });
             });
         }
@@ -235,7 +233,6 @@ const DashboardReviewConfirm = (props) => {
                   basicInformation.profileImage = url;
                 })
                 .catch((err) => {
-                  //console.log(err);
                 });
             });
         }
@@ -256,11 +253,9 @@ const DashboardReviewConfirm = (props) => {
                   basicInformation.signatureImage = url;
                 })
                 .catch((err) => {
-                  //console.log(err);
                 });
             });
         }
-        console.log("++++++++++++++++++++++++++++++++++++++++++++")
        
         const appdata = {
           basicInformation,
@@ -280,37 +275,6 @@ const DashboardReviewConfirm = (props) => {
         }).catch((error)=>{
           router.push("/studentdashboardmain");
         })
-
-        // const res = await db.collection("students-application").add({
-        //   basicInformation: basicInformation
-        // })
-
-
-        // await db.collection("students-application").doc(res.id).set({
-        //   selectedChoice: [{}]
-        // })
-        // console.log("++++++++++++++++++++++++++++++++++++++++++++")
-
-        // await db.collection("students-application").doc(res.id).set({
-        //   backgroundInformation: backgroundInformation
-        // })
-        // console.log("++++++++++++++++++++++++++++++++++++++++++++")
-
-        
-        // await db.collection("students-application").doc(res.id).set({
-        //   academicInformation: academicInformation
-        // })
-        // console.log("++++++++++++++++++++++++++++++++++++++++++++")
-
-        // await db.collection("students-application").doc(res.id).set({
-        //   status,
-        //   student_id: auth.currentUser.uid,
-        // })
-        // console.log("++++++++++++++++++++++++++++++++++++++++++++")
-
-        // handleClose();
-        // localStorage.clear();
-        // router.push("/studentdashboardmain");
       }
     } catch (err) {
      

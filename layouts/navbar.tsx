@@ -39,7 +39,6 @@ const Navbar = (props: any) => {
   }, [keyword]);
 
   const toggleDrawer = (anchor, open) => (event) => {
-    console.log({ anchor, open });
     if (
       event.type === "keyup" &&
       (event.key === "Tab" || event.key === "Shift")
@@ -52,7 +51,6 @@ const Navbar = (props: any) => {
     }
     setState({ ...state, [anchor]: open });
 
-    // setState({ ...state, top: open });
   };
 
   const list = (anchor) => (

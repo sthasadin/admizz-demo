@@ -2,7 +2,6 @@ import {Dispatch} from "redux";
 import { FAVOURITES } from "../const";
 import {finish, init, success, error} from "../commonActions";
 import { favouritesService } from "../api/favouriteApi";
-import { number } from "yup";
 
 const FavouritesService = new favouritesService();
 
@@ -19,10 +18,8 @@ export const getFavourites = (userid : String) => async (dispatch: Dispatch) => 
 }
 
 export const addToFavourites = (favdata : any) => async(dispatch : Dispatch) => {
-    console.log({favdata})
     dispatch(init(FAVOURITES.ADD_TO_FAVOURITES));
     const response = await FavouritesService.addToFavourite(favdata);
-    // console.log({response})
     dispatch(finish(FAVOURITES.ADD_TO_FAVOURITES));
 
     if(response.isSuccess) {

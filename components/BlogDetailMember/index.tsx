@@ -3,7 +3,6 @@ import calculateReadingTime from "../../utils/calculateReadingTime";
 import { SingleBlog } from "../SingleBlog";
 
 const BlogDetailMember = ({blogArray}) => {
-console.log("blogArray",blogArray)
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");
   };
@@ -18,7 +17,6 @@ console.log("blogArray",blogArray)
          SIMILAR BLOGS
         </div>
       </div>
-     {console.log("blogArray",blogArray)}
       {blogArray && blogArray.slice(0, 4).map((blog, i) => {
               return (
                 <div className="blog-list-member__secondaryPost" key={i}>

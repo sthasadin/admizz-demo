@@ -82,7 +82,7 @@ const Us = ({ college }) => {
       ),
     },
     {
-      title: " Admission with ease",
+      title: " Admission with Ease",
       description:
         "Admizz aims to simplify your admission process to your dream university for to study in India. It provides a wide range of courses for 10+2, under-graduate, graduate and doctorate students.",
       icon: (

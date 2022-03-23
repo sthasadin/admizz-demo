@@ -24,7 +24,6 @@ const index = () => {
   const dispatch = useDispatch();
 
   const {universityTestimonial} = useSelector((state:any) =>  state.testimonial)
-  console.log('logss',universityTestimonial)
 useEffect(() =>{
   dispatch(getTestimonialUniversity());
 },[dispatch]);

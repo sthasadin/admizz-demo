@@ -7,7 +7,6 @@ import { Value } from "@material-ui/lab";
 const FacultyInformation = (props: any) => {
 
   const faculty = useSelector((state:any) => state.college.college.faculty);
-  //console.log("Faculty",faculty)
   const getValue = (value) => {
     const splitText = value.split("%");
     if (splitText.length == 2) {

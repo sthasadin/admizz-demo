@@ -33,7 +33,6 @@ const DashboardChoiceFilling = ({
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [_appliedColleges, setAppliedColleges] = useState([]);
 
-  console.log({selectedChoice})
 
 
   function dynamicSort(property) {
@@ -107,7 +106,6 @@ const DashboardChoiceFilling = ({
     
     const colleges = choices.map((c: any) => {
       if (c.selectedCollege.label){
-        console.log({c})
         return {
                 collegeName: c.selectedCollege?.collegeName || "",
                 image: c.selectedCollege?.image || "",

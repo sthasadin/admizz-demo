@@ -2,7 +2,6 @@ import React from "react";
 import moment from "moment";
 const DashboardApplicationStatus = ({ application }) => {
   const { basicInformation,selectedChoice, ...rest } = application || {};
-  // console.log(application);
   return (
      <div className="dashboard-detail-info">
    
@@ -46,14 +45,7 @@ const DashboardApplicationStatus = ({ application }) => {
               {selectedChoice?.map((choice) => choice.collegeName).join(", ")}
             </div>
           </div>
-          <div className="dashboard-detail-info__cardRowButton">
-            {/* <div className="dashboard-detail-info__viewText">
-            View
-          </div> */}
-            {/* <div className="dashboard-detail-info__editText" onClick={()=>router.push('/dashboardbasicinforamtion/Apply?edit=true')} style={{cursor:'pointer'}}>
-            Edit
-          </div> */}
-          </div>
+        
         </div>
       </div>
     )}

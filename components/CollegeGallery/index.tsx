@@ -8,24 +8,20 @@ const CollegeGallery = (props) => {
   const videos = useSelector((state:any) => state.college.videos);
 
   const gallery = useSelector((state:any) =>state.gallery.gallery);
-  // console.log({gallery})
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-  console.log(college._id);
 
     dispatch(getGallery(college._id));
 
   }, [college]);
 
   const {images} = gallery;
-  console.log({gallery});
   return images?.length || videos?.length ? (
     <div id="gallery" className="college-gallery">
       <div className="college-gallery__inner">
         <div className="college-gallery__title-wrap">
           <div className="college-gallery__title">PHOTOS & VIDEOS</div>
-          {/* <div className="college-gallery__title__cta">Explore Gallery</div> */}
         </div>
         <div className="college-gallery__heading">
           Photos <span>{images?.length}</span>

@@ -48,7 +48,6 @@ const BlogListLatestPost = ({ blogArray }) => {
                       desc={removeHtmlChar(blog?.blog_desc)}
                       backgroundImg={blog?.blog_imageURL}
                     />
-                   {/* { console.log("slug",blog?.blog_slug)} */}
                   </div>
                 );
               })}

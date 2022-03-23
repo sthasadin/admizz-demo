@@ -47,7 +47,6 @@ const collegeList = () => {
   const { totalCollegeCount } = useSelector((state: any) => state.college);
 
   const [collegeList, setCollegeList] = useState(collegesByLimit)
-  console.log({collegesByLimit})
 
   const dispatch = useDispatch();
 
@@ -173,7 +172,6 @@ const collegeList = () => {
   };
 
   const handleCityChange = (e) => {
-    console.log(e);
     if (e.target.checked) {
       setFilterObj({
         ...filterObj,

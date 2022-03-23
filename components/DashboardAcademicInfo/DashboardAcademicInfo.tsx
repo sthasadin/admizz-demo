@@ -53,7 +53,6 @@ export const DashboardAcademicInfo = (props) => {
   });
 
  const { value: selectedLevel } = props?.selectedLevel?.selectedLevel;
-//  console.log("selectedLevel",props?.selectedLevel)
 
 
   const [certificatesImage, setCertificatesImage] = useState({

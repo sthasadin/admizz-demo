@@ -30,7 +30,6 @@ const index = () => {
 
   const loader = useSelector((state: any) => state.college.multiLoading);
 
-  console.log(application);
   return (
     <DashboardLayout title="Dashboard">
       <div className="student-dashboard-main__mainpage">

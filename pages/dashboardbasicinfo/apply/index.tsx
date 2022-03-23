@@ -88,21 +88,7 @@ const DashboardBasicInfoPage = () => {
     setAuthUser(user);
   };
   useEffect(() => {
-    console.log("stepTrack =>", stepTrack);
   }, [stepTrack]);
-  // window.onload = function () {
-  //   initBeforeUnLoad(showExitPrompt, setShowExitPrompt);
-  // };
-
-  // useEffect(() => {
-  //   initBeforeUnLoad(showExitPrompt, setShowExitPrompt);
-
-  //   // return () => {
-  //   //   setShowExitPrompt(false);
-  //   // };
-  // }, [showExitPrompt]);
-
-
 
   useEffect( () => {
 
@@ -138,7 +124,6 @@ const DashboardBasicInfoPage = () => {
      
 
     }
-    // setShowExitPrompt(true);
   }, [authenticated, user]);
 
   const totalSteps = () => {

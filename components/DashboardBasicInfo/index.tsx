@@ -63,14 +63,12 @@ const DashboardBasicInfo = (props) => {
   const [guardianCity, setGuardianCity] = useState("");
   // const [guardianZipCode, setGuardianZipCode] = useState("" as string);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
-  // const [showExitPrompt, setShowExitPrompt] = useState(true as boolean);
 
   const [formError, setFormError] = useState({} as any);
 
   const dispatch = useDispatch();
 
   const allLevels = useSelector((state:any) => state.courses.allLevels);
-  console.log("allLevels",allLevels)
   const selectLevelOption = useMemo(() => {
     return allLevels.map((level) => {
       let name =

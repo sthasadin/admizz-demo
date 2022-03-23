@@ -1,15 +1,11 @@
 import React, { FC } from "react";
-
-// import { CallToAction } from "../../components/Button/callToAction";
 import Carousel from "../../components/FeaturedCollegeCarousel";
-// import Link from "next/link";
 
 interface CollegeProps {
   collegeList: Array<any>;
 }
 
 const TopUniversities: FC<CollegeProps> = ({ collegeList }) => {
-  console.log("abc", collegeList);
   return (
     <div
       className="top-university-india"

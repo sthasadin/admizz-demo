@@ -2,7 +2,6 @@ import React from "react";
 import { useRouter } from "next/router";
 
 const SingleBlog = (props: any) => {
-  console.log("props", props.blogArray);
   const router = useRouter();
 
   function truncateString(str, num) {

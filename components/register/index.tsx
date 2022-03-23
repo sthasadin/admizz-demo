@@ -44,15 +44,12 @@ const Register = () => {
   const router = useRouter();
 
   const handleChange = (e: any) => {
-    console.log(e.target)
     formValue[e.target.name] = e.target.value
     setFormValue({ ...formValue});
     setFormError(() => ({ ...formError, [e.target.name]: null }));
-    console.log({formValue})
 
     if (e.target.name === "country") {
       if (e.target.value === "Nepal") {
-        console.log(e.target.value, "value");
         setFormValue({ ...formValue, countryCode: "+977" } as signUpFormValue);
       } else setFormValue({ ...formValue, countryCode: "+91" } as signUpFormValue);
     }

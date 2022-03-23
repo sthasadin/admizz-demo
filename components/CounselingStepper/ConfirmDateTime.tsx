@@ -48,7 +48,6 @@ const ConfirmDateTime: React.FC<Props> = ({
     }
   }, []);
 
-  console.log(formValue?.time?.split(" "));
 
   useEffect(() => {
     handleChange({

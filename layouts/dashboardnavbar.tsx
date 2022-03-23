@@ -20,7 +20,6 @@ const DashboardNavbar = () => {
   const router = useRouter();
 
   const toggleDrawer = (anchor, open) => (event) => {
-    console.log(`anchor ${anchor}`);
     if (
       event.type === "keydown" &&
       (event.key === "Tab" || event.key === "Shift")

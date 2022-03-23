@@ -30,7 +30,6 @@ const index = ({data}) => {
       });
     }
   };
-  // console.log({ selectedTeam });
   const getFireStoreCounselor = async () => {
     const teamArray = [];
 

@@ -21,7 +21,6 @@ const BlogDetailContent: FC<BlogDetailContent> = ({ blog_desc, author }) => {
   useEffect(() => {
     dispatch(getBlogDetail(slug));
   }, [slug]);
-  // console.log("blogs", blogs);
   return (
     <div className="blog-detail-content">
       {blogs?.blog_desc && (

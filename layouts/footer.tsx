@@ -31,7 +31,6 @@ const Footer = () => {
 
   const topColleges = useSelector((state:any) => state.footer.topColleges);
   const topCourses = useSelector((state:any) => state.footer.topCourses);
-console.log({topColleges})
   React.useEffect(() => {
     dispatch(getTopColleges());
     dispatch(getTopCourses());

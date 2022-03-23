@@ -100,7 +100,6 @@ const CollegeOverview = () => {
         )}
         {college?.rankings?.map((item: any) => {
           {
-            console.log("item", item);
           }
 
           return (

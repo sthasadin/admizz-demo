@@ -16,7 +16,6 @@ interface CommentForm {
     comment: string;
 }
 const index = (props:any) => {
-  //console.log('props', props)
   const [comments,setComments] = useState({
     comment:''
   });

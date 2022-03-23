@@ -124,8 +124,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
               to="career-option"
               offset={-118}
               spy={true}
-              className="submenu__item"
-            >
+              className="submenu__item">
               Career Opportunities
             </Link>
           </li>

@@ -55,7 +55,6 @@ const SelectCounseler: React.FC<Props> = ({
 
   const [selectedCounseler, setSelectedCounseler] = useState(1 as number);
 
-  console.log(formValue.counsellor);
 
   useEffect(() => {
     if (formValue.counsellor) {

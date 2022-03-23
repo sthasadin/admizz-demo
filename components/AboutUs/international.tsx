@@ -90,13 +90,18 @@ const international = () => {
                       <blockquote>
                         <p>
 
-                          {item?.designation}
+                          {item?.description}
                         </p>{" "}
                       </blockquote>
                     </div>
                     <div className="about-us__cardImage">
-                      <Image width={70} height={70} src='/colleges-logo.png' />
-                      <p>Kalinga Institute of Industrial Technology</p>
+                      {/* <Image width={70} height={70} src='/colleges-logo.png' /> */}
+                      <img 
+                      src={item?.image_url}
+                      style={{objectFit:'cover',
+                    height:80,width:80,borderRadius:'50%',borderColor:'#E0E0E0'}}
+                      />
+                      <p>{item?.name}</p>
                     </div>
                   </div>
 

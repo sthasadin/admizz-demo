@@ -11,6 +11,9 @@ import {
   getFavourites,
 } from "@/store/Action/collegefavourite.action";
 import { AuthContext } from "pages/AuthContext";
+import { auth } from "../../firebase";
+import { useRouter } from "next/router";
+
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -30,7 +33,6 @@ const CollegeHeader = ({
   video_360,
   isFavourite,
 }) => {
-  console.log({isFavourite})
 
   const [click, setClick] = React.useState(isFavourite);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
@@ -38,6 +40,9 @@ const CollegeHeader = ({
   const dispatch = useDispatch();
   const { user } = useContext(AuthContext);
   const favorites = useSelector((state:any) => state.favourites.userFavorite);
+  const college = useSelector((state:any) => state.college.college);
+  const router = useRouter();
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -50,12 +55,22 @@ const CollegeHeader = ({
     setOpen(false);
   };
 
+  // const handleClick = () => {
+  //   setClick((click) => !click);
+  //   let data = { college: college_id, user: user.uid };
+  //   dispatch(addToFavourites(data));
+  //   setSnackOpen(true);
+  // };
+
   const handleClick = () => {
-    // console.log({isFavourite})
-    setClick((click) => !click);
-    let data = { college: college_id, user: user.uid };
-    dispatch(addToFavourites(data));
-    setSnackOpen(true);
+    if (auth.currentUser) {
+      let data = { college: college._id, user: user.uid };
+      dispatch(addToFavourites(data));
+      setClick((click) => !click);
+      setSnackOpen(true);
+    } else {
+      router.push("/login");
+    }
   };
 
   return (

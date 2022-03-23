@@ -66,7 +66,7 @@ const features = () => {
           </div>
           <div className="merit__feature__right">
             <div className="merit__title block-title">
-               Admission with ease
+               Admission with Ease
             </div>
             <div className="merit__feature__desc">
             Today, India is rapidly growing and making its way to one of the most developed countries in the world. Inheriting the education system from England, India's system of higher education is the third largest in the world. There are thousands of higher education institutions in India that offer high quality degree programs in various fields of your choice. Admizz aims to simplify your admission process to your dream university in India. It helps to provide courses for all students who want to study in India. No matter whether you are planning for your Bachelor or PhD, Admizz provides a wide range of courses for under-graduate, graduate and doctorate students from various universities. You don’t have to open many tabs to research about universities and courses you want to study. 

@@ -159,7 +159,7 @@ const blogDetail = () => {
           </div>
           <div className="container ">
             <BlogComment data={blog} />
-            <CommentSection />
+            <CommentSection id={blog._id}/>
 
             <div
               className="blog-detail__imageContainer"

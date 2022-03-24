@@ -269,6 +269,7 @@ const DashboardReviewConfirm = (props) => {
 
       
         await db.collection("students-application").doc().set(appdata).then(()=>{
+          setSnackOpen(true);
           handleClose();
           localStorage.clear();
           router.push("/studentdashboardmain");
@@ -1415,6 +1416,7 @@ const DashboardReviewConfirm = (props) => {
           <Button onClick={handelSubmit}>Confirm Application</Button>
         </div>
       </div>
+      
       <Snackbar
         open={snackOpen}
         autoHideDuration={4000}
@@ -1422,6 +1424,16 @@ const DashboardReviewConfirm = (props) => {
       >
         <Alert onClose={() => setSnackOpen(false)} severity="error">
           Please check the empty field
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="success">
+          Your application has been submitted
         </Alert>
       </Snackbar>
     </div>

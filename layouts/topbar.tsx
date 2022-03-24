@@ -1,12 +1,14 @@
 import { faMicrophoneAlt, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { AuthContext } from "pages/AuthContext";
+import React, {useContext, useEffect, useState} from "react";
 
 // import { Select } from "../components";
 import Link from "next/link";
-import { auth } from "../firebase";
+// import { auth as isAuth } from "../firebase";
 
 const Topbar = (props: any) => {
+  const { auth } = useContext(AuthContext);
   return (
     <div className="topbar">
       <div className="topbar__inner">

@@ -12,21 +12,26 @@ try{
 }
 };
 
-export const getComments = () => {
-    // get all manuscript from firebase
+export const getComments = (blog_id:any) => {
+    // get all comments from firebase
     return async (dispatch: Dispatch) => {
+      console.log('blogsid',blog_id);
+
       try {
         const response = await 
           db
           .collection("comment")
+          .where('blog_id', '==', blog_id)
           .get();
         const comments: any = [];
         response.forEach((doc: any) => {
+
           comments.push({
             id: doc.id,
             ...doc.data(),
           });
         });
+        console.log('logsss',comments);
         dispatch({
           type: COMMENT_TYPES.GET_COMMENT,
           payload: comments,

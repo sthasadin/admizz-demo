@@ -1,5 +1,5 @@
-import React, { useState,useEffect } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Input } from "../Input";
 import { Button } from "../../components";
 import { db } from "../../firebase";
@@ -8,29 +8,41 @@ import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import { auth } from "../../firebase";
 import { getAuthUser } from "@/store/Action/user.action";
+import { addBlogComment } from "@/store/Action/blog.action";
+import { getStudentApplication } from "@/store/Action/studentapplication.action";
+import { useRouter } from "next/router";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 interface CommentForm {
-    comment: string;
+  comment: string;
 }
-const index = (props:any) => {
-  const [comments,setComments] = useState({
-    comment:''
+const index = (props: any) => {
+  const [comments, setComments] = useState({
+    comment: "",
   });
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [loading, setLoading] = useState(false);
   const [formValue, setFormValue] = useState({} as CommentForm);
   const [formError, setFormError] = useState({} as any);
+  const router = useRouter();
 
   const user = useSelector((state: any) => state.user.authUser);
   const blogs_id = useSelector((state: any) => state.blog.blogs);
-  
   const dispatch = useDispatch();
   useEffect(() => {
     auth.currentUser && dispatch(getAuthUser(auth.currentUser.uid));
-  }, [ blogs_id,auth]);
+  }, [blogs_id, auth]);
+  const { application } = useSelector(
+    (state: any) => state.student_application
+  );
+  useEffect(() => {
+    if (auth.currentUser) {
+      //    dispatch(getColleges());
+      dispatch(getStudentApplication(auth.currentUser.uid));
+    }
+  }, [auth]);
 
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
@@ -59,31 +71,38 @@ const index = (props:any) => {
       setFormError({ ...errors });
     }
   };
+
   const handleComment = async () => {
     setLoading(true);
-    const Valid = await validate();
-    if (Valid) {
-      db.collection("comment")
-        .add({
-          comment: formValue.comment,
-          createdAt: new Date(),
-          blog_id: props?.data?._id
-        })
-        .then(function (docRef) {
-          setSnackOpen(true);
-          setFormValue({
-            ...formValue,
-            comment: "",
+    if (auth.currentUser) {
+      const Valid = await validate();
+      if (Valid) {
+        db.collection("comment")
+          .add({
+            comment: formValue.comment,
+            createdAt: new Date(),
+            blog_id: props?.data?._id,
+            username: application?.basicInformation?.fullName,
+            // image:application?.basicInformation?.profileImage
+          })
+          .then(function (docRef) {
+            setSnackOpen(true);
+            setFormValue({
+              ...formValue,
+              comment: "",
+            });
+            setLoading(false);
+          })
+          .catch(function (error) {
+            setLoading(false);
+            console.error("Error on commenting: ", error);
           });
-          setLoading(false);
-        })
-        .catch(function (error) {
-          setLoading(false);
-          console.error("Error on commenting: ", error);
-        });
+      }
+    } else {
+      setSnackOpen(true);
+      router.push("/login");
     }
   };
-
 
   return (
     <div className="blog-detail-content__commentContainer">
@@ -111,9 +130,17 @@ const index = (props:any) => {
           Your comment has been added
         </Alert>
       </Snackbar>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="warning">
+          Please Login into your account
+        </Alert>
+      </Snackbar>
 
       <div className="blog-detail-content__commentTitle"></div>
-
     </div>
   );
 };

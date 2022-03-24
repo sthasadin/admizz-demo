@@ -22,6 +22,8 @@ const Submenu = (props: any) => {
   const [open, setOpen] = React.useState(false);
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
+  const [snackOpenLogin, setSnackOpenLogin] = React.useState(false as boolean);
+
   const college = useSelector((state:any) => state.college.college);
   const { user } = useContext(AuthContext);
   const users = useSelector((state:any) => state.user.authUser);
@@ -38,6 +40,7 @@ const Submenu = (props: any) => {
       setClick((click) => !click);
       setSnackOpen(true);
     } else {
+      setSnackOpenLogin(true);
       router.push("/login");
     }
   };
@@ -234,6 +237,16 @@ const Submenu = (props: any) => {
           {click
             ? `${college?.name} has been added to your favourite list.`
             : `${college?.name} Removed from your favourite list`}
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={snackOpenLogin}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpenLogin(false)}
+      >
+        <Alert onClose={() => setSnackOpenLogin(false)} severity="warning">
+          Please Login into your account
         </Alert>
       </Snackbar>
     </div>

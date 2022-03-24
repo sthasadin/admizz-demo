@@ -97,7 +97,7 @@ const Login = () => {
           setFormError({
             otherErrors: (
               <div>
-                Please verify your email to access the dashboard.{" "}
+                Please verify your email.{" "}
                 <span
                   onClick={() => sendVerification(res.user)}
                   className="send-email-verification"

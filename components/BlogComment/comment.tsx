@@ -3,12 +3,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const Comment = () => {
+const Comment = ({id}) => {
   const dispatch = useDispatch();
   const { comments } = useSelector((state: any) => state.blog);
   useEffect(() => {
-    dispatch(getComments());
-  }, [dispatch]);
+    dispatch(getComments(id));
+    
+  }, [id]);
   return (
       <div>
           {comments.map((data,i)=>{
@@ -16,6 +17,9 @@ const Comment = () => {
                 <div className="review">
                 <div className="review__item">
                   <div className="review__item__avatar">
+                  {/* <div className="university-icon">
+                      <img src={data?.image} />
+                    </div> */}
                     <svg
                       width="55"
                       height="54"
@@ -30,7 +34,7 @@ const Comment = () => {
                   <div style={{ width: "100%" }}>
                     <div className="review__item__header">
                       <div className="review__item__header__left">
-                        <div className="review__item__name">Comments</div>
+                        <div className="review__item__name">{data.username}</div>
                       </div>
                     </div>
                     <div className="review__item__comment">{data.comment} </div>

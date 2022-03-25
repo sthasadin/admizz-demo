@@ -8,7 +8,6 @@ import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import { auth } from "../../firebase";
 import { getAuthUser } from "@/store/Action/user.action";
-import { addBlogComment } from "@/store/Action/blog.action";
 import { getStudentApplication } from "@/store/Action/studentapplication.action";
 import { useRouter } from "next/router";
 
@@ -34,16 +33,18 @@ const index = (props: any) => {
   useEffect(() => {
     auth.currentUser && dispatch(getAuthUser(auth.currentUser.uid));
   }, [blogs_id, auth]);
-  const { application } = useSelector(
-    (state: any) => state.student_application
-  );
+  
   useEffect(() => {
     if (auth.currentUser) {
-      //    dispatch(getColleges());
       dispatch(getStudentApplication(auth.currentUser.uid));
     }
   }, [auth]);
 
+  const { application } = useSelector(
+    (state: any) => state.student_application
+  );
+
+  console.log('application',application)
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
@@ -77,12 +78,13 @@ const index = (props: any) => {
     if (auth.currentUser) {
       const Valid = await validate();
       if (Valid) {
+      
         db.collection("comment")
           .add({
             comment: formValue.comment,
             createdAt: new Date(),
             blog_id: props?.data?._id,
-            username: application?.basicInformation?.fullName,
+            fullname: application?.basicInformation?.fullName,
             // image:application?.basicInformation?.profileImage
           })
           .then(function (docRef) {
@@ -99,7 +101,7 @@ const index = (props: any) => {
           });
       }
     } else {
-      setSnackOpen(true);
+      // setSnackOpen(true);
       router.push("/login");
     }
   };
@@ -130,7 +132,7 @@ const index = (props: any) => {
           Your comment has been added
         </Alert>
       </Snackbar>
-      <Snackbar
+      {/* <Snackbar
         open={snackOpen}
         autoHideDuration={4000}
         onClose={() => setSnackOpen(false)}
@@ -138,7 +140,7 @@ const index = (props: any) => {
         <Alert onClose={() => setSnackOpen(false)} severity="warning">
           Please Login into your account
         </Alert>
-      </Snackbar>
+      </Snackbar> */}
 
       <div className="blog-detail-content__commentTitle"></div>
     </div>

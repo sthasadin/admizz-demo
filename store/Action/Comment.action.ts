@@ -15,7 +15,6 @@ try{
 export const getComments = (blog_id:any) => {
     // get all comments from firebase
     return async (dispatch: Dispatch) => {
-      console.log('blogsid',blog_id);
 
       try {
         const response = await 
@@ -31,7 +30,6 @@ export const getComments = (blog_id:any) => {
             ...doc.data(),
           });
         });
-        console.log('logsss',comments);
         dispatch({
           type: COMMENT_TYPES.GET_COMMENT,
           payload: comments,

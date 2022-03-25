@@ -17,20 +17,21 @@ const Topbar = (props: any) => {
             <div className="contact__icon">
               {/* <FontAwesomeIcon icon={faMicrophoneAlt} /> */}
 
-              <img src="/contactIcon.png" alt="contact-us" />
+              <img src="/email-icon.png" alt="contact-us" />
+              <Link href="support@admizz.com ">
+                <span className="contact__info">support@admizz.com </span>
+              </Link>
             </div>
             <div className="contact__item">
+              
+            </div>
+            {/* <div className="contact__item">
               <span className="contact__title">Nepal:</span>
               <Link href="tel:+977 9802728444 ">
                 <span className="contact__info">+977 9802728444 </span>
               </Link>
-            </div>
-            <div className="contact__item">
-              <span className="contact__title">India:</span>
-              <Link href="tel:+91 8050259693">
-                <span className="contact__info">+91 8050259693</span>
-              </Link>
-            </div>
+            </div> */}
+          
           </div>
         </div>
         <div className="topbar__right">
@@ -57,6 +58,7 @@ const Topbar = (props: any) => {
                   {/* <FontAwesomeIcon 
                   icon={faUserTie}
                    /> */}
+                     <img src="/user-icon.png" alt="contact-us" />
                 </div>
                 <div className="signup__text">
                   <Link href="/studentdashboardmain">Student Dashboard</Link>

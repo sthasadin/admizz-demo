@@ -34,7 +34,9 @@ const Comment = ({id}) => {
                   <div style={{ width: "100%" }}>
                     <div className="review__item__header">
                       <div className="review__item__header__left">
-                        <div className="review__item__name">{data.username}</div>
+                        <div className="review__item__name">
+                          {data.fullname}
+                          </div>
                       </div>
                     </div>
                     <div className="review__item__comment">{data.comment} </div>

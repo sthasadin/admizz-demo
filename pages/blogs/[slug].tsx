@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FacebookShareButton,
   WhatsappShareButton,
@@ -23,6 +23,7 @@ import BlogComment from "../../components/BlogComment";
 import CommentSection from "../../components/BlogComment/comment";
 import { getBlogs } from "../../store/Action/blog.action";
 import { BlogListSimilarBlog } from "../../components/BlogListSimilarBlog";
+import { getComments } from "@/store/Action/Comment.action";
 const blogDetail = () => {
   const router = useRouter();
   const { slug } = router.query;
@@ -44,14 +45,18 @@ const blogDetail = () => {
   }, []);
 
   const { blog } = useSelector((state: any) => state.blogDetails);
+  const { comments } = useSelector((state: any) => state.blog);
   const shareUrl = `https://admizz.asterdio.xyz/blogs/${slug}`;
-  {
-  }
+  const [newComment,setNewComment] = useState(0)
   useEffect(() => {
     dispatch(getBlogDetail(slug));
     // dispatch(getBlog(slug));(
-  }, [slug]);
+    }, [slug]);
+    useEffect(()=>{
+    dispatch(getComments(blog._id));
+  },[blog,newComment])
 
+  
   return (
     <BlogLayout title={blog?.blog_title}>
       <div className="container section-wrapper">
@@ -158,8 +163,8 @@ const blogDetail = () => {
             </div>
           </div>
           <div className="container ">
-            <BlogComment data={blog} />
-            <CommentSection id={blog._id}/>
+            <BlogComment newComment={newComment} setNewComment={setNewComment} data={blog} />
+            <CommentSection comments={comments}/>
 
             <div
               className="blog-detail__imageContainer"

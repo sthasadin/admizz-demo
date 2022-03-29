@@ -121,8 +121,12 @@ const Register = () => {
       if (valid) {
         let authUser = await auth.createUserWithEmailAndPassword(
           formValue.email,
-          formValue.password
+          formValue.password,
+          
         );
+        auth.currentUser.updateProfile({
+          displayName:formValue.fullName
+        })
         if (authUser.user) {
           await db
             .collection("users")

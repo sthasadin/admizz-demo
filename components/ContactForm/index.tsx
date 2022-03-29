@@ -3,6 +3,7 @@ import * as yup from "yup";
 import { auth, db } from "../../firebase";
 import indiaOffice from "../../public/indiaOffice.png";
 import nepalOffice from "../../public/nepalOffice.png";
+import bangladeshOffice from "../../public/bangladeshoffice.png";
 import location from "../../public/location.png";
 import telephone from "../../public/telephone.png";
 import email from "../../public/email.png";
@@ -110,20 +111,22 @@ const ContactForm = () => {
         <div className="contact-form__header">Contact Details</div>
         <div>
           <div className="contact-form__india-office-container">
-            <img src={indiaOffice} />
+            <img src={indiaOffice}/>
             <div className="contact-form__office-details">
               <div className="contact-form__details-header">India Office</div>
               <div className="contact-form__details-content">
                 <img src={location} />
                 <span>
-                  Bangalore,
-                  <br />
-                  Karnataka, India
-                </span>
+                    2nd Floor, Jayaram Building, Kanakapura Rd, 
+                    
+                    Gubbalala, Subramanyapura,
+                    <br />
+                    Bengaluru, Karnataka 560062, India
+                  </span>
               </div>
               <div className="contact-form__details-content">
                 <img src={telephone} />
-                <span>+91 805 0259 693</span>
+                <span >+91 805 0259 693</span>
               </div>
             </div>
           </div>
@@ -133,15 +136,36 @@ const ContactForm = () => {
               <div className="contact-form__details-header">Nepal Office</div>
               <div className="contact-form__details-content">
                 <img src={location} />
-                <span>
-                  Bagbazar,
+                <span >
+                  Ground Floor, Putalisadak,
                   <br />
-                  Kathmandu, Nepal
+                  Kathmandu (Oppo to Raymond Tailor)
                 </span>
               </div>
               <div className="contact-form__details-content">
                 <img src={telephone} />
-                <span>+91 805 0259 693</span>
+                <span>+977 9802728444</span>
+              </div>
+            </div>
+          </div>
+          {" "}
+          <div className="contact-form__india-office-container">
+            <img src={bangladeshOffice} style = {{height:64,width:64}} />
+            <div className="contact-form__office-details">
+              <div className="contact-form__details-header">
+                Bangladesh Office
+              </div>
+              <div className="contact-form__details-content">
+                <img src={location} />
+                <span>
+                  Bogra Tole, Bogura 5800,
+                  <br />
+                  Bangladesh
+                </span>
+              </div>
+              <div className="contact-form__details-content">
+                <img src={telephone} />
+                <span style={{ fontSize: 14 }}> +880 1775 639993</span>
               </div>
             </div>
           </div>

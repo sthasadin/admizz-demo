@@ -30,7 +30,5 @@ const seedReviews = () => {
     .onSnapshot((snapShot) => {
     });
 };
-
-
 const storage = firebase.storage();
 export { db, auth, firebase, storage };

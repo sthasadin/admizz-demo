@@ -6,6 +6,7 @@ export const getAuthUser = (id: string) => async (dispatch: Dispatch) => {
   try {
     let doc = await db.collection("users").doc(id).get();
     if (doc.exists) {
+      console.log(doc);
       let user = { ...doc.data(), id: doc.id };
       dispatch({ type: GET_AUTH_USER, payload: user });
       return user;

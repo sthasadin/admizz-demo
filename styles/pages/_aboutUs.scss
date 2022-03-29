@@ -1,10 +1,13 @@
 .introduction__container {
- // position: relative;
+ position: relative;
   background-image: url("/background-image.jpg");
   background-repeat: no-repeat;
-  //background-position: right;
+  background-position: center;
   background-size: cover;
   cursor: pointer;
+  // max-width: 1440px !important;
+  // margin: 0 auto !important;
+  // justify-content: center;
 
   .vertical__stickycontainer {
     height: 228px;
@@ -318,3 +321,8 @@
     }
   }
 }
+
+// .introduction__container {
+//    max-width: 1440px !important;
+//    margin: 0 auto !important;
+// }

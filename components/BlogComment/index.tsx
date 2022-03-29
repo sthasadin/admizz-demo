@@ -6,7 +6,7 @@ import { db } from "../../firebase";
 import * as yup from "yup";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
-import { auth } from "../../firebase";
+import { auth, firebase } from "../../firebase";
 import { getAuthUser } from "@/store/Action/user.action";
 import { getStudentApplication } from "@/store/Action/studentapplication.action";
 import { useRouter } from "next/router";
@@ -27,24 +27,19 @@ const index = (props: any) => {
   const [formError, setFormError] = useState({} as any);
   const router = useRouter();
 
-  const user = useSelector((state: any) => state.user.authUser);
   const blogs_id = useSelector((state: any) => state.blog.blogs);
   const dispatch = useDispatch();
+  const user = useSelector((state: any) => state.user.authUser);
+
   useEffect(() => {
-    auth.currentUser && dispatch(getAuthUser(auth.currentUser.uid));
-  }, [blogs_id, auth]);
-  
-  useEffect(() => {
+    
     if (auth.currentUser) {
-      dispatch(getStudentApplication(auth.currentUser.uid));
+      console.log("uid",auth.currentUser.displayName);
+      dispatch(getAuthUser(auth.currentUser.uid));
+    }else{
     }
-  }, [auth]);
-
-  const { application } = useSelector(
-    (state: any) => state.student_application
-  );
-
-  console.log('application',application)
+  }, [blogs_id,auth]);
+  
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
@@ -69,7 +64,7 @@ const index = (props: any) => {
       err.inner.forEach((item: any) => {
         errors[item.path] = item.errors[0];
       });
-      setFormError({ ...errors });
+      setFormError({ ...errors,validationSchema });
     }
   };
 
@@ -78,17 +73,18 @@ const index = (props: any) => {
     if (auth.currentUser) {
       const Valid = await validate();
       if (Valid) {
-      
+
         db.collection("comment")
           .add({
             comment: formValue.comment,
             createdAt: new Date(),
             blog_id: props?.data?._id,
-            fullname: application?.basicInformation?.fullName,
+            username:auth.currentUser.displayName
             // image:application?.basicInformation?.profileImage
           })
           .then(function (docRef) {
             setSnackOpen(true);
+            props.setNewComment(props.newComment+1)
             setFormValue({
               ...formValue,
               comment: "",
@@ -119,7 +115,7 @@ const index = (props: any) => {
         onChange={handleChange}
       />
       <div className="blog-detail-content__commentTitle"></div>
-      <Button onClick={handleComment} disabled={loading} loading={loading}>
+      <Button onClick={handleComment} disabled={loading}>
         SUBMIT
       </Button>
 

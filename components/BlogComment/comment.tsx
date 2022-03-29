@@ -1,15 +1,10 @@
 import { getComments } from "@/store/Action/Comment.action";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const Comment = ({id}) => {
-  const dispatch = useDispatch();
-  const { comments } = useSelector((state: any) => state.blog);
-  useEffect(() => {
-    dispatch(getComments(id));
-    
-  }, [id]);
+const Comment = ({comments}) => {
+  
   return (
       <div>
           {comments.map((data,i)=>{
@@ -35,7 +30,7 @@ const Comment = ({id}) => {
                     <div className="review__item__header">
                       <div className="review__item__header__left">
                         <div className="review__item__name">
-                          {data.fullname}
+                          {data.username}
                           </div>
                       </div>
                     </div>

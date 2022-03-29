@@ -100,7 +100,7 @@ const Navbar = (props: any) => {
         </ListItem>
         <ListItem button key={"aboutus"} className="navbar__list">
           <Link href="/aboutus">
-            <ListItemText primary={"About us"} />
+            <ListItemText primary={"About Us"} />
           </Link>
         </ListItem>
         <ListItem button key={"Contact"} className="navbar__list">

@@ -148,7 +148,7 @@ const Submenu = (props: any) => {
                       </div>
                     </Fade>
                   </Modal>
-                  <div className="task__title">College 360 Tour</div>
+                  <div className="task__title">College Tour</div>
                 </div>
               </div>
             </div>

@@ -119,9 +119,9 @@ const ContactForm = () => {
                 <span>
                     2nd Floor, Jayaram Building, Kanakapura Rd, 
                     
-                    Gubbalala, Subramanyapura,
-                    <br />
-                    Bengaluru, Karnataka 560062, India
+                    Gubbalala, Bengaluru, Karnataka 560062, 
+                    
+                     
                   </span>
               </div>
               <div className="contact-form__details-content">
@@ -173,7 +173,7 @@ const ContactForm = () => {
             Prefer Email? Email us at:
             <div className="contact-form_email-holder">
               <img src={email} />
-              info@linkservices.co
+              support@admizz.com
             </div>
           </div>
         </div>

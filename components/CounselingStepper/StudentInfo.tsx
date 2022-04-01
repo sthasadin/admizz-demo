@@ -10,6 +10,7 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 import CommentIcon from "@material-ui/icons/Comment";
 import messenger from "../../public/messenger.png";
 import whatsapp from "../../public/whatsapp.png";
+import zoom from "../../public/zoom.png";
 import { Button } from "../Button";
 import { Select } from "../Select";
 import { countryList } from "../../utils/CountryLists";
@@ -155,7 +156,6 @@ const StudentInfo: React.FC<Props> = ({
                 }`}
               >
                 <img src={messenger} />
-                <span>Messenger</span>
               </div>
               <div
                 onClick={() => setSelectedMedium("whatsapp")}
@@ -165,7 +165,15 @@ const StudentInfo: React.FC<Props> = ({
                 }`}
               >
                 <img src={whatsapp} />
-                <span>Whatsapp</span>
+              </div>
+              <div
+                onClick={() => setSelectedMedium("zoom")}
+                className={`student-info__medium ${
+                  selectedMedium === "zoom" &&
+                  "student-info__selected-medium"
+                }`}
+              >
+                <img src={zoom} style={{width:24,height:24}} />
               </div>
             </div>
           </Grid>
@@ -191,6 +199,17 @@ const StudentInfo: React.FC<Props> = ({
                 errorMessage={formError.contact_id}
                 error={!!formError.contact_id}
                 placeholder="Whatsapp ID"
+                value={formValue.contact_id}
+              />
+            )}
+             {selectedMedium === "zoom" && (
+              <Input
+                name={"contact_id"}
+                onChange={handleChange}
+                fullWidth
+                errorMessage={formError.contact_id}
+                error={!!formError.contact_id}
+                placeholder="Zoom ID"
                 value={formValue.contact_id}
               />
             )}

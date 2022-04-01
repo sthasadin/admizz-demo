@@ -105,7 +105,11 @@ const CollegeOverview = () => {
           return (
             <div className="overview__block">
               <div className="overview__block__icon">
+                <div className="college_content">
+                  <div className="college-img">
                 <img src={item.rank?.logo} alt="" />
+                </div>
+                </div>
               </div>
               <div className="overview__block__title">{item.rank?.values}</div>
               <div className="overview__block__subheading">

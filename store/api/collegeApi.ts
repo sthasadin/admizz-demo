@@ -3,6 +3,7 @@ export class CollegeService {
   getColleges() {
     let url = `/college`;
     let data = getService(url);
+    
     return data;
   }
 

@@ -1,23 +1,30 @@
+
 import React from "react";
 
-const CollegeCourse = ({ courses }) => {
+const CollegeCourse = ({ Courses }) => {
+
   return (
     <div className="college-course">
-      <div className="college-course__title">Top Courses</div>
+      <div className="college-course__title">Courses</div>
       <div className="college-course__item-wrap">
-        {courses &&
-          courses.map((course: string, index: number) => {
+        {Courses &&
+          Courses.map((course: any, index: number) => {
             return (
               index < 3 && (
                 <div className="college-course__item" key={index}>
-                  {course}
+                  {console.log('courseName',course)}
+                  
+                  {course?.courseprogram?.name}{" "}
                 </div>
               )
             );
           })}
 
         <div className="college-course__pagination">
-          {courses && courses.length > 3 ? courses?.length- 3 :courses?.length} +
+          {Courses && Courses.length > 3
+            ? Courses?.length - 3
+            : Courses?.length}{" "}
+          +
         </div>
       </div>
     </div>

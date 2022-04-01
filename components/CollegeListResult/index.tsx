@@ -1,13 +1,10 @@
 import React, { FC } from "react";
 
-import SortImage from "../../public/SortImage.png";
 import { CollegesCard } from "../collegesBlock/collegesCard";
 import { CollegeCardLoader } from "../SkeletonLoading/CollegeCardLoader";
-import InfiniteScroll from "react-infinite-scroll-component";
 import LazyLoad from "react-lazyload";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
-import { success } from "@/store/commonActions";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;

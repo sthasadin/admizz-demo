@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { CallToAction } from "../Button/callToAction";
 
@@ -14,15 +14,14 @@ const Introduction = (props) => {
   const router = useRouter();
 
   const [isOpenCounselling, setIsOpenCounselling] = useState(false);
-  const openCounselling = () =>{
-    if(auth.currentUser) {
+  const openCounselling = () => {
+    if (auth.currentUser) {
       setIsOpenCounselling(true);
-      router.push("/free-counseling")
-    }else{
+      router.push("/free-counseling");
+    } else {
       router.push("/login");
-
     }
-  }
+  };
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -34,7 +33,6 @@ const Introduction = (props) => {
   };
 
   return (
-    
     <div className="introduction">
       <img src={imgSrc} alt="..." className="introduction__bannerimg" />
       <div className="introduction__inner section-wrapper">
@@ -48,13 +46,7 @@ const Introduction = (props) => {
             right course at right university.
           </div>
           <div className="u-align-center">
-            <CallToAction
-              className="filled"
-              onClick={() => 
-                
-                  openCounselling()
-                }
-            >
+            <CallToAction className="filled" onClick={() => openCounselling()}>
               Book counselling session
             </CallToAction>
             {videoUrl && (
@@ -161,10 +153,7 @@ const Introduction = (props) => {
                   </svg>
                 </div>
                 <div className="introduction__meta__item__title">
-                  <a
-                    href="https://covid19.who.int/"
-                    target="_blank"
-                  >
+                  <a href="https://covid19.who.int/" target="_blank">
                     COVID-19 RESPONSE
                   </a>
                 </div>
@@ -184,8 +173,9 @@ const Introduction = (props) => {
                     />
                   </svg>
                 </div>
-                <div className="introduction__meta__item__title">
-                  STORIES OF ADMIZZ
+                <div className="introduction__meta__item__title" 
+                >
+                 <a href="/testimonialDetailPage"> STORIES OF ADMIZZ</a>
                 </div>
               </div>
               <div className="introduction__meta__item">
@@ -213,8 +203,8 @@ const Introduction = (props) => {
           </div>
         </div>
         {/* <div className="introduction__right"> */}
-          {/* <div className="introduction__right__background"></div> */}
-          {/* <div className="introduction__right__thumbnail"></div> */}
+        {/* <div className="introduction__right__background"></div> */}
+        {/* <div className="introduction__right__thumbnail"></div> */}
         {/* </div> */}
       </div>
     </div>

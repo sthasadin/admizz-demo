@@ -37,6 +37,7 @@ const index = () => {
     }
   };
   return statistics || recruiting?.length || alumnis?.length ? (
+    <div>
     <div id="placement" className="placement">
       <div className="placement__title">PLACEMENTS</div>
       <div className="placement__bargrapcontainer">
@@ -98,7 +99,7 @@ const index = () => {
               graph1={{
                 value: `${
                   getMoneyAsString(statistics?.average_salary?.last) || "10k"
-                }`,
+                }L`,
                 size: getSize(
                   [
                     statistics?.average_salary?.second,
@@ -109,8 +110,8 @@ const index = () => {
               }}
               graph2={{
                 value: `${
-                  getMoneyAsString(statistics?.average_salary?.second) || "10k"
-                }`,
+                  getMoneyAsString(statistics?.average_salary?.second) || "1"
+                }L`,
                 size: getSize(
                   [
                     statistics?.average_salary?.last,
@@ -121,8 +122,8 @@ const index = () => {
               }}
               graph3={{
                 value: `${
-                  getMoneyAsString(statistics?.average_salary?.first) || "10k"
-                }`,
+                  getMoneyAsString(statistics?.average_salary?.first) || "1"
+                }L`,
                 size: getSize(
                   [
                     statistics?.average_salary?.second,
@@ -138,8 +139,8 @@ const index = () => {
               name="Highest Package"
               graph1={{
                 value: `${
-                  getMoneyAsString(statistics?.highest_package?.last) || "10k"
-                }`,
+                  getMoneyAsString(statistics?.highest_package?.last) || "10"
+                }L`,
                 size: getSize(
                   [
                     statistics?.highest_package?.second,
@@ -150,8 +151,8 @@ const index = () => {
               }}
               graph2={{
                 value: `${
-                  getMoneyAsString(statistics?.highest_package?.second) || "10k"
-                }`,
+                  getMoneyAsString(statistics?.highest_package?.second) || "10"
+                }L`,
                 size: getSize(
                   [
                     statistics?.highest_package?.last,
@@ -162,8 +163,8 @@ const index = () => {
               }}
               graph3={{
                 value: `${
-                  getMoneyAsString(statistics?.highest_package?.first) || "10k"
-                }`,
+                  getMoneyAsString(statistics?.highest_package?.first) || "10"
+                }L`,
                 size: getSize(
                   [
                     statistics?.highest_package?.second,
@@ -233,7 +234,11 @@ const index = () => {
         ) : null}
       </div>
 
-      <div className="placement__notablealumni">
+    
+    </div>
+    {alumnis.viewAllAlmuni?.length ? (
+    <div id="placement" className="placement">
+    <div className="placement__notablealumni">
         <span>Our Notable Alumni</span>
 
         {viewAllAlmuni  &&(
@@ -261,6 +266,8 @@ const index = () => {
           </>
         ) : null}
       </div>
+    </div>
+    ):null}
     </div>
   ) : null;
 };

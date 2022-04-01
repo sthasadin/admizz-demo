@@ -8,6 +8,7 @@ import { CollegeCourse } from "./collegeCourse";
 import { useRouter } from "next/router";
 
 const CollegesCard = (college) => {
+  console.log("college nn", college);
   const [reviews, setReviews] = React.useState(null);
   const [originalReviews, setOriginalReviews] = React.useState([]);
   const router = useRouter();
@@ -125,26 +126,16 @@ const CollegesCard = (college) => {
                 </div>
               )}
             </div>
-           <div className="college-image"
-           style={{
-            backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39)),
-            url(${college.banner ? college?.banner: "/colleges.png"})`,
-            objectFit:'contain',
-            height:'100%'
-                       
-           }}>
-
-           </div>
-            {/* <img
-              style={{ 
-                background:'linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39))'
-
-              }}
+            <div
               className="college-image"
-              
-              src={college?.banner ? college?.banner : "/colleges.png"}
-              alt="college"
-            /> */}
+              style={{
+                backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39)),
+            url(${college.banner ? college?.banner : "/colleges.png"})`,
+                objectFit: "contain",
+                height: "100%",
+              }}
+            ></div>
+
             <div className="colleges-card__title-wrap">
               <div className="colleges-card__title">
                 <Link href={`colleges/${college?.college_slug}`}>
@@ -192,11 +183,12 @@ const CollegesCard = (college) => {
                   </div>
                 )}
               </div>
-              {college?.top_courses && (
+              {college?.courses && (
                 <div className="colleges-card__course">
-                  <CollegeCourse courses={college?.top_courses} />
+                  <CollegeCourse Courses={college?.courses} />
                 </div>
               )}
+              
             </div>
           </div>
         </div>

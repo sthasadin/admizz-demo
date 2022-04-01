@@ -19,8 +19,9 @@ const About = () => {
           </p>
         </div>
         <div className="about-country__info">
-          India has over <span>300,000 mosques</span> and over{" "}
-          <span>2 million Hindu temples</span>
+          It’s a unique platform for direct admissions of{" "}
+          <span>International Students</span> at reputed colleges/universities
+          in India. <span></span>
         </div>
         <div className="about-country__thumbnail-wrap">
           <Card1
@@ -42,10 +43,10 @@ const About = () => {
             subText="Efficient Education"
           />
           <Card1
-             href="blogs/learn-about-indian-culture"
+            href="blogs/learn-about-indian-culture"
             bgImage="card-4"
-            title="Learn About India Culture"
-            subText="Culture of India"
+            title="Learn About Indian Culture"
+            subText="Culture of Indian"
           />
           <Card1
             href="blogs/life-style-of-indian-people"

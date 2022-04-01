@@ -30,7 +30,7 @@ const AdmissionProcess = () => {
               </div>
             </Fragment>
           )}
-          <div className="admission-process__heading">Scholarship Options</div>
+          <div className="admission-process__heading">Scholarship Offered</div>
           <div className="admission-process__list">
             {scholarships ? (
               <>

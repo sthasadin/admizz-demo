@@ -22,6 +22,33 @@ export const getTestimonial = () => async (dispatch) => {
   }
 };
 
+
+export const getTestimonialStudent = () => {
+  return async (dispatch: Dispatch) => {
+    try {
+      const response = await db
+        .collection("testimonial")
+        .where("designation", "==", "student")
+        .get();
+      const testimonial: any = [];
+      response.forEach((doc: any) => {
+        testimonial.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+      dispatch({
+        type: TESTIMONIAL_TYPES.GET_STUDENT_TESTIMONIAL,
+        payload: testimonial,
+      });
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
+};
+
+
+
 export const getTestimonialUniversity = () => {
   return async (dispatch: Dispatch) => {
     try {

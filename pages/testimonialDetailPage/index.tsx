@@ -9,6 +9,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { getTestimonialUniversity } from "../../store/Action/testimonial.actions";
+import { getTestimonialStudent } from "../../store/Action/testimonial.actions";
 
 const index = () => {
   const [open, setOpen] = React.useState(false);
@@ -23,13 +24,18 @@ const index = () => {
 
   const dispatch = useDispatch();
 
-  const {universityTestimonial} = useSelector((state:any) =>  state.testimonial)
-useEffect(() =>{
-  dispatch(getTestimonialUniversity());
-},[dispatch]);
+  const { universityTestimonial } = useSelector(
+    (state: any) => state.testimonial
+  );
+   // console.log('uni',universityTestimonial);
+  const { studentTestimonial } = useSelector(
+    (state: any) => state.testimonial
+  );
+  //console.log('student',studentTestimonial);
+  useEffect(() => {
+    dispatch(getTestimonialStudent());
+  }, [dispatch]);
 
-
-  
   const menu = (
     <Menu>
       <Menu.Item className="menu-item-dropdown">
@@ -41,7 +47,6 @@ useEffect(() =>{
           latest
         </a>
       </Menu.Item>
-     
     </Menu>
   );
   return (
@@ -91,19 +96,15 @@ useEffect(() =>{
             </div>
           </div>
 
-          
           <div className="testimonial-array">
-            {universityTestimonial?.map((data,i) => {
-             
+            {studentTestimonial?.map((data, i) => {
               return (
                 <div className="testimonial-detail-page__detailContainer">
                   <div className="detailContainer__imagebox">
                     <img src={data?.image_url} />
                   </div>
                   <div className="detailContainer__info">
-                    <div className="detailContainer__name">
-                      {data?.name}
-                    </div>
+                    <div className="detailContainer__name">{data?.name}</div>
                     <div className="detailContainer__placebox">
                       <div className="detailContainer__place">
                         {data?.designation}
@@ -112,10 +113,10 @@ useEffect(() =>{
                     </div>
                     <div className="detailContainer__coursebox">
                       <div className="detailContainer__course">
-                       {data?.course}
+                        {data?.course}
                       </div>
                       <div className="detailContainer__batch_part">
-                       {data?.subject}
+                        {data?.subject}
                       </div>
                     </div>
                   </div>
@@ -172,13 +173,13 @@ useEffect(() =>{
                     >
                       <Fade in={open}>
                         <div>
-                          <ReactPlayer url="https://youtu.be/CDknjC9aFmg" />
+                          <ReactPlayer url={data?.video_url}/>
                         </div>
                       </Fade>
                     </Modal>
 
                     <div className="introduction__watch__label">
-                      <a href="https://youtu.be/CDknjC9aFmg" target="_blank">
+                      <a href={data?.video_url} target="_blank">
                         Watch Video
                       </a>
                     </div>
@@ -187,7 +188,7 @@ useEffect(() =>{
                   <div className="detail_container_content_box">
                     <div className="detail_container_content-arrow">"</div>
                     <div className="detail_container_content">
-                    {data?.designation}
+                      {data?.description}
                     </div>
                     <div className="detail_container_content-arrow-next">"</div>
                   </div>

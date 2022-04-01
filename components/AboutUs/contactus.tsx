@@ -26,9 +26,9 @@ const contact = () => {
                   <span style={{fontSize:14}}>
                     2nd Floor, Jayaram Building, Kanakapura Rd, 
                     
-                    Gubbalala, Subramanyapura,
+                    Gubbalala, Bengaluru, Karnataka 560062
+
                     <br />
-                    Bengaluru, Karnataka 560062, India
                   </span>
                 </div>
                 <div className="contact-form__details-content">

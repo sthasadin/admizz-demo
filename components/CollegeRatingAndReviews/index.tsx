@@ -196,15 +196,19 @@ const RatingAndReview = (props: any) => {
       <div className="rating-review__rating__header border-bottom">
         <div className="rating-review__rating__left">
           <div className="rating-review__rating__title">Student Reviews</div>
-          <div className="rating-review__rating__subheading">
-            Showing results for Most relevent reviews
-          </div>
+          {!reviews?.all_reviews.length && !reviews?.all_reviews.length && (
+             <div >
+           No reviews Yet
+           </div>
+          )}
+          {reviews && reviews?.all_reviews && reviews?.all_reviews > 0 && (
+                    <div className="rating-review__rating__subheading">
+                    Showing results for Most relevent reviews
+                  </div>
+          )}
+    
         </div>
-        {/* <div className="rating-review__rating__right">
-          <div className="rating-review__cta">
-            <span>Sort By</span>Most Helpful
-          </div>
-        </div> */}
+    
       </div>
 
       {reviews?.all_reviews?.map((review) => (

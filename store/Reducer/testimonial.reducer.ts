@@ -2,7 +2,8 @@ import {TESTIMONIAL_TYPES } from "../const";
 
 const initialState = {
     universityTestimonial : [],
-    universityYear:[]
+    universityYear:[],
+    studentTestimonial:[]
 }
 
 export default (state = initialState,{type,payload} ) =>{
@@ -16,6 +17,11 @@ export default (state = initialState,{type,payload} ) =>{
                     universityYear:payload
 
                 }
+                case TESTIMONIAL_TYPES.GET_STUDENT_TESTIMONIAL:
+                    return{
+                        studentTestimonial:payload
+                    };
+                    
             default:
                 return state
     }

@@ -15,11 +15,11 @@ const Topbar = (props: any) => {
         <div className="topbar__contact">
           <div className="contact">
             <div className="contact__icon">
-              {/* <FontAwesomeIcon icon={faMicrophoneAlt} /> */}
 
               <img src="/email-icon.png" alt="contact-us" />
+             
               <Link href="support@admizz.com ">
-                <span className="contact__info">support@admizz.com </span>
+                <span className="contact__info"> support@admizz.com </span>
               </Link>
             </div>
             <div className="contact__item">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getTestimonial } from "../../store/Action/testimonial.actions";
+import { getTestimonials } from "../../store/Action/testimonial.actions";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
@@ -27,7 +27,7 @@ const Testimonial = (props: any) => {
   const dispatch = useDispatch();
 
   const getAllTestimonal = async () => {
-    const fetchTestimonal = await dispatch<any>(getTestimonial());
+    const fetchTestimonal = await dispatch<any>(getTestimonials());
     setTestimonialList(fetchTestimonal);
   };
 

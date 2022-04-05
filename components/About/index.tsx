@@ -19,9 +19,12 @@ const About = () => {
           </p>
         </div>
         <div className="about-country__info">
-          It’s a unique platform for direct admissions of{" "}
-          <span>International Students</span> at reputed colleges/universities
-          in India. <span></span>
+        India has over 
+        <span> 45,000 Degree </span>
+         Colleges,{" "} and around 
+          1018 Universities,
+          <span>1500 top Institutes.</span>
+        
         </div>
         <div className="about-country__thumbnail-wrap">
           <Card1

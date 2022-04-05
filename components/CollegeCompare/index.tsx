@@ -12,7 +12,7 @@ import { RootState } from "../../store/store";
 const index = () => {
   const [isFilterContainer, setIsFilterContainer] = React.useState(false);
   const [selectedFilters, setSelectedFilters] = useState([
-    { label: "QS Ranking", value: "QS_ranking" }, //it should be college field
+    // { label: "QS Ranking", value: "QS_ranking" }, //it should be college field
     { label: "Placement Percentage", value: "placement_percentage" },
     { label: "Total Students", value: "total_students" },
     { label: "Total Courses", value: "total_course" },

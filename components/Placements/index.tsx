@@ -232,11 +232,9 @@ const index = () => {
             })}
           </>
         ) : null}
-      </div>
-
-    
+      </div>   
     </div>
-    {alumnis.viewAllAlmuni?.length ? (
+        {alumnis ? (
     <div id="placement" className="placement">
     <div className="placement__notablealumni">
         <span>Our Notable Alumni</span>

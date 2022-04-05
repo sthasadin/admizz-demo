@@ -1,17 +1,16 @@
 import React from "react";
 import Link from "next/link";
+// import kiitlogo from "public/public/colleges-logo.png";
 
-
-const tieups = ({college}) => {
-    return (
-      
-
-        <div className="our-exclusive-container">
-        <div className="our-exclusive-contents">
-          <div className="our-trusted-texts">our trusted partner</div>
-          <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
-          <div className="university-list">
-            {college &&
+const tieups = ({ college }) => {
+  return (
+    <div className="our-exclusive-container">
+      <div className="our-exclusive-contents">
+        <div className="our-trusted-texts">our trusted partner</div>
+        <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
+        <div className="university-list">
+        
+          {college &&
               college?.map((college) => {
                 return (
                   <div>
@@ -24,11 +23,12 @@ const tieups = ({college}) => {
                   </div>
                 );
               })}
-          </div>
         </div>
-      </div>
-    )
 
-}
+      
+      </div>
+    </div>
+  );
+};
 
 export default tieups;

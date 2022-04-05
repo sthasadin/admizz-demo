@@ -43,11 +43,9 @@ const collegeList = () => {
   const { cityList } = useSelector((state: any) => state.filter);
   const { programName } = useSelector((state: any) => state.filter);
   const { courseLevel } = useSelector((state: any) => state.filter);
-  const { collegesByLimit } = useSelector((state: any) => state.college);
-  console.log('collegesByLimit',collegesByLimit);
-  
+  const { collegesByLimit } = useSelector((state: any) => state.college); console.log('collegesByLimit',collegesByLimit);
   const { totalCollegeCount } = useSelector((state: any) => state.college);
-
+  console.log('collegesByLimit',collegesByLimit);
   const [collegeList, setCollegeList] = useState(collegesByLimit)
 
   const dispatch = useDispatch();

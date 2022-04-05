@@ -119,7 +119,7 @@ const ContactForm = () => {
                 <span>
                     2nd Floor, Jayaram Building, Kanakapura Rd, 
                     
-                    Gubbalala, Bengaluru, Karnataka 560062, 
+                    Gubbalala, Bengaluru, Karnataka 560062
                     
                      
                   </span>
@@ -181,7 +181,7 @@ const ContactForm = () => {
       <div className="contact-form__lets-talk">
         <div className="contact-form__header">Let's Talk</div>
         <div className="contact-form__message">
-          Please tell us a bit about you, your project, and how best to reach
+          Please tell us a bit about you, your query, and how best to reach
           you. We’ll get right back to you.
         </div>
         <Input

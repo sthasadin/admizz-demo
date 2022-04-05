@@ -204,7 +204,7 @@ const CollegeHeader = ({
                   </defs>
                 </svg>
               </div>
-              <div className="task__title">College Tour</div>
+              <div className="task__title">Campus Tour</div>
             </div>
           </div>
         </div>

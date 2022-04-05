@@ -28,7 +28,7 @@ const contact = () => {
                     
                     Gubbalala, Bengaluru, Karnataka 560062
 
-                    <br />
+                   
                   </span>
                 </div>
                 <div className="contact-form__details-content">

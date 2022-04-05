@@ -14,8 +14,7 @@ import { StudentInfo } from "./StudentInfo";
 import ConfirmBook from "./ConfirmSection";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
-import axios from "axios";
-import { API_BASE_URL } from "../../store/const";
+
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -29,12 +28,9 @@ interface studentInfoFormValue {
   home_country: string;
   course: string;
   description: string;
-  // date: string;
-  // time: string;
-  // counsellor: string;
   contact_medium: string;
   contact_id: string;
-  // additional_query: string;
+
 }
 
 interface FirstStepValidateSchema {
@@ -97,26 +93,24 @@ const CounselingStepper = () => {
   const [formValue, setFormValue] = useState({
     date: new Date(),
   } as any);
-
+  const [formValues, setFormValues] = useState({
+    countryCode: "+977",
+  } as studentInfoFormValue);
   const [formError, setFormError] = useState({} as any);
 
   const dispatch = useDispatch();
 
+
   const handleChange = (e: any) => {
-    setFormValue({
-      ...formValue,
-      [e.target.name]: e.target.value,
-    });
-    setFormError({
-      ...formError,
-      [e.target.name]: null,
-    });
-    
-    // if (e.target.name === "home_country") {
-    //   if (e.target.value === "nepal")
-    //     setFormValue({ countryCode: "+977" } as any);
-    //   else setFormValue({ countryCode: "+91" } as any);
-    // }
+    formValue[e.target.name] = e.target.value
+    setFormValue({ ...formValue});
+    setFormError(() => ({ ...formError, [e.target.name]: null }));
+
+    if (e.target.name === "home_country") {
+      if (e.target.value === "nepal") {
+        setFormValue({ ...formValue, countryCode: "+977" } as studentInfoFormValue);
+      } else setFormValue({ ...formValue, countryCode: "+91" } as studentInfoFormValue);
+    }
   };
 
   const dateTimeValidateSchema = yup.object().shape<FirstStepValidateSchema>({
@@ -137,15 +131,9 @@ const CounselingStepper = () => {
       .required("Phone number field should not be empty")
       .typeError("Value should be number"),
     home_country: yup
-      .string()
-      .required("Home country field should not be empty"),
+      .string().required("Please select your country"),
     course: yup.string().required("Course field should not be empty"),
     description: yup.string().required("Description field should not be empty"),
-
-    // date: yup.string().required("Date field should not be empty"),
-    // time: yup.string().required("Time field should not be empty"),
-    // counsellor: yup.string().required("Select one counselor"),
-    // additional_query: yup.string().required("Required query"),
     contact_medium: yup.string().required("Select one medium"),
     contact_id: yup.string().required("Contact id field should not be empty"),
   });
@@ -188,7 +176,7 @@ const CounselingStepper = () => {
           email: formValue.email,
           countryCode: formValue.countryCode,
           phone: formValue.phone,
-          home_country: formValue.home_country,
+         home_country: formValue.home_country,
           course: formValue.course,
           description: formValue.description,
           contact_medium: formValue.contact_medium,
@@ -216,7 +204,7 @@ const CounselingStepper = () => {
         name: formValue.name,
         email: formValue.email,
         countryCode: formValue.countryCode,
-        phone: formValue.phone,
+        phone: formValue.phone ,
         home_country: formValue.home_country,
         course: formValue.course,
         description: formValue.description,

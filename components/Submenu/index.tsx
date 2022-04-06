@@ -7,7 +7,7 @@ import Fade from "@material-ui/core/Fade";
 import { useDispatch } from "react-redux";
 import { addToFavourites } from "@/store/Action/collegefavourite.action";
 import { AuthContext } from "pages/AuthContext";
-
+import videologo from "public/play-btn.png"; 
 import Backdrop from "@material-ui/core/Backdrop";
 import ReactPlayer from "react-player";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
@@ -122,6 +122,9 @@ const Submenu = (props: any) => {
                         />
                       </g>
                     </svg>
+                    {/* <img 
+                   style={{color:'#333'}}
+                    src={videologo}/> */}
                   </div>
                   <Modal
                     aria-labelledby="transition-modal-title"
@@ -148,7 +151,7 @@ const Submenu = (props: any) => {
                       </div>
                     </Fade>
                   </Modal>
-                  <div className="task__title">College Tour</div>
+                  <div className="task__title">Campus Tour</div>
                 </div>
               </div>
             </div>

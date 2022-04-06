@@ -22,9 +22,9 @@ const index = () => {
     if (auth.currentUser && !collegeList.length) {
       dispatch(getColleges());
       dispatch(getStudentApplication(auth.currentUser.uid));
-      console.log("logged in");
+    //  console.log("logged in");
     }else{
-      console.log("not logged in");
+     // console.log("not logged in");
     }
   }, [auth]);
 

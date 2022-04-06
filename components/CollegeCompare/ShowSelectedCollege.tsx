@@ -33,7 +33,7 @@ const ShowSelectedCollege = (props: any) => {
         </div>
        )} 
       <div className="collegelist__collegeimage">
-        <img src={image ? image : '/college-logo.png'} alt="college_profile" />
+        <img src={logo ? logo: '/college-logo.png'} alt="college_profile" />
       </div>
       <div className="collegelist__collegedetails">
         <div className="collegelist_inner">

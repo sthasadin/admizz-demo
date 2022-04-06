@@ -279,7 +279,6 @@ const Register = () => {
                   options={countryList}
                   onChange={handleChange}
                   icon={LocationOnIcon}
-                  title="Home Country"
                   // placeholder="Home Country"
                   name={"country"}
                   error={!!formError.country}

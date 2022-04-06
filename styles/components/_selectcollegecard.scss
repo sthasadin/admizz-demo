@@ -32,7 +32,7 @@
 
         .card__searchField {
           width: 279px;
-          height: 50px;
+          height: 54px;
           // border-color: #4F4F4F;
           border: 1px solid #4f4f4f;
           text-indent: 20px;
@@ -99,8 +99,8 @@
           justify-content: space-between;
 
           .card__collegecardtitle {
-            font-size: 16px;
-            font-weight: 800;
+            font-size: 14px;
+            font-weight: 600;
             color: $primary-color;
             text-decoration: underline;
           }
@@ -115,7 +115,7 @@
 
         .card__collegelocationcontainer {
           display: flex;
-          margin-top: 5px;
+          margin-top: 3px;
           align-items: center;
 
           img {
@@ -124,9 +124,9 @@
           }
 
           .card__collegelocation {
-            margin-left: 5px;
+            margin-left: 3px;
             color: #828282;
-            font-size: 14px;
+            font-size: 13px;
           }
         }
 

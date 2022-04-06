@@ -29,8 +29,8 @@ const Footer = () => {
     setFormError({ subscriber: null });
   };
 
-  const topColleges = useSelector((state:any) => state.footer.topColleges);
-  const topCourses = useSelector((state:any) => state.footer.topCourses);
+  const topColleges = useSelector((state: any) => state.footer.topColleges);
+  const topCourses = useSelector((state: any) => state.footer.topCourses);
   React.useEffect(() => {
     dispatch(getTopColleges());
     dispatch(getTopCourses());
@@ -74,7 +74,7 @@ const Footer = () => {
         await dispatch<any>(addSubscriber(subscriber));
         setSubscriber("");
       }
-    } catch (error) {}
+    } catch (error) { }
     setLoading(false);
   };
   return (
@@ -84,6 +84,13 @@ const Footer = () => {
           <div className="footer__col logo">
             <div className="footer__logo">
               <img src="./footer-logo.png" alt="" />
+             
+            </div>
+            <div>
+            <div className="footer__title">
+              It’s a unique platform for direct admissions of 
+                International Students <br/> at reputed colleges/universities 
+                in India.</div>
             </div>
             <div className="footer__newsletter">
               <div className="footer__newsletter__title">
@@ -139,9 +146,9 @@ const Footer = () => {
                   );
                 })}
 
-              
+
             </div>
-          {/* </div>
+            {/* </div>
           <div className="footer__mobileCol" >
          */}
             <div className="footer__col">
@@ -152,7 +159,7 @@ const Footer = () => {
               <div className="footer__col__item">
                 <Link href="/contact-us">Contact Us</Link>
               </div>
-           
+
               <div className="footer__col__item">
                 <Link href="/faq">FAQs</Link>
               </div>
@@ -163,12 +170,12 @@ const Footer = () => {
           </div>
 
 
-        
+
         </div>
         <div className="footer__middle">
           <div className="footer__middle__left">
             <div className="footer__default">
-              <a href="#" 
+              <a href="#"
               // className="footer__study"
               >STUDY IN INDIA</a>
             </div>
@@ -176,13 +183,13 @@ const Footer = () => {
           <div className="footer__middle__right">
             <div className="social-icons">
               <div>
-                <Facebook theme="outline" size="24" fill="#fff"/>
+                <Facebook theme="outline" size="24" fill="#fff" />
               </div>
               <div>
-              <Twitter theme="outline" size="24" fill="#fff"/>
+                <Twitter theme="outline" size="24" fill="#fff" />
               </div>
               <div>
-              <Instagram theme="outline" size="24" fill="#fff"/>
+                <Instagram theme="outline" size="24" fill="#fff" />
               </div>
             </div>
           </div>

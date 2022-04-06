@@ -26,6 +26,7 @@ interface Props {
   handleChange: (e: any) => void;
   formValue?: any;
   formError: FormError;
+  
 }
 
 const StudentInfo: React.FC<Props> = ({
@@ -98,6 +99,7 @@ const StudentInfo: React.FC<Props> = ({
               name={"home_country"}
               options={countryList}
               onChange={handleChange}
+              title="Home Country"
               value={formValue.home_country}
               errorMessage={formError.home_country}
               error={!!formError.home_country}
@@ -144,7 +146,7 @@ const StudentInfo: React.FC<Props> = ({
         >
           <Grid className={"student-info__grid"} item md={3}>
             <div className={"student-info__contact-medium-label"}>
-              <HeadsetMicIcon className={"student-info__headset"} />
+              {/* <HeadsetMicIcon className={"student-info__headset"} /> */}
               <div>Select Contact Medium</div>
             </div>
             <div className={"student-info__mediums-container"}>

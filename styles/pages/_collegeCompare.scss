@@ -55,9 +55,9 @@
       display: flex;
       align-items: center;
       border-radius: 5px;
-      // margin-left: 230px;
+      //margin-left: 230px;
       justify-content: space-between;
-      // flex-direction: column;
+      //flex-direction: row;
       @media (max-width: 702px) {
         flex-direction: row;
         justify-content: end;

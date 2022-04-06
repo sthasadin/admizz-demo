@@ -8,7 +8,6 @@ import ReactPlayer from "react-player";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { getTestimonialUniversity } from "../../store/Action/testimonial.actions";
 import { getTestimonialStudent } from "../../store/Action/testimonial.actions";
 
 const index = () => {
@@ -24,53 +23,86 @@ const index = () => {
 
   const dispatch = useDispatch();
 
-  const { universityTestimonial } = useSelector(
-    (state: any) => state.testimonial
-  );
-   // console.log('uni',universityTestimonial);
-  const { studentTestimonial } = useSelector(
-    (state: any) => state.testimonial
-  );
-  //console.log('student',studentTestimonial);
-  useEffect(() => {
-    dispatch(getTestimonialStudent());
-  }, [dispatch]);
+  const [setYears, setIsYears] = React.useState(2021);
+  const [setDefault, setIsDefault] = React.useState("latest");
+  const [setpagination, setIsPagination] = React.useState(10);
 
-  const menu = (
+  const { studentTestimonial } = useSelector((state: any) => state.testimonial);
+  useEffect(() => {
+    dispatch(getTestimonialStudent(setYears, setDefault, setpagination));
+  }, [dispatch, setYears, setDefault, setpagination]);
+
+  let years = [];
+  studentTestimonial.map((item) => {
+    if (!years.includes(item?.year)) {
+      years.push(item.year);
+    }
+  });
+  const handleYearChange = (e) => {
+     setIsYears(years[e.key]);
+    console.log('e', e.key)
+  };
+  const handleDefaultChange = () => {
+    setIsDefault;
+  };
+
+  const handlePaginationChange = () => {
+    setIsPagination;
+  };
+
+  const yearsMenu = (
+    <Menu onClick={handleYearChange}>
+      {years?.map((data, i) => {
+        return (
+          <Menu.Item key={i}>
+            <a
+            >
+              {data}
+            </a>
+          </Menu.Item>
+        );
+      })}
+    </Menu>
+  );
+  const sortMenu = (
     <Menu>
       <Menu.Item className="menu-item-dropdown">
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://www.antgroup.com"
+        // href="https://www.antgroup.com"
         >
-          latest
+          Latest
         </a>
       </Menu.Item>
+      <Menu.Item className="menu-item-dropdown">Oldest</Menu.Item>
     </Menu>
   );
   return (
     <>
       <Layout title="Contact Us" stickyBar={true}>
         <div className="testimonial-detail-page">
-          <div className="testimonial-detail-page-title">Testimonials</div>
+          <div className="testimonial-detail-page-title">
+            Student Testimonials
+          </div>
           <div className="testimonial-detail-top">
             <h4>Showing Result</h4>
             <div className="showing-result-content">
               <div className="showing-result-content-col">
                 <h6>Year: </h6>
-                <Dropdown overlay={menu}>
+                <Dropdown overlay={yearsMenu}>
                   <a
                     className="ant-dropdown-link"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={handleYearChange}
+
                   >
-                    2021 <CaretDownOutlined className="dropdown-icon" />
+                    Hover me <CaretDownOutlined className="dropdown-icon" />
                   </a>
                 </Dropdown>
               </div>
               <div className="showing-result-content-col">
                 <h6>Sort By: </h6>
-                <Dropdown overlay={menu}>
+                <Dropdown overlay={sortMenu}>
                   <a
                     className="ant-dropdown-link"
                     onClick={(e) => e.preventDefault()}
@@ -81,14 +113,14 @@ const index = () => {
               </div>
               <div className="showing-result-content-col">
                 <h6>Show </h6>
-                <Dropdown overlay={menu}>
+                {/* <Dropdown overlay={yearMenu}>
                   <a
                     className="ant-dropdown-link"
                     onClick={(e) => e.preventDefault()}
                   >
                     12 <CaretDownOutlined className="dropdown-icon" />
                   </a>
-                </Dropdown>
+                </Dropdown> */}
               </div>
               <div className="showing-result-content-col">
                 <h6>Results</h6>
@@ -98,6 +130,7 @@ const index = () => {
 
           <div className="testimonial-array">
             {studentTestimonial?.map((data, i) => {
+              console.log("studentdata", data);
               return (
                 <div className="testimonial-detail-page__detailContainer">
                   <div className="detailContainer__imagebox">
@@ -109,7 +142,9 @@ const index = () => {
                       <div className="detailContainer__place">
                         {data?.designation}
                       </div>
-                      <div className="detailContainer__batch">Batch: 2019</div>
+                      <div className="detailContainer__batch">
+                        Batch: {data.year}
+                      </div>
                     </div>
                     <div className="detailContainer__coursebox">
                       <div className="detailContainer__course">
@@ -173,7 +208,7 @@ const index = () => {
                     >
                       <Fade in={open}>
                         <div>
-                          <ReactPlayer url={data?.video_url}/>
+                          <ReactPlayer url={data?.video_url} />
                         </div>
                       </Fade>
                     </Modal>

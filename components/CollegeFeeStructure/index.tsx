@@ -113,6 +113,7 @@ const FeeStructure = (props: any) => {
         <div className="fee-structure__title-wrap">
           <div className="fee-structure__title">COURSES OFFERED</div>
           {/* <div className="fee-structure__cta">View All Courses</div> */}
+           
         </div>
         <div className="fee-structure__level">
           <div className="level-list">

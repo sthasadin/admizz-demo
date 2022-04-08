@@ -20,9 +20,12 @@
       flex-direction: column;
     }
   }
-
   .contact__icon {
-    margin-right: 10px;
+    margin-right: 5px;
+    //margin-top: 8px;
+  }
+  .signup__icon {
+    margin-right: 12px;
   }
 
   &__inner {

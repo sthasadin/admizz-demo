@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTestimonialUniversity } from "../../store/Action/testimonial.actions";
+import { getUniversityTestimonials } from "../../store/Action/testimonial.actions";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { LeftOne, RightOne } from "@icon-park/react";
-import { AboutusCard } from "./aboutuscard";
-import Image from 'next/image';
+
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -47,8 +46,9 @@ const international = () => {
   const { universityTestimonial } = useSelector(
     (state: any) => state.testimonial
   );
+  console.log('university',universityTestimonial);
   useEffect(() => {
-    dispatch(getTestimonialUniversity());
+    dispatch(getUniversityTestimonials());
   }, [dispatch]);
 
   const settings = {
@@ -96,7 +96,7 @@ const international = () => {
                     <div className="about-us__cardImage">
                       {/* <Image width={70} height={70} src='/colleges-logo.png' /> */}
                       <img 
-                      src={item?.image_url}
+                      src={item?.image}
                       style={{objectFit:'cover',
                     height:80,width:80,borderRadius:'50%',borderColor:'#E0E0E0'}}
                       />

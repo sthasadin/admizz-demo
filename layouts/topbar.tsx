@@ -1,7 +1,7 @@
 import { faMicrophoneAlt, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AuthContext } from "pages/AuthContext";
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 // import { Select } from "../components";
 import Link from "next/link";
@@ -15,23 +15,19 @@ const Topbar = (props: any) => {
         <div className="topbar__contact">
           <div className="contact">
             <div className="contact__icon">
-
               <img src="/email-icon.png" alt="contact-us" />
-             
+              </div>
               <Link href="support@admizz.com ">
                 <span className="contact__info"> support@admizz.com </span>
               </Link>
-            </div>
-            <div className="contact__item">
-              
-            </div>
+            
+            <div className="contact__item"></div>
             {/* <div className="contact__item">
               <span className="contact__title">Nepal:</span>
               <Link href="tel:+977 9802728444 ">
                 <span className="contact__info">+977 9802728444 </span>
               </Link>
             </div> */}
-          
           </div>
         </div>
         <div className="topbar__right">
@@ -49,6 +45,9 @@ const Topbar = (props: any) => {
                   <FontAwesomeIcon icon={faUserTie} />
                 </div> */}
                 <div className="signup__text">
+                  <div className="signup__icon">
+                    <img src="/user-icon.png" alt="contact-us" />
+                  </div>
                   <Link href="/register">Sign Up</Link>
                 </div>
               </div>
@@ -58,7 +57,7 @@ const Topbar = (props: any) => {
                   {/* <FontAwesomeIcon 
                   icon={faUserTie}
                    /> */}
-                     <img src="/user-icon.png" alt="contact-us" />
+                  <img src="/user-icon.png" alt="contact-us" />
                 </div>
                 <div className="signup__text">
                   <Link href="/studentdashboardmain">Student Dashboard</Link>

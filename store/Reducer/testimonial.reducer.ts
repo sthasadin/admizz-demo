@@ -8,7 +8,7 @@ const initialState = {
 
 export default (state = initialState,{type,payload} ) =>{
     switch(type){
-        case TESTIMONIAL_TYPES.GET_TESTIMONIAL:
+        case TESTIMONIAL_TYPES.GET_UNIVERSITY_TESTIMONIAL:
             return{
                 universityTestimonial:payload
             };

@@ -4,7 +4,6 @@ import { api } from "../api/api";
 
 
 export const getGallery = (college_id: string) =>async (dispatch:Dispatch) =>{
-    // console.log("hereeeee",`/gallery/${college_id}`);
     api
     .get(`/gallery/${college_id}`)
     .then((res)=>{

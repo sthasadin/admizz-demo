@@ -11,11 +11,14 @@ import { AddCollegeRatingAndReview } from "../AddCollegeRatingAndReviews";
 import { Review } from "../Review";
 import { RatingItem } from "./ratingItem";
 import { useRouter } from "next/router";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const RatingAndReview = (props: any) => {
   const [isAddReviewOpen, setIsAddReviewOpen] = useState(false);
   const [reviews, setReviews] = useState(null);
   const [originalReviews, setOriginalReviews] = useState([]);
+  const [snackOpenLogin, setSnackOpenLogin] = React.useState(false as boolean);
   const dispatch = useDispatch();
   const router = useRouter();
   const user = useSelector((state:any) => state.user.authUser);
@@ -100,6 +103,7 @@ const RatingAndReview = (props: any) => {
     if (auth.currentUser) {
       setIsAddReviewOpen(true);
     } else {
+      setSnackOpenLogin(true);
       router.push("/login");
     }
   };
@@ -229,6 +233,15 @@ const RatingAndReview = (props: any) => {
           _getReviews={_getReviews}
         />
       )}
+        <Snackbar
+        open={snackOpenLogin}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpenLogin(false)}
+      >
+        <Alert onClose={() => setSnackOpenLogin(false)} severity="warning">
+          Please Login into your account
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

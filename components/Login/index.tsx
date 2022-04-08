@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { CallToAction } from "../Button/callToAction";
 import { Input } from "../Input";
 import { PasswordField } from "../Input/PasswordField";
 import Link from "next/link";

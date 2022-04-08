@@ -34,7 +34,7 @@ const Register = () => {
     countryCode: "+977",
   } as signUpFormValue);
   const [formError, setFormError] = useState({} as any);
-  const [msgType, setMsgType] = useState("" as any);
+  const [msgType, setMsgType] = useState({} as any);
   const [showPassword, setShowPassword] = useState(false as boolean);
   const [showconfirmPassword, setShowConfirmPassword] = useState(false as boolean);
 
@@ -142,6 +142,17 @@ const Register = () => {
             .sendEmailVerification()
             .then(() => {
               setMsgType("success");
+              setFormError({
+                ...formError,
+              otherErrors:(
+                <div>
+               Successfully registred.{""}
+               <span>
+               Please verify your email.
+               </span>
+                </div>
+              )
+              })
               handleOpenSnackbar();
 
               router.push("/login");
@@ -279,11 +290,12 @@ const Register = () => {
                   options={countryList}
                   onChange={handleChange}
                   icon={LocationOnIcon}
-                  // placeholder="Home Country"
+                  placeholder={"Home Country"}
                   name={"country"}
                   error={!!formError.country}
                   errorMessage={formError.country}
                   value={formValue.country}
+                  
                 />
                 <div className={"student-info__phone-input"}>
                   <CountryCodeDropDown
@@ -366,8 +378,7 @@ const Register = () => {
                 >
                   Register Now
                 </Button>
-
-                {/* <CallToAction className="filled">Register Now</CallToAction> */}
+                 
               </div>
             </form>
           </div>

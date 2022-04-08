@@ -22,6 +22,7 @@ interface Props {
   onChange?: (e: any) => void;
   errorMessage?: string;
   useLabel?: boolean;
+  placeholder?:string;
 }
 
 const Select = (props: Props) => {
@@ -63,6 +64,7 @@ const Select = (props: Props) => {
       bottom: "-16px",
       left: "4px",
     },
+  
   }));
   const classes = useStyles(props);
 
@@ -83,6 +85,7 @@ const Select = (props: Props) => {
         value={props.value}
         className={`${classes.select} ${props.className}`}
         label={props.label}
+        placeholder={props.placeholder}
         defaultValue={props.defaultValue ? props.defaultValue : " "}
         startAdornment={
           props.icon ? (

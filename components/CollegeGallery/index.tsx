@@ -1,22 +1,20 @@
 import React from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getGallery } from "@/store/Action/gallery.action";
 import ReactPlayer from "react-player";
 
 const CollegeGallery = (props) => {
-  const college = useSelector((state:any) => state.college.college);
-  const videos = useSelector((state:any) => state.college.videos);
+  const college = useSelector((state: any) => state.college.college);
+  const videos = useSelector((state: any) => state.college.videos);
 
-  const gallery = useSelector((state:any) =>state.gallery.gallery);
+  const gallery = useSelector((state: any) => state.gallery.gallery);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-
     dispatch(getGallery(college._id));
-
   }, [college]);
 
-  const {images} = gallery;
+  const { images } = gallery;
   return images?.length || videos?.length ? (
     <div id="gallery" className="college-gallery">
       <div className="college-gallery__inner">
@@ -26,28 +24,29 @@ const CollegeGallery = (props) => {
         <div className="college-gallery__heading">
           Photos <span>{images?.length}</span>
         </div>
-    
       
         <div className="college-gallery__list">
-          <div className="college-gallery__left">
-            <div className="college-gallery__left__t">
-              <div className="college-gallery__left__t__l">
-              {images?.map((image:any) => {
-                return(
-                <div className="college-gallery__item">     
-                  <img src={image} alt="" />
+          {images?.map((image: any) => {
+            return (
+              <div className="college-gallery__left">
+                <div className="college-gallery__left__t">
+                  <div className="college-gallery__left__t__l">
+                    <div className="college-gallery__item">
+                      <img src={image} alt="" />
+                    </div>
+                  </div>
                 </div>
-                )
-              })}
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
+
         {videos && videos.length > 0 && (
-        <div className="college-gallery__heading">
-          Videos <span>({videos?.length})</span>
-        </div>
+          <div className="college-gallery__heading">
+            Videos <span>({videos?.length})</span>
+          </div>
         )}
+        {videos && videos.length > 0 && (
         <div className="college-gallery__video">
           <div className="college-gallery__video__left">
             <div className="college-gallery__video__thumbnail">
@@ -120,6 +119,7 @@ const CollegeGallery = (props) => {
             </div>
           </div>
         </div>
+        )}
       </div>
     </div>
   ) : null;

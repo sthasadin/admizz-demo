@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Menu, Dropdown } from "antd";
 import Layout from "../../layouts";
@@ -8,7 +8,8 @@ import ReactPlayer from "react-player";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { getTestimonialStudent } from "../../store/Action/testimonial.actions";
+import { getStudentTestimonials } from "../../store/Action/testimonial.actions";
+
 
 const index = () => {
   const [open, setOpen] = React.useState(false);
@@ -23,31 +24,31 @@ const index = () => {
 
   const dispatch = useDispatch();
 
-  const [setYears, setIsYears] = React.useState(2021);
-  const [setDefault, setIsDefault] = React.useState("latest");
+  const [setYears, setIsYears] = React.useState('');
+  const [setDefault, setIsDefault] = React.useState('asc');
   const [setpagination, setIsPagination] = React.useState(10);
 
   const { studentTestimonial } = useSelector((state: any) => state.testimonial);
   useEffect(() => {
-    dispatch(getTestimonialStudent(setYears, setDefault, setpagination));
+    dispatch(getStudentTestimonials(setYears, setDefault, setpagination));
   }, [dispatch, setYears, setDefault, setpagination]);
 
   let years = [];
-  studentTestimonial.map((item) => {
+  studentTestimonial?.map((item) => {
     if (!years.includes(item?.year)) {
       years.push(item.year);
     }
   });
   const handleYearChange = (e) => {
-     setIsYears(years[e.key]);
-    console.log('e', e.key)
+    setIsYears(years[e.key]);
   };
-  const handleDefaultChange = () => {
-    setIsDefault;
+  const handleDefaultChange = (e) => {
+    setIsDefault(e.key);
+    console.log('key',e.key);
   };
 
-  const handlePaginationChange = () => {
-    setIsPagination;
+  const handlePaginationChange = (e) => {
+    setIsPagination(e.key);
   };
 
   const yearsMenu = (
@@ -55,8 +56,7 @@ const index = () => {
       {years?.map((data, i) => {
         return (
           <Menu.Item key={i}>
-            <a
-            >
+            <a>
               {data}
             </a>
           </Menu.Item>
@@ -65,19 +65,28 @@ const index = () => {
     </Menu>
   );
   const sortMenu = (
-    <Menu>
-      <Menu.Item className="menu-item-dropdown">
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-        // href="https://www.antgroup.com"
-        >
+    <Menu onClick={handleDefaultChange}>
+      <Menu.Item  key={'asc'}>
+        <a>
           Latest
         </a>
       </Menu.Item>
-      <Menu.Item className="menu-item-dropdown">Oldest</Menu.Item>
+      <Menu.Item  key={'desc'}>
+        <a>Oldest</a>
+      </Menu.Item>
     </Menu>
   );
+
+  const PaginationMenu = (
+    <Menu onClick={handlePaginationChange}>
+      <Menu.Item className="menu-item-dropdown" >
+        <a >
+          10
+        </a>
+      
+      </Menu.Item>
+    </Menu>
+  )
   return (
     <>
       <Layout title="Contact Us" stickyBar={true}>
@@ -96,7 +105,7 @@ const index = () => {
                     onClick={handleYearChange}
 
                   >
-                    Hover me <CaretDownOutlined className="dropdown-icon" />
+                    Select Batch <CaretDownOutlined className="dropdown-icon" />
                   </a>
                 </Dropdown>
               </div>
@@ -105,7 +114,7 @@ const index = () => {
                 <Dropdown overlay={sortMenu}>
                   <a
                     className="ant-dropdown-link"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={handleDefaultChange}
                   >
                     Default <CaretDownOutlined className="dropdown-icon" />
                   </a>
@@ -113,14 +122,14 @@ const index = () => {
               </div>
               <div className="showing-result-content-col">
                 <h6>Show </h6>
-                {/* <Dropdown overlay={yearMenu}>
+                <Dropdown overlay={PaginationMenu}>
                   <a
                     className="ant-dropdown-link"
-                    onClick={(e) => e.preventDefault()}
+                    onClick={handlePaginationChange}
                   >
                     12 <CaretDownOutlined className="dropdown-icon" />
                   </a>
-                </Dropdown> */}
+                </Dropdown>
               </div>
               <div className="showing-result-content-col">
                 <h6>Results</h6>
@@ -130,17 +139,16 @@ const index = () => {
 
           <div className="testimonial-array">
             {studentTestimonial?.map((data, i) => {
-              console.log("studentdata", data);
               return (
                 <div className="testimonial-detail-page__detailContainer">
                   <div className="detailContainer__imagebox">
-                    <img src={data?.image_url} />
+                    <img src={data?.image} />
                   </div>
                   <div className="detailContainer__info">
                     <div className="detailContainer__name">{data?.name}</div>
                     <div className="detailContainer__placebox">
                       <div className="detailContainer__place">
-                        {data?.designation}
+                        {data?.testimonial_type}
                       </div>
                       <div className="detailContainer__batch">
                         Batch: {data.year}

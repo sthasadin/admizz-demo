@@ -9,6 +9,7 @@ import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 import { getTopColleges, getTopCourses } from "../store/Action/footer.action";
 import { Facebook, Instagram, Twitter } from "@icon-park/react";
+import Image from 'next/image';
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -83,7 +84,8 @@ const Footer = () => {
         <div className="footer__top">
           <div className="footer__col logo">
             <div className="footer__logo">
-              <img src="./footer-logo.png" alt="" />
+            <Image width={201} height={80} src='/footer-logo.png' />
+           {/* <img src="./footer-logo.png" alt="" /> */}
              
             </div>
             <div>

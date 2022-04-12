@@ -30,7 +30,10 @@ const AdmissionProcess = () => {
               </div>
             </Fragment>
           )}
+
+          {scholarships && scholarships.length > 0 && (
           <div className="admission-process__heading">Scholarship Offered</div>
+          )}
           <div className="admission-process__list">
             {scholarships ? (
               <>
@@ -40,6 +43,8 @@ const AdmissionProcess = () => {
               </>
             ) : null}
           </div>
+        
+              
         </div>
       </div>
     ) : null;

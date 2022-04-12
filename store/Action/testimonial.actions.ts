@@ -1,4 +1,3 @@
-import { db } from "../../firebase";
 import { TESTIMONIAL_TYPES } from "../const";
 import { Dispatch } from "redux";
 import { TestimonialService } from "../api/testimonialApi";
@@ -10,7 +9,7 @@ export const getStudentTestimonials = (setYears,setDefault,setpagination) => asy
   if (response.isSuccess) {
     dispatch({
       type:TESTIMONIAL_TYPES.GET_STUDENT_TESTIMONIAL,
-      payload:response.data.testimonials
+      payload:response.data
     })
     return response.data;
   } else if (!response.isSuccess) {
@@ -31,3 +30,14 @@ export const getUniversityTestimonials = () => async (dispatch:Dispatch) => {
   }
 }
 
+export const getYearList = () => async (dispatch:Dispatch) => {
+  const response = await testimonialService.getTestimonialYear();
+
+  if(response.isSuccess) {
+    dispatch({
+      type:TESTIMONIAL_TYPES.GET_YEAR_LIST,
+      payload:response.data.years
+    })
+  //  return response.data.years;
+  }
+}

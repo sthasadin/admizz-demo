@@ -8,8 +8,10 @@ import ReactPlayer from "react-player";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { getStudentTestimonials } from "../../store/Action/testimonial.actions";
-
+import {
+  getStudentTestimonials,
+  getYearList,
+} from "../../store/Action/testimonial.actions";
 
 const index = () => {
   const [open, setOpen] = React.useState(false);
@@ -23,28 +25,27 @@ const index = () => {
   };
 
   const dispatch = useDispatch();
+  const { studentTestimonial, universityYear, totalDocument } = useSelector(
+    (state: any) => state.testimonial
+  );
 
-  const [setYears, setIsYears] = React.useState('');
-  const [setDefault, setIsDefault] = React.useState('asc');
+  const [setYears, setIsYears] = React.useState("");
+  const [setDefault, setIsDefault] = React.useState("asc");
   const [setpagination, setIsPagination] = React.useState(10);
 
-  const { studentTestimonial } = useSelector((state: any) => state.testimonial);
   useEffect(() => {
     dispatch(getStudentTestimonials(setYears, setDefault, setpagination));
-  }, [dispatch, setYears, setDefault, setpagination]);
+  }, [setYears, setDefault, setpagination]);
 
-  let years = [];
-  studentTestimonial?.map((item) => {
-    if (!years.includes(item?.year)) {
-      years.push(item.year);
-    }
-  });
+  useEffect(() => {
+    dispatch(getYearList());
+  }, []);
+
   const handleYearChange = (e) => {
-    setIsYears(years[e.key]);
+    setIsYears(universityYear[e.key]);
   };
   const handleDefaultChange = (e) => {
     setIsDefault(e.key);
-    console.log('key',e.key);
   };
 
   const handlePaginationChange = (e) => {
@@ -53,12 +54,10 @@ const index = () => {
 
   const yearsMenu = (
     <Menu onClick={handleYearChange}>
-      {years?.map((data, i) => {
+      {universityYear?.map((data, i) => {
         return (
           <Menu.Item key={i}>
-            <a>
-              {data}
-            </a>
+            <a>{data}</a>
           </Menu.Item>
         );
       })}
@@ -66,30 +65,38 @@ const index = () => {
   );
   const sortMenu = (
     <Menu onClick={handleDefaultChange}>
-      <Menu.Item  key={'asc'}>
-        <a>
-          Latest
-        </a>
+      <Menu.Item key={"asc"}>
+        <a>Latest</a>
       </Menu.Item>
-      <Menu.Item  key={'desc'}>
+      <Menu.Item key={"desc"}>
         <a>Oldest</a>
       </Menu.Item>
     </Menu>
   );
 
+  let pgData = [];
+
+  for (let x = 0; x < totalDocument; x++) {
+    pgData.push(x);
+  }
+
   const PaginationMenu = (
     <Menu onClick={handlePaginationChange}>
-      <Menu.Item className="menu-item-dropdown" >
-        <a >
-          10
-        </a>
-      
-      </Menu.Item>
+      {pgData.map((item: any, i: number) => {
+        if(i>0){
+
+          return (
+            <Menu.Item key={i}>
+              <a>{item}</a>
+            </Menu.Item>
+          );
+        }
+      })}
     </Menu>
-  )
+  );
   return (
     <>
-      <Layout title="Contact Us" stickyBar={true}>
+      <Layout title="StudentTestimonials" stickyBar={true}>
         <div className="testimonial-detail-page">
           <div className="testimonial-detail-page-title">
             Student Testimonials
@@ -100,11 +107,7 @@ const index = () => {
               <div className="showing-result-content-col">
                 <h6>Year: </h6>
                 <Dropdown overlay={yearsMenu}>
-                  <a
-                    className="ant-dropdown-link"
-                    onClick={handleYearChange}
-
-                  >
+                  <a className="ant-dropdown-link" onClick={handleYearChange}>
                     Select Batch <CaretDownOutlined className="dropdown-icon" />
                   </a>
                 </Dropdown>
@@ -127,7 +130,7 @@ const index = () => {
                     className="ant-dropdown-link"
                     onClick={handlePaginationChange}
                   >
-                    12 <CaretDownOutlined className="dropdown-icon" />
+                    Pages <CaretDownOutlined className="dropdown-icon" />
                   </a>
                 </Dropdown>
               </div>

@@ -38,7 +38,7 @@
     @media (max-width: 500px) {
       grid-gap: 0;
     }
-  }learnmore
+  }
 
   &__feature__inner {
     padding: 20px 0;
@@ -189,10 +189,10 @@
       text-transform: uppercase;
       a {
         text-decoration: underline;
+        color: #fff;
       }
       img {
         position: absolute;
-
         top: -100%;
         left: 110%;
         transform: translate(-30%, -100%);
@@ -285,6 +285,9 @@
 }
 
 .hideofmobile {
+  .a{
+    color: #5f1802;
+  }
   @media (max-width: 450px) {
     display: none;
   }

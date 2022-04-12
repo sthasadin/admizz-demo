@@ -165,9 +165,6 @@ const Footer = () => {
               <div className="footer__col__item">
                 <Link href="/faq">FAQs</Link>
               </div>
-              <div className="footer__col__item">
-                <Link href="/register">Sign In/Register</Link>
-              </div>
             </div>
           </div>
 

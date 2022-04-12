@@ -7,7 +7,7 @@ export class TestimonialService {
         return data;
     }
     getStudentTestimonial(setYears,setDefault,setpagination){
-        let url = `/testimonials?type=Student&year=${setYears}&filter=${setDefault}&limit=${setpagination}`;
+        let url = `/testimonials?type=Student&year=${setYears}&filterBy=${setDefault}&limit=${setpagination}`;
         let data = getService(url);
         return data;
     }
@@ -21,6 +21,11 @@ export class TestimonialService {
         let data = getService(url);
         return data;
 
+    }
+    getTestimonialYear(){
+        let url = `/testimonials/years`;
+        let data = getService(url);
+        return data;
     }
     
 }

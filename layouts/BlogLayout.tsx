@@ -35,7 +35,8 @@ const BlogLayout = ({ children, title }) => {
         <div className="section-wrapper">
           <ul className="blog-subnavbarcontainer ">
             <li
-              onClick={() => setBlogCategory("All")}
+              onClick={() => 
+                ("All")}
               className={`blog-subnavbar ${
                 blogCategory == "All" ? "active-blognav" : ""
               }`}

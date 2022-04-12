@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -23,6 +23,8 @@ const Submenu = (props: any) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const [snackOpenLogin, setSnackOpenLogin] = React.useState(false as boolean);
+  const [msgType, setMsgType] = useState("" as any);
+  const [formError, setFormError] = useState({} as any);
 
   const college = useSelector((state: any) => state.college.college);
   const { user } = useContext(AuthContext);
@@ -40,7 +42,18 @@ const Submenu = (props: any) => {
       setClick((click) => !click);
       setSnackOpen(true);
     } else {
-      setSnackOpenLogin(true);
+      setMsgType("warning");
+      setFormError({
+        ...formError,
+        otherErrors:(
+          <div>
+            Please Login into your account
+          </div>
+        )
+      })
+      handleOpenSnackbar();
+
+     // setSnackOpenLogin(true);
       router.push("/login");
     }
   };
@@ -49,6 +62,12 @@ const Submenu = (props: any) => {
     setOpen(false);
   };
 
+  const handleOpenSnackbar = () => {
+    setSnackOpen(true);
+  };
+  const handleCloseSnackbar = () => {
+    setSnackOpen(false);
+  };
   const handleScroll = () => {
     if (window.scrollY > 390) {
       setCollegeBarSticky(true);
@@ -219,12 +238,7 @@ const Submenu = (props: any) => {
                 Placements
               </Link>
             </li>
-            {/* <li
-              className={`submenu__item ${state === "qa" ? "active" : ""} `}
-              onClick={() => setState("qa")}
-            >
-              <a to="qna">Q&A</a>
-            </li> */}
+        
           </ul>
         </div>
       </div>
@@ -243,10 +257,10 @@ const Submenu = (props: any) => {
       <Snackbar
         open={snackOpenLogin}
         autoHideDuration={4000}
-        onClose={() => setSnackOpenLogin(false)}
+        onClose={handleCloseSnackbar}
       >
-        <Alert onClose={() => setSnackOpenLogin(false)} severity="warning">
-          Please Login into your account
+        <Alert onClose={handleCloseSnackbar} severity={msgType}>
+         {formError.otherErrors}
         </Alert>
       </Snackbar>
     </div>

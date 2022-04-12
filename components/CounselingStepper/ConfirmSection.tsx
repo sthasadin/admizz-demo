@@ -9,7 +9,6 @@ interface Props {
   handleBack: () => void;
   handleBook: () => void;
   formValue: any;
-
   loading: boolean;
 }
 

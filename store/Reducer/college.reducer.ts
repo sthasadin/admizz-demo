@@ -6,11 +6,13 @@ import {
   COLLEGE_BY_LIMIT,
   TOTAL_COLLEGE,
   COLLEGE_BY_SEARCH,
+  
 } from "../const";
 
 const initialState = {
   college: {},
   colleges: [],
+  compareCollege:'',
   multiLoading: false,
   singleLoading: false,
   collegesByLimit: [],
@@ -45,7 +47,12 @@ export default (state = initialState, action) => {
         collegesByLimit: payload,
         collegeByLimitLoader: false,
       };
+      case COLLEGES_TYPES.GET_COMPARE_LIST:
+        return{
+          ...state,
+          compareCollege:payload
 
+        }
     case TOTAL_COLLEGE:
       return {
         ...state,

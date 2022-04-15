@@ -28,7 +28,7 @@ const Testimonial = (props: any) => {
 
   const getAllTestimonal = async () => {
     const fetchTestimonal = await dispatch<any>(getStudentTestimonials('','',6));
-    setTestimonialList(fetchTestimonal.testimonials);
+    setTestimonialList(fetchTestimonal?.testimonials);
   };
 
   React.useEffect(() => {
@@ -36,7 +36,7 @@ const Testimonial = (props: any) => {
   }, []);
 
   React.useEffect(() => {
-    if (testimonialList.length > 0) {
+    if (testimonialList?.length > 0) {
       testimonialList.map(function (test: any, index: any) {
         if (index === selectedIndex) {
           setselectedTestimonial(test);

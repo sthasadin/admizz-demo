@@ -31,6 +31,17 @@ export const getCollege = (college_slug) => async (dispatch: Dispatch) => {
   }
 };
 
+export const getCompareList = (college_slug) => async (dispatch:Dispatch) => {
+  dispatch(init(COLLEGES_TYPES.GET_COMPARE_LIST));
+  
+  dispatch(success(COLLEGES_TYPES.GET_COMPARE_LIST, college_slug));
+
+  
+console.log('college_slug',college_slug);
+
+  dispatch(finish(COLLEGES_TYPES.GET_COMPARE_LIST));
+}
+
 export const getCollegesByStream = (stream) => async (dispatch: Dispatch) => {
   dispatch(init(COLLEGES_TYPES.GET_COLLEGES));
   const response = await collegeService.getCollegesByStream(stream);

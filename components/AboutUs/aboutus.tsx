@@ -1,7 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
 // import { CallToAction } from "../../Button/callToAction";
-
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";

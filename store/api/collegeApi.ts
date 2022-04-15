@@ -3,7 +3,6 @@ export class CollegeService {
   getColleges() {
     let url = `/college`;
     let data = getService(url);
-    
     return data;
   }
 
@@ -25,7 +24,7 @@ export class CollegeService {
     let data = getService(url);
     return data;
   }
-
+  
   getCollegeByLimit(limit) {
     let body = {};
     let url = `/college/getCollegeByLimit/${limit}`;

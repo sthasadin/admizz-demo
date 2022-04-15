@@ -8,7 +8,6 @@ import { CollegeCourse } from "./collegeCourse";
 import { useRouter } from "next/router";
 
 const CollegesCard = (college) => {
- // console.log("college nn", college);
   const [reviews, setReviews] = React.useState(null);
   const [originalReviews, setOriginalReviews] = React.useState([]);
   const router = useRouter();

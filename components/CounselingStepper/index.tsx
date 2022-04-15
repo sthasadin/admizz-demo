@@ -140,28 +140,23 @@ const CounselingStepper = () => {
 
   const dateTimeValidate = async () => {
     try {
-      console.log('counsellor',formValue.counsellor,);
-      console.log('date',formValue.date);
-      console.log('time',formValue.time);
+
     let docs = [];
 
     // await db.collection("appointment").where("counsellor", "==", formValue.counsellor).where("date", "==", formValue.date).where("time", "==",formValue.time).get().then((querySnapshot) => {
              
     //     // Loop through the data and store
     //     // it in array to display
-    //     console.log('querySnapshot',querySnapshot);
 
     //     querySnapshot?.forEach(element => {
     //         var data = element.data();
     //         docs.push(data)
-    //          console.log("Data",data); 
     //     });
     //})
     let query = db.collection("appointment").where("counsellor", "==", formValue.counsellor)
     // query = query.where("date", "==", formValue.date)
     query = query.where("time", "==",formValue.time)
     await query.get().then((querySnapshot)=>{
-     console.log('querySnapshot',querySnapshot.size);
     //  docs=querySnapshot.size
 
       querySnapshot?.forEach(element => {
@@ -171,10 +166,8 @@ const CounselingStepper = () => {
                  }
             });
     }) 
-    console.log('docs',docs);
           if(docs.length > 0){
         // docs.map((data,i)=>{
-        //   console.log('data',data);
         //   //if(data?.date == formValue.data && data)
         // })
         setBookingError("Sorry! There is already a booking on chosen date and time, Please try changing date and time")

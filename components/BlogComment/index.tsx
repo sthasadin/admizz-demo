@@ -34,7 +34,6 @@ const index = (props: any) => {
   useEffect(() => {
     
     if (auth.currentUser) {
-      //console.log("uid",auth.currentUser.displayName);
       dispatch(getAuthUser(auth.currentUser.uid));
     }else{
     }

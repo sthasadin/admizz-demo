@@ -19,6 +19,7 @@ const index = (props: any) => {
   const [searchKeyword, setSearchKeyword] = React.useState("");
 
   const collegeList = useSelector((state: any) => state.college.colleges);
+  const {compareCollege} = useSelector((state:any) => state.college);
 
   const dispatch = useDispatch();
   React.useEffect(() => {

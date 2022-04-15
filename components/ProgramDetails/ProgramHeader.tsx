@@ -55,7 +55,7 @@ const ProgramHeader = ({ data }) => {
                   setSnackOpen(true);
                 }}
               >
-                <svg
+                {/* <svg
                   width="22"
                   height="20"
                   viewBox="0 0 22 20"
@@ -68,9 +68,9 @@ const ProgramHeader = ({ data }) => {
                     stroke="white"
                     strokeWidth="2px"
                   />
-                </svg>
+                </svg> */}
               </div>
-              <div className="task__title" onClick={handleClick}>Add to Favourite</div>
+              {/* <div className="task__title" onClick={handleClick}>Add to Favourite</div> */}
             </div>
           </div>
         </div>

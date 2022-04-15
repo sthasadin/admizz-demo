@@ -7,7 +7,6 @@ import ShowSelectedCollege from "./ShowSelectedCollege";
 import { useSelector } from "react-redux";
 import CollegeListModal from "./CollegeListModal";
 import CollegeCompareTable from "./CollegeCompareTable";
-import { RootState } from "../../store/store";
 
 const index = () => {
   const [isFilterContainer, setIsFilterContainer] = React.useState(false);
@@ -23,11 +22,20 @@ const index = () => {
   const [isAddCollegeModalOpen, setIsAddCollegeModalOpen] =
     React.useState(false);
   const college = useSelector((state: any) => state.college.college);
+  const { compareCollege } = useSelector((state: any) => state.college);
 
   React.useEffect(() => {
-    if (college) {
-      setSelectedCollege([college]);
+    let storageCollages=localStorage.getItem('clgs')
+
+    let decodedClgs=JSON.parse(storageCollages)
+    // if (college) {
+    //   setSelectedCollege([college]);
+    // }
+
+    if(decodedClgs?.length){
+      setSelectedCollege(decodedClgs);
     }
+
   }, [college]);
 
   const handleAddCollegeModal = (res) => {
@@ -83,58 +91,35 @@ const index = () => {
       </div>
       <div className="comparecollege__addcollegecontainer">
         <div className="inner">
-          {/* show selected college */}
-
-          {/* <div className="comparecollege__collegelist">
-            {/* here college */}
-          {/* {selectedCollege &&
-              selectedCollege.map((collegedata) => {
-                return (
-                  <ShowSelectedCollege
-                    hostId={college._id}
-                    id={collegedata._id}
-                    name={collegedata.name}
-                    logo={collegedata.college_logo}
-                    image={collegedata.college_profile_image}
-                    address={collegedata.address}
-                    removeCollegeFromCard={removeCollegeFromCard}
-                  />
-                );
-              })}  */}
-          {/* <div className="add__div">
-            {selectedCollege.length < 3 ? (
-              <div
-                className="comparecollege__addtemplates"
-                onClick={() => handleAddCollegeModal(true)}
-              >
-                <img src={addCollegeIcon} />
-              </div>
-            
-            ) : (
-              ""
-              
-            )}
-              </div> */}
-          {/* </div> */}
+        
 
           <div className="collegecompare__tablecontainer">
             <div className="collegetable_metacontainer">
               <div className="comparecollege__collegelist">
                 {/* here college */}
                 <div className="add__div">
-            {selectedCollege.length < 3 ? (
-              <div
-                className="comparecollege__addtemplates"
-                onClick={() => handleAddCollegeModal(true)}
-              >
-                <img src={addCollegeIcon} />
-              </div>
-            
-            ) : (
-              ""
-              
-            )}
-              </div>
+                  {selectedCollege.length < 3 ? (
+                    <div
+                      className="comparecollege__addtemplates"
+                      onClick={() => handleAddCollegeModal(true)}
+                    >
+                      <img src={addCollegeIcon} />
+                    </div>
+                  ) : (
+                    <div
+                    className="comparecollege__addtemplates"
+                  >
+                    <strong>
+                    Compared List 
+
+                    </strong>
+                    {/* <div>
+                      Compared List 
+                      </div> */}
+                    {/* <img src={addCollegeIcon} /> */}
+                  </div>
+                  )}
+                </div>
                 {selectedCollege &&
                   selectedCollege.map((collegedata) => {
                     return (
@@ -166,7 +151,7 @@ const index = () => {
               </div>
             </div>
 
-              {/* <div className="collegetable_meta">Comparison details</div> */}
+            {/* <div className="collegetable_meta">Comparison details</div> */}
             <div className="comparetable__container">
               <CollegeCompareTable
                 selectedFilters={selectedFilters}

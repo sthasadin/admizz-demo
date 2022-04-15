@@ -15,7 +15,6 @@ const CollegeCourse = ({ Courses }) => {
             return (
               index < 3 && (
                 <div className="college-course__item" key={index}>
-                  {console.log('courseName',course)}
                   
                   {truncate(course?.courseprogram?.name,20)}{" "}
                 </div>

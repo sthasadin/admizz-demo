@@ -46,7 +46,6 @@ const international = () => {
   const { universityTestimonial } = useSelector(
     (state: any) => state.testimonial
   );
-  console.log('university',universityTestimonial);
   useEffect(() => {
     dispatch(getUniversityTestimonials());
   }, [dispatch]);

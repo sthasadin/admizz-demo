@@ -1,5 +1,5 @@
 // export const API_BASE_URL = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
-export const API_BASE_URL = "https://admizzapi.asterdio.xyz";
+export const API_BASE_URL = "https://api.admizz.com";
 // export const API_BASE_URL ="http://localhost:3005"
 
 export const GLOBAL_ERROR = "GLOBAL_ERROR";
@@ -62,6 +62,7 @@ export const TESTIMONIAL_TYPES = {
 //college
 export const COLLEGES_TYPES = {
   GET_COLLEGES: "GET_COLLEGES",
+  GET_COMPARE_LIST:" GET_COMPARE_LIST",
   GET_COLLEGES_INIT: "GET_COLLEGES_INIT",
   GET_COLLEGES_FINISH: "GET_COLLEGES_FINISH",
 };

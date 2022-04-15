@@ -44,7 +44,7 @@ const ShowSelectedCollege = (props: any) => {
         </div>
         <div className="collegelist__collegeaddress">
           <img src={locationMark} style={{ marginRight: "5px" }} />
-          {truncate(address, 50)}
+          {truncate(address, 40)}
         </div>
       </div>
     </div>

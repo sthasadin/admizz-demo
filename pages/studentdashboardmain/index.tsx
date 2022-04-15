@@ -22,14 +22,11 @@ const index = () => {
     if (auth.currentUser && !collegeList.length) {
       dispatch(getColleges());
       dispatch(getStudentApplication(auth.currentUser.uid));
-    //  console.log("logged in");
     }else{
-     // console.log("not logged in");
     }
   }, [auth]);
 
   const {authUser} = useSelector((state:any)=> state.user)
-console.log("authuser",authUser);
   const collegeList = useSelector((state: any) => state.college.colleges);
   const { application } = useSelector(
     (state: any) => state.student_application

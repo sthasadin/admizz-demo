@@ -103,7 +103,7 @@ const RatingAndReview = (props: any) => {
     if (auth.currentUser) {
       setIsAddReviewOpen(true);
     } else {
-      setSnackOpenLogin(true);
+     // setSnackOpenLogin(true);
       router.push("/login");
     }
   };

@@ -62,13 +62,7 @@ const Navbar = (props: any) => {
     >
       <div className="drawer__header">
         <img src="/whiteLogo.png" alt="admizz_logo" className="img__logo" />
-        {/* <div className="select__boxcontainer">
-          <div className="selectbox__text">Study In</div>
-          <Select className="selectBox">
-            <MenuItem value="usa">USA</MenuItem>
-            <MenuItem value="nepal">NEPAL</MenuItem>
-          </Select>
-        </div> */}
+        
         <img
           src="/crossIcon.png"
           alt="crossIcon_logo"

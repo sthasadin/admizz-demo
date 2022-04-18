@@ -37,7 +37,7 @@ const About = () => {
             bgImage="card-2"
             title="History Of India in a Minute"
             subText="History of India"
-            href="blogs/life-style-of-indian-people"
+            href="blogs/history-of-india-in-a-minute"
           />
           <Card1
             href="blogs/education-system-in-india"

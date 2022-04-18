@@ -11,11 +11,11 @@ import { getBlogs } from "../store/Action/blog.action";
 
 const BlogLayout = ({ children, title }) => {
   const [blogCategory, setBlogCategory] = React.useState("");
-
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(getBlogs(blogCategory));
+
   }, [blogCategory]);
 
   return (
@@ -75,7 +75,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Software-Developer" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/category/software-developer`}>Software Development</Link>
+              <Link href={`/blogs/category/softwaredev`}>Software Development</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Science")}
@@ -91,7 +91,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Medical" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/category/medical`}>Medical</Link>
+              <Link href={`/blogs/category/Medical`}>Medical</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Others")}

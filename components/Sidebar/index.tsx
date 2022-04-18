@@ -18,17 +18,7 @@ const Sidebar = () => {
 
   const handleClick=()=>{
   let clgSlug=college.college_slug
-    // let compareClgs=localStorage.getItem('clgs')
-    // let decoded=JSON.parse(compareClgs);
-
-    // if(decoded?.length){
-    //   let exist=decoded.includes(clgSlug)
-    //   exist?'':decoded.push(college)
-    // }else{
-      // decoded=[college]
-    // }
     localStorage.setItem('clgs',JSON.stringify([college]))
-  //  dispatch(getCompareList(college.college_slug));
     router.push(`/comparecollege`)
   }
   let len = useMemo(() => {

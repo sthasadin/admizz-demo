@@ -120,7 +120,7 @@ const Home = () => {
 
   useEffect(() => {
     _getReviews(_id);
-    // checkcollegeFavourite();
+    checkcollegeFavourite();
   }, [_id]);
 
   useEffect(() => {
@@ -131,7 +131,7 @@ const Home = () => {
 
   const checkcollegeFavourite = () => {
     favorites?.map((item) => {
-      if (item.college._id == _id) {
+      if (item.college?._id == _id) {
         setIsFavourite(true);
         return true
       }
@@ -145,7 +145,7 @@ const Home = () => {
     let flag = false;
     favorites?.forEach((item) => {
 
-      if (item.college._id == id) {
+      if (item.college?._id == id) {
         // setIsFavourite(true);
         flag = true
       }

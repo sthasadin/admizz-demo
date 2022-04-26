@@ -139,7 +139,7 @@ const CollegeFinder = () => {
           <CollegeFinderCard
             name="Pharmacy"
            // count="1259"
-            imgSrc="/college-finder/Pharmacy.png"
+            imgSrc="/college-finder/pharmacy.png"
             alt="travel_logo"
             stream="pharmacy"
 

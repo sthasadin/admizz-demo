@@ -125,7 +125,7 @@ const CollegeHeader = ({
                     <img src="/location4.png" alt="..." />
                   </div>
                   <div className="college-header__meta__title">
-                    {city},&nbsp;{state}
+                    {state},&nbsp;{city}
                   </div>
                 </div>
                 <div className="college-header__meta__item">

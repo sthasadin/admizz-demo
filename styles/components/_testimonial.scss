@@ -300,16 +300,16 @@
   &__text {
   display: flex;
   // justify-content: center;
-  margin-left: 20px;
+  margin-left: 150px;
 }
 &__textDescription {
   color: #30233D;
  text-decoration: line-through;
 }
-&__textDescription {
-  text-align: center;
-  position: fixed;
-}
+// &__textDescription {
+//   text-align: center;
+//   position: fixed;
+// }
   &__quote {
     position: absolute;
     left: 55px;
@@ -320,6 +320,7 @@
     font-size: 18px;
     line-height: 30px;
     text-align: center;
+    margin-left: 200px;
     span {
       font-weight: 400;
     }

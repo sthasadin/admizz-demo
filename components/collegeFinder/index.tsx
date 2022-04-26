@@ -30,14 +30,14 @@ const CollegeFinder = () => {
           <CollegeFinderCard
             name="Agriculture"
             //count="1259"
-            imgSrc="/college-finder/engineering.png"
+            imgSrc="/college-finder/agriculture.png"
             alt="engineering_logo"
             stream="agriculture"
           />
           <CollegeFinderCard
             name="Architecture"
             //count="1259"
-            imgSrc="/college-finder/arts.png"
+            imgSrc="/college-finder/architecture.png"
             alt="art_logo"
             stream="architecture"
 
@@ -45,7 +45,7 @@ const CollegeFinder = () => {
           <CollegeFinderCard
             name="Art & Music"
             //count="1259"
-            imgSrc="/college-finder/arts-music.png"
+            imgSrc="/college-finder/music.png"
             alt="arts-music_logo"
             stream="art&music"
 
@@ -69,7 +69,7 @@ const CollegeFinder = () => {
           <CollegeFinderCard
             name="Dental"
            // count="1259"
-            imgSrc="/college-finder/science.png"
+            imgSrc="/college-finder/Dental.png"
             alt="science_logo"
             stream="dental"
 
@@ -77,7 +77,7 @@ const CollegeFinder = () => {
           <CollegeFinderCard
             name="Design"
            // count="1259"
-            imgSrc="/college-finder/multimedia.png"
+            imgSrc="/college-finder/design.png"
             alt="multimedia_logo"
             stream="design"
 
@@ -85,7 +85,7 @@ const CollegeFinder = () => {
           <CollegeFinderCard
             name="Engineering"
             //count="1259"
-            imgSrc="/college-finder/science.png"
+            imgSrc="/college-finder/engineering.png"
             alt="science_logo"
             stream="engineering"
 
@@ -130,7 +130,7 @@ const CollegeFinder = () => {
           <CollegeFinderCard
             name="Paramedical"
            // count="1259"
-            imgSrc="/college-finder/social-psychology.png"
+            imgSrc="/college-finder/paramedical.png"
             alt="social-psychology_logo"
             stream="paramedical"
 
@@ -139,7 +139,7 @@ const CollegeFinder = () => {
           <CollegeFinderCard
             name="Pharmacy"
            // count="1259"
-            imgSrc="/college-finder/travel.png"
+            imgSrc="/college-finder/Pharmacy.png"
             alt="travel_logo"
             stream="pharmacy"
 
@@ -147,7 +147,7 @@ const CollegeFinder = () => {
           <CollegeFinderCard
             name="Science"
            // count="1259"
-            imgSrc="/college-finder/social-psychology.png"
+            imgSrc="/college-finder/science.png"
             alt="social-psychology_logo"
             stream="science"
 

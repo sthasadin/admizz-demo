@@ -47,7 +47,9 @@ const CollegeListResult: FC<CollegeProps> = ({
 
       {loader && (
         <div className="college-list-result-loader-container">
-          <CollegeCardLoader count={9} />
+          <CollegeCardLoader
+            count={9} 
+           />
         </div>
       )}
 

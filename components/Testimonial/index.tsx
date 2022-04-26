@@ -44,7 +44,12 @@ const Testimonial = (props: any) => {
       });
     }
   }, [testimonialList]);
-
+  const text_truncate = (str) => {
+    return str?.substring(0, 75 - 3) + "...";
+  };
+  const removeHtmlChar = (text) => {
+    return text?.replace(/<[^>]+>/g, "");
+  };
   const handleOpen = () => {
     setOpen(true);
   };
@@ -104,6 +109,7 @@ const Testimonial = (props: any) => {
                           <div
                             className={`testimonial__center__thumbnail${index}`}
                           >
+                           
                             <img
                               src={item?.image}
                               alt="testimonial"
@@ -345,7 +351,7 @@ const Testimonial = (props: any) => {
 
             <div className="testimonial__text">
               <span className="textDescription">
-                {selectedTestimonial?.description}
+                {text_truncate(removeHtmlChar(selectedTestimonial?.description)) }
               </span>
             </div>
             <div className="testimonial__author">

@@ -2,18 +2,19 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
+import { Fab } from "@material-ui/core";
+import ArrowUpward from "@material-ui/icons/KeyboardArrowUp";
 import Layout from "../../layouts";
-
 import { Input } from "../../components/Input";
 import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
 import { CollegeListResult } from "../../components/CollegeListResult";
-
+import { BackTop } from "antd";
 import {
   getCollegeByLimit,
   getCollegeByFilter,
   getCollegeBySearch,
 } from "../../store/Action/college.action";
-
+import BackToTop from "react-back-to-top-button";
 import {
   getCountryList,
   getStateList,
@@ -43,9 +44,9 @@ const collegeList = () => {
   const { cityList } = useSelector((state: any) => state.filter);
   const { programName } = useSelector((state: any) => state.filter);
   const { courseLevel } = useSelector((state: any) => state.filter);
-  const { collegesByLimit } = useSelector((state: any) => state.college); 
+  const { collegesByLimit } = useSelector((state: any) => state.college);
   const { totalCollegeCount } = useSelector((state: any) => state.college);
-  const [collegeList, setCollegeList] = useState(collegesByLimit)
+  const [collegeList, setCollegeList] = useState(collegesByLimit);
 
   const dispatch = useDispatch();
 
@@ -68,7 +69,7 @@ const collegeList = () => {
       getFilterByFilter();
     } else {
       getCollegesArray();
-      getAllFilterList()
+      getAllFilterList();
       setLoadMoreCollege(true);
     }
   }, [filterObj]);
@@ -81,7 +82,6 @@ const collegeList = () => {
     await dispatch<any>(getProgramName({ filter: "_courseStream.name" }));
     await dispatch<any>(getCollegeByLimit(1));
     await dispatch<any>(getTotalCollegeCount());
-
   };
 
   React.useEffect(() => {
@@ -209,7 +209,7 @@ const collegeList = () => {
       stream: [],
       course_level: [],
     });
-    getAllFilterList()
+    getAllFilterList();
   };
 
   return (
@@ -240,7 +240,6 @@ const collegeList = () => {
                   onClick={handleSearch}
                 >
                   Search{" "}
-                 
                 </div>
                 <div
                   className="college-list__searchmobileButton"
@@ -289,6 +288,23 @@ const collegeList = () => {
                   totalCollegeCount={totalCollegeCount}
                   loadMoreCollege={loadMoreCollege}
                 />
+                <BackToTop
+                  showOnScrollUp
+                  showAt={100}
+                  speed={1500}
+                  easing="easeInOutQuint"
+                >
+                  <Fab  color="primary" size="small">
+                      <ArrowUpward />
+                    
+                  </Fab>
+                </BackToTop>
+
+                {/* <Fab style={{ marginRight: 10 }} color="primary" size="small">
+                  <BackTop>
+                    <ArrowUpward />
+                  </BackTop>
+                </Fab> */}
               </div>
             </div>
           </div>

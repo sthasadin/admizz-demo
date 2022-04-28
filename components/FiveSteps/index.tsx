@@ -88,7 +88,7 @@ const FiveSteps = (props: any) => {
               Submit Your Application
             </div>
             <div className="five-steps__mobileitem__desc">
-              Submit your Application though Admizz by filling your right
+              Submit your Application through Admizz by filling your right
               information
             </div>
           </div>
@@ -280,7 +280,7 @@ const FiveStepsList = () => {
               Submit Your Application
             </div>
             <div className="five-steps__item__desc">
-              Submit your Application though Admizz by filling your right
+              Submit your Application through Admizz by filling your right
               information
             </div>
           </div>

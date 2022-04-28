@@ -153,14 +153,7 @@ const CollegeFinder = () => {
 
           />
 
-          {/* <CollegeFinderCard
-                name="Law Enforcement"
-                count="1259"
-                imgSrc="/college-finder/law-enforcement.png"
-                alt="law-enforcement_logo"
-              /> */}
-          {/* </>
-          )} */}
+        
         </div>
         <div className="collegeFinder__middle">
           <CallToAction

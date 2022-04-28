@@ -50,7 +50,7 @@ const index = () => {
               active && "active__vertical"
             } vertical__stickycontainer `}
           >
-            <div className="text__content">Free Counselling</div>
+            <div className="text__content">Free Counseling</div>
          
           </div>
         </Link>

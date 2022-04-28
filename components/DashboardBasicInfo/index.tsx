@@ -197,13 +197,12 @@ const DashboardBasicInfo = (props) => {
   ];
 
   const NepalState = [
-    "Arun",
-    "Janakpur",
-    "Kathmandu",
-    "Gandak",
-    "Kapilavastu",
-    "Karnali",
-    "Mahakali",
+    "Madhesh Province",
+    "	Bagmati Province",
+    "Gandaki Province",
+    "Lumbini Province",
+    "Karnali Province",
+    "	Sudurpashchim Province",
   ];
   const IndianState = [
     "Andhra Pradesh",

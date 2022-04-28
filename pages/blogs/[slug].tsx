@@ -46,7 +46,7 @@ const blogDetail = () => {
 
   const { blog } = useSelector((state: any) => state.blogDetails);
   const { comments } = useSelector((state: any) => state.blog);
-  const shareUrl = `https://admizz.asterdio.xyz/blogs/${slug}`;
+  const shareUrl = `https://beta.admizz.com/blogs/${slug}`;
   const [newComment,setNewComment] = useState(0)
   useEffect(() => {
     dispatch(getBlogDetail(slug));

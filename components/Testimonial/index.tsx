@@ -27,7 +27,9 @@ const Testimonial = (props: any) => {
   const dispatch = useDispatch();
 
   const getAllTestimonal = async () => {
-    const fetchTestimonal = await dispatch<any>(getStudentTestimonials('','',6));
+    const fetchTestimonal = await dispatch<any>(
+      getStudentTestimonials("", "", 6)
+    );
     setTestimonialList(fetchTestimonal?.testimonials);
   };
 
@@ -88,9 +90,8 @@ const Testimonial = (props: any) => {
             <div className="collegeFinder__title block-title">
               Explore and Read Testimonial
             </div>
-          </div>
-
-          <div className="collegeFinder__right hideformobile">
+          </div>          
+          <div className="collegeFinder__right mobiletestimonial">
             <CallToAction onClick={() => router.push("/testimonialDetailPage")}>
               Explore all testimonial
             </CallToAction>
@@ -109,7 +110,6 @@ const Testimonial = (props: any) => {
                           <div
                             className={`testimonial__center__thumbnail${index}`}
                           >
-                           
                             <img
                               src={item?.image}
                               alt="testimonial"
@@ -351,7 +351,9 @@ const Testimonial = (props: any) => {
 
             <div className="testimonial__text">
               <span className="textDescription">
-                {text_truncate(removeHtmlChar(selectedTestimonial?.description)) }
+                {text_truncate(
+                  removeHtmlChar(selectedTestimonial?.description)
+                )}
               </span>
             </div>
             <div className="testimonial__author">
@@ -362,14 +364,12 @@ const Testimonial = (props: any) => {
             </div>
           </div>
 
-          {/* <div className="testimonial__formobile">
-        <Carousel bulletdot="true">
-          {testimonialList &&
-            testimonialList.map((data) => {
-              return <TestimonialCarousel key={data.id} data={data} />;
-            })}
-        </Carousel>
-      </div> */}
+          <div className="collegeFinder__middle">
+          <CallToAction
+            onClick={() => router.push("/testimonialDetailPage")}>
+               explore all testimonial
+          </CallToAction>
+        </div>
         </div>
       </div>
     </div>

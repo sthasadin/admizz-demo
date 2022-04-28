@@ -33,7 +33,7 @@ const index = () => {
               active && "active__vertical"
             } vertical__stickycontainer `}
           >
-            <div className="text__content">Free Counselling</div>
+            <div className="text__content">Free Counseling</div>
          
           </div>
         </Link>
@@ -44,16 +44,7 @@ const index = () => {
             imgSrc="/Hero-images.png"
             videoUrl="https://youtu.be/CDknjC9aFmg"
           />
-          {/* <Introduction
-            title="world"
-            imgSrc="/female-intro.png"
-            videoUrl="https://youtu.be/CDknjC9aFmg"
-          />
-          <Introduction
-            title="helloworld"
-            imgSrc="/male-intro.png"
-            videoUrl="https://youtu.be/CDknjC9aFmg"
-          /> */}
+         
         </Carousel>
       </div>
       {/* <MessengerCustomerChat /> */}

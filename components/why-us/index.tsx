@@ -7,7 +7,7 @@ import { CallToAction } from "../Button/callToAction";
 const Us = ({ college }) => {
   const data = [
     {
-      title: "One on One Counselling",
+      title: "One on One Counseling",
       description:
         "Admizz provides one on one counseling sessions with each of the students who are applying for further studies and helps you in your journey to study in india.",
       icon: (

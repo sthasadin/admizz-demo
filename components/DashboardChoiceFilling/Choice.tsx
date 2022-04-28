@@ -117,7 +117,7 @@ const selectCollege = ({
     let data = [...choices];
 
     let thisCollege = rawColleges.find(
-      (clg) => clg.college.college_slug === e.value
+      (clg) => clg?.college?.college_slug === e.value
     );
     if (
       thisCollege?.college?._id !== undefined &&

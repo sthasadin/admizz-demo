@@ -25,7 +25,7 @@ const FreeCounseling = () => {
             openCounselling()
           }}
           >
-            Book a Free Counselling Session
+            Book a Free Counseling Session
           </div>
           <hr className="free-counseling__divider" />
           <CounselingStepper />

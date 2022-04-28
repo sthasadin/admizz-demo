@@ -253,7 +253,7 @@ const ContactForm = () => {
               onClick={handleRegister}
               className="contact-form__send-message"
               disabled={loading}
-              loading={loading}
+              // loading={loading}
             >
               Send Message
             </Button>

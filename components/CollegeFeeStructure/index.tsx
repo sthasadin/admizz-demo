@@ -195,13 +195,13 @@ const FeeStructure = (props: any) => {
                     <span className="title">{p.eligibility}</span>
                     <span>Eligibility</span>
                   </div>
-                  <Link href={`/colleges/program/${p.slug}`}>
+                  <Link href={`/colleges/program/${p?.slug}`}>
                     <div className="course-fee__details">VIEW DETAIL</div>
                   </Link>
                 </div>
               );
             })}
-            {!programs.length && !streams.length && (
+            {!programs?.length && !streams?.length && (
               <div style={{ textAlign: "center" }}>
                 Sorry course is not available at the moment.
               </div>

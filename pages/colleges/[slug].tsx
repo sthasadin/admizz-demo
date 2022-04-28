@@ -43,7 +43,7 @@ const Home = () => {
   const router = useRouter();
   const { slug } = router.query;
 
-  const _getReviews = async (college_id) => {
+  const _getReviews = async (college_id:any) => {
     const res = await dispatch<any>(getReviews(college_id));
 
     //make proper datastructure
@@ -130,7 +130,7 @@ const Home = () => {
   }, [user]);
 
   const checkcollegeFavourite = () => {
-    favorites?.map((item) => {
+    favorites?.map((item:any) => {
       if (item.college?._id == _id) {
         setIsFavourite(true);
         return true
@@ -140,7 +140,7 @@ const Home = () => {
     return false
   };
   
-  const checkcollegeFavouriteWithId = (id) => {
+  const checkcollegeFavouriteWithId = (id:any) => {
     
     let flag = false;
     favorites?.forEach((item) => {

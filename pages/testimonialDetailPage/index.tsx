@@ -83,8 +83,7 @@ const index = () => {
   const PaginationMenu = (
     <Menu onClick={handlePaginationChange}>
       {pgData.map((item: any, i: number) => {
-        if(i>0){
-
+        if (i > 0) {
           return (
             <Menu.Item key={i}>
               <a>{item}</a>
@@ -107,30 +106,36 @@ const index = () => {
               <div className="showing-result-content-col">
                 <h6>Year: </h6>
                 <Dropdown overlay={yearsMenu}>
-                  <a className="ant-dropdown-link" onClick={handleYearChange}>
-                    Select Batch <CaretDownOutlined className="dropdown-icon" />
+                  <a className="ant-dropdown-link">
+                    Select Batch{" "}
+                    <CaretDownOutlined
+                      onClick={handleYearChange}
+                      className="dropdown-icon"
+                    />
                   </a>
                 </Dropdown>
               </div>
               <div className="showing-result-content-col">
                 <h6>Sort By: </h6>
                 <Dropdown overlay={sortMenu}>
-                  <a
-                    className="ant-dropdown-link"
-                    onClick={handleDefaultChange}
-                  >
-                    Default <CaretDownOutlined className="dropdown-icon" />
+                  <a className="ant-dropdown-link">
+                    Default{" "}
+                    <CaretDownOutlined
+                      onClick={handleDefaultChange}
+                      className="dropdown-icon"
+                    />
                   </a>
                 </Dropdown>
               </div>
               <div className="showing-result-content-col">
                 <h6>Show </h6>
                 <Dropdown overlay={PaginationMenu}>
-                  <a
-                    className="ant-dropdown-link"
-                    onClick={handlePaginationChange}
-                  >
-                    Pages <CaretDownOutlined className="dropdown-icon" />
+                  <a className="ant-dropdown-link">
+                    Pages{" "}
+                    <CaretDownOutlined
+                      onClick={handlePaginationChange}
+                      className="dropdown-icon"
+                    />
                   </a>
                 </Dropdown>
               </div>

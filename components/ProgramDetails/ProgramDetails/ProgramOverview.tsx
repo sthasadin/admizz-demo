@@ -7,6 +7,7 @@ import renderHTML from "react-render-html";
 import Carousel from "../../ProgramCollegeCarousel";
 
 const ProgramOverview = ({ data, collegeBarSticky }) => {
+  console.log('data',data);
   const dispatch = useDispatch();
   const collegeList = useSelector((state: any) => state.college.colleges);
 
@@ -46,7 +47,7 @@ const ProgramOverview = ({ data, collegeBarSticky }) => {
             <div className="content-right-text">{data?.exam_type}</div>
 
             <div className="content-right-text">{data?.average_salary}</div>
-            <div className="content-right-text">{data?.exam_type}</div>
+            <div className="content-right-text">{data?.eligibility}</div>
           </div>
         </div>
       </div>

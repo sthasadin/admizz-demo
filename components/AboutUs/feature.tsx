@@ -13,7 +13,7 @@ const features = () => {
         <div className="merit__feature__inner section-wrapper">
           <div className="merit__feature__left">
             <div className="merit__title block-title">
-              One on One Counselling session
+              One on One Counseling session
             </div>
             <div className="merit__feature__desc">
             Admizz provides you with a unique and effective career counseling program for international students if you want to pursue your  higher education in India. It provides one on one counseling sessions with each of the students who are applying for further studies in India. It will help you in your journey to Study in India which will make your study abroad journey easier and faster. All the processes will be online which will make the counseling process easier for you. You will get the opportunity to sit with a trained educational counsellor who will guide you to know your strengths and opportunities.

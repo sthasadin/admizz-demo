@@ -5,8 +5,6 @@ import Snackbar from "@material-ui/core/Snackbar";
 import * as yup from "yup";
 import { getLevels, getStreams } from "../../store/Action/courses.action";
 import { useDispatch, useSelector } from "react-redux";
-import { Select } from "../Select";
-import { stage1 } from "../../store/Action/studentdashboard.action";
 import { Button } from "../Button";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 

@@ -82,7 +82,7 @@ const collegeList = () => {
     await dispatch<any>(getCityList({ filter: "city" }));
     await dispatch<any>(getCourseLevel({ filter: "_courseLevel.name" }));
     await dispatch<any>(getProgramName({ filter: "_courseStream.name" }));
-    await dispatch<any>(getCollegeByLimit(1));
+    await dispatch<any>(getCollegeByLimit());
     await dispatch<any>(getTotalCollegeCount());
   };
 
@@ -91,9 +91,9 @@ const collegeList = () => {
   }, []);
 
   const getCollegesArray = async () => {
-    await dispatch<any>(getCollegeByLimit(limit));
+    await dispatch<any>(getCollegeByLimit());
 
-    setLimit(limit + 1);
+   // setLimit(limit + 1);
   };
 
   const handleStreamChange = (e) => {
@@ -194,6 +194,7 @@ const collegeList = () => {
   };
 
   const handleSearch = async () => {
+
     if (collegeListSearchQuery) {
       setLoadMoreCollege(true);
       await dispatch<any>(getCollegeBySearch(collegeListSearchQuery));

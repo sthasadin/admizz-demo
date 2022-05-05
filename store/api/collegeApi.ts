@@ -25,10 +25,9 @@ export class CollegeService {
     return data;
   }
   
-  getCollegeByLimit(limit) {
-    let body = {};
-    let url = `/college/getCollegeByLimit/${limit}`;
-    let data = postService(url, body);
+  getCollegeByLimit() {
+     let url = `/college`;
+    let data = getService(url);
     return data;
   }
 

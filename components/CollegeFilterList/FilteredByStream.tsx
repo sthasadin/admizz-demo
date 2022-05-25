@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomizeCheckBox = withStyles({
+const CustomizeCheckBox= withStyles({
   root: {
     "& .MuiSvgIcon-root": {
       fill: "#828282",
@@ -50,7 +50,7 @@ const FilteredByStream = (props) => {
   const classes = useStyles();
 
   const filtercourse = programName?.filter((item) => {
-    return item._id.toLowerCase().includes(searchKey.toLowerCase());
+    return item._id?.toLowerCase()?.includes(searchKey?.toLowerCase());
   });
 
   return (

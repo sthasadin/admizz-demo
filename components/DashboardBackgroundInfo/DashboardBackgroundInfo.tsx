@@ -19,13 +19,14 @@ interface BackgroundInfo {
   emailAddress: string;
   address: string;
   passportId: string;
+  countryCode: string;
 }
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const CustomRadio = withStyles({
+const CustomRadio:any = withStyles({
   root: {
     color: "#FFA200",
     "&$checked": {
@@ -159,6 +160,7 @@ const DashboardBackgroundInfo = (props) => {
     emailAddress: yup.string().required("Required emailAddress"),
     address: yup.string().required("Required address"),
     passportId: yup.string().required("Required passport id"),
+    countryCode: yup.string().required("Required country code"),
   });
 
   const validate = async () => {
@@ -170,6 +172,7 @@ const DashboardBackgroundInfo = (props) => {
           emailAddress: references.emailAddress,
           address: references.address,
           passportId: passportId,
+          countryCode: references.countryCode
         },
         {
           abortEarly: false,
@@ -485,6 +488,7 @@ const DashboardBackgroundInfo = (props) => {
                     name="upload-photo"
                     type="file"
                     onChange={handleImageChange}
+                    accept="image/*"
                   />
 
                   <UploadButton
@@ -575,12 +579,15 @@ const DashboardBackgroundInfo = (props) => {
                       width={"90px"}
                       value={references.countryCode}
                       // name={"countryCode"}
-                      onChange={(e) =>
+                      onChange={(e) =>{
                         setReferences({
                           ...references,
                           countryCode: e.target.value,
-                        })
-                      }
+                        });
+                        setFormError((prev) => ({ ...prev, countryCode: null }));
+                      }}
+                      errorMessage={formError.countryCode}
+                      error={!!formError.countryCode}
                       className={"student-info__phone-separator"}
                     />
                     <Input

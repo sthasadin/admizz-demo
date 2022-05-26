@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -7,6 +7,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
+import { auth } from "../firebase";
+import { AuthContext } from "pages/AuthContext";
 
 import SearchField from "../components/SearchField";
 import { searchAllItem } from "../store/Action/search.action";
@@ -19,14 +21,19 @@ const Navbar = (props: any) => {
   const [mobileSize, setMobilesize] = React.useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
+  const { auth } = useContext(AuthContext);
 
-  const data = useSelector((state) => state.search.data);
-  const loader = useSelector((state) => state.search.loader);
+  const data = useSelector((state: any) => state.search.data);
+  const loader = useSelector((state: any) => state.search.loader);
 
   const [state, setState] = React.useState({
     top: false,
   });
 
+  const logout = async () => {
+    await auth.signOut();
+    router.push("/");
+  };
   React.useEffect(() => {
     if (keyword) {
       dispatch(searchAllItem({ keyword: keyword }));
@@ -44,26 +51,19 @@ const Navbar = (props: any) => {
     if (event.type === "scrollup") {
       setState({ ...state, top: open });
     }
-
-    setState({ ...state, top: open });
+    setState({ ...state, [anchor]: open });
   };
 
   const list = (anchor) => (
     <div
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
-      // onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
       className="navbar__drawer__container"
     >
       <div className="drawer__header">
         <img src="/whiteLogo.png" alt="admizz_logo" className="img__logo" />
-        {/* <div className="select__boxcontainer">
-          <div className="selectbox__text">Study In</div>
-          <Select className="selectBox">
-            <MenuItem value="usa">USA</MenuItem>
-            <MenuItem value="nepal">NEPAL</MenuItem>
-          </Select>
-        </div> */}
+
         <img
           src="/crossIcon.png"
           alt="crossIcon_logo"
@@ -95,7 +95,7 @@ const Navbar = (props: any) => {
         </ListItem>
         <ListItem button key={"aboutus"} className="navbar__list">
           <Link href="/aboutus">
-            <ListItemText primary={"aboutus"} />
+            <ListItemText primary={"About Us"} />
           </Link>
         </ListItem>
         <ListItem button key={"Contact"} className="navbar__list">
@@ -114,20 +114,42 @@ const Navbar = (props: any) => {
               }}
             >
               <div>
-                {" "}
-                <img src="/user-icon.png" alt="..." />
+                {auth?.currentUser?.emailVerified ? (
+                  <div>
+                    {/* <img src="/user-icon.png" alt="..." /> */}
+                    <div className="MuiTypography-body1" onClick={logout}>
+                      Logout
+                    </div>
+                  </div>
+                ) : (
+                  <div>
+                    {/* <img src="/user-icon.png" alt="..." /> */}
+                    <div className="MuiTypography-body1">Signup/Login</div>
+                  </div>
+                )}
               </div>
-              <div className="MuiTypography-body1">Sign up/Login</div>
             </div>
           </Link>
         </ListItem>
       </List>
 
       <div className="navbar__applyaddresscontainer">
-        <div className="navbar__applynowcontainer">
-          <div className="navbar__applynowtext"> Ready to get started?</div>
+        {!auth?.currentUser?.emailVerified ? (
+          <div className="navbar__applynowcontainer">
+                 <Link href="/register">
+            <Button className="navbar__applybtn">Sign Up</Button>
+            </Link>
+          </div>
+        ) : (
+          <div className="navbar__applynowcontainer">
+            <Link href="/studentdashboardmain">
+              <Button className="navbar__applybtn">Apply Now</Button>
+            </Link>
+          </div>
+        )}
+        {/* <div className="navbar__applynowcontainer">
           <Button className="navbar__applybtn">Apply Now</Button>
-        </div>
+        </div> */}
 
         <div className="navbar__contactcontainer">
           <div className="navbar__contactdetails">
@@ -137,26 +159,26 @@ const Navbar = (props: any) => {
             </div>
             <div className="navbar__contact1">
               <div className="navbar__countryname">Nepal:</div>
-              <div className="navbar__contactnumber">+977 87654321</div>
+              <div className="navbar__contactnumber">+977 9802728444 </div>
             </div>
             <div className="navbar__contact2">
               <div className="navbar__countryname">India:</div>
-              <div className="navbar__contactnumber">+977 87654321</div>
+              <div className="navbar__contactnumber">+91 8050259693</div>
             </div>
           </div>
 
           <div className="navbar__contactdetails">
             <div className="navbar__contactIcons">
               <img src="/contactIcon.png" alt="contact_logo" />
-              <div>Contact us</div>
+              <div>Address</div>
             </div>
             <div className="navbar__contact1">
-              <div className="navbar__countryname">Nepal:</div>
-              <div className="navbar__contactnumber">+977 87654321</div>
+              {/* <div className="navbar__countryname">Nepal:</div> */}
+              <div className="navbar__contactnumber">Putalisadak,Kathmandu</div>
             </div>
             <div className="navbar__contact2">
-              <div className="navbar__countryname">India:</div>
-              <div className="navbar__contactnumber">+977 87654321</div>
+              {/* <div className="navbar__countryname">India:</div> */}
+              <div className="navbar__contactnumber">Bangaluru,Karnataka</div>
             </div>
           </div>
         </div>
@@ -300,12 +322,12 @@ const Navbar = (props: any) => {
             <img src="/menuIcon.png" />
           </Button>
           <Drawer
-            anchor={"top"}
+            anchor={"right"}
             open={state["top"]}
             onClose={toggleDrawer("top", false)}
             className="navbar__drawer"
           >
-            {list("anchor")}
+            {list("top")}
           </Drawer>
         </div>
 

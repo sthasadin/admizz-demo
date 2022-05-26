@@ -34,21 +34,24 @@ const Register = () => {
     countryCode: "+977",
   } as signUpFormValue);
   const [formError, setFormError] = useState({} as any);
-  const [msgType, setMsgType] = useState("" as any);
+  const [msgType, setMsgType] = useState({} as any);
   const [showPassword, setShowPassword] = useState(false as boolean);
+  const [showconfirmPassword, setShowConfirmPassword] = useState(false as boolean);
+
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   const router = useRouter();
 
   const handleChange = (e: any) => {
-    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    formValue[e.target.name] = e.target.value
+    setFormValue({ ...formValue});
     setFormError(() => ({ ...formError, [e.target.name]: null }));
+
     if (e.target.name === "country") {
       if (e.target.value === "Nepal") {
-        console.log(e.target.value, "value");
-        setFormValue({ countryCode: "+977" } as signUpFormValue);
-      } else setFormValue({ countryCode: "+91" } as signUpFormValue);
+        setFormValue({ ...formValue, countryCode: "+977" } as signUpFormValue);
+      } else setFormValue({ ...formValue, countryCode: "+91" } as signUpFormValue);
     }
   };
 
@@ -118,8 +121,12 @@ const Register = () => {
       if (valid) {
         let authUser = await auth.createUserWithEmailAndPassword(
           formValue.email,
-          formValue.password
+          formValue.password,
+          
         );
+        auth.currentUser.updateProfile({
+          displayName:formValue.fullName
+        })
         if (authUser.user) {
           await db
             .collection("users")
@@ -135,6 +142,17 @@ const Register = () => {
             .sendEmailVerification()
             .then(() => {
               setMsgType("success");
+              setFormError({
+                ...formError,
+              otherErrors:(
+                <div>
+               Successfully registred.{""}
+               <span>
+               Please verify your email.
+               </span>
+                </div>
+              )
+              })
               handleOpenSnackbar();
 
               router.push("/login");
@@ -146,10 +164,6 @@ const Register = () => {
               });
               console.error(err);
             });
-
-          //  axios.post(`${API_BASE_URL}/sendmail`, { email: formValue.email });
-
-          // router.push("/studentdashboardmain");
         }
       }
       setLoading(false);
@@ -232,7 +246,7 @@ const Register = () => {
               <div className="signin__item__icon">
                 <img src="/icon/depature-icon.png" alt="admizz-depature" />
               </div>
-              <div className="signin__item__title">Prepare For Departure</div>
+              <div className="signin__item__title">Prepare To Departure</div>
             </div>
           </div>
           <div className="signin__cta">Learn More About Us</div>
@@ -255,6 +269,7 @@ const Register = () => {
                   label="Full Name"
                   error={!!formError.fullName}
                   errorMessage={formError.fullName}
+                  value= {formValue.fullName}
                   type="text"
                 />
                 <Input
@@ -267,6 +282,7 @@ const Register = () => {
                   error={!!formError.email}
                   errorMessage={formError.email}
                   type="text"
+                  value={formValue.email}
                 />
 
                 <Select
@@ -274,11 +290,12 @@ const Register = () => {
                   options={countryList}
                   onChange={handleChange}
                   icon={LocationOnIcon}
-                  title="Home Country"
-                  // placeholder="Home Country"
+                  placeholder={"Home Country"}
                   name={"country"}
                   error={!!formError.country}
                   errorMessage={formError.country}
+                  value={formValue.country}
+                  
                 />
                 <div className={"student-info__phone-input"}>
                   <CountryCodeDropDown
@@ -306,6 +323,7 @@ const Register = () => {
                     error={!!formError.phoneNumber}
                     errorMessage={formError.phoneNumber}
                     type="text"
+                    value={formValue.phoneNumber}
                   />
                 </div>
 
@@ -323,6 +341,7 @@ const Register = () => {
                     setShowPassword((showPassword) => !showPassword)
                   }
                   showPassword={showPassword}
+                  value={formValue.password}
                 />
                 <PasswordField
                   fullWidth
@@ -333,11 +352,12 @@ const Register = () => {
                   placeholder="Confirm Password"
                   error={!!formError.confirmPassword}
                   errorMessage={formError.confirmPassword}
-                  type={`${showPassword ? "text" : "password"}`}
+                  type={`${showconfirmPassword ? "text" : "password"}`}
                   onClick={() =>
-                    setShowPassword((showPassword) => !showPassword)
+                    setShowConfirmPassword((showconfirmPassword) => !showconfirmPassword)
                   }
-                  showPassword={showPassword}
+                  showconfirmPassword={showconfirmPassword}
+                  value={formValue.confirmPassword}
                 />
               </div>
               <div className="signin__info">
@@ -358,8 +378,7 @@ const Register = () => {
                 >
                   Register Now
                 </Button>
-
-                {/* <CallToAction className="filled">Register Now</CallToAction> */}
+                 
               </div>
             </form>
           </div>

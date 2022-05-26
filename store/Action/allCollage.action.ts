@@ -1,4 +1,4 @@
-import { Dispatch } from "react-redux";
+import { Dispatch } from "redux";
 import { api } from "../api/api";
 import { GET_ALL_COLLAGE } from "../const";
 

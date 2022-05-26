@@ -9,7 +9,6 @@ import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import { TrainRounded } from "@material-ui/icons";
 const preObj = { label: "", value: "" };
 const preArr = [];
-
 const _choice = {
   selectedStream: preObj,
   selectedCollege: preObj,
@@ -34,6 +33,8 @@ const DashboardChoiceFilling = ({
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [_appliedColleges, setAppliedColleges] = useState([]);
 
+
+
   function dynamicSort(property) {
     var sortOrder = 1;
     if (property[0] === "-") {
@@ -50,7 +51,7 @@ const DashboardChoiceFilling = ({
     };
   }
 
-  const allStreams = useSelector((state) =>
+  const allStreams = useSelector((state:any) =>
     state.courses.allStreams
       ?.sort(dynamicSort("name"))
       .map(({ name: label, _id: value }) => ({
@@ -72,6 +73,7 @@ const DashboardChoiceFilling = ({
   }, [info]);
 
   function onClickAddChoice() {
+    if(choices[0].selectedCollege.label == "") return
     setChoices([
       ...choices,
       {
@@ -101,21 +103,28 @@ const DashboardChoiceFilling = ({
 
   const handleSave = async () => {
     setLoader(true);
-    setAppliedColleges(
-      choices.map((c: any) => {
+    
+    const colleges = choices.map((c: any) => {
+      if (c.selectedCollege.label){
         return {
-          collegeName: c.selectedCollege?.collegeName || "",
-          image: c.selectedCollege?.image || "",
-          address: c.selectedCollege?.address || "",
-          college_slug: c.selectedCollege?.college_slug,
-          collegeStream: c.selectedStream?.label,
-          collegeProgram: c.selectedProgram?.label,
-          collegeEmail: c.selectedCollege?.email || "",
-        };
-      })
-    );
-    setLoader(false);
-  };
+                collegeName: c.selectedCollege?.collegeName || "",
+                image: c.selectedCollege?.image || "",
+                address: c.selectedCollege?.address || "",
+                college_slug: c.selectedCollege?.college_slug,
+                collegeStream: c.selectedStream?.label,
+                collegeProgram: c.selectedProgram?.label,
+                collegeEmail: c.selectedCollege?.collegeEmail || "",
+              };
+          }
+        })
+      const results = colleges.filter(element => {
+        return element !== undefined;
+      });
+     
+      setAppliedColleges(results);
+      
+      setLoader(false);
+    }
 
   return (
     <div className="dashboard-basic-info">

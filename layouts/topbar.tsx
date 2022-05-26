@@ -1,34 +1,33 @@
 import { faMicrophoneAlt, faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { AuthContext } from "pages/AuthContext";
+import React, { useContext, useEffect, useState } from "react";
 
 // import { Select } from "../components";
 import Link from "next/link";
-import { auth } from "../firebase";
+// import { auth as isAuth } from "../firebase";
 
 const Topbar = (props: any) => {
+  const { auth } = useContext(AuthContext);
   return (
     <div className="topbar">
       <div className="topbar__inner">
         <div className="topbar__contact">
           <div className="contact">
             <div className="contact__icon">
-              {/* <FontAwesomeIcon icon={faMicrophoneAlt} /> */}
-
-              <img src="/contactIcon.png" alt="contact-us" />
-            </div>
-            <div className="contact__item">
+              <img src="/email-icon.png" alt="contact-us" />
+              </div>
+              <Link href="support@admizz.com ">
+                <span className="contact__info"> support@admizz.com </span>
+              </Link>
+            
+            <div className="contact__item"></div>
+            {/* <div className="contact__item">
               <span className="contact__title">Nepal:</span>
-              <Link href="tel:+977 87654321">
-                <span className="contact__info">+977 87654321</span>
+              <Link href="tel:+977 9802728444 ">
+                <span className="contact__info">+977 9802728444 </span>
               </Link>
-            </div>
-            <div className="contact__item">
-              <span className="contact__title">India:</span>
-              <Link href="tel:+977 87654321">
-                <span className="contact__info">+91 87654321</span>
-              </Link>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="topbar__right">
@@ -42,17 +41,23 @@ const Topbar = (props: any) => {
           <div className="topbar__signup">
             {!auth?.currentUser?.emailVerified ? (
               <div className="signup">
-                <div className="signup__icon">
+                {/* <div className="signup__icon">
                   <FontAwesomeIcon icon={faUserTie} />
-                </div>
+                </div> */}
                 <div className="signup__text">
+                  <div className="signup__icon">
+                    <img src="/user-icon.png" alt="contact-us" />
+                  </div>
                   <Link href="/register">Sign Up</Link>
                 </div>
               </div>
             ) : (
               <div className="signup">
                 <div className="signup__icon">
-                  <FontAwesomeIcon icon={faUserTie} />
+                  {/* <FontAwesomeIcon 
+                  icon={faUserTie}
+                   /> */}
+                  <img src="/user-icon.png" alt="contact-us" />
                 </div>
                 <div className="signup__text">
                   <Link href="/studentdashboardmain">Student Dashboard</Link>

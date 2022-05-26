@@ -30,36 +30,52 @@ const CollegeListSelectedFilter = ({ setFilterObj, filterObj }) => {
   }, [filterObj]);
 
   const handleDeselect = (title) => {
-    const removeSelectedCity = filterObj.city.filter((item) => item !== title);
+    const removeSelectedCity = filterObj.city.filter((item) => {
+      return item !== title
+    } 
+  );
 
     if (removeSelectedCity) {
-      console.log("asd");
-      setFilterObj({ ...filterObj, city: removeSelectedCity });
+      filterObj.city =removeSelectedCity 
+      setFilterObj({ ...filterObj});
     }
     const removeSelectedCountry = filterObj.country.filter(
-      (item) => item !== title
+      (item) => {
+        return item !== title
+      } 
     );
     if (removeSelectedCountry) {
-      setFilterObj({ ...filterObj, country: removeSelectedCountry });
+      filterObj.country = removeSelectedCountry
+      setFilterObj({ ...filterObj});
     }
     const removeSelectedCourse = filterObj.course_level.filter(
-      (item) => item !== title
+      (item) => {
+        return item !== title
+      } 
     );
     if (removeSelectedCourse) {
-      setFilterObj({ ...filterObj, course_level: removeSelectedCourse });
+      filterObj.course_level = removeSelectedCourse
+      setFilterObj({ ...filterObj });
     }
     const removeSelectedState = filterObj.state.filter(
-      (item) => item !== title
+      (item) => {
+        return item !== title
+      } 
     );
     if (removeSelectedState) {
-      setFilterObj({ ...filterObj, state: removeSelectedState });
+      filterObj.state = removeSelectedState
+      setFilterObj({ ...filterObj});
     }
     const removeSelectedStream = filterObj.stream.filter(
-      (item) => item !== title
+      (item) => {
+        return item !== title
+      } 
     );
     if (removeSelectedStream) {
-      setFilterObj({ ...filterObj, stream: removeSelectedStream });
+      filterObj.stream = removeSelectedStream
+      setFilterObj({ ...filterObj});
     }
+
   };
   return (
     <div className="college-list-selected-filter">

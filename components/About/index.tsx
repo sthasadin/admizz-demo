@@ -5,7 +5,6 @@ const About = () => {
   return (
     <div className="about-country" id="about-us">
       <div className="inner__about section-wrapper">
-        {/* <div className="container" style={{ border: "1px solid black" }}> */}
         <div className="about-country__heading block-heading">about india</div>
         <div className="about-country__title block-title">
           Learn Something About INDIA
@@ -19,31 +18,40 @@ const About = () => {
           </p>
         </div>
         <div className="about-country__info">
-          India has over <span>300,000 mosques</span> and over{" "}
-          <span>2 million Hindu temples</span>
+        India has over 
+        <span> 45,000 Degree </span>
+         Colleges,{" "} and around 
+          1018 Universities,
+          <span>1500 top Institutes.</span>
+        
         </div>
         <div className="about-country__thumbnail-wrap">
           <Card1
             bgImage="card-1"
             title="Learn About Geography"
             subText="All About India"
+            href="blogs/learn-about-geography"
           />
           <Card1
             bgImage="card-2"
-            title="History Of India in a Min"
+            title="History Of India in a Minute"
             subText="History of India"
+            href="blogs/history-of-india-in-a-minute"
           />
           <Card1
+            href="blogs/education-system-in-india"
             bgImage="card-3"
             title="Education System in India"
             subText="Efficient Education"
           />
           <Card1
+            href="blogs/learn-about-indian-culture"
             bgImage="card-4"
-            title="Learn About India Culture"
-            subText="Culture of India"
+            title="Learn About Indian Culture"
+            subText="Culture of Indian"
           />
           <Card1
+            href="blogs/life-style-of-indian-people"
             bgImage="card-5"
             title="Lifestyle of Indian People"
             subText="Daily Lifestyle"

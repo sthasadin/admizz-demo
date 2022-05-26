@@ -1,0 +1,571 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;500;700;800;900&display=swap");
+.allindia-page {
+  padding: 40px 15px;
+  background-image: url(/background-image.jpg);
+  @media only screen and (min-width: 768px) {
+    padding: 80px 40px;
+  }
+  @media only screen and (min-width: 992px) {
+    padding: 80px 60px;
+    padding-bottom: 130px;
+  }
+  @media only screen and (min-width: 1024px) {
+    padding: 80px 60px;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 80px 80px;
+  }
+  @media only screen and (min-width: 1900px) {
+    padding: 80px 220px;
+  }
+  .all-india-container {
+    max-width: 1440px;
+    margin: auto;
+  }
+  .all-india-watch-video {
+    @media only screen and (min-width: 768px) {
+      margin-left: -20px;
+    }
+    .introduction__watch__label {
+      display: flex;
+      margin-left: 5px;
+    }
+  }
+  .blog-list {
+    width: 100%;
+    .blog-list__title {
+      width: 100%;
+    }
+  }
+  .image {
+    object-fit: cover;
+    display: none;
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      object-fit: cover;
+    }
+  }
+  .imageone {
+    width: 140px;
+    position: absolute;
+    right: 2%;
+    top: 6%;
+    @media only screen and (min-width: 992px) {
+      right: 4%;
+      top: 12%;
+    }
+    @media only screen and (min-width: 1366px) {
+      right: 8%;
+    }
+    @media screen and (min-width: 1441px) {
+      display: none;
+    }
+  }
+  .imagetwo {
+    object-fit: cover;
+    position: absolute;
+    right: 34%;
+    top: 14%;
+    @media only screen and (min-width: 992px) {
+      top: 25%;
+      right: 32%;
+    }
+    @media only screen and (min-width: 1366px) {
+      top: 28%;
+      right: 32%;
+    }
+  }
+  .imagethree {
+    object-fit: cover;
+    position: absolute;
+    right: 40%;
+    top: 16%;
+    width: 120px;
+    @media only screen and (min-width: 992px) {
+      top: 30%;
+      right: 38%;
+    }
+    @media only screen and (min-width: 1366px) {
+      top: 35%;
+      right: 35%;
+    }
+  }
+  .imagefour {
+    object-fit: cover;
+    position: absolute;
+    right: 42%;
+    top: 45%;
+    @media only screen and (min-width: 992px) {
+      top: 63%;
+      right: 40%;
+    }
+  }
+  .imagefive {
+    object-fit: cover;
+    position: absolute;
+    right: 30%;
+    top: 24%;
+    @media only screen and (min-width: 992px) {
+      top: 39%;
+      right: 29%;
+    }
+    @media only screen and (min-width: 1024px) {
+      top: 34%;
+      right: 28%;
+    }
+    @media only screen and (min-width: 1366px) {
+      top: 36%;
+      right: 27%;
+    }
+  }
+
+  .imagesix {
+    object-fit: cover;
+    position: absolute;
+    right: 22%;
+    top: 10%;
+    @media only screen and (min-width: 992px) {
+      top: 22%;
+    }
+  }
+  .imageEight {
+    object-fit: cover;
+    position: absolute;
+    width: 200px;
+    right: 0%;
+    top: 39%;
+    @media only screen and (min-width: 992px) {
+      top: 40%;
+    }
+    @media only screen and (min-width: 1024px) {
+      width: 210px;
+      top: 36%;
+    }
+    @media only screen and (min-width: 1366px) {
+      top: 38%;
+    }
+    @media screen and (min-width: 1441px) {
+      display: none;
+    }
+  }
+  .imageNine {
+    object-fit: cover;
+    position: absolute;
+    right: 30%;
+    top: 58%;
+    @media only screen and (min-width: 992px) {
+      top: 84%;
+    }
+    @media only screen and (min-width: 1024px) {
+      top: 75%;
+      right: 26%;
+    }
+    @media only screen and (min-width: 1366px) {
+      top: 78%;
+    }
+  }
+  .imageten {
+    object-fit: cover;
+    position: absolute;
+    width: 100px;
+    right: 28%;
+    top: 35%;
+    @media only screen and (min-width: 992px) {
+      top: 54%;
+      right: 26%;
+    }
+    @media only screen and (min-width: 1024px) {
+      top: 48%;
+      width: 120px;
+    }
+    @media only screen and (min-width: 1366px) {
+      top: 50%;
+      right: 22%;
+    }
+  }
+  .all-india-container {
+    // padding: 30px;
+    .allindiapage-intro-header {
+      font-size: 18px;
+      font-weight: 500;
+      color: #ffa200;
+      line-height: 26.73px;
+      margin-bottom: 8px;
+      @media only screen and (min-width: 768px) {
+        width: 60%;
+      }
+      @media only screen and (min-width: 1024px) {
+        width: 60%;
+        font-size: 24px;
+        line-height: 35px;
+      }
+    }
+    .allindiapage-intro-title {
+      width: 100%;
+      font-size: 36px;
+      line-height: 36.25px;
+      font-weight: 800;
+      color: #333;
+
+      // margin-top: 20px;
+      margin-bottom: 20px;
+      @media only screen and (min-width: 768px) {
+        width: 45%;
+      }
+      @media only screen and (min-width: 1024px) {
+        width: 52%;
+        font-size: 64px;
+        line-height: 90px;
+      }
+    }
+    .allindiapage-intro-desc {
+      width: 100%;
+      font-size: 14px;
+      line-height: 21px;
+      color: #828282;
+      margin-bottom: 14px;
+
+      @media only screen and (min-width: 768px) {
+        width: 50%;
+      }
+    }
+
+    .all-india-watch-video {
+      display: flex;
+      align-items: center;
+
+      .play-video {
+        background-color: #5f1802;
+        width: 37px;
+        height: 37px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .video-icon {
+          color: #ffa200;
+          font-size: 28px;
+        }
+      }
+      .watch-video {
+        font-size: 14px;
+        color: #828282;
+        margin-left: 10px;
+        line-height: 21px;
+      }
+    }
+  }
+}
+.study-detail {
+  background-color: white;
+  margin: auto;
+  margin-top: 50px;
+  padding: 15px;
+  position: relative;
+  max-width: 1440px;
+  @media only screen and (min-width: 768px) {
+    padding: 15px 40px;
+  }
+  @media only screen and (min-width: 992px) {
+    padding: 15px 60px;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 15px 80px;
+  }
+  @media screen and (min-width: 1441px) {
+    padding: 15px 0;
+  }
+
+  .study-detail-header {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    line-height: 21px;
+    color: #5f1802;
+
+    @media only screen and (min-width: 1024px) {
+      font-size: 16px;
+    }
+  }
+  .study-detail-title {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 34px;
+    color: #333333;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 24px;
+      margin-top: 5px;
+    }
+    @media only screen and (min-width: 1024px) {
+      margin-top: 12px;
+      font-size: 36px;
+    }
+    span {
+      color: #ffa200;
+    }
+  }
+
+  .para-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    @media only screen and (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    @media only screen and (min-width: 1280px) {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .parabox-one {
+      .study-detail-title-para {
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+      @media only screen and (min-width: 768px) {
+        width: 50%;
+      }
+      @media only screen and (min-width: 1024px) {
+        width: 45%;
+      }
+      @media only screen and (min-width: 1280px) {
+        width: 45%;
+      }
+    }
+    .parabox-two {
+      .study-detail-title-para {
+        font-size: 14px;
+        margin-bottom: 10px;
+        li {
+          display: flex;
+          align-items: center;
+          list-style: none;
+
+          .para-list-type {
+            color: white;
+            background-color: #ffa200;
+            font-size: 14px;
+            text-align: center;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+    .study-detail-title-para {
+      color: #828282;
+      font-size: 14px;
+      line-height: 21px;
+      text-align: justify;
+      @media only screen and (min-width: 768px) {
+        font-size: 16px;
+        padding-right: 40px;
+        text-align: justify;
+      }
+    }
+  }
+  .studydetail-video__thumbnail {
+    width: 290px;
+    margin: 10px 0;
+    @media only screen and (min-width: 375px) {
+      width: 345px;
+    }
+    @media only screen and (min-width: 414px) {
+      width: 384px;
+    }
+    @media only screen and (min-width: 540px) {
+      width: 510px;
+    }
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+      height: 240px;
+    }
+    @media only screen and (min-width: 1200px) {
+      width: 45%;
+    }
+    .studydetail-dot-img {
+      display: none;
+      @media only screen and (min-width: 768px) {
+        display: flex;
+        position: absolute;
+        width: 184px;
+        height: 94px;
+        object-fit: cover;
+        top: 10%;
+        right: 28%;
+        z-index: 0;
+      }
+      @media only screen and (min-width: 840px) {
+        position: absolute;
+        top: 8%;
+        right: 30%;
+      }
+      @media only screen and (min-width: 992px) {
+        top: 5%;
+        right: 34%;
+      }
+      @media only screen and (min-width: 1024px) {
+        right: 38%;
+      }
+      @media only screen and (min-width: 1280px) {
+        top: 2%;
+      }
+      @media only screen and (min-width: 1366px) {
+        // top: 2%;
+      }
+    }
+    .studydetail-video__thumbnail_img {
+      width: 100%;
+      height: 100%;
+
+      @media only screen and (min-width: 768px) {
+        width: 100%;
+        height: 336px;
+        margin-top: 35px;
+        position: relative;
+        z-index: 1;
+      }
+      @media only screen and (min-width: 840px) {
+        height: 320px;
+        margin-top: 30px;
+        margin-left: 5px;
+      }
+      @media only screen and (min-width: 992px) {
+        margin-top: 0px;
+      }
+      @media only screen and (min-width: 1024px) {
+        margin-left: 9%;
+        // margin-top: -20px;
+      }
+      @media only screen and (min-width: 1200px) {
+        margin-left: 11%;
+        margin-top: -20px;
+        height: 300px;
+        width: 520px;
+      }
+      // @media only screen and (min-width: 1280px) {
+      //   margin-top: -50px;
+      //   margin-left: 9%;
+      //   width: 480px;
+      // }
+      @media only screen and (min-width: 1280px) {
+        margin-top: -50px;
+        margin-left: 9%;
+        width: 530px;
+      }
+      @media only screen and (min-width: 1366px) {
+        margin-left: 17%;
+        width: 570px;
+      }
+      @media only screen and (min-width: 1500px) {
+        width: 635px;
+      }
+      @media only screen and (min-width: 1600px) {
+        margin-left: 22%;
+      }
+    }
+    .playicon-study-detail {
+      position: absolute;
+      right: 44%;
+      top: 48%;
+      @media only screen and (min-width: 375px) {
+        top: 50%;
+      }
+      @media only screen and (min-width: 768px) {
+        position: absolute;
+        right: 25%;
+        top: 38%;
+        z-index: 2;
+      }
+      @media only screen and (min-width: 840px) {
+        top: 36%;
+        right: 24%;
+      }
+      @media only screen and (min-width: 1024px) {
+        top: 36%;
+        right: 26%;
+      }
+
+      @media only screen and (min-width: 1200px) {
+        right: 26%;
+        top: 33%;
+      }
+      @media only screen and (min-width: 1280px) {
+        right: 25%;
+        top: 32%;
+        z-index: 2;
+      }
+    }
+  }
+}
+.quotes-container {
+  width: 100%;
+  background-color: #5f1802;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media only screen and (min-width: 768px) {
+    padding: 40px 40px;
+  }
+  @media only screen and (min-width: 1024px) {
+    padding: 60px 80px;
+  }
+  .quotes-container-content {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 29px;
+    color: white;
+    margin: auto;
+    margin-top: 26px;
+    margin-bottom: 20px;
+    max-width: 1440px;
+    @media only screen and (min-width: 768px) {
+      font-size: 20px;
+      line-height: 36px;
+    }
+    @media only screen and (min-width: 1024px) {
+      font-size: 24px;
+      line-height: 35px;
+      letter-spacing: 1.5px;
+    }
+  }
+  .quotes-container-writername {
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    line-height: 35px;
+    max-width: 1440px;
+    margin: auto;
+    @media only screen and (min-width: 768px) {
+      font-size: 24px;
+      line-height: 40px;
+    }
+    @media only screen and (min-width: 768px) {
+      font-size: 32px;
+    }
+  }
+  .invertedcomma {
+    position: relative;
+    font-size: 84px;
+    margin-left: 10px;
+    top: 52px;
+    line-height: 0px;
+    font-style: italic;
+  }
+}

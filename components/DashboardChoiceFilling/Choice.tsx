@@ -22,9 +22,8 @@ const selectCollege = ({
   let { selectedStream, selectedProgram, selectedCollege } = choices[i];
   const coursesService = new CoursesService();
 
-  const selectedLevel = useSelector((state) => state.courses.selectedLevel);
-  const _appliedColleges = useSelector(
-    (state) => state.courses.appliedColleges
+  const selectedLevel = useSelector((state:any) => state.courses.selectedLevel);
+  const _appliedColleges = useSelector((state:any) => state.courses.appliedColleges
   );
 
   const _getPrograms = async (level, stream) => {
@@ -45,16 +44,17 @@ const selectCollege = ({
 
     if (response.isSuccess) {
       setRawColleges(response.data);
-      setallColleges(
-        response?.data?.map((item) => {
-          if (item.college) {
-            return {
-              label: item.college.name,
-              value: item.college.college_slug,
-            };
-          }
-        })
-      );
+      var collegelist =  response?.data?.map((item) => {
+        if(!item.college){
+        }else {
+          return {
+            label: item.college.name,
+            value: item.college.college_slug,
+          };
+        }
+      })
+      collegelist = collegelist.filter(item => item);
+      setallColleges(collegelist);
     }
   };
 
@@ -117,7 +117,7 @@ const selectCollege = ({
     let data = [...choices];
 
     let thisCollege = rawColleges.find(
-      (clg) => clg.college.college_slug === e.value
+      (clg) => clg?.college?.college_slug === e.value
     );
     if (
       thisCollege?.college?._id !== undefined &&

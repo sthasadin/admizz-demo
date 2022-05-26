@@ -54,12 +54,12 @@ const FeeStructure = (props: any) => {
   }, [courses, levels]);
 
   const getCourses = async (id: string) => {
-    let res = await dispatch(getCollegeCourses(id));
+    let res = await dispatch<any>(getCollegeCourses(id));
     setCourses(res);
   };
 
   const getAllLevels = async () => {
-    let res = await dispatch(getLevels());
+    let res = await dispatch<any>(getLevels());
     setLevels(res);
   };
 
@@ -113,6 +113,7 @@ const FeeStructure = (props: any) => {
         <div className="fee-structure__title-wrap">
           <div className="fee-structure__title">COURSES OFFERED</div>
           {/* <div className="fee-structure__cta">View All Courses</div> */}
+           
         </div>
         <div className="fee-structure__level">
           <div className="level-list">
@@ -187,22 +188,22 @@ const FeeStructure = (props: any) => {
                     <div className="course-fee__course">{p.name}</div>
                   </Link>
                   <div className="course-fee__fee">
-                    <span className="title">{p.fee_per_sem}K</span>
+                    <span className="title">{p.fee_per_sem}</span>
                     <span>Estimated Fee</span>
                   </div>
                   <div className="course-fee__eligibility">
                     <span className="title">{p.eligibility}</span>
                     <span>Eligibility</span>
                   </div>
-                  <Link href={`/colleges/program/${p.slug}`}>
+                  <Link href={`/colleges/program/${p?.slug}`}>
                     <div className="course-fee__details">VIEW DETAIL</div>
                   </Link>
                 </div>
               );
             })}
-            {!programs.length && !streams.length && (
+            {!programs?.length && !streams?.length && (
               <div style={{ textAlign: "center" }}>
-                Sorry course is not aviable at the moment.
+                Sorry course is not available at the moment.
               </div>
             )}
           </div>

@@ -5,8 +5,6 @@ import Snackbar from "@material-ui/core/Snackbar";
 import * as yup from "yup";
 import { getLevels, getStreams } from "../../store/Action/courses.action";
 import { useDispatch, useSelector } from "react-redux";
-import { Select } from "../Select";
-import { stage1 } from "../../store/Action/studentdashboard.action";
 import { Button } from "../Button";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
@@ -63,14 +61,12 @@ const DashboardBasicInfo = (props) => {
   const [guardianCity, setGuardianCity] = useState("");
   // const [guardianZipCode, setGuardianZipCode] = useState("" as string);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
-  // const [showExitPrompt, setShowExitPrompt] = useState(true as boolean);
 
   const [formError, setFormError] = useState({} as any);
 
   const dispatch = useDispatch();
 
-  const allLevels = useSelector((state) => state.courses.allLevels);
-  console.log("allLevels",allLevels)
+  const allLevels = useSelector((state:any) => state.courses.allLevels);
   const selectLevelOption = useMemo(() => {
     return allLevels.map((level) => {
       let name =
@@ -199,13 +195,12 @@ const DashboardBasicInfo = (props) => {
   ];
 
   const NepalState = [
-    "Arun",
-    "Janakpur",
-    "Kathmandu",
-    "Gandak",
-    "Kapilavastu",
-    "Karnali",
-    "Mahakali",
+    "Madhesh Province",
+    "	Bagmati Province",
+    "Gandaki Province",
+    "Lumbini Province",
+    "Karnali Province",
+    "	Sudurpashchim Province",
   ];
   const IndianState = [
     "Andhra Pradesh",
@@ -238,14 +233,14 @@ const DashboardBasicInfo = (props) => {
     "Uttarakhand",
     "West Bengal",
   ];
-  const NepalStateOption = NepalState.map((state) => {
+  const NepalStateOption = NepalState.map((state:any) => {
     return {
       label: state,
       value: state,
     };
   });
 
-  const IndiaStateOption = IndianState.map((state) => {
+  const IndiaStateOption = IndianState.map((state:any) => {
     return {
       label: state,
       value: state,
@@ -666,10 +661,15 @@ const DashboardBasicInfo = (props) => {
                     options={CountryOption}
                     handleChange={(e) => {
                       setGuardianCountry(e);
+                      setGuardianState({
+                        label: "",
+                        value: ""
+                      })
                       setFormError((prev) => ({
                         ...prev,
                         guardianCountry: null,
-                      }));
+                        
+                      }))
                       // props.setShowExitPrompt(true);
                     }}
                     defaultvalue={guardianCountry}

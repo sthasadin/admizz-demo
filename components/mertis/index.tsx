@@ -5,7 +5,8 @@ import ReactPlayer from "react-player";
 import Modal from "@material-ui/core/Modal";
 import Link from "next/link";
 import Backdrop from "@material-ui/core/Backdrop";
-
+const MTModal:any=Modal
+const RTReactPlayer:any=ReactPlayer
 const Merits = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -36,12 +37,10 @@ const Merits = () => {
               </div>
               <div className="list-item__text">
                 <div className="list-item__title">
-                  15,000+ Placements in 1,500+ Companies
+                40+ Central Universities, which are controlled by National Department of Higher Education.
                 </div>
                 <div className="list-item__desc">
-                  We continuously strive towards facilitating campus-drives
-                  where eminent companies offer the most worth-while career
-                  opportunities.
+                India is the home of the world's largest university by enrollment, Indira Gandhi National Open University, with 3.5 million students.
                 </div>
               </div>
             </div>
@@ -51,19 +50,19 @@ const Merits = () => {
               </div>
               <div className="list-item__text">
                 <div className="list-item__title">
-                  15,000+ Placements in 1,500+ Companies
+                243 state universities, which are run by state governments
                 </div>
                 <div className="list-item__desc">
-                  We continuously strive towards facilitating campus-drives
-                  where eminent companies offer the most worth-while career
-                  opportunities.
+                Additionally, over 30,000 colleges operate throughout India, 
+                offering more specialized instruction, often in technical fields like engineering.
+                
                 </div>
               </div>
             </div>
           </div>
 
           <CallToAction className="learnmore__btn hideofmobile">
-            <Link href="/blogs">Learn More</Link>
+            <Link href="/allindia">Learn More</Link>
           </CallToAction>
         </div>
         <div className="merit__right">
@@ -92,12 +91,14 @@ const Merits = () => {
             </div>
 
             <div className="formobile">
-              <CallToAction className="learnmore__btn">Learn More</CallToAction>
+              <CallToAction className="learnmore__btn">
+                <Link href="/allindia">Learn More</Link>
+              </CallToAction>
             </div>
           </div>
         </div>
       </div>
-      <Modal
+      <MTModal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -114,13 +115,13 @@ const Merits = () => {
             <div className="cross-icon" onClick={handleClose}>
               X
             </div>
-            <ReactPlayer
+            <RTReactPlayer
               className="react-player"
               url="https://www.youtube.com/watch?v=_xMXR5_CnQM"
             />
           </div>
         </Fade>
-      </Modal>
+      </MTModal>
     </div>
   );
 };

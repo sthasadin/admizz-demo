@@ -11,26 +11,29 @@ import { getColleges } from "../../store/Action/college.action";
 import { withPrivateRoute } from "../withPrivateRoute";
 import { getStudentApplication } from "../../store/Action/studentapplication.action";
 // import { AuthContext } from "../AuthContext";
-import { auth } from "../../firebase";
+import { auth, firebase } from "../../firebase";
 
 const index = () => {
   const dispatch = useDispatch();
   // const { authenticated, user } = useContext(AuthContext);
   useEffect(() => {
+    if(firebase.auth().currentUser.uid){}
+
     if (auth.currentUser && !collegeList.length) {
       dispatch(getColleges());
       dispatch(getStudentApplication(auth.currentUser.uid));
+    }else{
     }
   }, [auth]);
 
+  const {authUser} = useSelector((state:any)=> state.user)
   const collegeList = useSelector((state: any) => state.college.colleges);
   const { application } = useSelector(
     (state: any) => state.student_application
   );
 
-  const loader = useSelector((state) => state.college.multiLoading);
+  const loader = useSelector((state: any) => state.college.multiLoading);
 
-  console.log(application);
   return (
     <DashboardLayout title="Dashboard">
       <div className="student-dashboard-main__mainpage">

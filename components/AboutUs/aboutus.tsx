@@ -1,12 +1,13 @@
 import React from "react";
 import { useRouter } from "next/router";
 // import { CallToAction } from "../../Button/callToAction";
-
-import Modal from "@material-ui/core/Modal";
+ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
 
+const MTModal:any=Modal
+const RTReactPlayer:any=ReactPlayer
 
 const ABOUTUS = (props) => {
   const { title, imgSrc, videoUrl } = props;
@@ -21,17 +22,17 @@ const ABOUTUS = (props) => {
   const handleClose = () => {
     setOpen(false);
   };
-    return (
-        
-        <div className="introduction">
-        <div className="introduction__inner section-wrapper">
+  return (
+    <div className="introduction">
+      <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
           <div className="introduction__title">
             We help you achieve your big dream
           </div>
           <div className="introduction__aboutus__desc">
             Kickstart your career by starting early. Admizz helps you join the
-            right diploma course right after 10th grade so you're always a step ahead of others
+            right diploma course right after 10th grade so you're always a step
+            ahead of others
           </div>
           <div className="u-align-center">
             {videoUrl && (
@@ -65,8 +66,8 @@ const ABOUTUS = (props) => {
                     />
                   </svg>
                 </div>
-
-                <Modal
+              
+                <MTModal
                   aria-labelledby="transition-modal-title"
                   aria-describedby="transition-modal-description"
                   open={open}
@@ -79,14 +80,14 @@ const ABOUTUS = (props) => {
                   }}
                 >
                   <Fade in={open}>
-                    <div className="react-player-container ">
+                    <div className="react-player-container">
                       <div className="cross-icon" onClick={handleClose}>
                         X
                       </div>
-                      <ReactPlayer url={videoUrl} className="react-player" />
+                      <RTReactPlayer url={videoUrl} className="react-player" />
                     </div>
                   </Fade>
-                </Modal>
+                </MTModal>
 
                 <div className="introduction__watch__label">
                   <a href={videoUrl} target="_blank">
@@ -100,12 +101,12 @@ const ABOUTUS = (props) => {
         <div className="introduction__right">
           {/* <div className="introduction__right__background"></div> */}
           <div className="aboutus__right__thumbnail">
-          <img src={imgSrc} alt="..." className="introduction__bannerimg"/>
+            <img src={imgSrc} alt="..." className="introduction__bannerimg" />
           </div>
         </div>
       </div>
     </div>
-    )
-}
+  );
+};
 
 export default ABOUTUS;

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { CallToAction } from "../Button/callToAction";
 import { Input } from "../Input";
 import { PasswordField } from "../Input/PasswordField";
 import Link from "next/link";
@@ -97,7 +96,7 @@ const Login = () => {
           setFormError({
             otherErrors: (
               <div>
-                Please verify your email to access the dashboard.{" "}
+                Please verify your email.{" "}
                 <span
                   onClick={() => sendVerification(res.user)}
                   className="send-email-verification"
@@ -192,7 +191,7 @@ const Login = () => {
               <div className="signin__item__icon">
                 <img src="/icon/depature-icon.png" alt="admizz-depature" />
               </div>
-              <div className="signin__item__title">Prepare For Departure</div>
+              <div className="signin__item__title">Prepare To Departure</div>
             </div>
           </div>
           <div className="signin__cta">Learn More About Us</div>

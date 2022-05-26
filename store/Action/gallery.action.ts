@@ -1,10 +1,9 @@
-import { Dispatch } from "react-redux";
+import { Dispatch } from "redux";
 import { GET_ALL_GALLERY } from "../const";
 import { api } from "../api/api";
 
 
 export const getGallery = (college_id: string) =>async (dispatch:Dispatch) =>{
-    // console.log("hereeeee",`/gallery/${college_id}`);
     api
     .get(`/gallery/${college_id}`)
     .then((res)=>{

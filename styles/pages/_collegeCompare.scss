@@ -2,13 +2,9 @@
   .comparecollege__header {
     height: 129px;
     background-color: #e5e5e5;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    //align-items: center;
-    // overflow-x: auto;
-
     .comparecollege__head {
       display: flex;
       justify-content: space-between;
@@ -59,23 +55,43 @@
       display: flex;
       align-items: center;
       border-radius: 5px;
-      margin-left: 230px;
-      // overflow: auto;
-
-      @media (max-width: 450px) {
-        width: 100%;
-        overflow-x: auto;
+      //margin-left: 230px;
+      justify-content: space-between;
+      //flex-direction: row;
+      @media (max-width: 702px) {
+        flex-direction: row;
+        justify-content: end;
       }
+      @media (max-width: 450px) {
+        //width: 100%;
+        // overflow-x: auto;
+        // min-width: 200px;
+        // min-width: 311px;
+      }
+        .add__div {
+          flex: 1;
+          position: relative;
+          display: flex;
+          padding: 10px;
+        @media (max-width:725px) {
+          height: 80px;
+          width: 200px;
+          margin-bottom: 35px;
+        }
+        @media (max-width:450px) {
+          max-width: 250px;
+        }
 
+        }
       .comparecollege__addtemplates {
-        margin-left: 24px;
+        // margin-left: 24px;
+        margin-right: 16px;
         background-color: rgba(95, 24, 2, 0.08);
         border-radius: 5px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-
         width: 200px;
         height: 103px;
 
@@ -84,10 +100,13 @@
         padding: 10px;
 
         @media (max-width: 450px) {
+          margin-right: 24px;
           min-width: 150px;
-          min-height: 150px;
+          // min-height: 150px;commented by solanki
+          min-height: 103px;
           max-height: 180px;
         }
+
       }
     }
   }

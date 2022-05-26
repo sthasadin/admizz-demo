@@ -14,11 +14,6 @@ const Datepicker = ({ handleChange, formValue }) => {
     });
   };
 
-  // const disablePastDt = () => {
-  //   const yesterday = moment().subtract(1, "day");
-  //   const currentDay = moment().day();
-  //   console.log("asdasd", currentDay, yesterday);
-  // };
 
   const disablePastDt = (current) => {
     const yesterday = moment().subtract(1, "day");

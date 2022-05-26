@@ -1,10 +1,12 @@
 .collegelist__collegecontainer {
   width: 311px;
   height: 103px;
-  margin-left: 24px;
+  min-width: 311px;
+  //margin-left: 24px; 
+  margin-right: 20px;
   background-color: white;
   border-radius: 10px;
-  position: relative;
+  // position: relative; commented by solanki
   display: flex;
   padding: 10px;
   background-color: #fff;
@@ -32,6 +34,13 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
+
+      @media (max-width:730px) {
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+
+      }
     }
   }
   .collegelist__collegedetails {
@@ -40,8 +49,21 @@
 
     .collegelist__collegename {
       font-size: 16px;
-      font-weight: 800;
+      font-weight: 600;
       color: $primary-color;
+      max-width: 300px;
+      // position:absolute;
+      // align-items: center;
+      //display: flex;
+      @media (max-width:1014px) {
+        font-size: 14px;
+      }
+      @media (max-width:730px) {
+        font-size: 12px;
+      }
+      @media (max-width:768px) {
+        font-size: 13px;
+      }
     }
     .collegelist__collegeaddress {
       color: #4f4f4f;
@@ -51,10 +73,27 @@
       margin-top: 9px;
       font-size: 14px;
       align-items: center;
-
-      @media (max-width: 450px) {
+      max-width: 200px;
+      @media (max-width:1014px) {
+        font-size: 12px;
+      }
+      @media (max-width:730px) {
+        font-size: 10px;
+      }
+      @media (max-width:800px) {
+        font-size: 11px;
+       
+      }
+      @media (max-width: 460px) {
         display: none;
       }
+      @media (max-width: 461px) {
+        font-size: 9px;
+
+      }
+      
+
+
     }
   }
 }

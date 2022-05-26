@@ -30,7 +30,7 @@ const CollegesCard = (college) => {
   };
 
   const _getReviews = async (college_id) => {
-    let res = await dispatch(getReviews(college_id));
+    let res = await dispatch<any>(getReviews(college_id));
     setOriginalReviews(res);
 
     //make proper datastructure
@@ -125,12 +125,16 @@ const CollegesCard = (college) => {
                 </div>
               )}
             </div>
-            <img
-              style={{ opacity: 1.5 }}
+            <div
               className="college-image"
-              src={college?.banner ? college?.banner : "/colleges.png"}
-              alt="college"
-            />
+              style={{
+                backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39)),
+            url(${college.banner ? college?.banner : "/colleges.png"})`,
+                objectFit: "contain",
+                height: "100%",
+              }}
+            ></div>
+
             <div className="colleges-card__title-wrap">
               <div className="colleges-card__title">
                 <Link href={`colleges/${college?.college_slug}`}>
@@ -178,11 +182,12 @@ const CollegesCard = (college) => {
                   </div>
                 )}
               </div>
-              {college?.top_courses && (
+              {college?.courses && (
                 <div className="colleges-card__course">
-                  <CollegeCourse courses={college?.top_courses} />
+                  <CollegeCourse Courses={college?.courses} />
                 </div>
               )}
+              
             </div>
           </div>
         </div>

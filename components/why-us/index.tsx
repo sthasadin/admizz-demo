@@ -7,9 +7,9 @@ import { CallToAction } from "../Button/callToAction";
 const Us = ({ college }) => {
   const data = [
     {
-      title: "One on One Counselling session",
+      title: "One on One Counseling",
       description:
-        "Get the right career advice for you and earn your best career certificates.",
+        "Admizz provides one on one counseling sessions with each of the students who are applying for further studies and helps you in your journey to study in india.",
       icon: (
         <svg
           width="60"
@@ -38,9 +38,9 @@ const Us = ({ college }) => {
       ),
     },
     {
-      title: "End to End Assistance Support",
+      title: "End to End Assistance",
       description:
-        "Get the right career advice for you and earn your best career certificates.",
+        "Admizz helps from beginning to the end in admission process and ensures that you get admitted in our favourite university or colleges that you choose.",
       icon: (
         <svg
           width="60"
@@ -60,9 +60,9 @@ const Us = ({ college }) => {
       ),
     },
     {
-      title: "Get Best Scholarships Facility",
+      title: "Get Best Scholarship",
       description:
-        "Get the right career advice for you and earn your best career certificates.",
+        "You can also apply for a scholarship from Admizz. It helps to choose a scholarship according to your course of choices and provides guidance to prepare for it.",
       icon: (
         <svg
           width="71"
@@ -82,9 +82,9 @@ const Us = ({ college }) => {
       ),
     },
     {
-      title: "Be Assured About Your Admission",
+      title: " Admission with Ease",
       description:
-        "Get the right career advice for you and earn your best career certificates.",
+        "Admizz aims to simplify your admission process to your dream university for to study in India. It provides a wide range of courses for 10+2, under-graduate, graduate and doctorate students.",
       icon: (
         <svg
           width="54"

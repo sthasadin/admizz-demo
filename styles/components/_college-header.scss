@@ -55,8 +55,7 @@
     border-radius: 10px;
     background-color: #fff;
     @media (max-width: 414px) {
-      height: 100px;
-      width: 100px;
+      display: none;
     }
     img {
       height: 100%;
@@ -112,11 +111,12 @@
     margin-bottom: 5px;
   }
   &__name {
-    font-size: 30px;
-    font-weight: 800;
+    font-size: 18px;
+    font-weight: 700;
     line-height: 38px;
     margin-bottom: 4px;
     text-transform: uppercase;
+    //max-width: 1100px;
   }
   &__meta {
     display: flex;
@@ -150,6 +150,10 @@
     }
     &__logo {
       margin-right: 8px;
+
+      @media (max-width:414px) {
+        display: none;
+      }
     }
     &__title {
       font-size: 14px;

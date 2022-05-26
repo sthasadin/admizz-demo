@@ -1,16 +1,14 @@
 import React from "react";
 import location from "../../../public/location2.png";
 import checked from "../../../public/checked.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getColleges } from "@/store/Action/college.action";
 
 const CollegeList = (props) => {
   const {
-    collegeProfile,
     name,
     logo,
     address,
-    totalCourse,
-    totalStudent,
-    handleClick,
     id,
     disSelectCollege,
     addSelectedCollege,
@@ -40,11 +38,11 @@ const CollegeList = (props) => {
     <div className="card__collegecard" onClick={() => cardClick(id)}>
       {selectedCard && (
         <div className="card__checkedicon">
-          <img src={checked} />{" "}
+          <img src={checked} />
         </div>
       )}
       <div className="card__collegecardimage">
-        <img src={collegeProfile} />
+        <img src={logo} />
       </div>
       <div className="card__collegecarddetails">
         <div className="card__collegecardheader">

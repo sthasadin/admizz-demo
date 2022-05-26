@@ -14,23 +14,25 @@ import footer from './footer.reducer'
 import search from './allSearch.reducer'
 import singleBlog from './blogDetails.reducer';
 import gallery from './gallery.reducer';
-import faq from './faq.reducer';
+import faqs from './faq.reducer';
+ import testimonial from './testimonial.reducer';
 
 export default combineReducers({
     collageDetails: collageDetailsReducer,
     allBlog: getAllBLogReducer,
     allCollege: getALlCollageReducer,
     blogDetails: blogDetailsReducer,
-    blog,
-    college,
-    user,
-    student_application,
-    courses,
+    blog:blog,
+    college:college,
+    user:user,
+    student_application:student_application,
+    courses:courses,
     filter: filterList,
-    footer,
-    search,
+    footer:footer,
+    search:search,
     favourites:favouriteReducer,
-    singleBlog,
-    gallery,
-    faq
+    singleBlog:singleBlog,
+    gallery:gallery,
+    faqs: faqs,
+    testimonial:testimonial
 })

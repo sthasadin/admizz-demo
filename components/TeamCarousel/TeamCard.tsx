@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import { MdEmail } from "react-icons/md";
-import { AiOutlineTwitter } from "react-icons/ai";
-import { AiFillFacebook } from "react-icons/ai";
-import { AiOutlineInstagram } from "react-icons/ai";
-import { AiFillYoutube } from "react-icons/ai";
-import Groupfive from "./Images/Groupfive.png";
-import Group6 from "./Images/Group6.png";
-import TeamsArray from "./TeamsArray";
+
 import text_truncate from "./Truncate";
-import TeamsMember from "../TeamCarousel/TeamsMember";
-// import "./Team.css";
+import { Facebook, Instagram, Twitter } from "@icon-park/react";
 
 const TeamCard = ({ selectedTeam }: any) => {
   return (
@@ -27,7 +20,6 @@ const TeamCard = ({ selectedTeam }: any) => {
             <span>{selectedTeam?.name}</span>
           </div>
           <div className="teams-list__designation">
-            <span>Market Counsellor</span>
             <span>{selectedTeam?.designation2}</span>
           </div>
           <div className="teams-list__desc">
@@ -38,11 +30,27 @@ const TeamCard = ({ selectedTeam }: any) => {
             {selectedTeam?.email}
           </div>
           <div className="team-social-icons-box">
-            <AiOutlineTwitter className="teams-social-icons" />
-            <AiFillFacebook className="teams-social-icons" />
-            <AiOutlineInstagram className="teams-social-icons" />
-            <AiFillYoutube className="teams-social-icons" />
-            <AiFillYoutube className="teams-social-icons" />
+            {selectedTeam?.twitter && selectedTeam?.twitter.length > 0 && (
+              <div className="teams-social-icons">
+                < a href={selectedTeam?.twitter}>
+                  <Twitter theme="outline" size="20" fill="#828282" />
+                </a>
+              </div>
+            )}
+            {selectedTeam?.instagram && selectedTeam?.instagram.length > 0 && (
+              <div className="teams-social-icons">
+                <a href={selectedTeam?.instagram}>
+                  <Instagram theme="outline" size="20" fill="#828282" />
+                </a>
+              </div>
+            )}
+
+            {selectedTeam?.facebook && selectedTeam?.facebook.length > 0 && (
+              <div className="teams-social-icons">
+                <a href={selectedTeam?.facebook}></a>
+                <Facebook theme="outline" size="22" fill="#828282" />
+              </div>
+            )}
           </div>
         </div>
       </div>

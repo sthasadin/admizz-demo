@@ -10,7 +10,7 @@ import { Button } from "../Button";
 import { withStyles } from "@material-ui/core/styles";
 import { UploadButton } from "../Button/uploadButton";
 
-const CustomRadio = withStyles({
+const CustomRadio:any = withStyles({
   root: {
     color: "#FFA200",
     "&$checked": {
@@ -53,7 +53,6 @@ export const DashboardAcademicInfo = (props) => {
   });
 
  const { value: selectedLevel } = props?.selectedLevel?.selectedLevel;
-//  console.log("selectedLevel",props?.selectedLevel)
 
 
   const [certificatesImage, setCertificatesImage] = useState({
@@ -144,8 +143,7 @@ export const DashboardAcademicInfo = (props) => {
   useEffect(() => {
     if (Object.keys(props.data).length > 0) {
       setSchoolMarks(props.data.schoolMarks);
-      // setLevel0Score(props.data.level0Score);
-
+      // setLevel0Score(props.data.level0Score)
       setLevel1Score(props.data.level1Score);
       setLevel2Score(props.data.level2Score);
       setDiplomaScore(props.data.diplomaScore);

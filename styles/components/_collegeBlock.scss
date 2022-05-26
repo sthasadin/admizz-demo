@@ -1,24 +1,24 @@
 .collegesBlock {
   margin: 40px 0;
   overflow: hidden;
-  &__inner {
-    // @media (min-width: 768px) {
-    //   width: 720px;
-    //   margin: 0 auto;
-    // }
-    // @media (min-width: 1024px) {
-    //   width: 940px;
-    // }
-    // @media (min-width: 1200px) {
-    //   width: 1170px;
-    // }
-    // @media (min-width: 1360px) {
-    //   width: 1240px;
-    // }
-    // @media (max-width: 450px) {
-    //   margin: 5px;
-    // }
-  }
+  // &__inner {
+  //   // @media (min-width: 768px) {
+  //   //   width: 720px;
+  //   //   margin: 0 auto;
+  //   // }
+  //   // @media (min-width: 1024px) {
+  //   //   width: 940px;
+  //   // }
+  //   // @media (min-width: 1200px) {
+  //   //   width: 1170px;
+  //   // }
+  //   // @media (min-width: 1360px) {
+  //   //   width: 1240px;
+  //   // }
+  //   // @media (max-width: 450px) {
+  //   //   margin: 5px;
+  //   // }
+  // }
   &__heading {
     margin-bottom: 12px;
   }
@@ -73,5 +73,8 @@
     display: flex;
     justify-content: center;
     margin-top: 40px;
+    .cta-button{
+      border: 0;
+    }
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FacebookShareButton,
   WhatsappShareButton,
@@ -20,9 +20,10 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Dialog from "@material-ui/core/Dialog";
 import { getBlogDetail } from "../../store/Action/blogDetails.action";
 import BlogComment from "../../components/BlogComment";
-import { getBlogs } from "store/Action/blog.action";
-import { SingleBlog } from "../../components/SingleBlog";
-
+import CommentSection from "../../components/BlogComment/comment";
+import { getBlogs } from "../../store/Action/blog.action";
+import { BlogListSimilarBlog } from "../../components/BlogListSimilarBlog";
+import { getComments } from "@/store/Action/Comment.action";
 const blogDetail = () => {
   const router = useRouter();
   const { slug } = router.query;
@@ -37,18 +38,25 @@ const blogDetail = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const blogs = useSelector((state) => state.blog.blogs);
+  const blogs = useSelector((state: any) => state.blog.blogs);
 
   useEffect(() => {
     dispatch(getBlogs("All"));
-    console.log("blogs", blogs);
   }, []);
-  const { blog } = useSelector((state) => state.blogDetails);
+
+  const { blog } = useSelector((state: any) => state.blogDetails);
+  const { comments } = useSelector((state: any) => state.blog);
+  const shareUrl = `https://beta.admizz.com/blogs/${slug}`;
+  const [newComment,setNewComment] = useState(0)
   useEffect(() => {
     dispatch(getBlogDetail(slug));
     // dispatch(getBlog(slug));(
-  }, [slug]);
+    }, [slug]);
+    useEffect(()=>{
+    dispatch(getComments(blog._id));
+  },[blog,newComment])
 
+  
   return (
     <BlogLayout title={blog?.blog_title}>
       <div className="container section-wrapper">
@@ -65,11 +73,12 @@ const blogDetail = () => {
                 <div className="blog-detail__postValue">
                   <b>{`Posted by: ${blog?.author}`}</b>
                 </div>
-               
               </div>
               <div className="blog-detail__shareInfoContainer">
                 <div className="blog-detail__buttonContainer">
-                  <Button className="blog-detail__button">{blog?.category}</Button>
+                  <Button className="blog-detail__button">
+                    {blog?.category}
+                  </Button>
                 </div>
                 <div
                   className="blog-detail__sharetitle"
@@ -87,26 +96,37 @@ const blogDetail = () => {
                     Share This Article
                   </DialogTitle>
                   <List className="blog-detail__listContainer">
-                    <ListItem button className="blog-detail__listItemContainer">
+                   
+                    <ListItem button className="blog-detail__listItemContainer"
+             >
+                   
+                     
                       <ListItemAvatar>
                         <FacebookShareButton
-                          url={`${process.env.API_BASE_URL}/blogs/${blogs.slug}`} //temporary
+                          url={shareUrl}
                           quote={"Admizz - You just dream it."}
                           hashtag="#admizz"
+                    
                         >
                           <Avatar>
-                            <FacebookIcon size={40} round={true} />
-                            {/* <FacebookIcon /> */}
+                            <FacebookIcon size={40} round={true} name="Facebook" />
+                        
+                       
                           </Avatar>
-                        </FacebookShareButton>
-                      </ListItemAvatar>
-                      <ListItemText primary={"Facebook"} />
-                    </ListItem>
+                        </FacebookShareButton>                   
 
+                      </ListItemAvatar>
+                     
+                    
+                      <ListItemText
+                     
+                      primary="Facebook"/>
+                    </ListItem>
+                    
                     <ListItem button>
                       <ListItemAvatar>
                         <WhatsappShareButton
-                          url={`${process.env.API_BASE_URL}/blogs/${blogs.slug}`}
+                          url={shareUrl}
                           title={`${blog.title}`}
                         >
                           <Avatar>
@@ -121,18 +141,8 @@ const blogDetail = () => {
                 </Dialog>
               </div>
             </div>
-            <div className="blog-detail__main">
-              <BlogDetailContent {...blog} />
-            </div>
           </div>
           <div className="container">
-            {/* <div className="blog-detail__bannerImage">
-              <img className="blog-detail__image" src="/ads-banner.png" />
-            </div> */}
-            <div className="blog-detail__main" style={{ marginTop: "30px" }}>
-              <BlogDetailContent {...blog} />
-            </div>
-
             <div className="blog-detail__main">
               <BlogDetailContent {...blog} />
               {/* {author && ( */}
@@ -153,7 +163,9 @@ const blogDetail = () => {
             </div>
           </div>
           <div className="container ">
-            <BlogComment data={blog} />
+            <BlogComment newComment={newComment} setNewComment={setNewComment} data={blog} />
+            <CommentSection comments={comments}/>
+
             <div
               className="blog-detail__imageContainer"
               style={{ height: "100%" }}
@@ -163,33 +175,8 @@ const blogDetail = () => {
                   SIMILAR BLOGS
                 </div>
               </div>
-              {blogs &&
-                blogs.map((blog) => {
-                  <SingleBlog
-                    slug={blog.slug}
-                    type={blog.type}
-                    auther={blog.auther}
-                    time={blog.time}
-                    title={blog.title}
-                    desc={blog.desc}
-                  />;
-                })}
+              <BlogListSimilarBlog blogArray={blogs} />
             </div>
-            {/* <div className="blog-detail-content__commentContainer">
-              <p className="blog-detail-content__commentTitle">
-                Leave A Comment
-              </p>
-              <Input
-                name={"query"}
-                
-                multiline
-                placeholder={"Add additional query you have"}
-                
-                margin={"0px 0px 16px 0px"}
-                fullWidth
-              />
-              <Button>SUBMIT</Button>
-            </div> */}
           </div>
         </main>
       </div>

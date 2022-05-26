@@ -23,6 +23,11 @@ body {
     display: none !important;
   }
 }
+.mobiletestimonial{
+  @media (max-width: 552px) {
+    display: none !important;
+  }
+}
 
 .container {
   min-height: 100vh;
@@ -125,6 +130,59 @@ a {
   color: inherit;
   &:hover {
     color: inherit;
+  }
+}
+
+.signup__text {
+  a {
+    color: #fff !important;
+  }
+}
+.colleges-card__title{
+  a{
+    color: #fff !important;
+
+  }
+}
+
+.footer__default{
+  a{
+    color: #fff !important;
+
+  } 
+}
+.footer__col__item {
+  a{
+    color: #fff !important;
+  }
+}
+.introduction__watch__label {
+  a{
+    color: black !important;
+  }
+}
+.introduction__meta__item__title{
+  a{
+    color: black !important;
+    cursor: pointer;
+
+  }
+}
+.college-list-result__titleText{
+  p{
+    margin-bottom: 0;
+    margin-top: 1;
+  }
+}
+.submenu-bar{
+  a{
+    color: black !important;
+
+  }
+}
+.rating-review__cta{
+  a {
+    color: #5f1802;;
   }
 }
 
@@ -352,4 +410,54 @@ a {
 
 .d-none {
   display: none !important;
+}
+
+.introduction__container {
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+}
+
+.blog-subnavbarcontainer {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  justify-content: space-between;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .blog-subnavbar {
+    position: relative;
+    color: #828282;
+    font-size: 14px;
+    white-space: nowrap;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 3px;
+      background-color: #ffa200;
+      left: 0;
+      bottom: -5px;
+      transition: 0.2s all ease-in;
+      transition: width 500ms;
+      width: 0;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+        transition: width 500ms;
+      }
+    }
+  }
+  .active-blognav {
+    color: #5f1802;
+    font-weight: 500;
+    &::before {
+      background-color: #ffa200;
+      width: 100%;
+    }
+  }
+
+  
 }

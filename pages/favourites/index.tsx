@@ -2,20 +2,15 @@ import React, { useContext, useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { DashboardLayout } from "../../layouts/dashboardLayout";
-import { getColleges } from "../../store/Action/college.action";
-// import { withRestrictedRoute } from "../withRestrictedRoute";
 import { withPrivateRoute } from "../withPrivateRoute";
-import { getStudentApplication } from "../../store/Action/studentapplication.action";
-// import { AuthContext } from "../AuthContext";
 import { auth } from "../../firebase";
-import { Favourites } from "@/components/Favourites";
+import { Favourites } from "@/components/Favourites/index";
 import { getFavourites } from "@/store/Action/collegefavourite.action";
 import { AuthContext } from "pages/AuthContext";
 
 const index = () => {
   const dispatch = useDispatch();
-  const { authenticated, user } = useContext(AuthContext);
-  console.log("user",user.uid)
+  const {user } = useContext(AuthContext);
   useEffect(() => {
     if (auth.currentUser && !collegeList?.length) {
       dispatch(getFavourites(user.uid));
@@ -23,7 +18,6 @@ const index = () => {
   }, [auth]);
 
   const collegeList = useSelector((state: any) => state.favourites.userFavorite);
-
   
   return (
     <DashboardLayout title="Dashboard">

@@ -11,11 +11,11 @@ import { getBlogs } from "../store/Action/blog.action";
 
 const BlogLayout = ({ children, title }) => {
   const [blogCategory, setBlogCategory] = React.useState("");
-
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(getBlogs(blogCategory));
+
   }, [blogCategory]);
 
   return (
@@ -35,7 +35,8 @@ const BlogLayout = ({ children, title }) => {
         <div className="section-wrapper">
           <ul className="blog-subnavbarcontainer ">
             <li
-              onClick={() => setBlogCategory("All")}
+              onClick={() => 
+                ("All")}
               className={`blog-subnavbar ${
                 blogCategory == "All" ? "active-blognav" : ""
               }`}
@@ -49,7 +50,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Business" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/business`}>Business</Link>
+              <Link href={`/blogs/category/business`}>Business</Link>
             </li>
 
             <li
@@ -58,23 +59,23 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Engineering" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/engineering`}>Engineering</Link>
+              <Link href={`/blogs/category/engineering`}>Engineering</Link>
             </li>
-            <li
+            {/* <li
               onClick={() => setBlogCategory("Something")}
               className={`blog-subnavbar ${
                 blogCategory == "Something" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/something`}>Something</Link>
-            </li>
+              <Link href={`/blogs/category/something`}>Something</Link>
+            </li> */}
             <li
               onClick={() => setBlogCategory("Software-Developer")}
               className={`blog-subnavbar ${
                 blogCategory == "Software-Developer" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/software-developer`}>Software Dev</Link>
+              <Link href={`/blogs/category/softwaredev`}>Software Development</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Science")}
@@ -82,7 +83,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Science" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/science`}>Science</Link>
+              <Link href={`/blogs/category/science`}>Science</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Medical")}
@@ -90,7 +91,7 @@ const BlogLayout = ({ children, title }) => {
                 blogCategory == "Medical" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/category/medical`}>Medical</Link>
+              <Link href={`/blogs/category/Medical`}>Medical</Link>
             </li>
             <li
               onClick={() => setBlogCategory("Others")}

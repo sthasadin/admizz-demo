@@ -10,16 +10,19 @@
         "fix": "yarn lint:ts --fix"
     },
     "dependencies": {
+        "@emailjs/browser": "^3.4.0",
         "@fortawesome/fontawesome": "^1.1.8",
         "@fortawesome/fontawesome-free-solid": "^5.0.13",
         "@fortawesome/fontawesome-svg-core": "^1.2.32",
         "@fortawesome/free-solid-svg-icons": "^5.15.1",
         "@fortawesome/react-fontawesome": "^0.1.13",
+        "@icon-park/react": "^1.3.5",
         "@material-ui/core": "^4.11.2",
         "@material-ui/icons": "^4.11.2",
         "@material-ui/lab": "^4.0.0-alpha.57",
         "@types/firebase": "^3.2.1",
         "@types/yup": "^0.29.3",
+        "antd": "^4.19.2",
         "axios": "^0.21.1",
         "firebase": "^8.3.0",
         "lodash": "^4.17.21",
@@ -33,6 +36,7 @@
         "nookies": "^2.5.2",
         "nprogress": "^0.2.0",
         "react": "17.0.1",
+        "react-back-to-top-button": "0.0.14",
         "react-calendar": "^3.2.1",
         "react-dom": "17.0.1",
         "react-icons": "^4.3.1",
@@ -44,6 +48,7 @@
         "react-redux": "^7.2.2",
         "react-render-html": "^0.6.0",
         "react-scroll": "^1.8.3",
+        "react-scroll-to-top": "^1.0.8",
         "react-select": "^4.1.0",
         "react-share": "^4.3.1",
         "react-slick": "^0.28.1",
@@ -52,16 +57,17 @@
         "react-swipeable-views": "^0.13.9",
         "react-swipeable-views-utils": "^0.14.0-alpha.0",
         "react-toastify": "^7.0.3",
-        "redux": "^4.0.5",
+        "redux": "^4.1.2",
         "redux-devtools-extension": "^2.13.8",
         "redux-thunk": "^2.3.0",
         "sass": "^1.29.0",
         "slick-carousel": "^1.8.1",
+        "swiper": "^7.4.1",
         "yup": "^0.29.1"
     },
     "devDependencies": {
         "@types/node": "^14.14.10",
-        "@types/react": "^17.0.0",
+        "@types/react": "^18.0.1",
         "@typescript-eslint/eslint-plugin": "^3.5.0",
         "@typescript-eslint/parser": "^3.5.0",
         "eslint": "^7.4.0",
@@ -81,7 +87,7 @@
     },
     "lint-staged": {
         "pages/**/*.{js,json,ts,tsx}": [
-            "yarn run fix",
+            "yarn run build",
             "git add"
         ]
     }

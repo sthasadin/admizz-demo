@@ -8,7 +8,6 @@ import Graduation from "../../public/graduation.png";
 
 export default function CustomizedTables(props: any) {
   const { selectedCollege, selectedFilters } = props;
-
   const getIcon = (label: string) => {
     switch (label) {
       case "QS_ranking":
@@ -39,7 +38,7 @@ export default function CustomizedTables(props: any) {
               <div className="compare-table-label">
                 <strong>{data.label}</strong>
               </div>
-              <div style={{ display: "flex", marginLeft: "34px" }}>
+              <div style={{display:'flex', marginLeft: '12px'}}>
                 {selectedCollege.map((colegeAttributes: any) => {
                   return (
                     <>

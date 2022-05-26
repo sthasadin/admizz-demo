@@ -6,10 +6,11 @@ import { SingleListPostWithImage } from "../SingleListPostWithImage";
 import { useSelector } from "react-redux";
 import calculateReadingTime from "../../utils/calculateReadingTime";
 // import { truncate } from "fs";
+import {RootState} from "../../store/store";
 
 const BlogListLatestPost = ({ blogArray }) => {
   // const blogs = useSelector(state => state.allBlog.allBlog)
-  let blogs = useSelector((state) =>
+  let blogs = useSelector((state:any) =>
     state.blog.blogs.sort((a, b) =>
       moment(a.createdAt).diff(moment(b.createdAt))
     )
@@ -47,7 +48,6 @@ const BlogListLatestPost = ({ blogArray }) => {
                       desc={removeHtmlChar(blog?.blog_desc)}
                       backgroundImg={blog?.blog_imageURL}
                     />
-                   {/* { console.log("slug",blog?.blog_slug)} */}
                   </div>
                 );
               })}

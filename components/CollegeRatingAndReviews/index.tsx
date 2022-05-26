@@ -6,24 +6,25 @@ import {
   getReviews,
   updateReview,
 } from "../../store/Action/review.action";
-import Snackbar from "@material-ui/core/Snackbar";
 import Rating from "@material-ui/lab/Rating";
 import { AddCollegeRatingAndReview } from "../AddCollegeRatingAndReviews";
 import { Review } from "../Review";
 import { RatingItem } from "./ratingItem";
 import { useRouter } from "next/router";
-import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const RatingAndReview = (props: any) => {
   const [isAddReviewOpen, setIsAddReviewOpen] = useState(false);
   const [reviews, setReviews] = useState(null);
   const [originalReviews, setOriginalReviews] = useState([]);
+  const [snackOpenLogin, setSnackOpenLogin] = React.useState(false as boolean);
   const dispatch = useDispatch();
   const router = useRouter();
-  const user = useSelector((state) => state.user.authUser);
-  const college_id = useSelector((state) => state.college.college._id);
+  const user = useSelector((state:any) => state.user.authUser);
+  const college_id = useSelector((state:any) => state.college.college._id);
   const _getReviews = async (college_id) => {
-    let res = await dispatch(getReviews(college_id));
+    let res = await dispatch<any>(getReviews(college_id));
     setOriginalReviews(res);
     
     //make proper datastructure
@@ -102,6 +103,7 @@ const RatingAndReview = (props: any) => {
     if (auth.currentUser) {
       setIsAddReviewOpen(true);
     } else {
+     // setSnackOpenLogin(true);
       router.push("/login");
     }
   };
@@ -120,7 +122,7 @@ const RatingAndReview = (props: any) => {
         );
       }
       delete newReview.id;
-      await dispatch(updateReview(newReview, id));
+      await dispatch<any>(updateReview(newReview, id));
       _getReviews(college_id);
     }
   };
@@ -135,7 +137,7 @@ const RatingAndReview = (props: any) => {
         (likes) => likes !== user
       );
       delete newReview.id;
-      await dispatch(updateReview(newReview, id));
+      await dispatch<any>(updateReview(newReview, id));
       _getReviews(college_id);
     }
   };
@@ -171,12 +173,6 @@ const RatingAndReview = (props: any) => {
             value={reviews?.averageRating / 2 || 0}
             readOnly
           />
-
-          {/* <div className="rating-review__rating">
-            
-            <span>{reviews?.averageRating || 0}/</span>
-            10
-          </div> */}
         </div>
       </div>
 
@@ -204,15 +200,19 @@ const RatingAndReview = (props: any) => {
       <div className="rating-review__rating__header border-bottom">
         <div className="rating-review__rating__left">
           <div className="rating-review__rating__title">Student Reviews</div>
-          <div className="rating-review__rating__subheading">
-            Showing results for Most relevent reviews
-          </div>
+          {!reviews?.all_reviews.length && !reviews?.all_reviews.length && (
+             <div >
+           No reviews Yet
+           </div>
+          )}
+          {reviews && reviews?.all_reviews && reviews?.all_reviews > 0 && (
+                    <div className="rating-review__rating__subheading">
+                    Showing results for Most relevent reviews
+                  </div>
+          )}
+    
         </div>
-        {/* <div className="rating-review__rating__right">
-          <div className="rating-review__cta">
-            <span>Sort By</span>Most Helpful
-          </div>
-        </div> */}
+    
       </div>
 
       {reviews?.all_reviews?.map((review) => (
@@ -233,6 +233,15 @@ const RatingAndReview = (props: any) => {
           _getReviews={_getReviews}
         />
       )}
+        <Snackbar
+        open={snackOpenLogin}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpenLogin(false)}
+      >
+        <Alert onClose={() => setSnackOpenLogin(false)} severity="warning">
+          Please Login into your account
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

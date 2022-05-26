@@ -3,7 +3,7 @@ import { Grid, Button } from "@material-ui/core";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ClipLoader from "react-spinners/ClipLoader";
-import { storage, db } from "../../firebase";
+import { storage, db, auth } from "../../firebase";
 import { useRouter } from "next/router";
 import * as yup from "yup";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -13,7 +13,6 @@ import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
-import { auth } from "../../firebase";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomizeCheckBox = withStyles({
+const CustomizeCheckBox:any = withStyles({
   root: {
     "& .MuiSvgIcon-root": {
       fill: "#828282",
@@ -193,7 +192,6 @@ const DashboardReviewConfirm = (props) => {
                     academicInformation[key] = url;
                   })
                   .catch((err) => {
-                    console.log(err);
                   });
               });
           }
@@ -215,7 +213,6 @@ const DashboardReviewConfirm = (props) => {
                   backgroundInformation.documentImage = url;
                 })
                 .catch((err) => {
-                  console.log(err);
                 });
             });
         }
@@ -236,7 +233,6 @@ const DashboardReviewConfirm = (props) => {
                   basicInformation.profileImage = url;
                 })
                 .catch((err) => {
-                  console.log(err);
                 });
             });
         }
@@ -257,39 +253,32 @@ const DashboardReviewConfirm = (props) => {
                   basicInformation.signatureImage = url;
                 })
                 .catch((err) => {
-                  console.log(err);
                 });
             });
         }
-        await db
-          .collection("students-application")
-          .add({
-            basicInformation,
-            selectedChoice,
-            backgroundInformation,
-            academicInformation,
-            status,
-            student_id: auth.currentUser.uid,
-          })
-          .then((res) => {
-            handleClose();
-            localStorage.clear();
-          })
-          .catch((e) => {
-            console.log(e);
-            handleClose();
-          });
+       
+        const appdata = {
+          basicInformation,
+          selectedChoice,
+          backgroundInformation,
+          academicInformation,
+          status,
+          student_id: auth.currentUser.uid,
 
-        handleClose();
-        router.push("/studentdashboardmain");
+        }
+
+      
+        await db.collection("students-application").doc().set(appdata).then(()=>{
+          setSnackOpen(true);
+          handleClose();
+          localStorage.clear();
+          router.push("/studentdashboardmain");
+        }).catch((error)=>{
+          router.push("/studentdashboardmain");
+        })
       }
     } catch (err) {
-      console.log(err);
-      // const errors = {};
-      // err.inner.forEach((item: any) => {
-      //   errors[item.path] = item.errors[0];
-      // });
-      // setFormError({ ...errors });
+     
     }
   };
 
@@ -468,6 +457,7 @@ const DashboardReviewConfirm = (props) => {
                                 e.target.files[0] &&
                                   setProfileImage(e.target.files[0]);
                               }}
+                              accept="image/*"
                             />
                             <UploadButton
                               className={`dashboard-profileimage-upload ${
@@ -1388,6 +1378,7 @@ const DashboardReviewConfirm = (props) => {
                           e.target.files[0] &&
                             setSignatureImage(e.target.files[0]);
                         }}
+                        accept="image/*"
                       />
 
                       <UploadButton startIcon="" className="btn-color">
@@ -1425,6 +1416,7 @@ const DashboardReviewConfirm = (props) => {
           <Button onClick={handelSubmit}>Confirm Application</Button>
         </div>
       </div>
+      
       <Snackbar
         open={snackOpen}
         autoHideDuration={4000}
@@ -1432,6 +1424,16 @@ const DashboardReviewConfirm = (props) => {
       >
         <Alert onClose={() => setSnackOpen(false)} severity="error">
           Please check the empty field
+        </Alert>
+      </Snackbar>
+
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="success">
+          Your application has been submitted
         </Alert>
       </Snackbar>
     </div>

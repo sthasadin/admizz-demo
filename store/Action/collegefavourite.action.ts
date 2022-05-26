@@ -1,8 +1,7 @@
-import {Dispatch} from "react-redux";
+import {Dispatch} from "redux";
 import { FAVOURITES } from "../const";
 import {finish, init, success, error} from "../commonActions";
 import { favouritesService } from "../api/favouriteApi";
-import { number } from "yup";
 
 const FavouritesService = new favouritesService();
 

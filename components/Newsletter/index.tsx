@@ -58,7 +58,7 @@ const Newsletter = (props: any) => {
       const isValid = await validate();
       if (isValid) {
         setSnackOpen(true);
-        await dispatch(addSubscriber(subscriber));
+        await dispatch<any>(addSubscriber(subscriber));
         setSubscriber("");
       }
     } catch (error) {}
@@ -68,7 +68,7 @@ const Newsletter = (props: any) => {
     // let schema = yup.string().email();
     // let result = schema.isValidSync(subscriber);
     // if (result) {
-    //   await dispatch(addSubscriber(subscriber));
+    //   await dispatch<any>(addSubscriber(subscriber));
     // }
     // setSubscriber("");
     // setLoading(false);

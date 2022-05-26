@@ -6,14 +6,14 @@ import { getReviews } from "../../store/Action/review.action";
 import { CollegeHeader } from "../../components/CollegeHeader";
 import { Submenu } from "../../components/Submenu";
 import { SidebarContainer } from "../../components/SidebarContainer";
-import { AuthContext } from "pages/AuthContext";
+import { AuthContext } from "../../pages/AuthContext";
 
 import Layout from "../../layouts";
-import { getFavourites } from "@/store/Action/collegefavourite.action";
+import { getFavourites } from "../../store/Action/collegefavourite.action";
 
 const Home = () => {
   const [reviews, setReviews] = React.useState(null);
-  const favorites = useSelector((state) => state.favourites.userFavorite);
+  const favorites = useSelector((state: any) => state.favourites.userFavorite);
   const [isFavourite, setIsFavourite] = React.useState(false);
 
   const dispatch = useDispatch();
@@ -38,13 +38,13 @@ const Home = () => {
     institution_type,
     college_board,
     affliated_by,
-  } = useSelector((state) => state.college.college);
+  } = useSelector((state: any) => state.college.college);
 
   const router = useRouter();
   const { slug } = router.query;
 
-  const _getReviews = async (college_id) => {
-    const res = await dispatch(getReviews(college_id));
+  const _getReviews = async (college_id:any) => {
+    const res = await dispatch<any>(getReviews(college_id));
 
     //make proper datastructure
     const collegeReviews: any = {
@@ -120,24 +120,38 @@ const Home = () => {
 
   useEffect(() => {
     _getReviews(_id);
+    checkcollegeFavourite();
   }, [_id]);
 
   useEffect(() => {
     if (user) {
-      dispatch(getFavourites(user?.uid));
+      dispatch(getFavourites(user?.uid));      
     }
-
-    checkcollegeFavourite();
   }, [user]);
 
   const checkcollegeFavourite = () => {
-    console.log("userFav", favorites);
-    favorites?.map((item) => {
-      if (item._id == _id) {
-        console.log("item", item, _id);
+    favorites?.map((item:any) => {
+      if (item.college?._id == _id) {
         setIsFavourite(true);
+        return true
       }
+
     });
+    return false
+  };
+  
+  const checkcollegeFavouriteWithId = (id:any) => {
+    
+    let flag = false;
+    favorites?.forEach((item) => {
+
+      if (item.college?._id == id) {
+        // setIsFavourite(true);
+        flag = true
+      }
+
+    });
+    return flag
   };
 
   return (
@@ -157,7 +171,7 @@ const Home = () => {
             institution_type={institution_type}
             affliated_by={affliated_by}
             video_360={video_360}
-            isFavourite={isFavourite}
+            isFavourite={checkcollegeFavouriteWithId(_id)}
           />
           <Submenu />
           <SidebarContainer

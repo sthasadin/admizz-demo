@@ -649,6 +649,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   left: 0;
   bottom: 0;
   color: #fff;
+  text-align: justify;
 }
 
 @media (max-width: 450px) {
@@ -732,7 +733,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   font-size: 16px;
   font-weight: 700;
   outline: none;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .btn--block {
@@ -1318,18 +1319,19 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   border-top-right-radius: 5px;
   position: relative;
   height: 167px;
-  background-image: linear-gradient(
-    rgba(0, 38, 12, 0.781),
-    rgba(12, 6, 6, 0.918)
-  );
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
+  
+ 
 }
 
 .colleges-card__thumbnail img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+  object-fit: scale-down;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
 }
+
 
 .colleges-card__title-wrap {
   position: absolute;
@@ -1356,10 +1358,10 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 
 .colleges-card__details {
   background: #ffffff;
-  border: 1px solid #bdbdbd;
+  /* border: 1px solid #bdbdbd; */
   -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-top: -4px;
@@ -2970,16 +2972,6 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   }
 }
 
-/* .testimonial__right__thumbnail:nth-child(1) {
-  margin-top: 180px;
-  margin-left: -50px;
-}
-@media (max-width: 1024px) {
-  .testimonial__right__thumbnail:nth-child(1) {
-    margin: 0;
-  }
-} */
-
 .testimonial__item-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2997,12 +2989,15 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 }
 
 .testimonial__text {
-  font-family: "Noticia Text", serif;
+  font-family: "Noticia Text";
   font-style: italic;
   font-size: 24px;
-  line-height: 42.5px;
+  /* line-height: 42.5px; */
   text-align: center;
   margin-bottom: 17px;
+  justify-content: center;
+  font-weight:400;
+
 }
 
 .testimonial__quote {
@@ -7304,7 +7299,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   background-repeat: no-repeat;
   background-position: right;
   background-size: cover;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .introduction__container .vertical__stickycontainer {
@@ -7582,6 +7577,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   color: #333;
   font-weight: 500;
   width: 80px;
+  cursor: pointer;
 }
 
 .introduction__right {
@@ -9282,7 +9278,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0px 30px;
+  margin: 0px 20px;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -10219,6 +10215,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 .navbar__drawer__container {
   background-color: #5f1802;
   height: 812px;
+  width: 100%;
 }
 
 .navbar__drawer__container .drawer__header {
@@ -10362,6 +10359,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   margin-left: 11px;
   font-size: 14px;
   color: #f2f2f2;
+  display: flex;
 }
 
 .navbar__drawer__container
@@ -10535,6 +10533,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   text-transform: uppercase;
   color: #ffd2dd;
   margin-bottom: 36px;
+  margin-left: 20px;
 }
 
 .footer__col__title::after {
@@ -10567,6 +10566,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   height: auto;
   width: 240px;
 }
+
 
 .footer__newsletter__title {
   font-size: 18px;

@@ -1,17 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { CallToAction } from "../Button/callToAction";
 
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { auth } from "../../firebase";
 
 import ReactPlayer from "react-player";
+
+const MTModal:any=Modal
+const RTReactPlayer:any=ReactPlayer
 
 const Introduction = (props) => {
   const { title, imgSrc, videoUrl } = props;
   const router = useRouter();
 
+  const [isOpenCounselling, setIsOpenCounselling] = useState(false);
+  const openCounselling = () => {
+    if (auth.currentUser) {
+      setIsOpenCounselling(true);
+      router.push("/free-counseling");
+    } else {
+      router.push("/login");
+    }
+  };
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -27,19 +40,16 @@ const Introduction = (props) => {
       <img src={imgSrc} alt="..." className="introduction__bannerimg" />
       <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
-          <div className="introduction__header">{`You just dream it ${title}`}</div>
+          <div className="introduction__header">{`You just dream it`}</div>
           <div className="introduction__title">
             We help you achieve your big dream
           </div>
           <div className="introduction__desc">
             Kickstart your career by starting early. Admizz helps you join the
-            right diploma.
+            right course at right university.
           </div>
           <div className="u-align-center">
-            <CallToAction
-              className="filled"
-              onClick={() => router.push("/free-counseling")}
-            >
+            <CallToAction className="filled" onClick={() => openCounselling()}>
               Book counselling session
             </CallToAction>
             {videoUrl && (
@@ -74,7 +84,7 @@ const Introduction = (props) => {
                   </svg>
                 </div>
 
-                <Modal
+                <MTModal
                   aria-labelledby="transition-modal-title"
                   aria-describedby="transition-modal-description"
                   open={open}
@@ -91,10 +101,10 @@ const Introduction = (props) => {
                       <div className="cross-icon" onClick={handleClose}>
                         X
                       </div>
-                      <ReactPlayer url={videoUrl} className="react-player" />
+                      <RTReactPlayer url={videoUrl} className="react-player" />
                     </div>
                   </Fade>
-                </Modal>
+                </MTModal>
 
                 <div className="introduction__watch__label">
                   <a href={videoUrl} target="_blank">
@@ -146,7 +156,9 @@ const Introduction = (props) => {
                   </svg>
                 </div>
                 <div className="introduction__meta__item__title">
-                  COVID-19 RESPONSE
+                  <a href="https://covid19.who.int/" target="_blank">
+                    COVID-19 RESPONSE
+                  </a>
                 </div>
               </div>
               <div className="introduction__meta__item">
@@ -164,12 +176,13 @@ const Introduction = (props) => {
                     />
                   </svg>
                 </div>
-                <div className="introduction__meta__item__title">
-                  STORIES OF ADMIZZ
+                <div className="introduction__meta__item__title" 
+                >
+                 <a href="/testimonialDetailPage"> STORIES OF ADMIZZ</a>
                 </div>
               </div>
               <div className="introduction__meta__item">
-                <div className="introduction__meta__item__icon">
+                {/* <div className="introduction__meta__item__icon">
                   <svg
                     width="47"
                     height="47"
@@ -184,18 +197,18 @@ const Introduction = (props) => {
                       fill="#FFA200"
                     />
                   </svg>
-                </div>
-                <div className="introduction__meta__item__title">
+                </div> */}
+                {/* <div className="introduction__meta__item__title">
                   VIRTUAL TOUR
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
-        <div className="introduction__right">
-          {/* <div className="introduction__right__background"></div> */}
-          <div className="introduction__right__thumbnail"></div>
-        </div>
+        {/* <div className="introduction__right"> */}
+        {/* <div className="introduction__right__background"></div> */}
+        {/* <div className="introduction__right__thumbnail"></div> */}
+        {/* </div> */}
       </div>
     </div>
   );

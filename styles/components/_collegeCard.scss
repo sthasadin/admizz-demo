@@ -1,5 +1,6 @@
 .colleges-card {
   width: 100%;
+  margin-bottom: 1px;
 
   &__inner {
     cursor: pointer;
@@ -46,8 +47,10 @@
   &__details {
     background: #ffffff;
     border: 1px solid #bdbdbd;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
-    border-radius: 0px 0px 5px 5px;
+    
+    // box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.02);
+    // box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08); by solanki
+    border-radius: 5px 5px 5px 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-top: -4px;
@@ -125,9 +128,8 @@
       font-size: 14px;
       color: $primary-color;
       cursor: pointer;
-    }
+    }  
   }
-
   &__course {
     margin: 0 0px 20px 0px;
   }
@@ -137,27 +139,35 @@
   text-decoration: underline;
 }
 
-// .colleges-card .colleges-card__thumbnail .college-image {
-//   //background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(7, 7, 7));
-//   opacity: 0.9;
-// }
-.college-image {
-  opacity: 0.9;
-  background: linear-gradient(to right, rgba(255, 0, 0, 0), rgb(7, 7, 7));
-}
 
+.college-image {
+  width: 100%;
+  margin: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 28px 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+}
 .review-rating-container {
+  display: none;
+}
+.colleges-card:hover  .review-rating-container {
   position: absolute;
   right: 15px;
   top: 15px;
+  display: block;
 }
 
 .review-title {
-  color: #fffefe;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 12px;
-  text-transform: uppercase;
+    color: #fffefe;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 12px;
+    text-transform: uppercase;
+
 }
 
 .rating-container {

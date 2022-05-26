@@ -1,23 +1,32 @@
+
 import React from "react";
 
-const CollegeCourse = ({ courses }) => {
+const CollegeCourse = ({ Courses }) => {
+
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
   return (
     <div className="college-course">
-      <div className="college-course__title">Top Courses</div>
+      <div className="college-course__title">Courses</div>
       <div className="college-course__item-wrap">
-        {courses &&
-          courses.map((course: string, index: number) => {
+        {Courses &&
+          Courses.map((course: any, index: number) => {
             return (
               index < 3 && (
                 <div className="college-course__item" key={index}>
-                  {course}
+                  
+                  {truncate(course?.courseprogram?.name,16)}{" "}
                 </div>
               )
             );
           })}
 
         <div className="college-course__pagination">
-          {courses && courses.length > 3 ? courses?.length- 3 :courses?.length} +
+          {Courses && Courses.length > 3
+            ? Courses?.length - 3
+            : Courses?.length}{" "}
+          +
         </div>
       </div>
     </div>

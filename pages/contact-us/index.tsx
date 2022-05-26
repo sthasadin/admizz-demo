@@ -11,12 +11,9 @@ const ContactUs = () => {
       <div>
         <div className="contact-container">
           <div className="banner section-wrapper">
-            <div className="banner-head">Get In Touch</div>
+            {/* <div className="banner-head">Get In Touch</div> */}
             <div className="banner-content">
-              Welcome to our Website. We are glad to have you around. following
-              countries – Bangladesh, Bhutan, Ethiopia, India, Indonesia, Kenya,
-              Mauritius, Nepal, Rwanda, Sri Lanka, Tanzania, Uganda and Zambia.
-              The Ind-SAT.
+             Get In Touch
             </div>
             <div className="banner-opacity">
               <div className="banner-image">

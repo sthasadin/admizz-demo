@@ -1,62 +1,58 @@
 import React from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getGallery } from "@/store/Action/gallery.action";
 import ReactPlayer from "react-player";
+const RTReactPlayer:any=ReactPlayer
 
 const CollegeGallery = (props) => {
-  const college = useSelector((state) => state.college.college);
-  const videos = useSelector((state) => state.college.videos);
+  const college = useSelector((state: any) => state.college.college);
+  const videos = useSelector((state: any) => state.college.videos);
 
-  const gallery = useSelector((state) =>state.gallery.gallery);
-  // console.log({gallery})
+  const gallery = useSelector((state: any) => state.gallery.gallery);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-  console.log(college._id);
-
     dispatch(getGallery(college._id));
-
   }, [college]);
 
-  const {images} = gallery;
-  console.log({gallery});
+  const { images } = gallery;
   return images?.length || videos?.length ? (
     <div id="gallery" className="college-gallery">
       <div className="college-gallery__inner">
         <div className="college-gallery__title-wrap">
           <div className="college-gallery__title">PHOTOS & VIDEOS</div>
-          {/* <div className="college-gallery__title__cta">Explore Gallery</div> */}
         </div>
         <div className="college-gallery__heading">
           Photos <span>{images?.length}</span>
         </div>
-    
       
         <div className="college-gallery__list">
-          <div className="college-gallery__left">
-            <div className="college-gallery__left__t">
-              <div className="college-gallery__left__t__l">
-              {images?.map((image:any) => {
-                return(
-                <div className="college-gallery__item">     
-                  <img src={image} alt="" />
+          {images?.map((image: any) => {
+            return (
+              <div className="college-gallery__left">
+                <div className="college-gallery__left__t">
+                  <div className="college-gallery__left__t__l">
+                    <div className="college-gallery__item">
+                      <img src={image} alt="" />
+                    </div>
+                  </div>
                 </div>
-                )
-              })}
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
+
         {videos && videos.length > 0 && (
-        <div className="college-gallery__heading">
-          Videos <span>({videos?.length})</span>
-        </div>
+          <div className="college-gallery__heading">
+            Videos <span>({videos?.length})</span>
+          </div>
         )}
+        {videos && videos.length > 0 && (
         <div className="college-gallery__video">
           <div className="college-gallery__video__left">
             <div className="college-gallery__video__thumbnail">
               {videos?.length && (
-                <ReactPlayer
+                <RTReactPlayer
                   url={videos[0]}
                   light={true}
                   width="100%"
@@ -91,7 +87,7 @@ const CollegeGallery = (props) => {
           <div className="college-gallery__video__right">
             <div className="college-gallery__video__thumbnail">
               {videos?.length && (
-                <ReactPlayer
+                <RTReactPlayer
                   url={videos[1]}
                   light={true}
                   width="100%"
@@ -124,6 +120,7 @@ const CollegeGallery = (props) => {
             </div>
           </div>
         </div>
+        )}
       </div>
     </div>
   ) : null;

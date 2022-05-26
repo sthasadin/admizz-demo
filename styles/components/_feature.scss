@@ -1,11 +1,12 @@
 .feature {
-  height: 237px;
+  // height: 237px; commented by solanki
   // width: 288px;
-
+  height: 232px;
   background-color: #fff;
-  padding: 10px 5px 10px 15px;
-  cursor: pointer;
+  padding: 10px;
+  //cursor: pointer;
   border-radius: 5px;
+  border-color: #F2F2F2;
   &:hover {
     box-shadow: 0px 17px 37px rgba(0, 0, 0, 0.14);
     transition: all 0.2s ease-in-out;
@@ -39,9 +40,10 @@
   .feature-description {
     font-size: 14px;
     color: #333;
-    padding-right: 75px;
+    // padding-right: 75px;
     line-height: 1.4;
     margin-top: 10px;
+    text-align: justify;
   }
   .learn-more {
     color: #333;

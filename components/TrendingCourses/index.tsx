@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const TrendingCourses = () => {
   const trending_courses = useSelector(
-    (state) => state.college.college.trending_courses
+    (state:any) => state.college.college.trending_courses
   );
 
   return trending_courses?.length ? (

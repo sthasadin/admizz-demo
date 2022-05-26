@@ -25,6 +25,7 @@ const index = () => {
 
   return (
     <>
+    <div className="wrapper" style={{display:"flex", justifyContent:"center"}}>
       <div className="introduction__container">
         <Link href="/free-counseling">
           <div
@@ -32,32 +33,22 @@ const index = () => {
               active && "active__vertical"
             } vertical__stickycontainer `}
           >
-            <div className="text__content">Free Counselling</div>
-            <div className="image">
-              <img src="/vertical-arrow.png" alt="free counseling" />
-            </div>
+            <div className="text__content">Free Counseling</div>
+         
           </div>
         </Link>
 
         <Carousel bulletdot={false}>
           <Introduction
             title="hello"
-            imgSrc="/Hero-image.png"
+            imgSrc="/Hero-images.png"
             videoUrl="https://youtu.be/CDknjC9aFmg"
           />
-          {/* <Introduction
-            title="world"
-            imgSrc="/female-intro.png"
-            videoUrl="https://youtu.be/CDknjC9aFmg"
-          />
-          <Introduction
-            title="helloworld"
-            imgSrc="/male-intro.png"
-            videoUrl="https://youtu.be/CDknjC9aFmg"
-          /> */}
+         
         </Carousel>
       </div>
-      <MessengerCustomerChat />
+      {/* <MessengerCustomerChat /> */}
+    </div>
     </>
   );
 };

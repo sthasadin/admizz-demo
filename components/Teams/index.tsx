@@ -17,7 +17,6 @@ const Teams = ({data}) => {
       .get()
       .then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
-          console.log(doc);
           const data = doc.data();
           teamArray.push({
             id: doc.id,
@@ -53,4 +52,4 @@ const Teams = ({data}) => {
   );
 };
 
-export { Teams };
+export {Teams};

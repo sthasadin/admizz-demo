@@ -1,48 +1,31 @@
 import React from "react";
-import { CallToAction } from "../Button/callToAction";
-import Fade from "@material-ui/core/Fade";
-import ReactPlayer from "react-player";
-import Modal from "@material-ui/core/Modal";
-import Link from "next/link";
-import Backdrop from "@material-ui/core/Backdrop";
 
 const Merits = () => {
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   return (
     <div className="merit">
       <div className="merit__aboutus__inner section-wrapper">
         <div className="merit__left">
           <div className="merit__heading block-heading">About Admizz</div>
           <div className="merit__title block-title">
-          Why Choose <span>Admizz</span>
+            Why Choose <span>Admizz</span>
           </div>
           <div className="merit__desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula felis quis elit volutpat, sed pulvinar nunc tempus. Aliquam molestie tristique ultricies.
+            Admizz is a perfect guide for you if you are planning your further
+            study in India. <br></br>
+            It is a prime intermediary for students to connect,
+            to explore and to apply in top rank educational institutions in
+            India . It helps students from all over the world to get detailed
+            information about various top ranked universities and various
+            colleges that are available in India. With just a one simple click
+            on admizz.com , students can get detailed information about
+            universities and courses in India. It provides varieties of services
+            to students to help pursue their further studies.
           </div>
-          <div className="merit__desc">
-          Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer posuere nibh vestibulum, auctor urna ac, convallis ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin commodo risus id ipsum ultrices, ut ornare nisi imperdiet. Nulla facilisi.
-          </div>
-          <div className="merit__desc">
-          Aenean euismod ante metus. Nam ac enim rhoncus, porttitor urna et, dapibus lorem. Maecenas sit amet ante metus. Mauris in tincidunt nisl. Mauris et velit laoreet, ullamcorper metus mollis, lacinia diam.           
-          </div>
-          <div className="merit__desc">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vehicula felis quis elit volutpat,
-          sed pulvinar nunc tempus. Aliquam molestie tristique ultricies. Orci varius natoque penatibus 
-          et magnis dis parturient montes, nascetur ridiculus mus. Integer posuere nibh vestibulum,
-          auctor urna ac, convallis ante. Interdum et malesuada fames ac ante ipsum primis in faucibus.Proin commodo risus id ipsum ultrices, ut ornare nisi imperdiet. Nulla facilisi. Aenean euismod ante metus. Nam ac enim rhoncus, porttitor urna et, dapibus lorem. Maecenas sit amet ante metus. Mauris in tincidunt nisl. Mauris et velit laoreet, ullamcorper metus mollis, lacinia diam.           </div>
         </div>
         <div className="merti__right__inner">
-            <div className="merit__thumbnail">
-              <img src="/admiz.png" alt="admiz" />
-            </div>
+          <div className="merit__thumbnail">
+            <img src="/admiz.png" alt="admiz" />
+          </div>
         </div>
       </div>
     </div>

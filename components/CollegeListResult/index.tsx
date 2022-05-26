@@ -1,13 +1,10 @@
 import React, { FC } from "react";
 
-import SortImage from "../../public/SortImage.png";
 import { CollegesCard } from "../collegesBlock/collegesCard";
 import { CollegeCardLoader } from "../SkeletonLoading/CollegeCardLoader";
-import InfiniteScroll from "react-infinite-scroll-component";
 import LazyLoad from "react-lazyload";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
-import { success } from "@/store/commonActions";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -45,24 +42,14 @@ const CollegeListResult: FC<CollegeProps> = ({
           </p>{" "}
           Colleges
         </div>
-        <div className="college-list-result__sortContainer">
-          <p className="college-list-result__sortItemTitle">Sort By</p>
-          <p className="college-list-result__sortItem">
-            Popularity{" "}
-            <img src={SortImage} alt=".." className="image-sort-icon" />
-          </p>
-          <p className="college-list-result__sortItem">
-            Ratings <img src={SortImage} alt=".." className="image-sort-icon" />
-          </p>
-          <p className="college-list-result__sortItem">
-            Fees <img src={SortImage} alt=".." className="image-sort-icon" />
-          </p>
-        </div>
+      
       </div>
 
       {loader && (
         <div className="college-list-result-loader-container">
-          <CollegeCardLoader count={9} />
+          <CollegeCardLoader
+            count={9} 
+           />
         </div>
       )}
 

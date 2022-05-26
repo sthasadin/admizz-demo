@@ -62,7 +62,7 @@ const SideBarNewsLetter = () => {
       const isValid = await validate();
       if (isValid) {
         setSnackOpen(true);
-        await dispatch(addSubscriber(subscriber));
+        await dispatch<any>(addSubscriber(subscriber));
         setSubscriber("");
       }
     } catch (error) {}

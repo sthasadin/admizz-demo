@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import * as yup from "yup";
-import moment from "moment";
 import { auth, db } from "../../firebase";
 import indiaOffice from "../../public/indiaOffice.png";
 import nepalOffice from "../../public/nepalOffice.png";
+import bangladeshOffice from "../../public/bangladeshoffice.png";
 import location from "../../public/location.png";
 import telephone from "../../public/telephone.png";
 import email from "../../public/email.png";
@@ -111,20 +111,22 @@ const ContactForm = () => {
         <div className="contact-form__header">Contact Details</div>
         <div>
           <div className="contact-form__india-office-container">
-            <img src={indiaOffice} />
+            <img src={indiaOffice}/>
             <div className="contact-form__office-details">
               <div className="contact-form__details-header">India Office</div>
               <div className="contact-form__details-content">
                 <img src={location} />
                 <span>
-                  Bangalore,
-                  <br />
-                  Karnataka, India
-                </span>
+                    2nd Floor, Jayaram Building, Kanakapura Rd, 
+                    
+                    Gubbalala, Bengaluru, Karnataka 560062
+                    
+                     
+                  </span>
               </div>
               <div className="contact-form__details-content">
                 <img src={telephone} />
-                <span>+91 805 0259 693</span>
+                <span >+91 805 0259 693</span>
               </div>
             </div>
           </div>
@@ -134,15 +136,36 @@ const ContactForm = () => {
               <div className="contact-form__details-header">Nepal Office</div>
               <div className="contact-form__details-content">
                 <img src={location} />
-                <span>
-                  Bagbazar,
+                <span >
+                  Ground Floor, Putalisadak,
                   <br />
-                  Kathmandu, Nepal
+                  Kathmandu (Oppo to Raymond Tailor)
                 </span>
               </div>
               <div className="contact-form__details-content">
                 <img src={telephone} />
-                <span>+91 805 0259 693</span>
+                <span>+977 9802728444</span>
+              </div>
+            </div>
+          </div>
+          {" "}
+          <div className="contact-form__india-office-container">
+            <img src={bangladeshOffice} style = {{height:64,width:64}} />
+            <div className="contact-form__office-details">
+              <div className="contact-form__details-header">
+                Bangladesh Office
+              </div>
+              <div className="contact-form__details-content">
+                <img src={location} />
+                <span>
+                  Bogra Tole, Bogura 5800,
+                  <br />
+                  Bangladesh
+                </span>
+              </div>
+              <div className="contact-form__details-content">
+                <img src={telephone} />
+                <span style={{ fontSize: 14 }}> +880 1775 639993</span>
               </div>
             </div>
           </div>
@@ -150,7 +173,7 @@ const ContactForm = () => {
             Prefer Email? Email us at:
             <div className="contact-form_email-holder">
               <img src={email} />
-              info@linkservices.co
+              support@admizz.com
             </div>
           </div>
         </div>
@@ -158,7 +181,7 @@ const ContactForm = () => {
       <div className="contact-form__lets-talk">
         <div className="contact-form__header">Let's Talk</div>
         <div className="contact-form__message">
-          Please tell us a bit about you, your project, and how best to reach
+          Please tell us a bit about you, your query, and how best to reach
           you. We’ll get right back to you.
         </div>
         <Input
@@ -230,7 +253,7 @@ const ContactForm = () => {
               onClick={handleRegister}
               className="contact-form__send-message"
               disabled={loading}
-              loading={loading}
+              // loading={loading}
             >
               Send Message
             </Button>

@@ -4,9 +4,10 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Box from "@material-ui/core/Box";
 import { Value } from "@material-ui/lab";
 
+const BBox:any=Box
 const FacultyInformation = (props: any) => {
-  const faculty = useSelector((state) => state.college.college.faculty);
 
+  const faculty = useSelector((state:any) => state.college.college.faculty);
   const getValue = (value) => {
     const splitText = value.split("%");
     if (splitText.length == 2) {
@@ -23,7 +24,7 @@ const FacultyInformation = (props: any) => {
 
   function CircularProgressWithLabel(props) {
     return (
-      <Box className="circle-container">
+      <BBox className="circle-container">
         <CircularProgress
           variant="determinate"
           value={getValue(props.value)}
@@ -34,21 +35,30 @@ const FacultyInformation = (props: any) => {
             zIndex: 1,
           }}
         />
-        <Box className="circle">{props.value}</Box>
-      </Box>
+        <BBox className="circle">{props.value}</BBox>
+      </BBox>
     );
   }
   return faculty ? (
+ 
     <div className="faculty-information">
+    {faculty && faculty?.major_faculty && faculty?.major_faculty.length > 0 && (
+
+ 
       <div className="faculty-information__inner">
+        
         <div className="sidebar__title">Faculty Information</div>
         <div className="faculty-information__shapes">
+    
           <div className="faculty-information__semi-circle">
+          
             <div className="faculty-information__semi-circle-text">
               {faculty && faculty?.total_faculity}
               <span>Faculty</span>
             </div>
+         
           </div>
+           
           <div className="faculty-information__circle-wrap">
             {faculty?.major_faculty.map((c) => {
               return (
@@ -66,10 +76,14 @@ const FacultyInformation = (props: any) => {
               );
             })}
           </div>
+       
+
         </div>
       </div>
+      )}
     </div>
-  ) : null;
+      
+  ):null;
 };
 
 export default FacultyInformation;

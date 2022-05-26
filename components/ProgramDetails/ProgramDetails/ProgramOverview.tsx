@@ -7,13 +7,13 @@ import renderHTML from "react-render-html";
 import Carousel from "../../ProgramCollegeCarousel";
 
 const ProgramOverview = ({ data, collegeBarSticky }) => {
+  console.log('data',data);
   const dispatch = useDispatch();
   const collegeList = useSelector((state: any) => state.college.colleges);
 
   React.useEffect(() => {
     dispatch(getColleges());
   }, []);
-  console.log(data);
 
   return (
     <div className={`program-overview section-container `} id="overview">
@@ -47,7 +47,7 @@ const ProgramOverview = ({ data, collegeBarSticky }) => {
             <div className="content-right-text">{data?.exam_type}</div>
 
             <div className="content-right-text">{data?.average_salary}</div>
-            <div className="content-right-text">{data?.exam_type}</div>
+            <div className="content-right-text">{data?.eligibility}</div>
           </div>
         </div>
       </div>

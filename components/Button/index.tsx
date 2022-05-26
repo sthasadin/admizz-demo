@@ -1,6 +1,5 @@
 import { Button as ButtonComponent } from "@material-ui/core";
 import React from "react";
-import { createUseStyles } from "react-jss";
 import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
@@ -21,6 +20,7 @@ export interface Props {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   background?: string;
   fullWidth?: boolean;
+  children?:any
 }
 
 const Button: React.FC<Props> = ({

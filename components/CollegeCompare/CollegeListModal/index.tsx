@@ -6,6 +6,7 @@ import Fade from "@material-ui/core/Fade";
 import { Button } from "../../Button/index";
 import CollegeList from "./CollegeList";
 
+const MTModal:any=Modal
 const index = (props: any) => {
   const {
     handleAddCollegeModal,
@@ -54,7 +55,7 @@ const index = (props: any) => {
 
   return (
     <>
-      <Modal
+      <MTModal
         className="modal__container"
         open={isAddCollegeModalOpen}
         onClose={() => handleAddCollegeModal(false)}
@@ -101,7 +102,7 @@ const index = (props: any) => {
             </div>
           </div>
         </Fade>
-      </Modal>
+      </MTModal>
     </>
   );
 };

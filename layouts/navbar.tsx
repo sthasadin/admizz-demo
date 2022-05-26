@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -8,6 +8,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import { auth } from "../firebase";
+import { AuthContext } from "pages/AuthContext";
 
 import SearchField from "../components/SearchField";
 import { searchAllItem } from "../store/Action/search.action";
@@ -20,6 +21,7 @@ const Navbar = (props: any) => {
   const [mobileSize, setMobilesize] = React.useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
+  const { auth } = useContext(AuthContext);
 
   const data = useSelector((state: any) => state.search.data);
   const loader = useSelector((state: any) => state.search.loader);
@@ -50,7 +52,6 @@ const Navbar = (props: any) => {
       setState({ ...state, top: open });
     }
     setState({ ...state, [anchor]: open });
-
   };
 
   const list = (anchor) => (
@@ -62,7 +63,7 @@ const Navbar = (props: any) => {
     >
       <div className="drawer__header">
         <img src="/whiteLogo.png" alt="admizz_logo" className="img__logo" />
-        
+
         <img
           src="/crossIcon.png"
           alt="crossIcon_logo"
@@ -116,9 +117,9 @@ const Navbar = (props: any) => {
                 {auth?.currentUser?.emailVerified ? (
                   <div>
                     {/* <img src="/user-icon.png" alt="..." /> */}
-                    <div className="MuiTypography-body1"
-                    onClick={logout}
-                    >Logout</div>
+                    <div className="MuiTypography-body1" onClick={logout}>
+                      Logout
+                    </div>
                   </div>
                 ) : (
                   <div>
@@ -133,9 +134,22 @@ const Navbar = (props: any) => {
       </List>
 
       <div className="navbar__applyaddresscontainer">
-        <div className="navbar__applynowcontainer">
+        {!auth?.currentUser?.emailVerified ? (
+          <div className="navbar__applynowcontainer">
+                 <Link href="/register">
+            <Button className="navbar__applybtn">Sign Up</Button>
+            </Link>
+          </div>
+        ) : (
+          <div className="navbar__applynowcontainer">
+            <Link href="/studentdashboardmain">
+              <Button className="navbar__applybtn">Apply Now</Button>
+            </Link>
+          </div>
+        )}
+        {/* <div className="navbar__applynowcontainer">
           <Button className="navbar__applybtn">Apply Now</Button>
-        </div>
+        </div> */}
 
         <div className="navbar__contactcontainer">
           <div className="navbar__contactdetails">
@@ -159,17 +173,16 @@ const Navbar = (props: any) => {
               <div>Address</div>
             </div>
             <div className="navbar__contact1">
-              <div className="navbar__countryname">Nepal:</div>
-              <div className="navbar__contactnumber">+977 9802728444</div>
+              {/* <div className="navbar__countryname">Nepal:</div> */}
+              <div className="navbar__contactnumber">Putalisadak,Kathmandu</div>
             </div>
             <div className="navbar__contact2">
-              <div className="navbar__countryname">India:</div>
-              <div className="navbar__contactnumber">+91 8050259693</div>
+              {/* <div className="navbar__countryname">India:</div> */}
+              <div className="navbar__contactnumber">Bangaluru,Karnataka</div>
             </div>
           </div>
         </div>
-        </div>
-
+      </div>
     </div>
   );
 

@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
 import moment from "moment";
 import ReactPlayer from "react-player";
 import renderHTML from "react-render-html";
+const RTReactPlayer:any=ReactPlayer
 
 const CollegeOverview = () => {
-  const [open, setOpen] = useState(false);
 
   const college = useSelector((state: any) => state.college.college);
-
   return (
     <div id="overview" className="overview">
       <div className="overview__title-wrap">
@@ -121,7 +117,7 @@ const CollegeOverview = () => {
       </div>
       {college?.video_360 && (
         <div className="overview__thumbnail">
-          <ReactPlayer
+          <RTReactPlayer
             url={college?.video_360}
             width="100%"
             height="100%"

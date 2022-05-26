@@ -10,7 +10,7 @@ import { Button } from "../Button";
 import { withStyles } from "@material-ui/core/styles";
 import { UploadButton } from "../Button/uploadButton";
 
-const CustomRadio = withStyles({
+const CustomRadio:any = withStyles({
   root: {
     color: "#FFA200",
     "&$checked": {

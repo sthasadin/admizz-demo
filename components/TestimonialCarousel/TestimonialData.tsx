@@ -4,6 +4,9 @@ import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
 import Backdrop from "@material-ui/core/Backdrop";
 
+const MTModal:any=Modal
+const RTReactPlayer:any=Modal
+
 const TestimonialCarousel = ({ data }) => {
   const [open, setOpen] = React.useState(false);
 
@@ -70,7 +73,7 @@ const TestimonialCarousel = ({ data }) => {
           </div>
         )}
 
-        <Modal
+        <MTModal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"
           open={open}
@@ -84,10 +87,10 @@ const TestimonialCarousel = ({ data }) => {
         >
           <Fade in={open}>
             <div>
-              <ReactPlayer url="https://www.youtube.com/watch?v=_xMXR5_CnQM" />
+              <RTReactPlayer url="https://www.youtube.com/watch?v=_xMXR5_CnQM" />
             </div>
           </Fade>
-        </Modal>
+        </MTModal>
       </div>
       <div style={{ marginBottom: "20px" }}>
         <div className="testimonial__text">{data.description}</div>

@@ -313,21 +313,9 @@ const collegeList = () => {
                </g>
               
                </svg>}
-                  // color="#ffa200"
-                  
-                  // viewBox=""
+                 
                 />
-                {/* <BackToTop
-                  showOnScrollUp
-                  showAt={100}
-                  speed={1500}
-                  easing="easeInOutQuint"
-                >
-                  <Fab  color="primary" size="small">
-                      <ArrowUpward />
-                    
-                  </Fab>
-                </BackToTop> */}
+              
               </div>
             </div>
           </div>

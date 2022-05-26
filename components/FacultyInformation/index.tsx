@@ -4,6 +4,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Box from "@material-ui/core/Box";
 import { Value } from "@material-ui/lab";
 
+const BBox:any=Box
 const FacultyInformation = (props: any) => {
 
   const faculty = useSelector((state:any) => state.college.college.faculty);
@@ -23,7 +24,7 @@ const FacultyInformation = (props: any) => {
 
   function CircularProgressWithLabel(props) {
     return (
-      <Box className="circle-container">
+      <BBox className="circle-container">
         <CircularProgress
           variant="determinate"
           value={getValue(props.value)}
@@ -34,8 +35,8 @@ const FacultyInformation = (props: any) => {
             zIndex: 1,
           }}
         />
-        <Box className="circle">{props.value}</Box>
-      </Box>
+        <BBox className="circle">{props.value}</BBox>
+      </BBox>
     );
   }
   return faculty ? (

@@ -13,6 +13,11 @@ import {
 import { AuthContext } from "pages/AuthContext";
 import { auth } from "../../firebase";
 import { useRouter } from "next/router";
+import { ModalProps } from "antd";
+
+
+const MTModal:any=Modal
+const RTReactPlayer:any=ReactPlayer
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -41,7 +46,6 @@ const CollegeHeader = ({
   const favorites = useSelector((state: any) => state.favourites.userFavorite);
   const college = useSelector((state: any) => state.college.college);
   const router = useRouter();
-
   const handleOpen = () => {
     setOpen(true);
   };
@@ -208,7 +212,7 @@ const CollegeHeader = ({
         </div>
       </div>
 
-      <Modal
+      <MTModal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -225,10 +229,10 @@ const CollegeHeader = ({
             <div className="cross-icon" onClick={handleClose}>
               X
             </div>
-            <ReactPlayer url={video_360} className="react-player" controls />
+            <RTReactPlayer url={video_360} className="react-player" controls />
           </div>
         </Fade>
-      </Modal>
+      </MTModal>
       <Snackbar
         open={snackOpen}
         autoHideDuration={1000}

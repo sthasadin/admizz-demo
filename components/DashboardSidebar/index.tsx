@@ -4,7 +4,7 @@ import StickyBox from "react-sticky-box";
 import { Button } from "../Button";
 import { auth, db } from "../../firebase";
 import { useRouter } from "next/router";
-
+const STStickyBox:any = StickyBox
 const DashboardSidebar = () => {
   const router = useRouter();
   const logout = async () => {
@@ -12,7 +12,7 @@ const DashboardSidebar = () => {
     router.push("/");
   };
   return (
-    <StickyBox style={{ height: "100vh" }}>
+    <STStickyBox style={{ height: "100vh" }}>
       <div
         className="dashboard-sidebar"
         style={{ width: "100%", cursor: "pointer" }}
@@ -55,7 +55,7 @@ const DashboardSidebar = () => {
           Logout
         </div>
       </div>
-    </StickyBox>
+    </STStickyBox>
   );
 };
 

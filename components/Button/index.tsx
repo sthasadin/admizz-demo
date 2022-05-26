@@ -20,6 +20,7 @@ export interface Props {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   background?: string;
   fullWidth?: boolean;
+  children?:any
 }
 
 const Button: React.FC<Props> = ({

@@ -26,7 +26,7 @@ function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const CustomRadio = withStyles({
+const CustomRadio:any = withStyles({
   root: {
     color: "#FFA200",
     "&$checked": {

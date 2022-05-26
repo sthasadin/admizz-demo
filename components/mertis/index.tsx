@@ -5,7 +5,8 @@ import ReactPlayer from "react-player";
 import Modal from "@material-ui/core/Modal";
 import Link from "next/link";
 import Backdrop from "@material-ui/core/Backdrop";
-
+const MTModal:any=Modal
+const RTReactPlayer:any=ReactPlayer
 const Merits = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -97,7 +98,7 @@ const Merits = () => {
           </div>
         </div>
       </div>
-      <Modal
+      <MTModal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -114,13 +115,13 @@ const Merits = () => {
             <div className="cross-icon" onClick={handleClose}>
               X
             </div>
-            <ReactPlayer
+            <RTReactPlayer
               className="react-player"
               url="https://www.youtube.com/watch?v=_xMXR5_CnQM"
             />
           </div>
         </Fade>
-      </Modal>
+      </MTModal>
     </div>
   );
 };

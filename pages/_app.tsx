@@ -23,7 +23,6 @@ if (typeof window !== "undefined") {
     NProgress.done();
   });
 }
-
 const MyApp = ({ Component, pageProps }: AppProps) => {
   React.useEffect(() => {
     Router.events.on("routeChangeComplete", () => {
@@ -36,11 +35,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, []);
 
   return (
+    <>
     <AuthProvider>
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>
     </AuthProvider>
+    </>
   );
 };
 export default MyApp;

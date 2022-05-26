@@ -8,6 +8,9 @@ import ReactPlayer from "react-player";
 import { CallToAction } from "../Button/callToAction";
 import { useRouter } from "next/router";
 
+const MTModal:any=Modal
+const RTReactPlayer:any=Modal
+
 const Testimonial = (props: any) => {
   const router = useRouter();
 
@@ -170,7 +173,7 @@ const Testimonial = (props: any) => {
                             </svg>
                           </div>
 
-                          <Modal
+                          <MTModal
                             aria-labelledby="transition-modal-title"
                             aria-describedby="transition-modal-description"
                             open={open}
@@ -184,7 +187,7 @@ const Testimonial = (props: any) => {
                           >
                             <Fade in={open}>
                               <div>
-                                <ReactPlayer
+                                <RTReactPlayer
                                   url={
                                     selectedTestimonial?.video_url
                                       ? selectedTestimonial?.video_url
@@ -193,7 +196,7 @@ const Testimonial = (props: any) => {
                                 />
                               </div>
                             </Fade>
-                          </Modal>
+                          </MTModal>
                         </div>
                       );
                     } else {
@@ -295,7 +298,7 @@ const Testimonial = (props: any) => {
                             </svg>
                           </div>
 
-                          <Modal
+                          <MTModal
                             aria-labelledby="transition-modal-title"
                             aria-describedby="transition-modal-description"
                             open={open}
@@ -309,7 +312,7 @@ const Testimonial = (props: any) => {
                           >
                             <Fade in={open}>
                               <div>
-                                <ReactPlayer
+                                <RTReactPlayer
                                   url={
                                     selectedTestimonial?.video_url
                                       ? selectedTestimonial?.video_url
@@ -318,7 +321,7 @@ const Testimonial = (props: any) => {
                                 />
                               </div>
                             </Fade>
-                          </Modal>
+                          </MTModal>
                         </div>
                       );
                     } else {

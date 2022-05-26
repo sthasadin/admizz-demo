@@ -9,6 +9,9 @@ import { auth } from "../../firebase";
 
 import ReactPlayer from "react-player";
 
+const MTModal:any=Modal
+const RTReactPlayer:any=ReactPlayer
+
 const Introduction = (props) => {
   const { title, imgSrc, videoUrl } = props;
   const router = useRouter();
@@ -81,7 +84,7 @@ const Introduction = (props) => {
                   </svg>
                 </div>
 
-                <Modal
+                <MTModal
                   aria-labelledby="transition-modal-title"
                   aria-describedby="transition-modal-description"
                   open={open}
@@ -98,10 +101,10 @@ const Introduction = (props) => {
                       <div className="cross-icon" onClick={handleClose}>
                         X
                       </div>
-                      <ReactPlayer url={videoUrl} className="react-player" />
+                      <RTReactPlayer url={videoUrl} className="react-player" />
                     </div>
                   </Fade>
-                </Modal>
+                </MTModal>
 
                 <div className="introduction__watch__label">
                   <a href={videoUrl} target="_blank">

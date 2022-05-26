@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getGallery } from "@/store/Action/gallery.action";
 import ReactPlayer from "react-player";
+const RTReactPlayer:any=ReactPlayer
 
 const CollegeGallery = (props) => {
   const college = useSelector((state: any) => state.college.college);
@@ -51,7 +52,7 @@ const CollegeGallery = (props) => {
           <div className="college-gallery__video__left">
             <div className="college-gallery__video__thumbnail">
               {videos?.length && (
-                <ReactPlayer
+                <RTReactPlayer
                   url={videos[0]}
                   light={true}
                   width="100%"
@@ -86,7 +87,7 @@ const CollegeGallery = (props) => {
           <div className="college-gallery__video__right">
             <div className="college-gallery__video__thumbnail">
               {videos?.length && (
-                <ReactPlayer
+                <RTReactPlayer
                   url={videos[1]}
                   light={true}
                   width="100%"

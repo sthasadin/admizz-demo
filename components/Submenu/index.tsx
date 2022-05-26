@@ -16,6 +16,8 @@ import { useRouter } from "next/router";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
+const MTModal:any=Modal
+const RTReactPlayer:any=Modal
 
 const Submenu = (props: any) => {
   const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
@@ -142,7 +144,7 @@ const Submenu = (props: any) => {
 
                   
                   </div>
-                  <Modal
+                  <MTModal
                     aria-labelledby="transition-modal-title"
                     aria-describedby="transition-modal-description"
                     open={open}
@@ -159,14 +161,14 @@ const Submenu = (props: any) => {
                         <div className="cross-icon" onClick={handleClose}>
                           X
                         </div>
-                        <ReactPlayer
+                        <RTReactPlayer
                           url={college?.video_360}
                           className="react-player"
                           controls
                         />
                       </div>
                     </Fade>
-                  </Modal>
+                  </MTModal>
                   <div className="task__title">Campus Tour</div>
                 </div>
               </div>

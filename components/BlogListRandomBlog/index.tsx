@@ -1,8 +1,5 @@
 import React from "react";
 import { SingleBlogCard } from "../SingleBlogCard";
-import { SingleListPost } from "../SingleListPost";
-import { SingleListPostWithImage } from "../SingleListPostWithImage";
-import { useSelector } from "react-redux";
 import calculateReadingTime from "../../utils/calculateReadingTime";
 
 const BlogListRandomBlog = ({ blogArray }) => {

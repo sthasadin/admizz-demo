@@ -24,7 +24,9 @@ const SingleBlogCard = (props: any) => {
           }}
         >
           <div className="single-blog-card__catagoryContainer">
-            <div className="single-blog-card__category">{props.type}</div>
+            <div className="single-blog-card__category">
+              {props.type}
+              </div>
           </div>
           <div className="single-blog-card__details">
             <div className="blogCard__meta">

@@ -30,14 +30,14 @@ const TeamCard = ({ selectedTeam }: any) => {
             {selectedTeam?.email}
           </div>
           <div className="team-social-icons-box">
-            {selectedTeam?.twitter && selectedTeam?.twitter.length > 0 && (
+            {selectedTeam?.twitter && selectedTeam?.twitter?.length > 0 && (
               <div className="teams-social-icons">
                 < a href={selectedTeam?.twitter}>
                   <Twitter theme="outline" size="20" fill="#828282" />
                 </a>
               </div>
             )}
-            {selectedTeam?.instagram && selectedTeam?.instagram.length > 0 && (
+            {selectedTeam?.instagram && selectedTeam?.instagram?.length > 0 && (
               <div className="teams-social-icons">
                 <a href={selectedTeam?.instagram}>
                   <Instagram theme="outline" size="20" fill="#828282" />
@@ -45,7 +45,7 @@ const TeamCard = ({ selectedTeam }: any) => {
               </div>
             )}
 
-            {selectedTeam?.facebook && selectedTeam?.facebook.length > 0 && (
+            {selectedTeam?.facebook && selectedTeam?.facebook?.length > 0 && (
               <div className="teams-social-icons">
                 <a href={selectedTeam?.facebook}></a>
                 <Facebook theme="outline" size="22" fill="#828282" />

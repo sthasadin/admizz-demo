@@ -32,7 +32,7 @@ const index = () => {
     //   setSelectedCollege([college]);
     // }
 
-    if(decodedClgs?.length){
+    if(decodedClgsdata&&data?.length){
       setSelectedCollege(decodedClgs);
     }
 
@@ -98,7 +98,7 @@ const index = () => {
               <div className="comparecollege__collegelist">
                 {/* here college */}
                 <div className="add__div">
-                  {selectedCollege.length < 3 ? (
+                  {selectedCollegedata&&data?.length < 3 ? (
                     <div
                       className="comparecollege__addtemplates"
                       onClick={() => handleAddCollegeModal(true)}
@@ -135,7 +135,7 @@ const index = () => {
                     );
                   })}
                 {/* <div className="add__div">
-            {selectedCollege.length < 3 ? (
+            {selectedCollegedata&&data?.length < 3 ? (
               <div
                 className="comparecollege__addtemplates"
                 onClick={() => handleAddCollegeModal(true)}

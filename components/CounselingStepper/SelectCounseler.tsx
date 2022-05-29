@@ -106,7 +106,8 @@ const SelectCounseler: React.FC<Props> = ({
               </div>
             );
           })}
-        {filteredCounsellor.length === 0 && !loader
+         
+        {filteredCounsellor?.length === 0 && !loader
           ? "Sorry there no counsellor in your region right now"
           : ""}
       </div>

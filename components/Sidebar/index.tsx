@@ -22,7 +22,7 @@ const Sidebar = () => {
     router.push(`/comparecollege`)
   }
   let len = useMemo(() => {
-    return Object.keys(college).length;
+    return Object.keys(college)?.length;
   }, [college]);
 
   return len > 10 ? (

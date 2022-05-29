@@ -47,16 +47,15 @@ const blogDetail = () => {
   const { blog } = useSelector((state: any) => state.blogDetails);
   const { comments } = useSelector((state: any) => state.blog);
   const shareUrl = `https://beta.admizz.com/blogs/${slug}`;
-  const [newComment,setNewComment] = useState(0)
+  const [newComment, setNewComment] = useState(0);
   useEffect(() => {
     dispatch(getBlogDetail(slug));
     // dispatch(getBlog(slug));(
-    }, [slug]);
-    useEffect(()=>{
+  }, [slug]);
+  useEffect(() => {
     dispatch(getComments(blog._id));
-  },[blog,newComment])
+  }, [blog, newComment]);
 
-  
   return (
     <BlogLayout title={blog?.blog_title}>
       <div className="container section-wrapper">
@@ -96,33 +95,26 @@ const blogDetail = () => {
                     Share This Article
                   </DialogTitle>
                   <List className="blog-detail__listContainer">
-                   
-                    <ListItem button className="blog-detail__listItemContainer"
-             >
-                   
-                     
+                    <ListItem button className="blog-detail__listItemContainer">
                       <ListItemAvatar>
                         <FacebookShareButton
                           url={shareUrl}
                           quote={"Admizz - You just dream it."}
                           hashtag="#admizz"
-                    
                         >
                           <Avatar>
-                            <FacebookIcon size={40} round={true} name="Facebook" />
-                        
-                       
+                            <FacebookIcon
+                              size={40}
+                              round={true}
+                              name="Facebook"
+                            />
                           </Avatar>
-                        </FacebookShareButton>                   
-
+                        </FacebookShareButton>
                       </ListItemAvatar>
-                     
-                    
-                      <ListItemText
-                     
-                      primary="Facebook"/>
+
+                      <ListItemText primary="Facebook" />
                     </ListItem>
-                    
+
                     <ListItem button>
                       <ListItemAvatar>
                         <WhatsappShareButton
@@ -163,8 +155,12 @@ const blogDetail = () => {
             </div>
           </div>
           <div className="container ">
-            <BlogComment newComment={newComment} setNewComment={setNewComment} data={blog} />
-            <CommentSection comments={comments}/>
+            <BlogComment
+              newComment={newComment}
+              setNewComment={setNewComment}
+              data={blog}
+            />
+            <CommentSection comments={comments} />
 
             <div
               className="blog-detail__imageContainer"

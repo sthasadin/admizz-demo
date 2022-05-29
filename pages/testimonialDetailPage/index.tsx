@@ -12,6 +12,8 @@ import {
   getStudentTestimonials,
   getYearList,
 } from "../../store/Action/testimonial.actions";
+const MTModal:any= Modal
+const RTReactPlayer:any=ReactPlayer
 
 const index = () => {
   const [open, setOpen] = React.useState(false);
@@ -171,6 +173,7 @@ const index = () => {
                       </div>
                     </div>
                   </div>
+                  {data?.video_url && (
                   <div className="introduction__watch">
                     <div
                       className="introduction__watch__icon"
@@ -210,7 +213,7 @@ const index = () => {
                       </svg>
                     </div>
 
-                    <Modal
+                    <MTModal
                       aria-labelledby="transition-modal-title"
                       aria-describedby="transition-modal-description"
                       open={open}
@@ -223,11 +226,14 @@ const index = () => {
                       }}
                     >
                       <Fade in={open}>
-                        <div>
-                          <ReactPlayer url={data?.video_url} />
+                        <div className="react-player-container">
+                        <div className="cross-icon" onClick={handleClose}>
+                        X
+                      </div>
+                          <ReactPlayer url={data?.video_url} className="react-player" />
                         </div>
                       </Fade>
-                    </Modal>
+                    </MTModal>
 
                     <div className="introduction__watch__label">
                       <a href={data?.video_url} target="_blank">
@@ -235,7 +241,7 @@ const index = () => {
                       </a>
                     </div>
                   </div>
-
+            )}
                   <div className="detail_container_content_box">
                     <div className="detail_container_content-arrow">"</div>
                     <div className="detail_container_content">

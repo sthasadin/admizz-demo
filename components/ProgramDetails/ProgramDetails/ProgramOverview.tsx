@@ -4,10 +4,8 @@ import { getColleges } from "../../../store/Action/college.action";
 import moment from "moment";
 
 import renderHTML from "react-render-html";
-import Carousel from "../../ProgramCollegeCarousel";
 
 const ProgramOverview = ({ data, collegeBarSticky }) => {
-  console.log('data',data);
   const dispatch = useDispatch();
   const collegeList = useSelector((state: any) => state.college.colleges);
 
@@ -33,7 +31,7 @@ const ProgramOverview = ({ data, collegeBarSticky }) => {
             <div className="content-left-text">Exam Type</div>
 
             <div className="content-left-text">Average Initial Salary</div>
-            <div className="content-left-text">Eligibility</div>
+            {/* <div className="content-left-text">Eligibility</div> */}
           </div>
           <div className="content-right">
             <div className="content-right-text">
@@ -47,7 +45,7 @@ const ProgramOverview = ({ data, collegeBarSticky }) => {
             <div className="content-right-text">{data?.exam_type}</div>
 
             <div className="content-right-text">{data?.average_salary}</div>
-            <div className="content-right-text">{data?.eligibility}</div>
+            {/* <div className="content-right-text">{data?.eligibility}</div> */}
           </div>
         </div>
       </div>

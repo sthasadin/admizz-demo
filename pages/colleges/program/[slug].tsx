@@ -9,23 +9,21 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import axios from "axios";
 
 const Program = () => {
+  const router = useRouter();
+  const { query } = router;
   const [program, setProgram] = React.useState({} as any);
   const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
   const [loader, setLoader] = React.useState(true);
-
-  const router = useRouter();
-  const { query } = router;
-
-  const getProgram = async () => {
+  const getProgram =  async() => {
     // setLoader(true);
-    const res = await axios.get(
+    await axios.get(
       `${API_BASE_URL}/courses/get-program/${query.slug}`
-    );
-
-    if (res) {
-      setProgram(res?.data);
-      // setLoader(false);
-    }
+    ).then((res)=>{
+      console.log(res.data)
+      setProgram(res.data)
+    }).catch((err)=>{
+      console.log(err)
+    })
     setLoader(false);
   };
 
@@ -52,16 +50,20 @@ const Program = () => {
         <CircularProgress />
       </div>
     );
+    console.log("progrma",program)
 
-  return (
-    <Layout title={program?.name} stickyBar={false}>
+  return (<>
+    
+       <Layout title={program.name} stickyBar={false}>
       <ProgramHeader data={program} />
       <ProgramSubMenu data={program} collegeBarSticky={collegeBarSticky} />
       <ProgramDetailsContainer
         data={program}
         collegeBarSticky={collegeBarSticky}
       />
-    </Layout>
+    </Layout>:"Null"
+    </>
+   
   );
 };
 

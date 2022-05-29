@@ -125,7 +125,7 @@ const DashboardBackgroundInfo = (props) => {
   ];
 
   useEffect(() => {
-    if (Object.keys(props.data).length > 0) {
+    if (Object.keys(props.data)?.length > 0) {
       setHavePassport(props.data.havePassport);
       setPassportDetails({
         ...props.data?.passportDetails,
@@ -147,7 +147,7 @@ const DashboardBackgroundInfo = (props) => {
   };
 
   const truncateString = (str, num) => {
-    if (str?.length > num) {
+    if (strdata&&data?.length > num) {
       return str?.slice(0, num) + "...";
     } else {
       return str;

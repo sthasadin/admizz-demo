@@ -32,7 +32,7 @@ const index = () => {
     //   setSelectedCollege([college]);
     // }
 
-    if(decodedClgsdata&&data?.length){
+    if(decodedClgs?.length){
       setSelectedCollege(decodedClgs);
     }
 
@@ -98,7 +98,7 @@ const index = () => {
               <div className="comparecollege__collegelist">
                 {/* here college */}
                 <div className="add__div">
-                  {selectedCollegedata&&data?.length < 3 ? (
+                  {selectedCollege?.length < 3 ? (
                     <div
                       className="comparecollege__addtemplates"
                       onClick={() => handleAddCollegeModal(true)}

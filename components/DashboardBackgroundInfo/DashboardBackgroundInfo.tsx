@@ -147,7 +147,7 @@ const DashboardBackgroundInfo = (props) => {
   };
 
   const truncateString = (str, num) => {
-    if (strdata&&data?.length > num) {
+    if (str?.length > num) {
       return str?.slice(0, num) + "...";
     } else {
       return str;

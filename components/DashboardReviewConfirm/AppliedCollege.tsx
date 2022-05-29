@@ -4,7 +4,7 @@ import { Button } from "../Button";
 
 const AppliedCollege = ({ selectedCollege }) => {
   function truncateString(str, num = 20) {
-    if (str.length <= num) {
+    if (str?.length <= num) {
       return str;
     }
     return str?.slice(0, num) + "...";

@@ -195,6 +195,7 @@ const DashboardBasicInfo = (props) => {
   ];
 
   const NepalState = [
+    "Province No. 1",
     "Madhesh Province",
     "	Bagmati Province",
     "Gandaki Province",
@@ -339,7 +340,7 @@ const DashboardBasicInfo = (props) => {
   };
 
   useEffect(() => {
-    if (Object.keys(props.data).length > 0) {
+    if (Object.keys(props.data)?.length > 0) {
       setFullName(props.data.fullName);
       setDob(props.data.DOB);
       setSelectedLevel({

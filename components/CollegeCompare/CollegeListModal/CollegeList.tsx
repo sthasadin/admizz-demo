@@ -27,7 +27,7 @@ const CollegeList = (props) => {
       disSelectCollege(id);
       setSelectedCard(false);
     } else {
-      if (selectedCollegeArray.length < 3) {
+      if (selectedCollegeArray?.length < 3) {
         setSelectedCard(true);
         addSelectedCollege(id);
       }

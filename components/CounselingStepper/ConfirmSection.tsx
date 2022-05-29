@@ -2,8 +2,10 @@ import React from "react";
 import confirmBookBg from "../../public/confirmBookBg.png";
 import messenger from "../../public/messenger.png";
 import whatsapp from "../../public/whatsapp.png";
+import zoom from "../../public/zoom.png";
 import { Button } from "../Button";
 import moment from "moment";
+import { Zoom } from "@material-ui/core";
 
 interface Props {
   handleBack: () => void;
@@ -28,9 +30,10 @@ const ConfirmBook: React.FC<Props> = ({
         <div className={"confirm-section__row"}>
           <div className={"confirm-section__details-head"}>{"Date & Time"}</div>
           <div className={"confirm-section_detail-info"}>
-            {`${moment(
-            formValue.date
-          ).format("MMM DD YYYY")} - ${formValue.time}`}</div>
+            {`${moment(formValue.date).format("MMM DD YYYY")} - ${
+              formValue.time
+            }`}
+          </div>
         </div>
         <div className={"confirm-section__row"}>
           <div className={"confirm-section__details-head"}>Email Address</div>
@@ -47,7 +50,11 @@ const ConfirmBook: React.FC<Props> = ({
           <div className={`confirm-section__medium`}>
             <img
               src={
-                formValue.contact_medium === "messenger" ? messenger : whatsapp
+                formValue.contact_medium === "messenger"
+                  ? messenger
+                  : formValue.contact_medium === "whatsapp"
+                  ? whatsapp
+                  : zoom
               }
             />
             <span>

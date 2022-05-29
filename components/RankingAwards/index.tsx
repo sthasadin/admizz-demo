@@ -11,7 +11,7 @@ const index = () => {
     <div>
       {college &&
         college.college_rankings &&
-        college.college_rankings.length > 0 && (
+        college.college_rankings?.length > 0 && (
           <div className="rankingawards__section">
             {/* {college.college_rankings?.length ? (
         <> */}

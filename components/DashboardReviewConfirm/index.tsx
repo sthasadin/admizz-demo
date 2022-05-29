@@ -75,6 +75,8 @@ const DashboardReviewConfirm = (props) => {
   );
   const [isTermsChecked, setIstermsChecked] = React.useState(false);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
+  const [snackOpenError, setSnackOpenError] = useState(false as boolean);
+
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [formError, setFormError] = useState({} as any);
@@ -1417,16 +1419,18 @@ const DashboardReviewConfirm = (props) => {
         </div>
       </div>
       
+
+     
+      
       <Snackbar
-        open={snackOpen}
+        open={snackOpenError}
         autoHideDuration={4000}
-        onClose={() => setSnackOpen(false)}
+        onClose={() => setSnackOpenError(false)}
       >
-        <Alert onClose={() => setSnackOpen(false)} severity="error">
-          Please check the empty field
+        <Alert onClose={() => setSnackOpenError(false)} severity="error">
+          Please check the empty field and submit again
         </Alert>
       </Snackbar>
-
       <Snackbar
         open={snackOpen}
         autoHideDuration={4000}
@@ -1436,6 +1440,7 @@ const DashboardReviewConfirm = (props) => {
           Your application has been submitted
         </Alert>
       </Snackbar>
+
     </div>
   );
 };

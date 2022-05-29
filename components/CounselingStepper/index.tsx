@@ -15,7 +15,6 @@ import ConfirmBook from "./ConfirmSection";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 
-
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -30,7 +29,6 @@ interface studentInfoFormValue {
   description: string;
   contact_medium: string;
   contact_id: string;
-
 }
 
 interface FirstStepValidateSchema {
@@ -83,7 +81,7 @@ const CounselingStepper = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const [loading, setLoading] = React.useState(false);
-  const [bookingError, setBookingError] = React.useState("")
+  const [bookingError, setBookingError] = React.useState("");
   const [completed, setCompleted] = React.useState<{ [k: number]: boolean }>(
     {}
   );
@@ -100,23 +98,29 @@ const CounselingStepper = () => {
 
   const dispatch = useDispatch();
 
-
   const handleChange = (e: any) => {
-    formValue[e.target.name] = e.target.value
-    setFormValue({ ...formValue});
+    formValue[e.target.name] = e.target.value;
+    setFormValue({ ...formValue });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
 
     if (e.target.name === "home_country") {
       if (e.target.value === "nepal") {
-        setFormValue({ ...formValue, countryCode: "+977" } as studentInfoFormValue);
-      } else setFormValue({ ...formValue, countryCode: "+91" } as studentInfoFormValue);
+        setFormValue({
+          ...formValue,
+          countryCode: "+977",
+        } as studentInfoFormValue);
+      } else
+        setFormValue({
+          ...formValue,
+          countryCode: "+91",
+        } as studentInfoFormValue);
     }
   };
 
   const dateTimeValidateSchema = yup.object().shape<FirstStepValidateSchema>({
     date: yup.string().required("Please select one date"),
     time: yup.string().required("Required time"),
-    counsellor: yup.string().required("Please select  counselor"),
+    counsellor: yup.string().required("Please select counselor"),
   });
 
   const validationSchema = yup.object().shape<studentInfoFormValue>({
@@ -130,8 +134,7 @@ const CounselingStepper = () => {
       .number()
       .required("Phone number field should not be empty")
       .typeError("Value should be number"),
-    home_country: yup
-      .string().required("Please select your country"),
+    home_country: yup.string().required("Please select your country"),
     course: yup.string().required("Course field should not be empty"),
     description: yup.string().required("Description field should not be empty"),
     contact_medium: yup.string().required("Select one medium"),
@@ -140,41 +143,32 @@ const CounselingStepper = () => {
 
   const dateTimeValidate = async () => {
     try {
-
-    let docs = [];
-
-    // await db.collection("appointment").where("counsellor", "==", formValue.counsellor).where("date", "==", formValue.date).where("time", "==",formValue.time).get().then((querySnapshot) => {
-             
-    //     // Loop through the data and store
-    //     // it in array to display
-
-    //     querySnapshot?.forEach(element => {
-    //         var data = element.data();
-    //         docs.push(data)
-    //     });
-    //})
-    let query = db.collection("appointment").where("counsellor", "==", formValue.counsellor)
-    // query = query.where("date", "==", formValue.date)
-    query = query.where("time", "==",formValue.time)
-    await query.get().then((querySnapshot)=>{
-    //  docs=querySnapshot.size
-
-      querySnapshot?.forEach(element => {
-                var data = element.data();
-                 if(moment(data.date.seconds*1000).format('DD-MM-YYYY') === moment(formValue.date).format('DD-MM-YYYY')){
-                  docs.push(data)
-                 }
-            });
-    }) 
-          if(docs.length > 0){
-        // docs.map((data,i)=>{
-        //   //if(data?.date == formValue.data && data)
-        // })
-        setBookingError("Sorry! There is already a booking on chosen date and time, Please try changing date and time")
-        return 
+      let docs = [];
+      let query = db
+        .collection("appointment")
+        .where("counsellor", "==", formValue.counsellor);
+      query = query.where("time", "==", formValue.time);
+      await query.get().then((querySnapshot) => {
+        querySnapshot?.forEach((element) => {
+          var data = element.data();
+          if (
+            moment(data.date.seconds * 1000).format("DD-MM-YYYY") ===
+            moment(formValue.date).format("DD-MM-YYYY")
+          ) {
+            docs.push(data);
+          }
+        });
+      });
+    
+      if (docs?.length > 0) {
+        setBookingError(
+          "Sorry! There is already a booking on chosen date and time, Please try changing date and time"
+        );
+        return;
       }
-      setBookingError("")
+      setBookingError("");
       await dateTimeValidateSchema.validate(
+        
         {
           date: formValue.date,
           time: formValue.time,
@@ -203,7 +197,7 @@ const CounselingStepper = () => {
           email: formValue.email,
           countryCode: formValue.countryCode,
           phone: formValue.phone,
-         home_country: formValue.home_country,
+          home_country: formValue.home_country,
           course: formValue.course,
           description: formValue.description,
           contact_medium: formValue.contact_medium,
@@ -231,7 +225,7 @@ const CounselingStepper = () => {
         name: formValue.name,
         email: formValue.email,
         countryCode: formValue.countryCode,
-        phone: formValue.phone ,
+        phone: formValue.phone,
         home_country: formValue.home_country,
         course: formValue.course,
         description: formValue.description,
@@ -265,11 +259,11 @@ const CounselingStepper = () => {
   ];
 
   const totalSteps = () => {
-    return steps.length;
+    return steps?.length;
   };
 
   const completedSteps = () => {
-    return Object.keys(completed).length;
+    return Object.keys(completed)?.length;
   };
 
   const isLastStep = () => {
@@ -375,7 +369,7 @@ const CounselingStepper = () => {
           Your Booking has been Confirmed. Redirecting to home page.
         </Alert>
       </Snackbar>
-      {bookingError &&  <Alert severity="error">{bookingError}</Alert>}
+      {bookingError && <Alert severity="error">{bookingError}</Alert>}
     </div>
   );
 };

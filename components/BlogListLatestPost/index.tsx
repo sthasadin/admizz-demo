@@ -18,7 +18,7 @@ const BlogListLatestPost = ({ blogArray }) => {
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");
   };
-  const len = blogs.length > 7 ? 7 : blogs.length;
+  const len = blogs?.length > 7 ? 7 : blogs?.length;
   const text_truncate = (str) => {
     return str.substring(0, 150 - 3) + "...";
   };

@@ -141,7 +141,7 @@ export const DashboardAcademicInfo = (props) => {
 
   // back tracking
   useEffect(() => {
-    if (Object.keys(props.data).length > 0) {
+    if (Object.keys(props.data)?.length > 0) {
       setSchoolMarks(props.data.schoolMarks);
       // setLevel0Score(props.data.level0Score)
       setLevel1Score(props.data.level1Score);
@@ -169,7 +169,7 @@ export const DashboardAcademicInfo = (props) => {
   };
 
   const truncateString = (str, num) => {
-    if (str.length > num) {
+    if (str?.length > num) {
       return str.slice(0, num) + "...";
     } else {
       return str;

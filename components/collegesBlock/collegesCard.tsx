@@ -14,7 +14,7 @@ const CollegesCard = (college) => {
   const dispatch = useDispatch();
 
   function truncateString(str, num) {
-    if (str?.toString().length > num) {
+    if (str?.toString()?.length > num) {
       return str?.toString().slice(0, num) + "K+";
     } else {
       return str;
@@ -22,7 +22,7 @@ const CollegesCard = (college) => {
   }
 
   const truncateCourse = (str, num) => {
-    if (str?.toString().length > num) {
+    if (str?.toString()?.length > num) {
       return str?.toString().slice(0, num) + "+";
     } else {
       return str;
@@ -35,35 +35,35 @@ const CollegesCard = (college) => {
 
     //make proper datastructure
     let collegeReviews: any = {
-      length: res.length,
+      length: res?.length,
       ratings: {
         academics: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["academics"]) || 0), 0) /
-            res.length
+            res?.length
         ),
         accomodation: Math.ceil(
           res.reduce(
             (a, b) => Number(a) + (Number(b["accomodation"]) || 0),
             0
-          ) / res.length
+          ) / res?.length
         ),
         faculty: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["faculty"]) || 0), 0) /
-            res.length
+            res?.length
         ),
         infrastructures: Math.ceil(
           res.reduce(
             (a, b) => Number(a) + (Number(b["infrastructures"]) || 0),
             0
-          ) / res.length
+          ) / res?.length
         ),
         placements: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["placements"]) || 0), 0) /
-            res.length
+            res?.length
         ),
         social: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["social"]) || 0), 0) /
-            res.length
+            res?.length
         ),
       },
       all_reviews: res.map((r) => {
@@ -84,7 +84,7 @@ const CollegesCard = (college) => {
               Number(r.social)) /
               6
           ),
-          // noOfReports:r?.noOfReports?.length || 0
+          // noOfReports:r?.noOfReportsdata&&data?.length || 0
         };
       }),
     };

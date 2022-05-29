@@ -44,7 +44,7 @@ const BlogCategory = () => {
         <div className="blog-list-random-blog" style={{ margin: "30px 0" }}>
           <div className="blog-list-random-blog__highlightPost">
             <div className="blog-list-random-blog__secondaryPostContainer">
-              {blogArray.length>0?
+              {blogArray?.length>0?
                 blogArray?.map((blog, i) => {
                   return (
                     <div className="blog-list-member__secondaryPost" key={i}>

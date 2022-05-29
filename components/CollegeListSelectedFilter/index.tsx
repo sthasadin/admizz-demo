@@ -6,23 +6,23 @@ const CollegeListSelectedFilter = ({ setFilterObj, filterObj }) => {
 
   React.useEffect(() => {
     let selectedArray = [];
-    filterObj.city.length &&
+    filterObj.city?.length &&
       filterObj.city.map((item) => {
         selectedArray.push(item);
       });
-    filterObj.country.length &&
+    filterObj.country?.length &&
       filterObj.country.map((item) => {
         selectedArray.push(item);
       });
-    filterObj.course_level.length &&
+    filterObj.course_level?.length &&
       filterObj.course_level.map((item) => {
         selectedArray.push(item);
       });
-    filterObj.state.length &&
+    filterObj.state?.length &&
       filterObj.state.map((item) => {
         selectedArray.push(item);
       });
-    filterObj.stream.length &&
+    filterObj.stream?.length &&
       filterObj.stream.map((item) => {
         selectedArray.push(item);
       });

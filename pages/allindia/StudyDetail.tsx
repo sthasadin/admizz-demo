@@ -21,6 +21,7 @@ const StudyDetail = () => {
       <div className="study-detail">
         <div className="study-detail-header">Study In India</div>
         <div className="study-detail-title">
+          
           Why to Study In <span>INDIA</span>
         </div>
         <div className="para-box">

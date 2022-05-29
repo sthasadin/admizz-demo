@@ -60,12 +60,13 @@ const collegeList = () => {
   };
 
   React.useEffect(() => {
+    
     if (
-      filterObj.country.length ||
-      filterObj.state.length ||
-      filterObj.city.length ||
-      filterObj.stream.length ||
-      filterObj.course_level.length
+      filterObj?.country ||
+      filterObj?.state ||
+      filterObj?.city ||
+      filterObj?.stream ||
+      filterObj?.course_level
     ) {
       setLoadMoreCollege(false);
       getFilterByFilter();

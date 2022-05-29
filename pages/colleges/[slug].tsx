@@ -48,35 +48,35 @@ const Home = () => {
 
     //make proper datastructure
     const collegeReviews: any = {
-      length: res.length,
+      length: res?.length,
       ratings: {
         academics: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["academics"]) || 0), 0) /
-            res.length
+            res?.length
         ),
         accomodation: Math.ceil(
           res.reduce(
             (a, b) => Number(a) + (Number(b["accomodation"]) || 0),
             0
-          ) / res.length
+          ) / res?.length
         ),
         faculty: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["faculty"]) || 0), 0) /
-            res.length
+            res?.length
         ),
         infrastructures: Math.ceil(
           res.reduce(
             (a, b) => Number(a) + (Number(b["infrastructures"]) || 0),
             0
-          ) / res.length
+          ) / res?.length
         ),
         placements: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["placements"]) || 0), 0) /
-            res.length
+            res?.length
         ),
         social: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["social"]) || 0), 0) /
-            res.length
+            res?.length
         ),
       },
       all_reviews: res.map((r) => {

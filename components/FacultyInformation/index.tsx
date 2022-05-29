@@ -10,11 +10,11 @@ const FacultyInformation = (props: any) => {
   const faculty = useSelector((state:any) => state.college.college.faculty);
   const getValue = (value) => {
     const splitText = value.split("%");
-    if (splitText.length == 2) {
+    if (splitTextdata&&data?.length == 2) {
       return parseInt(splitText);
     }
     const splitByColon = value.split(":");
-    if (splitByColon.length == 2) {
+    if (splitByColondata&&data?.length == 2) {
       const splitByColon = value.split(":");
       return (parseInt(splitByColon[0]) * 100) / parseInt(splitByColon[1]);
     } else {
@@ -42,7 +42,7 @@ const FacultyInformation = (props: any) => {
   return faculty ? (
  
     <div className="faculty-information">
-    {faculty && faculty?.major_faculty && faculty?.major_faculty.length > 0 && (
+    {faculty && faculty?.major_faculty && faculty?.major_facultydata&&data?.length > 0 && (
 
  
       <div className="faculty-information__inner">

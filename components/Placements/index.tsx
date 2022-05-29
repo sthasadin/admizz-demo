@@ -218,7 +218,7 @@ const index = () => {
           )}
         </div>
       </div>
-      {recruiting && recruiting.length > 0 &&(
+      {recruiting && recruiting?.length > 0 &&(
       <div className="placement__heading">Top Recruiting Companies</div>
       )}
       <div className="placement_imagelist">
@@ -236,7 +236,7 @@ const index = () => {
         ) : null}
       </div>   
     </div>
-        {alumnis && alumnis.length > 0 && (
+        {alumnis && alumnis?.length > 0 && (
     <div id="placement" className="placement">
     <div className="placement__notablealumni">
         <span>Our Notable Alumni</span>

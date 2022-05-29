@@ -12,13 +12,13 @@ const NewsOnCollege = ({ title }) => {
   const dispatch = useDispatch();
   const college = useSelector((state:any) => state.college.college);
   const collegeNews = useSelector((state:any) => state.blog.collegeNews);
-  const getCoverNewsLetter = async (college_slug) => {
+  const getCoverNewsLetter =  (college_slug) => {
     dispatch(getNewsOfCollege(college_slug));
   };
   useEffect(() => {
     college && getCoverNewsLetter(college.college_slug);
   }, [college]);
-  return collegeNews.length ? (
+  return Array.isArray( collegeNews )? (
     <div className="news-o-c">
       <div className="news-o-c__inner">
         <div className="sidebar__title">{title}</div>

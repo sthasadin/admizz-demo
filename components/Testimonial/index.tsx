@@ -105,7 +105,7 @@ const Testimonial = (props: any) => {
             <div className="testimonial__item-wrap">
               <div className="testimonial__left">
                 {testimonialList?.map((item, index) => {
-                  var midepointIndex = testimonialList.length / 2;
+                  var midepointIndex = testimonialList?.length / 2;
                   if (index < midepointIndex) {
                     if (index == 3) {
                       return (
@@ -230,7 +230,7 @@ const Testimonial = (props: any) => {
 
               <div className="testimonial__right">
                 {testimonialList?.map((item, index) => {
-                  var midepointIndex = testimonialList.length / 2;
+                  var midepointIndex = testimonialList?.length / 2;
                   if (index >= midepointIndex) {
                     if (index == 3) {
                       return (

@@ -65,11 +65,11 @@ const DashboardChoiceFilling = ({
   // }, []);
 
   useEffect(() => {
-    selectedChoice.length && setAppliedColleges([...selectedChoice]);
+    selectedChoice?.length && setAppliedColleges([...selectedChoice]);
   }, [selectedChoice]);
 
   useEffect(() => {
-    info.length && setChoices(info);
+    info?.length && setChoices(info);
   }, [info]);
 
   function onClickAddChoice() {
@@ -94,7 +94,7 @@ const DashboardChoiceFilling = ({
   };
 
   const handleCheck = () => {
-    if (_appliedColleges.length) {
+    if (_appliedColleges?.length) {
       handleNext();
     } else {
       setSnackOpen(true);

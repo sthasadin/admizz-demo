@@ -42,12 +42,12 @@ const CollegeGallery = (props) => {
           })}
         </div>
 
-        {videos && videos.length > 0 && (
+        {videos && videos?.length > 0 && (
           <div className="college-gallery__heading">
             Videos <span>({videos?.length})</span>
           </div>
         )}
-        {videos && videos.length > 0 && (
+        {videos && videos?.length > 0 && (
         <div className="college-gallery__video">
           <div className="college-gallery__video__left">
             <div className="college-gallery__video__thumbnail">

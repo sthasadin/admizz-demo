@@ -106,7 +106,6 @@ const FeeStructure = (props: any) => {
   // useEffect(() => {
   //   selectStream && getAllPrograms(selectStream);
   // }, [selectStream]);
-
   return (
     <div id="course_fee" className="fee-structure">
       <div className="fee-structure__inner">
@@ -181,7 +180,8 @@ const FeeStructure = (props: any) => {
         </div>
         <div className="fee-structure__course-fee">
           <div className="course-fee">
-            {programs.map((p, i) => {
+            {programs&&programs?.length&&
+            programs.map((p, i) => {
               return (
                 <div key={i} className="course-fee__item">
                   <Link href={`/colleges/program/${p.slug}`}>
@@ -191,21 +191,21 @@ const FeeStructure = (props: any) => {
                     <span className="title">{p.fee_per_sem}</span>
                     <span>Estimated Fee</span>
                   </div>
-                  <div className="course-fee__eligibility">
+                  {/* <div className="course-fee__eligibility">
                     <span className="title">{p.eligibility}</span>
                     <span>Eligibility</span>
-                  </div>
+                  </div> */}
                   <Link href={`/colleges/program/${p?.slug}`}>
                     <div className="course-fee__details">VIEW DETAIL</div>
                   </Link>
                 </div>
               );
             })}
-            {!programs?.length && !streams?.length && (
+            {/* {!programs?.length && !streams?.length && (
               <div style={{ textAlign: "center" }}>
                 Sorry course is not available at the moment.
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

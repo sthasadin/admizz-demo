@@ -38,7 +38,7 @@ const CollegeListResult: FC<CollegeProps> = ({
         <div className="college-list-result__titleText">
           Found{" "}
           <p className="college-list-result__titleTextNumber">
-            {collegeList && collegeList.length}
+            {collegeList && collegeList?.length}
           </p>{" "}
           Colleges
         </div>

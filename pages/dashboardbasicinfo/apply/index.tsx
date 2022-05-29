@@ -127,11 +127,11 @@ const DashboardBasicInfoPage = () => {
   }, [authenticated, user]);
 
   const totalSteps = () => {
-    return steps.length;
+    return steps?.length;
   };
 
   const completedSteps = () => {
-    return Object.keys(completed).length;
+    return Object.keys(completed)?.length;
   };
 
   const isLastStep = () => {

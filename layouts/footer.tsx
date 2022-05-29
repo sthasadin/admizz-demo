@@ -174,21 +174,34 @@ const Footer = () => {
         <div className="footer__middle">
           <div className="footer__middle__left">
             <div className="footer__default">
-              <a href="#"
+              <Link href="/allindia">
+               STUDY IN INDIA
+
+              </Link>
+              {/* <a href="#"
               // className="footer__study"
-              >STUDY IN INDIA</a>
+              >STUDY IN INDIA</a> */}
             </div>
           </div>
           <div className="footer__middle__right">
             <div className="social-icons">
               <div>
+                <a href="https://www.facebook.com/admizz" target="_blank">
                 <Facebook theme="outline" size="24" fill="#fff" />
+                </a> 
               </div>
               <div>
+                <a href="https://twitter.com/admizz_official" target="_blank">
                 <Twitter theme="outline" size="24" fill="#fff" />
+                </a>
               </div>
               <div>
+              <a
+                href="https://www.instagram.com/admizz_official/"
+                target="_blank"
+              >
                 <Instagram theme="outline" size="24" fill="#fff" />
+              </a>
               </div>
             </div>
           </div>

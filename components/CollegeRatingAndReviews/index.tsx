@@ -29,35 +29,35 @@ const RatingAndReview = (props: any) => {
     
     //make proper datastructure
     let collegeReviews: any = {
-      length: res.length,
+      length: res?.length,
       ratings: {
         academics: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["academics"]) || 0), 0) /
-            res.length
+            res?.length
         ),
         accomodation: Math.ceil(
           res.reduce(
             (a, b) => Number(a) + (Number(b["accomodation"]) || 0),
             0
-          ) / res.length
+          ) / res?.length
         ),
         faculty: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["faculty"]) || 0), 0) /
-            res.length
+            res?.length
         ),
         infrastructures: Math.ceil(
           res.reduce(
             (a, b) => Number(a) + (Number(b["infrastructures"]) || 0),
             0
-          ) / res.length
+          ) / res?.length
         ),
         placements: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["placements"]) || 0), 0) /
-            res.length
+            res?.length
         ),
         social: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["social"]) || 0), 0) /
-            res.length
+            res?.length
         ),
       },
       all_reviews: res.map((r) => {
@@ -200,7 +200,7 @@ const RatingAndReview = (props: any) => {
       <div className="rating-review__rating__header border-bottom">
         <div className="rating-review__rating__left">
           <div className="rating-review__rating__title">Student Reviews</div>
-          {!reviews?.all_reviews.length && !reviews?.all_reviews.length && (
+          {!reviews?.all_reviews?.length && !reviews?.all_reviews?.length && (
              <div >
            No reviews Yet
            </div>

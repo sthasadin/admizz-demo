@@ -21,14 +21,13 @@ const StudyDetail = () => {
       <div className="study-detail">
         <div className="study-detail-header">Study In India</div>
         <div className="study-detail-title">
-          
-          Why to Study In <span>INDIA</span>
+          Why Study In <span>INDIA?</span>
         </div>
         <div className="para-box">
           <div className="parabox-one">
             <div className="study-detail-title-para ">
-              We continuously strive towards facilitating campus-drives where
-              eminent companies offer the most worth-while career opportunities.
+              We continuously strive towards facilitating universities where the
+              most worth-while career opportunities awaits for you.
             </div>
             <div className="study-detail-title-para ">
               A millennia-old civilization, the birthplace of four world

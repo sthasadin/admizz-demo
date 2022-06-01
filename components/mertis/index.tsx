@@ -23,11 +23,10 @@ const Merits = () => {
         <div className="merit__left">
           <div className="merit__heading block-heading">study in india</div>
           <div className="merit__title block-title">
-            Why to Study In <span>india</span>
+            Why Study In <span>INDIA?</span>
           </div>
           <div className="merit__desc">
-            We continuously strive towards facilitating campus-drives where
-            eminent companies offer the most worth-while career opportunities.
+          We continuously strive towards facilitating universities where the most worth-while career opportunities awaits for you.
           </div>
           <div className="list-item-wrap">
             <div className="list-item">
@@ -40,7 +39,7 @@ const Merits = () => {
                 40+ Central Universities, which are controlled by National Department of Higher Education.
                 </div>
                 <div className="list-item__desc">
-                India is the home of the world's largest university by enrollment, Indira Gandhi National Open University, with 3.5 million students.
+                India is the home of the world's largest universities by enrollment, Indira Gandhi National Open University, with 3.5 million students.
                 </div>
               </div>
             </div>
@@ -54,7 +53,7 @@ const Merits = () => {
                 </div>
                 <div className="list-item__desc">
                 Additionally, over 30,000 colleges operate throughout India, 
-                offering more specialized instruction, often in technical fields like engineering.
+                offering more specialized courses instruction, often in technical fields like engineering.
                 
                 </div>
               </div>

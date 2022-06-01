@@ -99,7 +99,7 @@ const blogDetail = () => {
                       <ListItemAvatar>
                         <FacebookShareButton
                           url={shareUrl}
-                          quote={"Admizz - You just dream it."}
+                          quote={"Admizz - Your vision, Our fulfillment ."}
                           hashtag="#admizz"
                         >
                           <Avatar>

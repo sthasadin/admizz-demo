@@ -13,10 +13,10 @@ const CollegesBlock: FC<CollegeProps> = ({ collegeList }) => {
     <div className="collegesBlock">
       <div className="collegesBlock__inner section-wrapper">
         <div className="collegesBlock__heading block-heading">
-          featured college
+          featured institutions
         </div>
         <div className="collegesBlock__title block-title">
-          Find The Best College in <span>INDIA</span> for Study
+          Find The Best Institution in <span>INDIA</span> 
         </div>
         <div className="collegeBlock_list">
           <Carousel data={collegeList} />

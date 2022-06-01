@@ -23,6 +23,7 @@ interface Props {
   errorMessage?: string;
   useLabel?: boolean;
   placeholder?:string;
+  names?:string
 }
 
 const Select = (props: Props) => {
@@ -77,6 +78,8 @@ const Select = (props: Props) => {
         style={{ backgroundColor: "#fff" }}
       >
         {props.title}
+        {props.names}
+      
       </InputLabel>
       <SelectComponent
         labelId="demo-simple-select-label"
@@ -86,8 +89,9 @@ const Select = (props: Props) => {
         className={`${classes.select} ${props.className}`}
         label={props.label}
         placeholder={props.placeholder}
-        defaultValue={props.defaultValue ? props.defaultValue : " "}
+        defaultValue={props.defaultValue ? props.defaultValue : " " }
         startAdornment={
+          
           props.icon ? (
             <InputAdornment position="start">
               <Icon />
@@ -98,6 +102,7 @@ const Select = (props: Props) => {
         }
         onChange={props.onChange}
         error={props.error}
+        
         MenuProps={{
           anchorOrigin: {
             vertical: "bottom",
@@ -111,7 +116,7 @@ const Select = (props: Props) => {
             return (
               <MenuItem
                 key={key}
-                value={props.useLabel ? item.label : item.value}
+                value={props.useLabel ? item.label : item.value  } 
               >
                 {item.label}
               </MenuItem>

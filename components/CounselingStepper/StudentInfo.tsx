@@ -239,7 +239,7 @@ const StudentInfo: React.FC<Props> = ({
           multiline
           value={formValue.description}
           // icon={CommentIcon}
-          placeholder={"Add additional query you have"}
+          placeholder={"Additional query if any"}
           fullWidth
           margin={"29px 0px 0px 0px"}
         />

@@ -292,6 +292,7 @@ const Register = () => {
                   icon={LocationOnIcon}
                   placeholder={"Home Country"}
                   name={"country"}
+                  names={"Country"}
                   error={!!formError.country}
                   errorMessage={formError.country}
                   value={formValue.country}
@@ -299,7 +300,7 @@ const Register = () => {
                 />
                 <div className={"student-info__phone-input"}>
                   <CountryCodeDropDown
-                    options={CountryCodeOptions}
+                    options={countryList}
                     useValue
                     minWidth={"83px"}
                     width={"90px"}

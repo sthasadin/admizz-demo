@@ -26,7 +26,7 @@ interface studentInfoFormValue {
   phone: number;
   home_country: string;
   course: string;
-  description: string;
+ description: string;
   contact_medium: string;
   contact_id: string;
 }
@@ -136,7 +136,7 @@ const CounselingStepper = () => {
       .typeError("Value should be number"),
     home_country: yup.string().required("Please select your country"),
     course: yup.string().required("Course field should not be empty"),
-    description: yup.string().required("Description field should not be empty"),
+    description: yup.string().notRequired(),
     contact_medium: yup.string().required("Select one medium"),
     contact_id: yup.string().required("Contact id field should not be empty"),
   });

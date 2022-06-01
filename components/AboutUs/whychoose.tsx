@@ -7,7 +7,7 @@ const Merits = () => {
         <div className="merit__left">
           <div className="merit__heading block-heading">About Admizz</div>
           <div className="merit__title block-title">
-            Why Choose <span>Admizz</span>
+            Why Choose <span>Admizz</span> ?
           </div>
           <div className="merit__desc">
             Admizz is a perfect guide for you if you are planning your further

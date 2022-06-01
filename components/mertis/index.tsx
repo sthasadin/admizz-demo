@@ -52,7 +52,9 @@ const Merits = () => {
                 243 state universities, which are run by state governments
                 </div>
                 <div className="list-item__desc">
+
                 Admizz helps students choose the best course and university fit for a student.
+
                 </div>
               </div>
             </div>

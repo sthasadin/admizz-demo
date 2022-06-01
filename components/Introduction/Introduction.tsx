@@ -40,7 +40,7 @@ const Introduction = (props) => {
       <img src={imgSrc} alt="..." className="introduction__bannerimg" />
       <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
-          <div className="introduction__header">{`You just dream it`}</div>
+          <div className="introduction__header">{`Your vision, Our fulfillment `}</div>
           <div className="introduction__title">
             We help you achieve your big dream
           </div>
@@ -50,7 +50,7 @@ const Introduction = (props) => {
           </div>
           <div className="u-align-center">
             <CallToAction className="filled" onClick={() => openCounselling()}>
-              Book counselling session
+              Book counseling session
             </CallToAction>
             {videoUrl && (
               <div className="introduction__watch">

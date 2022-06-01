@@ -137,10 +137,10 @@ const Login = () => {
     <div className="signin">
       <div className="signin__inner">
         <div className="signin__left">
-          <div className="signin__title">How Admizz helps you in Admission</div>
+          <div className="signin__title">Admizz Guides to your Admissions</div>
           <div className="signin__desc">
-            We continuously strive towards facilitating campus-drives where
-            eminent companies offer the most worth-while career opportunities.
+            We continuously strive towards facilitating universities where the
+            most worth-while career opportunities awaits for you.
           </div>
           <div className="signin__list">
             <div className="signin__item">
@@ -245,7 +245,7 @@ const Login = () => {
                 {/* <CallToAction className="filled login">Login</CallToAction> */}
                 <div className="signin__change login">
                   <Link href="/register">
-                    New Here? Click Here To Create our Account.
+                    New Here? Click Here To Create your Account.
                   </Link>
                 </div>
               </div>

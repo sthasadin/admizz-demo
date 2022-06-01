@@ -30,7 +30,7 @@ export const FAQ = () => {
       <div className="faq">
         <div className="faq-container">
           <div className="faq__header section-wrapper">
-            <div className="faq__header__title">What can we help you? FAQs</div>
+            <div className="faq__header__title">How can we help you?</div>
             <div className="faq__header__search">
               <BlockSearch searchHandler={searchHandler} />
             </div>

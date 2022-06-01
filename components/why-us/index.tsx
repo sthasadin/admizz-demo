@@ -1,10 +1,22 @@
 import React from "react";
 import { Feature } from "../feature";
 import Link from "next/link";
-
+import { getAllTieUp } from "@/store/Action/tieup.action";
 import { CallToAction } from "../Button/callToAction";
+import { useDispatch } from "react-redux";
 
 const Us = ({ college }) => {
+  const dispatch = useDispatch();
+  const [tieupList, setTieupList] = React.useState([]);
+
+  const getTieUp = async () => {
+    const fetchTiups = await dispatch<any>(getAllTieUp());
+    setTieupList(fetchTiups);
+  };
+
+  React.useEffect(() => {
+    getTieUp();
+  }, []);
   const data = [
     {
       title: "One on One Counseling",
@@ -157,16 +169,16 @@ const Us = ({ college }) => {
               <div className="our-trusted-text">our trusted partner</div>
               <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
               <div className="university-list">
-                {college &&
-                  college?.map((college) => {
+                {tieupList &&
+                  tieupList?.map((item) => {
                     return (
                       <div>
                         <div className="university-icon">
-                          <img src={college?.college_logo} />
+                          <img src={item?.image_url} />
                         </div>
-                        <Link href={`colleges/${college?.college_slug}`}>
-                          <div className="university-name">{college?.name}</div>
-                        </Link>
+                        <a href={item?.college_url}>
+                          <div className="university-name">{item?.name}</div>
+                        </a>
                       </div>
                     );
                   })}

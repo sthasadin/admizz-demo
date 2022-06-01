@@ -6,7 +6,7 @@ const Statistics = () => {
       <div className="stat__inner">
         <div className="stat__heading block-heading">Our statistics</div>
         <div className="stat__title block-title">
-          What we do more than you can imagine, believe us.
+          We do more than you can imagine, believe us!
         </div>
         <div className="stat__info">
           <div className="stat__info__top">

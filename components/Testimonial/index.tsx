@@ -88,15 +88,15 @@ const Testimonial = (props: any) => {
         <div className="collegeFinder__titlebar">
           <div className="collegeFinder__left">
             <div className="collegeFinder__heading block-heading">
-              Testimonial
+              Testimonials
             </div>
             <div className="collegeFinder__title block-title">
-              Explore and Read Testimonial
+              Explore and Read Testimonials
             </div>
           </div>          
           <div className="collegeFinder__right mobiletestimonial">
             <CallToAction onClick={() => router.push("/testimonialDetailPage")}>
-              Explore all testimonial
+              Explore all testimonials
             </CallToAction>
           </div>
         </div>

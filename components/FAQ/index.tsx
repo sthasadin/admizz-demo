@@ -10,7 +10,7 @@ const FAQ = () => {
     <div className="faq">
       <div className="faq__header section-wrapper">
         <div className="faq__header__title">
-          <div className="faq__header__search">What can we help you? FAQs</div>
+          <div className="faq__header__search">How can we help you?</div>
           
         </div>
       </div>

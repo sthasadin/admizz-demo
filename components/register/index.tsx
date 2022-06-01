@@ -45,7 +45,7 @@ const Register = () => {
 
   const handleChange = (e: any) => {
     formValue[e.target.name] = e.target.value
-    setFormValue({ ...formValue});
+    setFormValue({ ...formValue });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
 
     if (e.target.name === "country") {
@@ -122,10 +122,10 @@ const Register = () => {
         let authUser = await auth.createUserWithEmailAndPassword(
           formValue.email,
           formValue.password,
-          
+
         );
         auth.currentUser.updateProfile({
-          displayName:formValue.fullName
+          displayName: formValue.fullName
         })
         if (authUser.user) {
           await db
@@ -144,14 +144,14 @@ const Register = () => {
               setMsgType("success");
               setFormError({
                 ...formError,
-              otherErrors:(
-                <div>
-               Successfully registred.{""}
-               <span>
-               Please verify your email.
-               </span>
-                </div>
-              )
+                otherErrors: (
+                  <div>
+                    Successfully registred.{""}
+                    <span>
+                      Please verify your email.
+                    </span>
+                  </div>
+                )
               })
               handleOpenSnackbar();
 
@@ -181,6 +181,7 @@ const Register = () => {
   };
 
   const handleOpenSnackbar = () => {
+    console.log({ msgType })
     setSnackOpen(true);
   };
 
@@ -269,7 +270,7 @@ const Register = () => {
                   label="Full Name"
                   error={!!formError.fullName}
                   errorMessage={formError.fullName}
-                  value= {formValue.fullName}
+                  value={formValue.fullName}
                   type="text"
                 />
                 <Input
@@ -295,7 +296,7 @@ const Register = () => {
                   error={!!formError.country}
                   errorMessage={formError.country}
                   value={formValue.country}
-                  
+
                 />
                 <div className={"student-info__phone-input"}>
                   <CountryCodeDropDown
@@ -378,19 +379,15 @@ const Register = () => {
                 >
                   Register Now
                 </Button>
-                 
+
               </div>
             </form>
           </div>
         </div>
       </div>
-      <Snackbar
-        open={snackOpen}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-      >
-        <Alert onClose={handleCloseSnackbar} severity={msgType}>
-          {formError.otherErrors}
+      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity={msgType?.toString()}>
+          {formError?.otherErrors}
         </Alert>
       </Snackbar>
     </div>

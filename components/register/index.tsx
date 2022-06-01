@@ -17,6 +17,8 @@ import { Select } from "../Select";
 import { countryList } from "../../utils/CountryLists";
 import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 import Link from "next/link";
+import Checkbox from "@material-ui/core/Checkbox";
+import { withStyles } from "@material-ui/core/styles";
 
 interface signUpFormValue {
   fullName: string;
@@ -43,16 +45,50 @@ const Register = () => {
 
   const router = useRouter();
 
+  const CustomizeCheckBox:any = withStyles({
+    root: {
+      "& .MuiSvgIcon-root": {
+        fill: "#828282",
+        textTransform: "capitalize",
+        "&:hover": {
+          backgroundColor: "transparent",
+        },
+      },
+      "&$checked": {
+        "& .MuiIconButton-label": {
+          position: "relative",
+          zIndex: 0,
+        },
+        "& .PrivateSwitchBase-root-716": {
+          paddingLeft: 0,
+        },
+        "& .MuiIconButton-label:after": {
+          content: '""',
+          left: 4.5,
+          top: 5,
+          height: 14,
+          width: 15,
+          position: "absolute",
+          // zIndex: -1,
+          backgroundColor: "#FFAB1A",
+        },
+      },
+    },
+    checked: {},
+  })(Checkbox);
   const handleChange = (e: any) => {
-    formValue[e.target.name] = e.target.value
-    setFormValue({ ...formValue });
-    setFormError(() => ({ ...formError, [e.target.name]: null }));
 
-    if (e.target.name === "country") {
-      if (e.target.value === "Nepal") {
-        setFormValue({ ...formValue, countryCode: "+977" } as signUpFormValue);
-      } else setFormValue({ ...formValue, countryCode: "+91" } as signUpFormValue);
-    }
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
+    setFormError(() => ({ ...formError, [e.target.name]: null }));
+    // formValue[e.target.name] = e.target.value
+    // setFormValue({ ...formValue });
+    // setFormError(() => ({ ...formError, [e.target.name]: null }));
+
+    // if (e.target.name === "country") {
+    //   if (e.target.value === "Nepal") {
+    //     setFormValue({ ...formValue, countryCode: "+977" } as signUpFormValue);
+    //   } else setFormValue({ ...formValue, countryCode: "+91" } as signUpFormValue);
+    // }
   };
 
   const validationSchema = yup.object().shape<signUpFormValue>({
@@ -255,8 +291,7 @@ const Register = () => {
         <div className="signin__right">
           <div className="signin__header">Register to Apply</div>
           <div className="signin__header__desc">
-            We continuously strive towards facilitating campus-drives where
-            eminent companies offer the most worth-while career opportunities.
+          Become a leader, become a part of the best institution. 
           </div>
           <div className="signin__form ">
             <form onSubmit={handleRegister}>
@@ -293,7 +328,7 @@ const Register = () => {
                   icon={LocationOnIcon}
                   placeholder={"Home Country"}
                   name={"country"}
-                  names={"Country"}
+                  defaultValue="Home Country"
                   error={!!formError.country}
                   errorMessage={formError.country}
                   value={formValue.country}
@@ -363,6 +398,10 @@ const Register = () => {
                 />
               </div>
               <div className="signin__info">
+              <CustomizeCheckBox
+                   
+                    style={{ paddingLeft: "0" }}
+                  />
                 By submitting this form, you accept and agree to our
                 <span>Terms & Conditions.</span>
               </div>

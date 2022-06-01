@@ -99,22 +99,24 @@ const CounselingStepper = () => {
   const dispatch = useDispatch();
 
   const handleChange = (e: any) => {
-    formValue[e.target.name] = e.target.value;
-    setFormValue({ ...formValue });
+    setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
+    // formValue[e.target.name] = e.target.value;
+    // setFormValue({ ...formValue });
+    // setFormError(() => ({ ...formError, [e.target.name]: null }));
 
-    if (e.target.name === "home_country") {
-      if (e.target.value === "nepal") {
-        setFormValue({
-          ...formValue,
-          countryCode: "+977",
-        } as studentInfoFormValue);
-      } else
-        setFormValue({
-          ...formValue,
-          countryCode: "+91",
-        } as studentInfoFormValue);
-    }
+    // if (e.target.name === "home_country") {
+    //   if (e.target.value === "nepal") {
+    //     setFormValue({
+    //       ...formValue,
+    //       countryCode: "+977",
+    //     } as studentInfoFormValue);
+    //   } else
+    //     setFormValue({
+    //       ...formValue,
+    //       countryCode: "+91",
+    //     } as studentInfoFormValue);
+  //  }
   };
 
   const dateTimeValidateSchema = yup.object().shape<FirstStepValidateSchema>({

@@ -6,7 +6,9 @@ const features = () => {
       <div className="teams-list__inner section-wrapper">
         <div className="teams-list__heading block-heading">Our Features</div>
         <div className="teams-list__aboutustitle block-title">
-          We serve you the best colleges according to your needs.
+
+          We serve you the best colleges based on your needs.
+
         </div>
       </div>
       <div className="merit">

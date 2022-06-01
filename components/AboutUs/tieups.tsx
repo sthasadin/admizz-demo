@@ -1,8 +1,20 @@
 import React from "react";
 import Link from "next/link";
-// import kiitlogo from "public/public/colleges-logo.png";
+import { useDispatch } from "react-redux";
+import { getAllTieUp } from "@/store/Action/tieup.action";
 
 const tieups = ({ college }) => {
+  const dispatch = useDispatch();
+  const [tieupList, setTieupList] = React.useState([]);
+
+  const getTieUp = async () => {
+    const fetchTiups = await dispatch<any>(getAllTieUp());
+    setTieupList(fetchTiups);
+  };
+
+  React.useEffect(() => {
+    getTieUp();
+  }, []);
   return (
     <div className="our-exclusive-container">
       <div className="our-exclusive-contents">
@@ -10,16 +22,16 @@ const tieups = ({ college }) => {
         <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
         <div className="university-list">
         
-          {college &&
-              college?.map((college) => {
+          {tieupList &&
+              tieupList?.map((item) => {
                 return (
                   <div>
                     <div className="university-icon">
-                      <img src={college?.college_logo} />
+                      <img src={item?.image_url} />
                     </div>
-                    <Link href={`colleges/${college?.college_slug}`}>
-                      <div className="university-name">{college?.name}</div>
-                    </Link>
+                    <a href={item?.college_slug}>
+                      <div className="university-name">{item?.name}</div>
+                    </a>
                   </div>
                 );
               })}

@@ -127,11 +127,7 @@ const StudyDetail = () => {
               </li>
             </div>
             <div className="study-detail-title-para">
-              Additionally, over 30,000 colleges operate throughout India,
-              offering more specialized instruction, often in technical fields
-              like engineering. With all these options, international students
-              in India can find a program to suit them no matter what their
-              interests.
+            Admizz helps students choose the best course and university fit for a student.
             </div>
           </div>
         </div>

@@ -64,7 +64,7 @@ const international = () => {
       <div className="aboutus-exclusive-content">
         <div className="our-trusted-text">We are international</div>
         <div className="aboutus-exclusive-title">
-          We Have Served Student From 50+ Countries
+          We Have Served Students From 50+ Countries
         </div>
         <div className="international-map">
           <img src="grey-world-map.png" alt="" />

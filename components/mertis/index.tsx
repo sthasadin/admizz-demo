@@ -52,9 +52,7 @@ const Merits = () => {
                 243 state universities, which are run by state governments
                 </div>
                 <div className="list-item__desc">
-                Additionally, over 30,000 colleges operate throughout India, 
-                offering more specialized courses instruction, often in technical fields like engineering.
-                
+                Admizz helps students choose the best course and university fit for a student.
                 </div>
               </div>
             </div>

@@ -13,6 +13,7 @@ import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
+import { ErrorMessages } from "../../utils/ErrorMessages";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -80,11 +81,21 @@ const DashboardReviewConfirm = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [formError, setFormError] = useState({} as any);
+  const [msgType, setMsgType] = useState({} as any);
+
   const handleClose = () => {
     setOpen(false);
   };
   const handleToggle = () => {
     setOpen(true);
+  };
+  const handleOpenSnackbar = () => {
+    console.log({ msgType })
+    setSnackOpen(true);
+  };
+
+  const handleCloseSnackbar = () => {
+    setSnackOpen(false);
   };
 
   // useEffect(() => {
@@ -117,7 +128,7 @@ const DashboardReviewConfirm = (props) => {
           abortEarly: false,
         }
       );
-      setFormError({});
+    
       return true;
     } catch (err) {
       const errors = {};
@@ -233,8 +244,27 @@ const DashboardReviewConfirm = (props) => {
                 .getDownloadURL()
                 .then((url) => {
                   basicInformation.profileImage = url;
+                  setFormError({
+                    ...formError,
+                    otherErrors: (
+                      <div>
+                        Please Upload your Image.
+                       
+                      </div>
+                    )
+                  })
+                  handleOpenSnackbar();
                 })
                 .catch((err) => {
+                  const errorMessage = ErrorMessages[err.code];
+                  handleOpenSnackbar();
+                  setMsgType("error");
+                  if (errorMessage) {
+                    setFormError({ ...formError, otherErrors: errorMessage });
+                  } else {
+                    setFormError({ ...formError, otherErrors: "Error occurred" });
+                  }
+                
                 });
             });
         }
@@ -270,17 +300,40 @@ const DashboardReviewConfirm = (props) => {
         }
 
       
-        await db.collection("students-application").doc().set(appdata).then(()=>{
-          setSnackOpen(true);
+        await db
+        .collection("students-application")
+        .doc()
+        .set(appdata)
+        .then(()=>{
+          //setSnackOpen(true);
+          setMsgType("success");
+          setFormError({
+            ...formError,
+            otherErrors: (
+              <div>
+                Your application has been submitted Successfully.
+               
+              </div>
+            )
+          })
+          handleOpenSnackbar();
           handleClose();
           localStorage.clear();
           router.push("/studentdashboardmain");
         }).catch((error)=>{
-          router.push("/studentdashboardmain");
+
+           router.push("/studentdashboardmain");
         })
       }
     } catch (err) {
-     
+      const errorMessage = ErrorMessages[err.code];
+      handleOpenSnackbar();
+      setMsgType("error");
+      if (errorMessage) {
+        setFormError({ ...formError, otherErrors: errorMessage });
+      } else {
+        setFormError({ ...formError, otherErrors: "Error occurred" });
+      }
     }
   };
 
@@ -472,7 +525,9 @@ const DashboardReviewConfirm = (props) => {
                           </div>
                         </label>
                       </div>
-                      <div className="error-msg">{formError.profileImage}</div>
+                      <div className="error-msg">
+                        {formError.profileImage}
+                        </div>
                     </div>
                   </div>
                   <div
@@ -1422,23 +1477,10 @@ const DashboardReviewConfirm = (props) => {
 
      
       
-      <Snackbar
-        open={snackOpenError}
-        autoHideDuration={4000}
-        onClose={() => setSnackOpenError(false)}
-      >
-        <Alert onClose={() => setSnackOpenError(false)} severity="error">
-          Please check the empty field and submit again
-        </Alert>
-        
-      </Snackbar>
-      <Snackbar
-        open={snackOpen}
-        autoHideDuration={4000}
-        onClose={() => setSnackOpen(false)}
-      >
-        <Alert onClose={() => setSnackOpen(false)} severity="success">
-          Your application has been submitted
+     
+      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity={msgType?.toString()}>
+          {formError?.otherErrors}
         </Alert>
       </Snackbar>
 

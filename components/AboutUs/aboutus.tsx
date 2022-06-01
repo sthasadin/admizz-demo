@@ -27,7 +27,7 @@ const ABOUTUS = (props) => {
       <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
           <div className="introduction__title">
-            We help you achieve your big dream
+          We assist you accomplish your vision 
           </div>
           <div className="introduction__aboutus__desc">
             Kickstart your career by starting early. Admizz helps you join the

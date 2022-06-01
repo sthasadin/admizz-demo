@@ -67,15 +67,15 @@ const CountryCodeDropDown = (props: Props) => {
       alignItems: "center",
       gap: "2px",
     },
-    flagContent: {
-      padding: "5px 10px",
-      //   width: "16px",
-      //   height: "16px",
-    },
-    flagImage: {
-      width: "100%",
-      height: "100%",
-    },
+    // flagContent: {
+    //   padding: "5px 10px",
+    //   //   width: "16px",
+    //   //   height: "16px",
+    // },
+    // flagImage: {
+    //   width: "100%",
+    //   height: "100%",
+    // },
     menuItem: {
       padding: "0px",
       //margin: "0px",
@@ -131,13 +131,13 @@ const CountryCodeDropDown = (props: Props) => {
               >
                 {/* {getNumberWithImage(item.label)} */}
                 <div className={classes.flagContainer}>
-                  <div className={classes.flagContent}>
+                  {/* <div className={classes.flagContent}>
                     <img
                       src={item.imgSrc}
                       alt=".."
                       //className={classes.flagImage}
                     />
-                  </div>{" "}
+                  </div>{" "} */}
                   <div>{item.label}</div>
                 </div>
               </MenuItem>

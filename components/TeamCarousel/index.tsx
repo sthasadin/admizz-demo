@@ -89,9 +89,9 @@ const index = ({data}) => {
         />
         <MdOutlineKeyboardArrowRight
           className={
-            selectedTeam?.index == 5 ? "arrow-icon icon-disable" : "arrow-icon"
+            selectedTeam?.index == 20 ? "arrow-icon icon-disable" : "arrow-icon"
           }
-          onClick={() => selectedTeam?.index < 6 && changedClick("next")}
+          onClick={() => selectedTeam?.index < 20 && changedClick("next")}
         />
       </div>
     </div>

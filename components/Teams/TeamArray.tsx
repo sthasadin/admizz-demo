@@ -5,7 +5,7 @@ const TeamArray = [
     designation1: "Managing Director",
     designation2: "Country Counselor",
     description:
-      "In the present world of huge competition, choosing the right institute is as important as choosing the right course. Admizz helps selecting a right institution for you with ease. Admizz is registered under INRA EduTech Services Pvt. Ltd. Bangalore, India. We have our partnered office in Kathmandu for counselling and admissions from Nepal.",
+      "In the present world of huge competition, choosing the right institute is as important as choosing the right course. Admizz helps selecting a right institution for you with ease. Admizz is registered under INRA EduTech Services Pvt. Ltd. Bangalore, India. We have our partnered office in Kathmandu for counseling and admissions from Nepal.",
     email: "email@domainname.com",
     img: "./team-lead.png",
   },

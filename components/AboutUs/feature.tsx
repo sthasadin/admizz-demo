@@ -6,7 +6,7 @@ const features = () => {
       <div className="teams-list__inner section-wrapper">
         <div className="teams-list__heading block-heading">Our Features</div>
         <div className="teams-list__aboutustitle block-title">
-          We serve you the best colleges according to your need.
+          We serve you the best colleges according to your needs.
         </div>
       </div>
       <div className="merit">
@@ -46,7 +46,7 @@ const features = () => {
         <div className="merit__feature__inner section-wrapper">
           <div className="merit__feature__left">
             <div className="merit__title block-title">
-              Get Best Scholarships Facility
+              Get Best Scholarships Facilities
             </div>
             <div className="merit__feature__desc">
             India is one of the top study abroad destinations. The Government of India and various other organizations are providing different kinds of scholarships for international students each year.  For different kinds of scholarships, there are different criteria. You can apply for a scholarship from Admizz which will help you from start to end. You can choose from different scholarships that are available in India though Admizz with ease. It helps to choose a scholarship according to your course of choices and provides guidance to prepare for it with the help of counseling. Admizz helps to explore every possible opportunity to make your study in India journey with scholarship a possibility.

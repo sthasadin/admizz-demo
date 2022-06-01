@@ -1430,6 +1430,7 @@ const DashboardReviewConfirm = (props) => {
         <Alert onClose={() => setSnackOpenError(false)} severity="error">
           Please check the empty field and submit again
         </Alert>
+        
       </Snackbar>
       <Snackbar
         open={snackOpen}

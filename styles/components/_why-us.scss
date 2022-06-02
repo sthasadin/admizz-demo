@@ -300,16 +300,16 @@
 }
 
 .university-list {
-  // border: 1px solid black;
-  width: 100%;
+// border: 1px solid black;
+  width: 85%;
   margin: 0 auto;
   margin-top: 8%;
   // display: flex;
   // flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
 
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);
@@ -334,7 +334,7 @@
   .university-name {
     margin-top: 10px;
     color: #333;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
     text-align: center;

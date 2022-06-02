@@ -18,7 +18,7 @@ const tieups = ({ college }) => {
   return (
     <div className="our-exclusive-container">
       <div className="our-exclusive-contents">
-        <div className="our-trusted-texts">our trusted partner</div>
+        <div className="our-trusted-texts">Our trusted partner</div>
         <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
         <div className="university-list">
         

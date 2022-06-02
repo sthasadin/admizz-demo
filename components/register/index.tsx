@@ -19,6 +19,7 @@ import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 import Link from "next/link";
 import Checkbox from "@material-ui/core/Checkbox";
 import { withStyles } from "@material-ui/core/styles";
+import { CountryCode } from "utils/CountryCode";
 
 interface signUpFormValue {
   fullName: string;
@@ -328,7 +329,7 @@ const Register = () => {
                   icon={LocationOnIcon}
                   placeholder={"Home Country"}
                   name={"country"}
-                  defaultValue="Home Country"
+                  names="Home Country"
                   error={!!formError.country}
                   errorMessage={formError.country}
                   value={formValue.country}
@@ -336,7 +337,7 @@ const Register = () => {
                 />
                 <div className={"student-info__phone-input"}>
                   <CountryCodeDropDown
-                    options={countryList}
+                    options={CountryCode}
                     useValue
                     minWidth={"83px"}
                     width={"90px"}

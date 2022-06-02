@@ -17,6 +17,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import SubjectIcon from "@material-ui/icons/Subject";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import usaOffice from "../../public/usaOffice.png";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -111,35 +112,51 @@ const ContactForm = () => {
         <div className="contact-form__header">Contact Details</div>
         <div>
           <div className="contact-form__india-office-container">
-            <img src={indiaOffice}/>
-            <div className="contact-form__office-details">
-              <div className="contact-form__details-header">India Office</div>
+            <img src={indiaOffice} style={{height:54,width:54}}/>
+            <div className="contact-form__office-details" style={{marginTop:-12}}>
+              <div className="contact-form__details-header" style={{fontSize:16}}>India Office</div>
               <div className="contact-form__details-content">
-                <img src={location} />
-                <span>
+                <img src={location} style={{height:20,width:20}}/>
+                <span style={{fontSize:14,marginTop:-15}}>
                     2nd Floor, Jayaram Building, Kanakapura Rd, 
-                    
+                 
                     Gubbalala, Bengaluru, Karnataka 560062
-                    
-                     
+                                      
                   </span>
               </div>
               <div className="contact-form__details-content">
-                <img src={telephone} />
-                <span >+91 805 0259 693</span>
+                <img src={telephone} style={{height:20,width:20}} />
+                <span style={{fontSize:14,marginTop:-13}}>+91 805 0259 693</span>
               </div>
             </div>
 
             
           </div>
-          
           <div className="contact-form__india-office-container">
-            <img src={nepalOffice} />
-            <div className="contact-form__office-details">
-              <div className="contact-form__details-header">Nepal Office</div>
+            <img src={usaOffice} style={{height:54,width:54}}/>
+            <div className="contact-form__office-details" style={{marginTop:-12}}>
+              <div className="contact-form__details-header" style={{fontSize:16}}>USA Office</div>
+              <div className="contact-form__details-content" >
+                <img src={location} style={{height:20,width:20}}/>
+                <span style={{fontSize:14,marginTop:-15}}>
+                USA 1912 E Hardvard Dr Denver, CO 
+                  </span>
+              </div>
+              <div className="contact-form__details-content">
+                <img src={telephone} style={{height:20,width:20}} />
+                <span style={{fontSize:14,marginTop:-13}}>+1(719) 398-1707</span>
+              </div>
+            </div>
+
+            
+          </div>
+          <div className="contact-form__india-office-container">
+            <img src={nepalOffice} style={{height:54,width:54}} />
+            <div className="contact-form__office-details" style={{marginTop:-12}}>
+              <div className="contact-form__details-header" style={{fontSize:16}}>Nepal Office</div>
               <div className="contact-form__details-content">
                 <img src={location} />
-                <span >
+                <span style={{fontSize:14,marginTop:-15}}>
                   Ground Floor, Putalisadak,
                   <br />
                   Kathmandu (Oppo to Raymond Tailor)
@@ -147,32 +164,32 @@ const ContactForm = () => {
               </div>
               <div className="contact-form__details-content">
                 <img src={telephone} />
-                <span>+977 9802728444</span>
+                <span style={{fontSize:14,marginTop:-13}}>+977 9802728444</span>
               </div>
             </div>
           </div>
           {" "}
           <div className="contact-form__india-office-container">
-            <img src={bangladeshOffice} style = {{height:64,width:64}} />
+            <img src={bangladeshOffice} style = {{height:54,width:54}} />
             <div className="contact-form__office-details">
-              <div className="contact-form__details-header">
+              <div className="contact-form__details-header" style={{fontSize:16}}>
                 Bangladesh Office
               </div>
               <div className="contact-form__details-content">
-                <img src={location} />
-                <span>
+                <img src={location}  style={{height:20,width:20}} />
+                <span style={{fontSize:14,marginTop:-15}}>
                   Bogra Tole, Bogura 5800,
                   <br />
                   Bangladesh
                 </span>
               </div>
               <div className="contact-form__details-content">
-                <img src={telephone} />
-                <span style={{ fontSize: 14 }}> +880 1775 639993</span>
+                <img src={telephone} style={{height:20,width:20}} />
+                <span style={{ fontSize: 14,marginTop:-13 }}> +880 1775 639993</span>
               </div>
             </div>
           </div>
-          <div className="contact-form__email-us">
+          <div className="contact-form__email-us" style={{marginTop:32}}>
             Prefer Email? Email us at:
             <div className="contact-form_email-holder">
               <img src={email} />

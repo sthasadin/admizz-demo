@@ -5,7 +5,8 @@ import whatsapp from "../../public/whatsapp.png";
 import zoom from "../../public/zoom.png";
 import { Button } from "../Button";
 import moment from "moment";
-import { Zoom } from "@material-ui/core";
+import Checkbox from "@material-ui/core/Checkbox";
+import { withStyles } from "@material-ui/core/styles";
 
 interface Props {
   handleBack: () => void;
@@ -13,7 +14,37 @@ interface Props {
   formValue: any;
   loading: boolean;
 }
-
+const CustomizeCheckBox:any = withStyles({
+  root: {
+    "& .MuiSvgIcon-root": {
+      fill: "#828282",
+      textTransform: "capitalize",
+      "&:hover": {
+        backgroundColor: "transparent",
+      },
+    },
+    "&$checked": {
+      "& .MuiIconButton-label": {
+        position: "relative",
+        zIndex: 0,
+      },
+      "& .PrivateSwitchBase-root-716": {
+        paddingLeft: 0,
+      },
+      "& .MuiIconButton-label:after": {
+        content: '""',
+        left: 4.5,
+        top: 5,
+        height: 14,
+        width: 15,
+        position: "absolute",
+        // zIndex: -1,
+        backgroundColor: "#FFAB1A",
+      },
+    },
+  },
+  checked: {},
+})(Checkbox);
 const ConfirmBook: React.FC<Props> = ({
   handleBack,
   handleBook,
@@ -66,6 +97,10 @@ const ConfirmBook: React.FC<Props> = ({
       </div>
       <img src={confirmBookBg} className={"confirm-section__background"} />
       <div className={"confirm-section__agreement"}>
+      <CustomizeCheckBox
+                   
+                   style={{ paddingLeft: "0" }}
+                 />
         By submitting this form, you accept and agree to our{" "}
         <span>Terms & Conditions.</span>
       </div>

@@ -12,6 +12,7 @@ import { Button } from "../Button";
 import { UploadButton } from "../Button/uploadButton";
 import { DropDownSelect } from "../DropDownSelect";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { CountryCode } from "utils/CountryCode";
 
 interface BackgroundInfo {
   fullName: string;
@@ -573,7 +574,7 @@ const DashboardBackgroundInfo = (props) => {
                 >
                   <div className="student-info__phone-input">
                     <CountryCodeDropDown
-                      options={CountryCodeOptions}
+                      options={CountryCode}
                       useValue
                       minWidth={"83px"}
                       width={"90px"}

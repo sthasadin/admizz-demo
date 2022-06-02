@@ -10,6 +10,7 @@ import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 import { DropDownSelect } from "../DropDownSelect";
 import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
+import { countryList } from "../../utils/CountryLists";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -267,8 +268,8 @@ const DashboardBasicInfo = (props) => {
     gender: yup.string().required("Please select the gender"),
     guardianAddress: yup.string().required("Required address"),
     guardianCountry: yup.string().required("Please select the country"),
-
-    guardianState: yup.string().required("Please select the state"),
+    guardianState:yup.string().notRequired(),
+    // guardianState: yup.string().required("Please select the state"),
     guardianCity: yup.string().required("Required city"),
   });
 
@@ -659,7 +660,7 @@ const DashboardBasicInfo = (props) => {
                 >
                   <DropDownSelect
                     title="Country"
-                    options={CountryOption}
+                    options={countryList}
                     handleChange={(e) => {
                       setGuardianCountry(e);
                       setGuardianState({

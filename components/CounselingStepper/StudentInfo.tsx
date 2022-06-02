@@ -113,7 +113,7 @@ const StudentInfo: React.FC<Props> = ({
           <Grid className={"student-info__grid"} item md={6}>
             <div className={"student-info__phone-input"}>
               <CountryCodeDropDown
-                options={countryList}
+                options={CountryCode}
                 useValue
                 minWidth={"83px"}
                 width={"90px"}

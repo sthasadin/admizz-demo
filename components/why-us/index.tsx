@@ -166,7 +166,7 @@ const Us = ({ college }) => {
           </div>
           <div className="our-exclusive-container">
             <div className="our-exclusive-content">
-              <div className="our-trusted-text">our trusted partner</div>
+              <div className="our-trusted-text">Our trusted partner</div>
               <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
               <div className="university-list">
                 {tieupList &&

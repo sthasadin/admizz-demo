@@ -1,32 +1,29 @@
 const countryList = [
-  {
-    label: "India",
-    value: "india",
-  },
-  {
-    label: "Nepal",
-    value: "nepal",
-  },
+  // {
+  //   label: "India",
+  //   value: "india",
+  // },
+  // {
+  //   label: "Nepal",
+  //   value: "nepal",
+  // },
 
-  {
-  	label: 'Israel',
-  	value: '+972'
-  },
+  
   {
   	label: 'Afghanistan',
-  	value: '+93'
+  	value: 'Afghanistan'
   },
   {
   	label: 'Albania',
-  	value: '+355'
+  	value: 'Albania'
   },
   {
   	label: 'Algeria',
-  	value: '+213'
+  	value: 'Algeria'
   },
   {
   	label: 'AmericanSamoa',
-  	value: '+1 684'
+  	value: '+AmericanSamoa'
   },
   {
   	label: 'Andorra',
@@ -358,7 +355,8 @@ const countryList = [
   },
   {
   	label: 'India',
-  	value: '+91'
+  	value: 'india',
+    // code:'+91'
   },
   {
   	label: 'Indonesia',
@@ -522,7 +520,7 @@ const countryList = [
   },
   {
   	label: 'Nepal',
-  	value: '+977'
+  	value: 'nepal'
   },
   {
   	label: 'Netherlands',

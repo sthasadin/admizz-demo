@@ -1,6 +1,7 @@
 import React from "react";
 import nepalOffice from "../../public/nepalOffice.png";
 import indiaOffice from "../../public/indiaOffice.png";
+ import usaOffice from "../../public/usaOffice.png";
 import bangladeshOffice from "../../public/bangladeshoffice.png";
 
 import location from "../../public/location.png";
@@ -14,7 +15,7 @@ const contact = () => {
         <div className="contact-countries">
           <div style={{ marginTop: 15 }} className="contact-nepal">
             <div className="contact-form__india-office-container">
-              <img src={indiaOffice} />
+              <img src={indiaOffice} style={{height:64,width:64}}/>
               <div className="contact-form__office-details">
                 <div className="contact-form__details-header">India Office</div>
                 <div className="contact-form__details-content">
@@ -35,7 +36,7 @@ const contact = () => {
 
           <div className="contact-nepal">
             <div className="contact-form__india-office-container">
-              <img src={nepalOffice} />
+              <img src={nepalOffice}  style={{height:64,width:64}}/>
               <div className="contact-form__office-details">
                 <div className="contact-form__details-header">Nepal Office</div>
                 <div className="contact-form__details-content">
@@ -58,7 +59,7 @@ const contact = () => {
         <div className="contact-countries">
           <div className="contact-nepal">
             <div className="contact-form__india-office-container">
-              <img src={nepalOffice} />
+              <img src={usaOffice} style={{height:64,width:64}} />
               <div className="contact-form__office-details">
                 <div className="contact-form__details-header">USA Office</div>
                 <div className="contact-form__details-content">

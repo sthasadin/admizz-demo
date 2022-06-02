@@ -129,7 +129,10 @@ const ContactForm = () => {
                 <span >+91 805 0259 693</span>
               </div>
             </div>
+
+            
           </div>
+          
           <div className="contact-form__india-office-container">
             <img src={nepalOffice} />
             <div className="contact-form__office-details">

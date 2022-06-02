@@ -108,7 +108,7 @@ const Login = () => {
           });
           handleOpenSnackbar();
         } else {
-          router.push("/studentdashboardmain");
+          router.push("/");
         }
       }
       setLoading(false);

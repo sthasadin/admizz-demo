@@ -36,7 +36,7 @@ const contact = () => {
 
           <div className="contact-nepal">
             <div className="contact-form__india-office-container">
-              <img src={nepalOffice}  style={{height:64,width:64}}/>
+              <img src={nepalOffice}  style={{height:64,width:64,marginBottom:4}}/>
               <div className="contact-form__office-details">
                 <div className="contact-form__details-header">Nepal Office</div>
                 <div className="contact-form__details-content">
@@ -57,9 +57,9 @@ const contact = () => {
         </div>
 
         <div className="contact-countries">
-          <div className="contact-nepal">
+          <div className="contact-nepal" style={{marginRight:50}}>
             <div className="contact-form__india-office-container">
-              <img src={usaOffice} style={{height:64,width:64}} />
+              <img src={usaOffice} style={{height:70,width:70}} />
               <div className="contact-form__office-details">
                 <div className="contact-form__details-header">USA Office</div>
                 <div className="contact-form__details-content">
@@ -67,9 +67,7 @@ const contact = () => {
                   <span style={{ fontSize: 14 }}>
                     USA 1912 E Hardvard Dr Denver, CO 
                    
-                    <br />
-                    support@admizz.com
-                  </span>
+                    </span>
                 </div>
                 <div className="contact-form__details-content">
                   <img src={telephone} />
@@ -78,7 +76,7 @@ const contact = () => {
               </div>
             </div>
           </div>
-          <div className="contact-nepal">
+          <div className="contact-nepal" >
             <div className="contact-form__india-office-container">
               <img src={bangladeshOffice} style={{ height: 64, width: 64 }} />
               <div className="contact-form__office-details">
@@ -89,7 +87,7 @@ const contact = () => {
                   <img src={location} />
                   <span style={{ fontSize: 14 }}>
                     Bogra Tole, Bogura 5800,
-                    <br />
+                   
                     Bangladesh
                   </span>
                 </div>

@@ -67,15 +67,15 @@ const DashboardBasicInfo = (props) => {
 
   const dispatch = useDispatch();
 
-  const allLevels = useSelector((state:any) => state.courses.allLevels);
+  const allLevels = useSelector((state: any) => state.courses.allLevels);
   const selectLevelOption = useMemo(() => {
     return allLevels.map((level) => {
       let name =
         level.name === "postgraduate"
           ? "Post Graduate"
           : level.name === "undergraduate"
-          ? "Under Graduate"
-          : level.name;
+            ? "Under Graduate"
+            : level.name;
       return {
         label: name,
         value: level.name,
@@ -235,14 +235,14 @@ const DashboardBasicInfo = (props) => {
     "Uttarakhand",
     "West Bengal",
   ];
-  const NepalStateOption = NepalState.map((state:any) => {
+  const NepalStateOption = NepalState.map((state: any) => {
     return {
       label: state,
       value: state,
     };
   });
 
-  const IndiaStateOption = IndianState.map((state:any) => {
+  const IndiaStateOption = IndianState.map((state: any) => {
     return {
       label: state,
       value: state,
@@ -268,7 +268,7 @@ const DashboardBasicInfo = (props) => {
     gender: yup.string().required("Please select the gender"),
     guardianAddress: yup.string().required("Required address"),
     guardianCountry: yup.string().required("Please select the country"),
-    guardianState:yup.string().notRequired(),
+    guardianState: yup.string().notRequired(),
     // guardianState: yup.string().required("Please select the state"),
     guardianCity: yup.string().required("Required city"),
   });
@@ -337,7 +337,7 @@ const DashboardBasicInfo = (props) => {
         props.getData(data);
         props.handleNext();
       }
-    } catch (err) {}
+    } catch (err) { }
   };
 
   useEffect(() => {
@@ -670,7 +670,7 @@ const DashboardBasicInfo = (props) => {
                       setFormError((prev) => ({
                         ...prev,
                         guardianCountry: null,
-                        
+
                       }))
                       // props.setShowExitPrompt(true);
                     }}
@@ -679,6 +679,7 @@ const DashboardBasicInfo = (props) => {
                     errorMessage={formError.guardianCountry}
                     error={!!formError.guardianCountry}
                   />
+
                 </Grid>
                 <Grid
                   className={"dashboard-basic-info__grid"}
@@ -705,8 +706,24 @@ const DashboardBasicInfo = (props) => {
                     }
                     name={"guardianState"}
                     errorMessage={formError.guardianState}
-                    error={!!formError.guardianState}
+                    error={
+                      !!formError.guardianState}
                   />
+                  {/* <Input
+                    className={"dashboard-basic-info__input"}
+                  label="State"
+                  value={guardianState}
+                  onChange={(e)=>{
+                    setGuardianState(e.target.value);
+                    setFormError((prev) =>({...prev,guardianState}))
+                  }}
+                  name={"guardianState"}
+                  placeholder="State"
+                  errorMessage={formError.guardianState}
+                  error={
+                    !!formError.guardianState}
+
+                  /> */}
                 </Grid>
               </Grid>
             </form>

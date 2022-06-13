@@ -29,7 +29,7 @@ const tieups = ({ college }) => {
                     <div className="university-icon">
                       <img src={item?.image_url} />
                     </div>
-                    <a href={item?.college_slug}>
+                    <a href={item?.college_url}>
                       <div className="university-name">{item?.name}</div>
                     </a>
                   </div>

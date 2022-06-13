@@ -1,11 +1,6 @@
-import { faMicrophoneAlt, faUserTie } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AuthContext } from "pages/AuthContext";
 import React, { useContext, useEffect, useState } from "react";
-
-// import { Select } from "../components";
 import Link from "next/link";
-// import { auth as isAuth } from "../firebase";
 
 const Topbar = (props: any) => {
   const { auth } = useContext(AuthContext);
@@ -17,9 +12,7 @@ const Topbar = (props: any) => {
             <div className="contact__icon">
               <img src="/email-icon.png" alt="contact-us" />
               </div>
-              <Link href="support@admizz.com ">
                 <span className="contact__info"> support@admizz.com </span>
-              </Link>
             
             <div className="contact__item"></div>
             {/* <div className="contact__item">

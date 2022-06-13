@@ -50,7 +50,7 @@ const FilteredByCountry = (props) => {
   const classes = useStyles();
 
   const filterItem = countryList.filter((item) => {
-    return item._id.toLowerCase().includes(searchKey.toLowerCase());
+    return item._id?.toLowerCase()?.includes(searchKey?.toLowerCase());
   });
 
   return (
@@ -78,7 +78,7 @@ const FilteredByCountry = (props) => {
             placeholder={"Find Stream"}
             margin={"0px 0px 0px 0px"}
             name="stream_search"
-            onChange={(e) => setSearchKey(e.taarget.value)}
+            onChange={(e) => setSearchKey(e.taarget?.value)}
             value={searchKey}
             fullWidth
             icon={SearchIcon}

@@ -3,7 +3,6 @@ import nepalOffice from "../../public/nepalOffice.png";
 import indiaOffice from "../../public/indiaOffice.png";
  import usaOffice from "../../public/usaOffice.png";
 import bangladeshOffice from "../../public/bangladeshoffice.png";
-
 import location from "../../public/location.png";
 import telephone from "../../public/telephone.png";
 

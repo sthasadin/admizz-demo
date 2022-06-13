@@ -55,7 +55,6 @@ const SelectCounseler: React.FC<Props> = ({
 
   const [selectedCounseler, setSelectedCounseler] = useState(1 as number);
 
-
   useEffect(() => {
     if (formValue.counsellor) {
       setSelectedCounseler(formValue.counsellor);
@@ -106,7 +105,7 @@ const SelectCounseler: React.FC<Props> = ({
               </div>
             );
           })}
-         
+
         {filteredCounsellor?.length === 0 && !loader
           ? "Sorry there no counsellor in your region right now"
           : ""}

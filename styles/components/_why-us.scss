@@ -88,7 +88,7 @@
 
 .our-exclusive-container {
   .our-exclusive-content {
-    padding-top: 250px; //increased by solanki
+    //padding-top: 250px; //increased by solanki
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -98,16 +98,19 @@
   }
 
   .aboutus-exclusive-content {
-    padding: 80px 0px;
+    // padding: 80px 0px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     @media (max-width: 1024px) {
-      padding-top: 50px;
+     // padding-top: 50px;
     }
+    @media (max-width: 375px) {
+     padding-top: -50px;
+     }
   }
   .aboutus-exclusive-contents {
-    padding: 40px 0px;
+    //padding: 40px 0px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -274,6 +277,10 @@
       line-height: 18.8px;
       margin-left: 22px;
     }
+    // @media (max-width:1300px) {
+    //   height:490px
+    // }
+
   }
   .aboutus-testimonial-content {
     width: 60%;
@@ -286,10 +293,37 @@
   .international-map {
     margin: 99px auto 20px auto;
     width: 80%;
-    height: 613px;
+    height: 600px;
     img {
       width: 100%;
     }
+    @media (max-width:375px) {
+      height:140px
+    }
+  @media (max-width:400px) {
+    height:150px
+  }
+  @media (max-width:600px) {
+    height:200px
+  }
+  @media (max-width:800px) {
+    height:250px
+  }
+  @media (max-width:900px) {
+    height:300px
+  }
+  @media (max-width:1100px) {
+    height:400px
+  }
+  @media (max-width:1200px) {
+    height:440px
+  }
+  @media (max-width:1300px) {
+    height:490px
+  }
+  @media (max-width:1400px) {
+    height:540px
+  }
   }
 }
 .contact-us-office {

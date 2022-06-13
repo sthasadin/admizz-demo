@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import { Select as SelectComponent } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
-
+import PhoneInput from 'react-phone-number-input';
 interface Props {
   title?: string;
   options: any[];
@@ -67,15 +67,15 @@ const CountryCodeDropDown = (props: Props) => {
       alignItems: "center",
       gap: "2px",
     },
-    // flagContent: {
-    //   padding: "5px 10px",
-    //   //   width: "16px",
-    //   //   height: "16px",
-    // },
-    // flagImage: {
-    //   width: "100%",
-    //   height: "100%",
-    // },
+    flagContent: {
+      padding: "5px 10px",
+      //   width: "16px",
+      //   height: "16px",
+    },
+    flagImage: {
+      width: "100%",
+      height: "100%",
+    },
     menuItem: {
       padding: "0px",
       //margin: "0px",
@@ -93,6 +93,7 @@ const CountryCodeDropDown = (props: Props) => {
       >
         {props.title}
       </InputLabel>
+   
       <SelectComponent
         labelId="demo-simple-select-label"
         id="demo-simple-select"
@@ -131,13 +132,14 @@ const CountryCodeDropDown = (props: Props) => {
               >
                 {/* {getNumberWithImage(item.label)} */}
                 <div className={classes.flagContainer}>
-                  {/* <div className={classes.flagContent}>
+                  <div className={classes.flagContent}>
                     <img
                       src={item.imgSrc}
                       alt=".."
-                      //className={classes.flagImage}
+                      className={classes.flagImage}
+                      style={{height:14,width:14}}
                     />
-                  </div>{" "} */}
+                  </div>{" "}
                   <div>{item.label}</div>
                 </div>
               </MenuItem>

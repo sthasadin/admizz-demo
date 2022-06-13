@@ -49,6 +49,8 @@ const index = ({data}) => {
             medium: data.medium_link,
             instagram: data.insta_link,
             twitter: data.twitter_link,
+            linkedIn:data.linkedin_link,
+            youtube:data.youtube_link,
             type: data.type,
           });
         });
@@ -89,9 +91,9 @@ const index = ({data}) => {
         />
         <MdOutlineKeyboardArrowRight
           className={
-            selectedTeam?.index == 20 ? "arrow-icon icon-disable" : "arrow-icon"
+            selectedTeam?.index == (teamsArray.length-1) ? "arrow-icon icon-disable" : "arrow-icon"
           }
-          onClick={() => selectedTeam?.index < 20 && changedClick("next")}
+          onClick={() => selectedTeam?.index < (teamsArray.length) && changedClick("next")}
         />
       </div>
     </div>

@@ -13,6 +13,7 @@ import { UploadButton } from "../Button/uploadButton";
 import { DropDownSelect } from "../DropDownSelect";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import { CountryCode } from "utils/CountryCode";
+import { countryList } from "utils/CountryLists";
 
 interface BackgroundInfo {
   fullName: string;
@@ -100,30 +101,6 @@ const DashboardBackgroundInfo = (props) => {
     window.localStorage.setItem("backgroundInformation", JSON.stringify(data));
     props.getData(data);
   };
-
-  const countryOption = [
-    {
-      label: "Nepal",
-      value: "Nepal",
-    },
-    {
-      label: "India",
-      value: "India",
-    },
-  ];
-
-  const CountryCodeOptions = [
-    {
-      label: `+91`,
-      value: "+91 ",
-      imgSrc: "/country-icon/india.png",
-    },
-    {
-      label: "+977",
-      value: "+977",
-      imgSrc: "/country-icon/nepal.png",
-    },
-  ];
 
   useEffect(() => {
     if (Object.keys(props.data)?.length > 0) {
@@ -360,7 +337,7 @@ const DashboardBackgroundInfo = (props) => {
                   >
                     <DropDownSelect
                       title="Issuing Country"
-                      options={countryOption}
+                      options={countryList}
                       defaultvalue={passportDetails.passportIssuedCountry}
                       handleChange={(e) => {
                         setPassportDetails({

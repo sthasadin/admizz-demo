@@ -8,9 +8,10 @@ import { valueOf } from "*.jpg";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 import { getTopColleges, getTopCourses } from "../store/Action/footer.action";
-import { Facebook, Instagram, Twitter } from "@icon-park/react";
+import { Facebook, Instagram, Twitter,Youtube, } from "@icon-park/react";
+//  import LinkedIn from "@material-ui/icons/LinkedIn";
+ import LinkedIn from "../public/linkedin.png";
 import Image from 'next/image';
-
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -178,9 +179,7 @@ const Footer = () => {
                STUDY IN INDIA
 
               </Link>
-              {/* <a href="#"
-              // className="footer__study"
-              >STUDY IN INDIA</a> */}
+             
             </div>
           </div>
           <div className="footer__middle__right">
@@ -202,6 +201,20 @@ const Footer = () => {
               >
                 <Instagram theme="outline" size="24" fill="#fff" />
               </a>
+              </div>
+               <div>
+                <a href="https://www.facebook.com/admizz" target="_blank">
+                <Youtube theme="outline" size="26" fill="#fff" />
+                </a>        
+              </div>
+              <div>
+                 {/* <a href="https://www.facebook.com/admizz" target="_blank">
+                <LinkedIn fontSize="large"    />
+               </a> */}
+               <img
+               src={LinkedIn}
+               style={{width:22,height:22,backgroundColor:'#fff'}}
+               />
               </div>
             </div>
           </div>

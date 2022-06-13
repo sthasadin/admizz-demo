@@ -201,7 +201,7 @@ const CounselingStepper = () => {
           phone: formValue.phone,
           home_country: formValue.home_country,
           course: formValue.course,
-          description: formValue.description,
+          description: formValue.description || "",
           contact_medium: formValue.contact_medium,
           contact_id: formValue.contact_id,
         },
@@ -230,7 +230,7 @@ const CounselingStepper = () => {
         phone: formValue.phone,
         home_country: formValue.home_country,
         course: formValue.course,
-        description: formValue.description,
+        description: formValue.description || "", 
         date: formValue.date,
         time: formValue.time,
         counsellor: formValue.counsellor,
@@ -240,6 +240,7 @@ const CounselingStepper = () => {
       });
 
       const res = await dispatch<any>(bookingCounsellorMail(formValue.email));
+
       if (res.isSuccess) {
         setSnackOpen(true);
         setLoading(false);

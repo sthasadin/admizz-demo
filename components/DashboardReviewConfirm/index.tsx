@@ -169,7 +169,7 @@ const DashboardReviewConfirm = (props) => {
         };
 
         const academicInformation = {
-          diplomaScore: academicInfo.diplomaScore,
+         // diplomaScore: academicInfo.diplomaScore,
           gmat: academicInfo.gmat,
           gre: academicInfo.gre,
           ielts: academicInfo.ielts,
@@ -246,12 +246,12 @@ const DashboardReviewConfirm = (props) => {
                   basicInformation.profileImage = url;
                   setFormError({
                     ...formError,
-                    otherErrors: (
-                      <div>
-                        Please Upload your Image.
+                    // otherErrors: (
+                    //   <div>
+                    //     Please Upload your Image.
                        
-                      </div>
-                    )
+                    //   </div>
+                    // )
                   })
                   handleOpenSnackbar();
                 })
@@ -321,11 +321,13 @@ const DashboardReviewConfirm = (props) => {
           localStorage.clear();
           router.push("/studentdashboardmain");
         }).catch((error)=>{
-
+          console.log('error 1',error)
            router.push("/studentdashboardmain");
         })
       }
     } catch (err) {
+      console.log('err',err);
+      
       const errorMessage = ErrorMessages[err.code];
       handleOpenSnackbar();
       setMsgType("error");
@@ -979,7 +981,7 @@ const DashboardReviewConfirm = (props) => {
                     )}
 
                     {/* Diploma Score  */}
-                    {academicInfo.diplomaScore && (
+                    {/* {academicInfo.diplomaScore && (
                       <div
                         style={{
                           display: "flex",
@@ -1008,7 +1010,7 @@ const DashboardReviewConfirm = (props) => {
                           {academicInfo.diplomaScore}
                         </p>
                       </div>
-                    )}
+                    )} */}
 
                     {/* Class 11 Score */}
                     <div

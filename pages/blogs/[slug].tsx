@@ -46,7 +46,7 @@ const blogDetail = () => {
 
   const { blog } = useSelector((state: any) => state.blogDetails);
   const { comments } = useSelector((state: any) => state.blog);
-  const shareUrl = `https://beta.admizz.com/blogs/${slug}`;
+  const shareUrl = `https://admizz.com/blogs/${slug}`;
   const [newComment, setNewComment] = useState(0);
   useEffect(() => {
     dispatch(getBlogDetail(slug));
@@ -96,22 +96,23 @@ const blogDetail = () => {
                   </DialogTitle>
                   <List className="blog-detail__listContainer">
                     <ListItem button className="blog-detail__listItemContainer">
-                      <ListItemAvatar>
-                        <FacebookShareButton
-                          url={shareUrl}
-                          quote={"Admizz - Your vision, Our fulfillment ."}
-                          hashtag="#admizz"
-                        >
-                          <Avatar>
-                            <FacebookIcon
-                              size={40}
-                              round={true}
-                              name="Facebook"
-                            />
-                          </Avatar>
-                        </FacebookShareButton>
-                      </ListItemAvatar>
-
+                      <a href={shareUrl} target="blank">
+                        <ListItemAvatar>
+                          <FacebookShareButton
+                            url={shareUrl}
+                            quote={"Admizz - Your vision, Our fulfillment ."}
+                            hashtag="#admizz"
+                          >
+                            <Avatar>
+                              <FacebookIcon
+                                size={40}
+                                round={true}
+                                name="Facebook"
+                              />
+                            </Avatar>
+                          </FacebookShareButton>
+                        </ListItemAvatar>
+                      </a>
                       <ListItemText primary="Facebook" />
                     </ListItem>
 

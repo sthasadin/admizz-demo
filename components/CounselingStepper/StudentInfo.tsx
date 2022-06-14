@@ -36,7 +36,7 @@ const StudentInfo: React.FC<Props> = ({
   formValue,
   formError,
 }) => {
-  const [selectedMedium, setSelectedMedium] = useState("messenger");
+  const [selectedMedium, setSelectedMedium] = useState("whatsapp");
 
   useEffect(() => {
     if (formValue.contact_medium) {
@@ -68,8 +68,8 @@ const StudentInfo: React.FC<Props> = ({
               className={"student-info__input"}
               fullWidth
               icon={PersonIcon}
-              // label="Full Name"
-              placeholder="Full Name"
+               label="Full Name"
+             // placeholder="Full Name"
             />
           </Grid>
           <Grid className={"student-info__grid"} item md={6}>
@@ -82,8 +82,8 @@ const StudentInfo: React.FC<Props> = ({
               className={"student-info__input"}
               fullWidth
               icon={MailIcon}
-              // label="Email"
-              placeholder="Email"
+               label="Email"
+              //placeholder="Email"
             />
           </Grid>
         </Grid>
@@ -99,14 +99,14 @@ const StudentInfo: React.FC<Props> = ({
               name={"home_country"}
               options={countryList}
               onChange={handleChange}
-              title="Home Country"
+              title="Nationality"
               value={formValue.home_country}
               errorMessage={formError.home_country}
               error={!!formError.home_country}
               className={"student-info__input"}
               icon={LocationOnIcon}
               // title={"Home Country"}
-              defaultValue="Home Country"
+              defaultValue="Nationality"
             />
           </Grid>
 
@@ -132,8 +132,8 @@ const StudentInfo: React.FC<Props> = ({
                 fullWidth
                 value={formValue.phone}
                 icon={CallIcon}
-                // label="Phone Number"
-                placeholder="Phone Number"
+                label="Phone Number"
+               // placeholder="Phone Number"
               />
             </div>
           </Grid>
@@ -147,10 +147,10 @@ const StudentInfo: React.FC<Props> = ({
           <Grid className={"student-info__grid"} item md={3}>
             <div className={"student-info__contact-medium-label"}>
               {/* <HeadsetMicIcon className={"student-info__headset"} /> */}
-              <div>Select Contact Medium</div>
+              <div>Contact Medium</div>
             </div>
             <div className={"student-info__mediums-container"}>
-              <div
+              {/* <div
                 onClick={() => setSelectedMedium("messenger")}
                 className={`student-info__medium ${
                   selectedMedium === "messenger" &&
@@ -158,7 +158,7 @@ const StudentInfo: React.FC<Props> = ({
                 }`}
               >
                 <img src={messenger} />
-              </div>
+              </div> */}
               <div
                 onClick={() => setSelectedMedium("whatsapp")}
                 className={`student-info__medium ${
@@ -168,7 +168,7 @@ const StudentInfo: React.FC<Props> = ({
               >
                 <img src={whatsapp} />
               </div>
-              <div
+              {/* <div
                 onClick={() => setSelectedMedium("zoom")}
                 className={`student-info__medium ${
                   selectedMedium === "zoom" &&
@@ -176,7 +176,7 @@ const StudentInfo: React.FC<Props> = ({
                 }`}
               >
                 <img src={zoom} style={{width:24,height:24}} />
-              </div>
+              </div> */}
             </div>
           </Grid>
           <Grid item md={3} sm={12} xs={12}>
@@ -226,7 +226,7 @@ const StudentInfo: React.FC<Props> = ({
               fullWidth
               icon={MenuBookIcon}
               // label={"Select Course"}
-              placeholder="Select Course"
+              placeholder="Courses you're interested in"
               value={formValue.course}
             />
           </Grid>
@@ -234,8 +234,8 @@ const StudentInfo: React.FC<Props> = ({
         <Input
           name={"description"}
           onChange={handleChange}
-          errorMessage={formError.description}
-          error={!!formError.description}
+          // errorMessage={formError.description}
+          // error={!!formError.description}
           multiline
           value={formValue.description}
           // icon={CommentIcon}

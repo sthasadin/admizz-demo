@@ -10,7 +10,7 @@ import { Button } from "../Button";
 import { withStyles } from "@material-ui/core/styles";
 import { UploadButton } from "../Button/uploadButton";
 
-const CustomRadio:any = withStyles({
+const CustomRadio: any = withStyles({
   root: {
     color: "#FFA200",
     "&$checked": {
@@ -22,9 +22,10 @@ const CustomRadio:any = withStyles({
 
 interface AcademicFormField {
   schoolMarks: string;
-  diplomaScore: string;
+  //diplomaScore: string;
   level1Score: string;
   level2Score: string;
+  semesterMarks: string;
   underGraduate: string;
   postGraduteScore: string;
 }
@@ -33,11 +34,12 @@ export const DashboardAcademicInfo = (props) => {
   const [schoolMarks, setSchoolMarks] = useState("");
   const [selectedCourse, setselectedCourse] = useState("");
   // const [level0Score, setLevel0Score] = useState("");
-  const [diplomaScore, setDiplomaScore] = useState("");
+  // const [diplomaScore, setDiplomaScore] = useState("");
   const [level1Score, setLevel1Score] = useState("");
   const [level2Score, setLevel2Score] = useState("");
   const [postGraduteScore, setPostGraduteScore] = useState("");
   const [underGraduate, setUnderGraduate] = useState("");
+  const [semesterMarks, setSemesterMarks] = useState("");
   const [gre, setGre] = useState({ haveDone: "no", score: "" });
   const [gmat, setGmat] = useState({ haveDone: "no", score: "" });
   const [sat, setSat] = useState({ haveDone: "no", score: "" });
@@ -52,8 +54,7 @@ export const DashboardAcademicInfo = (props) => {
     subMars: { listining: "", writing: "", reading: "", speaking: "" },
   });
 
- const { value: selectedLevel } = props?.selectedLevel?.selectedLevel;
-
+  const { value: selectedLevel } = props?.selectedLevel?.selectedLevel;
 
   const [certificatesImage, setCertificatesImage] = useState({
     highSchool: null,
@@ -64,6 +65,7 @@ export const DashboardAcademicInfo = (props) => {
   });
 
   const [showClass11Marks, setShowClass11Marks] = useState(false);
+  const [showSemesterMarks, setShowsemesterMarks] = useState(false);
 
   // useEffect(() => {
   //   props.setShowExitPrompt(true); //prevent from refreshing the page
@@ -73,7 +75,7 @@ export const DashboardAcademicInfo = (props) => {
     const getData = JSON.parse(localStorage.getItem("academicInformation"));
 
     if (getData) {
-      setDiplomaScore(getData?.diplomaScore);
+      //   setDiplomaScore(getData?.diplomaScore);
       setGmat(getData?.gmat);
       setGre(getData?.gre);
       // setIelts(getData?.ielts);
@@ -90,6 +92,7 @@ export const DashboardAcademicInfo = (props) => {
       setJeeAdvance(getData?.jeeAdvance);
       setLevel1Score(getData?.level1Score);
       setLevel2Score(getData?.level2Score);
+      setSemesterMarks(getData?.semesterMarks);
       setPostGraduteScore(getData?.postGraduteScore);
       setSat(getData?.sat);
       setSatII(getData?.satII);
@@ -104,7 +107,8 @@ export const DashboardAcademicInfo = (props) => {
       schoolMarks,
       level1Score,
       level2Score,
-      diplomaScore,
+      semesterMarks,
+      // diplomaScore,
       postGraduteScore,
       underGraduate,
       gre: { ...gre, score: gre?.haveDone === "no" ? "" : gre.score },
@@ -146,7 +150,8 @@ export const DashboardAcademicInfo = (props) => {
       // setLevel0Score(props.data.level0Score)
       setLevel1Score(props.data.level1Score);
       setLevel2Score(props.data.level2Score);
-      setDiplomaScore(props.data.diplomaScore);
+      setSemesterMarks(props.data.semesterMarks);
+      // setDiplomaScore(props.data.diplomaScore);
       setPostGraduteScore(props.data.postGraduteScore);
       setUnderGraduate(props.data.underGraduate);
       setGre(props.data.gre);
@@ -211,12 +216,12 @@ export const DashboardAcademicInfo = (props) => {
                     xs={12}
                   >
                     <div className="dashboard-basic-info__formText">
-                      School Marks / Class 10(X)
+                      School Marks / Class 10(X) / Level 0
                     </div>
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="eg: 50.50"
+                      placeholder="Enter your marks"
                       value={schoolMarks}
                       onChange={(e) => setSchoolMarks(e.target.value)}
                       name="schoolMarks"
@@ -239,15 +244,15 @@ export const DashboardAcademicInfo = (props) => {
                     >
                       <div className="dashboard-basic-info__formText">
                         High School Marks /{" "}
-                        {showClass11Marks ? "Class 11" : "Class 12"} / Level 0
-                        Marks
+                        {showClass11Marks ? "Class 11" : "Class 12"} / Level A
+                        Marks / Diploma
                       </div>
                       <div style={{ display: "flex" }}>
                         {showClass11Marks ? (
                           <Input
                             className={"dashboard-basic-info__input"}
                             fullWidth
-                            placeholder="eg: 50.50 class 11"
+                            placeholder="Enter your marks"
                             value={level1Score}
                             onChange={(e) => setLevel1Score(e.target.value)}
                             name="level1Score"
@@ -258,7 +263,7 @@ export const DashboardAcademicInfo = (props) => {
                           <Input
                             className={"dashboard-basic-info__input"}
                             fullWidth
-                            placeholder="eg: 50.50 class 12"
+                            placeholder="Enter your marks"
                             value={level2Score}
                             onChange={(e) => setLevel2Score(e.target.value)}
                             name="level2Score"
@@ -288,7 +293,7 @@ export const DashboardAcademicInfo = (props) => {
                   </>
                 )}
 
-                {(selectedLevel == "postgraduate" ||
+                {/* {(selectedLevel == "postgraduate" ||
                   selectedLevel == "undergraduate" ||
                   selectedLevel == "phd") && (
                   <Grid
@@ -306,7 +311,7 @@ export const DashboardAcademicInfo = (props) => {
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="eg: 50.50"
+                      placeholder="Enter your marks"
                       value={diplomaScore}
                       onChange={(e) => setDiplomaScore(e.target.value)}
                       name="diplomaScore"
@@ -314,7 +319,7 @@ export const DashboardAcademicInfo = (props) => {
                       error={!!formError.diplomaScore}
                     />
                   </Grid>
-                )}
+                )} */}
 
                 {selectedLevel == "phd" && (
                   <Grid
@@ -330,7 +335,7 @@ export const DashboardAcademicInfo = (props) => {
                     <Input
                       className={"dashboard-basic-info__input"}
                       fullWidth
-                      placeholder="eg: 50.50"
+                      placeholder="Enter your marks"
                       value={postGraduteScore}
                       onChange={(e) => setPostGraduteScore(e.target.value)}
                       name="postGraduteScore"
@@ -349,18 +354,56 @@ export const DashboardAcademicInfo = (props) => {
                     xs={12}
                   >
                     <div className="dashboard-basic-info__formText">
-                      UnderGraduate Marks
+                      UnderGraduate Marks {""}
+                      {showSemesterMarks ? "/ Latest Semester" : ""}
                     </div>
-                    <Input
-                      className={"dashboard-basic-info__input"}
-                      fullWidth
-                      placeholder="eg: 50.50"
-                      value={underGraduate}
-                      onChange={(e) => setUnderGraduate(e.target.value)}
-                      name="underGraduate"
-                      errorMessage={formError.underGraduate}
-                      error={!!formError.underGraduate}
-                    />
+                    <div style={{ display: "flex" }}>
+                      {showSemesterMarks ? (
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          fullWidth
+                          placeholder="Enter your marks"
+                          value={underGraduate}
+                          onChange={(e) => setUnderGraduate(e.target.value)}
+                          name="underGraduate"
+                          errorMessage={formError.underGraduate}
+                          error={!!formError.underGraduate}
+                        />
+                      ) : (
+                        <Input
+                          className={"dashboard-basic-info__input"}
+                          fullWidth
+                          placeholder="Enter your marks"
+                          value={semesterMarks}
+                          onChange={(e) => setSemesterMarks(e.target.value)}
+                          name="semesterMarks"
+                          errorMessage={formError.semesterMarks}
+                          error={!!formError.semesterMarks}
+                        />
+                      )}
+                      <div
+                        onClick={() =>
+                          setShowsemesterMarks(
+                            (showSemesterMarks) => !showSemesterMarks
+                          )
+                        }
+                        style={{ cursor: "pointer", marginLeft: "5px" }}
+                      >
+                        {/* <u>
+                              {showSemesterMarks
+                                ? "Have completed ?"
+                                : `Haven't completed yet?`}
+                            </u>
+                          ) */}
+                        {selectedLevel === "postgraduate" && (
+                          <u>
+                            {showSemesterMarks
+                              ? "Have completed ?"
+                              : `Haven't completed yet?`}
+                          </u>
+                        )}
+                      </div>
+                    </div>
                   </Grid>
                 )}
               </Grid>
@@ -905,7 +948,7 @@ export const DashboardAcademicInfo = (props) => {
                       {satII.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
-                          placeholder="eg: 50.50"
+                          placeholder="Enter your marks"
                           value={satII.score}
                           onChange={(e) =>
                             setSatII({ ...satII, score: e.target.value })
@@ -1078,7 +1121,7 @@ export const DashboardAcademicInfo = (props) => {
                         <Input
                           className={"dashboard-basic-info__input"}
                           fullWidth
-                          placeholder="eg: 50.50"
+                          placeholder="Enter your marks"
                           value={ielts.subMars.listining}
                           onChange={(e) => {
                             let _itels = {
@@ -1099,7 +1142,7 @@ export const DashboardAcademicInfo = (props) => {
                         <Input
                           className={"dashboard-basic-info__input"}
                           fullWidth
-                          placeholder="eg: 50.50"
+                          placeholder="Enter your marks"
                           value={ielts.subMars.writing}
                           onChange={(e) => {
                             let _itels = {
@@ -1121,7 +1164,7 @@ export const DashboardAcademicInfo = (props) => {
                         <Input
                           className={"dashboard-basic-info__input"}
                           fullWidth
-                          placeholder="eg: 50.50"
+                          placeholder="Enter your marks"
                           value={ielts.subMars.reading}
                           onChange={(e) => {
                             let _itels = {
@@ -1143,7 +1186,7 @@ export const DashboardAcademicInfo = (props) => {
                         <Input
                           className={"dashboard-basic-info__input"}
                           fullWidth
-                          placeholder="eg: 50.50"
+                          placeholder="Enter your marks"
                           value={ielts.subMars.speaking}
                           onChange={(e) => {
                             let _itels = {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Input } from "../Input";
 import { PasswordField } from "../Input/PasswordField";
 import PersonIcon from "@material-ui/icons/Person";
@@ -20,7 +20,8 @@ import Link from "next/link";
 import Checkbox from "@material-ui/core/Checkbox";
 import { withStyles } from "@material-ui/core/styles";
 import { CountryCode } from "utils/CountryCode";
-
+import countryLists from "react-select-country-list";
+import PhoneInput from "react-phone-number-input";
 interface signUpFormValue {
   fullName: string;
   email: string;
@@ -39,14 +40,16 @@ const Register = () => {
   const [formError, setFormError] = useState({} as any);
   const [msgType, setMsgType] = useState({} as any);
   const [showPassword, setShowPassword] = useState(false as boolean);
-  const [showconfirmPassword, setShowConfirmPassword] = useState(false as boolean);
-
+  const [showconfirmPassword, setShowConfirmPassword] = useState(
+    false as boolean
+  );
+  const options = useMemo(() => countryLists().getData(), []);
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   const router = useRouter();
 
-  const CustomizeCheckBox:any = withStyles({
+  const CustomizeCheckBox: any = withStyles({
     root: {
       "& .MuiSvgIcon-root": {
         fill: "#828282",
@@ -78,7 +81,6 @@ const Register = () => {
     checked: {},
   })(Checkbox);
   const handleChange = (e: any) => {
-
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
     // formValue[e.target.name] = e.target.value
@@ -158,12 +160,11 @@ const Register = () => {
       if (valid) {
         let authUser = await auth.createUserWithEmailAndPassword(
           formValue.email,
-          formValue.password,
-
+          formValue.password
         );
         auth.currentUser.updateProfile({
-          displayName: formValue.fullName
-        })
+          displayName: formValue.fullName,
+        });
         if (authUser.user) {
           await db
             .collection("users")
@@ -184,12 +185,10 @@ const Register = () => {
                 otherErrors: (
                   <div>
                     Successfully registred.{""}
-                    <span>
-                      Please verify your email.
-                    </span>
+                    <span>Please verify your email.</span>
                   </div>
-                )
-              })
+                ),
+              });
               handleOpenSnackbar();
 
               router.push("/login");
@@ -218,7 +217,7 @@ const Register = () => {
   };
 
   const handleOpenSnackbar = () => {
-    console.log({ msgType })
+    console.log({ msgType });
     setSnackOpen(true);
   };
 
@@ -292,7 +291,7 @@ const Register = () => {
         <div className="signin__right">
           <div className="signin__header">Register to Apply</div>
           <div className="signin__header__desc">
-          Become a leader, become a part of the best institution. 
+            Become a leader, become a part of the best institution.
           </div>
           <div className="signin__form ">
             <form onSubmit={handleRegister}>
@@ -324,18 +323,22 @@ const Register = () => {
 
                 <Select
                   useLabel
-                  options={countryList}
+                  options={options}
                   onChange={handleChange}
                   icon={LocationOnIcon}
                   placeholder={"Home Country"}
                   name={"country"}
-                  names="Home Country"
+                  names="Nationality"
                   error={!!formError.country}
                   errorMessage={formError.country}
                   value={formValue.country}
-
                 />
                 <div className={"student-info__phone-input"}>
+                  {/* <PhoneInput country="US" 
+                  value={formValue.countryCode} 
+                  onChange={handleChange}
+                  style={{width:90}} /> */}
+
                   <CountryCodeDropDown
                     options={CountryCode}
                     useValue
@@ -392,17 +395,16 @@ const Register = () => {
                   errorMessage={formError.confirmPassword}
                   type={`${showconfirmPassword ? "text" : "password"}`}
                   onClick={() =>
-                    setShowConfirmPassword((showconfirmPassword) => !showconfirmPassword)
+                    setShowConfirmPassword(
+                      (showconfirmPassword) => !showconfirmPassword
+                    )
                   }
                   showconfirmPassword={showconfirmPassword}
                   value={formValue.confirmPassword}
                 />
               </div>
               <div className="signin__info">
-              <CustomizeCheckBox
-                   
-                    style={{ paddingLeft: "0" }}
-                  />
+                <CustomizeCheckBox style={{ paddingLeft: "0" }} />
                 By submitting this form, you accept and agree to our
                 <span>Terms & Conditions.</span>
               </div>
@@ -420,13 +422,16 @@ const Register = () => {
                 >
                   Register Now
                 </Button>
-
               </div>
             </form>
           </div>
         </div>
       </div>
-      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
         <Alert onClose={handleCloseSnackbar} severity={msgType?.toString()}>
           {formError?.otherErrors}
         </Alert>

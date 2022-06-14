@@ -55,10 +55,7 @@ const DashboardBasicInfo = (props) => {
     label: "",
     value: "",
   });
-  const [guardianState, setGuardianState] = useState({
-    label: "",
-    value: "",
-  });
+  const [guardianState, setGuardianState] = useState("");
   const [guardianCity, setGuardianCity] = useState("");
   // const [guardianZipCode, setGuardianZipCode] = useState("" as string);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
@@ -68,6 +65,8 @@ const DashboardBasicInfo = (props) => {
   const dispatch = useDispatch();
 
   const allLevels = useSelector((state: any) => state.courses.allLevels);
+  
+ 
   const selectLevelOption = useMemo(() => {
     return allLevels.map((level) => {
       let name =
@@ -87,10 +86,11 @@ const DashboardBasicInfo = (props) => {
     const { authUser } = props;
     if (authUser) {
       setEmail(authUser?.email);
-      setNationality(
-        authUser?.country === "Nepal"
-          ? { label: "Nepali", value: "nepal" }
-          : { label: "Indian", value: "india" }
+      let found=countryList.find(country=>country.label==authUser?.country)
+      setNationality(found
+        // authUser?.country === "Nepal"
+        //   ? { label: "Nepali", value: "nepal" }
+        //   : { label: "Indian", value: "india" }
       );
       setCountryCode(authUser?.phoneNumber?.split("-")[0]);
       setPhoneNumber(authUser?.phoneNumber?.split("-")[1]);
@@ -110,10 +110,11 @@ const DashboardBasicInfo = (props) => {
         label: getData?.guardianCountry,
         value: getData?.guardianCountry,
       });
-      setGuardianState({
-        label: getData?.guardianState,
-        value: getData?.guardianState,
-      });
+      setGuardianState(
+        getData?.guardianState
+        // label: getData?.guardianState,
+        // value: getData?.guardianState,
+      );
       setSelectedLevel({
         label: getData?.selectedLevel.label,
         value: getData?.selectedLevel.value,
@@ -160,95 +161,6 @@ const DashboardBasicInfo = (props) => {
     },
   ];
 
-  const NationalityOptions = [
-    {
-      label: "Nepali",
-      value: "Nepali",
-    },
-    {
-      label: "Indian",
-      value: "Indian",
-    },
-  ];
-
-  const CountryOption = [
-    {
-      label: "Nepal",
-      value: "Nepal",
-    },
-    {
-      label: "India",
-      value: "India",
-    },
-  ];
-
-  const CountryCodeOptions = [
-    {
-      label: `+91`,
-      value: "+91 ",
-      imgSrc: "/country-icon/india.png",
-    },
-    {
-      label: "+977",
-      value: "+977",
-      imgSrc: "/country-icon/nepal.png",
-    },
-  ];
-
-  const NepalState = [
-    "Province No. 1",
-    "Madhesh Province",
-    "	Bagmati Province",
-    "Gandaki Province",
-    "Lumbini Province",
-    "Karnali Province",
-    "	Sudurpashchim Province",
-  ];
-  const IndianState = [
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chhattisgarh",
-    "Goa",
-    "Gujarat",
-    "Haryana",
-    "Himachal Pradesh",
-    "Jammu and Kashmir",
-    "Jharkhand",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh ",
-    "Maharashtra",
-    "Manipur",
-    "Meghalaya",
-    "Mizoram",
-    "Nagaland",
-    "Odisha",
-    "Punjab",
-    "Rajasthan",
-    "Sikkim",
-    "Tamil Nadu",
-    "Telangana",
-    "Tripura",
-    "Uttar Pradesh",
-    "Uttarakhand",
-    "West Bengal",
-  ];
-  const NepalStateOption = NepalState.map((state: any) => {
-    return {
-      label: state,
-      value: state,
-    };
-  });
-
-  const IndiaStateOption = IndianState.map((state: any) => {
-    return {
-      label: state,
-      value: state,
-    };
-  });
-
   const handleCloseSnackbar = () => {
     setSnackOpen(false);
   };
@@ -278,6 +190,22 @@ const DashboardBasicInfo = (props) => {
   };
 
   const validate = async () => {
+    const data =  {
+      selectedLevel: selectedLevel.value,
+      fullName: fullName,
+      DOB: DOB,
+      nationality: nationality.value,
+      email,
+      phoneNumber,
+      countryCode,
+      gender: gender.value,
+      guardianAddress,
+      guardianCountry: guardianCountry.value,
+      guardianState,
+      //  guardianState.value,
+      guardianCity,
+    }
+    console.log('data',data)
     try {
       await validationSchema.validate(
         {
@@ -291,7 +219,8 @@ const DashboardBasicInfo = (props) => {
           gender: gender.value,
           guardianAddress,
           guardianCountry: guardianCountry.value,
-          guardianState: guardianState.value,
+          guardianState,
+          //  guardianState.value,
           guardianCity,
         },
         {
@@ -329,9 +258,11 @@ const DashboardBasicInfo = (props) => {
           gender: gender.value,
           guardianAddress,
           guardianCountry: guardianCountry.value,
-          guardianState: guardianState.value,
+          guardianState,
+          // : guardianState.value,
           guardianCity,
         };
+        console.log('data',data);
 
         window.localStorage.setItem("basicInformation", JSON.stringify(data));
         props.getData(data);
@@ -364,10 +295,11 @@ const DashboardBasicInfo = (props) => {
         label: props.data.guardianCountry,
         value: props.data.guardianCountry,
       });
-      setGuardianState({
-        label: props.data.guardianState,
-        value: props.data.guardianState,
-      });
+      setGuardianState(
+        props.data.guardianState
+        // label: props.data.guardianState,
+        // value: props.data.guardianState,
+      );
       setGuardianCity(props.data.guardianCity);
       // setGuardianZipCode(props.data.guardianZipCode);
     }
@@ -478,7 +410,7 @@ const DashboardBasicInfo = (props) => {
                   <DropDownSelect
                     defaultvalue={nationality}
                     title="Nationality"
-                    options={NationalityOptions}
+                    options={countryList}
                     handleChange={(e) => {
                       setNationality(e);
                       setFormError((prev) => ({ ...prev, nationality: null }));
@@ -506,7 +438,7 @@ const DashboardBasicInfo = (props) => {
               >
                 <div className="student-info__phone-input">
                   <CountryCodeDropDown
-                    options={CountryCodeOptions}
+                    options={countryList}
                     useValue
                     minWidth={"83px"}
                     width={"90px"}
@@ -651,6 +583,7 @@ const DashboardBasicInfo = (props) => {
                     error={!!formError.guardianCity}
                   />
                 </Grid>
+              
                 <Grid
                   className={"dashboard-basic-info__grid"}
                   item
@@ -658,37 +591,7 @@ const DashboardBasicInfo = (props) => {
                   md={4}
                   xs={12}
                 >
-                  <DropDownSelect
-                    title="Country"
-                    options={countryList}
-                    handleChange={(e) => {
-                      setGuardianCountry(e);
-                      setGuardianState({
-                        label: "",
-                        value: ""
-                      })
-                      setFormError((prev) => ({
-                        ...prev,
-                        guardianCountry: null,
-
-                      }))
-                      // props.setShowExitPrompt(true);
-                    }}
-                    defaultvalue={guardianCountry}
-                    name={"guardianCountry"}
-                    errorMessage={formError.guardianCountry}
-                    error={!!formError.guardianCountry}
-                  />
-
-                </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={4}
-                  xs={12}
-                >
-                  <DropDownSelect
+                  {/* <DropDownSelect
                     title="State"
                     handleChange={(e) => {
                       setGuardianState(e);
@@ -708,22 +611,51 @@ const DashboardBasicInfo = (props) => {
                     errorMessage={formError.guardianState}
                     error={
                       !!formError.guardianState}
-                  />
-                  {/* <Input
+                  /> */}
+                  <Input
                     className={"dashboard-basic-info__input"}
                   label="State"
                   value={guardianState}
                   onChange={(e)=>{
                     setGuardianState(e.target.value);
-                    setFormError((prev) =>({...prev,guardianState}))
                   }}
                   name={"guardianState"}
-                  placeholder="State"
+                 // placeholder="State"
                   errorMessage={formError.guardianState}
                   error={
                     !!formError.guardianState}
 
-                  /> */}
+                  />
+                </Grid>
+                <Grid
+                  className={"dashboard-basic-info__grid"}
+                  item
+                  sm={12}
+                  md={4}
+                  xs={12}
+                >
+                  <DropDownSelect
+                    title="Country"
+                    options={countryList}
+                    handleChange={(e) => {
+                      setGuardianCountry(e);
+                      // setGuardianState({
+                      //   label: "",
+                      //   value: ""
+                      // })
+                      setFormError((prev) => ({
+                        ...prev,
+                        guardianCountry: null,
+
+                      }))
+                     //props.setShowExitPrompt(true);
+                    }}
+                    defaultvalue={guardianCountry}
+                    name={"guardianCountry"}
+                    errorMessage={formError.guardianCountry}
+                    error={!!formError.guardianCountry}
+                  />
+
                 </Grid>
               </Grid>
             </form>

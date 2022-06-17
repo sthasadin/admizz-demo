@@ -38,7 +38,7 @@ const CollegeOverview = () => {
       )}
 
       <div className="overview__block-wrap">
-        {college?.QS_ranking && (
+        {/* {college?.QS_ranking && (
           <div className="overview__block">
             <div className="overview__block__icon">
               <img src="/college-overview.png" alt="" />
@@ -56,17 +56,15 @@ const CollegeOverview = () => {
             <div className="overview__block__subheading">NIRF Ranking</div>
           </div>
         )}
-        {/* {college?.university_ranking && ( */}
+        
         <div className="overview__block">
-          {/* <div className="overview__block__icon">
-              <img src="/college-overview.png" alt="" />
-            </div> */}
+         
           <div className="overview__block__title">
             {college.university_ranking}
           </div>
           <div className="overview__block__subheading">{college.Values}</div>
         </div>
-        {/* )} */}
+     
         {college?.highest_package && (
           <div className="overview__block">
             <div className="overview__block__icon">
@@ -90,16 +88,16 @@ const CollegeOverview = () => {
               Min. Cost of Living
             </div>
           </div>
-        )}
+        )} */}
         {console.log("ranks", college?.rankings)}
         {college?.rankings?.map((item: any) => {
           return (
             <div className="overview__block">
               <div className="overview__block__icon">
                 <div className="college_content">
-                   <div className="overview__block__icon">
-              <img src={item.rank?.logo} alt="" />
-            </div>
+                  <div className="overview__block__icon">
+                    <img src={item.rank?.logo} alt="" />
+                  </div>
                   {/* <div className="college-img">
                     <img src={item.rank?.logo} alt="" />
                   </div> */}

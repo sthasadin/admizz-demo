@@ -25,6 +25,7 @@ const SelectCounseler: React.FC<Props> = ({
   const getFireStoreCounselor = async () => {
     setLoader(true);
     const counsellor = [];
+    console.log('counsellor',counsellor)
     await db
       .collection("counsellor")
       .get()
@@ -48,9 +49,9 @@ const SelectCounseler: React.FC<Props> = ({
   useEffect(() => {
     getFireStoreCounselor();
   }, []);
-
+  console.log("selectedCountry",selectedCountry)
   const filteredCounsellor = counsellorArray?.filter(
-    (counsellor) => counsellor.country === selectedCountry
+    (counsellor) => counsellor.country.includes(selectedCountry)
   );
 
   const [selectedCounseler, setSelectedCounseler] = useState(1 as number);
@@ -69,6 +70,7 @@ const SelectCounseler: React.FC<Props> = ({
       },
     });
   }, [selectedCounseler]);
+  console.log('filteredCounsellor',filteredCounsellor)
   return (
     <div className="select-counseler">
       <div className="select-counseler__header">
@@ -78,7 +80,6 @@ const SelectCounseler: React.FC<Props> = ({
       <div className="select-counseler__counseler-list">
         {filteredCounsellor &&
           filteredCounsellor.map((item) => {
-            console.log('filteredCounsellor',filteredCounsellor)
             return (
               <div
                 key={item.id}
@@ -88,6 +89,7 @@ const SelectCounseler: React.FC<Props> = ({
                 <img
                   className={"select-counseler__counsellorImage"}
                   src={item.image}
+
                 />
                 <div
                   className={`select-counseler__counseler-info 
@@ -100,7 +102,17 @@ const SelectCounseler: React.FC<Props> = ({
                     {item.name}
                   </div>
                   <div className="select-counseler__counseler-nationaliy">
-                    {item.country}
+                    {/* {item &&
+                    item?.map((item)=>{
+                      return(
+                        <div>
+                         {item?.country}
+
+                          </div>
+                      )
+                    })} */}
+                    {item?.country}
+                    {console.log('first',item)}
                   </div>
                 </div>
               </div>

@@ -8,6 +8,7 @@ const BBox:any=Box
 const FacultyInformation = (props: any) => {
 
   const faculty = useSelector((state:any) => state.college.college.faculty);
+  console.log('faculty',faculty)
   const getValue = (value) => {
     const splitText = value.split("%");
     if (splitText?.length == 2) {
@@ -53,8 +54,8 @@ const FacultyInformation = (props: any) => {
           <div className="faculty-information__semi-circle">
           
             <div className="faculty-information__semi-circle-text">
-              {faculty && faculty?.total_faculity}
-              <span>Faculty</span>
+              {faculty && faculty?.total_faculty}
+              <span>Total Faculty</span>
             </div>
          
           </div>

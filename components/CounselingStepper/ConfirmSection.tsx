@@ -14,7 +14,7 @@ interface Props {
   formValue: any;
   loading: boolean;
 }
-const CustomizeCheckBox:any = withStyles({
+const CustomizeCheckBox: any = withStyles({
   root: {
     "& .MuiSvgIcon-root": {
       fill: "#828282",
@@ -97,10 +97,7 @@ const ConfirmBook: React.FC<Props> = ({
       </div>
       <img src={confirmBookBg} className={"confirm-section__background"} />
       <div className={"confirm-section__agreement"}>
-      <CustomizeCheckBox
-                   
-                   style={{ paddingLeft: "0" }}
-                 />
+        <CustomizeCheckBox style={{ paddingLeft: "0" }} />
         By submitting this form, you accept and agree to our{" "}
         <span>Terms & Conditions.</span>
       </div>

@@ -11,6 +11,7 @@ import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import { DropDownSelect } from "../DropDownSelect";
 import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 import { countryList } from "../../utils/CountryLists";
+import { CountryCode } from "utils/CountryCode";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -65,16 +66,27 @@ const DashboardBasicInfo = (props) => {
   const dispatch = useDispatch();
 
   const allLevels = useSelector((state: any) => state.courses.allLevels);
-  
- 
+
   const selectLevelOption = useMemo(() => {
-    return allLevels.map((level) => {
+    let newLabel = [];
+    allLevels.map((l) => {
+      if (l.name == "diploma") {
+        newLabel[0] = l;
+      } else if (l.name == "undergraduate") {
+        newLabel[1] = l;
+      } else if (l.name == "postgraduate") {
+        newLabel[2] = l;
+      } else if (l.name == "phd") {
+        newLabel[3] = l;
+      }
+    });
+    return newLabel.map((level) => {
       let name =
         level.name === "postgraduate"
           ? "Post Graduate"
           : level.name === "undergraduate"
-            ? "Under Graduate"
-            : level.name;
+          ? "Under Graduate"
+          : level.name;
       return {
         label: name,
         value: level.name,
@@ -86,8 +98,11 @@ const DashboardBasicInfo = (props) => {
     const { authUser } = props;
     if (authUser) {
       setEmail(authUser?.email);
-      let found=countryList.find(country=>country.label==authUser?.country)
-      setNationality(found
+      let found = countryList.find(
+        (country) => country.label == authUser?.country
+      );
+      setNationality(
+        found
         // authUser?.country === "Nepal"
         //   ? { label: "Nepali", value: "nepal" }
         //   : { label: "Indian", value: "india" }
@@ -190,7 +205,7 @@ const DashboardBasicInfo = (props) => {
   };
 
   const validate = async () => {
-    const data =  {
+    const data = {
       selectedLevel: selectedLevel.value,
       fullName: fullName,
       DOB: DOB,
@@ -204,8 +219,7 @@ const DashboardBasicInfo = (props) => {
       guardianState,
       //  guardianState.value,
       guardianCity,
-    }
-    console.log('data',data)
+    };
     try {
       await validationSchema.validate(
         {
@@ -262,13 +276,12 @@ const DashboardBasicInfo = (props) => {
           // : guardianState.value,
           guardianCity,
         };
-        console.log('data',data);
 
         window.localStorage.setItem("basicInformation", JSON.stringify(data));
         props.getData(data);
         props.handleNext();
       }
-    } catch (err) { }
+    } catch (err) {}
   };
 
   useEffect(() => {
@@ -438,7 +451,7 @@ const DashboardBasicInfo = (props) => {
               >
                 <div className="student-info__phone-input">
                   <CountryCodeDropDown
-                    options={countryList}
+                    options={CountryCode}
                     useValue
                     minWidth={"83px"}
                     width={"90px"}
@@ -522,143 +535,123 @@ const DashboardBasicInfo = (props) => {
               Personal Address
             </div>
             <hr className="dashboard-basic-info__horizontalLine" />
-            <form className="dashboard-basic-info__formContent">
-              <Grid
-                container
-                className="dashboard-basic-info__row"
-                justify="space-around"
-                direction="row"
-              >
+            <div className="dashboard-basic-info__formContainer personal-details-form">
+              <form className="dashboard-basic-info__formContent">
                 <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={12}
-                  xs={12}
+                  container
+                  className="dashboard-basic-info__row"
+                  justify="space-around"
+                  direction="row"
                 >
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    label="Personal Address"
-                    value={guardianAddress}
-                    onChange={(e) => {
-                      setGuardianAddress(e.target.value);
-                      setFormError((prev) => ({
-                        ...prev,
-                        guardianAddress: null,
-                      }));
-                      // props.setShowExitPrompt(true);
-                    }}
-                    name={"guardianAddress"}
-                    errorMessage={formError.guardianAddress}
-                    error={!!formError.guardianAddress}
-                  />
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={12}
+                    xs={12}
+                  >
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      label="Personal Address"
+                      value={guardianAddress}
+                      onChange={(e) => {
+                        setGuardianAddress(e.target.value);
+                        setFormError((prev) => ({
+                          ...prev,
+                          guardianAddress: null,
+                        }));
+                        // props.setShowExitPrompt(true);
+                      }}
+                      name={"guardianAddress"}
+                      errorMessage={formError.guardianAddress}
+                      error={!!formError.guardianAddress}
+                    />
+                  </Grid>
                 </Grid>
-              </Grid>
-              <Grid
-                container
-                className="dashboard-basic-info__row"
-                justify="space-around"
-                direction="row"
-              >
                 <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={4}
-                  xs={12}
+                  container
+                  className="dashboard-basic-info__row"
+                  justify="space-around"
+                  direction="row"
                 >
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                    fullWidth
-                    label="City"
-                    value={guardianCity}
-                    onChange={(e) => {
-                      setGuardianCity(e.target.value);
-                      setFormError((prev) => ({ ...prev, guardianCity: null }));
-                      // props.setShowExitPrompt(true);
-                    }}
-                    name={"guardianCity"}
-                    errorMessage={formError.guardianCity}
-                    error={!!formError.guardianCity}
-                  />
-                </Grid>
-              
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={4}
-                  xs={12}
-                >
-                  {/* <DropDownSelect
-                    title="State"
-                    handleChange={(e) => {
-                      setGuardianState(e);
-                      setFormError((prev) => ({
-                        ...prev,
-                        guardianState: null,
-                      }));
-                      // props.setShowExitPrompt(true);
-                    }}
-                    defaultvalue={guardianState}
-                    options={
-                      guardianCountry?.value === "Nepal"
-                        ? NepalStateOption
-                        : IndiaStateOption
-                    }
-                    name={"guardianState"}
-                    errorMessage={formError.guardianState}
-                    error={
-                      !!formError.guardianState}
-                  /> */}
-                  <Input
-                    className={"dashboard-basic-info__input"}
-                  label="State"
-                  value={guardianState}
-                  onChange={(e)=>{
-                    setGuardianState(e.target.value);
-                  }}
-                  name={"guardianState"}
-                 // placeholder="State"
-                  errorMessage={formError.guardianState}
-                  error={
-                    !!formError.guardianState}
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={4}
+                    xs={12}
+                  >
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      label="City"
+                      value={guardianCity}
+                      onChange={(e) => {
+                        setGuardianCity(e.target.value);
+                        setFormError((prev) => ({
+                          ...prev,
+                          guardianCity: null,
+                        }));
+                        // props.setShowExitPrompt(true);
+                      }}
+                      name={"guardianCity"}
+                      errorMessage={formError.guardianCity}
+                      error={!!formError.guardianCity}
+                    />
+                  </Grid>
 
-                  />
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={4}
+                    xs={12}
+                  >
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      label="State"
+                      value={guardianState}
+                      onChange={(e) => {
+                        setGuardianState(e.target.value);
+                      }}
+                      name={"guardianState"}
+                      // placeholder="State"
+                      errorMessage={formError.guardianState}
+                      error={!!formError.guardianState}
+                    />
+                  </Grid>
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={6}
+                    md={6}
+                    xs={12}
+                  >
+                    <DropDownSelect
+                      title="Country"
+                      options={countryList}
+                      handleChange={(e) => {
+                        setGuardianCountry(e);
+                        // setGuardianState({
+                        //   label: "",
+                        //   value: ""
+                        // })
+                        setFormError((prev) => ({
+                          ...prev,
+                          guardianCountry: null,
+                        }));
+                        //props.setShowExitPrompt(true);
+                      }}
+                      defaultvalue={guardianCountry}
+                      name={"guardianCountry"}
+                      errorMessage={formError.guardianCountry}
+                      error={!!formError.guardianCountry}
+                    />
+                  </Grid>
                 </Grid>
-                <Grid
-                  className={"dashboard-basic-info__grid"}
-                  item
-                  sm={12}
-                  md={4}
-                  xs={12}
-                >
-                  <DropDownSelect
-                    title="Country"
-                    options={countryList}
-                    handleChange={(e) => {
-                      setGuardianCountry(e);
-                      // setGuardianState({
-                      //   label: "",
-                      //   value: ""
-                      // })
-                      setFormError((prev) => ({
-                        ...prev,
-                        guardianCountry: null,
-
-                      }))
-                     //props.setShowExitPrompt(true);
-                    }}
-                    defaultvalue={guardianCountry}
-                    name={"guardianCountry"}
-                    errorMessage={formError.guardianCountry}
-                    error={!!formError.guardianCountry}
-                  />
-
-                </Grid>
-              </Grid>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
         <div className="dashboard-basic-info__buttonContainer">

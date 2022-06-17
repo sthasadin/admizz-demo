@@ -18,7 +18,6 @@ const _choice = {
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-
 const DashboardChoiceFilling = ({
   handleNext,
   handleBack,
@@ -32,9 +31,16 @@ const DashboardChoiceFilling = ({
   const [loader, setLoader] = useState(false);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [_appliedColleges, setAppliedColleges] = useState([]);
+  const [formError, setFormError] = useState({} as any);
+  const [msgType, setMsgType] = useState({} as any);
 
-
-
+  const handleOpenSnackbar = () => {
+    console.log({ msgType });
+    setSnackOpen(true);
+  };
+  const handleCloseSnackbar = () => {
+    setSnackOpen(false);
+  };
   function dynamicSort(property) {
     var sortOrder = 1;
     if (property[0] === "-") {
@@ -51,7 +57,7 @@ const DashboardChoiceFilling = ({
     };
   }
 
-  const allStreams = useSelector((state:any) =>
+  const allStreams = useSelector((state: any) =>
     state.courses.allStreams
       ?.sort(dynamicSort("name"))
       .map(({ name: label, _id: value }) => ({
@@ -73,7 +79,7 @@ const DashboardChoiceFilling = ({
   }, [info]);
 
   function onClickAddChoice() {
-    if(choices[0].selectedCollege.label == "") return
+    if (choices[0].selectedCollege.label == "") return;
     setChoices([
       ...choices,
       {
@@ -97,34 +103,57 @@ const DashboardChoiceFilling = ({
     if (_appliedColleges?.length) {
       handleNext();
     } else {
-      setSnackOpen(true);
+      setMsgType("error");
+      setFormError({
+        ...formError,
+        otherErrors: (
+          <div>
+            <span>Please add at least one college</span>
+          </div>
+        ),
+      });
+      handleOpenSnackbar();
     }
   };
 
   const handleSave = async () => {
     setLoader(true);
-    
+
     const colleges = choices.map((c: any) => {
-      if (c.selectedCollege.label){
+      if (c.selectedCollege.label) {
         return {
-                collegeName: c.selectedCollege?.collegeName || "",
-                image: c.selectedCollege?.image || "",
-                address: c.selectedCollege?.address || "",
-                college_slug: c.selectedCollege?.college_slug,
-                collegeStream: c.selectedStream?.label,
-                collegeProgram: c.selectedProgram?.label,
-                collegeEmail: c.selectedCollege?.collegeEmail || "",
-              };
-          }
-        })
-      const results = colleges.filter(element => {
-        return element !== undefined;
-      });
-     
-      setAppliedColleges(results);
-      
-      setLoader(false);
-    }
+          collegeName: c.selectedCollege?.collegeName || "",
+          image: c.selectedCollege?.image || "",
+          address: c.selectedCollege?.address || "",
+          college_slug: c.selectedCollege?.college_slug,
+          collegeStream: c.selectedStream?.label,
+          collegeProgram: c.selectedProgram?.label,
+          collegeEmail: c.selectedCollege?.collegeEmail || "",
+        };
+      }
+    });
+    const results = colleges.filter((element) => {
+      return element !== undefined;
+    });
+    
+
+    setAppliedColleges(results);
+
+    if(results?.length){
+         setMsgType("success");
+        setFormError({
+          ...formError,
+          otherErrors: (
+            <div>
+              <span>College is added</span>
+            </div>
+          ),
+        });
+        handleOpenSnackbar();
+      }
+
+    setLoader(false);
+  };
 
   return (
     <div className="dashboard-basic-info">
@@ -370,13 +399,22 @@ const DashboardChoiceFilling = ({
           </Button>
         </div>
       </div>
-      <Snackbar
+      {/* <Snackbar
         open={snackOpen}
         autoHideDuration={4000}
         onClose={() => setSnackOpen(false)}
       >
         <Alert onClose={() => setSnackOpen(false)} severity="error">
           Please select atleast one college for your further studies
+        </Alert>
+      </Snackbar> */}
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
+        <Alert onClose={handleCloseSnackbar} severity={msgType?.toString()}>
+          {formError?.otherErrors}
         </Alert>
       </Snackbar>
     </div>

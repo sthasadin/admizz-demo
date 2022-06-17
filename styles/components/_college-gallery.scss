@@ -10,27 +10,32 @@
     justify-content: space-between;
     margin-bottom: 30px;
   }
+
   &__title {
     font-size: 18px;
     line-height: 27px;
     font-weight: 800;
     color: $secondary-color;
+
     &__cta {
       font-size: 14px;
       line-height: 21px;
       color: $primary-color;
     }
   }
+
   &__heading {
     font-size: 18px;
     line-height: 18px;
     color: #333;
     font-weight: 800;
+
     span {
       font-weight: 400;
       font-size: 12px;
     }
   }
+
   &__list {
     margin-top: 18px;
     display: grid;
@@ -38,55 +43,67 @@
     grid-gap: 8px;
     margin-bottom: 55px;
   }
+
   &__left {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 8px;
+
     &__t {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 8px;
+
       &__l {
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 8px;
       }
+
       &__r {
         height: 100%;
       }
     }
+
     &__b {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 8px;
     }
   }
+
   &__right {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 8px;
+
     &__t {
       display: grid;
       grid-template-columns: 6fr 4fr;
       grid-gap: 8px;
+
       .gallery__item.left {
         height: 100%;
         width: 100%;
       }
+
       .gallery__item.right {
         height: 100%;
         width: 100%;
       }
     }
+
     &__b {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 8px;
     }
   }
+
   &__item {
     height: 100%;
     width: 100%;
+
     img {
       height: 100%;
       width: 100%;
@@ -94,19 +111,23 @@
       border-radius: 5px;
     }
   }
+
   &__video {
     margin-top: 25px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 8px;
     height: 228px;
+
     &__left,
     &__right {
       position: relative;
     }
+
     &__thumbnail {
       cursor: pointer;
       height: 100%;
+
       img {
         min-height: 250px;
         height: 250px;
@@ -115,6 +136,7 @@
         border-radius: 5px;
       }
     }
+
     &__icon {
       position: absolute;
       left: 50%;

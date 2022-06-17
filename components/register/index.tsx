@@ -14,14 +14,12 @@ import { ErrorMessages } from "../../utils/ErrorMessages";
 import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { Select } from "../Select";
-import { countryList } from "../../utils/CountryLists";
 import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 import Link from "next/link";
 import Checkbox from "@material-ui/core/Checkbox";
 import { withStyles } from "@material-ui/core/styles";
 import { CountryCode } from "utils/CountryCode";
 import countryLists from "react-select-country-list";
-import PhoneInput from "react-phone-number-input";
 interface signUpFormValue {
   fullName: string;
   email: string;
@@ -46,6 +44,7 @@ const Register = () => {
   const options = useMemo(() => countryLists().getData(), []);
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
+  const [isTermsChecked, setIstermsChecked] = React.useState(false);
 
   const router = useRouter();
 
@@ -138,19 +137,6 @@ const Register = () => {
       setFormError({ ...errors });
     }
   };
-
-  const CountryCodeOptions = [
-    {
-      label: `+91`,
-      value: "+91 ",
-      imgSrc: "/country-icon/india.png",
-    },
-    {
-      label: "+977",
-      value: "+977",
-      imgSrc: "/country-icon/nepal.png",
-    },
-  ];
 
   const handleRegister = async (e) => {
     try {
@@ -404,7 +390,11 @@ const Register = () => {
                 />
               </div>
               <div className="signin__info">
-                <CustomizeCheckBox style={{ paddingLeft: "0" }} />
+                <CustomizeCheckBox
+                onChange={() => {
+                      setIstermsChecked((isTermsChecked) => !isTermsChecked);
+                    }}
+                style={{ paddingLeft: "0" }} />
                 By submitting this form, you accept and agree to our
                 <span>Terms & Conditions.</span>
               </div>

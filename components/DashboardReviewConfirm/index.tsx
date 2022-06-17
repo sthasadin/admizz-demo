@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Grid, Button } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Backdrop from "@material-ui/core/Backdrop";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import ClipLoader from "react-spinners/ClipLoader";
 import { storage, db, auth } from "../../firebase";
 import { useRouter } from "next/router";
@@ -11,13 +10,13 @@ import { UploadButton } from "../Button/uploadButton";
 import AppliedCollege from "./AppliedCollege";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
-import Snackbar from "@material-ui/core/Snackbar";
+import {Snackbar} from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
+import { Button } from "../Button";
+
 import { ErrorMessages } from "../../utils/ErrorMessages";
 
-function Alert(props: AlertProps) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomizeCheckBox:any = withStyles({
+const CustomizeCheckBox: any = withStyles({
   root: {
     "& .MuiSvgIcon-root": {
       fill: "#828282",
@@ -67,13 +66,11 @@ const DashboardReviewConfirm = (props) => {
   const router = useRouter();
 
   const [profileImage, setProfileImage] = React.useState(null);
-  const [profileImageThumbnail, setProfileImageThumbnail] = React.useState(
-    null
-  );
+  const [profileImageThumbnail, setProfileImageThumbnail] =
+    React.useState(null);
   const [signatureImage, setSignatureImage] = React.useState(null);
-  const [signatureImageThumbnail, setSignatureImageThumbnail] = React.useState(
-    null
-  );
+  const [signatureImageThumbnail, setSignatureImageThumbnail] =
+    React.useState(null);
   const [isTermsChecked, setIstermsChecked] = React.useState(false);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [snackOpenError, setSnackOpenError] = useState(false as boolean);
@@ -90,7 +87,7 @@ const DashboardReviewConfirm = (props) => {
     setOpen(true);
   };
   const handleOpenSnackbar = () => {
-    console.log({ msgType })
+    console.log({ msgType });
     setSnackOpen(true);
   };
 
@@ -128,7 +125,7 @@ const DashboardReviewConfirm = (props) => {
           abortEarly: false,
         }
       );
-    
+
       return true;
     } catch (err) {
       const errors = {};
@@ -141,7 +138,7 @@ const DashboardReviewConfirm = (props) => {
   };
 
   const { basicInfo, backgroundInfo, academicInfo, selectedChoice } = props;
-
+  console.log("academicInfo", academicInfo);
   function truncateString(str, num = 20) {
     if (str?.length <= num) {
       return str;
@@ -169,20 +166,20 @@ const DashboardReviewConfirm = (props) => {
         };
 
         const academicInformation = {
-         // diplomaScore: academicInfo.diplomaScore,
-          gmat: academicInfo.gmat,
-          gre: academicInfo.gre,
-          ielts: academicInfo.ielts,
-          jeeAdvance: academicInfo.jeeAdvance,
+          // diplomaScore: academicInfo.diplomaScore,
+          gmat: academicInfo?.gmat,
+          gre: academicInfo?.gre,
+          ielts: academicInfo?.ielts,
+          jeeAdvance: academicInfo?.jeeAdvance,
 
-          level1Score: academicInfo.level1Score,
-          level2Score: academicInfo.level2Score,
-          postGraduteScore: academicInfo.postGraduteScore,
-          sat: academicInfo.sat,
-          satII: academicInfo.satII,
-          schoolMarks: academicInfo.schoolMarks,
-          tofel: academicInfo.tofel,
-          underGraduate: academicInfo.underGraduate,
+          level1Score: academicInfo?.level1Score,
+          level2Score: academicInfo?.level2Score,
+          postGraduteScore: academicInfo?.postGraduteScore,
+          sat: academicInfo?.sat,
+          satII: academicInfo?.satII,
+          schoolMarks: academicInfo?.schoolMarks,
+          tofel: academicInfo?.tofel,
+          underGraduate: academicInfo?.underGraduate,
         };
 
         const status = "pending";
@@ -205,6 +202,10 @@ const DashboardReviewConfirm = (props) => {
                     academicInformation[key] = url;
                   })
                   .catch((err) => {
+                    setFormError({
+                ...formError,
+                otherErrors: "empty",
+              });
                   });
               });
           }
@@ -225,8 +226,7 @@ const DashboardReviewConfirm = (props) => {
                 .then((url) => {
                   backgroundInformation.documentImage = url;
                 })
-                .catch((err) => {
-                });
+                .catch((err) => {});
             });
         }
 
@@ -242,29 +242,9 @@ const DashboardReviewConfirm = (props) => {
                 .ref("student-application")
                 .child(mixName)
                 .getDownloadURL()
-                .then((url) => {
-                  basicInformation.profileImage = url;
-                  setFormError({
-                    ...formError,
-                    // otherErrors: (
-                    //   <div>
-                    //     Please Upload your Image.
-                       
-                    //   </div>
-                    // )
-                  })
-                  handleOpenSnackbar();
-                })
+                .then((url) => {})
                 .catch((err) => {
-                  const errorMessage = ErrorMessages[err.code];
-                  handleOpenSnackbar();
-                  setMsgType("error");
-                  if (errorMessage) {
-                    setFormError({ ...formError, otherErrors: errorMessage });
-                  } else {
-                    setFormError({ ...formError, otherErrors: "Error occurred" });
-                  }
-                
+                  console.log(err);
                 });
             });
         }
@@ -284,11 +264,10 @@ const DashboardReviewConfirm = (props) => {
                 .then((url) => {
                   basicInformation.signatureImage = url;
                 })
-                .catch((err) => {
-                });
+                .catch((err) => {});
             });
         }
-       
+
         const appdata = {
           basicInformation,
           selectedChoice,
@@ -296,46 +275,48 @@ const DashboardReviewConfirm = (props) => {
           academicInformation,
           status,
           student_id: auth.currentUser.uid,
+        };
 
-        }
-
-      
         await db
-        .collection("students-application")
-        .doc()
-        .set(appdata)
-        .then(()=>{
-          //setSnackOpen(true);
-          setMsgType("success");
-          setFormError({
-            ...formError,
-            otherErrors: (
-              <div>
-                Your application has been submitted Successfully.
-               
-              </div>
-            )
+          .collection("students-application")
+          .doc()
+          .set(appdata)
+          .then(() => {
+            setMsgType("success");
+
+            setFormError({
+              ...formError,
+              otherErrors: (
+                <div>Your application has been submitted Successfully.</div>
+              ),
+            });
+            handleOpenSnackbar();
+            handleClose();
+            localStorage.clear();
+            window.location.replace("/studentdashboardmain");
+
+            router.push("/studentdashboardmain");
           })
-          handleOpenSnackbar();
-          handleClose();
-          localStorage.clear();
-          router.push("/studentdashboardmain");
-        }).catch((error)=>{
-          console.log('error 1',error)
-           router.push("/studentdashboardmain");
-        })
+          .catch((error) => {
+            console.log("error 1", error);
+            
+            // router.push("/studentdashboardmain");
+          });
+      }
+      else{
+          setMsgType("error");
+      setFormError({
+        ...formError,
+        otherErrors: (
+          <div>
+            <span>Please check empty field and try again!</span>
+          </div>
+        ),
+      });
+      handleOpenSnackbar();
       }
     } catch (err) {
-      console.log('err',err);
-      
-      const errorMessage = ErrorMessages[err.code];
-      handleOpenSnackbar();
-      setMsgType("error");
-      if (errorMessage) {
-        setFormError({ ...formError, otherErrors: errorMessage });
-      } else {
-        setFormError({ ...formError, otherErrors: "Error occurred" });
-      }
+      console.log("err");
     }
   };
 
@@ -527,9 +508,7 @@ const DashboardReviewConfirm = (props) => {
                           </div>
                         </label>
                       </div>
-                      <div className="error-msg">
-                        {formError.profileImage}
-                        </div>
+                      <div className="error-msg">{formError.profileImage}</div>
                     </div>
                   </div>
                   <div
@@ -604,7 +583,7 @@ const DashboardReviewConfirm = (props) => {
                     >
                       {" "}
                       {toTitleCase(
-                        truncateString(basicInfo.guardianAddress)
+                        (basicInfo.guardianAddress)
                       )}{" "}
                     </p>
                   </div>
@@ -917,7 +896,7 @@ const DashboardReviewConfirm = (props) => {
                 >
                   <div style={{ display: "flex", flexWrap: "wrap" }}>
                     {/* School Score */}
-                    {academicInfo.schoolMarks && (
+                    {academicInfo?.schoolMarks?.schoolMarks && (
                       <div
                         style={{
                           display: "flex",
@@ -943,13 +922,13 @@ const DashboardReviewConfirm = (props) => {
                           style={{ height: 30 }}
                         >
                           {" "}
-                          {academicInfo.schoolMarks}
+                          {academicInfo?.schoolMarks?.schoolMarks}
                         </p>
                       </div>
                     )}
 
                     {/* High School Score */}
-                    {academicInfo.schoolMarks && (
+                    {academicInfo?.level2Score?.level2Score && (
                       <div
                         style={{
                           display: "flex",
@@ -975,42 +954,10 @@ const DashboardReviewConfirm = (props) => {
                           style={{ height: 30 }}
                         >
                           {" "}
-                          {academicInfo.schoolMarks}
+                          {academicInfo?.level2Score?.level2Score}
                         </p>
                       </div>
                     )}
-
-                    {/* Diploma Score  */}
-                    {/* {academicInfo.diplomaScore && (
-                      <div
-                        style={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          marginRight: 40,
-                          width: "28%",
-                          minWidth: 250,
-                          height: 40,
-                        }}
-                      >
-                        <h4
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{
-                            height: 30,
-                            fontWeight: 700,
-                            marginRight: 10,
-                          }}
-                        >
-                          Diploma Score :
-                        </h4>
-                        <p
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{ height: 30 }}
-                        >
-                          {" "}
-                          {academicInfo.diplomaScore}
-                        </p>
-                      </div>
-                    )} */}
 
                     {/* Class 11 Score */}
                     <div
@@ -1027,53 +974,21 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        Class {academicInfo.level2Score ? "12" : "11"} Score :
+                        Class {academicInfo?.level2Score ? "12" : "11"} Score :
                       </h4>
                       <p
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30 }}
                       >
                         {" "}
-                        {academicInfo.level2Score
-                          ? academicInfo.level2Score
-                          : academicInfo.level1Score}
+                        {academicInfo?.level2Score?.level2Score
+                          ? academicInfo?.level2Score?.level2Score
+                          : academicInfo?.level1Score?.level1Score}
                       </p>
                     </div>
 
-                    {/* Post graduate Marks */}
-                    {academicInfo.postGraduteScore && (
-                      <div
-                        style={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          marginRight: 40,
-                          width: "28%",
-                          minWidth: 250,
-                          height: 40,
-                        }}
-                      >
-                        <h4
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{
-                            height: 30,
-                            fontWeight: 700,
-                            marginRight: 10,
-                          }}
-                        >
-                          Post graduate Marks :
-                        </h4>
-                        <p
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{ height: 30 }}
-                        >
-                          {" "}
-                          {academicInfo.postGraduteScore}
-                        </p>
-                      </div>
-                    )}
-
                     {/* UnderGraduate Marks */}
-                    {academicInfo.underGraduate && (
+                    {academicInfo?.underGraduate.underGraduate && (
                       <div
                         style={{
                           display: "flex",
@@ -1099,7 +1014,38 @@ const DashboardReviewConfirm = (props) => {
                           style={{ height: 30 }}
                         >
                           {" "}
-                          {academicInfo.underGraduate}
+                          {academicInfo?.underGraduate?.underGraduate}
+                        </p>
+                      </div>
+                    )}
+                    {/* Post graduate Marks */}
+                    {academicInfo?.postGraduteScore.postGraduteScore && (
+                      <div
+                        style={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          marginRight: 40,
+                          width: "28%",
+                          minWidth: 250,
+                          height: 40,
+                        }}
+                      >
+                        <h4
+                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                          style={{
+                            height: 30,
+                            fontWeight: 700,
+                            marginRight: 10,
+                          }}
+                        >
+                          Post graduate Marks :
+                        </h4>
+                        <p
+                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                          style={{ height: 30 }}
+                        >
+                          {" "}
+                          {academicInfo?.postGraduteScore?.postGraduteScore}
                         </p>
                       </div>
                     )}
@@ -1475,17 +1421,16 @@ const DashboardReviewConfirm = (props) => {
           <Button onClick={handelSubmit}>Confirm Application</Button>
         </div>
       </div>
-      
 
-     
-      
-     
-      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
         <Alert onClose={handleCloseSnackbar} severity={msgType?.toString()}>
           {formError?.otherErrors}
         </Alert>
       </Snackbar>
-
     </div>
   );
 };

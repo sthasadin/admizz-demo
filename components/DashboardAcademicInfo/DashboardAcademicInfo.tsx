@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 // import { Select } from "../Select";
 import { Input } from "../Input";
 import * as yup from "yup";
-import { Grid } from "@material-ui/core";
+import { Grid, Snackbar } from "@material-ui/core";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { Button } from "../Button";
 import { withStyles } from "@material-ui/core/styles";
 import { UploadButton } from "../Button/uploadButton";
+import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 const CustomRadio: any = withStyles({
   root: {
@@ -21,24 +22,35 @@ const CustomRadio: any = withStyles({
 })((props) => <Radio color="default" {...props} />);
 
 interface AcademicFormField {
-  schoolMarks: string;
-  //diplomaScore: string;
-  level1Score: string;
-  level2Score: string;
-  semesterMarks: string;
-  underGraduate: string;
-  postGraduteScore: string;
+  schoolMarks?: string;
+  level2Score?: string;
+  underGraduate?: string;
+  postGraduteScore?: string;
+  certificatesImage?: CertificateI;
+}
+
+interface CertificateI {
+  highSchool?: string;
+  school?: string;
+  under_Graduate?: string;
+  post_Gradute?: string;
+}
+
+function Alert(props: AlertProps) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
 export const DashboardAcademicInfo = (props) => {
-  const [schoolMarks, setSchoolMarks] = useState("");
+  const [schoolMarks, setSchoolMarks] = useState({ schoolMarks: "" });
   const [selectedCourse, setselectedCourse] = useState("");
   // const [level0Score, setLevel0Score] = useState("");
   // const [diplomaScore, setDiplomaScore] = useState("");
   const [level1Score, setLevel1Score] = useState("");
-  const [level2Score, setLevel2Score] = useState("");
-  const [postGraduteScore, setPostGraduteScore] = useState("");
-  const [underGraduate, setUnderGraduate] = useState("");
+  const [level2Score, setLevel2Score] = useState({ level2Score: "" });
+  const [postGraduteScore, setPostGraduteScore] = useState({
+    postGraduteScore: "",
+  });
+  const [underGraduate, setUnderGraduate] = useState({ underGraduate: "" });
   const [semesterMarks, setSemesterMarks] = useState("");
   const [gre, setGre] = useState({ haveDone: "no", score: "" });
   const [gmat, setGmat] = useState({ haveDone: "no", score: "" });
@@ -66,11 +78,146 @@ export const DashboardAcademicInfo = (props) => {
 
   const [showClass11Marks, setShowClass11Marks] = useState(false);
   const [showSemesterMarks, setShowsemesterMarks] = useState(false);
+  const createValidation = (selectedLevel: string) => {
+    switch (selectedLevel) {
+      case "diploma":
+        return yup.object().shape<AcademicFormField>({
+          schoolMarks: yup.string().required("School Marks is required"),
 
-  // useEffect(() => {
-  //   props.setShowExitPrompt(true); //prevent from refreshing the page
-  // }, []);
-
+          certificatesImage: yup.object().shape<CertificateI>({
+            school: yup
+              .string()
+              .nullable()
+              .required("Please upload your School certificate"),
+          }),
+        });
+      
+      case "highSchool":
+        return yup.object().shape<AcademicFormField>({
+          schoolMarks: yup.string().required("School Marks is required"),
+          level2Score: yup.string().required("Level 2 Marks is required"),
+          certificatesImage: yup.object().shape<CertificateI>({
+            school: yup
+              .string()
+              .nullable()
+              .required("Please upload your School certificate"),
+            highSchool: yup
+              .string()
+              .nullable()
+              .required("Please upload your High School certificate"),
+          }),
+        });
+        case "undergraduate":
+        return yup.object().shape<AcademicFormField>({
+          schoolMarks: yup.string().required("School Marks is required"),
+          level2Score: yup.string().required("Level 2 Marks is required"),
+          // underGraduate: yup
+          //   .string()
+          //   .required("Undergraduate Marks is required"),
+          certificatesImage: yup.object().shape<CertificateI>({
+            highSchool: yup
+              .string()
+              .nullable()
+              .required("Please upload your High School certificate"),
+            school: yup
+              .string()
+              .nullable()
+              .required("Please upload your School certificate"),
+            // under_Graduate: yup
+            //   .string()
+            //   .nullable()
+            //   .required("Please upload your Under Graduate certificate"),
+          }),
+        });
+      case "postgraduate":
+        return yup.object().shape<AcademicFormField>({
+          schoolMarks: yup.string().required("School Marks is required"),
+          level2Score: yup.string().required("Level 2 Marks is required"),
+          underGraduate: yup
+            .string()
+            .required("Undergraduate Marks is required"),
+         
+          certificatesImage: yup.object().shape<CertificateI>({
+              school: yup
+              .string()
+              .nullable()
+              .required("Please upload your School certificate"),
+            highSchool: yup
+              .string()
+              .nullable()
+              .required("Please upload your High School certificate"),         
+            under_Graduate: yup
+              .string()
+              .nullable()
+              .required("Please upload your Under Graduate certificate"),
+           
+          }),
+        });
+         case "phd":
+        return yup.object().shape<AcademicFormField>({
+          schoolMarks: yup.string().required("School Marks is required"),
+          level2Score: yup.string().required("Level 2 Marks is required"),
+          underGraduate: yup
+            .string()
+            .required("Undergraduate Marks is required"),
+          postGraduteScore: yup
+            .string()
+            .required("Post Graduate Marks is required"),
+          certificatesImage: yup.object().shape<CertificateI>({
+              school: yup
+              .string()
+              .nullable()
+              .required("Please upload your School certificate"),
+            highSchool: yup
+              .string()
+              .nullable()
+              .required("Please upload your High School certificate"),         
+            under_Graduate: yup
+              .string()
+              .nullable()
+              .required("Please upload your Under Graduate certificate"),
+            post_Gradute: yup
+              .string()
+              .nullable()
+              .required("Please upload your Post Graduate certificate"),
+          }),
+        });
+    }
+  };
+  const validationSchema = createValidation(selectedLevel);
+  const validate = async () => {
+    try {
+      await validationSchema.validate(
+        {
+          schoolMarks: schoolMarks.schoolMarks,
+          level2Score: level2Score.level2Score,
+          underGraduate: underGraduate.underGraduate,
+          postGraduteScore: postGraduteScore.postGraduteScore,
+          certificatesImage: {
+            highSchool: certificatesImage.highSchool,
+            school: certificatesImage.school,
+            under_Graduate: certificatesImage.under_Graduate,
+            post_Gradute: certificatesImage.post_Gradute,
+            other: certificatesImage.other,
+          },
+        },
+        {
+          abortEarly: false,
+        }
+      );
+      setFormError({});
+      return true;
+    } catch (err) {
+      setSnackOpen(true);
+      const errors = {};
+      err.inner.forEach((item: any) => {
+        console.log("error", { path: item.path, error: item.errors });
+        errors[item.path] = item.errors[0];
+      });
+      console.log("error", errors);
+      setFormError({ ...errors });
+    }
+  };
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("academicInformation"));
 
@@ -138,8 +285,11 @@ export const DashboardAcademicInfo = (props) => {
 
   const sendData = async () => {
     try {
-      saveData();
-      props.handleNext();
+      const isValid = await validate();
+      if (isValid) {
+        saveData();
+        props.handleNext();
+      }
     } catch (error) {}
   };
 
@@ -222,8 +372,17 @@ export const DashboardAcademicInfo = (props) => {
                       className={"dashboard-basic-info__input"}
                       fullWidth
                       placeholder="Enter your marks"
-                      value={schoolMarks}
-                      onChange={(e) => setSchoolMarks(e.target.value)}
+                      value={schoolMarks.schoolMarks}
+                      onChange={(e) => {
+                        setSchoolMarks({
+                          ...schoolMarks,
+                          schoolMarks: e.target.value,
+                        });
+                        setFormError((prev) => ({
+                          ...prev,
+                          schoolMarks: null,
+                        }));
+                      }}
                       name="schoolMarks"
                       errorMessage={formError.schoolMarks}
                       error={!!formError.schoolMarks}
@@ -264,8 +423,18 @@ export const DashboardAcademicInfo = (props) => {
                             className={"dashboard-basic-info__input"}
                             fullWidth
                             placeholder="Enter your marks"
-                            value={level2Score}
-                            onChange={(e) => setLevel2Score(e.target.value)}
+                            value={level2Score.level2Score}
+                            //onChange={(e) => setLevel2Score(e.target.value)}
+                            onChange={(e) => {
+                              setLevel2Score({
+                                ...level2Score,
+                                level2Score: e.target.value,
+                              });
+                              setFormError((prev) => ({
+                                ...prev,
+                                level2Score: null,
+                              }));
+                            }}
                             name="level2Score"
                             errorMessage={formError.level2Score}
                             error={!!formError.level2Score}
@@ -292,59 +461,7 @@ export const DashboardAcademicInfo = (props) => {
                     </Grid>
                   </>
                 )}
-
-                {/* {(selectedLevel == "postgraduate" ||
-                  selectedLevel == "undergraduate" ||
-                  selectedLevel == "phd") && (
-                  <Grid
-                    className={
-                      "dashboard-basic-info__grid academic-marks-field"
-                    }
-                    item
-                    sm={12}
-                    md={12}
-                    xs={12}
-                  >
-                    <div className="dashboard-basic-info__formText">
-                      Diploma Scores
-                    </div>
-                    <Input
-                      className={"dashboard-basic-info__input"}
-                      fullWidth
-                      placeholder="Enter your marks"
-                      value={diplomaScore}
-                      onChange={(e) => setDiplomaScore(e.target.value)}
-                      name="diplomaScore"
-                      errorMessage={formError.diplomaScore}
-                      error={!!formError.diplomaScore}
-                    />
-                  </Grid>
-                )} */}
-
-                {selectedLevel == "phd" && (
-                  <Grid
-                    className={"dashboard-basic-info__grid"}
-                    item
-                    sm={12}
-                    md={12}
-                    xs={12}
-                  >
-                    <div className="dashboard-basic-info__formText">
-                      Post graduate Marks
-                    </div>
-                    <Input
-                      className={"dashboard-basic-info__input"}
-                      fullWidth
-                      placeholder="Enter your marks"
-                      value={postGraduteScore}
-                      onChange={(e) => setPostGraduteScore(e.target.value)}
-                      name="postGraduteScore"
-                      errorMessage={formError.postGraduteScore}
-                      error={!!formError.postGraduteScore}
-                    />
-                  </Grid>
-                )}
-                {(selectedLevel == "postgraduate" ||
+                   {(selectedLevel == "postgraduate" ||
                   selectedLevel == "phd") && (
                   <Grid
                     className={"dashboard-basic-info__grid"}
@@ -363,22 +480,31 @@ export const DashboardAcademicInfo = (props) => {
                           className={"dashboard-basic-info__input"}
                           fullWidth
                           placeholder="Enter your marks"
-                          value={underGraduate}
-                          onChange={(e) => setUnderGraduate(e.target.value)}
-                          name="underGraduate"
-                          errorMessage={formError.underGraduate}
-                          error={!!formError.underGraduate}
+                          value={semesterMarks}
+                          onChange={(e) => setSemesterMarks(e.target.value)}
+                          name="semesterMarks"
+                          errorMessage={formError.semesterMarks}
+                          error={!!formError.semesterMarks}
                         />
                       ) : (
                         <Input
                           className={"dashboard-basic-info__input"}
                           fullWidth
                           placeholder="Enter your marks"
-                          value={semesterMarks}
-                          onChange={(e) => setSemesterMarks(e.target.value)}
-                          name="semesterMarks"
-                          errorMessage={formError.semesterMarks}
-                          error={!!formError.semesterMarks}
+                          value={underGraduate.underGraduate}
+                          onChange={(e) => {
+                            setUnderGraduate({
+                              ...underGraduate,
+                              underGraduate: e.target.value,
+                            });
+                            setFormError((prev) => ({
+                              ...prev,
+                              underGraduate: null,
+                            }));
+                          }}
+                          name="underGraduate"
+                          errorMessage={formError.underGraduate}
+                          error={!!formError.underGraduate}
                         />
                       )}
                       <div
@@ -406,6 +532,39 @@ export const DashboardAcademicInfo = (props) => {
                     </div>
                   </Grid>
                 )}
+                {selectedLevel == "phd" && (
+                  <Grid
+                    className={"dashboard-basic-info__grid"}
+                    item
+                    sm={12}
+                    md={12}
+                    xs={12}
+                  >
+                    <div className="dashboard-basic-info__formText">
+                      Post graduate Marks
+                    </div>
+                    <Input
+                      className={"dashboard-basic-info__input"}
+                      fullWidth
+                      placeholder="Enter your marks"
+                      value={postGraduteScore.postGraduteScore}
+                      onChange={(e) => {
+                        setPostGraduteScore({
+                          ...postGraduteScore,
+                          postGraduteScore: e.target.value,
+                        });
+                        setFormError((prev) => ({
+                          ...prev,
+                          postGraduteScore: null,
+                        }));
+                      }}
+                      name="postGraduteScore"
+                      errorMessage={formError.postGraduteScore}
+                      error={!!formError.postGraduteScore}
+                    />
+                  </Grid>
+                )}
+               
               </Grid>
 
               {/* -------------academic indentification section------------ */}
@@ -469,6 +628,9 @@ export const DashboardAcademicInfo = (props) => {
                       >
                         Choose File
                       </UploadButton>
+                      <div className="error-msg" style={{ marginTop: "10px" }}>
+                        {formError["certificatesImage.school"]}
+                      </div>
                     </label>
                   </Grid>
                   <Grid
@@ -533,6 +695,12 @@ export const DashboardAcademicInfo = (props) => {
                         >
                           Choose File
                         </UploadButton>
+                        <div
+                          className="error-msg"
+                          style={{ marginTop: "10px" }}
+                        >
+                          {formError["certificatesImage.highSchool"]}
+                        </div>
                       </label>
                     </Grid>
                     <Grid
@@ -603,6 +771,9 @@ export const DashboardAcademicInfo = (props) => {
                       >
                         Choose File
                       </UploadButton>
+                      <div className="error-msg" style={{ marginTop: "10px" }}>
+                        {formError["certificatesImage.under_Graduate"]}
+                      </div>
                     </label>
                   </Grid>
                   <Grid
@@ -670,6 +841,9 @@ export const DashboardAcademicInfo = (props) => {
                       >
                         Choose File
                       </UploadButton>
+                      <div className="error-msg" style={{ marginTop: "10px" }}>
+                        {formError["certificatesImage.post_Gradute"]}
+                      </div>
                     </label>
                   </Grid>
                   <Grid
@@ -819,7 +993,7 @@ export const DashboardAcademicInfo = (props) => {
                       {gre.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
-                          placeholder="eg: 50"
+                          placeholder="Enter your marks"
                           value={gre.score}
                           onChange={(e) =>
                             setGre({ ...gre, score: e.target.value })
@@ -859,7 +1033,7 @@ export const DashboardAcademicInfo = (props) => {
                       {sat.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
-                          placeholder="eg: 50"
+                          placeholder="Enter your marks"
                           value={sat.score}
                           onChange={(e) =>
                             setSat({ ...sat, score: e.target.value })
@@ -907,7 +1081,7 @@ export const DashboardAcademicInfo = (props) => {
                       {gmat.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
-                          placeholder="eg: 50"
+                          placeholder="Enter your marks"
                           value={gmat.score}
                           onChange={(e) =>
                             setGmat({ ...gmat, score: e.target.value })
@@ -996,7 +1170,7 @@ export const DashboardAcademicInfo = (props) => {
                       {tofel.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
-                          placeholder="eg: 50"
+                          placeholder="Enter your marks"
                           value={tofel.score}
                           onChange={(e) =>
                             setTofel({ ...tofel, score: e.target.value })
@@ -1040,7 +1214,7 @@ export const DashboardAcademicInfo = (props) => {
                       {jeeAdvance.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
-                          placeholder="eg: 50"
+                          placeholder="Enter your marks"
                           value={jeeAdvance.score}
                           onChange={(e) =>
                             setJeeAdvance({
@@ -1091,7 +1265,7 @@ export const DashboardAcademicInfo = (props) => {
                       {ielts.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
-                          placeholder="eg: 50"
+                          placeholder="Enter your marks"
                           value={ielts.score}
                           onChange={(e) =>
                             setIelts({ ...ielts, score: e.target.value })
@@ -1224,6 +1398,15 @@ export const DashboardAcademicInfo = (props) => {
           </div>
         </div>
       </div>
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={() => setSnackOpen(false)}
+      >
+        <Alert onClose={() => setSnackOpen(false)} severity="error">
+          Please check the field and try again!
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

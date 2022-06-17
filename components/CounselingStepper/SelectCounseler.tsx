@@ -78,6 +78,7 @@ const SelectCounseler: React.FC<Props> = ({
       <div className="select-counseler__counseler-list">
         {filteredCounsellor &&
           filteredCounsellor.map((item) => {
+            console.log('filteredCounsellor',filteredCounsellor)
             return (
               <div
                 key={item.id}

@@ -22,13 +22,14 @@ interface BackgroundInfo {
   address: string;
   passportId: string;
   countryCode: string;
+  documentImage: string;
 }
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const CustomRadio:any = withStyles({
+const CustomRadio: any = withStyles({
   root: {
     color: "#FFA200",
     "&$checked": {
@@ -120,6 +121,7 @@ const DashboardBackgroundInfo = (props) => {
   }, [props.data]);
 
   const handleImageChange = (e) => {
+    // console.log('file',e.target.files[0])
     setDocumentImage(e.target.files[0]);
     // setDocumentImageThumbnail(URL.createObjectURL(e.target.files[0]));
   };
@@ -139,6 +141,10 @@ const DashboardBackgroundInfo = (props) => {
     address: yup.string().required("Required address"),
     passportId: yup.string().required("Required passport id"),
     countryCode: yup.string().required("Required country code"),
+    documentImage: yup
+      .string()
+      .nullable()
+      .required("Identification Photo is required"),
   });
 
   const validate = async () => {
@@ -150,7 +156,8 @@ const DashboardBackgroundInfo = (props) => {
           emailAddress: references.emailAddress,
           address: references.address,
           passportId: passportId,
-          countryCode: references.countryCode
+          countryCode: references.countryCode,
+          documentImage: documentImage,
         },
         {
           abortEarly: false,
@@ -171,7 +178,6 @@ const DashboardBackgroundInfo = (props) => {
   const sendData = async () => {
     try {
       const isValid = await validate();
-
       if (isValid) {
         saveDate();
         props.handleNext();
@@ -475,6 +481,9 @@ const DashboardBackgroundInfo = (props) => {
                   >
                     Choose File
                   </UploadButton>
+                  <div className="error-msg" style={{ marginTop: "10px" }}>
+                    {formError.documentImage}
+                  </div>
                 </label>
               </Grid>
 
@@ -557,12 +566,15 @@ const DashboardBackgroundInfo = (props) => {
                       width={"90px"}
                       value={references.countryCode}
                       // name={"countryCode"}
-                      onChange={(e) =>{
+                      onChange={(e) => {
                         setReferences({
                           ...references,
                           countryCode: e.target.value,
                         });
-                        setFormError((prev) => ({ ...prev, countryCode: null }));
+                        setFormError((prev) => ({
+                          ...prev,
+                          countryCode: null,
+                        }));
                       }}
                       errorMessage={formError.countryCode}
                       error={!!formError.countryCode}

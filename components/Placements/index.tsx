@@ -38,236 +38,250 @@ const index = () => {
   };
   return statistics || recruiting?.length || alumnis?.length ? (
     <div>
-    <div id="placement" className="placement">
-      <div className="placement__title">PLACEMENTS</div>
-      <div className="placement__bargrapcontainer">
-        {statistics && (
-          <div className="placement__bargrapindex">
-            <div className="placement__indexcontainer">
-              <div>INDEX</div>
-            </div>
-            <div className="placement__indexcontainer">
-              <div className="bullet_icon" style={{ color: "#2d9cdb" }}>
-                •
+      <div id="placement" className="placement">
+        <div className="placement__title">PLACEMENTS</div>
+        <div className="placement__bargrapcontainer">
+          {statistics && (
+            <div className="placement__bargrapindex">
+              <div className="placement__indexcontainer">
+                <div>INDEX</div>
               </div>
-              <div>{moment().subtract(3, "year").year()}</div>
-            </div>
-            <div className="placement__indexcontainer">
-              <div className="bullet_icon" style={{ color: "#27AE60" }}>
-                •
+              <div className="placement__indexcontainer">
+                <div className="bullet_icon" style={{ color: "#2d9cdb" }}>
+                  •
+                </div>
+                <div>{moment().subtract(3, "year").year()}</div>
               </div>
-              <div>{moment().subtract(2, "year").year()}</div>
-            </div>
-            <div className="placement__indexcontainer">
-              <div className="bullet_icon" style={{ color: "#FFA200" }}>
-                •
+              <div className="placement__indexcontainer">
+                <div className="bullet_icon" style={{ color: "#27AE60" }}>
+                  •
+                </div>
+                <div>{moment().subtract(2, "year").year()}</div>
               </div>
-              <div>{moment().subtract(1, "year").year()}</div>
+              <div className="placement__indexcontainer">
+                <div className="bullet_icon" style={{ color: "#FFA200" }}>
+                  •
+                </div>
+                <div>{moment().subtract(1, "year").year()}</div>
+              </div>
             </div>
-          </div>
-        )}
-        <div className="placement__bargraphlist">
-          {statistics?.placement && (
-            <Bargraph
-              name="Placement Percentage"
-              graph1={{
-                value: `${statistics?.placement?.last || 0}%`,
-                size: getSize(
-                  [statistics?.placement?.second, statistics?.placement?.first],
-                  statistics?.placement?.last
-                ),
-              }}
-              graph2={{
-                value: `${statistics?.placement?.second || 0}%`,
-                size: getSize(
-                  [statistics?.placement?.last, statistics?.placement?.first],
-                  statistics?.placement?.second
-                ),
-              }}
-              graph3={{
-                value: `${statistics?.placement?.first || 0}%`,
-                size: getSize(
-                  [statistics?.placement?.second, statistics?.placement?.last],
-                  statistics?.placement?.first
-                ),
-              }}
-            />
           )}
-          {statistics?.average_salary && (
-            <Bargraph
-              name="Average Salary"
-              graph1={{
-                value: `${
-                  getMoneyAsString(statistics?.average_salary?.last) || "10k"
-                }L`,
-                size: getSize(
-                  [
-                    statistics?.average_salary?.second,
-                    statistics?.average_salary?.first,
-                  ],
-                  statistics?.average_salary?.last
-                ),
-              }}
-              graph2={{
-                value: `${
-                  getMoneyAsString(statistics?.average_salary?.second) || "1"
-                }L`,
-                size: getSize(
-                  [
-                    statistics?.average_salary?.last,
-                    statistics?.average_salary?.first,
-                  ],
-                  statistics?.average_salary?.second
-                ),
-              }}
-              graph3={{
-                value: `${
-                  getMoneyAsString(statistics?.average_salary?.first) || "1"
-                }L`,
-                size: getSize(
-                  [
-                    statistics?.average_salary?.second,
-                    statistics?.average_salary?.last,
-                  ],
-                  statistics?.average_salary?.first
-                ),
-              }}
-            />
-          )}
-          {statistics?.highest_package && (
-            <Bargraph
-              name="Highest Package"
-              graph1={{
-                value: `${
-                  getMoneyAsString(statistics?.highest_package?.last) || "10"
-                }L`,
-                size: getSize(
-                  [
-                    statistics?.highest_package?.second,
-                    statistics?.highest_package?.first,
-                  ],
-                  statistics?.highest_package?.last
-                ),
-              }}
-              graph2={{
-                value: `${
-                  getMoneyAsString(statistics?.highest_package?.second) || "10"
-                }L`,
-                size: getSize(
-                  [
-                    statistics?.highest_package?.last,
-                    statistics?.highest_package?.first,
-                  ],
-                  statistics?.highest_package?.second
-                ),
-              }}
-              graph3={{
-                value: `${
-                  getMoneyAsString(statistics?.highest_package?.first) || "10"
-                }L`,
-                size: getSize(
-                  [
-                    statistics?.highest_package?.second,
-                    statistics?.highest_package?.last,
-                  ],
-                  statistics?.highest_package?.first
-                ),
-              }}
-            />
-          )}
-          {/* <Bargraph
+          <div className="placement__bargraphlist">
+            {statistics?.placement && (
+              <Bargraph
+                name="Placement Percentage"
+                graph1={{
+                  value: `${statistics?.placement?.last || 0}%`,
+                  size: getSize(
+                    [
+                      statistics?.placement?.second,
+                      statistics?.placement?.first,
+                    ],
+                    statistics?.placement?.last
+                  ),
+                }}
+                graph2={{
+                  value: `${statistics?.placement?.second || 0}%`,
+                  size: getSize(
+                    [statistics?.placement?.last, statistics?.placement?.first],
+                    statistics?.placement?.second
+                  ),
+                }}
+                graph3={{
+                  value: `${statistics?.placement?.first || 0}%`,
+                  size: getSize(
+                    [
+                      statistics?.placement?.second,
+                      statistics?.placement?.last,
+                    ],
+                    statistics?.placement?.first
+                  ),
+                }}
+              />
+            )}
+            {statistics?.average_salary && (
+              <Bargraph
+                name="Average Salary"
+                graph1={{
+                  value: `${
+                    getMoneyAsString(statistics?.average_salary?.last) || "10k"
+                  }L`,
+                  size: getSize(
+                    [
+                      statistics?.average_salary?.second,
+                      statistics?.average_salary?.first,
+                    ],
+                    statistics?.average_salary?.last
+                  ),
+                }}
+                graph2={{
+                  value: `${
+                    getMoneyAsString(statistics?.average_salary?.second) || "1"
+                  }L`,
+                  size: getSize(
+                    [
+                      statistics?.average_salary?.last,
+                      statistics?.average_salary?.first,
+                    ],
+                    statistics?.average_salary?.second
+                  ),
+                }}
+                graph3={{
+                  value: `${
+                    getMoneyAsString(statistics?.average_salary?.first) || "1"
+                  }L`,
+                  size: getSize(
+                    [
+                      statistics?.average_salary?.second,
+                      statistics?.average_salary?.last,
+                    ],
+                    statistics?.average_salary?.first
+                  ),
+                }}
+              />
+            )}
+            {statistics?.highest_package && (
+              <Bargraph
+                name="Highest Package"
+                graph1={{
+                  value: `${
+                    getMoneyAsString(statistics?.highest_package?.last) || "10"
+                  }L`,
+                  size: getSize(
+                    [
+                      statistics?.highest_package?.second,
+                      statistics?.highest_package?.first,
+                    ],
+                    statistics?.highest_package?.last
+                  ),
+                }}
+                graph2={{
+                  value: `${
+                    getMoneyAsString(statistics?.highest_package?.second) ||
+                    "10"
+                  }L`,
+                  size: getSize(
+                    [
+                      statistics?.highest_package?.last,
+                      statistics?.highest_package?.first,
+                    ],
+                    statistics?.highest_package?.second
+                  ),
+                }}
+                graph3={{
+                  value: `${
+                    getMoneyAsString(statistics?.highest_package?.first) || "10"
+                  }L`,
+                  size: getSize(
+                    [
+                      statistics?.highest_package?.second,
+                      statistics?.highest_package?.last,
+                    ],
+                    statistics?.highest_package?.first
+                  ),
+                }}
+              />
+            )}
+            {/* <Bargraph
             name="Placement Percentage"
             graph1="30%"
             graph2="60%"
             graph3="70%"
           /> */}
-          {statistics?.total_recruting_companies && (
-            <Bargraph
-              name="Total Recruting Companies"
-              graph1={{
-                value: `${statistics?.total_recruting_companies?.last || 0}`,
-                size: getSize(
-                  [
-                    statistics?.total_recruting_companies?.second,
-                    statistics?.total_recruting_companies?.first,
-                  ],
-                  statistics?.total_recruting_companies?.last
-                ),
-              }}
-              graph2={{
-                value: `${statistics?.total_recruting_companies?.second || 0}`,
-                size: getSize(
-                  [
-                    statistics?.total_recruting_companies?.last,
-                    statistics?.total_recruting_companies?.first,
-                  ],
-                  statistics?.total_recruting_companies?.second
-                ),
-              }}
-              graph3={{
-                value: `${statistics?.total_recruting_companies?.first || 0}`,
-                size: getSize(
-                  [
-                    statistics?.total_recruting_companies?.second,
-                    statistics?.total_recruting_companies?.last,
-                  ],
-                  statistics?.total_recruting_companies?.first
-                ),
-              }}
-            />
-          )}
+            {statistics?.total_recruting_companies && (
+              <Bargraph
+                name="Total Recruting Companies"
+                graph1={{
+                  value: `${statistics?.total_recruting_companies?.last || 0}`,
+                  size: getSize(
+                    [
+                      statistics?.total_recruting_companies?.second,
+                      statistics?.total_recruting_companies?.first,
+                    ],
+                    statistics?.total_recruting_companies?.last
+                  ),
+                }}
+                graph2={{
+                  value: `${
+                    statistics?.total_recruting_companies?.second || 0
+                  }`,
+                  size: getSize(
+                    [
+                      statistics?.total_recruting_companies?.last,
+                      statistics?.total_recruting_companies?.first,
+                    ],
+                    statistics?.total_recruting_companies?.second
+                  ),
+                }}
+                graph3={{
+                  value: `${statistics?.total_recruting_companies?.first || 0}`,
+                  size: getSize(
+                    [
+                      statistics?.total_recruting_companies?.second,
+                      statistics?.total_recruting_companies?.last,
+                    ],
+                    statistics?.total_recruting_companies?.first
+                  ),
+                }}
+              />
+            )}
+          </div>
+        </div>
+        {recruiting && recruiting?.length > 0 && (
+          <div className="placement__heading">Top Recruiting Companies</div>
+        )}
+        <div className="placement_imagelist">
+          {recruiting ? (
+            <>
+              {recruiting.map((data, i) => {
+                return (
+                  <div key={i}>
+                    <div className="placement_imagebox">
+                      <img src={data.logo} alt="recurting_company_logo" />
+                    </div>
+                    <div className="recurting-details">{data.title}</div>
+                  </div>
+                );
+              })}
+            </>
+          ) : null}
         </div>
       </div>
-      {recruiting && recruiting?.length > 0 &&(
-      <div className="placement__heading">Top Recruiting Companies</div>
-      )}
-      <div className="placement_imagelist">
-        {recruiting ? (
-          <>
-            {recruiting.map((data, i) => {
-              return (
-                <div key={i}>
-                  <img src={data.logo} alt="recurting_company_logo" />
-                  <div className="recurting-details">{data.title}</div>
-                </div>
-              );
-            })}
-          </>
-        ) : null}
-      </div>   
-    </div>
-        {alumnis && alumnis?.length > 0 && (
-    <div id="placement" className="placement">
-    <div className="placement__notablealumni">
-        <span>Our Notable Alumni</span>
+      {alumnis && alumnis?.length > 0 && (
+        <div id="placement" className="placement">
+          <div className="placement__notablealumni">
+            <span>Our Notable Alumni</span>
 
-        {viewAllAlmuni  &&(
-        <span className="text__right" onClick={() => setViewAllAlmuni(true)}>
-          {viewAllAlmuni ? null : "View all Alumni"}
-        </span>
-        )}
-      </div>
-      <div className="placement__studentlist">
-        {alumnis ? (
-          <>
-            {alumnis?.slice(0, viewAllAlmuni ? 1000 : 3).map((alumni) => {
-              return (
-                <div className="placement__student">
-                  <img src={alumni.image} />
-                  <div className="placement__studentdetails">
-                    <span className="almoni-batch-name">{alumni.name}</span>
-                    <span className="almoni-batch-details">
-                      batch {alumni.batch_year}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </>
-        ) : null}
-      </div>
-    </div>
-    )}
+            {viewAllAlmuni && (
+              <span
+                className="text__right"
+                onClick={() => setViewAllAlmuni(true)}
+              >
+                {viewAllAlmuni ? null : "View all Alumni"}
+              </span>
+            )}
+          </div>
+          <div className="placement__studentlist">
+            {alumnis ? (
+              <>
+                {alumnis?.slice(0, viewAllAlmuni ? 1000 : 3).map((alumni) => {
+                  return (
+                    <div className="placement__student">
+                      <img src={alumni.image} />
+                      <div className="placement__studentdetails">
+                        <span className="almoni-batch-name">{alumni.name}</span>
+                        <span className="almoni-batch-details">
+                          batch {alumni.batch_year}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </>
+            ) : null}
+          </div>
+        </div>
+      )}
     </div>
   ) : null;
 };

@@ -7,11 +7,9 @@
   }
 
   &__backgroundimage {
-    background-image: linear-gradient(
-        0deg,
+    background-image: linear-gradient(0deg,
         rgba(95, 24, 2, 0.7),
-        rgba(95, 24, 2, 0.7)
-      ),
+        rgba(95, 24, 2, 0.7)),
       url("/why-us-bg-image.png");
     background-size: cover;
     background-position: center;
@@ -19,6 +17,7 @@
     padding-top: 40px;
     background-repeat: no-repeat;
   }
+
   &__content {
     display: flex;
     justify-content: space-between;
@@ -28,22 +27,27 @@
       gap: 20px;
     }
   }
+
   &__rightcontent {
     display: flex;
     align-items: center;
   }
+
   &__leftcontent {
     width: 50%;
+
     @media (max-width: 700px) {
       width: 100%;
     }
   }
+
   &__title {
     font-weight: 800;
     color: #fff;
     font-size: 36px;
     font-style: normal;
   }
+
   &__helpertext {
     font-weight: 400;
     font-size: 14px;
@@ -80,6 +84,7 @@
       grid-template-columns: repeat(2, 1fr);
       padding-top: 20px;
     }
+
     @media (max-width: 600px) {
       grid-template-columns: repeat(1, 1fr);
     }
@@ -88,36 +93,38 @@
 
 .our-exclusive-container {
   .our-exclusive-content {
-    //padding-top: 250px; //increased by solanki
+    padding-top: 250px; //increased by solanki
     display: flex;
     justify-content: center;
     flex-direction: column;
+
     @media (max-width: 1024px) {
       padding-top: 50px;
     }
   }
 
   .aboutus-exclusive-content {
-    // padding: 80px 0px;
+    padding: 80px 0px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+
     @media (max-width: 1024px) {
-     // padding-top: 50px;
+      padding-top: 50px;
     }
-    @media (max-width: 375px) {
-     padding-top: -50px;
-     }
   }
+
   .aboutus-exclusive-contents {
-    //padding: 40px 0px;
+    padding: 40px 0px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+
     @media (max-width: 1024px) {
       padding-top: 20px;
     }
   }
+
   .our-trusted-text {
     font-size: 16px;
     text-transform: uppercase;
@@ -128,6 +135,7 @@
     color: #5f1802;
     padding-bottom: 30px;
   }
+
   .our-trusted-texts {
     font-size: 16px;
     text-transform: uppercase;
@@ -138,12 +146,14 @@
     color: #5f1802;
     margin-top: 40px;
   }
+
   .our-exclusive-title {
     text-align: center;
     font-size: 36px;
     font-weight: 800;
     color: #333;
   }
+
   .aboutus-exclusive-title {
     padding-top: 16px;
     text-align: center;
@@ -153,10 +163,12 @@
     width: 50%;
     margin: auto;
   }
+
   .aboutus-testimonial-wrapper {
     width: 100%;
     margin: auto;
     padding: 56px 180px 163px 180px;
+
     .slick-arrow {
       align-items: center;
       height: 40px;
@@ -164,21 +176,26 @@
       border-radius: 10px;
       z-index: 100;
     }
+
     .about-us__card {
       background-color: #fffef7;
       padding: 10px;
+
       @media screen and (min-width: 768px) {
         padding: 30px;
       }
+
       p {
         font-family: Mplus 1p, sans-serif;
         color: #000;
         padding: 10px;
+
         @media screen and (min-width: 768px) {
           padding: 30px;
         }
       }
     }
+
     .about-us__cardImage {
       display: flex;
       flex-direction: column;
@@ -186,6 +203,7 @@
       align-items: center;
       margin-top: -35px;
     }
+
     blockquote {
       font-family: Georgia, serif;
       position: relative;
@@ -193,6 +211,7 @@
       padding: 0.5em 2em 0.5em 3em;
       // color:#7C7C7C;
     }
+
     blockquote:before {
       font-family: Georgia, serif;
       position: absolute;
@@ -202,6 +221,7 @@
       left: 0;
       content: "\201C";
     }
+
     blockquote:after {
       font-family: Georgia, serif;
       position: absolute;
@@ -213,17 +233,21 @@
       bottom: -0.5em;
       content: "\201D";
     }
+
     blockquote footer {
       padding: 0 2em 0 0;
       text-align: right;
     }
+
     blockquote cite:before {
       content: "\2013";
     }
   }
+
   .about-us {
     max-width: fit-content;
   }
+
   .about-us_Container {
     background-color: #fffef7;
     height: 370px;
@@ -235,11 +259,13 @@
   .about-us__Slider {
     width: 100%;
   }
+
   .contact-countries {
     display: grid;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
     padding-top: 20px;
     padding-left: 60px;
+
     @media (max-width: 660px) {
       grid-template-columns: repeat(1, 1fr);
       justify-content: center;
@@ -249,17 +275,19 @@
   .contact-india {
     align-self: center;
     justify-self: center;
+
     span {
       @media (max-width: 600px) {
         max-width: 200px;
       }
     }
   }
+
   .contact-bangladesh {
     align-self: center;
     justify-self: center;
-    @media (max-width: 660px) {
-    }
+
+    @media (max-width: 660px) {}
   }
 
   .contact-nepal {
@@ -270,6 +298,7 @@
   .contact-title {
     display: flex;
     align-items: center;
+
     span {
       font-weight: 500;
       color: $gray-3;
@@ -277,11 +306,8 @@
       line-height: 18.8px;
       margin-left: 22px;
     }
-    // @media (max-width:1300px) {
-    //   height:490px
-    // }
-
   }
+
   .aboutus-testimonial-content {
     width: 60%;
     margin: auto;
@@ -293,54 +319,30 @@
   .international-map {
     margin: 99px auto 20px auto;
     width: 80%;
-    height: 600px;
+    height: 613px;
+
     img {
       width: 100%;
     }
-    @media (max-width:375px) {
-      height:140px
-    }
-  @media (max-width:400px) {
-    height:150px
-  }
-  @media (max-width:600px) {
-    height:200px
-  }
-  @media (max-width:800px) {
-    height:250px
-  }
-  @media (max-width:900px) {
-    height:300px
-  }
-  @media (max-width:1100px) {
-    height:400px
-  }
-  @media (max-width:1200px) {
-    height:440px
-  }
-  @media (max-width:1300px) {
-    height:490px
-  }
-  @media (max-width:1400px) {
-    height:540px
-  }
   }
 }
+
 .contact-us-office {
   background-color: #f9f9f9;
 }
+
 .contact-test {
   align-items: center;
 }
 
 .university-list {
-// border: 1px solid black;
-  width: 85%;
+  // border: 1px solid black;
+  width: 100%;
   margin: 0 auto;
   margin-top: 8%;
   // display: flex;
   // flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -358,6 +360,7 @@
     height: 100px;
     border-radius: 50%;
     margin: auto;
+
     img {
       width: 100%;
       height: 100%;
@@ -365,13 +368,15 @@
       border-radius: 50%;
     }
   }
+
   .university-name {
     margin-top: 10px;
     color: #333;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     text-align: center;
+
     &:hover {
       text-decoration: underline;
     }
@@ -403,6 +408,7 @@
     height: 100px;
     border-radius: 50%;
     margin: auto;
+
     img {
       width: 100%;
       height: 100%;
@@ -410,6 +416,7 @@
       border-radius: 50%;
     }
   }
+
   .university-name {
     margin-top: 10px;
     color: #333;
@@ -417,6 +424,7 @@
     font-weight: 800;
     cursor: pointer;
     text-align: center;
+
     &:hover {
       text-decoration: underline;
     }

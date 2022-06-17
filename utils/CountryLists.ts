@@ -1,14 +1,4 @@
 const countryList = [
-  // {
-  //   label: "India",
-  //   value: "india",
-  // },
-  // {
-  //   label: "Nepal",
-  //   value: "nepal",
-  // },
-
-  
   {
   	label: 'Afghanistan',
   	value: 'Afghanistan'
@@ -23,335 +13,335 @@ const countryList = [
   },
   {
   	label: 'AmericanSamoa',
-  	value: '+AmericanSamoa'
+  	value: 'AmericanSamoa'
   },
   {
   	label: 'Andorra',
-  	value: '+376'
+  	value: 'Andorra'
   },
   {
   	label: 'Angola',
-  	value: '+244'
+  	value: 'Angola'
   },
   {
   	label: 'Anguilla',
-  	value: '+1 264'
+  	value: 'Anguilla'
   },
   {
   	label: 'Antigua and Barbuda',
-  	value: '+1268'
+  	value: 'Antigua and Barbuda'
   },
   {
   	label: 'Argentina',
-  	value: '+54'
+  	value: 'Argentina'
   },
   {
   	label: 'Armenia',
-  	value: '+374'
+  	value: 'Armenia'
   },
   {
   	label: 'Aruba',
-  	value: '+297'
+  	value: 'Aruba'
   },
   {
   	label: 'Australia',
-  	value: '+61'
+  	value: 'Australia'
   },
   {
   	label: 'Austria',
-  	value: '+43'
+  	value: 'Austria'
   },
   {
   	label: 'Azerbaijan',
-  	value: '+994'
+  	value: 'Azerbaijan'
   },
   {
   	label: 'Bahamas',
-  	value: '+1 242'
+  	value: 'Bahamas'
   },
   {
   	label: 'Bahrain',
-  	value: '+973'
+  	value: 'Bahrain'
   },
   {
   	label: 'Bangladesh',
-  	value: '+880'
+  	value: 'Bangladesh'
   },
   {
   	label: 'Barbados',
-  	value: '+1 246'
+  	value: 'Barbados'
   },
   {
   	label: 'Belarus',
-  	value: '+375'
+  	value: 'Belarus'
   },
   {
   	label: 'Belgium',
-  	value: '+32'
+  	value: 'Belgium'
   },
   {
   	label: 'Belize',
-  	value: '+501'
+  	value: 'Belize'
   },
   {
   	label: 'Benin',
-  	value: '+229'
+  	value: 'Benin'
   },
   {
   	label: 'Bermuda',
-  	value: '+1 441'
+  	value: 'Bermuda'
   },
   {
   	label: 'Bhutan',
-  	value: '+975'
+  	value: 'Bhutan'
   },
   {
   	label: 'Bosnia and Herzegovina',
-  	value: '+387'
+  	value: 'Bosnia and Herzegovina'
   },
   {
   	label: 'Botswana',
-  	value: '+267'
+  	value: 'Botswana'
   },
   {
   	label: 'Brazil',
-  	value: '+55'
+  	value: 'Brazil'
   },
   {
   	label: 'British Indian Ocean Territory',
-  	value: '+246'
+  	value: 'British Indian Ocean Territory'
   },
   {
   	label: 'Bulgaria',
-  	value: '+359'
+  	value: 'Bulgaria'
   },
   {
   	label: 'Burkina Faso',
-  	value: '+226'
+  	value: 'Burkina Faso'
   },
   {
   	label: 'Burundi',
-  	value: '+257'
+  	value: 'Burundi'
   },
   {
   	label: 'Cambodia',
-  	value: '+855'
+  	value: 'Cambodia'
   },
   {
   	label: 'Cameroon',
-  	value: '+237'
+  	value: 'Cameroon'
   },
   {
   	label: 'Canada',
-  	value: '+1'
+  	value: 'Canada'
   },
   {
   	label: 'Cape Verde',
-  	value: '+238'
+  	value: 'Cape Verde'
   },
   {
   	label: 'Cayman Islands',
-  	value: '+ 345'
+  	value: 'Cayman Islands'
   },
   {
   	label: 'Central African Republic',
-  	value: '+236'
+  	value: 'Central African Republic'
   },
   {
   	label: 'Chad',
-  	value: '+235'
+  	value: 'Chad'
   },
   {
   	label: 'Chile',
-  	value: '+56'
+  	value: 'Chile'
   },
   {
   	label: 'China',
-  	value: '+86'
+  	value: 'China'
   },
   {
   	label: 'Christmas Island',
-  	value: '+61'
+  	value: 'Christmas Island'
   },
   {
   	label: 'Colombia',
-  	value: '+57'
+  	value: 'Colombia'
   },
   {
   	label: 'Comoros',
-  	value: '+269'
+  	value: 'Comoros'
   },
   {
   	label: 'Congo',
-  	value: '+242'
+  	value: 'Congo'
   },
   {
   	label: 'Cook Islands',
-  	value: '+682'
+  	value: 'Cook Islands'
   },
   {
   	label: 'Costa Rica',
-  	value: '+506'
+  	value: 'Costa Rica'
   },
   {
   	label: 'Croatia',
-  	value: '+385'
+  	value: 'Croatia'
   },
   {
   	label: 'Cuba',
-  	value: '+53'
+  	value: 'Cuba'
   },
   {
   	label: 'Cyprus',
-  	value: '+537'
+  	value: 'Cyprus'
   },
   {
   	label: 'Czech Republic',
-  	value: '+420'
+  	value: 'Czech Republic'
   },
   {
   	label: 'Denmark',
-  	value: '+45'
+  	value: 'Denmark'
   },
   {
   	label: 'Djibouti',
-  	value: '+253'
+  	value: 'Djibouti'
   },
   {
   	label: 'Dominica',
-  	value: '+1 767'
+  	value: 'Dominica'
   },
   {
   	label: 'Dominican Republic',
-  	value: '+1 849'
+  	value: 'Dominican Republic'
   },
   {
   	label: 'Ecuador',
-  	value: '+593'
+  	value: 'Ecuador'
   },
   {
   	label: 'Egypt',
-  	value: '+20'
+  	value: 'Egypt'
   },
   {
   	label: 'El Salvador',
-  	value: '+503'
+  	value: 'El Salvador'
   },
   {
   	label: 'Equatorial Guinea',
-  	value: '+240'
+  	value: 'Equatorial Guinea'
   },
   {
   	label: 'Eritrea',
-  	value: '+291'
+  	value: 'Eritrea'
   },
   {
   	label: 'Estonia',
-  	value: '+372'
+  	value: 'Estonia'
   },
   {
   	label: 'Ethiopia',
-  	value: '+251'
+  	value: 'Ethiopia'
   },
   {
   	label: 'Faroe Islands',
-  	value: '+298'
+  	value: 'Faroe Islands'
   },
   {
   	label: 'Fiji',
-  	value: '+679'
+  	value: 'Fiji'
   },
   {
   	label: 'Finland',
-  	value: '+358'
+  	value: 'Finland'
   },
   {
   	label: 'France',
-  	value: '+33'
+  	value: 'France'
   },
   {
   	label: 'French Guiana',
-  	value: '+594'
+  	value: 'French Guiana'
   },
   {
   	label: 'French Polynesia',
-  	value: '+689'
+  	value: 'French Polynesia'
   },
   {
   	label: 'Gabon',
-  	value: '+241'
+  	value: 'Gabon'
   },
   {
   	label: 'Gambia',
-  	value: '+220'
+  	value: 'Gambia'
   },
   {
   	label: 'Georgia',
-  	value: '+995'
+  	value: 'Georgia'
   },
   {
   	label: 'Germany',
-  	value: '+49'
+  	value: 'Germany'
   },
   {
   	label: 'Ghana',
-  	value: '+233'
+  	value: 'Ghana'
   },
   {
   	label: 'Gibraltar',
-  	value: '+350'
+  	value: 'Gibraltar'
   },
   {
   	label: 'Greece',
-  	value: '+30'
+  	value: 'Greece'
   },
   {
   	label: 'Greenland',
-  	value: '+299'
+  	value: 'Greenland'
   },
   {
   	label: 'Grenada',
-  	value: '+1 473'
+  	value: 'Grenada'
   },
   {
   	label: 'Guadeloupe',
-  	value: '+590'
+  	value: 'Guadeloupe'
   },
   {
   	label: 'Guam',
-  	value: '+1 671'
+  	value: 'Guam'
   },
   {
   	label: 'Guatemala',
-  	value: '+502'
+  	value: 'Guatemala'
   },
   {
   	label: 'Guinea',
-  	value: '+224'
+  	value: 'Guinea'
   },
   {
   	label: 'Guinea-Bissau',
-  	value: '+245'
+  	value: 'Guinea-Bissau'
   },
   {
   	label: 'Guyana',
-  	value: '+595'
+  	value: 'Guyana'
   },
   {
   	label: 'Haiti',
-  	value: '+509'
+  	value: 'Haiti'
   },
   {
   	label: 'Honduras',
-  	value: '+504'
+  	value: 'Honduras'
   },
   {
   	label: 'Hungary',
-  	value: '+36'
+  	value: 'Honduras'
   },
   {
   	label: 'Iceland',
-  	value: '+354'
+  	value: 'Iceland'
   },
   {
   	label: 'India',
@@ -360,163 +350,163 @@ const countryList = [
   },
   {
   	label: 'Indonesia',
-  	value: '+62'
+  	value: 'Indonesia'
   },
   {
   	label: 'Iraq',
-  	value: '+964'
+  	value: 'Iraq'
   },
   {
   	label: 'Ireland',
-  	value: '+353'
+  	value: 'Iraq'
   },
   {
   	label: 'Israel',
-  	value: '+972'
+  	value: 'Israel'
   },
   {
   	label: 'Italy',
-  	value: '+39'
+  	value: 'Italy'
   },
   {
   	label: 'Jamaica',
-  	value: '+1 876'
+  	value: 'Italy'
   },
   {
   	label: 'Japan',
-  	value: '+81'
+  	value: 'Japan'
   },
   {
   	label: 'Jordan',
-  	value: '+962'
+  	value: 'Jordan'
   },
   {
   	label: 'Kazakhstan',
-  	value: '+7 7'
+  	value: 'Kazakhstan'
   },
   {
   	label: 'Kenya',
-  	value: '+254'
+  	value: 'Kenya'
   },
   {
   	label: 'Kiribati',
-  	value: '+686'
+  	value: 'Kiribati'
   },
   {
   	label: 'Kuwait',
-  	value: '+965'
+  	value: 'Kuwait'
   },
   {
   	label: 'Kyrgyzstan',
-  	value: '+996'
+  	value: 'Kyrgyzstan'
   },
   {
   	label: 'Latvia',
-  	value: '+371'
+  	value: 'Latvia'
   },
   {
   	label: 'Lebanon',
-  	value: '+961'
+  	value: 'Lebanon'
   },
   {
   	label: 'Lesotho',
-  	value: '+266'
+  	value: 'Lesotho'
   },
   {
   	label: 'Liberia',
-  	value: '+231'
+  	value: 'Liberia'
   },
   {
   	label: 'Liechtenstein',
-  	value: '+423'
+  	value: 'Liechtenstein'
   },
   {
   	label: 'Lithuania',
-  	value: '+370'
+  	value: 'Lithuania'
   },
   {
   	label: 'Luxembourg',
-  	value: '+352'
+  	value: 'Luxembourg'
   },
   {
   	label: 'Madagascar',
-  	value: '+261'
+  	value: 'Madagascar'
   },
   {
   	label: 'Malawi',
-  	value: '+265'
+  	value: 'Malawi'
   },
   {
   	label: 'Malaysia',
-  	value: '+60'
+  	value: 'Malaysia'
   },
   {
   	label: 'Maldives',
-  	value: '+960'
+  	value: 'Maldives'
   },
   {
   	label: 'Mali',
-  	value: '+223'
+  	value: 'Mali'
   },
   {
   	label: 'Malta',
-  	value: '+356'
+  	value: 'Malta'
   },
   {
   	label: 'Marshall Islands',
-  	value: '+692'
+  	value: 'Marshall Islands'
   },
   {
   	label: 'Martinique',
-  	value: '+596'
+  	value: 'Martinique'
   },
   {
   	label: 'Mauritania',
-  	value: '+222'
+  	value: 'Mauritania'
   },
   {
   	label: 'Mauritius',
-  	value: '+230'
+  	value: 'Mauritius'
   },
   {
   	label: 'Mayotte',
-  	value: '+262'
+  	value: 'Mayotte'
   },
   {
   	label: 'Mexico',
-  	value: '+52'
+  	value: 'Mexico'
   },
   {
   	label: 'Monaco',
-  	value: '+377'
+  	value: 'Monaco'
   },
   {
   	label: 'Mongolia',
-  	value: '+976'
+  	value: 'Mongolia'
   },
   {
   	label: 'Montenegro',
-  	value: '+382'
+  	value: 'Montenegro'
   },
   {
   	label: 'Montserrat',
-  	value: '+1664'
+  	value: 'Montserrat'
   },
   {
   	label: 'Morocco',
-  	value: '+212'
+  	value: 'Morocco'
   },
   {
   	label: 'Myanmar',
-  	value: '+95'
+  	value: 'Myanmar'
   },
   {
   	label: 'Namibia',
-  	value: '+264'
+  	value: 'Namibia'
   },
   {
   	label: 'Nauru',
-  	value: '+674'
+  	value: 'Nauru'
   },
   {
   	label: 'Nepal',
@@ -524,247 +514,247 @@ const countryList = [
   },
   {
   	label: 'Netherlands',
-  	value: '+31'
+  	value: 'Netherlands'
   },
   {
   	label: 'Netherlands Antilles',
-  	value: '+599'
+  	value: 'Netherlands Antilles'
   },
   {
   	label: 'New Caledonia',
-  	value: '+687'
+  	value: 'New Caledonia'
   },
   {
   	label: 'New Zealand',
-  	value: '+64'
+  	value: 'New Zealand'
   },
   {
   	label: 'Nicaragua',
-  	value: '+505'
+  	value: 'Nicaragua'
   },
   {
   	label: 'Niger',
-  	value: '+227'
+  	value: 'Niger'
   },
   {
   	label: 'Nigeria',
-  	value: '+234'
+  	value: 'Nigeria'
   },
   {
   	label: 'Niue',
-  	value: '+683'
+  	value: 'Nigeria'
   },
   {
   	label: 'Norfolk Island',
-  	value: '+672'
+  	value: 'Norfolk Island'
   },
   {
   	label: 'Northern Mariana Islands',
-  	value: '+1 670'
+  	value: 'Northern Mariana Islands'
   },
   {
   	label: 'Norway',
-  	value: '+47'
+  	value: 'Norway'
   },
   {
   	label: 'Oman',
-  	value: '+968'
+  	value: 'Oman'
   },
   {
   	label: 'Pakistan',
-  	value: '+92'
+  	value: 'Pakistan'
   },
   {
   	label: 'Palau',
-  	value: '+680'
+  	value: 'Palau'
   },
   {
   	label: 'Panama',
-  	value: '+507'
+  	value: 'Panama'
   },
   {
   	label: 'Papua New Guinea',
-  	value: '+675'
+  	value: 'Papua New Guinea'
   },
   {
   	label: 'Paraguay',
-  	value: '+595'
+  	value: 'Paraguay'
   },
   {
   	label: 'Peru',
-  	value: '+51'
+  	value: 'Peru'
   },
   {
   	label: 'Philippines',
-  	value: '+63'
+  	value: 'Philippines'
   },
   {
   	label: 'Poland',
-  	value: '+48'
+  	value: 'Poland'
   },
   {
   	label: 'Portugal',
-  	value: '+351'
+  	value: 'Portugal'
   },
   {
   	label: 'Puerto Rico',
-  	value: '+1 939'
+  	value: 'Puerto Rico'
   },
   {
   	label: 'Qatar',
-  	value: '+974'
+  	value: 'Qatar'
   },
   {
   	label: 'Romania',
-  	value: '+40'
+  	value: 'Romania'
   },
   {
   	label: 'Rwanda',
-  	value: '+250'
+  	value: 'Rwanda'
   },
   {
   	label: 'Samoa',
-  	value: '+685'
+  	value: 'Samoa'
   },
   {
   	label: 'San Marino',
-  	value: '+378'
+  	value: 'San Marino'
   },
   {
   	label: 'Saudi Arabia',
-  	value: '+966'
+  	value: 'Saudi Arabia'
   },
   {
   	label: 'Senegal',
-  	value: '+221'
+  	value: 'Senegal'
   },
   {
   	label: 'Serbia',
-  	value: '+381'
+  	value: 'Serbia'
   },
   {
   	label: 'Seychelles',
-  	value: '+248'
+  	value: 'Seychelles'
   },
   {
   	label: 'Sierra Leone',
-  	value: '+232'
+  	value: 'Sierra Leone'
   },
   {
   	label: 'Singapore',
-  	value: '+65'
+  	value: 'Singapore'
   },
   {
   	label: 'Slovakia',
-  	value: '+421'
+  	value: 'Slovakia'
   },
   {
   	label: 'Slovenia',
-  	value: '+386'
+  	value: 'Slovenia'
   },
   {
   	label: 'Solomon Islands',
-  	value: '+677'
+  	value: 'Solomon Islands'
   },
   {
   	label: 'South Africa',
-  	value: '+27'
+  	value: 'South Africa'
   },
   {
   	label: 'South Georgia and the South Sandwich Islands',
-  	value: '+500'
+  	value: 'South Georgia and the South Sandwich Islands'
   },
   {
   	label: 'Spain',
-  	value: '+34'
+  	value: 'Spain'
   },
   {
   	label: 'Sri Lanka',
-  	value: '+94'
+  	value: 'Sri Lanka'
   },
   {
   	label: 'Sudan',
-  	value: '+249'
+  	value: 'Sudan'
   },
   {
   	label: 'Surilabel',
-  	value: '+597'
+  	value: 'Surilabel'
   },
   {
   	label: 'Swaziland',
-  	value: '+268'
+  	value: 'Swaziland'
   },
   {
   	label: 'Sweden',
-  	value: '+46'
+  	value: 'Sweden'
   },
   {
   	label: 'Switzerland',
-  	value: '+41'
+  	value: 'Switzerland'
   },
   {
   	label: 'Tajikistan',
-  	value: '+992'
+  	value: 'Tajikistan'
   },
   {
   	label: 'Thailand',
-  	value: '+66'
+  	value: 'Thailand'
   },
   {
   	label: 'Togo',
-  	value: '+228'
+  	value: 'Togo'
   },
   {
   	label: 'Tokelau',
-  	value: '+690'
+  	value: 'Tokelau'
   },
   {
   	label: 'Tonga',
-  	value: '+676'
+  	value: 'Tonga'
   },
   {
   	label: 'Trinidad and Tobago',
-  	value: '+1 868'
+  	value: 'Trinidad and Tobago'
   },
   {
   	label: 'Tunisia',
-  	value: '+216'
+  	value: 'Tunisia'
   },
   {
   	label: 'Turkey',
-  	value: '+90'
+  	value: 'Turkey'
   },
   {
   	label: 'Turkmenistan',
-  	value: '+993'
+  	value: 'Turkmenistan'
   },
   {
   	label: 'Turks and Caicos Islands',
-  	value: '+1 649'
+  	value: 'Turks and Caicos Islands'
   },
   {
   	label: 'Tuvalu',
-  	value: '+688'
+  	value: 'Tuvalu'
   },
   {
   	label: 'Uganda',
-  	value: '+256'
+  	value: 'Uganda'
   },
   {
   	label: 'Ukraine',
-  	value: '+380'
+  	value: 'Ukraine'
   },
   {
   	label: 'United Arab Emirates',
-  	value: '+971'
+  	value: 'United Arab Emirates'
   },
   {
   	label: 'United Kingdom',
-  	value: '+44'
+  	value: 'United Kingdom'
   },
   {
   	label: 'United States',
-  	value: '+1'
+  	value: 'United States'
   },
   {
   	label: 'Uruguay',
@@ -772,207 +762,207 @@ const countryList = [
   },
   {
   	label: 'Uzbekistan',
-  	value: '+998'
+  	value: 'Uzbekistan'
   },
   {
   	label: 'Vanuatu',
-  	value: '+678'
+  	value: 'Vanuatu'
   },
   {
   	label: 'Wallis and Futuna',
-  	value: '+681'
+  	value: 'Wallis and Futuna'
   },
   {
   	label: 'Yemen',
-  	value: '+967'
+  	value: 'Yemen'
   },
   {
   	label: 'Zambia',
-  	value: '+260'
+  	value: 'Zambia'
   },
   {
   	label: 'Zimbabwe',
-  	value: '+263'
+  	value: 'Zimbabwe'
   },
   {
   	label: 'Ålland Islands',
-  	value: '+358'
+  	value: 'Ålland Islands'
   },
   {
   	label: 'Antarctica',
-  	value: null
+  	value: 'Antarctica'
   },
   {
   	label: 'Bolivia, Plurinational State of',
-  	value: '+591'
+  	value: 'Bolivia, Plurinational State of'
   },
   {
   	label: 'Brunei Darussalam',
-  	value: '+673'
+  	value: 'Brunei Darussalam'
   },
   {
   	label: 'Cocos (Keeling) Islands',
-  	value: '+61'
+  	value: 'Cocos (Keeling) Islands'
   },
   {
   	label: 'Congo, The Democratic Republic of the',
-  	value: '+243'
+  	value: 'Congo, The Democratic Republic of the'
   },
   {
   	label: "Côte d'Ivoire",
-  	value: '+225'
+  	value: 'Côte d Ivoire'
   },
   {
   	label: 'Falkland Islands (Malvinas)',
-  	value: '+500'
+  	value: 'Falkland Islands (Malvinas)'
   },
   {
   	label: 'Guernsey',
-  	value: '+44'
+  	value: 'Guernsey'
   },
   {
   	label: 'Holy See (Vatican City State)',
-  	value: '+379'
+  	value: 'Holy See (Vatican City State)'
   },
   {
   	label: 'Hong Kong',
-  	value: '+852'
+  	value: 'Hong Kong'
   },
   {
   	label: 'Iran, Islamic Republic of',
-  	value: '+98'
+  	value: 'Iran, Islamic Republic of'
   },
   {
   	label: 'Isle of Man',
-  	value: '+44'
+  	value: 'Isle of Man'
   },
   {
   	label: 'Jersey',
-  	value: '+44'
+  	value: 'Jersey'
   },
   {
   	label: "Korea, Democratic People's Republic of",
-  	value: '+850'
+  	value: 'Korea, Democratic Peoples Republic of'
   },
   {
   	label: 'Korea, Republic of',
-  	value: '+82'
+  	value: 'Korea, Republic of'
   },
   {
   	label: "Lao People's Democratic Republic",
-  	value: '+856'
+  	value: '+Lao Peoples Democratic Republic'
   },
   {
   	label: 'Libyan Arab Jamahiriya',
-  	value: '+218'
+  	value: 'Libyan Arab Jamahiriya'
   },
   {
   	label: 'Macao',
-  	value: '+853'
+  	value: 'Macao'
   },
   {
   	label: 'Macedonia, The Former Yugoslav Republic of',
-  	value: '+389'
+  	value: 'Macedonia, The Former Yugoslav Republic of'
   },
   {
   	label: 'Micronesia, Federated States of',
-  	value: '+691'
+  	value: 'Micronesia, Federated States of'
   },
   {
   	label: 'Moldova, Republic of',
-  	value: '+373'
+  	value: 'Moldova, Republic of'
   },
   {
   	label: 'Mozambique',
-  	value: '+258'
+  	value: 'Mozambique'
   },
   {
   	label: 'Palestinian Territory, Occupied',
-  	value: '+970'
+  	value: 'Palestinian Territory, Occupied'
   },
   {
   	label: 'Pitcairn',
-  	value: '+872'
+  	value: 'Pitcairn'
   },
   {
   	label: 'Réunion',
-  	value: '+262'
+  	value: 'Réunion'
   },
   {
   	label: 'Russia',
-  	value: '+7'
+  	value: 'Russia'
   },
   {
   	label: 'Saint Barthélemy',
-  	value: '+590'
+  	value: 'Saint Barthélemy'
   },
   {
   	label: 'Saint Helena, Ascension and Tristan Da Cunha',
-  	value: '+290'
+  	value: 'Saint Helena, Ascension and Tristan Da Cunha'
   },
   {
   	label: 'Saint Kitts and Nevis',
-  	value: '+1 869'
+  	value: 'Saint Kitts and Nevis'
   },
   {
   	label: 'Saint Lucia',
-  	value: '+1 758'
+  	value: 'Saint Lucia'
   },
   {
   	label: 'Saint Martin',
-  	value: '+590'
+  	value: 'Saint Martin'
   },
   {
   	label: 'Saint Pierre and Miquelon',
-  	value: '+508'
+  	value: 'Saint Pierre and Miquelon'
   },
   {
   	label: 'Saint Vincent and the Grenadines',
-  	value: '+1 784'
+  	value: 'Saint Vincent and the Grenadines'
   },
   {
   	label: 'Sao Tome and Principe',
-  	value: '+239'
+  	value: 'Sao Tome and Principe'
   },
   {
   	label: 'Somalia',
-  	value: '+252'
+  	value: 'Somalia'
   },
   {
   	label: 'Svalbard and Jan Mayen',
-  	value: '+47'
+  	value: 'Svalbard and Jan Mayen'
   },
   {
   	label: 'Syrian Arab Republic',
-  	value: '+963'
+  	value: 'Syrian Arab Republic'
   },
   {
   	label: 'Taiwan, Province of China',
-  	value: '+886'
+  	value: 'Taiwan, Province of China'
   },
   {
   	label: 'Tanzania, United Republic of',
-  	value: '+255'
+  	value: 'Tanzania, United Republic of'
   },
   {
   	label: 'Timor-Leste',
-  	value: '+670'
+  	value: 'Timor-Leste'
   },
   {
   	label: 'Venezuela, Bolivarian Republic of',
-  	value: '+58'
+  	value: 'Venezuela, Bolivarian Republic of'
   },
   {
   	label: 'Viet Nam',
-  	value: '+84'
+  	value: 'Viet Nam'
   },
   {
   	label: 'Virgin Islands, British',
-  	value: '+1 284'
+  	value: 'Virgin Islands, British'
   },
   {
   	label: 'Virgin Islands, U.S.',
-  	value: '+1 340'
+  	value: 'Virgin Islands, U.S.'
   }
 ];
 

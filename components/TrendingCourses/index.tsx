@@ -6,8 +6,8 @@ const TrendingCourses = () => {
   const trending_courses = useSelector(
     (state:any) => state.college.college.trending_courses
   );
-
-  return trending_courses?.length ? (
+    console.log('trending_courses',trending_courses)
+  return  (
     <div className="trending-courses">
       <div className="trending-courses__inner">
         <div className="sidebar__title">Trending Courses</div>
@@ -52,7 +52,7 @@ const TrendingCourses = () => {
         </a> */}
       </div>
     </div>
-  ) : null;
+  ) ;
 };
 
 export { TrendingCourses };

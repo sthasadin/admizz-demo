@@ -4,6 +4,7 @@ import moment from "moment";
 const DashboardDetailInfo = ({ application }) => {
   const { basicInformation, backgroundInformation, selectedChoice, ...rest } =
     application || {};
+    console.log('basicInformation',basicInformation)
   return (
     <div className="dashboard-detail-info">
       {/* <Basic Card Info */}
@@ -123,7 +124,7 @@ const DashboardDetailInfo = ({ application }) => {
                     Passport Name
                   </div>
                   <div className="dashboard-detail-info__valueText">
-                    {backgroundInformation?.passportDetails?.nameOnPassport}
+                    {backgroundInformation?.passportDetails?.nameOnPassport }
                   </div>
                 </div>
                 <div className="dashboard-detail-info__cardRow">

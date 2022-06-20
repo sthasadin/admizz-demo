@@ -4,7 +4,7 @@ import moment from "moment";
 const DashboardDetailInfo = ({ application }) => {
   const { basicInformation, backgroundInformation, selectedChoice, ...rest } =
     application || {};
-    console.log('basicInformation',basicInformation)
+    console.log('basicInformation',application)
   return (
     <div className="dashboard-detail-info">
       {/* <Basic Card Info */}
@@ -63,7 +63,7 @@ const DashboardDetailInfo = ({ application }) => {
             </div>
             <div className="dashboard-detail-info__cardRow">
               <div className="dashboard-detail-info__keyText">
-                Guardian Address
+                Address
               </div>
               <div className="dashboard-detail-info__valueText">
                 {basicInformation?.guardianCountry},
@@ -107,7 +107,7 @@ const DashboardDetailInfo = ({ application }) => {
               </div>
             </div>
             <div className="dashboard-detail-info__cardRow">
-              <div className="dashboard-detail-info__keyText">References</div>
+              <div className="dashboard-detail-info__keyText">Parents Information</div>
 
               <div className="dashboard-detail-info__valueText">
                 <div>{backgroundInformation?.references?.fullName}</div>
@@ -124,7 +124,7 @@ const DashboardDetailInfo = ({ application }) => {
                     Passport Name
                   </div>
                   <div className="dashboard-detail-info__valueText">
-                    {backgroundInformation?.passportDetails?.nameOnPassport }
+                    {backgroundInformation?.passportDetails?.nameOnPassport}
                   </div>
                 </div>
                 <div className="dashboard-detail-info__cardRow">

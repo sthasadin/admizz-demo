@@ -1,31 +1,39 @@
 .international-collaboration {
-  background-color: #fff;
-  border-radius: 5px;
-  margin-bottom: 16px;
-  &__inner {
-    padding: 20px;
-  }
-  &__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 48px;
-    grid-row-gap: 35px;
-    place-items: center;
-    margin-top: 27px;
-  }
-  &__thumbnail {
-    img {
-      height: 100px;
-      width: 100px;
-      object-fit: cover;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    &__inner {
+        padding: 20px;
     }
-  }
-  &__label {
-    margin-top: 4px;
-    text-align: center;
-    font-size: 14px;
-    line-height: 21px;
-    font-weight: 500;
-    color: #333;
-  }
+    &__list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 24px;
+        grid-row-gap: 24px;
+        padding: 16px;
+        // padding-right: 8px;
+        // place-items: center;
+        margin-top: 27px;
+    }
+    &__thumbnail {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            margin-bottom: 8px;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #e0e0e0;
+        }
+    }
+    &__label {
+        margin-top: 4px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: 500;
+        color: #333;
+    }
 }

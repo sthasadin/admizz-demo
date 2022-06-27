@@ -22,33 +22,34 @@ const TrendingCourses = () => {
                     href={`/colleges/program/${course?.courseprogram?.slug}`}
                   >
                     <div className="trending-courses__title">
-                      {course?.courseprogram?.name}
+                      {course?.name}
                     </div>
                   </Link>
 
-                  <div className="trending-courses__level">
-                    {course?.courselevel?.name === "undergraduate"
+                  {/* <div className="trending-courses__level">
+                    {course?.name === "undergraduate"
                       ? "under graduate"
-                      : course?.courselevel?.name === "postgraduate"
+                      : course?.name === "postgraduate"
                       ? "post graduate"
-                      : course?.courselevel?.name}
+                      : course?.name}
+                  </div> */}
+                  <div className="trending-courses__level">
+                    {course?.duration}
                   </div>
                 </div>
                 <div className="trending-courses__info">
-                  <div className="trending-courses__info__item">
+                  {/* <div className="trending-courses__info__item">
                     Fee: {course?.fee_per_sem} per{" "}
-                    {course?.courseprogram?.exam_type}
-                  </div>
-                  <div className="trending-courses__info__item">
-                    {course?.courseprogram?.duration}
-                  </div>
+                    {course?.exam_type}
+                  </div> */}
+                  
                   {/* <div className="trending-courses__info__item">50 Reviews</div> */}
                 </div>
               </div>
             ))}
         </div>
         {/* </Link> */}
-        {/* <a href="#" className="trending-courses__cta">
+        {/* <a href={`/colleges/program/`} className="trending-courses__cta">
           Explore All Courses
         </a> */}
       </div>

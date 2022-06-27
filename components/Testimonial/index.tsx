@@ -8,8 +8,8 @@ import ReactPlayer from "react-player";
 import { CallToAction } from "../Button/callToAction";
 import { useRouter } from "next/router";
 
-const MTModal:any=Modal
-const RTReactPlayer:any=Modal
+const MTModal: any = Modal;
+const RTReactPlayer: any = Modal;
 
 const Testimonial = (props: any) => {
   const router = useRouter();
@@ -25,6 +25,7 @@ const Testimonial = (props: any) => {
     name: "",
     video_url: "",
     selectedIndex: selectedIndex,
+    university_name: "",
   });
 
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const Testimonial = (props: any) => {
       getStudentTestimonials("", "", 6)
     );
     setTestimonialList(fetchTestimonal?.testimonials);
+    console.log("fetchTestimonal", fetchTestimonal);
   };
 
   React.useEffect(() => {
@@ -46,6 +48,7 @@ const Testimonial = (props: any) => {
         if (index === selectedIndex) {
           setselectedTestimonial(test);
         }
+        console.log("test", test);
       });
     }
   }, [testimonialList]);
@@ -69,6 +72,7 @@ const Testimonial = (props: any) => {
     image,
     video_url,
     name,
+    university_name,
     index
   ) => {
     setselectedTestimonial({
@@ -77,6 +81,7 @@ const Testimonial = (props: any) => {
       image: image,
       name: name,
       video_url: video_url,
+      university_name: university_name,
       selectedIndex: index,
     });
     setSelectedIndex(index);
@@ -93,7 +98,7 @@ const Testimonial = (props: any) => {
             <div className="collegeFinder__title block-title">
               Explore and Read Testimonials
             </div>
-          </div>          
+          </div>
           <div className="collegeFinder__right mobiletestimonial">
             <CallToAction onClick={() => router.push("/testimonialDetailPage")}>
               Explore all testimonials
@@ -210,6 +215,7 @@ const Testimonial = (props: any) => {
                               item.image,
                               item.video_url,
                               item.name,
+                              item.university_name,
                               index
                             );
                           }}
@@ -335,6 +341,7 @@ const Testimonial = (props: any) => {
                               item.image,
                               item.video_url,
                               item.name,
+                              item.university_name,
                               index
                             );
                           }}
@@ -363,16 +370,15 @@ const Testimonial = (props: any) => {
               <span style={{ color: "#5F1802", fontWeight: 800 }}>
                 {selectedTestimonial?.name}
               </span>{" "}
-              - {selectedTestimonial?.testimonial_type}
+              - {selectedTestimonial?.university_name}
             </div>
           </div>
 
           <div className="collegeFinder__middle">
-          <CallToAction
-            onClick={() => router.push("/testimonialDetailPage")}>
-               explore all testimonial
-          </CallToAction>
-        </div>
+            <CallToAction onClick={() => router.push("/testimonialDetailPage")}>
+              explore all testimonial
+            </CallToAction>
+          </div>
         </div>
       </div>
     </div>

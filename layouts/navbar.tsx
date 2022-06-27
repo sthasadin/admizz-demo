@@ -409,9 +409,9 @@ const Navbar = (props: any) => {
                             <div className="search-image-content">
                               <img
                                 src={
-                                  item.college_logo
-                                    ? item.college_logo
-                                    : item.blog_imageURL
+                                  item?.college_logo
+                                    ? item?.college_logo
+                                    : item?.blog_imageURL
                                 }
                                 alt="..."
                               />

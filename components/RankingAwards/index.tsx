@@ -58,7 +58,7 @@ const index = () => {
                 <div className="rankingawards_contents">
                   <div>
                     <img
-                      src={college?.college_rankings?.[0]?.rank_id.logo}
+                      src={college?.college_rankings?.[0]?.rank_id?.logo}
                       style={{ maxHeight: "80px", maxWidth: "80px", width: "80px" }}
                     />
                   </div>

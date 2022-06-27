@@ -21,6 +21,7 @@ export class CollegeService {
 
   getCollege(college_slug) {
     let url = `/college/getOneCollege/${college_slug}`; //temporarly slug is id
+    console.log('slug',college_slug)
     let data = getService(url);
     return data;
   }

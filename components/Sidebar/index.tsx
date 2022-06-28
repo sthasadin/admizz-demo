@@ -15,7 +15,6 @@ const Sidebar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const {college} = useSelector((state:any) => state.college);
-
   const handleClick=()=>{
   let clgSlug=college.college_slug
     localStorage.setItem('clgs',JSON.stringify([college]))

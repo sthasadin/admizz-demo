@@ -5,6 +5,7 @@ import { CollegeCardLoader } from "../SkeletonLoading/CollegeCardLoader";
 import LazyLoad from "react-lazyload";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { useSelector } from "react-redux";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -24,10 +25,10 @@ const CollegeListResult: FC<CollegeProps> = ({
   loader,
   getMoreCollege,
   query,
-  totalCollegeCount,
   loadMoreCollege,
 }) => {
   const [showFinishMsg, setShowFinishMsg] = React.useState(false as boolean);
+    const { collegesByLimit,totalCollegeCount } = useSelector((state: any) => state.college);
 
   const handleCloseSnackbar = () => {
     setShowFinishMsg(false);
@@ -38,7 +39,7 @@ const CollegeListResult: FC<CollegeProps> = ({
         <div className="college-list-result__titleText">
           Found{" "}
           <p className="college-list-result__titleTextNumber">
-            {collegeList && collegeList?.length}
+            {totalCollegeCount}
           </p>{" "}
           Colleges
         </div>

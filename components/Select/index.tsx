@@ -81,6 +81,7 @@ const Select = (props: Props) => {
         {props.names}
       
       </InputLabel>
+       
       <SelectComponent
         labelId="demo-simple-select-label"
         id="demo-simple-select"
@@ -89,12 +90,13 @@ const Select = (props: Props) => {
         className={`${classes.select} ${props.className}`}
         label={props.label}
         placeholder={props.placeholder}
-        defaultValue={props.defaultValue ? props.defaultValue : " " }
+        defaultValue={props.defaultValue ? props.defaultValue : "a" }
         startAdornment={
           
           props.icon ? (
             <InputAdornment position="start">
               <Icon />
+              {/* <p style={{color:'#D6D6D6',fontSize:14,marginRight:7}}>Home Country</p> */}
             </InputAdornment>
           ) : (
             <></>
@@ -115,7 +117,7 @@ const Select = (props: Props) => {
           props.options.map((item, key) => {
             return (
               <MenuItem
-                key={key}
+                key={key+1}
                 value={props.useLabel ? item.label : item.value  } 
               >
                 {item.label}

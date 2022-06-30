@@ -24,7 +24,7 @@ const About = () => {
           1018 Universities,
 
           <span>1500 top Institution.</span>
-]
+
         
         </div>
         <div className="about-country__thumbnail-wrap">

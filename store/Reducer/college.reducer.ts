@@ -33,18 +33,21 @@ export default (state = initialState, action) => {
       return {
         ...state,
         collegesByLimit: [...payload], //...state.collegesByLimit, 
+        totalCollegeCount:payload.length,
         collegeByLimitLoader: false,
       };
     case COLLEGE_BY_FILTER:
       return {
         ...state,
         collegesByLimit: payload,
+        totalCollegeCount:payload.length,
         collegeByLimitLoader: false,
       };
     case COLLEGE_BY_SEARCH:
       return {
         ...state,
         collegesByLimit: payload,
+        totalCollegeCount:payload.length,
         collegeByLimitLoader: false,
       };
       case COLLEGES_TYPES.GET_COMPARE_LIST:

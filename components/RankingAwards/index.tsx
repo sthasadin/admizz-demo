@@ -4,6 +4,7 @@ import AwardList from "./AwardsList";
 import { useSelector } from "react-redux";
 const index = () => {
   const college = useSelector((state: any) => state.college.college);
+  console.log('college',college?.college_rankings)
   if(college){
     const ranks=[];
     for(let i=0;i<4;i++){
@@ -24,7 +25,7 @@ const index = () => {
         else if(i==2){
           if(rank.year==moment().subtract(1, "year").year()){
             ranks.push(rank.rank);
-            count++;
+           count++;
           }
         }
         else{

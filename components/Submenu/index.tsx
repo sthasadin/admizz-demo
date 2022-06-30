@@ -206,7 +206,7 @@ const Submenu = (props: any) => {
                 spy={true}
                 className="submenu__item"
               >
-                Rating & Awards
+                Ranking & Awards
               </Link>
             </li>
             <li>

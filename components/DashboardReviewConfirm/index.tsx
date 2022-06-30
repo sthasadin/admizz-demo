@@ -10,13 +10,11 @@ import { UploadButton } from "../Button/uploadButton";
 import AppliedCollege from "./AppliedCollege";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import {Snackbar} from "@material-ui/core";
+import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { Button } from "../Button";
 
 import { ErrorMessages } from "../../utils/ErrorMessages";
-
-
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
@@ -203,9 +201,9 @@ const DashboardReviewConfirm = (props) => {
                   })
                   .catch((err) => {
                     setFormError({
-                ...formError,
-                otherErrors: "empty",
-              });
+                      ...formError,
+                      otherErrors: "empty",
+                    });
                   });
               });
           }
@@ -299,21 +297,20 @@ const DashboardReviewConfirm = (props) => {
           })
           .catch((error) => {
             console.log("error 1", error);
-            
+
             // router.push("/studentdashboardmain");
           });
-      }
-      else{
-          setMsgType("error");
-      setFormError({
-        ...formError,
-        otherErrors: (
-          <div>
-            <span>Please check empty field and try again!</span>
-          </div>
-        ),
-      });
-      handleOpenSnackbar();
+      } else {
+        setMsgType("error");
+        setFormError({
+          ...formError,
+          otherErrors: (
+            <div>
+              <span>Please check empty field and try again!</span>
+            </div>
+          ),
+        });
+        handleOpenSnackbar();
       }
     } catch (err) {
       console.log("err");
@@ -582,9 +579,7 @@ const DashboardReviewConfirm = (props) => {
                       style={{ height: 30 }}
                     >
                       {" "}
-                      {toTitleCase(
-                        (basicInfo.guardianAddress)
-                      )}{" "}
+                      {toTitleCase(basicInfo.guardianAddress)}{" "}
                     </p>
                   </div>
                   {/* </div> */}

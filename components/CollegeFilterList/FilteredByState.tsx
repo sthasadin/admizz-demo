@@ -80,7 +80,7 @@ const FilteredByState = (props) => {
       >
         <div className="college-list-selected-filter__searchContainer">
           <Input
-            placeholder={"Find Stream"}
+            placeholder={"Find State"}
             margin={"0px 0px 0px 0px"}
             name="stream_search"
             onChange={(e) => setSearchKey(e.target.value)}

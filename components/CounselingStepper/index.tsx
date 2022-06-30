@@ -26,7 +26,7 @@ interface studentInfoFormValue {
   phone: number;
   home_country: string;
   course: string;
- description: string;
+  description: string;
   contact_medium: string;
   contact_id: string;
 }
@@ -86,6 +86,8 @@ const CounselingStepper = () => {
     {}
   );
   const [snackOpen, setSnackOpen] = useState(false as boolean);
+  const [isTermChecked, setIstermChecked] = React.useState(null);
+  const [checkValidation, setCheckValidation] = React.useState(false);
 
   //State for Student Info Stepper
   const [formValue, setFormValue] = useState({
@@ -116,7 +118,7 @@ const CounselingStepper = () => {
     //       ...formValue,
     //       countryCode: "+91",
     //     } as studentInfoFormValue);
-  //  }
+    //  }
   };
 
   const dateTimeValidateSchema = yup.object().shape<FirstStepValidateSchema>({
@@ -161,7 +163,7 @@ const CounselingStepper = () => {
           }
         });
       });
-    
+
       if (docs?.length > 0) {
         setBookingError(
           "Sorry! There is already a booking on chosen date and time, Please try changing date and time"
@@ -170,7 +172,6 @@ const CounselingStepper = () => {
       }
       setBookingError("");
       await dateTimeValidateSchema.validate(
-        
         {
           date: formValue.date,
           time: formValue.time,
@@ -222,7 +223,7 @@ const CounselingStepper = () => {
 
   const handleBook = async () => {
     try {
-      setLoading(true);
+      setLoading(false);
       await db.collection("appointment").add({
         name: formValue.name,
         email: formValue.email,
@@ -230,7 +231,7 @@ const CounselingStepper = () => {
         phone: formValue.phone,
         home_country: formValue.home_country,
         course: formValue.course,
-        description: formValue.description || "", 
+        description: formValue.description || "",
         date: formValue.date,
         time: formValue.time,
         counsellor: formValue.counsellor,
@@ -241,12 +242,14 @@ const CounselingStepper = () => {
 
       const res = await dispatch<any>(bookingCounsellorMail(formValue.email));
 
-      if (res.isSuccess) {
+      if (res.isSuccess && isTermChecked) {
         setSnackOpen(true);
-        setLoading(false);
+        setLoading(true);
         setTimeout(() => {
           router.push("/");
         }, 1000);
+      } else {
+        setCheckValidation(true);
       }
       setLoading(false);
     } catch (error) {
@@ -335,6 +338,10 @@ const CounselingStepper = () => {
           <ConfirmBook
             handleBack={handleBack}
             handleBook={handleBook}
+            isTermChecked={isTermChecked}
+            setIstermChecked={setIstermChecked}
+            checkValidation={checkValidation}
+            setCheckValidation={setCheckValidation}
             formValue={formValue}
             loading={loading}
           />

@@ -9,6 +9,7 @@ import {
   GET_CITY_LIST,
   GET_COURSE_LEVEL,
   GET_PROGRAM_NAME,
+  TOTAL_COLLEGE,
 } from "../const";
 
 const inititalState = {
@@ -19,6 +20,7 @@ const inititalState = {
   stateList: [],
   cityList: [],
   programName: [],
+  totalCollege:0
 };
 
 const userReducer = (state = inititalState, { type, payload }) => {
@@ -77,6 +79,11 @@ const userReducer = (state = inititalState, { type, payload }) => {
         ...state,
         programName: payload,
       };
+      case TOTAL_COLLEGE:
+        return {
+          ...state,
+          totalCollege:payload,
+        }
     default:
       return state;
   }

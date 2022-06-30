@@ -20,6 +20,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import { withStyles } from "@material-ui/core/styles";
 import { CountryCode } from "utils/CountryCode";
 import countryLists from "react-select-country-list";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 interface signUpFormValue {
   fullName: string;
   email: string;
@@ -35,6 +36,7 @@ const Register = () => {
   const [formValue, setFormValue] = useState({
     countryCode: "+977",
   } as signUpFormValue);
+  const [checked, setChecked] = React.useState(true);
   const [formError, setFormError] = useState({} as any);
   const [msgType, setMsgType] = useState({} as any);
   const [showPassword, setShowPassword] = useState(false as boolean);
@@ -44,8 +46,8 @@ const Register = () => {
   const options = useMemo(() => countryLists().getData(), []);
   const [loading, setLoading] = useState(false as boolean);
   const [snackOpen, setSnackOpen] = useState(false as boolean);
-  const [isTermsChecked, setIstermsChecked] = React.useState(false);
-
+  const [isTermChecked, setIstermChecked] = React.useState(null);
+  const [checkValidation, setCheckValidation] = React.useState(false);
   const router = useRouter();
 
   const CustomizeCheckBox: any = withStyles({
@@ -139,11 +141,12 @@ const Register = () => {
   };
 
   const handleRegister = async (e) => {
+    
     try {
       e.preventDefault();
       setLoading(true);
       const valid = await validate();
-      if (valid) {
+      if (valid && isTermChecked) {
         let authUser = await auth.createUserWithEmailAndPassword(
           formValue.email,
           formValue.password
@@ -175,6 +178,7 @@ const Register = () => {
                   </div>
                 ),
               });
+
               handleOpenSnackbar();
 
               router.push("/login");
@@ -186,7 +190,10 @@ const Register = () => {
               });
               console.error(err);
             });
+
         }
+      }else{
+        setCheckValidation(true)
       }
       setLoading(false);
     } catch (err) {
@@ -199,6 +206,7 @@ const Register = () => {
       } else {
         setFormError({ ...formError, otherErrors: "Error occurred" });
       }
+      
     }
   };
 
@@ -312,7 +320,8 @@ const Register = () => {
                   options={options}
                   onChange={handleChange}
                   icon={LocationOnIcon}
-                  placeholder={"Home Country"}
+                  // label="Home Country"
+                  placeholder="home"
                   name={"country"}
                   names="Nationality"
                   error={!!formError.country}
@@ -391,13 +400,28 @@ const Register = () => {
               </div>
               <div className="signin__info">
                 <CustomizeCheckBox
-                onChange={() => {
-                      setIstermsChecked((isTermsChecked) => !isTermsChecked);
-                    }}
-                style={{ paddingLeft: "0" }} />
+                  checked={isTermChecked}
+                  onChange={() => {
+                    setIstermChecked((isTermChecked) => !isTermChecked);
+                    setCheckValidation(false)
+                  }}
+                  style={{ paddingLeft: "0" }}
+                />
                 By submitting this form, you accept and agree to our
                 <span>Terms & Conditions.</span>
               </div>
+              {checkValidation && (
+                <p
+                  style={{
+                    color: "red",
+                    fontSize: 13,
+                    marginLeft: 12,
+                    marginTop: -10,
+                  }}
+                >
+                  Please accept terms and policy
+                </p>
+              )}
               <div className="signin__submit">
                 <div className="signin__change">
                   <Link href="/login">

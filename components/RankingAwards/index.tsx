@@ -5,8 +5,18 @@ import { useSelector } from "react-redux";
 const index = () => {
   const college = useSelector((state: any) => state.college.college);
   console.log('college',college?.college_rankings)
+  
   if(college){
-    const ranks=[];
+    const newRankings=[];
+    const ranks=[]
+    college?.college_rankings?.forEach(rank=>{      newRankings.push({
+        title:rank.rank_id.title,
+        logo:rank.rank_id.logo,
+        rank:rank.rank,
+        year:rank.year,
+      })
+    })
+
     for(let i=0;i<4;i++){
       let count=0;
       college?.college_rankings?.map(rank=>{

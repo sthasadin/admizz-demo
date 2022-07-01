@@ -82,6 +82,7 @@ const ConfirmBook: React.FC<Props> = ({
           <div className={"confirm-section__details-head"}>Applying Course</div>
           <div className={"confirm-section_detail-info"}>
             {formValue.course}
+            
           </div>
         </div>
         <div className={"confirm-section__row"}>

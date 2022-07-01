@@ -7,19 +7,6 @@ const index = () => {
   console.log('college',college?.college_rankings)
   
   if(college){
-<<<<<<< HEAD
-    const newRankings=[];
-    const ranks=[]
-    college?.college_rankings?.forEach(rank=>{      newRankings.push({
-        title:rank.rank_id.title,
-        logo:rank.rank_id.logo,
-        rank:rank.rank,
-        year:rank.year,
-      })
-    })
-
-    for(let i=0;i<4;i++){
-=======
     // FOR LAST 4 YEARS
     const firstYear=moment().subtract(3, "year").year();
     const secondYear=moment().subtract(2, "year").year();
@@ -47,7 +34,6 @@ const index = () => {
     })
 
     rankTitles.map(rank => {
->>>>>>> 4aa51e629868c9607ba2ea49426d7a8d88c74e4a
       let count=0;
       college?.college_rankings?.map((data) => {
         if ((rank.title).toLowerCase() == (data.rank_id.title).toLowerCase()) {

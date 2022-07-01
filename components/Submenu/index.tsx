@@ -199,7 +199,16 @@ const Submenu = (props: any) => {
                 Courses & Fee
               </Link>
             </li>
-
+              <li>
+              <Link
+                to="rating_awards"
+                offset={-140}
+                spy={true}
+                className="submenu__item"
+              >
+                Ranking & Awards
+              </Link>
+            </li>
             <li>
               <Link
                 to="rating"

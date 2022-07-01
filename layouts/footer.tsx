@@ -8,10 +8,10 @@ import { valueOf } from "*.jpg";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
 import { getTopColleges, getTopCourses } from "../store/Action/footer.action";
-import { Facebook, Instagram, Twitter,Youtube, } from "@icon-park/react";
+import { Facebook, Instagram, Twitter, Youtube } from "@icon-park/react";
 //  import LinkedIn from "@material-ui/icons/LinkedIn";
- import LinkedIn from "../public/linkedin.png";
-import Image from 'next/image';
+import LinkedIn from "../public/linkedin.png";
+import Image from "next/image";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -76,7 +76,7 @@ const Footer = () => {
         await dispatch<any>(addSubscriber(subscriber));
         setSubscriber("");
       }
-    } catch (error) { }
+    } catch (error) {}
     setLoading(false);
   };
   return (
@@ -85,15 +85,14 @@ const Footer = () => {
         <div className="footer__top">
           <div className="footer__col logo">
             <div className="footer__logo">
-            <Image width={201} height={80} src='/footer-logo.png' />
-           {/* <img src="./footer-logo.png" alt="" /> */}
-             
+              <Image width={201} height={80} src="/footer-logo.png" />
+              {/* <img src="./footer-logo.png" alt="" /> */}
             </div>
             <div>
-            <div className="footer__title">
-              It’s a unique platform for direct admissions of 
-                International Students <br/> at reputed colleges/universities 
-                in India.</div>
+              <div className="footer__title">
+                It’s a unique platform for direct admissions of International
+                Students <br /> at reputed colleges/universities in India.
+              </div>
             </div>
             <div className="footer__newsletter">
               <div className="footer__newsletter__title">
@@ -133,7 +132,7 @@ const Footer = () => {
                 })}
             </div>
             <div className="footer__col">
-              <div className="footer__col__title" >top courses</div>
+              <div className="footer__col__title">top courses</div>
 
               {topCourses &&
                 topCourses?.map((item, i) => {
@@ -148,8 +147,6 @@ const Footer = () => {
                     </Link>
                   );
                 })}
-
-
             </div>
             {/* </div>
           <div className="footer__mobileCol" >
@@ -168,53 +165,48 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
-
-
         </div>
         <div className="footer__middle">
           <div className="footer__middle__left">
             <div className="footer__default">
-              <Link href="/allindia">
-               STUDY IN INDIA
-
-              </Link>
-             
+              <Link href="/allindia">STUDY IN INDIA</Link>
             </div>
           </div>
           <div className="footer__middle__right">
             <div className="social-icons">
               <div>
                 <a href="https://www.facebook.com/admizz" target="_blank">
-                <Facebook theme="outline" size="24" fill="#fff" />
-                </a> 
-              </div>
-              <div>
-                <a href="https://twitter.com/admizz_official" target="_blank">
-                <Twitter theme="outline" size="24" fill="#fff" />
+                  <Facebook theme="outline" size="24" fill="#fff" />
                 </a>
               </div>
               <div>
-              <a
-                href="https://www.instagram.com/admizz_official/"
-                target="_blank"
-              >
-                <Instagram theme="outline" size="24" fill="#fff" />
-              </a>
-              </div>
-               <div>
-                <a href="https://www.facebook.com/admizz" target="_blank">
-                <Youtube theme="outline" size="26" fill="#fff" />
-                </a>        
+                <a href="https://twitter.com/admizz_official" target="_blank">
+                  <Twitter theme="outline" size="24" fill="#fff" />
+                </a>
               </div>
               <div>
-                 {/* <a href="https://www.facebook.com/admizz" target="_blank">
-                <LinkedIn fontSize="large"    />
-               </a> */}
-               <img
-               src={LinkedIn}
-               style={{width:22,height:22,backgroundColor:'#fff'}}
-               />
+                <a
+                  href="https://www.instagram.com/admizz_official/"
+                  target="_blank"
+                >
+                  <Instagram theme="outline" size="24" fill="#fff" />
+                </a>
+              </div>
+              <div>
+                <a href="https://youtube.com/c/Admizz_official" target="_blank">
+                  <Youtube theme="outline" size="26" fill="#fff" />
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://www.linkedin.com/company/admizzofficial/"
+                  target="_blank"
+                >
+                  <img
+                    src={LinkedIn}
+                    style={{ width: 22, height: 22, backgroundColor: "#fff" }}
+                  />
+                </a>
               </div>
             </div>
           </div>

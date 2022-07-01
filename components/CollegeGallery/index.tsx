@@ -17,7 +17,8 @@ import { getGallery } from "@/store/Action/gallery.action";
 const CollegeGallery = (props) => {
  const college = useSelector((state: any) => state.college.college);
   const videos = useSelector((state: any) => state.college.videos);
-  console.log('college',college?.college_videos)
+  console.log('college',college)
+  
 
   const gallery = useSelector((state: any) => state.gallery.gallery);
   const dispatch = useDispatch();

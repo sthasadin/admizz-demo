@@ -14,7 +14,6 @@ import { StudentInfo } from "./StudentInfo";
 import ConfirmBook from "./ConfirmSection";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
-
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -88,14 +87,12 @@ const CounselingStepper = () => {
   const [snackOpen, setSnackOpen] = useState(false as boolean);
   const [isTermChecked, setIstermChecked] = React.useState(null);
   const [checkValidation, setCheckValidation] = React.useState(false);
+  const [counsellorArray, setCounsellorArray] = useState([]);
 
   //State for Student Info Stepper
   const [formValue, setFormValue] = useState({
     date: new Date(),
   } as any);
-  const [formValues, setFormValues] = useState({
-    countryCode: "+977",
-  } as studentInfoFormValue);
   const [formError, setFormError] = useState({} as any);
 
   const dispatch = useDispatch();
@@ -103,24 +100,32 @@ const CounselingStepper = () => {
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
-    // formValue[e.target.name] = e.target.value;
-    // setFormValue({ ...formValue });
-    // setFormError(() => ({ ...formError, [e.target.name]: null }));
-
-    // if (e.target.name === "home_country") {
-    //   if (e.target.value === "nepal") {
-    //     setFormValue({
-    //       ...formValue,
-    //       countryCode: "+977",
-    //     } as studentInfoFormValue);
-    //   } else
-    //     setFormValue({
-    //       ...formValue,
-    //       countryCode: "+91",
-    //     } as studentInfoFormValue);
-    //  }
   };
+  const getFireStoreCounselor = async () => {
+    const counsellor = [];
+    await db
+      .collection("counsellor")
+      .get()
+      .then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+          // doc.data() is never undefined for query doc snapshots
 
+          const data = doc.data();
+          counsellor.push({
+            id: doc.id,
+            name: data.name,
+            country: data.coverage,
+            image: data.imageURL,
+            email: data.email,
+          });
+        });
+      });
+    setCounsellorArray([...counsellor]);
+    console.log("counsellorindex", counsellor);
+  };
+  useEffect(() => {
+    getFireStoreCounselor();
+  }, []);
   const dateTimeValidateSchema = yup.object().shape<FirstStepValidateSchema>({
     date: yup.string().required("Please select one date"),
     time: yup.string().required("Required time"),
@@ -224,6 +229,26 @@ const CounselingStepper = () => {
   const handleBook = async () => {
     try {
       setLoading(false);
+      const selectedCouns =
+        counsellorArray?.filter((item) => item.id === formValue.counsellor) ||
+        [];
+      let emaiData = {
+        user: {
+          fullname: formValue.name,
+          email: formValue.email,
+          contact: formValue.phone,
+          contact_code: formValue.countryCode,
+          course: formValue.course,
+          appointment_date: moment(formValue.date).format('MMMM Do YYYY, h:mm a'),
+          country: formValue.home_country,
+        },
+        message: formValue.description || "",
+
+        to: selectedCouns.map((item) => {
+          return item.email;
+        }),
+      };
+      console.log("emaiData", emaiData);
       await db.collection("appointment").add({
         name: formValue.name,
         email: formValue.email,
@@ -240,7 +265,7 @@ const CounselingStepper = () => {
         createdAt: moment().format(),
       });
 
-      const res = await dispatch<any>(bookingCounsellorMail(formValue.email));
+      const res = await dispatch<any>(bookingCounsellorMail(emaiData));
 
       if (res.isSuccess && isTermChecked) {
         setSnackOpen(true);

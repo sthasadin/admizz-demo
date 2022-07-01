@@ -1,10 +1,10 @@
 import { postService } from "../commonServices";
 
 export class SendMailService {
-    counsellorBookingMail(email) {
-        let url = '/sendmail/counsellorBooking';
-        let body = ({ email: email });
+    counsellorBookingMail(body:any) {
+    let url = "/sendmail/sendMailToCounsellor";
         let data = postService(url, body)
         return data
     }
+    
 }

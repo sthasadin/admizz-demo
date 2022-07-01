@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import counseler from "../../public/counseler.png";
-import counselerImage from "../../public/counselerImage.png";
 import { db } from "../../firebase";
 
 interface FormError {
@@ -25,7 +24,7 @@ const SelectCounseler: React.FC<Props> = ({
   const getFireStoreCounselor = async () => {
     setLoader(true);
     const counsellor = [];
-    console.log('counsellor',counsellor)
+    console.log("counsellor", counsellor);
     await db
       .collection("counsellor")
       .get()
@@ -39,6 +38,7 @@ const SelectCounseler: React.FC<Props> = ({
             name: data.name,
             country: data.coverage,
             image: data.imageURL,
+            email: data.email,
           });
         });
       });
@@ -49,9 +49,8 @@ const SelectCounseler: React.FC<Props> = ({
   useEffect(() => {
     getFireStoreCounselor();
   }, []);
-  console.log("selectedCountry",selectedCountry)
-  const filteredCounsellor = counsellorArray?.filter(
-    (counsellor) => counsellor.country.includes(selectedCountry)
+  const filteredCounsellor = counsellorArray?.filter((counsellor) =>
+    counsellor.country.includes(selectedCountry)
   );
 
   const [selectedCounseler, setSelectedCounseler] = useState(1 as number);
@@ -70,7 +69,7 @@ const SelectCounseler: React.FC<Props> = ({
       },
     });
   }, [selectedCounseler]);
-  console.log('filteredCounsellor',filteredCounsellor)
+  console.log("filteredCounsellor", filteredCounsellor);
   return (
     <div className="select-counseler">
       <div className="select-counseler__header">
@@ -83,13 +82,14 @@ const SelectCounseler: React.FC<Props> = ({
             return (
               <div
                 key={item.id}
-                onClick={() => setSelectedCounseler(item.id)}
+                onClick={() => {
+                  setSelectedCounseler(item.id);
+                }}
                 className={`select-counseler__counseler-card`}
               >
                 <img
                   className={"select-counseler__counsellorImage"}
                   src={item.image}
-
                 />
                 <div
                   className={`select-counseler__counseler-info 
@@ -102,17 +102,7 @@ const SelectCounseler: React.FC<Props> = ({
                     {item.name}
                   </div>
                   <div className="select-counseler__counseler-nationaliy">
-                    {/* {item &&
-                    item?.map((item)=>{
-                      return(
-                        <div>
-                         {item?.country}
-
-                          </div>
-                      )
-                    })} */}
                     {item?.country}
-                    {console.log('first',item)}
                   </div>
                 </div>
               </div>

@@ -9,7 +9,7 @@ const CourseOutline = ({ data }) => {
     <div id="outline" className="course-outline">
       <div className="title-content">
         <div className="title-text">Course outline</div>
-        <div className="title-date">Updated on:{moment(data?.updateAt).format("YYYY MMM DD")}</div>
+        <div className="title-date">Updated on:{moment(data?.createdAt).format("YYYY MMM DD")}</div>
       </div>
 
       <div className="course-syallbus-container">

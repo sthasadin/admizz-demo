@@ -6,6 +6,7 @@ import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import { useDispatch } from "react-redux";
 import { addToFavourites } from "@/store/Action/collegefavourite.action";
 import { AuthContext } from "pages/AuthContext";
+import moment from "moment";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -38,7 +39,7 @@ const ProgramHeader = ({ data }) => {
             <div className="detail-container">
               <div className="course-update-container">
                 <div className="course-text">Last updated:</div>
-                <div className="course-date">21 june 2021</div>
+                <div className="course-date">{moment(college?.createdAt).format("YYYY MMM DD")}</div>
               </div>
               <div className="course-update-container">
                 <div className="course-text">Level:</div>

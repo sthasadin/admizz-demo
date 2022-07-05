@@ -17,7 +17,7 @@ const ProgramOverview = ({ data, collegeBarSticky }) => {
     <div className={`program-overview section-container `} id="overview">
       <div className="title-content">
         <div className="title-text">Overview</div>
-        <div className="title-date">Updated On: {moment(data?.updateAt).format("YYYY MMM DD")}</div>
+        <div className="title-date">Updated On: {moment(data?.createdAt).format("YYYY MMM DD")}</div>
       </div>
       <div className="overview-text-description">
         {renderHTML(data?.overview)}

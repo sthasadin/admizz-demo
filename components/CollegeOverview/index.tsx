@@ -12,7 +12,7 @@ const CollegeOverview = () => {
       <div className="overview__title-wrap">
         <div className="overview__title"> HIGHLIGHTS</div>
         <time className="overview__date">
-          Update On: {moment(college?.updateAt).format("YYYY MMM DD")}
+          Update On: {moment(college?.createdAt).format("YYYY MMM DD")}
         </time>
       </div>
       {college.overview && (

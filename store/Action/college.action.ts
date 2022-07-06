@@ -101,6 +101,7 @@ export const getCollegeByFilter = (filter) => async (dispatch: Dispatch) => {
     })
 
     const res = await collegeService.getCollegeByFilter(filter)
+    console.log(res, 'yeoi ho')
     dispatch({
       type: COLLEGE_BY_FILTER,
       payload: res.data

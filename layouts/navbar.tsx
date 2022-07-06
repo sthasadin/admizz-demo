@@ -136,8 +136,8 @@ const Navbar = (props: any) => {
       <div className="navbar__applyaddresscontainer">
         {!auth?.currentUser?.emailVerified ? (
           <div className="navbar__applynowcontainer">
-                 <Link href="/register">
-            <Button className="navbar__applybtn">Sign Up</Button>
+            <Link href="/register">
+              <Button className="navbar__applybtn">Sign Up</Button>
             </Link>
           </div>
         ) : (
@@ -215,6 +215,12 @@ const Navbar = (props: any) => {
     return () => window.removeEventListener("resize", windowResize);
   }, [mobileSize]);
 
+  // React.useEffect(() => {
+  //   if (data.length > 0) {
+  //     window.location.reload();
+  //   }
+  // }, []);
+
   function truncateString(str, num) {
     if (str?.length > num) {
       return str.slice(0, num) + "...";
@@ -288,17 +294,30 @@ const Navbar = (props: any) => {
                         />
                       </div>
                       <div className="search-text-content">
-                        <Link
+                        {/* <Link
                           href={`${
                             item.college_slug
                               ? `colleges/${item.college_slug}`
                               : `/blogs/${item.blog_slug}`
-                          }`}
+                        >
+                          }`} */}
+                        <div
+                          onClick={() => {
+                            window.location.replace(
+                              `${
+                                item.college_slug
+                                  ? `/colleges/${item.college_slug}`
+                                  : `/blogs/${item.blog_slug}`
+                              }`
+                            );
+                          }}
                         >
                           {item.name
                             ? truncateString(item.name, 35)
                             : truncateString(item.blog_title, 35)}
-                        </Link>
+                        </div>
+
+                        {/* </Link> */}
                         <div className="search-text-description">
                           {item.description
                             ? truncateString(cleanText(item.description), 80)
@@ -417,17 +436,32 @@ const Navbar = (props: any) => {
                               />
                             </div>
                             <div className="search-text-content">
-                              <Link
+                              {/* <Link
                                 href={`${
                                   item.college_slug
                                     ? `/colleges/${item.college_slug}`
                                     : `/blogs/${item.blog_slug}`
                                 }`}
+                               
+                              > */}
+                              <div
+                                onClick={() => {
+                                  window.location.replace(
+                                    `${
+                                      item.college_slug
+                                        ? `/colleges/${item.college_slug}`
+                                        : `/blogs/${item.blog_slug}`
+                                    }`
+                                  );
+                                }}
                               >
+                                {" "}
                                 {item.name
                                   ? truncateString(item.name, 35)
                                   : truncateString(item.blog_title, 35)}
-                              </Link>
+                              </div>
+
+                              {/* </Link> */}
                               <div className="search-text-description">
                                 {item.description
                                   ? truncateString(

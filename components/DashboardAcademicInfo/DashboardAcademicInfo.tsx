@@ -214,7 +214,6 @@ export const DashboardAcademicInfo = (props) => {
         console.log("error", { path: item.path, error: item.errors });
         errors[item.path] = item.errors[0];
       });
-      console.log("error", errors);
       setFormError({ ...errors });
     }
   };

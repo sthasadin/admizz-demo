@@ -4,7 +4,6 @@ import moment from "moment";
 const DashboardDetailInfo = ({ application }) => {
   const { basicInformation, backgroundInformation, selectedChoice, ...rest } =
     application || {};
-    console.log('basicInformation',application)
   return (
     <div className="dashboard-detail-info">
       {/* <Basic Card Info */}

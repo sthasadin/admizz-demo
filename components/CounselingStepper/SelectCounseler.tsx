@@ -24,7 +24,6 @@ const SelectCounseler: React.FC<Props> = ({
   const getFireStoreCounselor = async () => {
     setLoader(true);
     const counsellor = [];
-    console.log("counsellor", counsellor);
     await db
       .collection("counsellor")
       .get()
@@ -69,7 +68,6 @@ const SelectCounseler: React.FC<Props> = ({
       },
     });
   }, [selectedCounseler]);
-  console.log("filteredCounsellor", filteredCounsellor);
   return (
     <div className="select-counseler">
       <div className="select-counseler__header">

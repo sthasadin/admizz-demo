@@ -35,7 +35,6 @@ const Testimonial = (props: any) => {
       getStudentTestimonials("", "", 6)
     );
     setTestimonialList(fetchTestimonal?.testimonials);
-    console.log("fetchTestimonal", fetchTestimonal);
   };
 
   React.useEffect(() => {
@@ -48,7 +47,6 @@ const Testimonial = (props: any) => {
         if (index === selectedIndex) {
           setselectedTestimonial(test);
         }
-        console.log("test", test);
       });
     }
   }, [testimonialList]);

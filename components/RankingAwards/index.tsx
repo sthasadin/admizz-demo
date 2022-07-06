@@ -4,7 +4,6 @@ import AwardList from "./AwardsList";
 import { useSelector } from "react-redux";
 const index = () => {
   const college = useSelector((state: any) => state.college.college);
-  console.log('college',college?.college_rankings)
   
   if(college){
     // FOR LAST 4 YEARS
@@ -52,7 +51,6 @@ const index = () => {
         return rank;
     })
 
-    console.log(college?.college_rankings);
 
     return (
       <div>

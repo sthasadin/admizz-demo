@@ -184,7 +184,7 @@ const CollegesCard = (college) => {
               </div>
               {college?.courses && (
                 <div className="colleges-card__course">
-                  <CollegeCourse Courses={college?.courses} />
+                  <CollegeCourse Courses={college?._courseArray ? college._courseArray: college.courses} />
                 </div>
               )}
               

@@ -50,8 +50,6 @@ const Program = () => {
         <CircularProgress />
       </div>
     );
-    console.log("progrma",program)
-
   return (<>
     
        <Layout title={program.name} stickyBar={false}>

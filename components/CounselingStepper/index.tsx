@@ -121,7 +121,6 @@ const CounselingStepper = () => {
         });
       });
     setCounsellorArray([...counsellor]);
-    console.log("counsellorindex", counsellor);
   };
   useEffect(() => {
     getFireStoreCounselor();
@@ -248,7 +247,6 @@ const CounselingStepper = () => {
           return item.email;
         }),
       };
-      console.log("emaiData", emaiData);
       await db.collection("appointment").add({
         name: formValue.name,
         email: formValue.email,

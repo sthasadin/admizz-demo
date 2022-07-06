@@ -8,7 +8,6 @@ const BBox:any=Box
 const FacultyInformation = (props: any) => {
 
   const faculty = useSelector((state:any) => state.college.college.faculty);
-  console.log('faculty',faculty)
   const getValue = (value) => {
     const splitText = value.split("%");
     if (splitText?.length == 2) {

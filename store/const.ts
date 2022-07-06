@@ -1,5 +1,5 @@
 // export const API_BASE_URL = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
-export const API_BASE_URL = "https://api.admizz.com";
+ export const API_BASE_URL = "https://api.admizz.com";
 //export const API_BASE_URL ="http://localhost:3005"
 
 export const GLOBAL_ERROR = "GLOBAL_ERROR";

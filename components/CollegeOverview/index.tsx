@@ -12,7 +12,7 @@ const CollegeOverview = () => {
       <div className="overview__title-wrap">
         <div className="overview__title"> HIGHLIGHTS</div>
         <time className="overview__date">
-          Update On: {moment(college?.createdAt).format("YYYY MMM DD")}
+          Update On: {moment(college?.updatedAt).format("YYYY MMM DD")}
         </time>
       </div>
       {college.overview && (
@@ -89,7 +89,6 @@ const CollegeOverview = () => {
             </div>
           </div>
         )} */}
-        {console.log("ranks", college?.rankings)}
         {college?.rankings?.map((item: any) => {
           return (
             <div className="overview__block">

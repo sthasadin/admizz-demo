@@ -136,7 +136,6 @@ const DashboardReviewConfirm = (props) => {
   };
 
   const { basicInfo, backgroundInfo, academicInfo, selectedChoice } = props;
-  console.log("academicInfo", academicInfo);
   function truncateString(str, num = 20) {
     if (str?.length <= num) {
       return str;

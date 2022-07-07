@@ -839,7 +839,7 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        Phone Nubmer :
+                        Phone Number :
                       </h4>
                       <p
                         // className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"

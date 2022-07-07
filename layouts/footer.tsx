@@ -37,7 +37,6 @@ const Footer = () => {
     dispatch(getTopColleges());
     dispatch(getTopCourses());
   }, []);
-
   const validationSchema = yup.object().shape<studentInfoFormValue>({
     subscriber: yup
       .string()
@@ -138,7 +137,7 @@ const Footer = () => {
                 topCourses?.map((item, i) => {
                   return (
                     <Link
-                      href={`colleges/program/${item?.course_slug}`}
+                      href={`https://admizz.com/colleges/program/${item?.course_slug}`}
                       key={i}
                     >
                       <div className="footer__col__item">

@@ -7,7 +7,6 @@ const TrendingCourses = () => {
   const trending_courses = useSelector(
     (state: any) => state.college.college.trending_courses
   );
-  console.log("trending_courses", college?.trending_courses);
   return (
     <div className="trending-courses">
       <div className="trending-courses__inner">

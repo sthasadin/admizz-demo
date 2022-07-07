@@ -2,7 +2,6 @@
 import React from "react";
 
 const CollegeCourse = ({ Courses }) => {
-
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
@@ -15,7 +14,6 @@ const CollegeCourse = ({ Courses }) => {
             return (
               index < 3 && (
                 <div className="college-course__item" key={index}>
-                  
                   {truncate(course?.courseprogram?.name,16)}{" "}
                 </div>
               )

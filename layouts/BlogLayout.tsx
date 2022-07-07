@@ -86,7 +86,14 @@ const BlogLayout = ({ children, title }) => {
             >
               <Link href={`/blogs/category/medical`}>Medical</Link>
             </li>
-           
+           <li
+              onClick={() => setBlogCategory("Other")}
+              className={`blog-subnavbar ${
+                blogCategory == "Others" ? "active-blognav" : ""
+              }`}
+            >
+              <Link href={`/blogs/category/others`}>Other</Link>
+            </li>
           </ul>
         </div>
       </div>

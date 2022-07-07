@@ -131,7 +131,7 @@ const DashboardDetailInfo = ({ application }) => {
                     Passport Name
                   </div>
                   <div className="dashboard-detail-info__valueText">
-                    {truncateString(backgroundInformation?.passportDetails?.nameOnPassport,10)}
+                    {truncateString(backgroundInformation?.passportDetails?.nameOnPassport,15)}
                   </div>
                 </div>
                 <div className="dashboard-detail-info__cardRow">

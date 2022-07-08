@@ -11,12 +11,15 @@ const SingleBlogCard = (props: any) => {
       return str;
     }
   }
+  {console.log(props.slug,"slug")}
   return (
     <div
       className="single-blog-card"
       onClick={() => router.push(`/blogs/${props.slug}`)}
     >
+
       <div className="single-blog-card__memberPost">
+              
         <div
           className="single-blog-card__inner"
           style={{

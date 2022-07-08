@@ -57,6 +57,7 @@ const BlogCategory = () => {
                         title={blog?.blog_title}
                         desc={removeHtmlChar(blog?.blog_desc)}
                         backgroundImg={blog?.blog_imageURL}
+                        slug={blog?.blog_slug}
                       />
                     </div>
                   );

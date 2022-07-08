@@ -628,9 +628,14 @@ const DashboardReviewConfirm = (props) => {
                           style={{ height: 30 }}
                         >
                           {" "}
-                          {toTitleCase(
-                            backgroundInfo?.passportDetails?.nameOnPassport
+                          {truncateString(
+                            backgroundInfo?.passportDetails
+                              ?.nameOnPassport,
+                            10
                           )}
+                          {/* {toTitleCase(
+                            backgroundInfo?.passportDetails?.nameOnPassport
+                          )} */}
                         </p>
                       </div>
 
@@ -834,10 +839,10 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        Phone Nubmer :
+                        Phone Number :
                       </h4>
                       <p
-                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        // className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30 }}
                       >
                         {" "}

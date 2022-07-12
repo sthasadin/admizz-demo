@@ -33,6 +33,7 @@
   }
   &__postValueContainer {
     display: flex;
+    justify-content: space-between;
   }
   &__postValue {
     padding: 20px 20px;
@@ -57,7 +58,7 @@
     }
   }
   &__sharetitle {
-    padding: 20px 20px;
+    padding: 20px 0px;
     cursor: pointer;
   }
   &__sharetext {

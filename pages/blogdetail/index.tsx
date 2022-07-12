@@ -118,7 +118,7 @@ const blogDetail = () => {
                 <BlogDetailContent />
               </div> */}
 
-              <div className="blog-detail__imageContainer">AAAA</div>
+              {/* <div className="blog-detail__imageContainer">AAAA</div> */}
             </div>
           </div>
         </main>

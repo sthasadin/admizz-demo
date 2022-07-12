@@ -7,9 +7,11 @@
   }
 
   &__backgroundimage {
-    background-image: linear-gradient(0deg,
+    background-image: linear-gradient(
+        0deg,
         rgba(95, 24, 2, 0.7),
-        rgba(95, 24, 2, 0.7)),
+        rgba(95, 24, 2, 0.7)
+      ),
       url("/why-us-bg-image.png");
     background-size: cover;
     background-position: center;
@@ -287,7 +289,8 @@
     align-self: center;
     justify-self: center;
 
-    @media (max-width: 660px) {}
+    @media (max-width: 660px) {
+    }
   }
 
   .contact-nepal {
@@ -319,10 +322,16 @@
   .international-map {
     margin: 99px auto 20px auto;
     width: 80%;
-    height: 613px;
+    // height: 400px !important;
 
     img {
       width: 100%;
+    }
+    // @media  (min-width:320px) {
+    @media only screen and (min-width: 1280px) {
+      margin: 99px auto 20px auto;
+      width: 80%;
+      height: 613px;
     }
   }
 }
@@ -367,6 +376,7 @@
       object-fit: cover;
       border-radius: 50%;
     }
+   
   }
 
   .university-name {
@@ -379,6 +389,10 @@
 
     &:hover {
       text-decoration: underline;
+    }
+    @media (min-width: 320px) {
+      font-weight: 400;
+      font-size: 10px;
     }
   }
 }

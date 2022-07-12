@@ -4,6 +4,8 @@
     color: #333333;
     line-height: 2.4;
     font-size: 16px;
+   
+    
   }
   &__contentTitle {
     margin: 20px 0px;
@@ -44,7 +46,9 @@
     font-weight: 500;
     line-height: 19px;
     letter-spacing: 0em;
-  }
+    word-break: break-all;
+    
+    }
   &__textareaValue {
     margin: 10px 0px;
     width: 100%;

@@ -41,7 +41,8 @@
       font-size: 14px;
       line-height: 21px;
       margin-bottom: 35px;
-    }
+      word-break: break-all;
+      }
     &__reaction {
       display: flex;
       align-items: center;

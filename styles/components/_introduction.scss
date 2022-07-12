@@ -60,6 +60,8 @@
 
   @media (max-width: 550px) {
     padding-left: 0;
+    //background-color: red;
+    display: flex;
   }
 
   &__aboutus__desc {
@@ -68,6 +70,51 @@
     line-height: 21px;
     color: #828282;
     margin-bottom: 14px;
+    @media (max-width: 605px) {
+      font-size: 13px;
+      margin-top: 60px;
+      width: 100%;
+    }
+    @media (max-width: 516px) {
+      font-size: 13px;
+      margin-top: 120px;
+      width: 100%;
+    }
+    @media (max-width: 496px) {
+      font-size: 13px;
+      margin-top: 150px;
+      width: 100%;
+    }
+    @media (max-width: 437px) {
+      font-size: 13px;
+      margin-top: 120px;
+      width: 100%;
+    }
+    @media (max-width: 414px) {
+      font-size: 13px;
+      margin-top: 40px;
+      width: 100%;
+    }
+    @media (max-width: 390px) {
+      font-size: 13px;
+      margin-top: 20px;
+      width: 100%;
+    }
+    @media (max-width: 393px) {
+      font-size: 13px;
+      margin-top: 20px;
+      width: 100%;
+    }
+    @media (max-width: 375px) {
+      font-size: 13px;
+      margin-top: 200px;
+      width: 100%;
+    }
+    @media (max-width: 360px) {
+      font-size: 13px;
+      margin-top: 40px;
+      width: 95%;
+    }
   }
 
   &__bannerimg {
@@ -211,11 +258,56 @@
       height: 32% !important;
       margin-top: 36px;
     }
-    @media (max-width: 350px) {
-      display: none;
+  }
+  &__aboutimg {
+    position: fixed;
+    height: 100%;
+    right: 0;
+    z-index: 10;
+    margin-top: 10;
+    @media (max-width: 1335px) {
+      height: 96%;
+      // margin-top: 25px;
+    }
+    @media (max-width: 906px) {
+      height: 85%;
+      // margin-top: 25px;
+    }
+    @media (max-width: 874px) {
+      height: 80%;
+      // margin-top: 25px;
+    }
+    @media (max-width: 816px) {
+      height: 78%;
+      // margin-top: 25px;
+    }
+    @media (max-width: 800px) {
+      height: 74%;
+      // margin-top: 25px;
+    }
+    @media (max-width: 768px) {
+      height: 67%;
+      // margin-top: 25px;
+    }
+    @media (max-width: 670px) {
+      height: 64%;
+      // margin-top: 25px;
+    }
+    @media (max-width: 375px) {
+      height: 60%;
+      // margin-top: 25px;
+    }
+    @media (max-width: 414px) {
+      height: 52%;
+      // margin-top: 25px;
+    }
+    @media (max-width: 390px) {
+      height: 45%;
+    }
+    @media (max-width: 393px) {
+      height: 46%;
     }
   }
-
   &__freecounseling {
     position: absolute;
     z-index: 10;
@@ -224,6 +316,7 @@
     background-color: $secondary-color;
   }
   &__inner {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr auto;
     text-align: left;
@@ -238,7 +331,7 @@
     @media (max-width: 768px) {
       width: 90%;
       margin-top: 50px;
-      grid-template-columns: 1fr;
+      // grid-template-columns: 1fr;
     }
     @media (min-width: 1024px) {
       width: 90%;
@@ -250,7 +343,7 @@
       width: 90%;
     }
     @media (max-width: 760px) {
-      grid-template-columns: 1fr;
+      // grid-template-columns: 1fr;
     }
     @media (min-width: 1920px) {
       margin: auto;
@@ -272,50 +365,49 @@
     @media (min-width: 701px) {
       font-size: 22px;
       font-weight: 500;
-      color: #4f4f4f ;
+      color: #4f4f4f;
       line-height: 25px;
     }
     @media (min-width: 650px) {
       font-size: 22px;
       font-weight: 500;
-      color: #4f4f4f ;
+      color: #4f4f4f;
 
       line-height: 25px;
     }
     @media (min-width: 600px) {
       font-size: 20px;
       font-weight: 500;
-      color: #4f4f4f ;
+      color: #4f4f4f;
       line-height: 22px;
     }
     @media (min-width: 451px) {
       font-size: 20px;
       font-weight: 500;
       line-height: 22px;
-      color: #4f4f4f ;
-
+      color: #4f4f4f;
     }
     @media (max-width: 450px) {
       font-size: 18px;
-      color: #4f4f4f ;
+      color: #4f4f4f;
       font-weight: 400;
       line-height: 22px;
     }
     @media (min-width: 400px) {
       font-size: 16px;
-      color: #4f4f4f ;
+      color: #4f4f4f;
       font-weight: 400;
       line-height: 22px;
     }
     @media (min-width: 350px) {
       font-size: 14px;
-      color: #4f4f4f ;
+      color: #4f4f4f;
       font-weight: 400;
       line-height: 22px;
     }
     @media (max-width: 350px) {
       font-size: 14px;
-       color: #4f4f4f ;
+      color: #4f4f4f;
       font-weight: 400;
       line-height: 22px;
     }
@@ -465,14 +557,14 @@
       margin-bottom: 10px;
     }
     @media (max-width: 387px) {
-      width: 36%;
-      font-size: 22px;
-      line-height: 34px;
+      width: 34%;
+      font-size: 18px;
+      line-height: 32px;
     }
     @media (max-width: 350px) {
       width: 70%;
-      font-size: 22px;
-      line-height: 34px;
+      font-size: 16px;
+      line-height: 30px;
     }
   }
   &__desc {
@@ -501,9 +593,9 @@
       width: 410px;
       margin-bottom: 25px;
     }
-    // @media (max-width: 350px) {
-    //   display: none;
-    // }
+    @media (max-width: 414px) {
+      width: 396px !important;
+    }
   }
   &__watch {
     margin-left: 21px;
@@ -511,10 +603,6 @@
     @media (max-width: 760px) {
       margin-right: 240px !important;
       // display: none;
-    }
-    @media (max-width: 722px) {
-      //margin-right: 240px !important;
-      display: none;
     }
 
     &__icon {
@@ -583,10 +671,10 @@
     }
 
     .u-align-center {
-      width: 535px;
+      width: 100%;
       display: flex;
       justify-content: space-between;
-
+      flex-wrap: nowrap !important;
       @media (max-width: 500px) {
         margin-top: 30px;
         display: flex;
@@ -607,6 +695,11 @@
         width: 46px;
         height: 46px;
         margin-right: 16px;
+        @media (max-width: 717px) {
+          width: 44px;
+          height: 44px;
+          margin-right: 14px;
+        }
         @media (max-width: 500px) {
           margin-right: 0;
         }
@@ -626,9 +719,9 @@
   }
   &__right {
     height: 100%;
-    @media (max-width: 760px) {
-      display: none;
-    }
+    // @media (max-width: 760px) {
+    //   display: none;
+    // }
     &__background {
       position: absolute;
       height: 45vw;
@@ -720,6 +813,9 @@
         z-index: 2;
         @media (max-width: 1210px) {
           height: 84%;
+        }
+        @media (min-width: 700px) {
+          height: 75%;
         }
       }
     }

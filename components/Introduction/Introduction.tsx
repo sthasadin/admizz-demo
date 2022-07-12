@@ -119,7 +119,7 @@ const Introduction = (props) => {
             <div className="introduction__meta__title">
               <span>Explore and find latest data on admizz</span>
             </div>
-            <div className="u-align-center">
+            <div className="u-align-center-meta">
               <div className="introduction__meta__item">
                 <div className="introduction__meta__item__icon">
                   <svg

@@ -101,7 +101,7 @@ const ABOUTUS = (props) => {
         <div className="introduction__right">
           {/* <div className="introduction__right__background"></div> */}
           <div className="aboutus__right__thumbnail">
-            <img src={imgSrc} alt="..." className="introduction__bannerimg" />
+            <img src={imgSrc} alt="..." className="introduction__aboutimg" />
           </div>
         </div>
       </div>

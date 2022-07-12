@@ -7,7 +7,7 @@ const ReviewInput = ({ handleChange, onSubmit, loading, formError }: any) => {
     <div className="review">
       <div
         className="review__item__comment"
-        style={{ width: "100%", marginBottom: "10px" }}
+        // style={{ width: "100%", marginBottom: "10px" }}
       >
         <Input
           name={"comment"}

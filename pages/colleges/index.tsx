@@ -70,6 +70,7 @@ const collegeList = () => {
     ) {
       setLoadMoreCollege(false);
       getFilterByFilter();
+
     } else {
       getCollegesArray();
       getAllFilterList();

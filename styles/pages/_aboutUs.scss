@@ -1,5 +1,5 @@
 .introduction__container {
- position: relative;
+  position: relative;
   background-image: url("/background-image.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -62,6 +62,7 @@
     background-size: contain;
     padding-top: 0px;
     padding-left: 10px;
+    display: flex;
   }
   @media (max-width: 550px) {
     padding-left: 0;
@@ -245,9 +246,9 @@
   }
   &__right {
     height: 100%;
-    @media (max-width: 760px) {
-      display: none;
-    }
+    // @media (max-width: 760px) {
+    //   display: none;
+    // }
     &__background {
       position: absolute;
       height: 45vw;
@@ -312,11 +313,12 @@
       img {
         height: 100%;
         width: 100%;
-        object-fit: contain;
+        object-fit: cover;
         z-index: 2;
         @media (max-width: 1210px) {
           height: 84%;
         }
+      
       }
     }
   }

@@ -99,14 +99,17 @@ export const getCollegeByFilter = (filter) => async (dispatch: Dispatch) => {
     dispatch({
       type: COLLEGE_BY_LIMIT_BEGIN
     })
-
+    console.log(filter, 'filter name')
     const res = await collegeService.getCollegeByFilter(filter)
-    console.log(res, 'yeoi ho')
+    console.log('done', res)
     dispatch({
       type: COLLEGE_BY_FILTER,
       payload: res.data
     })
+        
+
   } catch (error) {
+    console.log('catched')
     console.log(error)
   }
 }

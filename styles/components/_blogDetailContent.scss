@@ -1,11 +1,12 @@
 .blog-detail-content {
   margin: 20px 0px;
+
   &__contentText {
     color: #333333;
     line-height: 2.4;
     font-size: 16px;
-   
-    
+    word-break: break-all;
+    text-align: justify;
   }
   &__contentTitle {
     margin: 20px 0px;
@@ -47,8 +48,7 @@
     line-height: 19px;
     letter-spacing: 0em;
     word-break: break-all;
-    
-    }
+  }
   &__textareaValue {
     margin: 10px 0px;
     width: 100%;

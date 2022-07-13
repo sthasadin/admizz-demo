@@ -146,7 +146,12 @@ const CounselingStepper = () => {
     course: yup.string().required("Course field should not be empty"),
     description: yup.string().notRequired(),
     contact_medium: yup.string().required("Select one medium"),
-    contact_id: yup.string().required("Contact id field should not be empty"),
+    contact_id: yup.string()
+     .matches(
+        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+        "Whatapp ID is not valid"
+      )
+    .required("Contact id field should not be empty"),
   });
 
   const dateTimeValidate = async () => {

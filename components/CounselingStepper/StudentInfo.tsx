@@ -26,12 +26,10 @@ interface Props {
   handleChange: (e: any) => void;
   formValue?: any;
   formError: FormError;
-  
 }
 
 const StudentInfo: React.FC<Props> = ({
   handleNext,
-
   handleChange,
   formValue,
   formError,

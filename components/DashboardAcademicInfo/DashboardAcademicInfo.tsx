@@ -95,7 +95,7 @@ export const DashboardAcademicInfo = (props) => {
       case "highSchool":
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
-          level2Score: yup.string().required("Level 2 Marks is required"),
+          level2Score: !showClass11Marks&& yup.string().required("Level 2 Marks is required"),
           certificatesImage: yup.object().shape<CertificateI>({
             school: yup
               .string()
@@ -110,7 +110,7 @@ export const DashboardAcademicInfo = (props) => {
         case "undergraduate":
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
-          level2Score: yup.string().required("Level 2 Marks is required"),
+          level2Score:!showClass11Marks&& yup.string().required("Level 2 Marks is required"),
           // underGraduate: yup
           //   .string()
           //   .required("Undergraduate Marks is required"),
@@ -132,7 +132,7 @@ export const DashboardAcademicInfo = (props) => {
       case "postgraduate":
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
-          level2Score: yup.string().required("Level 2 Marks is required"),
+         level2Score: !showClass11Marks&& yup.string().required("Level 2 Marks is required"),
           underGraduate: yup
             .string()
             .required("Undergraduate Marks is required"),
@@ -156,7 +156,7 @@ export const DashboardAcademicInfo = (props) => {
          case "phd":
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
-          level2Score: yup.string().required("Level 2 Marks is required"),
+          level2Score: !showClass11Marks&& yup.string().required("Level 2 Marks is required"),
           underGraduate: yup
             .string()
             .required("Undergraduate Marks is required"),
@@ -208,6 +208,8 @@ export const DashboardAcademicInfo = (props) => {
       setFormError({});
       return true;
     } catch (err) {
+      console.log("validation error");
+      
       setSnackOpen(true);
       const errors = {};
       err.inner.forEach((item: any) => {

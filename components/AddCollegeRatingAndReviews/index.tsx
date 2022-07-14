@@ -31,7 +31,6 @@ const AddCollegeRatingAndReview = ({
   const dispatch = useDispatch();
   const college_id = useSelector((state: any) => state.college.college._id);
   const user = useSelector((state: any) => state.user.authUser);
-
   useEffect(() => {
     auth.currentUser && dispatch(getAuthUser(auth.currentUser.uid));
   }, [college_id, auth]);

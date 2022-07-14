@@ -146,12 +146,13 @@ const CounselingStepper = () => {
     course: yup.string().required("Course field should not be empty"),
     description: yup.string().notRequired(),
     contact_medium: yup.string().required("Select one medium"),
-    contact_id: yup.string()
-     .matches(
+    contact_id: yup
+      .string()
+      .matches(
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
         "Whatapp ID is not valid"
       )
-    .required("Contact id field should not be empty"),
+      .required("Contact id field should not be empty"),
   });
 
   const dateTimeValidate = async () => {
@@ -232,7 +233,7 @@ const CounselingStepper = () => {
 
   const handleBook = async () => {
     try {
-      setLoading(false);
+      // setLoading(true);
       const selectedCouns =
         counsellorArray?.filter((item) => item.id === formValue.counsellor) ||
         [];
@@ -243,7 +244,9 @@ const CounselingStepper = () => {
           contact: formValue.phone,
           contact_code: formValue.countryCode,
           course: formValue.course,
-          appointment_date: moment(formValue.date).format('MMMM Do YYYY, h:mm a'),
+          appointment_date: moment(formValue.date).format(
+            "MMMM Do YYYY, h:mm a"
+          ),
           country: formValue.home_country,
         },
         message: formValue.description || "",
@@ -278,6 +281,7 @@ const CounselingStepper = () => {
         }, 1000);
       } else {
         setCheckValidation(true);
+        setLoading(true);
       }
       setLoading(false);
     } catch (error) {
@@ -313,6 +317,7 @@ const CounselingStepper = () => {
   };
 
   const handleNext = async () => {
+
     const valid = await dateTimeValidate();
 
     if (valid) {

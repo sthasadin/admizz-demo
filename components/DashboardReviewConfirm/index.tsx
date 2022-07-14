@@ -64,6 +64,8 @@ const DashboardReviewConfirm = (props) => {
   const router = useRouter();
 
   const [profileImage, setProfileImage] = React.useState(null);
+    console.log('profile',profileImage)
+
   const [profileImageThumbnail, setProfileImageThumbnail] =
     React.useState(null);
   const [signatureImage, setSignatureImage] = React.useState(null);
@@ -228,6 +230,7 @@ const DashboardReviewConfirm = (props) => {
         }
 
         if (profileImage !== null) {
+          console.log('image',profileImage)
           const name = Math.random().toString(36).slice(1);
           const name2 = Math.random().toString(36).slice(1);
           const mixName = name + name2;
@@ -239,7 +242,9 @@ const DashboardReviewConfirm = (props) => {
                 .ref("student-application")
                 .child(mixName)
                 .getDownloadURL()
-                .then((url) => {})
+                .then((url) => {
+                  basicInformation.profileImage = url;
+                })
                 .catch((err) => {
                   console.log(err);
                 });
@@ -290,7 +295,7 @@ const DashboardReviewConfirm = (props) => {
             handleOpenSnackbar();
             handleClose();
             localStorage.clear();
-            window.location.replace("/studentdashboardmain");
+             window.location.replace("/studentdashboardmain");
 
             router.push("/studentdashboardmain");
           })
@@ -484,6 +489,7 @@ const DashboardReviewConfirm = (props) => {
                               name="profileImage"
                               type="file"
                               onChange={(e) => {
+                                console.log('e',e)
                                 e.target.files[0] &&
                                   setProfileImageThumbnail(
                                     URL.createObjectURL(e.target.files[0])

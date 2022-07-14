@@ -13,7 +13,7 @@ import { RatingItem } from "./ratingItem";
 import { useRouter } from "next/router";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { ErrorMessages } from "../../utils/ErrorMessages";
+import { getAuthUser } from "@/store/Action/user.action";
 
 const RatingAndReview = (props: any) => {
   const [isAddReviewOpen, setIsAddReviewOpen] = useState(false);
@@ -21,48 +21,44 @@ const RatingAndReview = (props: any) => {
   const [originalReviews, setOriginalReviews] = useState([]);
   const [snackOpenLogin, setSnackOpenLogin] = React.useState(false as boolean);
   const dispatch = useDispatch();
-  const [snackOpen, setSnackOpen] = useState(false as boolean);
-  const [msgType, setMsgType] = useState({} as any);
-  const [formError, setFormError] = useState({} as any);
-
   const router = useRouter();
-  const user = useSelector((state: any) => state.user.authUser);
-  const college_id = useSelector((state: any) => state.college.college._id);
+  const user = useSelector((state:any) => state.user.authUser);
+  const college_id = useSelector((state:any) => state.college.college._id);
   const _getReviews = async (college_id) => {
     let res = await dispatch<any>(getReviews(college_id));
     setOriginalReviews(res);
-
+    
     //make proper datastructure
     let collegeReviews: any = {
-      length: res?.length,
+      length: res.length,
       ratings: {
         academics: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["academics"]) || 0), 0) /
-            res?.length
+            res.length
         ),
         accomodation: Math.ceil(
           res.reduce(
             (a, b) => Number(a) + (Number(b["accomodation"]) || 0),
             0
-          ) / res?.length
+          ) / res.length
         ),
         faculty: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["faculty"]) || 0), 0) /
-            res?.length
+            res.length
         ),
         infrastructures: Math.ceil(
           res.reduce(
             (a, b) => Number(a) + (Number(b["infrastructures"]) || 0),
             0
-          ) / res?.length
+          ) / res.length
         ),
         placements: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["placements"]) || 0), 0) /
-            res?.length
+            res.length
         ),
         social: Math.ceil(
           res.reduce((a, b) => Number(a) + (Number(b["social"]) || 0), 0) /
-            res?.length
+            res.length
         ),
       },
       all_reviews: res.map((r) => {
@@ -105,46 +101,14 @@ const RatingAndReview = (props: any) => {
   }, [college_id]);
 
   const openReviewScetion = () => {
-    // if (auth.currentUser) {
-    //   setIsAddReviewOpen(true);
-    // } else {
-    //  // setSnackOpenLogin(true);
-    //  setMsgType("warning");
-    //  setFormError({
-    //   ...formError,
-    //   otherErrors:(
-    //       <div>
-    //         <span>Please add at least one college</span>
-    //       </div>
-    //   )
-    //  })
-    //   handleOpenSnackbar();
-
-    //   router.push("/login");
-    // }
-    try {
-      if (auth.currentUser) {
-        setIsAddReviewOpen(true);
-      }
-    } catch (err) {
-      const errorMessage = ErrorMessages[err.code];
-      handleOpenSnackbar();
-      setMsgType("error");
-      if (errorMessage) {
-        setFormError({ ...formError, otherErrors: errorMessage });
-      } else {
-        setFormError({ ...formError, otherErrors: "Error occurred" });
-      }
+    if (auth.currentUser) {
+      setIsAddReviewOpen(true);
+    } else {
+      setSnackOpenLogin(true);
+      router.push("/login");
     }
   };
 
-  const handleOpenSnackbar = () => {
-    console.log({ msgType });
-    setSnackOpen(true);
-  };
-  const handleCloseSnackbar = () => {
-    setSnackOpen(false);
-  };
   const addLike = async (review) => {
     const user = auth.currentUser?.uid;
     let _review = originalReviews.find((r) => r.id === review.id);
@@ -237,15 +201,19 @@ const RatingAndReview = (props: any) => {
       <div className="rating-review__rating__header border-bottom">
         <div className="rating-review__rating__left">
           <div className="rating-review__rating__title">Student Reviews</div>
-          {!reviews?.all_reviews?.length && !reviews?.all_reviews?.length && (
-            <div>No reviews Yet</div>
+          {!reviews?.all_reviews.length && !reviews?.all_reviews.length && (
+             <div >
+           No reviews Yet
+           </div>
           )}
           {reviews && reviews?.all_reviews && reviews?.all_reviews > 0 && (
-            <div className="rating-review__rating__subheading">
-              Showing results for Most relevent reviews
-            </div>
+                    <div className="rating-review__rating__subheading">
+                    Showing results for Most relevent reviews
+                  </div>
           )}
+    
         </div>
+    
       </div>
 
       {reviews?.all_reviews?.map((review) => (
@@ -256,32 +224,19 @@ const RatingAndReview = (props: any) => {
           review={review}
         />
       ))}
-
-      {/* <Review />
-      <Review />
-      <Review /> */}
       {isAddReviewOpen && (
         <AddCollegeRatingAndReview
           setIsAddReviewOpen={setIsAddReviewOpen}
           _getReviews={_getReviews}
         />
       )}
-      {/* <Snackbar
+        <Snackbar
         open={snackOpenLogin}
         autoHideDuration={4000}
         onClose={() => setSnackOpenLogin(false)}
       >
         <Alert onClose={() => setSnackOpenLogin(false)} severity="warning">
           Please Login into your account
-        </Alert>
-      </Snackbar> */}
-      <Snackbar
-        open={snackOpen}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-      >
-        <Alert onClose={handleCloseSnackbar} severity={msgType?.toString()}>
-          {formError?.otherErrors}
         </Alert>
       </Snackbar>
     </div>

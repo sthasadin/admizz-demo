@@ -7,6 +7,7 @@ const TrendingCourses = () => {
   const trending_courses = useSelector(
     (state: any) => state.college.college.trending_courses
   );
+  console.log('trending_courses',trending_courses)
   return (
     <div className="trending-courses">
       <div className="trending-courses__inner">
@@ -18,7 +19,7 @@ const TrendingCourses = () => {
               <div key={i} className="trending-courses__item">
                 <div className="trending-courses__title-wrap">
                   <Link
-                    href={`/colleges/program/${course?.courseprogram?.slug}`}
+                    href={`/colleges/program/${course?.slug}`}
                   >
                     <div className="trending-courses__title">
                       {course?.name}

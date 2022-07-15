@@ -15,6 +15,7 @@ import Alert from "@material-ui/lab/Alert";
 import { Button } from "../Button";
 
 import { ErrorMessages } from "../../utils/ErrorMessages";
+import { wrap } from "module";
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
@@ -64,7 +65,7 @@ const DashboardReviewConfirm = (props) => {
   const router = useRouter();
 
   const [profileImage, setProfileImage] = React.useState(null);
-    console.log('profile',profileImage)
+  console.log("profile", profileImage);
 
   const [profileImageThumbnail, setProfileImageThumbnail] =
     React.useState(null);
@@ -138,6 +139,7 @@ const DashboardReviewConfirm = (props) => {
   };
 
   const { basicInfo, backgroundInfo, academicInfo, selectedChoice } = props;
+  console.log("academicInfo", academicInfo);
   function truncateString(str, num = 20) {
     if (str?.length <= num) {
       return str;
@@ -230,7 +232,7 @@ const DashboardReviewConfirm = (props) => {
         }
 
         if (profileImage !== null) {
-          console.log('image',profileImage)
+          console.log("image", profileImage);
           const name = Math.random().toString(36).slice(1);
           const name2 = Math.random().toString(36).slice(1);
           const mixName = name + name2;
@@ -295,7 +297,7 @@ const DashboardReviewConfirm = (props) => {
             handleOpenSnackbar();
             handleClose();
             localStorage.clear();
-             window.location.replace("/studentdashboardmain");
+            window.location.replace("/studentdashboardmain");
 
             router.push("/studentdashboardmain");
           })
@@ -415,7 +417,7 @@ const DashboardReviewConfirm = (props) => {
                           display: "flex",
                           flexWrap: "wrap",
                           marginRight: 40,
-                          width: "28%",
+                          width: "38%",
                           minWidth: 250,
                           height: 40,
                         }}
@@ -432,7 +434,7 @@ const DashboardReviewConfirm = (props) => {
                         </h4>
                         <p
                           className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{ height: 30 }}
+                          style={{ height: 30, wordBreak: "break-all" }}
                         >
                           {" "}
                           {basicInfo.countryCode}-{basicInfo.phoneNumber}{" "}
@@ -489,7 +491,7 @@ const DashboardReviewConfirm = (props) => {
                               name="profileImage"
                               type="file"
                               onChange={(e) => {
-                                console.log('e',e)
+                                console.log("e", e);
                                 e.target.files[0] &&
                                   setProfileImageThumbnail(
                                     URL.createObjectURL(e.target.files[0])
@@ -635,8 +637,7 @@ const DashboardReviewConfirm = (props) => {
                         >
                           {" "}
                           {truncateString(
-                            backgroundInfo?.passportDetails
-                              ?.nameOnPassport,
+                            backgroundInfo?.passportDetails?.nameOnPassport,
                             10
                           )}
                           {/* {toTitleCase(
@@ -979,21 +980,22 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        Class {academicInfo?.level2Score ? "12" : "11"} Score :
+                        Class{" "}
+                        {academicInfo?.level2Score?.level2Score ? "12" : "11"}{" "}
+                        Score :
                       </h4>
                       <p
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30 }}
                       >
-                        {" "}
                         {academicInfo?.level2Score?.level2Score
                           ? academicInfo?.level2Score?.level2Score
-                          : academicInfo?.level1Score?.level1Score}
+                          : academicInfo?.level1Score}
                       </p>
                     </div>
 
                     {/* UnderGraduate Marks */}
-                    {academicInfo?.underGraduate.underGraduate && (
+                    {/* {academicInfo?.underGraduate.underGraduate && (
                       <div
                         style={{
                           display: "flex",
@@ -1020,6 +1022,40 @@ const DashboardReviewConfirm = (props) => {
                         >
                           {" "}
                           {academicInfo?.underGraduate?.underGraduate}
+                        </p>
+                      </div>
+                    )} */}
+                    {academicInfo?.underGraduate.underGraduate && (
+                      <div
+                        style={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          marginRight: 40,
+                          width: "28%",
+                          minWidth: 250,
+                          height: 40,
+                        }}
+                      >
+                        <h4
+                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                          style={{
+                            height: 30,
+                            fontWeight: 700,
+                            marginRight: 10,
+                          }}
+                        >
+                          {academicInfo?.underGraduate?.underGraduate
+                            ? "Undergraduate"
+                            : "Semester"}{" "}
+                          Score :
+                        </h4>
+                        <p
+                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                          style={{ height: 30 }}
+                        >
+                          {academicInfo?.underGraduate?.underGraduate
+                            ? academicInfo?.underGraduate?.underGraduate
+                            : academicInfo?.semesterMarks}
                         </p>
                       </div>
                     )}

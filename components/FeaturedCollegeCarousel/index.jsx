@@ -39,7 +39,7 @@ const index = ({ data }) => {
   }
   const settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     dotsClass: "rounded-scroll slick-thumb",
     speed: 500,
     slidesToShow: 4,
@@ -74,8 +74,9 @@ const index = ({ data }) => {
       <Slider {...settings}>
         {data &&
           data.map((college, index) => {
+            console.log(college)
             return (
-              <div style={{ display: "none" }}>
+              <div key={index}>
                 <CollegesCard {...college} key={index} />
               </div>
             );

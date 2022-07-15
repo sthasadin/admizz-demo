@@ -77,14 +77,7 @@ const DashboardDetailInfo = ({ application }) => {
                 {basicInformation?.guardianCity}
               </div>
             </div>
-            {/* <div className="dashboard-detail-info__cardRow">
-            <div className="dashboard-detail-info__keyText">
-              Zip Code
-            </div>
-            <div className="dashboard-detail-info__valueText">
-               {basicInformation?.guardianZipCode}
-            </div>
-          </div> */}
+          
             <div className="dashboard-detail-info__cardRowButton">
               {/* <div className="dashboard-detail-info__viewText">
               View

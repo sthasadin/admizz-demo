@@ -111,9 +111,7 @@ export const DashboardAcademicInfo = (props) => {
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
           level2Score:!showClass11Marks&& yup.string().required("Level 2 Marks is required"),
-          // underGraduate: yup
-          //   .string()
-          //   .required("Undergraduate Marks is required"),
+          
           certificatesImage: yup.object().shape<CertificateI>({
             highSchool: yup
               .string()
@@ -123,17 +121,14 @@ export const DashboardAcademicInfo = (props) => {
               .string()
               .nullable()
               .required("Please upload your School certificate"),
-            // under_Graduate: yup
-            //   .string()
-            //   .nullable()
-            //   .required("Please upload your Under Graduate certificate"),
+            
           }),
         });
       case "postgraduate":
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
          level2Score: !showClass11Marks&& yup.string().required("Level 2 Marks is required"),
-          underGraduate: yup
+          underGraduate:  !showSemesterMarks&&yup
             .string()
             .required("Undergraduate Marks is required"),
          
@@ -516,12 +511,7 @@ export const DashboardAcademicInfo = (props) => {
                         }
                         style={{ cursor: "pointer", marginLeft: "5px" }}
                       >
-                        {/* <u>
-                              {showSemesterMarks
-                                ? "Have completed ?"
-                                : `Haven't completed yet?`}
-                            </u>
-                          ) */}
+                       
                         {selectedLevel === "postgraduate" && (
                           <u>
                             {showSemesterMarks

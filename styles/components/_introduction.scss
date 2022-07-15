@@ -577,8 +577,13 @@
       font-size: 18px;
       line-height: 32px;
     }
+    @media (max-width: 375px) {
+      width: 30%;
+      font-size: 16px;
+      line-height: 30px;
+    }
     @media (max-width: 350px) {
-      width: 70%;
+      width: 24%;
       font-size: 16px;
       line-height: 30px;
     }
@@ -617,6 +622,9 @@
     }
     @media (max-width: 375px) {
       width: 372px !important;
+    }
+    @media (max-width: 350px) {
+      width: 342px !important;
     }
   }
   &__watch {

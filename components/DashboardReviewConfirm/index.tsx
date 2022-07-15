@@ -995,36 +995,7 @@ const DashboardReviewConfirm = (props) => {
                     </div>
 
                     {/* UnderGraduate Marks */}
-                    {/* {academicInfo?.underGraduate.underGraduate && (
-                      <div
-                        style={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          marginRight: 40,
-                          width: "28%",
-                          minWidth: 250,
-                          height: 40,
-                        }}
-                      >
-                        <h4
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{
-                            height: 30,
-                            fontWeight: 700,
-                            marginRight: 10,
-                          }}
-                        >
-                          UnderGraduate Marks :
-                        </h4>
-                        <p
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{ height: 30 }}
-                        >
-                          {" "}
-                          {academicInfo?.underGraduate?.underGraduate}
-                        </p>
-                      </div>
-                    )} */}
+                   
                     {academicInfo?.underGraduate.underGraduate && (
                       <div
                         style={{
@@ -1036,6 +1007,36 @@ const DashboardReviewConfirm = (props) => {
                           height: 40,
                         }}
                       >
+                        {/* <h4
+                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                          style={{
+                            height: 30,
+                            fontWeight: 700,
+                            marginRight: 10,
+                          }}
+                        >
+                         
+                          Score :
+                        </h4> */}
+                        {/* <p
+                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                          style={{ height: 30 }}
+                        >
+                        
+                            {academicInfo?.underGraduate?.underGraduate}
+                        </p> */}
+                      </div>
+                    )}
+                     <div
+                        style={{
+                          display: "flex",
+                          flexWrap: "wrap",
+                          marginRight: 40,
+                          width: "28%",
+                          minWidth: 250,
+                          height: 40,
+                        }}
+                      >
                         <h4
                           className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                           style={{
@@ -1045,8 +1046,8 @@ const DashboardReviewConfirm = (props) => {
                           }}
                         >
                           {academicInfo?.underGraduate?.underGraduate
-                            ? "Undergraduate"
-                            : "Semester"}{" "}
+                             ? "Undergraduate"
+                             : "Semester"}{" "}
                           Score :
                         </h4>
                         <p
@@ -1058,7 +1059,6 @@ const DashboardReviewConfirm = (props) => {
                             : academicInfo?.semesterMarks}
                         </p>
                       </div>
-                    )}
                     {/* Post graduate Marks */}
                     {academicInfo?.postGraduteScore.postGraduteScore && (
                       <div

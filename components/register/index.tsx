@@ -329,10 +329,7 @@ const Register = () => {
                   value={formValue.country}
                 />
                 <div className={"student-info__phone-input"}>
-                  {/* <PhoneInput country="US" 
-                  value={formValue.countryCode} 
-                  onChange={handleChange}
-                  style={{width:90}} /> */}
+           
 
                   <CountryCodeDropDown
                     options={CountryCode}
@@ -340,7 +337,6 @@ const Register = () => {
                     minWidth={"83px"}
                     width={"90px"}
                     value={formValue.countryCode}
-                    // defaultValue={"+977"}
                     name={"countryCode"}
                     onChange={handleChange}
                     error={!!formError.countryCode}
@@ -379,6 +375,7 @@ const Register = () => {
                   showPassword={showPassword}
                   value={formValue.password}
                 />
+                 
                 <PasswordField
                   fullWidth
                   onChange={handleChange}

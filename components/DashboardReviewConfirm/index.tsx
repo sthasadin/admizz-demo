@@ -14,8 +14,6 @@ import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { Button } from "../Button";
 
-import { ErrorMessages } from "../../utils/ErrorMessages";
-import { wrap } from "module";
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
@@ -65,7 +63,6 @@ const DashboardReviewConfirm = (props) => {
   const router = useRouter();
 
   const [profileImage, setProfileImage] = React.useState(null);
-  console.log("profile", profileImage);
 
   const [profileImageThumbnail, setProfileImageThumbnail] =
     React.useState(null);

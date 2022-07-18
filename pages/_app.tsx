@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 
 // import { createWrapper } from "next-redux-wrapper";
 import store from "../store/store";
+import Head from "next/head";
 if (typeof window !== "undefined") {
   NProgress.configure({ showSpinner: false });
 
@@ -23,8 +24,11 @@ if (typeof window !== "undefined") {
     NProgress.done();
   });
 }
-const PProvider:any=Provider
+const PProvider: any = Provider;
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  <Head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+  </Head>;
   React.useEffect(() => {
     Router.events.on("routeChangeComplete", () => {
       window.scroll({
@@ -37,11 +41,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-    <AuthProvider>
-      <PProvider store={store}>
-        <Component {...pageProps} />
-      </PProvider>
-    </AuthProvider>
+      <AuthProvider>
+        <PProvider store={store}>
+          <Component {...pageProps} />
+        </PProvider>
+      </AuthProvider>
     </>
   );
 };

@@ -26,6 +26,7 @@
             font-weight: 500;
             color: #828282;
         }
+       
     }
     .rankingawards__awardscontainer {
         max-height: 370px;
@@ -105,4 +106,7 @@
             }
         }
     }
+         @media (max-width:414px) {
+             display: none;
+         }
 }

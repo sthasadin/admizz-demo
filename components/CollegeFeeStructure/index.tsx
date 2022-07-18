@@ -180,7 +180,7 @@ const FeeStructure = (props: any) => {
         </div>
         <div className="fee-structure__course-fee">
           <div className="course-fee">
-            {programs&&programs?.length&&
+            {
             programs.map((p, i) => {
               return (
                 <div key={i} className="course-fee__item">
@@ -191,10 +191,7 @@ const FeeStructure = (props: any) => {
                     <span className="title">{p.fee_per_sem}</span>
                     <span>Estimated Fee</span>
                   </div>
-                  {/* <div className="course-fee__eligibility">
-                    <span className="title">{p.eligibility}</span>
-                    <span>Eligibility</span>
-                  </div> */}
+                  
                   <Link href={`/colleges/program/${p?.slug}`}>
                     <div className="course-fee__details">VIEW DETAIL</div>
                   </Link>

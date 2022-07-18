@@ -119,7 +119,7 @@ const PasswordField = (props: Props) => {
 
           endAdornment: (
             <InputAdornment position="end">
-              {props.showPassword ? (
+              {props.showPassword || props.showconfirmPassword ? (
                 <VisibilityOutlinedIcon
                   onClick={props.onClick}
                   style={{ cursor: "pointer" }}

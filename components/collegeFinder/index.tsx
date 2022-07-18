@@ -118,14 +118,14 @@ const CollegeFinder = () => {
 
           />
 
-          {/* <CollegeFinderCard
+          <CollegeFinderCard
             name="Medical Science"
            // count="1259"
             imgSrc="/college-finder/medical-science.png"
             alt="medical-science_logo"
             stream="medicalscience"
 
-          /> */}
+          />
 
           <CollegeFinderCard
             name="Paramedical"
@@ -150,6 +150,7 @@ const CollegeFinder = () => {
             imgSrc="/college-finder/science.png"
             alt="social-psychology_logo"
             stream="science"
+            className="displayNone"
 
           />
 

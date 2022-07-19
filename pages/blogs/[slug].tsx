@@ -120,7 +120,9 @@ const blogDetail = () => {
                       <ListItemAvatar>
                         <WhatsappShareButton
                           url={shareUrl}
-                          title={`${blog.title}`}
+                          //  quote={"Admizz - Your vision, Our fulfillment ."}
+                          //   hashtag="#admizz"
+                          // title={`${blog.title}`}
                         >
                           <Avatar>
                             {/* <WhatsAppIcon /> */}

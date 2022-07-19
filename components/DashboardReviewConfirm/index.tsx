@@ -14,7 +14,6 @@ import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { Button } from "../Button";
 
-
 const useStyles = makeStyles((theme) => ({
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
@@ -178,6 +177,7 @@ const DashboardReviewConfirm = (props) => {
           schoolMarks: academicInfo?.schoolMarks,
           tofel: academicInfo?.tofel,
           underGraduate: academicInfo?.underGraduate,
+          semesterMarks: academicInfo?.semesterMarks,
         };
 
         const status = "pending";
@@ -931,36 +931,6 @@ const DashboardReviewConfirm = (props) => {
                     )}
 
                     {/* High School Score */}
-                    {academicInfo?.level2Score?.level2Score && (
-                      <div
-                        style={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          marginRight: 40,
-                          width: "28%",
-                          minWidth: 250,
-                          height: 40,
-                        }}
-                      >
-                        <h4
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{
-                            height: 30,
-                            fontWeight: 700,
-                            marginRight: 10,
-                          }}
-                        >
-                          High School Score :
-                        </h4>
-                        <p
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{ height: 30 }}
-                        >
-                          {" "}
-                          {academicInfo?.level2Score?.level2Score}
-                        </p>
-                      </div>
-                    )}
 
                     {/* Class 11 Score */}
                     <div
@@ -977,8 +947,10 @@ const DashboardReviewConfirm = (props) => {
                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30, fontWeight: 700, marginRight: 10 }}
                       >
-                        Class{" "}
-                        {academicInfo?.level2Score?.level2Score ? "12" : "11"}{" "}
+                        {/* Class{" "} */}
+                        {academicInfo?.level2Score?.level2Score
+                          ? "High School"
+                          : " Class 11"}{" "}
                         Score :
                       </h4>
                       <p
@@ -992,39 +964,9 @@ const DashboardReviewConfirm = (props) => {
                     </div>
 
                     {/* UnderGraduate Marks */}
-                   
+
                     {academicInfo?.underGraduate.underGraduate && (
                       <div
-                        style={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          marginRight: 40,
-                          width: "28%",
-                          minWidth: 250,
-                          height: 40,
-                        }}
-                      >
-                        {/* <h4
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{
-                            height: 30,
-                            fontWeight: 700,
-                            marginRight: 10,
-                          }}
-                        >
-                         
-                          Score :
-                        </h4> */}
-                        {/* <p
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{ height: 30 }}
-                        >
-                        
-                            {academicInfo?.underGraduate?.underGraduate}
-                        </p> */}
-                      </div>
-                    )}
-                     <div
                         style={{
                           display: "flex",
                           flexWrap: "wrap",
@@ -1043,8 +985,8 @@ const DashboardReviewConfirm = (props) => {
                           }}
                         >
                           {academicInfo?.underGraduate?.underGraduate
-                             ? "Undergraduate"
-                             : "Semester"}{" "}
+                            ? "Undergraduate"
+                            : "Semester"}{" "}
                           Score :
                         </h4>
                         <p
@@ -1056,6 +998,8 @@ const DashboardReviewConfirm = (props) => {
                             : academicInfo?.semesterMarks}
                         </p>
                       </div>
+                    )}
+
                     {/* Post graduate Marks */}
                     {academicInfo?.postGraduteScore.postGraduteScore && (
                       <div
@@ -1341,20 +1285,6 @@ const DashboardReviewConfirm = (props) => {
               </Grid>
 
               {/* Back ground Info */}
-              {/* 
-            <Grid
-              container
-              className="dashboard-basic-info__row"
-              justify="space-around"
-              direction="row"
-            >
-              <Grid item sm={12} md={12} xs={12}>
-                <div className="dashboard-basic-info__formTitle">
-                  Personal Identification and AcademicsDocuments
-                </div>
-                <hr className="dashboard-basic-info__horizontalLine" />
-              </Grid>
-            </Grid> */}
 
               <Grid
                 container

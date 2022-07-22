@@ -108,6 +108,7 @@ const blogDetail = () => {
                                 size={40}
                                 round={true}
                                 name="Facebook"
+                                href={shareUrl}
                               />
                             </Avatar>
                           </FacebookShareButton>

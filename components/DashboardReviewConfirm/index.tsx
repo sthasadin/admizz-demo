@@ -359,7 +359,7 @@ const DashboardReviewConfirm = (props) => {
                           flexWrap: "wrap",
                           marginRight: 40,
                           width: "28%",
-                          minWidth: 250,
+                          minWidth: 350,
                           height: 40,
                         }}
                       >
@@ -387,7 +387,7 @@ const DashboardReviewConfirm = (props) => {
                           display: "flex",
                           // flexWrap: "wrap",
                           marginRight: 40,
-                          minWidth: 250,
+                          minWidth: 350,
                           height: 40,
                         }}
                       >
@@ -414,15 +414,15 @@ const DashboardReviewConfirm = (props) => {
                           display: "flex",
                           flexWrap: "wrap",
                           marginRight: 40,
-                          width: "38%",
-                          minWidth: 250,
+                          // width: "8%",
+                          // minWidth: 250,
                           height: 40,
                         }}
                       >
                         <h4
                           className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                           style={{
-                            height: 30,
+                            //height: 30,
                             fontWeight: 700,
                             marginRight: 10,
                           }}
@@ -647,9 +647,9 @@ const DashboardReviewConfirm = (props) => {
                         style={{
                           display: "flex",
                           flexWrap: "wrap",
-                          marginRight: 40,
+                          //marginRight: 40,
                           // width: "28%",
-                          minWidth: 250,
+                          minWidth: 350,
                           height: 40,
                         }}
                       >
@@ -738,8 +738,8 @@ const DashboardReviewConfirm = (props) => {
                           flexWrap: "wrap",
                           marginRight: 40,
                           width: "28%",
-                          minWidth: 250,
-                          height: 40,
+                          minWidth: 350,
+                          //height: 40,
                         }}
                       >
                         <h4
@@ -846,7 +846,7 @@ const DashboardReviewConfirm = (props) => {
                         Phone Number :
                       </h4>
                       <p
-                        // className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30 }}
                       >
                         {" "}
@@ -965,7 +965,6 @@ const DashboardReviewConfirm = (props) => {
 
                     {/* UnderGraduate Marks */}
 
-                    {academicInfo?.underGraduate.underGraduate && (
                       <div
                         style={{
                           display: "flex",
@@ -998,7 +997,6 @@ const DashboardReviewConfirm = (props) => {
                             : academicInfo?.semesterMarks}
                         </p>
                       </div>
-                    )}
 
                     {/* Post graduate Marks */}
                     {academicInfo?.postGraduteScore.postGraduteScore && (

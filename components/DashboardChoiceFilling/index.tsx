@@ -295,7 +295,7 @@ const DashboardChoiceFilling = ({
                         item
                         sm={12}
                         md={1}
-                        xs={2}
+                        // xs={2}
                       >
                         <div className="dashboard-basic-info__tableCell">
                           <div

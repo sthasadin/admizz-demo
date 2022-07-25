@@ -89,7 +89,7 @@ const AppliedCollege = ({ selectedCollege }) => {
                     item
                     sm={12}
                     md={6}
-                    xs={2}
+                    // xs={2}
                   >
                     <div
                       className="dashboard-basic-info__tableCell"

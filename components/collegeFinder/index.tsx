@@ -40,7 +40,6 @@ const CollegeFinder = () => {
             imgSrc="/college-finder/architecture.png"
             alt="art_logo"
             stream="architecture"
-
           />
           <CollegeFinderCard
             name="Art & Music"
@@ -48,7 +47,6 @@ const CollegeFinder = () => {
             imgSrc="/college-finder/music.png"
             alt="arts-music_logo"
             stream="art&music"
-
           />
           <CollegeFinderCard
             name="Commerce"
@@ -56,7 +54,6 @@ const CollegeFinder = () => {
             imgSrc="/college-finder/commerce.png"
             alt="commerce_logo"
             stream="commerce"
-
           />
           <CollegeFinderCard
             name="Computer Application"
@@ -64,23 +61,20 @@ const CollegeFinder = () => {
             imgSrc="/college-finder/computer.png"
             alt="computer_logo"
             stream="computerapplication"
-
           />
           <CollegeFinderCard
             name="Dental"
-           // count="1259"
+            // count="1259"
             imgSrc="/college-finder/Dental.png"
             alt="science_logo"
             stream="dental"
-
           />
           <CollegeFinderCard
             name="Design"
-           // count="1259"
+            // count="1259"
             imgSrc="/college-finder/design.png"
             alt="multimedia_logo"
             stream="design"
-
           />
           <CollegeFinderCard
             name="Engineering"
@@ -88,7 +82,6 @@ const CollegeFinder = () => {
             imgSrc="/college-finder/engineering.png"
             alt="science_logo"
             stream="engineering"
-
           />
           <CollegeFinderCard
             name="Education"
@@ -96,7 +89,6 @@ const CollegeFinder = () => {
             imgSrc="/college-finder/education.png"
             alt="education_logo"
             stream="education"
-
           />
 
           <CollegeFinderCard
@@ -105,7 +97,6 @@ const CollegeFinder = () => {
             imgSrc="/college-finder/law.png"
             alt="law_logo"
             stream="law"
-
           />
           {/* {showMore && (
             <> */}
@@ -115,53 +106,52 @@ const CollegeFinder = () => {
             imgSrc="/college-finder/management.png"
             alt="management_logo"
             stream="management"
-
           />
 
           <CollegeFinderCard
             name="Medical Science"
-           // count="1259"
+            // count="1259"
             imgSrc="/college-finder/medical-science.png"
             alt="medical-science_logo"
             stream="medicalscience"
-
           />
 
           <CollegeFinderCard
             name="Paramedical"
-           // count="1259"
+            // count="1259"
             imgSrc="/college-finder/paramedical.png"
             alt="social-psychology_logo"
             stream="paramedical"
-
           />
 
           <CollegeFinderCard
             name="Pharmacy"
-           // count="1259"
+            // count="1259"
             imgSrc="/college-finder/pharmacy.png"
             alt="travel_logo"
             stream="pharmacy"
-
           />
           <CollegeFinderCard
             name="Science"
-           // count="1259"
+            // count="1259"
             imgSrc="/college-finder/science.png"
             alt="social-psychology_logo"
             stream="science"
             className="displayNone"
-
           />
-
-        
         </div>
         <div className="collegeFinder__middle">
-          <CallToAction
+          {/* <CallToAction
             onClick={() => setShowMore((showMore) => !showMore)}
             className="collegeFinder__middle__btn"
           >
             {showMore ? "Hide categories" : "explore all categories"}
+          </CallToAction> */}
+          <CallToAction
+            className="collegeFinder__middle__btn"
+            onClick={() => router.push("/colleges")}
+          >
+            explore all categories
           </CallToAction>
         </div>
       </div>

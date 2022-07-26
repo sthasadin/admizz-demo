@@ -144,6 +144,7 @@ const DashboardBasicInfoPage = () => {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    localStorage.removeItem("academicInformation")
     // setStepTrack((stepTrack) => stepTrack - 1);
   };
 

@@ -77,6 +77,7 @@ const DashboardReviewConfirm = (props) => {
   const [formError, setFormError] = useState({} as any);
   const [msgType, setMsgType] = useState({} as any);
 
+  
   const handleClose = () => {
     setOpen(false);
   };
@@ -91,7 +92,9 @@ const DashboardReviewConfirm = (props) => {
   const handleCloseSnackbar = () => {
     setSnackOpen(false);
   };
-
+  useEffect(()=>{
+   
+  },[])
   // useEffect(() => {
   //   props.setShowExitPrompt(true); //to prevent from refreshing the page
   // }, []);
@@ -135,7 +138,6 @@ const DashboardReviewConfirm = (props) => {
   };
 
   const { basicInfo, backgroundInfo, academicInfo, selectedChoice } = props;
-  console.log("academicInfo", academicInfo);
   function truncateString(str, num = 20) {
     if (str?.length <= num) {
       return str;
@@ -229,7 +231,6 @@ const DashboardReviewConfirm = (props) => {
         }
 
         if (profileImage !== null) {
-          console.log("image", profileImage);
           const name = Math.random().toString(36).slice(1);
           const name2 = Math.random().toString(36).slice(1);
           const mixName = name + name2;
@@ -276,6 +277,8 @@ const DashboardReviewConfirm = (props) => {
           academicInformation,
           status,
           student_id: auth.currentUser.uid,
+          createdAt: new Date(),
+
         };
 
         await db
@@ -283,6 +286,7 @@ const DashboardReviewConfirm = (props) => {
           .doc()
           .set(appdata)
           .then(() => {
+            
             setMsgType("success");
 
             setFormError({

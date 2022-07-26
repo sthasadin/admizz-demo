@@ -232,11 +232,11 @@ export const DashboardAcademicInfo = (props) => {
           speaking: getData?.ielts?.subMars?.speaking,
         },
       });
-      setJeeAdvance(getData?.jeeAdvance);
+      setJeeAdvance(getData?.jeeAdvance );
       setLevel1Score(getData?.level1Score);
       setLevel2Score(getData?.level2Score);
       setSemesterMarks(getData?.semesterMarks);
-      setPostGraduteScore(getData?.postGraduteScore);
+      setPostGraduteScore(getData?.postGraduteScore );
       setSat(getData?.sat);
       setSatII(getData?.satII);
       setSchoolMarks(getData?.schoolMarks);
@@ -246,6 +246,7 @@ export const DashboardAcademicInfo = (props) => {
   }, [localStorage.getItem("academicInformation")]);
 
   const saveData = () => {
+    console.log('postGraduteScore',postGraduteScore)
     const data = {
       schoolMarks,
       level1Score,

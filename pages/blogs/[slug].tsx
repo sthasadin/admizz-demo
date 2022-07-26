@@ -5,6 +5,7 @@ import {
   WhatsappIcon,
   FacebookIcon,
 } from "react-share";
+import {ShareSocial} from 'react-share-social'; 
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { BlogLayout } from "../../layouts/BlogLayout";
@@ -24,6 +25,7 @@ import CommentSection from "../../components/BlogComment/comment";
 import { getBlogs } from "../../store/Action/blog.action";
 import { BlogListSimilarBlog } from "../../components/BlogListSimilarBlog";
 import { getComments } from "@/store/Action/Comment.action";
+import Link from "next/link";
 const blogDetail = () => {
   const router = useRouter();
   const { slug } = router.query;
@@ -96,7 +98,6 @@ const blogDetail = () => {
                   </DialogTitle>
                   <List className="blog-detail__listContainer">
                     <ListItem button className="blog-detail__listItemContainer">
-                      <a href={shareUrl} target="blank">
                         <ListItemAvatar>
                           <FacebookShareButton
                             url={shareUrl}
@@ -113,10 +114,11 @@ const blogDetail = () => {
                             </Avatar>
                           </FacebookShareButton>
                         </ListItemAvatar>
-                      </a>
-                      <ListItemText primary="Facebook" />
+                        <ListItemText primary="Facebook" />
+                      
+                    
                     </ListItem>
-
+          
                     <ListItem button>
                       <ListItemAvatar>
                         <WhatsappShareButton

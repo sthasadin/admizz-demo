@@ -295,13 +295,17 @@
     background-color: #e0e0e0;
     color: #000000;
     border-radius: 5px;
-    padding: 10px 40px;
+    padding: 10px 25px;
     padding-right: 40px !important;
     text-transform: inherit !important;
     box-shadow: none !important;
+    align-items: center;
     &:hover {
       background-color: #e0e0e0;
       color: #000000;
+    }
+    @media (max-width:363px) {
+          padding: 10px 10px;
     }
   }
 

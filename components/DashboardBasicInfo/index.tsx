@@ -258,6 +258,7 @@ const DashboardBasicInfo = (props) => {
       const isValid = await validate();
 
       if (isValid) {
+      
         let data = {
           selectedLevel: {
             label: selectedLevel.label,

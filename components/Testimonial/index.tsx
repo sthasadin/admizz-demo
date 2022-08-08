@@ -189,13 +189,20 @@ const Testimonial = (props: any) => {
                             }}
                           >
                             <Fade in={open}>
-                              <div>
-                                <RTReactPlayer
+                              <div className="react-player-container">
+                                <div
+                                  className="cross-icon"
+                                  onClick={handleClose}
+                                >
+                                  X
+                                </div>
+                                <ReactPlayer
                                   url={
                                     selectedTestimonial?.video_url
                                       ? selectedTestimonial?.video_url
                                       : "#"
                                   }
+                                  className="react-player"
                                 />
                               </div>
                             </Fade>
@@ -264,44 +271,45 @@ const Testimonial = (props: any) => {
                               />
                             </svg>
                           </div>
-                          <div
-                            className="testimonial__play-icon"
-                            onClick={handleOpen}
-                          >
-                            <svg
-                              width="99"
-                              height="99"
-                              viewBox="0 0 99 99"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
+                          {selectedTestimonial?.video_url && (
+                            <div
+                              className="testimonial__play-icon"
+                              onClick={handleOpen}
                             >
-                              <circle
-                                opacity="0.2"
-                                cx="49.5"
-                                cy="49.5"
-                                r="49.5"
-                                fill="#5F1802"
-                              />
-                              <circle
-                                opacity="0.5"
-                                cx="49.5"
-                                cy="49.5"
-                                r="42.5"
-                                fill="#5F1802"
-                              />
-                              <circle
-                                cx="49.5"
-                                cy="49.5"
-                                r="34.5"
-                                fill="#5F1802"
-                              />
-                              <path
-                                d="M41.3348 38.6761C41.3348 37.1365 43.0014 36.1743 44.3348 36.9441L63.4257 47.9662C64.759 48.736 64.759 50.6605 63.4257 51.4303L44.3348 62.4525C43.0014 63.2223 41.3348 62.26 41.3348 60.7204L41.3348 38.6761Z"
-                                fill="#FFA200"
-                              />
-                            </svg>
-                          </div>
-
+                              <svg
+                                width="99"
+                                height="99"
+                                viewBox="0 0 99 99"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  opacity="0.2"
+                                  cx="49.5"
+                                  cy="49.5"
+                                  r="49.5"
+                                  fill="#5F1802"
+                                />
+                                <circle
+                                  opacity="0.5"
+                                  cx="49.5"
+                                  cy="49.5"
+                                  r="42.5"
+                                  fill="#5F1802"
+                                />
+                                <circle
+                                  cx="49.5"
+                                  cy="49.5"
+                                  r="34.5"
+                                  fill="#5F1802"
+                                />
+                                <path
+                                  d="M41.3348 38.6761C41.3348 37.1365 43.0014 36.1743 44.3348 36.9441L63.4257 47.9662C64.759 48.736 64.759 50.6605 63.4257 51.4303L44.3348 62.4525C43.0014 63.2223 41.3348 62.26 41.3348 60.7204L41.3348 38.6761Z"
+                                  fill="#FFA200"
+                                />
+                              </svg>
+                            </div>
+                          )}
                           <MTModal
                             aria-labelledby="transition-modal-title"
                             aria-describedby="transition-modal-description"
@@ -315,13 +323,16 @@ const Testimonial = (props: any) => {
                             }}
                           >
                             <Fade in={open}>
-                              <div>
-                                <RTReactPlayer
-                                  url={
-                                    selectedTestimonial?.video_url
-                                      ? selectedTestimonial?.video_url
-                                      : "#"
-                                  }
+                              <div className="react-player-container">
+                                <div
+                                  className="cross-icon"
+                                  onClick={handleClose}
+                                >
+                                  X
+                                </div>
+                                <ReactPlayer
+                                  url={selectedTestimonial?.video_url}
+                                  className="react-player"
                                 />
                               </div>
                             </Fade>

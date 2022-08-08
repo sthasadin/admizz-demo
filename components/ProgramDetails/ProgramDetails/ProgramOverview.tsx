@@ -17,7 +17,9 @@ const ProgramOverview = ({ data, collegeBarSticky }) => {
     <div className={`program-overview section-container `} id="overview">
       <div className="title-content">
         <div className="title-text">Overview</div>
-        <div className="title-date">Updated On: {moment(data?.updatedAt).format("YYYY MMM DD")}</div>
+        <div className="title-date">
+          Updated On: {moment(data?.updatedAt).format("YYYY MMM DD")}
+        </div>
       </div>
       <div className="overview-text-description">
         {renderHTML(data?.overview)}
@@ -50,8 +52,8 @@ const ProgramOverview = ({ data, collegeBarSticky }) => {
         </div>
       </div>
 
-      <div className="admission-container" id="similar-colleges">
-        <div className="course-title">Similar Colleges</div>
+      <div id="similarcolleges" className="admission-process">
+        {/* <div className="course-title">Similar Colleges</div> */}
         <div className="collegeBlock_list">
           {/* <Carousel data={collegeList.slice(0, 6)} /> */}
         </div>

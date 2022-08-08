@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-scroll";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -16,28 +16,15 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const dispatch = useDispatch();
-  const college = useSelector((state:any) => state.college.college);
+  const college = useSelector((state: any) => state.college.college);
   const { user } = useContext(AuthContext);
 
   const handleClick = () => {
-    let data = {"college":college._id,"user":user.uid}
-    dispatch(addToFavourites(data))
+    let data = { college: college._id, user: user.uid };
+    dispatch(addToFavourites(data));
     setClick((click) => !click);
     setSnackOpen(true);
-  }
-
-  // const handleScroll = () => {
-  //   if (window.scrollY > 390) {
-  //     setCollegeBarSticky(true);
-  //   } else {
-  //     setCollegeBarSticky(false);
-  //   }
-  // };
-  // React.useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, []);
+  };
 
   return (
     <div
@@ -57,10 +44,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
               </div>
               <div className="college_content__right">
                 <div className="college-right-content">
-                  <div
-                    className="task__logo"
-                    onClick={handleClick}
-                  >
+                  <div className="task__logo" onClick={handleClick}>
                     <svg
                       width="22"
                       height="20"
@@ -76,7 +60,9 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
                       />
                     </svg>
                   </div>
-                  <div className="task__title" onClick={handleClick}>Add to Favourite</div>
+                  <div className="task__title" onClick={handleClick}>
+                    Add to Favourite
+                  </div>
                 </div>
               </div>
             </div>
@@ -100,7 +86,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
           </li>
           <li>
             <Link
-              to="similar-colleges"
+              to="similarcolleges"
               offset={-118}
               spy={true}
               className="submenu__item"
@@ -119,15 +105,16 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
               Course Outline
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link
               to="career-option"
               offset={-118}
               spy={true}
-              className="submenu__item">
+              className="submenu__item"
+            >
               Career Opportunities
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       <Snackbar

@@ -76,7 +76,7 @@ const ContactForm = () => {
   };
 
   const handleRegister = async () => {
-    setLoading(true);
+    // setLoading(true);
     const valid = await validate();
     if (valid) {
       db.collection("contact")
@@ -97,7 +97,7 @@ const ContactForm = () => {
             query: "",
           });
           // setLoading(false);
-          setLoading(false);
+          setLoading(true);
         })
         .catch(function (error) {
           setLoading(false);
@@ -112,51 +112,73 @@ const ContactForm = () => {
         <div className="contact-form__header">Contact Details</div>
         <div>
           <div className="contact-form__india-office-container">
-            <img src={indiaOffice} style={{height:54,width:54}}/>
-            <div className="contact-form__office-details" style={{marginTop:-12}}>
-              <div className="contact-form__details-header" style={{fontSize:16}}>India Office</div>
-              <div className="contact-form__details-content">
-                <img src={location} style={{height:20,width:20}}/>
-                <span style={{fontSize:14,marginTop:-15}}>
-                    2nd Floor, Jayaram Building, Kanakapura Rd, 
-                 
-                    Gubbalala, Bengaluru, Karnataka 560062
-                                      
-                  </span>
+            <img src={indiaOffice} style={{ height: 54, width: 54 }} />
+            <div
+              className="contact-form__office-details"
+              style={{ marginTop: -12 }}
+            >
+              <div
+                className="contact-form__details-header"
+                style={{ fontSize: 16 }}
+              >
+                India Office
               </div>
               <div className="contact-form__details-content">
-                <img src={telephone} style={{height:20,width:20}} />
-                <span style={{fontSize:14,marginTop:-13}}>+91 805 0259 693</span>
+                <img src={location} style={{ height: 20, width: 20 }} />
+                <span style={{ fontSize: 14, marginTop: -15 }}>
+                  2nd Floor, Jayaram Building, Kanakapura Rd, Gubbalala,
+                  Bengaluru, Karnataka 560062
+                </span>
+              </div>
+              <div className="contact-form__details-content">
+                <img src={telephone} style={{ height: 20, width: 20 }} />
+                <span style={{ fontSize: 14, marginTop: -13 }}>
+                  +91 805 0259 693
+                </span>
               </div>
             </div>
-
-            
           </div>
           <div className="contact-form__india-office-container">
-            <img src={usaOffice} style={{height:54,width:54}}/>
-            <div className="contact-form__office-details" style={{marginTop:-12}}>
-              <div className="contact-form__details-header" style={{fontSize:16}}>USA Office</div>
-              <div className="contact-form__details-content" >
-                <img src={location} style={{height:20,width:20}}/>
-                <span style={{fontSize:14,marginTop:-15}}>
-                USA 1912 E Hardvard Dr Denver, CO 
-                  </span>
+            <img src={usaOffice} style={{ height: 54, width: 54 }} />
+            <div
+              className="contact-form__office-details"
+              style={{ marginTop: -12 }}
+            >
+              <div
+                className="contact-form__details-header"
+                style={{ fontSize: 16 }}
+              >
+                USA Office
               </div>
               <div className="contact-form__details-content">
-                <img src={telephone} style={{height:20,width:20}} />
-                <span style={{fontSize:14,marginTop:-13}}>+1(719) 398-1707</span>
+                <img src={location} style={{ height: 20, width: 20 }} />
+                <span style={{ fontSize: 14, marginTop: -15 }}>
+                  USA 1912 E Hardvard Dr Denver, CO
+                </span>
+              </div>
+              <div className="contact-form__details-content">
+                <img src={telephone} style={{ height: 20, width: 20 }} />
+                <span style={{ fontSize: 14, marginTop: -13 }}>
+                  +1(719) 398-1707
+                </span>
               </div>
             </div>
-
-            
           </div>
           <div className="contact-form__india-office-container">
-            <img src={nepalOffice} style={{height:54,width:54}} />
-            <div className="contact-form__office-details" style={{marginTop:-12}}>
-              <div className="contact-form__details-header" style={{fontSize:16}}>Nepal Office</div>
+            <img src={nepalOffice} style={{ height: 54, width: 54 }} />
+            <div
+              className="contact-form__office-details"
+              style={{ marginTop: -12 }}
+            >
+              <div
+                className="contact-form__details-header"
+                style={{ fontSize: 16 }}
+              >
+                Nepal Office
+              </div>
               <div className="contact-form__details-content">
                 <img src={location} />
-                <span style={{fontSize:14,marginTop:-15}}>
+                <span style={{ fontSize: 14, marginTop: -15 }}>
                   Ground Floor, Putalisadak,
                   <br />
                   Kathmandu (Oppo to Raymond Tailor)
@@ -164,32 +186,39 @@ const ContactForm = () => {
               </div>
               <div className="contact-form__details-content">
                 <img src={telephone} />
-                <span style={{fontSize:14,marginTop:-13}}>+977 9802728444</span>
+                <span style={{ fontSize: 14, marginTop: -13 }}>
+                  +977 9802728444
+                </span>
               </div>
             </div>
-          </div>
-          {" "}
+          </div>{" "}
           <div className="contact-form__india-office-container">
-            <img src={bangladeshOffice} style = {{height:54,width:54}} />
+            <img src={bangladeshOffice} style={{ height: 54, width: 54 }} />
             <div className="contact-form__office-details">
-              <div className="contact-form__details-header" style={{fontSize:16}}>
+              <div
+                className="contact-form__details-header"
+                style={{ fontSize: 16 }}
+              >
                 Bangladesh Office
               </div>
               <div className="contact-form__details-content">
-                <img src={location}  style={{height:20,width:20}} />
-                <span style={{fontSize:14,marginTop:-15}}>
+                <img src={location} style={{ height: 20, width: 20 }} />
+                <span style={{ fontSize: 14, marginTop: -15 }}>
                   Bogra Tole, Bogura 5800,
                   <br />
                   Bangladesh
                 </span>
               </div>
               <div className="contact-form__details-content">
-                <img src={telephone} style={{height:20,width:20}} />
-                <span style={{ fontSize: 14,marginTop:-13 }}> +880 1775 639993</span>
+                <img src={telephone} style={{ height: 20, width: 20 }} />
+                <span style={{ fontSize: 14, marginTop: -13 }}>
+                  {" "}
+                  +880 1775 639993
+                </span>
               </div>
             </div>
           </div>
-          <div className="contact-form__email-us" style={{marginTop:32}}>
+          <div className="contact-form__email-us" style={{ marginTop: 32 }}>
             Prefer Email? Email us at:
             <div className="contact-form_email-holder">
               <img src={email} />
@@ -201,8 +230,8 @@ const ContactForm = () => {
       <div className="contact-form__lets-talk">
         <div className="contact-form__header">Let's Talk</div>
         <div className="contact-form__message">
-          Please tell us a bit about you, your query, and how best to reach
-          you. We’ll get right back to you.
+          Please tell us a bit about you, your query, and how best to reach you.
+          We’ll get right back to you.
         </div>
         <Input
           name={"name"}
@@ -272,7 +301,7 @@ const ContactForm = () => {
             <Button
               onClick={handleRegister}
               className="contact-form__send-message"
-              disabled={loading}
+              // disabled={loading}
               // loading={loading}
             >
               Send Message

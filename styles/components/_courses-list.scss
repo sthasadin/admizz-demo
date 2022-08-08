@@ -1,9 +1,9 @@
 .courses-list {
   display: flex;
   align-items: center;
-  @media (max-width: 414px) {
-    flex-direction: column;
-  }
+  // @media (max-width: 414px) {
+  //   flex-direction: column;
+  // }
   .active {
     border-color: #ffa200;
     background-color: #ffa200;

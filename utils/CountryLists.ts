@@ -510,7 +510,7 @@ const countryList = [
   },
   {
   	label: 'Nepal',
-  	value: 'Nepal'
+  	value: 'nepal'
   },
   {
   	label: 'Netherlands',

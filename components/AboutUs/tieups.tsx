@@ -17,32 +17,31 @@ const tieups = ({ college }) => {
   }, []);
 
   return (
-     <div className="us__feature">
-        <div className="section-wrapper">
-          
-          <div className="our-exclusive-container">
-            <div className="our-exclusive-content">
-              <div className="our-trusted-text">Our trusted partner</div>
-              <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
-              <div className="university-list">
-                {tieupList &&
-                  tieupList?.map((item) => {
-                    return (
-                      <div>
-                        <div className="university-icon">
-                          <img src={item?.image_url} />
-                        </div>
-                        <a href={item?.college_url}>
-                          <div className="university-name">{item?.name}</div>
-                        </a>
+    <div className="us__feature">
+      <div className="section-wrapper">
+        <div className="our-exclusive-container">
+          <div className="aboutus-exclusive-content">
+            <div className="our-trusted-text">Our trusted partner</div>
+            <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
+            <div className="university-list">
+              {tieupList &&
+                tieupList?.map((item) => {
+                  return (
+                    <div>
+                      <div className="university-icon">
+                        <img src={item?.image_url} />
                       </div>
-                    );
-                  })}
-              </div>
+                      <a href={item?.college_url}>
+                        <div className="university-name">{item?.name}</div>
+                      </a>
+                    </div>
+                  );
+                })}
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

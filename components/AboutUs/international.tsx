@@ -7,15 +7,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { LeftOne, RightOne } from "@icon-park/react";
 
-
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
       style={{
-        ...style, display: "block", background:
-          "#FFAD32",
+        ...style,
+        display: "block",
+        background: "#FFAD32",
       }}
       onClick={onClick}
     >
@@ -30,8 +30,9 @@ function SamplePrevArrow(props) {
     <div
       className={className}
       style={{
-        ...style, display: "block", background:
-          "#FFAD32"
+        ...style,
+        display: "block",
+        background: "#FFAD32",
       }}
       onClick={onClick}
     >
@@ -64,9 +65,7 @@ const international = () => {
       <div className="aboutus-exclusive-content">
         <div className="our-trusted-text">We are international</div>
         <div className="aboutus-exclusive-title">
-
           We Have Served Students From 50+ Countries
-
         </div>
         <div className="international-map">
           <img src="grey-world-map.png" alt="" />
@@ -79,7 +78,6 @@ const international = () => {
             What our universities and institutions have to say about us.
           </div>
           <div className="aboutus-testimonial-wrapper">
-
             <Slider {...settings}>
               {/* <AboutusCard data={universityTestimonial} /> */}
 
@@ -88,30 +86,27 @@ const international = () => {
                   <div>
                     <div className="about-us__card">
                       <blockquote>
-                        <p>
-
-                          {item?.description}
-                        </p>{" "}
+                        <p>{item?.description}</p>{" "}
                       </blockquote>
                     </div>
                     <div className="about-us__cardImage">
                       {/* <Image width={70} height={70} src='/colleges-logo.png' /> */}
-                      <img 
-                      src={item?.image}
-                      style={{objectFit:'cover',
-                    height:80,width:80,borderRadius:'50%',borderColor:'#E0E0E0'}}
+                      <img
+                        src={item?.image}
+                        style={{
+                          objectFit: "cover",
+                          height: 80,
+                          width: 80,
+                          borderRadius: "50%",
+                          borderColor: "#E0E0E0",
+                        }}
                       />
                       <p>{item?.name}</p>
                     </div>
                   </div>
-
-
-                )
-              })
-
-              }
-              </Slider>
-              
+                );
+              })}
+            </Slider>
           </div>
         </div>
       </div>

@@ -271,7 +271,7 @@ const index = () => {
                       <div className="placement__studentdetails">
                         <span className="almoni-batch-name">{alumni.name}</span>
                         <span className="almoni-batch-details">
-                          batch {alumni.batch_year}
+                          Batch {alumni.batch_year}
                         </span>
                       </div>
                     </div>

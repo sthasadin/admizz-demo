@@ -242,11 +242,10 @@ const CounselingStepper = () => {
           fullname: formValue.name,
           email: formValue.email,
           contact: formValue.phone,
+          contact_id: formValue.contact_id,
           contact_code: formValue.countryCode,
           course: formValue.course,
-          appointment_date: moment(formValue.date).format(
-            "MMMM Do YYYY, h:mm a"
-          ),
+          appointment_date: moment(formValue.date).format("MMM DD YYYY") + " - " + formValue.time,
           country: formValue.home_country,
         },
         message: formValue.description || "",

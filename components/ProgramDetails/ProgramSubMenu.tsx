@@ -84,7 +84,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
               About Course
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link
               to="similarcolleges"
               offset={-118}
@@ -93,7 +93,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
             >
               Colleges
             </Link>
-          </li>
+          </li> */}
 
           <li>
             <Link
@@ -105,7 +105,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
               Course Outline
             </Link>
           </li>
-          {/* <li>
+          <li>
             <Link
               to="career-option"
               offset={-118}
@@ -114,7 +114,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
             >
               Career Opportunities
             </Link>
-          </li> */}
+          </li>
         </ul>
       </div>
       <Snackbar

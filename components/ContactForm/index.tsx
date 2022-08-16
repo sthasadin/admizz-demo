@@ -177,7 +177,7 @@ const ContactForm = () => {
                 Nepal Office
               </div>
               <div className="contact-form__details-content">
-                <img src={location} />
+                <img src={location} style={{ height: 20, width: 20 }} />
                 <span style={{ fontSize: 14, marginTop: -15 }}>
                   Ground Floor, Putalisadak,
                   <br />

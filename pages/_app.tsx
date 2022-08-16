@@ -5,6 +5,7 @@ import Router from "next/router";
 import { AppProps } from "next/app";
 import { AuthProvider } from "./AuthContext";
 import { Provider } from "react-redux";
+import favIcon from "../public/admizz.png";
 
 // import { createWrapper } from "next-redux-wrapper";
 import store from "../store/store";
@@ -27,6 +28,13 @@ if (typeof window !== "undefined") {
 const PProvider: any = Provider;
 const MyApp = ({ Component, pageProps }: AppProps) => {
   <Head>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      sizes="10x20"
+      href="../public/admizz-10x20.png"
+    />
+
     <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
   </Head>;
   React.useEffect(() => {

@@ -20,7 +20,7 @@ const Datepicker = ({ handleChange, formValue }) => {
     return moment(current).isAfter(yesterday);
   };
 
-  let addFutureDay = new Date();
+  let addFutureDay: any = new Date();
   addFutureDay = moment(addFutureDay).add(1, "day").format("MM/DD/YYYY");
   const FutureMonthAdd = moment(addFutureDay, "MM/DD/YYYY").toDate();
 

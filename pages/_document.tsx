@@ -1,12 +1,19 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
-
+import favIcon from "../public/admizz.png";
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
+          <link
+            rel="shortcut icon"
+            type="image/png"
+            sizes="50x62"
+            href="../public/admizz-50x20.png"
+          />
+
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"

@@ -1,3 +1,4 @@
+import { Today } from "@material-ui/icons";
 import moment from "moment";
 import React, { useState } from "react";
 import Calendar from "react-calendar";
@@ -14,11 +15,14 @@ const Datepicker = ({ handleChange, formValue }) => {
     });
   };
 
-
   const disablePastDt = (current) => {
     const yesterday = moment().subtract(1, "day");
     return moment(current).isAfter(yesterday);
   };
+
+  let addFutureDay = new Date();
+  addFutureDay = moment(addFutureDay).add(1, "day").format("MM/DD/YYYY");
+  const FutureMonthAdd = moment(addFutureDay, "MM/DD/YYYY").toDate();
 
   return (
     <Calendar
@@ -26,9 +30,8 @@ const Datepicker = ({ handleChange, formValue }) => {
       onChange={onChange}
       value={formValue.date ? formValue.date : new Date()}
       // tileDisabled={() => disablePastDt(moment())}
-      minDate={moment().toDate()}
-
-      // showNeighboringMonth="false"
+      // minDate={moment().toDate()}
+      minDate={FutureMonthAdd}
     />
   );
 };

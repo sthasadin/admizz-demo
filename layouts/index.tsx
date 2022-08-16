@@ -10,6 +10,7 @@ const index = (props) => {
       <Topbar />
       <Head>
         <title>Admizz - {props.title}</title>
+
         <link rel="icon" href="favicon.svg" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ReactPlayer from "react-player";
-
+import gallery0 from "../../public/gallery8.png";
 import gallery1 from "../../public/gallery1.png";
 import gallery2 from "../../public/gallery2.png";
 import gallery3 from "../../public/gallery3.png";
@@ -23,6 +23,7 @@ const CollegeGallery = (props) => {
     (video) => video && video !== ""
   );
   const gallery = useSelector((state: any) => state.gallery.gallery);
+  console.log("gallery", gallery);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(getGallery(college._id));
@@ -40,7 +41,7 @@ const CollegeGallery = (props) => {
     setIsOpen(true);
   };
 
-  return images?.length || videos?.length ? (
+  return (
     <div id="gallery" className="college-gallery">
       <div className="college-gallery__inner">
         <div className="college-gallery__title-wrap">
@@ -48,14 +49,14 @@ const CollegeGallery = (props) => {
           {/* <div className="college-gallery__title__cta">Explore Gallery</div> */}
         </div>
         <div className="college-gallery__heading">
-          Photos <span>{images?.length}</span>
+          Photos <span>{/* {images?.length} */}</span>
         </div>
         <div className="college-gallery__list">
           <div className="college-gallery__left">
             <div className="college-gallery__left__t">
               <div className="college-gallery__left__t__l">
                 <div className="college-gallery__item">
-                  <img src={images?.[0] || gallery} alt="" />
+                  <img src={images?.[0] || gallery0} alt="" />
                 </div>
                 <div className="college-gallery__item">
                   <img src={images?.[1] || gallery1} alt="" />
@@ -89,7 +90,7 @@ const CollegeGallery = (props) => {
               <div className="college-gallery__item">
                 <img src={images?.[7] || gallery7} alt="" />
               </div>
-              {images.length < 8 ? (
+              {images?.length < 8 ? (
                 <div className="college-gallery__item">
                   <img src={images?.[8] || gallery8} alt="" />
                 </div>
@@ -133,7 +134,7 @@ const CollegeGallery = (props) => {
           </div>
         </div>
         <div className="college-gallery__heading">
-          Videos <span>({newVideos?.length})</span>
+          Videos <span>{/* ({newVideos?.length}) */}</span>
         </div>
         {newVideos?.length > 0 && (
           <div className="college-gallery__video">
@@ -211,7 +212,7 @@ const CollegeGallery = (props) => {
         )}
       </div>
     </div>
-  ) : null;
+  );
 };
 
 export { CollegeGallery };

@@ -35,6 +35,7 @@ nav.navigation {
         &:hover::after {
           width: 100%;
           transition: width 500ms;
+          margin-left: 10px;
         }
       }
     }

@@ -27,6 +27,7 @@ interface AcademicFormField {
   underGraduate?: string;
   postGraduteScore?: string;
   certificatesImage?: CertificateI;
+  // otherCertificate?: string;
 }
 
 interface CertificateI {
@@ -42,6 +43,7 @@ function Alert(props: AlertProps) {
 
 export const DashboardAcademicInfo = (props) => {
   const [schoolMarks, setSchoolMarks] = useState({ schoolMarks: "" });
+  const [otherCertificate, setOtherCertificate] = useState("");
   const [selectedCourse, setselectedCourse] = useState("");
   // const [level0Score, setLevel0Score] = useState("");
   // const [diplomaScore, setDiplomaScore] = useState("");
@@ -73,7 +75,7 @@ export const DashboardAcademicInfo = (props) => {
     school: null,
     under_Graduate: null,
     post_Gradute: null,
-    other: null,
+    other: otherCertificate,
   });
 
   const [showClass11Marks, setShowClass11Marks] = useState(false);
@@ -91,11 +93,12 @@ export const DashboardAcademicInfo = (props) => {
               .required("Please upload your School certificate"),
           }),
         });
-      
+
       case "highSchool":
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
-          level2Score: !level1Score&& yup.string().required("Level 2 Marks is required"),
+          level2Score:
+            !level1Score && yup.string().required("Level 2 Marks is required"),
           certificatesImage: yup.object().shape<CertificateI>({
             school: yup
               .string()
@@ -107,11 +110,12 @@ export const DashboardAcademicInfo = (props) => {
               .required("Please upload your High School certificate"),
           }),
         });
-        case "undergraduate":
+      case "undergraduate":
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
-          level2Score:!level1Score&& yup.string().required("Level 2 Marks is required"),
-          
+          level2Score:
+            !level1Score && yup.string().required("Level 2 Marks is required"),
+
           certificatesImage: yup.object().shape<CertificateI>({
             highSchool: yup
               .string()
@@ -121,34 +125,32 @@ export const DashboardAcademicInfo = (props) => {
               .string()
               .nullable()
               .required("Please upload your School certificate"),
-            
           }),
         });
       case "postgraduate":
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
-         level2Score: yup.string().required("Level 2 Marks is required"),
-          underGraduate:  !semesterMarks&&yup
-            .string()
-            .required("Undergraduate Marks is required"),
-         
+          level2Score: yup.string().required("Level 2 Marks is required"),
+          underGraduate:
+            !semesterMarks &&
+            yup.string().required("Undergraduate Marks is required"),
+
           certificatesImage: yup.object().shape<CertificateI>({
-              school: yup
+            school: yup
               .string()
               .nullable()
               .required("Please upload your School certificate"),
             highSchool: yup
               .string()
               .nullable()
-              .required("Please upload your High School certificate"),         
+              .required("Please upload your High School certificate"),
             under_Graduate: yup
               .string()
               .nullable()
               .required("Please upload your Under Graduate certificate"),
-           
           }),
         });
-         case "phd":
+      case "phd":
         return yup.object().shape<AcademicFormField>({
           schoolMarks: yup.string().required("School Marks is required"),
           level2Score: yup.string().required("Level 2 Marks is required"),
@@ -159,14 +161,14 @@ export const DashboardAcademicInfo = (props) => {
             .string()
             .required("Post Graduate Marks is required"),
           certificatesImage: yup.object().shape<CertificateI>({
-              school: yup
+            school: yup
               .string()
               .nullable()
               .required("Please upload your School certificate"),
             highSchool: yup
               .string()
               .nullable()
-              .required("Please upload your High School certificate"),         
+              .required("Please upload your High School certificate"),
             under_Graduate: yup
               .string()
               .nullable()
@@ -193,7 +195,7 @@ export const DashboardAcademicInfo = (props) => {
             school: certificatesImage.school,
             under_Graduate: certificatesImage.under_Graduate,
             post_Gradute: certificatesImage.post_Gradute,
-            other: certificatesImage.other,
+            //otherCertificate: certificatesImage.other,
           },
         },
         {
@@ -204,7 +206,7 @@ export const DashboardAcademicInfo = (props) => {
       return true;
     } catch (err) {
       console.log("validation error");
-      
+
       setSnackOpen(true);
       const errors = {};
       err.inner.forEach((item: any) => {
@@ -232,21 +234,22 @@ export const DashboardAcademicInfo = (props) => {
           speaking: getData?.ielts?.subMars?.speaking,
         },
       });
-      setJeeAdvance(getData?.jeeAdvance );
+      setJeeAdvance(getData?.jeeAdvance);
       setLevel1Score(getData?.level1Score);
       setLevel2Score(getData?.level2Score);
       setSemesterMarks(getData?.semesterMarks);
-      setPostGraduteScore(getData?.postGraduteScore );
+      setPostGraduteScore(getData?.postGraduteScore);
       setSat(getData?.sat);
       setSatII(getData?.satII);
       setSchoolMarks(getData?.schoolMarks);
       setTofel(getData?.tofel);
       setUnderGraduate(getData?.underGraduate);
+      setOtherCertificate(getData?.otherCertificate);
     }
   }, [localStorage.getItem("academicInformation")]);
 
   const saveData = () => {
-    console.log('postGraduteScore',postGraduteScore)
+    console.log("postGraduteScore", postGraduteScore);
     const data = {
       schoolMarks,
       level1Score,
@@ -255,6 +258,7 @@ export const DashboardAcademicInfo = (props) => {
       // diplomaScore,
       postGraduteScore,
       underGraduate,
+      otherCertificate,
       gre: { ...gre, score: gre?.haveDone === "no" ? "" : gre.score },
       gmat: { ...gmat, score: gmat?.haveDone === "no" ? "" : gmat.score },
       sat: { ...sat, score: sat?.haveDone === "no" ? "" : sat.score },
@@ -298,6 +302,7 @@ export const DashboardAcademicInfo = (props) => {
       setLevel1Score(props.data.level1Score);
       setLevel2Score(props.data.level2Score);
       setSemesterMarks(props.data.semesterMarks);
+      setOtherCertificate(props.data.otherCertificate);
       // setDiplomaScore(props.data.diplomaScore);
       setPostGraduteScore(props.data.postGraduteScore);
       setUnderGraduate(props.data.underGraduate);
@@ -458,7 +463,7 @@ export const DashboardAcademicInfo = (props) => {
                     </Grid>
                   </>
                 )}
-                   {(selectedLevel == "postgraduate" ||
+                {(selectedLevel == "postgraduate" ||
                   selectedLevel == "phd") && (
                   <Grid
                     className={"dashboard-basic-info__grid"}
@@ -512,7 +517,6 @@ export const DashboardAcademicInfo = (props) => {
                         }
                         style={{ cursor: "pointer", marginLeft: "5px" }}
                       >
-                       
                         {selectedLevel === "postgraduate" && (
                           <u>
                             {showSemesterMarks
@@ -556,7 +560,6 @@ export const DashboardAcademicInfo = (props) => {
                     />
                   </Grid>
                 )}
-               
               </Grid>
 
               {/* -------------academic indentification section------------ */}
@@ -658,7 +661,7 @@ export const DashboardAcademicInfo = (props) => {
                   >
                     <Grid item sm={12} md={4} xs={12}>
                       <div className="dashboard-basic-info__subformTitle">
-                        High School Marks
+                        High School Certificate
                       </div>
                     </Grid>
                     <Grid
@@ -868,12 +871,18 @@ export const DashboardAcademicInfo = (props) => {
                 direction="row"
               >
                 <Grid item sm={12} md={4} xs={12}>
-                  <Input
+                  {/* <Input
                     type="text"
                     className={"dashboard-basic-info__input"}
                     fullWidth
                     label="Other Certificate"
-                  />
+                    value={otherCertificate}
+                    onChange={(e) => setOtherCertificate(e.target.value)}
+                    name="otherCertificate"
+                  /> */}
+                  <div className="dashboard-basic-info__subformTitle">
+                    Other Certificate
+                  </div>
                 </Grid>
 
                 <Grid
@@ -916,7 +925,7 @@ export const DashboardAcademicInfo = (props) => {
                 <Grid item sm={5} md={4} xs={5} style={{ alignSelf: "center" }}>
                   {certificatesImage?.other && (
                     <div style={{ display: "flex", alignItems: "center" }}>
-                      {truncateString(certificatesImage.other.name, 10)}{" "}
+                      {/* {truncateString(certificatesImage.other.name, 10)}{" "} */}
                       <img
                         src="/check.png"
                         alt="check"

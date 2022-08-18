@@ -191,6 +191,7 @@ const CounselingStepper = () => {
           abortEarly: false,
         }
       );
+
       setFormError({});
       return true;
     } catch (err) {
@@ -198,7 +199,9 @@ const CounselingStepper = () => {
       err.inner?.forEach((item: any) => {
         errors[item.path] = item.errors[0];
       });
-      setFormError({ ...errors });
+      // setFormError({ ...errors });
+
+      setBookingError("Please Select all above fields to continue");
     }
   };
 
@@ -233,7 +236,6 @@ const CounselingStepper = () => {
 
   const handleBook = async () => {
     try {
-      // setLoading(true);
       const selectedCouns =
         counsellorArray?.filter((item) => item.id === formValue.counsellor) ||
         [];
@@ -273,16 +275,15 @@ const CounselingStepper = () => {
       const res = await dispatch<any>(bookingCounsellorMail(emaiData));
 
       if (res.isSuccess && isTermChecked) {
-        setSnackOpen(true);
         setLoading(true);
+        setSnackOpen(true);
         setTimeout(() => {
           router.push("/");
         }, 1000);
       } else {
         setCheckValidation(true);
-        setLoading(true);
+        setLoading(false);
       }
-      setLoading(false);
     } catch (error) {
       setLoading(false);
       console.error("Error adding document: ", error);
@@ -316,7 +317,6 @@ const CounselingStepper = () => {
   };
 
   const handleNext = async () => {
-
     const valid = await dateTimeValidate();
 
     if (valid) {

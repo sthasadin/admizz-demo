@@ -101,9 +101,9 @@
     line-height: 21px;
   }
   &__newsletter {
-    @media (max-width: 500px) {
-      display: none;
-    }
+    // @media (max-width: 500px) {
+    //   display: none;
+    // }
     &__title {
       font-size: 18px;
       font-weight: 500;

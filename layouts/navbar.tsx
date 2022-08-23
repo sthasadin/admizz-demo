@@ -165,6 +165,14 @@ const Navbar = (props: any) => {
               <div className="navbar__countryname">India:</div>
               <div className="navbar__contactnumber">+91 8050259693</div>
             </div>
+            <div className="navbar__contact2">
+              <div className="navbar__countryname">USA:</div>
+              <div className="navbar__contactnumber">+1(719) 398-1707</div>
+            </div>
+            <div className="navbar__contact4">
+              <div className="navbar__countryname">Bangladesh:</div>
+              <div className="navbar__contactnumber"> +880 1775 639993</div>
+            </div>
           </div>
 
           <div className="navbar__contactdetails">
@@ -179,6 +187,14 @@ const Navbar = (props: any) => {
             <div className="navbar__contact2">
               {/* <div className="navbar__countryname">India:</div> */}
               <div className="navbar__contactnumber">Bangaluru,Karnataka</div>
+            </div>
+            <div className="navbar__contact2">
+              {/* <div className="navbar__countryname">India:</div> */}
+              <div className="navbar__contactnumber">1912 E Hardvard Dr Denver, CO</div>
+            </div>
+            <div className="navbar__contact2">
+              {/* <div className="navbar__countryname">India:</div> */}
+              <div className="navbar__contactnumber">  Bogra Tole, Bogura 5800</div>
             </div>
           </div>
         </div>

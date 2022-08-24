@@ -2,19 +2,15 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import SearchIcon from "@material-ui/icons/Search";
-import { Fab } from "@material-ui/core";
-import ArrowUpward from "@material-ui/icons/KeyboardArrowUp";
 import Layout from "../../layouts";
 import { Input } from "../../components/Input";
 import { CollegeListSideBar } from "../../components/CollegeLIstSideBar";
 import { CollegeListResult } from "../../components/CollegeListResult";
-import { BackTop } from "antd";
 import {
   getCollegeByLimit,
   getCollegeByFilter,
   getCollegeBySearch,
 } from "../../store/Action/college.action";
-import BackToTop from "react-back-to-top-button";
 import ScrollToTop from "react-scroll-to-top";
 import {
   getCountryList,
@@ -24,7 +20,6 @@ import {
   getCourseLevel,
   getProgramName,
 } from "../../store/Action/filter.action";
-import { BackgroundColor } from "@icon-park/react";
 
 const collegeList = () => {
   const [collegeListSearchQuery, setCollegeListSearchQuery] = useState("");

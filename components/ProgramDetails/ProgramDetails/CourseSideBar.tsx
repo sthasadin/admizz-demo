@@ -16,7 +16,7 @@ const CourseSideBar = ({ data, collegeBarSticky }) => {
       </Link>
 
       <SimilarCourses data={data} />
-      <NewsOnCollege title="Subjects covered" />
+      <NewsOnCollege />
     </aside>
   );
 };

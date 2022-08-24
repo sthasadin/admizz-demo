@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   FacebookShareButton,
   WhatsappShareButton,
   WhatsappIcon,
   FacebookIcon,
 } from "react-share";
-import {ShareSocial} from 'react-share-social'; 
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { BlogLayout } from "../../layouts/BlogLayout";
@@ -25,21 +24,42 @@ import CommentSection from "../../components/BlogComment/comment";
 import { getBlogs } from "../../store/Action/blog.action";
 import { BlogListSimilarBlog } from "../../components/BlogListSimilarBlog";
 import { getComments } from "@/store/Action/Comment.action";
-import Link from "next/link";
+import { AiOutlineShareAlt } from "react-icons/ai";
+import { log } from "util";
 const blogDetail = () => {
   const router = useRouter();
   const { slug } = router.query;
   const dispatch = useDispatch();
 
   const [open, setOpen] = React.useState(false);
+  const [showShareOptions, setShowShareOptions] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const handleClose = () => {
+    // setOpen(false);
+    setShowShareOptions(false);
+  };
+  const modalRef = useRef(null);
+  function useOutside(ref, modal, handleClose) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (modal) {
+          if (ref.current && !ref.current.contains(event.target)) {
+            handleClose();
+          }
+        }
+      }
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref, modal]);
+  }
   const handleClickOpen = () => {
     setOpen(true);
   };
+  useOutside(modalRef, showShareOptions, handleClose);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
   const blogs = useSelector((state: any) => state.blog.blogs);
 
   useEffect(() => {
@@ -58,6 +78,16 @@ const blogDetail = () => {
     dispatch(getComments(blog._id));
   }, [blog, newComment]);
 
+  useEffect(() => {
+    if (showShareOptions) {
+      const share_class = document.getElementsByClassName(
+        'react-share__ShareButton'
+      );
+      Array.from(share_class).forEach(item => {
+        item?.classList?.remove('react-share__ShareButton');
+      });
+    }
+  }, [showShareOptions]);
   return (
     <BlogLayout title={blog?.blog_title}>
       <div className="container section-wrapper">
@@ -81,62 +111,51 @@ const blogDetail = () => {
                     {blog?.category}
                   </Button>
                 </div>
+            
                 <div
                   className="blog-detail__sharetitle"
-                  onClick={handleClickOpen}
+                  style={{position:"relative", paddingBottom:showShareOptions?40:0}}
+                  onClick={() => setShowShareOptions(!showShareOptions)}
                 >
                   <p className="blog-detail__sharetext">Share This Article</p>
-                </div>
-
-                <Dialog
-                  onClose={handleClose}
-                  aria-labelledby="simple-dialog-title"
-                  open={open}
+                
+                
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 50,
+                    display: showShareOptions ? "block" : "none",
+                    // paddingBottom:showShareOptions?50:0
+                  }}
+                  ref={modalRef}
                 >
-                  <DialogTitle id="simple-dialog-title">
-                    Share This Article
-                  </DialogTitle>
-                  <List className="blog-detail__listContainer">
-                    <ListItem button className="blog-detail__listItemContainer">
-                        <ListItemAvatar>
-                          <FacebookShareButton
-                            url={shareUrl}
-                            quote={"Admizz - Your vision, Our fulfillment ."}
-                            hashtag="#admizz"
-                          >
-                            <Avatar>
-                              <FacebookIcon
-                                size={40}
-                                round={true}
-                                name="Facebook"
-                                href={shareUrl}
-                              />
-                            </Avatar>
-                          </FacebookShareButton>
-                        </ListItemAvatar>
-                        <ListItemText primary="Facebook" />
-                      
-                    
-                    </ListItem>
-          
-                    <ListItem button>
-                      <ListItemAvatar>
-                        <WhatsappShareButton
-                          url={shareUrl}
-                          //  quote={"Admizz - Your vision, Our fulfillment ."}
-                          //   hashtag="#admizz"
-                          // title={`${blog.title}`}
-                        >
-                          <Avatar>
-                            {/* <WhatsAppIcon /> */}
-                            <WhatsappIcon size={40} round={true} />
-                          </Avatar>
-                        </WhatsappShareButton>
-                      </ListItemAvatar>
-                      <ListItemText primary={"Whatsapp"} />
-                    </ListItem>
-                  </List>
-                </Dialog>
+                <ul
+                  style={{
+                    position: "relative",
+                    zIndex: 999,
+                    padding: 10,
+                    borderRadius: 4,
+                    backgroundColor: "#fff",
+                    margin: 0,
+                    display: "flex",
+                    // marginBottom:40
+                
+                  }}
+                >
+                  <div style={{ marginRight: 5 }}>
+                    <FacebookShareButton url={shareUrl} quote="#Admizz">
+                      <FacebookIcon size={40} />
+                    </FacebookShareButton>
+                  </div>
+
+                  <div style={{ marginRight: 5 }}>
+                    <WhatsappShareButton url={shareUrl}>
+                      <WhatsappIcon size={40} />
+                    </WhatsappShareButton>
+                  </div>
+                </ul>
+                </div>
+                </div>
               </div>
             </div>
           </div>

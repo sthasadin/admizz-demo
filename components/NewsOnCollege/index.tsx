@@ -8,20 +8,24 @@ import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 import { getNewsOfCollege } from "../../store/Action/blog.action";
 
-const NewsOnCollege = ({ title }) => {
+const NewsOnCollege = () => {
   const dispatch = useDispatch();
-  const college = useSelector((state:any) => state.college.college);
-  const collegeNews = useSelector((state:any) => state.blog.collegeNews);
-  const getCoverNewsLetter =  (college_slug) => {
+  const college = useSelector((state: any) => state.college.college);
+  const collegeNews = useSelector((state: any) => state.blog.collegeNews);
+  console.log('collegeNews',collegeNews)
+
+  const getCoverNewsLetter = (college_slug) => {
     dispatch(getNewsOfCollege(college_slug));
   };
   useEffect(() => {
     college && getCoverNewsLetter(college.college_slug);
   }, [college]);
-  return Array.isArray( collegeNews )? (
+
+  return Array.isArray(collegeNews) ? (
     <div className="news-o-c">
       <div className="news-o-c__inner">
-        <div className="sidebar__title">{title}</div>
+          <div className="sidebar__title">Subjects covered</div>
+      
         <div className="news-o-c__list">
           {collegeNews.map((news) => (
             <ThumbnailText
@@ -32,22 +36,8 @@ const NewsOnCollege = ({ title }) => {
               slug={news.blog_slug}
             />
           ))}
-          {/* <ThumbnailText
-            title="IIT Bombay Campus to be Opened to a Few UG IIT Bombay Campus"
-            image={news1}
-            data="December 18, 2020"
-          />
-          <ThumbnailText
-            title="IIT Bombay Campus to be Opened to a Few UG IIT Bombay Campus"
-            image={news2}
-            data="December 18, 2020"
-          />
-          <ThumbnailText
-            title="IIT Bombay Campus to be Opened to a Few UG IIT Bombay Campus"
-            image={news3}
-            data="December 18, 2020"
-          /> */}
         </div>
+
         {/* <a href="#" className="news-o-c__cta">
           View All News
         </a> */}

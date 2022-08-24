@@ -67,6 +67,7 @@
         "redux-devtools-extension": "^2.13.8",
         "redux-thunk": "^2.3.0",
         "sass": "^1.29.0",
+        "sharethis-reactjs": "^1.6.0",
         "slick-carousel": "^1.8.1",
         "swiper": "^7.4.1",
         "yup": "^0.29.1"

@@ -8,7 +8,7 @@ const DashboardLayout = ({ children, title }) => {
     <>
       <Head>
         <title>Admizz - {title}</title>
-        <link rel="icon" href="favicon.svg" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
       <DashboardNavbar />
       <div className="dashboard-area">

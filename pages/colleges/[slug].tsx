@@ -7,6 +7,7 @@ import { CollegeHeader } from "../../components/CollegeHeader";
 import { Submenu } from "../../components/Submenu";
 import { SidebarContainer } from "../../components/SidebarContainer";
 import { AuthContext } from "../../pages/AuthContext";
+import { FeeStructure } from "../../components/CollegeFeeStructure";
 
 import Layout from "../../layouts";
 import { getFavourites } from "../../store/Action/collegefavourite.action";
@@ -43,7 +44,7 @@ const Home = () => {
   const router = useRouter();
   const { slug } = router.query;
 
-  const _getReviews = async (college_id:any) => {
+  const _getReviews = async (college_id: any) => {
     const res = await dispatch<any>(getReviews(college_id));
 
     //make proper datastructure
@@ -125,33 +126,29 @@ const Home = () => {
 
   useEffect(() => {
     if (user) {
-      dispatch(getFavourites(user?.uid));      
+      dispatch(getFavourites(user?.uid));
     }
   }, [user]);
 
   const checkcollegeFavourite = () => {
-    favorites?.map((item:any) => {
+    favorites?.map((item: any) => {
       if (item.college?._id == _id) {
         setIsFavourite(true);
-        return true
+        return true;
       }
-
     });
-    return false
+    return false;
   };
-  
-  const checkcollegeFavouriteWithId = (id:any) => {
-    
+
+  const checkcollegeFavouriteWithId = (id: any) => {
     let flag = false;
     favorites?.forEach((item) => {
-
       if (item.college?._id == id) {
         // setIsFavourite(true);
-        flag = true
+        flag = true;
       }
-
     });
-    return flag
+    return flag;
   };
 
   return (
@@ -183,6 +180,7 @@ const Home = () => {
             graduation_percentage={graduation_percentage}
             placement_percentage={placement_percentage}
           />
+      
         </main>
       </Layout>
     </div>

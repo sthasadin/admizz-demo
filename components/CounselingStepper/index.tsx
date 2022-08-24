@@ -158,6 +158,7 @@ const CounselingStepper = () => {
   const dateTimeValidate = async () => {
     try {
       let docs = [];
+      
       let query = db
         .collection("appointment")
         .where("counsellor", "==", formValue.counsellor);
@@ -173,13 +174,21 @@ const CounselingStepper = () => {
           }
         });
       });
-
+      console.log({selectedDate:formValue.date})
+      if(formValue.date &&moment(formValue.date).isSameOrBefore(moment()) ){
+        setBookingError(
+          "Please select Date"
+        );
+        return;
+      }
+      console.log('moment',moment().toDate)
       if (docs?.length > 0) {
         setBookingError(
           "Sorry! There is already a booking on chosen date and time, Please try changing date and time"
         );
         return;
       }
+     
       setBookingError("");
       await dateTimeValidateSchema.validate(
         {

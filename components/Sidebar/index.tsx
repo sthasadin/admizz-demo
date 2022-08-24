@@ -39,7 +39,7 @@ const Sidebar = () => {
       </div>
       <FacultyInformation />
       <TrendingCourses />
-      <NewsOnCollege title="College Covered on News" />
+      <NewsOnCollege  />
       <CollegeFacility />
       <InternationalCollaboration />
     </aside>

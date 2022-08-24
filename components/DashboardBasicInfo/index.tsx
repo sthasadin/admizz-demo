@@ -62,7 +62,10 @@ const DashboardBasicInfo = (props) => {
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   const [formError, setFormError] = useState({} as any);
-
+  const levelChange = (onChangeLevel)=>{
+    console.log(onChangeLevel)
+    localStorage.removeItem('academicInformation')
+  }
   const dispatch = useDispatch();
 
   const allLevels = useSelector((state: any) => state.courses.allLevels);
@@ -343,8 +346,10 @@ const DashboardBasicInfo = (props) => {
                 handleChange={(e) => {
                   setSelectedLevel(e);
                   setFormError((prev) => ({ ...prev, selectedLevel: null }));
+                  levelChange(e)
                   // props.setShowExitPrompt(true);
                 }}
+             
                 defaultvalue={selectedLevel}
                 name={"selectedLevel"}
                 errorMessage={formError.selectedLevel}

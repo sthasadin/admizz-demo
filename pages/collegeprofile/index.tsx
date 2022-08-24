@@ -11,7 +11,7 @@ export default function Home() {
       <Head>
         <Topbar />
         <title>Admizz - Home</title>
-        <link rel="icon" href="favicon.svg" />
+        <link rel="icon" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@800&display=swap"

@@ -44,7 +44,7 @@ const blogDetail = () => {
       <Head>
         <Topbar />
         <title>Admizz - Home</title>
-        <link rel="icon" href="favicon.svg" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
       <div>
         <Navbar />

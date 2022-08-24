@@ -19,8 +19,10 @@ const Program = () => {
     await axios.get(
       `${API_BASE_URL}/courses/get-program/${query.slug}`
     ).then((res)=>{
-      console.log(res.data)
       setProgram(res.data)
+      console.log('data',res.data)
+
+   
     }).catch((err)=>{
       console.log(err)
     })

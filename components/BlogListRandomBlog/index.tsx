@@ -12,12 +12,14 @@ const BlogListRandomBlog = ({ blogArray }) => {
   const text_truncate = (str) => {
     return str.substring(0, 70 - 3) + "...";
   };
+  const suffleArray=blogArray.sort((a,b)=>0.5-Math.random())
+
   return (
     <div className="blog-list-random-blog">
       <div className="blog-list-random-blog__highlightPost">
         <div className="blog-list-random-blog__secondaryPostContainer">
-          {blogArray &&
-            blogArray.slice(0, 6).map((blog, i) => {
+          {suffleArray &&
+            suffleArray.slice(0, 6).map((blog, i) => {
               return (
                 <div className="blog-list-member__secondaryPost" key={i}>
                   <SingleBlogCard

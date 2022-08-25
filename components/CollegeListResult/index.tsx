@@ -54,7 +54,7 @@ const CollegeListResult: FC<CollegeProps> = ({
         </div>
       )}
 
-      <LazyLoad
+      {/* <LazyLoad
         dataLength={collegeList?.length}
         loader={
           <div className="college-list-result-loader-container">
@@ -63,14 +63,14 @@ const CollegeListResult: FC<CollegeProps> = ({
         }
         next={getMoreCollege}
         hasMore={loadMoreCollege == true ? true : false}
-      >
+      > */}
         <div className="college-list-result__resultContainer">
           {collegeList &&
             collegeList.map((college, i) => {
               return <CollegesCard {...college} key={i} />;
             })}
         </div>
-      </LazyLoad>
+      {/* </LazyLoad> */}
 
       <Snackbar
         open={showFinishMsg}

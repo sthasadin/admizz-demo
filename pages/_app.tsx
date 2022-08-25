@@ -34,7 +34,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       href="../public/admizz-10x20.png"
     />
 
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    {/* <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0 " user-sclable  /> */}
   </Head>;
   React.useEffect(() => {
     Router.events.on("routeChangeComplete", () => {

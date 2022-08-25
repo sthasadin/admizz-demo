@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SingleBlogCard } from "../SingleBlogCard";
 import { SingleListPostWithImage } from "../SingleListPostWithImage";
 import calculateReadingTime from "../../utils/calculateReadingTime";
@@ -7,12 +7,14 @@ const BlogListMember = ({ blogArray }) => {
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");
   };
+    const suffleArray=blogArray.sort((a,b)=>0.5-Math.random())
+
   return (
     <div className="blog-list-member">
       <div className="blog-list-member__highlightPost">
         <div className="blog-list-member__topPost">
-          {blogArray &&
-            blogArray.slice(0, 1).map((blog, i) => {
+          {suffleArray &&
+            suffleArray.slice(0, 1).map((blog, i) => {
               return (
                 <div className="blog-list-member__secondaryPost" key="i">
                   <SingleBlogCard
@@ -31,8 +33,8 @@ const BlogListMember = ({ blogArray }) => {
             })}
         </div>
         <div className="blog-list-member__secondaryPostContainer">
-          {blogArray &&
-            blogArray.slice(2, 4).map((blog, i) => {
+          {suffleArray &&
+            suffleArray.slice(2, 4).map((blog, i) => {
               return (
                 <div className="blog-list-member__secondaryPost" key="i">
                   <SingleBlogCard
@@ -53,8 +55,8 @@ const BlogListMember = ({ blogArray }) => {
         </div>
       </div>
       <div className="blog-list-member__postList">
-        {blogArray &&
-          blogArray.slice(0, 5).map((blog, i) => {
+        {suffleArray &&
+          suffleArray.slice(0, 5).map((blog, i) => {
             return (
               <div className="blog-list-member__secondaryPost" key="i">
                 <SingleListPostWithImage

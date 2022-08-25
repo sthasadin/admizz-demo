@@ -24,6 +24,7 @@ const blogList = () => {
     (a, b) => (moment(b.createdAt) as any) - (moment(a.createdAt) as any)
   );
 
+
   return (
     <BlogLayout title="Blogs">
       <div className="container">

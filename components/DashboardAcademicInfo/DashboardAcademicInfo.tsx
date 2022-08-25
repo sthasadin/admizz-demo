@@ -75,7 +75,7 @@ export const DashboardAcademicInfo = (props) => {
     school: null,
     under_Graduate: null,
     post_Gradute: null,
-    other: otherCertificate,
+    other: null,
   });
 
   const [showClass11Marks, setShowClass11Marks] = useState(false);
@@ -218,7 +218,11 @@ export const DashboardAcademicInfo = (props) => {
   };
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("academicInformation"));
-
+    // if(selectedLevel == "undergraduate") {
+    //   localStorage.removeItem(getData?.postGraduteScore)
+      
+    // }
+console.log({getData})
     if (getData) {
       //   setDiplomaScore(getData?.diplomaScore);
       setGmat(getData?.gmat);
@@ -249,7 +253,6 @@ export const DashboardAcademicInfo = (props) => {
   }, [localStorage.getItem("academicInformation")]);
 
   const saveData = () => {
-    console.log("postGraduteScore", postGraduteScore);
     const data = {
       schoolMarks,
       level1Score,
@@ -925,7 +928,7 @@ export const DashboardAcademicInfo = (props) => {
                 <Grid item sm={5} md={4} xs={5} style={{ alignSelf: "center" }}>
                   {certificatesImage?.other && (
                     <div style={{ display: "flex", alignItems: "center" }}>
-                      {/* {truncateString(certificatesImage.other.name, 10)}{" "} */}
+                      {truncateString(certificatesImage.other.name, 10)}{" "}
                       <img
                         src="/check.png"
                         alt="check"

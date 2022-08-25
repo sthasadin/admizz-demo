@@ -18,10 +18,12 @@ const initialState = {
   collegesByLimit: [],
   collegeByLimitLoader: false,
   totalCollegeCount: 0,
+  collegeLoading:false
 };
 
 export default (state = initialState, action) => {
   const { type, payload } = action;
+  console.log({action})
   switch (type) {
     case COLLEGE_BY_LIMIT_BEGIN:
       return {
@@ -36,6 +38,7 @@ export default (state = initialState, action) => {
         totalCollegeCount:payload.length,
         collegeByLimitLoader: false,
       };
+     
     case COLLEGE_BY_FILTER:
       return {
         ...state,
@@ -94,6 +97,7 @@ export default (state = initialState, action) => {
         singleLoading: true,
         college: {},
       };
+      
 
     default:
       return state;

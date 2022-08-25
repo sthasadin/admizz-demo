@@ -98,6 +98,7 @@ const DashboardBasicInfoPage = () => {
 
     if(snapshot && !snapshot.empty){
       const data = snapshot.docs[0].data()
+      console.log({data})
       if(data?.basicInformation){
         setBasicInfo(data?.basicInformation)
       }
@@ -144,7 +145,7 @@ const DashboardBasicInfoPage = () => {
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    localStorage.removeItem("academicInformation")
+    //  localStorage.removeItem("academicInformation")
     // setStepTrack((stepTrack) => stepTrack - 1);
   };
 

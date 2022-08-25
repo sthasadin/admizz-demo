@@ -286,7 +286,7 @@ const collegeList = () => {
                   query={query}
                   getMoreCollege={getCollegesArray}
                   totalCollegeCount={totalCollegeCount}
-                  loadMoreCollege={loadMoreCollege}
+                  loadMoreCollege={true}
                 />
 
                 <ScrollToTop

@@ -64,7 +64,12 @@ const DashboardBasicInfo = (props) => {
   const [formError, setFormError] = useState({} as any);
   const levelChange = (onChangeLevel)=>{
     console.log(onChangeLevel)
-    localStorage.removeItem('academicInformation')
+    // localStorage.removeItem('academicInformation')
+    if (!localStorage.getItem("academicInformation")) {
+      localStorage.setItem("academicInformation",JSON.stringify(onChangeLevel));
+    } else {
+      localStorage.removeItem("academicInformation");
+    }
   }
   const dispatch = useDispatch();
 
@@ -152,6 +157,8 @@ const DashboardBasicInfo = (props) => {
   useEffect(() => {
     dispatch(getLevels());
   }, []);
+
+  
 
   useEffect(() => {
     if (selectedLevel.value) {

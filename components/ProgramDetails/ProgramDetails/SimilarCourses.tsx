@@ -5,6 +5,7 @@ import { getCourses } from "../../../store/Action/courses.action";
 
 const SimilarCourses = ({ data }) => {
   const courseStream = data?.coursestream;
+  console.log({data})
   const [fetchedCourses, setFetchedCourses] = useState([]);
 
   let studycourse = fetchedCourses?.filter((x) => {

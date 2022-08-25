@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { COLLEGE_TYPES, SUCCESS, COLLEGES_TYPES, COLLEGE_BY_LIMIT_BEGIN, COLLEGE_BY_FILTER, COLLEGE_BY_LIMIT, COLLEGE_BY_SEARCH } from "../const";
+import { COLLEGE_TYPES, SUCCESS, COLLEGES_TYPES, COLLEGE_BY_LIMIT_BEGIN, COLLEGE_BY_FILTER, COLLEGE_BY_LIMIT, COLLEGE_BY_SEARCH, COLLEGE_BY_LIMIT_FAILED } from "../const";
 import { finish, init, success, error } from "../commonActions";
 import { CollegeService } from "../api/collegeApi";
 
@@ -99,7 +99,6 @@ export const getCollegeByFilter = (filter) => async (dispatch: Dispatch) => {
     dispatch({
       type: COLLEGE_BY_LIMIT_BEGIN
     })
-    console.log(filter, 'filter name')
     const res = await collegeService.getCollegeByFilter(filter)
     console.log('done', res)
     dispatch({
@@ -109,7 +108,9 @@ export const getCollegeByFilter = (filter) => async (dispatch: Dispatch) => {
         
 
   } catch (error) {
-    console.log('catched')
+    // dispatch({
+    //   type:COLLEGE_BY_LIMIT_FAILED
+    // })
     console.log(error)
   }
 }

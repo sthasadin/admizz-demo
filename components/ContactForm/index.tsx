@@ -286,7 +286,7 @@ const ContactForm = () => {
               </a>
               <a href="https://twitter.com/admizz_official" target="_blank">
                 <TwitterIcon
-                  style={{ fill: "#2F80ED", marginRight: 47, marginLeft: 47 }}
+                  style={{ fill: "#2F80ED", marginRight: 26, marginLeft: 26 }}
                 />
               </a>
               <a

@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { CollegesCard } from "../collegesBlock/collegesCard";
 
 const index = ({ data }) => {
+  const randomCollege = data.sort((a,b)=>0.12-Math.random())
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -72,9 +73,8 @@ const index = ({ data }) => {
   return (
     <div>
       <Slider {...settings}>
-        {data &&
-          data.map((college, index) => {
-            console.log(college)
+        {randomCollege &&
+          randomCollege.map((college, index) => {
             return (
               <div key={index}>
                 <CollegesCard {...college} key={index} />

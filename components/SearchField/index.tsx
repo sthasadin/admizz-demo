@@ -47,7 +47,7 @@ const Index = ({
           className={classes.searchField}
           value={value}
           onChange={(e) => onChange(e)}
-          placeholder="Search Colleges"
+          placeholder="Search Colleges or Blogs"
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

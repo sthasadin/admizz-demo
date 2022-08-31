@@ -46,11 +46,18 @@ const CollegeListResult: FC<CollegeProps> = ({
       
       </div>
 
-      {loader && (
+      {loader ? (
         <div className="college-list-result-loader-container">
           <CollegeCardLoader
             count={9} 
            />
+        </div>
+      ):(
+        <div className="college-list-result__resultContainer">
+          {collegeList &&
+            collegeList.map((college, i) => {
+              return <CollegesCard {...college} key={i} />;
+            })}
         </div>
       )}
 
@@ -64,12 +71,6 @@ const CollegeListResult: FC<CollegeProps> = ({
         next={getMoreCollege}
         hasMore={loadMoreCollege == true ? true : false}
       > */}
-        <div className="college-list-result__resultContainer">
-          {collegeList &&
-            collegeList.map((college, i) => {
-              return <CollegesCard {...college} key={i} />;
-            })}
-        </div>
       {/* </LazyLoad> */}
 
       <Snackbar

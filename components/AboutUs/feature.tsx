@@ -2,9 +2,10 @@ import React from "react";
 
 const features = () => {
   return (
-    <div className="teams-list">
+    <div className="teams-list-feature">
       <div className="teams-list__inner section-wrapper">
         <div className="teams-list__heading block-heading">Our Features</div>
+  
         <div className="teams-list__aboutustitle block-title">
 
           We serve you the best colleges based on your needs.
@@ -12,6 +13,7 @@ const features = () => {
         </div>
       </div>
       <div className="merit">
+   
         <div className="merit__feature__inner section-wrapper">
           <div className="merit__feature__left">
             <div className="merit__title block-title">
@@ -22,8 +24,8 @@ const features = () => {
             </div>
           </div>
           <div className="merti__right__inner">
-            <div className="merit__feature__thumbnail">
-              <img src="/counselling.png" alt="admiz" />
+            <div className="merit__feature__thumbnailright">
+              <img src="/counselling.png" alt="admiz"   />
             </div>
           </div>
         </div>
@@ -55,8 +57,8 @@ const features = () => {
             </div>
           </div>
           <div className="merti__right__inner">
-            <div className="merit__feature__thumbnail">
-              <img src="/best-scholarship.png" alt="admiz" />
+            <div className="merit__feature__thumbnailright">
+              <img src="/best-scholarship.png" alt="admiz"  />
             </div>
           </div>
         </div>

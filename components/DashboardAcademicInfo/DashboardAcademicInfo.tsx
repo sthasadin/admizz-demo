@@ -259,30 +259,30 @@ export const DashboardAcademicInfo = (props) => {
       postGraduteScore,
       underGraduate,
       otherCertificate,
-      gre: { ...gre, score: gre?.haveDone === "no" ? "" : gre.score },
-      gmat: { ...gmat, score: gmat?.haveDone === "no" ? "" : gmat.score },
-      sat: { ...sat, score: sat?.haveDone === "no" ? "" : sat.score },
-      satII: { ...satII, score: satII?.haveDone === "no" ? "" : satII.score },
-      tofel: { ...tofel, score: tofel?.haveDone === "no" ? "" : tofel.score },
+      gre: { ...gre, score: gre?.haveDone === "no" ? "" : gre?.score },
+      gmat: { ...gmat, score: gmat?.haveDone === "no" ? "" : gmat?.score },
+      sat: { ...sat, score: sat?.haveDone === "no" ? "" : sat?.score },
+      satII: { ...satII, score: satII?.haveDone === "no" ? "" : satII?.score },
+      tofel: { ...tofel, score: tofel?.haveDone === "no" ? "" : tofel?.score },
       jeeAdvance: {
         ...jeeAdvance,
-        score: jeeAdvance?.haveDone === "no" ? "" : jeeAdvance.score,
+        score: jeeAdvance?.haveDone === "no" ? "" : jeeAdvance?.score,
       },
       ielts: {
         ...ielts,
-        score: ielts?.haveDone === "no" ? "" : ielts.score,
+        score: ielts?.haveDone === "no" ? "" : ielts?.score,
         subMars:
           ielts?.haveDone === "no"
             ? { listining: "", writing: "", reading: "", speaking: "" }
-            : ielts.subMars,
+            : ielts?.subMars,
       },
       certificatesImage,
     };
     if(selectedLevel === "diploma") 
       data={...data,level1Score:"",level2Score:{level2Score:""},underGraduate:{underGraduate:""},postGraduteScore:{postGraduteScore:""}}
-    else if(selectedLevel === "Under Graduate") 
-      data={...data,underGraduate:{underGraduate:''},postGraduteScore:{postGraduteScore:""}}
-    else if(selectedLevel === "Post Graduate") 
+    else if(selectedLevel === "undergraduate") 
+      data={...data, underGraduate:{underGraduate:''}, postGraduteScore:{postGraduteScore:""}}
+    else if(selectedLevel === "postgraduate") 
       data={...data,postGraduteScore:{postGraduteScore:""}}
 
     window.localStorage.setItem("academicInformation", JSON.stringify(data));

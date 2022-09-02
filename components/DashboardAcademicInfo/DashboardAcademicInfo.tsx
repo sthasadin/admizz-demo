@@ -431,7 +431,7 @@ export const DashboardAcademicInfo = (props) => {
                             className={"dashboard-basic-info__input"}
                             fullWidth
                             placeholder="Enter your marks"
-                            value={level2Score.level2Score}
+                            value={level2Score?.level2Score}
                             //onChange={(e) => setLevel2Score(e.target.value)}
                             onChange={(e) => {
                               setLevel2Score({
@@ -499,7 +499,7 @@ export const DashboardAcademicInfo = (props) => {
                           className={"dashboard-basic-info__input"}
                           fullWidth
                           placeholder="Enter your marks"
-                          value={underGraduate.underGraduate}
+                          value={underGraduate?.underGraduate}
                           onChange={(e) => {
                             setUnderGraduate({
                               ...underGraduate,
@@ -549,7 +549,7 @@ export const DashboardAcademicInfo = (props) => {
                       className={"dashboard-basic-info__input"}
                       fullWidth
                       placeholder="Enter your marks"
-                      value={postGraduteScore.postGraduteScore}
+                      value={postGraduteScore?.postGraduteScore}
                       onChange={(e) => {
                         setPostGraduteScore({
                           ...postGraduteScore,

@@ -186,15 +186,15 @@ export const DashboardAcademicInfo = (props) => {
     try {
       await validationSchema.validate(
         {
-          schoolMarks: schoolMarks.schoolMarks,
-          level2Score: level2Score.level2Score,
-          underGraduate: underGraduate.underGraduate,
-          postGraduteScore: postGraduteScore.postGraduteScore,
+          schoolMarks: schoolMarks?.schoolMarks,
+          level2Score: level2Score?.level2Score,
+          underGraduate: underGraduate?.underGraduate,
+          postGraduteScore: postGraduteScore?.postGraduteScore,
           certificatesImage: {
-            highSchool: certificatesImage.highSchool,
-            school: certificatesImage.school,
-            under_Graduate: certificatesImage.under_Graduate,
-            post_Gradute: certificatesImage.post_Gradute,
+            highSchool: certificatesImage?.highSchool,
+            school: certificatesImage?.school,
+            under_Graduate: certificatesImage?.under_Graduate,
+            post_Gradute: certificatesImage?.post_Gradute,
             //otherCertificate: certificatesImage.other,
           },
         },
@@ -205,6 +205,7 @@ export const DashboardAcademicInfo = (props) => {
       setFormError({});
       return true;
     } catch (err) {
+      console.log(err);
       console.log("validation error");
 
       setSnackOpen(true);
@@ -216,13 +217,9 @@ export const DashboardAcademicInfo = (props) => {
       setFormError({ ...errors });
     }
   };
+
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("academicInformation"));
-    // if(selectedLevel == "undergraduate") {
-    //   localStorage.removeItem(getData?.postGraduteScore)
-      
-    // }
-console.log({getData})
     if (getData) {
       //   setDiplomaScore(getData?.diplomaScore);
       setGmat(getData?.gmat);
@@ -253,7 +250,7 @@ console.log({getData})
   }, [localStorage.getItem("academicInformation")]);
 
   const saveData = () => {
-    const data = {
+    let data = {
       schoolMarks,
       level1Score,
       level2Score,
@@ -262,25 +259,31 @@ console.log({getData})
       postGraduteScore,
       underGraduate,
       otherCertificate,
-      gre: { ...gre, score: gre?.haveDone === "no" ? "" : gre.score },
-      gmat: { ...gmat, score: gmat?.haveDone === "no" ? "" : gmat.score },
-      sat: { ...sat, score: sat?.haveDone === "no" ? "" : sat.score },
-      satII: { ...satII, score: satII?.haveDone === "no" ? "" : satII.score },
-      tofel: { ...tofel, score: tofel?.haveDone === "no" ? "" : tofel.score },
+      gre: { ...gre, score: gre?.haveDone === "no" ? "" : gre?.score },
+      gmat: { ...gmat, score: gmat?.haveDone === "no" ? "" : gmat?.score },
+      sat: { ...sat, score: sat?.haveDone === "no" ? "" : sat?.score },
+      satII: { ...satII, score: satII?.haveDone === "no" ? "" : satII?.score },
+      tofel: { ...tofel, score: tofel?.haveDone === "no" ? "" : tofel?.score },
       jeeAdvance: {
         ...jeeAdvance,
-        score: jeeAdvance?.haveDone === "no" ? "" : jeeAdvance.score,
+        score: jeeAdvance?.haveDone === "no" ? "" : jeeAdvance?.score,
       },
       ielts: {
         ...ielts,
-        score: ielts?.haveDone === "no" ? "" : ielts.score,
+        score: ielts?.haveDone === "no" ? "" : ielts?.score,
         subMars:
           ielts?.haveDone === "no"
             ? { listining: "", writing: "", reading: "", speaking: "" }
-            : ielts.subMars,
+            : ielts?.subMars,
       },
       certificatesImage,
     };
+    if(selectedLevel === "diploma") 
+      data={...data,level1Score:"",level2Score:{level2Score:""},underGraduate:{underGraduate:""},postGraduteScore:{postGraduteScore:""}}
+    else if(selectedLevel === "undergraduate") 
+      data={...data, underGraduate:{underGraduate:''}, postGraduteScore:{postGraduteScore:""}}
+    else if(selectedLevel === "postgraduate") 
+      data={...data,postGraduteScore:{postGraduteScore:""}}
 
     window.localStorage.setItem("academicInformation", JSON.stringify(data));
 
@@ -377,7 +380,7 @@ console.log({getData})
                       className={"dashboard-basic-info__input"}
                       fullWidth
                       placeholder="Enter your marks"
-                      value={schoolMarks.schoolMarks}
+                      value={schoolMarks?.schoolMarks}
                       onChange={(e) => {
                         setSchoolMarks({
                           ...schoolMarks,
@@ -978,7 +981,7 @@ console.log({getData})
                         name="passport1"
                         row
                         defaultValue="no"
-                        value={gre.haveDone}
+                        value={gre?.haveDone}
                         onChange={(e) =>
                           setGre({ ...gre, haveDone: e.target.value })
                         }
@@ -994,11 +997,11 @@ console.log({getData})
                           label="No"
                         />
                       </RadioGroup>
-                      {gre.haveDone === "yes" ? (
+                      {gre?.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
                           placeholder="Enter your marks"
-                          value={gre.score}
+                          value={gre?.score}
                           onChange={(e) =>
                             setGre({ ...gre, score: e.target.value })
                           }
@@ -1018,7 +1021,7 @@ console.log({getData})
                         name="passport1"
                         row
                         defaultValue="no"
-                        value={sat.haveDone}
+                        value={sat?.haveDone}
                         onChange={(e) =>
                           setSat({ ...sat, haveDone: e.target.value })
                         }
@@ -1034,11 +1037,11 @@ console.log({getData})
                           label="No"
                         />
                       </RadioGroup>
-                      {sat.haveDone === "yes" ? (
+                      {sat?.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
                           placeholder="Enter your marks"
-                          value={sat.score}
+                          value={sat?.score}
                           onChange={(e) =>
                             setSat({ ...sat, score: e.target.value })
                           }
@@ -1065,7 +1068,7 @@ console.log({getData})
                         name="passport1"
                         row
                         defaultValue="no"
-                        value={gmat.haveDone}
+                        value={gmat?.haveDone}
                         onChange={(e) =>
                           setGmat({ ...gmat, haveDone: e.target.value })
                         }
@@ -1082,11 +1085,11 @@ console.log({getData})
                         />
                       </RadioGroup>
 
-                      {gmat.haveDone === "yes" ? (
+                      {gmat?.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
                           placeholder="Enter your marks"
-                          value={gmat.score}
+                          value={gmat?.score}
                           onChange={(e) =>
                             setGmat({ ...gmat, score: e.target.value })
                           }
@@ -1106,7 +1109,7 @@ console.log({getData})
                         name="passport1"
                         row
                         defaultValue="no"
-                        value={satII.haveDone}
+                        value={satII?.haveDone}
                         onChange={(e) =>
                           setSatII({ ...satII, haveDone: e.target.value })
                         }
@@ -1123,11 +1126,11 @@ console.log({getData})
                         />
                       </RadioGroup>
 
-                      {satII.haveDone === "yes" ? (
+                      {satII?.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
                           placeholder="Enter your marks"
-                          value={satII.score}
+                          value={satII?.score}
                           onChange={(e) =>
                             setSatII({ ...satII, score: e.target.value })
                           }
@@ -1154,7 +1157,7 @@ console.log({getData})
                         name="passport1"
                         row
                         defaultValue="no"
-                        value={tofel.haveDone}
+                        value={tofel?.haveDone}
                         onChange={(e) =>
                           setTofel({ ...tofel, haveDone: e.target.value })
                         }
@@ -1171,11 +1174,11 @@ console.log({getData})
                         />
                       </RadioGroup>
 
-                      {tofel.haveDone === "yes" ? (
+                      {tofel?.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
                           placeholder="Enter your marks"
-                          value={tofel.score}
+                          value={tofel?.score}
                           onChange={(e) =>
                             setTofel({ ...tofel, score: e.target.value })
                           }
@@ -1195,7 +1198,7 @@ console.log({getData})
                         name="passport1"
                         row
                         defaultValue="no"
-                        value={jeeAdvance.haveDone}
+                        value={jeeAdvance?.haveDone}
                         onChange={(e) =>
                           setJeeAdvance({
                             ...jeeAdvance,
@@ -1215,11 +1218,11 @@ console.log({getData})
                         />
                       </RadioGroup>
 
-                      {jeeAdvance.haveDone === "yes" ? (
+                      {jeeAdvance?.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
                           placeholder="Enter your marks"
-                          value={jeeAdvance.score}
+                          value={jeeAdvance?.score}
                           onChange={(e) =>
                             setJeeAdvance({
                               ...jeeAdvance,
@@ -1266,11 +1269,11 @@ console.log({getData})
                         />
                       </RadioGroup>
 
-                      {ielts.haveDone === "yes" ? (
+                      {ielts?.haveDone === "yes" ? (
                         <Input
                           className={"dashboard-basic-info__input"}
                           placeholder="Enter your marks"
-                          value={ielts.score}
+                          value={ielts?.score}
                           onChange={(e) =>
                             setIelts({ ...ielts, score: e.target.value })
                           }
@@ -1281,7 +1284,7 @@ console.log({getData})
                     </Grid>
                   </Grid>
 
-                  {ielts.haveDone == "yes" ? (
+                  {ielts?.haveDone == "yes" ? (
                     <Grid
                       container
                       className="dashboard-basic-info__row exam-score"

@@ -25,4 +25,4 @@ jobs:
           host: ${{ secrets.PROD_HOST }}
           username: ${{ secrets.PROD_USER }}
           password: ${{ secrets.PROD_PASS }}
-          script: sh /var/www/AdmizzWeb/deploy.sh
+          script: sh /var/www/deployments/AdmizzWeb.sh

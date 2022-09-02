@@ -1,16 +1,28 @@
-name: remote ssh command
-on:
-  push:
-    branches: [master]
+name: Production Deployment to admizz.com
+on: 
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Git Ref (Optional)    
+        required: false
 jobs:
-  build:
-    name: Build
+  deploy:
+    name: Deploy To Production (admizz.com)
     runs-on: ubuntu-latest
     steps:
+      - name: Clone Repository (Latest)
+        uses: actions/checkout@v2
+        if: github.event.inputs.git-ref == ''
+      - name: Clone Repository (Custom Ref)
+        uses: actions/checkout@v2
+        if: github.event.inputs.git-ref != ''
+        with:
+          ref: ${{ github.event.inputs.git-ref }}
+      
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          script: sh /AdmizzWeb/deploy.sh
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USER }}
+          password: ${{ secrets.PROD_PASS }}
+          script: sh /var/www/AdmizzWeb/deploy.sh

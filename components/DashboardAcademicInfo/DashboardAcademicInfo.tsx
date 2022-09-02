@@ -217,13 +217,9 @@ export const DashboardAcademicInfo = (props) => {
       setFormError({ ...errors });
     }
   };
+
   useEffect(() => {
     const getData = JSON.parse(localStorage.getItem("academicInformation"));
-    // if(selectedLevel == "undergraduate") {
-    //   localStorage.removeItem(getData?.postGraduteScore)
-      
-    // }
-console.log({getData})
     if (getData) {
       //   setDiplomaScore(getData?.diplomaScore);
       setGmat(getData?.gmat);
@@ -254,7 +250,7 @@ console.log({getData})
   }, [localStorage.getItem("academicInformation")]);
 
   const saveData = () => {
-    const data = {
+    let data = {
       schoolMarks,
       level1Score,
       level2Score,
@@ -282,6 +278,12 @@ console.log({getData})
       },
       certificatesImage,
     };
+    if(selectedLevel === "diploma") 
+      data={...data,level1Score:"",level2Score:{level2Score:""},underGraduate:{underGraduate:""},postGraduteScore:{postGraduteScore:""}}
+    else if(selectedLevel === "Under Graduate") 
+      data={...data,underGraduate:{underGraduate:''},postGraduteScore:{postGraduteScore:""}}
+    else if(selectedLevel === "Post Graduate") 
+      data={...data,postGraduteScore:{postGraduteScore:""}}
 
     window.localStorage.setItem("academicInformation", JSON.stringify(data));
 

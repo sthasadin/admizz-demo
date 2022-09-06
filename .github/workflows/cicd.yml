@@ -22,7 +22,7 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.PROD_HOST }}
-          username: ${{ secrets.PROD_USER }}
-          password: ${{ secrets.PROD_PASS }}
-          script: sh /var/www/AdmizzWeb/deploy.sh
+          host: ${{ secrets.ADMIZZ_PROD_HOST }}
+          username: ${{ secrets.ADMIZZ_PROD_USER }}
+          password: ${{ secrets.ADMIZZ_PROD_PASS }}
+          script: sh /var/www/deployments/AdmizzWeb.sh

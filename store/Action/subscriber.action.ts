@@ -9,18 +9,8 @@ export const addSubscriber = (email) => async (dispatch: Dispatch) => {
     let resp = await db.collection("subscriber").add({ email });
     const templateParams = {
       from_name: 'Admizz',
-      to_name: `${email}`,
-      message: '<p>Thank You Subscribing to Admizz Newsletter</p>'
+      to: `${email}`,
     };
-
-    emailjs.send('service_tq340ah', 'template_wyoewji', templateParams, 'user_LJNkSwb8gZqv46PsWjrcW')
-    .then((result) => {
-        console.log(result.text);
-    }, (error) => {
-        console.log(error.text);
-    });
-
-
   } catch (error) {
     console.log(error);
   }

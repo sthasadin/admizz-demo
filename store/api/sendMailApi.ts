@@ -6,5 +6,10 @@ export class SendMailService {
         let data = postService(url, body)
         return data
     }
+    sendSuscriberMail(body:any){
+        let url :"/sendmail/sendMailToSubscriber";
+        let data = postService(url,body)
+        return data
+    }
     
 }

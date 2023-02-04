@@ -1,7 +1,7 @@
 echo "Kill all the AdmizzWeb PM2 actions"
 sudo pm2 stop AdmizzWeb
 echo "Jump to app folder"
-cd /AdmizzWeb
+cd /var/www/AdmizzWeb
 echo "Update app from Git"
 git pull origin master
 echo "Yarn and build"

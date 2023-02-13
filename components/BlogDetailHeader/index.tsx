@@ -1,7 +1,7 @@
 import React from "react";
 import BlogImage from "../../public/blog.png";
 
-const BlogDetailHeader = ({ blog_title, blog_subtitle,category }) => {
+const BlogDetailHeader = ({ blog_title, blog_subtitle, category }) => {
   return (
     <div className="blog-detail-header section-wrapper">
       <div className="blog-detail-header__title">

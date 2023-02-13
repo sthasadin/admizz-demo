@@ -1,13 +1,13 @@
 import React from "react";
 import { useRouter } from "next/router";
 // import { CallToAction } from "../../Button/callToAction";
- import Modal from "@material-ui/core/Modal";
+import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
 
-const MTModal:any=Modal
-const RTReactPlayer:any=ReactPlayer
+const MTModal: any = Modal;
+const RTReactPlayer: any = ReactPlayer;
 
 const ABOUTUS = (props) => {
   const { title, imgSrc, videoUrl } = props;
@@ -27,7 +27,7 @@ const ABOUTUS = (props) => {
       <div className="introduction__inner section-wrapper">
         <div className="introduction__left">
           <div className="introduction__title">
-          We assist you accomplish your vision 
+            We assist you accomplish your vision
           </div>
           <div className="introduction__aboutus__desc">
             Kickstart your career by starting early. Admizz helps you join the
@@ -66,7 +66,7 @@ const ABOUTUS = (props) => {
                     />
                   </svg>
                 </div>
-              
+
                 <MTModal
                   aria-labelledby="transition-modal-title"
                   aria-describedby="transition-modal-description"

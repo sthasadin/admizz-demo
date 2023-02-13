@@ -11,35 +11,34 @@ export const addReview = (review: any) => async (dispatch: Dispatch) => {
   }
 };
 
-export const updateReview = (review: any, id: any) => async (
-  dispatch: Dispatch
-) => {
-  try {
-    await db
-      .collection("reviews")
-      .doc(id)
-      .set(
-        {
-          ...review,
-        },
-        { merge: true }
-      );
-    return true;
-  } catch (error) {
-    console.log(error);
-    return false;
-  }
-};
+export const updateReview =
+  (review: any, id: any) => async (dispatch: Dispatch) => {
+    try {
+      await db
+        .collection("reviews")
+        .doc(id)
+        .set(
+          {
+            ...review,
+          },
+          { merge: true }
+        );
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
+  };
 
 export const getReviews = (college_id) => async (dispatch: Dispatch) => {
-  let reviews = [];
+  const reviews = [];
   try {
-    let reviewSnapshots = await db
+    const reviewSnapshots = await db
       .collection("reviews")
       .where("college", "==", college_id)
       .get();
     reviewSnapshots.forEach((doc) => {
-      let review = doc.data();
+      const review = doc.data();
       reviews.push({
         ...review,
         id: doc.id,
@@ -69,14 +68,14 @@ export const getQnas = (college_id) => async (dispatch: Dispatch) => {
   //     }]
   //   }]
   // }
-  let qnas = [];
+  const qnas = [];
   db.collection("qna")
     .where("college", "==", college_id)
     .get()
     .then((snapshot) => {
       // one iteration
       snapshot.docs.forEach((doc) => {
-        let data = doc.data(); //the qnas of the college
+        const data = doc.data(); //the qnas of the college
 
         data.qnas.forEach((qna) => {
           let questionBy; //with populate data
@@ -84,7 +83,7 @@ export const getQnas = (college_id) => async (dispatch: Dispatch) => {
             questionBy = snap.data();
           });
 
-          let replies = [];
+          const replies = [];
           qna.replies.forEach((reply) => {
             let by; //with popoulate data
             reply.by.get().then((snap) => {

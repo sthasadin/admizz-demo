@@ -32,7 +32,7 @@ const AuthProvider = (props: any) => {
   return (
     <AuthContext.Provider
       value={{
-        auth:firebase.auth(),
+        auth: firebase.auth(),
         user,
         setUser,
         authenticated: authenticated,

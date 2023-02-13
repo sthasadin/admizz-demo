@@ -1,141 +1,141 @@
 .overview {
-    margin-bottom: 17px;
-    background-color: #fff;
-    border-radius: 5px;
-    padding: 25px;
-    &__collegesubtitle {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 800;
-        margin: 18px 0 14px 0;
-        color: #333;
+  margin-bottom: 17px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 25px;
+  &__collegesubtitle {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 800;
+    margin: 18px 0 14px 0;
+    color: #333;
+  }
+  &__title-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 27px;
+    color: $secondary-color;
+  }
+  &__date {
+    font-size: 14px;
+    line-height: 21px;
+    color: #333;
+  }
+  &__desc {
+    font-size: 14px;
+    line-height: 21px;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  &__block-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+    @media only screen and (min-width: 1024px) {
+      margin-bottom: 30px;
     }
-    &__title-wrap {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 22px;
+  }
+  &__block {
+    width: 31%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media only screen and (min-width: 1024px) {
+      width: 24%;
+    }
+    @media only screen and (min-width: 1360px) {
+      width: 19.2%;
+    }
+    &__icon {
+      margin-bottom: 6px;
+      height: 60px;
+      width: auto;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
     &__title {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 27px;
+      text-align: center;
+      color: #333333;
+      @media only screen and (min-width: 1024px) {
         font-size: 18px;
-        font-weight: 800;
-        line-height: 27px;
-        color: $secondary-color;
+      }
     }
-    &__date {
-        font-size: 14px;
-        line-height: 21px;
-        color: #333;
+    &__subheading {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+      text-align: center;
+      color: #828282;
     }
-    &__desc {
-        font-size: 14px;
-        line-height: 21px;
-        color: #333;
-        margin-bottom: 12px;
+  }
+  &__thumbnail {
+    position: relative;
+    height: 270px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
+    border-radius: 5px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      min-height: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 5px;
     }
-    &__block-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 16px;
-        @media only screen and (min-width: 1024px) {
-            margin-bottom: 30px;
-        }
+    &__text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
     }
-    &__block {
-        width: 31%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        @media only screen and (min-width: 1024px) {
-            width: 24%;
-        }
-        @media only screen and (min-width: 1360px) {
-            width: 19.2%;
-        }
-        &__icon {
-            margin-bottom: 6px;
-            height: 60px;
-            width: auto;
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-        &__title {
-            font-style: normal;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 27px;
-            text-align: center;
-            color: #333333;
-            @media only screen and (min-width: 1024px) {
-                font-size: 18px;
-            }
-        }
-        &__subheading {
-            font-style: normal;
-            font-weight: 500;
-            font-size: 12px;
-            line-height: 18px;
-            text-align: center;
-            color: #828282;
-        }
+    &__icon {
+      height: 43px;
+      width: 43px;
+      margin: 0 auto 5px auto;
     }
-    &__thumbnail {
-        position: relative;
-        height: 270px;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
-        border-radius: 5px;
-        overflow: hidden;
-        img {
-            width: 100%;
-            min-height: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-        &__text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #fff;
-        }
-        &__icon {
-            height: 43px;
-            width: 43px;
-            margin: 0 auto 5px auto;
-        }
-        &__title {
-            font-size: 20px;
-            line-height: 30px;
-            font-weight: 800;
-        }
+    &__title {
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 800;
     }
-    &__cta {
-        font-size: 14px;
-        line-height: 21px;
-        color: $primary-color;
-        text-align: center;
-        margin-top: 20px;
-        display: block;
-    }
+  }
+  &__cta {
+    font-size: 14px;
+    line-height: 21px;
+    color: $primary-color;
+    text-align: center;
+    margin-top: 20px;
+    display: block;
+  }
 }
 
 .overview__thumbnail__container {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
 }
 
 .overview__desc {
-    line-height: 1.8;
-    ul,
-    ol {
-        padding-inline-start: 19px;
-    }
+  line-height: 1.8;
+  ul,
+  ol {
+    padding-inline-start: 19px;
+  }
 }

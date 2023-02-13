@@ -12,7 +12,7 @@ const NewsOnCollege = () => {
   const dispatch = useDispatch();
   const college = useSelector((state: any) => state.college.college);
   const collegeNews = useSelector((state: any) => state.blog.collegeNews);
-  console.log('collegeNews',collegeNews)
+  console.log("collegeNews", collegeNews);
 
   const getCoverNewsLetter = (college_slug) => {
     dispatch(getNewsOfCollege(college_slug));
@@ -24,8 +24,8 @@ const NewsOnCollege = () => {
   return Array.isArray(collegeNews) ? (
     <div className="news-o-c">
       <div className="news-o-c__inner">
-          <div className="sidebar__title">Subjects covered</div>
-      
+        <div className="sidebar__title">Subjects covered</div>
+
         <div className="news-o-c__list">
           {collegeNews.map((news) => (
             <ThumbnailText

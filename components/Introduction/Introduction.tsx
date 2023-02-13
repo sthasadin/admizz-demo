@@ -9,8 +9,8 @@ import { auth } from "../../firebase";
 
 import ReactPlayer from "react-player";
 
-const MTModal:any=Modal
-const RTReactPlayer:any=ReactPlayer
+const MTModal: any = Modal;
+const RTReactPlayer: any = ReactPlayer;
 
 const Introduction = (props) => {
   const { title, imgSrc, videoUrl } = props;
@@ -176,9 +176,8 @@ const Introduction = (props) => {
                     />
                   </svg>
                 </div>
-                <div className="introduction__meta__item__title" 
-                >
-                 <a href="/testimonialDetailPage"> STORIES OF ADMIZZ</a>
+                <div className="introduction__meta__item__title">
+                  <a href="/testimonialDetailPage"> STORIES OF ADMIZZ</a>
                 </div>
               </div>
               <div className="introduction__meta__item">

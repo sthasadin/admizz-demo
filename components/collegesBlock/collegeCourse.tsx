@@ -1,4 +1,3 @@
-
 import React from "react";
 
 const CollegeCourse = ({ Courses }) => {
@@ -14,7 +13,7 @@ const CollegeCourse = ({ Courses }) => {
             return (
               index < 3 && (
                 <div className="college-course__item" key={index}>
-                  {truncate(course?.courseprogram?.name,16)}{" "}
+                  {truncate(course?.courseprogram?.name, 16)}{" "}
                 </div>
               )
             );

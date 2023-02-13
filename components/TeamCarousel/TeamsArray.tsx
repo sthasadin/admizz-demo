@@ -31,6 +31,5 @@ const TeamsArray = [
     bottom: "0%",
     left: "17%",
   },
-  
 ];
 export default TeamsArray;

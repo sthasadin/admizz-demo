@@ -20,9 +20,9 @@ const FeeStructure = (props: any) => {
   const college = useSelector((state: any) => state.college.college);
 
   const onLevelClick = (level: string) => {
-    let thisLevel = levels.find((l) => l.name === level);
+    const thisLevel = levels.find((l) => l.name === level);
 
-    let thisStreams = [];
+    const thisStreams = [];
     setSelectLevel(level);
     if (level === "all-courses") {
       getAllPrograms("all-courses");
@@ -40,10 +40,10 @@ const FeeStructure = (props: any) => {
   };
 
   React.useEffect(() => {
-    let _levels = [];
+    const _levels = [];
 
     courses?.forEach((course) => {
-      let level = levels.find((l) => l._id === course?.courselevel?._id);
+      const level = levels.find((l) => l._id === course?.courselevel?._id);
 
       if (level) {
         _levels.push(level);
@@ -54,21 +54,21 @@ const FeeStructure = (props: any) => {
   }, [courses, levels]);
 
   const getCourses = async (id: string) => {
-    let res = await dispatch<any>(getCollegeCourses(id));
+    const res = await dispatch<any>(getCollegeCourses(id));
     setCourses(res);
   };
 
   const getAllLevels = async () => {
-    let res = await dispatch<any>(getLevels());
+    const res = await dispatch<any>(getLevels());
     setLevels(res);
   };
 
   const getAllPrograms = (programStream: any) => {
-    let thisPrograms = [];
+    const thisPrograms = [];
 
     if (programStream === "all-courses") {
       courses.forEach((course) => {
-        let programDetail = {
+        const programDetail = {
           _id: course?._id,
           name: course?.courseprogram?.name,
           fee_per_sem: course?.fee_per_sem,
@@ -83,7 +83,7 @@ const FeeStructure = (props: any) => {
           course?.coursestream?.courselevel === programStream?.courselevel &&
           course?.coursestream?._id === programStream?._id
         ) {
-          let programDetail = {
+          const programDetail = {
             _id: course?._id,
             name: course?.courseprogram?.name,
             fee_per_sem: course?.fee_per_sem,
@@ -112,7 +112,6 @@ const FeeStructure = (props: any) => {
         <div className="fee-structure__title-wrap">
           <div className="fee-structure__title">COURSES OFFERED</div>
           {/* <div className="fee-structure__cta">View All Courses</div> */}
-           
         </div>
         <div className="fee-structure__level">
           <div className="level-list">
@@ -180,8 +179,7 @@ const FeeStructure = (props: any) => {
         </div>
         <div className="fee-structure__course-fee">
           <div className="course-fee">
-            {
-            programs.map((p, i) => {
+            {programs.map((p, i) => {
               return (
                 <div key={i} className="course-fee__item">
                   <Link href={`/colleges/program/${p.slug}`}>
@@ -191,7 +189,7 @@ const FeeStructure = (props: any) => {
                     <span className="title">{p.fee_per_sem}</span>
                     <span>Estimated Fee</span>
                   </div>
-                  
+
                   <Link href={`/colleges/program/${p?.slug}`}>
                     <div className="course-fee__details">VIEW DETAIL</div>
                   </Link>

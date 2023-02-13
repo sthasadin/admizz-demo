@@ -18,7 +18,6 @@ const Review = ({ review, addDisLike, addLike }: any) => {
           <div className="review__item__header">
             <div className="review__item__header__left">
               <div className="review__item__name">{review?.by?.fullName}</div>
-           
             </div>
             <div className="rating-review__rating">
               <span>{review?.averageRating}/</span>

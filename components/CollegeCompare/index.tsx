@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
-import filterIcon from "../../public/filterIcon.png";
-import addCollegeIcon from "../../public/addCollegeIcon.png";
+import filterIcon from "public/filterIcon.png";
+import addCollegeIcon from "public/addCollegeIcon.png";
 import CompareAttributesList from "./CompareFilter/CompareAttributesList";
 import ShowSelectedCollege from "./ShowSelectedCollege";
 import { useSelector } from "react-redux";
@@ -25,17 +25,16 @@ const index = () => {
   const { compareCollege } = useSelector((state: any) => state.college);
 
   React.useEffect(() => {
-    let storageCollages=localStorage.getItem('clgs')
+    const storageCollages = localStorage.getItem("clgs");
 
-    let decodedClgs=JSON.parse(storageCollages)
+    const decodedClgs = JSON.parse(storageCollages);
     // if (college) {
     //   setSelectedCollege([college]);
     // }
 
-    if(decodedClgs?.length){
+    if (decodedClgs?.length) {
       setSelectedCollege(decodedClgs);
     }
-
   }, [college]);
 
   const handleAddCollegeModal = (res) => {
@@ -91,8 +90,6 @@ const index = () => {
       </div>
       <div className="comparecollege__addcollegecontainer">
         <div className="inner">
-        
-
           <div className="collegecompare__tablecontainer">
             <div className="collegetable_metacontainer">
               <div className="comparecollege__collegelist">
@@ -106,18 +103,13 @@ const index = () => {
                       <img src={addCollegeIcon} />
                     </div>
                   ) : (
-                    <div
-                    className="comparecollege__addtemplates"
-                  >
-                    <strong>
-                    Compared List 
-
-                    </strong>
-                    {/* <div>
+                    <div className="comparecollege__addtemplates">
+                      <strong>Compared List</strong>
+                      {/* <div>
                       Compared List 
                       </div> */}
-                    {/* <img src={addCollegeIcon} /> */}
-                  </div>
+                      {/* <img src={addCollegeIcon} /> */}
+                    </div>
                   )}
                 </div>
                 {selectedCollege &&

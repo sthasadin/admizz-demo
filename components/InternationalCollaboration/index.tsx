@@ -7,7 +7,7 @@ import collaboration3 from "../../public/collaboration3.png";
 
 const InternationalCollaboration = (props: any) => {
   const international_collaboration = useSelector(
-    (state:any) => state.college.college.international_collaboration
+    (state: any) => state.college.college.international_collaboration
   );
 
   return international_collaboration?.length ? (

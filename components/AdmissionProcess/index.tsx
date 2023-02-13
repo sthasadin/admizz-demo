@@ -3,12 +3,14 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import schlorship from "../../public/scholarship.png";
 import { ScholarshipOption } from "./schlorshipOption";
-import {RootState} from "../../store/store";
+import { RootState } from "../../store/store";
 
 const AdmissionProcess = () => {
-  const admission = useSelector((state:any) => state.college.college?.addmission_process
+  const admission = useSelector(
+    (state: any) => state.college.college?.addmission_process
   );
-  const scholarships = useSelector((state:any) => state.college.college?.scholarships
+  const scholarships = useSelector(
+    (state: any) => state.college.college?.scholarships
   );
 
   {
@@ -32,7 +34,9 @@ const AdmissionProcess = () => {
           )}
 
           {scholarships && scholarships?.length > 0 && (
-          <div className="admission-process__heading">Scholarship Offered</div>
+            <div className="admission-process__heading">
+              Scholarship Offered
+            </div>
           )}
           <div className="admission-process__list">
             {scholarships ? (
@@ -43,8 +47,6 @@ const AdmissionProcess = () => {
               </>
             ) : null}
           </div>
-        
-              
         </div>
       </div>
     ) : null;

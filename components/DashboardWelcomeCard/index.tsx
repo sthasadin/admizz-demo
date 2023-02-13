@@ -3,7 +3,7 @@ import { Button } from "../Button";
 import Link from "next/link";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Box from "@material-ui/core/Box";
-const BBox:any = Box
+const BBox: any = Box;
 function CircularProgressWithLabel(props) {
   return (
     <BBox className="circle-container">

@@ -5,8 +5,8 @@ export const getStudentApplication = (id) => {
   return async (dispatch) => {
     try {
       let applications = {} as any;
-      let remark = [];
-      let querySnapshot = await db
+      const remark = [];
+      const querySnapshot = await db
         .collection("students-application")
         .where("student_id", "==", id)
         .get();
@@ -18,7 +18,7 @@ export const getStudentApplication = (id) => {
         };
       });
 
-      let remarkRef = await db
+      const remarkRef = await db
         .collection("students-application")
         .doc(applications.id)
         .collection("remarks")
@@ -62,4 +62,3 @@ export const updateStudentApplication = (status, id) => {
     }
   };
 };
-

@@ -1320,8 +1320,6 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   position: relative;
   height: 167px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
-  
- 
 }
 
 .colleges-card__thumbnail img {
@@ -1331,7 +1329,6 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   object-fit: scale-down;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39));
 }
-
 
 .colleges-card__title-wrap {
   position: absolute;
@@ -2996,8 +2993,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   text-align: center;
   margin-bottom: 17px;
   justify-content: center;
-  font-weight:400;
-
+  font-weight: 400;
 }
 
 .testimonial__quote {
@@ -10567,7 +10563,6 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   width: 240px;
 }
 
-
 .footer__newsletter__title {
   font-size: 18px;
   font-weight: 500;
@@ -10655,7 +10650,6 @@ nav.navigation ul.menu li.menu-item a:hover::after {
   }
 }
 
-
 /* Make clicks pass-through */
 #nprogress {
   pointer-events: none;
@@ -10679,6 +10673,5 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 .nprogress-custom-parent #nprogress .bar {
   position: absolute;
 }
-
 
 /*# sourceMappingURL=main.css.map */

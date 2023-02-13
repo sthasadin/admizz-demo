@@ -18,14 +18,10 @@ const About = () => {
           </p>
         </div>
         <div className="about-country__info">
-        India has over 
-        <span> 45,000 Degree </span>
-         Colleges,{" "} and around 
-          1018 Universities,
-
+          India has over
+          <span> 45,000 Degree </span>
+          Colleges, and around 1018 Universities,
           <span>1500 top Institution.</span>
-
-        
         </div>
         <div className="about-country__thumbnail-wrap">
           <Card1

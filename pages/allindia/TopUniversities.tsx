@@ -28,4 +28,4 @@ const TopUniversities: FC<CollegeProps> = ({ collegeList }) => {
   );
 };
 
-export default TopUniversities ;
+export default TopUniversities;

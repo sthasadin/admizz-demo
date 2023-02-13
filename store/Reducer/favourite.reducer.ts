@@ -1,18 +1,18 @@
 import { FAVOURITES } from "../const";
 
 const initialState = {
-    userFavorite: []
-}
+  userFavorite: [],
+};
 
 export default (state = initialState, action) => {
-    const { type, payload } = action;
-    switch(type) {
+  const { type, payload } = action;
+  switch (type) {
     case FAVOURITES.USER_FAVOURITES:
-        return {
-            ...state,
-            userFavorite: payload,
-        }
+      return {
+        ...state,
+        userFavorite: payload,
+      };
     default:
-        return state
-    }
-}
+      return state;
+  }
+};

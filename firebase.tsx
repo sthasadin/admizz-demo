@@ -24,11 +24,9 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 
 const seedReviews = () => {
-  
   db.collection("reviews")
     .doc("60138a2c50ccc8fef5b00c69")
-    .onSnapshot((snapShot) => {
-    });
+    .onSnapshot((snapShot) => {});
 };
 const storage = firebase.storage();
 export { db, auth, firebase, storage };

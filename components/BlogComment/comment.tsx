@@ -1,7 +1,6 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 
 const Comment = ({ comments }) => {
-
   const [showAllComment, setShowAllComment] = useState(false);
   const [selectedComment, setSelectedComment] = React.useState(3);
   return (

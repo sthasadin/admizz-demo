@@ -6,24 +6,23 @@ import {
   COLLEGE_BY_LIMIT,
   TOTAL_COLLEGE,
   COLLEGE_BY_SEARCH,
-  
 } from "../const";
 
 const initialState = {
   college: {},
   colleges: [],
-  compareCollege:'',
+  compareCollege: "",
   multiLoading: false,
   singleLoading: false,
   collegesByLimit: [],
   collegeByLimitLoader: false,
   totalCollegeCount: 0,
-  collegeLoading:false
+  collegeLoading: false,
 };
 
 export default (state = initialState, action) => {
   const { type, payload } = action;
-  console.log({action})
+  console.log({ action });
   switch (type) {
     case COLLEGE_BY_LIMIT_BEGIN:
       return {
@@ -34,31 +33,30 @@ export default (state = initialState, action) => {
     case COLLEGE_BY_LIMIT:
       return {
         ...state,
-        collegesByLimit: [...payload], //...state.collegesByLimit, 
-        totalCollegeCount:payload.length,
+        collegesByLimit: [...payload], //...state.collegesByLimit,
+        totalCollegeCount: payload.length,
         collegeByLimitLoader: false,
       };
-     
+
     case COLLEGE_BY_FILTER:
       return {
         ...state,
         collegesByLimit: payload,
-        totalCollegeCount:payload.length,
+        totalCollegeCount: payload.length,
         collegeByLimitLoader: false,
       };
     case COLLEGE_BY_SEARCH:
       return {
         ...state,
         collegesByLimit: payload,
-        totalCollegeCount:payload.length,
+        totalCollegeCount: payload.length,
         collegeByLimitLoader: false,
       };
-      case COLLEGES_TYPES.GET_COMPARE_LIST:
-        return{
-          ...state,
-          compareCollege:payload
-
-        }
+    case COLLEGES_TYPES.GET_COMPARE_LIST:
+      return {
+        ...state,
+        compareCollege: payload,
+      };
     case TOTAL_COLLEGE:
       return {
         ...state,
@@ -97,7 +95,6 @@ export default (state = initialState, action) => {
         singleLoading: true,
         college: {},
       };
-      
 
     default:
       return state;

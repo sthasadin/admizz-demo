@@ -1,112 +1,112 @@
 .rankingawards__section {
-    padding: 25px;
-    border-radius: 5px;
-    background-color: #fff;
-    margin-bottom: 16px;
-    .rankingawards__title {
-        font-weight: 800;
-        font-size: 18px;
-        line-height: 27px;
-        color: $secondary-color;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 16px;
+  .rankingawards__title {
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 27px;
+    color: $secondary-color;
+  }
+  .rankingawards__heading {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 800;
+    margin-top: 18px;
+  }
+  .rankingawards__tabletitle {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 13px;
+    width: 95%;
+    div {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+      color: #828282;
     }
-    .rankingawards__heading {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 800;
-        margin-top: 18px;
+  }
+  .rankingawards__awardscontainer {
+    max-height: 370px;
+    overflow: auto;
+    .rankingawards__awardsbox {
+      padding: 20px 0;
+      background-color: #f2f2f2;
+      margin-top: 15px;
     }
-    .rankingawards__tabletitle {
+    .rankingawards_contents {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: auto;
+      padding-left: 30px;
+      padding-right: 40px;
+      div {
         display: flex;
-        justify-content: space-between;
-        margin-top: 13px;
-        width: 95%;
-        div {
-            font-size: 16px;
-            line-height: 24px;
-            font-weight: 500;
-            color: #828282;
-        }
-       
+        align-items: center;
+        justify-content: center;
+      }
     }
-    .rankingawards__awardscontainer {
-        max-height: 370px;
-        overflow: auto;
-        .rankingawards__awardsbox {
-            padding: 20px 0;
-            background-color: #f2f2f2;
-            margin-top: 15px;
-        }
-        .rankingawards_contents {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin: auto;
-            padding-left: 30px;
-            padding-right: 40px;
-            div {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-    }
-    //scroll bar coustomization
-     ::-webkit-scrollbar {
-        width: 2px;
-    }
-     ::-webkit-scrollbar-thumb {
-        background: $primary-color;
-        border-radius: 10px;
-    }
-    //----------END--------------------
-    .award__title {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 600;
-        margin-top: 18px;
-        color: #333;
-    }
-    .award__container {
-        margin-top: 22px;
-        display: flex;
-        flex-wrap: wrap;
+  }
+  //scroll bar coustomization
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $primary-color;
+    border-radius: 10px;
+  }
+  //----------END--------------------
+  .award__title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    margin-top: 18px;
+    color: #333;
+  }
+  .award__container {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    // display: grid;
+    // grid-template-columns: repeat(6, 1fr);
+    // grid-gap: 10px;
+    .award__content {
+      width: 50%;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      @media only screen and (min-width: 1024px) {
+        width: 25%;
+      }
+      img {
         width: 100%;
-        // display: grid;
-        // grid-template-columns: repeat(6, 1fr);
-        // grid-gap: 10px;
-        .award__content {
-            width: 50%;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            @media only screen and (min-width: 1024px) {
-                width: 25%;
-            }
-            img {
-                width: 100%;
-                height: 75px;
-                object-fit: cover;
-            }
-            .award__details {
-                // font-weight: 800;
-                // color: #4f4f4f;
-                // font-size: 14px;
-                // line-height: 21px;
-                text-align: center;
-                font-style: normal;
-                font-weight: 700;
-                font-size: 14px;
-                line-height: 21px;
-                color: #4f4f4f;
-                margin-top: 8px;
-                width: 86%;
-                @media only screen and (min-width: 1360px) {}
-            }
+        height: 75px;
+        object-fit: cover;
+      }
+      .award__details {
+        // font-weight: 800;
+        // color: #4f4f4f;
+        // font-size: 14px;
+        // line-height: 21px;
+        text-align: center;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 21px;
+        color: #4f4f4f;
+        margin-top: 8px;
+        width: 86%;
+        @media only screen and (min-width: 1360px) {
         }
+      }
     }
-         @media (max-width:414px) {
-             display: none;
-         }
+  }
+  @media (max-width: 414px) {
+    display: none;
+  }
 }

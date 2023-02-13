@@ -25,7 +25,9 @@ const QuickHelp = () => {
             </defs>
           </svg>
         </div>
-        <div className="quick-help__title">Get Best Scholarships Facilities</div>
+        <div className="quick-help__title">
+          Get Best Scholarships Facilities
+        </div>
         <div className="quick-help__desc">
           Get the right career advice for you and earn your best career
           certificates.

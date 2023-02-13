@@ -108,7 +108,7 @@ const Testimonial = (props: any) => {
             <div className="testimonial__item-wrap">
               <div className="testimonial__left">
                 {testimonialList?.map((item, index) => {
-                  var midepointIndex = testimonialList?.length / 2;
+                  const midepointIndex = testimonialList?.length / 2;
                   if (index < midepointIndex) {
                     if (index == 3) {
                       return (
@@ -209,39 +209,38 @@ const Testimonial = (props: any) => {
                           </MTModal>
                         </div>
                       );
-                    } else {
-                      return (
-                        <div
-                          className={"testimonial__left__thumbnail"}
-                          onClick={() => {
-                            handleClick(
-                              item.description,
-                              item.testimonial_type,
-                              item.image,
-                              item.video_url,
-                              item.name,
-                              item.university_name,
-                              index
-                            );
-                          }}
-                        >
-                          <img
-                            src={item?.image}
-                            style={{
-                              borderRadius: "300px",
-                            }}
-                            alt="testimonial1"
-                          />
-                        </div>
-                      );
                     }
+                    return (
+                      <div
+                        className={"testimonial__left__thumbnail"}
+                        onClick={() => {
+                          handleClick(
+                            item.description,
+                            item.testimonial_type,
+                            item.image,
+                            item.video_url,
+                            item.name,
+                            item.university_name,
+                            index
+                          );
+                        }}
+                      >
+                        <img
+                          src={item?.image}
+                          style={{
+                            borderRadius: "300px",
+                          }}
+                          alt="testimonial1"
+                        />
+                      </div>
+                    );
                   }
                 })}
               </div>
 
               <div className="testimonial__right">
                 {testimonialList?.map((item, index) => {
-                  var midepointIndex = testimonialList?.length / 2;
+                  const midepointIndex = testimonialList?.length / 2;
                   if (index >= midepointIndex) {
                     if (index == 3) {
                       return (
@@ -339,30 +338,29 @@ const Testimonial = (props: any) => {
                           </MTModal>
                         </div>
                       );
-                    } else {
-                      return (
-                        <div
-                          className={"testimonial__right__thumbnail"}
-                          onClick={() => {
-                            handleClick(
-                              item.description,
-                              item.testimonial_type,
-                              item.image,
-                              item.video_url,
-                              item.name,
-                              item.university_name,
-                              index
-                            );
-                          }}
-                        >
-                          <img
-                            src={item?.image}
-                            style={{ borderRadius: "300px" }}
-                            alt="testimonial1"
-                          />
-                        </div>
-                      );
                     }
+                    return (
+                      <div
+                        className={"testimonial__right__thumbnail"}
+                        onClick={() => {
+                          handleClick(
+                            item.description,
+                            item.testimonial_type,
+                            item.image,
+                            item.video_url,
+                            item.name,
+                            item.university_name,
+                            index
+                          );
+                        }}
+                      >
+                        <img
+                          src={item?.image}
+                          style={{ borderRadius: "300px" }}
+                          alt="testimonial1"
+                        />
+                      </div>
+                    );
                   }
                 })}
               </div>

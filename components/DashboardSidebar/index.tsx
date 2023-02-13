@@ -4,7 +4,7 @@ import StickyBox from "react-sticky-box";
 import { Button } from "../Button";
 import { auth, db } from "../../firebase";
 import { useRouter } from "next/router";
-const STStickyBox:any = StickyBox
+const STStickyBox: any = StickyBox;
 const DashboardSidebar = () => {
   const router = useRouter();
   const logout = async () => {
@@ -43,7 +43,7 @@ const DashboardSidebar = () => {
           className={`dashboard-sidebar-tab `}
           onClick={() => router.push("/favourites")}
         >
-        My Favourites
+          My Favourites
         </div>
         <div
           className={`dashboard-sidebar-tab `}

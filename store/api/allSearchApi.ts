@@ -1,9 +1,9 @@
 import { postService } from "../commonServices";
 export class AllSearchService {
   getAllItem(keyword) {
-    let body = keyword;
-    let url = `/search/all-search`;
-    let data = postService(url, body);
+    const body = keyword;
+    const url = `/search/all-search`;
+    const data = postService(url, body);
     return data;
   }
 }

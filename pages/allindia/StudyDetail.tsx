@@ -127,7 +127,8 @@ const StudyDetail = () => {
               </li>
             </div>
             <div className="study-detail-title-para">
-            Admizz helps students choose the best course and university fit for a student.
+              Admizz helps students choose the best course and university fit
+              for a student.
             </div>
           </div>
         </div>

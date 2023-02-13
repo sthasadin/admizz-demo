@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import renderHTML from "react-render-html";
 
-
 interface BlogDetailContent {
   blog_desc: string;
   author: string;
@@ -14,7 +13,7 @@ interface BlogDetailContent {
 const BlogDetailContent: FC<BlogDetailContent> = ({ blog_desc, author }) => {
   const router = useRouter();
   const { slug } = router.query;
-  const blogs = useSelector((state:any) => state.singleBlog.blog);
+  const blogs = useSelector((state: any) => state.singleBlog.blog);
 
   const dispatch = useDispatch();
 
@@ -28,7 +27,6 @@ const BlogDetailContent: FC<BlogDetailContent> = ({ blog_desc, author }) => {
           {renderHTML(blogs?.blog_desc)}
         </div>
       )}
-     
     </div>
   );
 };

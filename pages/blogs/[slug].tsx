@@ -23,7 +23,7 @@ import BlogComment from "../../components/BlogComment";
 import CommentSection from "../../components/BlogComment/comment";
 import { getBlogs } from "../../store/Action/blog.action";
 import { BlogListSimilarBlog } from "../../components/BlogListSimilarBlog";
-import { getComments } from "@/store/Action/Comment.action";
+import { getComments } from "store/Action/Comment.action";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { log } from "util";
 const blogDetail = () => {
@@ -81,10 +81,10 @@ const blogDetail = () => {
   useEffect(() => {
     if (showShareOptions) {
       const share_class = document.getElementsByClassName(
-        'react-share__ShareButton'
+        "react-share__ShareButton"
       );
-      Array.from(share_class).forEach(item => {
-        item?.classList?.remove('react-share__ShareButton');
+      Array.from(share_class).forEach((item) => {
+        item?.classList?.remove("react-share__ShareButton");
       });
     }
   }, [showShareOptions]);
@@ -111,50 +111,51 @@ const blogDetail = () => {
                     {blog?.category}
                   </Button>
                 </div>
-            
+
                 <div
                   className="blog-detail__sharetitle"
-                  style={{position:"relative", paddingBottom:showShareOptions?40:0}}
+                  style={{
+                    position: "relative",
+                    paddingBottom: showShareOptions ? 40 : 0,
+                  }}
                   onClick={() => setShowShareOptions(!showShareOptions)}
                 >
                   <p className="blog-detail__sharetext">Share This Article</p>
-                
-                
-                <div
-                  style={{
-                    position: "absolute",
-                    top: 50,
-                    display: showShareOptions ? "block" : "none",
-                    // paddingBottom:showShareOptions?50:0
-                  }}
-                  ref={modalRef}
-                >
-                <ul
-                  style={{
-                    position: "relative",
-                    zIndex: 999,
-                    padding: 10,
-                    borderRadius: 4,
-                    backgroundColor: "#fff",
-                    margin: 0,
-                    display: "flex",
-                    // marginBottom:40
-                
-                  }}
-                >
-                  <div style={{ marginRight: 5 }}>
-                    <FacebookShareButton url={shareUrl} quote="#Admizz">
-                      <FacebookIcon size={40} />
-                    </FacebookShareButton>
-                  </div>
 
-                  <div style={{ marginRight: 5 }}>
-                    <WhatsappShareButton url={shareUrl}>
-                      <WhatsappIcon size={40} />
-                    </WhatsappShareButton>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 50,
+                      display: showShareOptions ? "block" : "none",
+                      // paddingBottom:showShareOptions?50:0
+                    }}
+                    ref={modalRef}
+                  >
+                    <ul
+                      style={{
+                        position: "relative",
+                        zIndex: 999,
+                        padding: 10,
+                        borderRadius: 4,
+                        backgroundColor: "#fff",
+                        margin: 0,
+                        display: "flex",
+                        // marginBottom:40
+                      }}
+                    >
+                      <div style={{ marginRight: 5 }}>
+                        <FacebookShareButton url={shareUrl} quote="#Admizz">
+                          <FacebookIcon size={40} />
+                        </FacebookShareButton>
+                      </div>
+
+                      <div style={{ marginRight: 5 }}>
+                        <WhatsappShareButton url={shareUrl}>
+                          <WhatsappIcon size={40} />
+                        </WhatsappShareButton>
+                      </div>
+                    </ul>
                   </div>
-                </ul>
-                </div>
                 </div>
               </div>
             </div>

@@ -23,7 +23,7 @@ body {
     display: none !important;
   }
 }
-.mobiletestimonial{
+.mobiletestimonial {
   @media (max-width: 552px) {
     display: none !important;
   }
@@ -138,51 +138,47 @@ a {
     color: #fff !important;
   }
 }
-.colleges-card__title{
-  a{
+.colleges-card__title {
+  a {
     color: #fff !important;
-
   }
 }
 
-.footer__default{
-  a{
+.footer__default {
+  a {
     color: #fff !important;
-
-  } 
+  }
 }
 .footer__col__item {
-  a{
+  a {
     color: #fff !important;
   }
 }
 .introduction__watch__label {
-  a{
+  a {
     color: black !important;
   }
 }
-.introduction__meta__item__title{
-  a{
+.introduction__meta__item__title {
+  a {
     color: black !important;
     cursor: pointer;
-
   }
 }
-.college-list-result__titleText{
-  p{
+.college-list-result__titleText {
+  p {
     margin-bottom: 0;
     margin-top: 1;
   }
 }
-.submenu-bar{
-  a{
+.submenu-bar {
+  a {
     color: black !important;
-
   }
 }
-.rating-review__cta{
+.rating-review__cta {
   a {
-    color: #5f1802;;
+    color: #5f1802;
   }
 }
 
@@ -461,11 +457,11 @@ a {
   }
   // .MuiGrid-grid-xs-2 {
   //     @media (max-width:400px) {
-     
+
   //       flex-grow: 0;
   //         max-width: 0% !important;
   //         flex-basis: 0% !important;
   //     }
-       
+
   //   }
 }

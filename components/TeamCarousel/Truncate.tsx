@@ -7,8 +7,7 @@ const text_truncate = (str, length, ending): any => {
   }
   if (str?.length > length) {
     return str.substring(0, length - ending?.length) + ending;
-  } else {
-    return str;
   }
+  return str;
 };
 export default text_truncate;

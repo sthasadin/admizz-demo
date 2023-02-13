@@ -1,16 +1,16 @@
-import { GET_COLLAGE_DETAIL } from "../const"
+import { GET_COLLAGE_DETAIL } from "../const";
 
 const initialState = {
-    collageDetails : []
+  collageDetails: [],
 };
 
-export default  (state = initialState, {type, payload} ) =>{
-    switch(type){
-        case GET_COLLAGE_DETAIL:
-            return{
-                collageDetails : payload
-            }
-        default :
-            return state
-    }
-}
+export default (state = initialState, { type, payload }) => {
+  switch (type) {
+    case GET_COLLAGE_DETAIL:
+      return {
+        collageDetails: payload,
+      };
+    default:
+      return state;
+  }
+};

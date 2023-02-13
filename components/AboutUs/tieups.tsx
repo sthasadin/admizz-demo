@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { getAllTieUp } from "@/store/Action/tieup.action";
+import { getAllTieUp } from "store/Action/tieup.action";
 
 const tieups = ({ college }) => {
   const dispatch = useDispatch();

@@ -8,7 +8,6 @@ const AppliedCollege = ({ selectedCollege }) => {
       return str;
     }
     return str?.slice(0, num) + "...";
-    
   }
 
   return (

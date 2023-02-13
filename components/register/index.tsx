@@ -1,26 +1,25 @@
-import React, { useMemo, useState } from "react";
-import { Input } from "../Input";
-import { PasswordField } from "../Input/PasswordField";
-import PersonIcon from "@material-ui/icons/Person";
-import MailIcon from "@material-ui/icons/Mail";
-import PhoneIcon from "@material-ui/icons/Phone";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
-import LockIcon from "@material-ui/icons/Lock";
-import { auth, db } from "../../firebase";
-import { useRouter } from "next/router";
-import * as yup from "yup";
-import { Button } from "../Button";
-import { ErrorMessages } from "../../utils/ErrorMessages";
 import { Snackbar } from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
-import { Select } from "../Select";
-import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
-import Link from "next/link";
 import Checkbox from "@material-ui/core/Checkbox";
 import { withStyles } from "@material-ui/core/styles";
-import { CountryCode } from "utils/CountryCode";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import LockIcon from "@material-ui/icons/Lock";
+import MailIcon from "@material-ui/icons/Mail";
+import PersonIcon from "@material-ui/icons/Person";
+import PhoneIcon from "@material-ui/icons/Phone";
+import Alert from "@material-ui/lab/Alert";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useMemo, useState } from "react";
 import countryLists from "react-select-country-list";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { CountryCode } from "utils/CountryCode";
+import * as yup from "yup";
+import { auth, db } from "../../firebase";
+import { ErrorMessages } from "../../utils/ErrorMessages";
+import { Button } from "../Button";
+import { Input } from "../Input";
+import { PasswordField } from "../Input/PasswordField";
+import { Select } from "../Select";
+import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 interface signUpFormValue {
   fullName: string;
   email: string;
@@ -141,13 +140,12 @@ const Register = () => {
   };
 
   const handleRegister = async (e) => {
-    
     try {
       e.preventDefault();
       setLoading(true);
       const valid = await validate();
       if (valid && isTermChecked) {
-        let authUser = await auth.createUserWithEmailAndPassword(
+        const authUser = await auth.createUserWithEmailAndPassword(
           formValue.email,
           formValue.password
         );
@@ -190,10 +188,9 @@ const Register = () => {
               });
               console.error(err);
             });
-
         }
-      }else{
-        setCheckValidation(true)
+      } else {
+        setCheckValidation(true);
       }
       setLoading(false);
     } catch (err) {
@@ -206,7 +203,6 @@ const Register = () => {
       } else {
         setFormError({ ...formError, otherErrors: "Error occurred" });
       }
-      
     }
   };
 
@@ -329,8 +325,6 @@ const Register = () => {
                   value={formValue.country}
                 />
                 <div className={"student-info__phone-input"}>
-           
-
                   <CountryCodeDropDown
                     options={CountryCode}
                     useValue
@@ -375,7 +369,7 @@ const Register = () => {
                   showPassword={showPassword}
                   value={formValue.password}
                 />
-                 
+
                 <PasswordField
                   fullWidth
                   onChange={handleChange}
@@ -400,7 +394,7 @@ const Register = () => {
                   checked={isTermChecked}
                   onChange={() => {
                     setIstermChecked((isTermChecked) => !isTermChecked);
-                    setCheckValidation(false)
+                    setCheckValidation(false);
                   }}
                   style={{ paddingLeft: "0" }}
                 />

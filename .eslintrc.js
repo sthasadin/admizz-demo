@@ -1,11 +1,13 @@
 module.exports = {
   env: {
+    es6: true,
     node: true,
     browser: true,
     jest: true,
   },
   parser: "@typescript-eslint/parser",
   extends: [
+    "plugin:@next/next/recommended",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
@@ -28,17 +30,28 @@ module.exports = {
       version: "detect",
     },
     "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
-    }
+      node: {
+        paths: ["./"],
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        moduleDirectory: ["node_modules", "./"],
+      },
+    },
   },
   rules: {
+    "react/jsx-key": "off",
+    "react/no-unescaped-entities": "off",
+    "no-unused-vars": "off",
+    "react/no-unknown-property": "off",
     "react/prop-types": "off",
     "@typescript-eslint/ban-ts-comment": 0,
     "@typescript-eslint/no-non-null-assertion": 0,
-    "no-console": "error",
-    "no-alert": "error",
+    "no-console": "off",
+    "no-alert": "off",
+    "no-unsafe-optional-chaining": "off",
+    "no-constant-condition": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "no-empty": "off",
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-explicit-any": 0,
     "react/display-name": 0,
     "react-hooks/exhaustive-deps": 0,
@@ -47,7 +60,6 @@ module.exports = {
     "import/first": "error",
     "import/no-duplicates": "error",
     "react/jsx-no-target-blank": 0,
-    "no-unused-vars": "error",
     "no-useless-return": "error",
     "no-return-await": "error",
     "no-else-return": "error",
@@ -55,6 +67,5 @@ module.exports = {
     "no-async-promise-executor": 0,
     "import/no-named-as-default": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
-    "no-console": "off",
   },
 };

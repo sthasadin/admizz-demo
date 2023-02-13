@@ -12,14 +12,14 @@ const Merits = () => {
           <div className="merit__desc">
             Admizz is a perfect guide for you if you are planning your further
             study in India. <br></br>
-            It is a prime intermediary for students to connect,
-            to explore and to apply in top rank educational institutions in
-            India . It helps students from all over the world to get detailed
-            information about various top ranked universities and various
-            colleges that are available in India. With just a one simple click
-            on admizz.com , students can get detailed information about
-            universities and courses in India. It provides varieties of services
-            to students to help pursue their further studies.
+            It is a prime intermediary for students to connect, to explore and
+            to apply in top rank educational institutions in India . It helps
+            students from all over the world to get detailed information about
+            various top ranked universities and various colleges that are
+            available in India. With just a one simple click on admizz.com ,
+            students can get detailed information about universities and courses
+            in India. It provides varieties of services to students to help
+            pursue their further studies.
           </div>
         </div>
         <div className="merti__right__inner">

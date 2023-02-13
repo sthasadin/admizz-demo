@@ -12,7 +12,7 @@ const BlogListRandomBlog = ({ blogArray }) => {
   const text_truncate = (str) => {
     return str.substring(0, 70 - 3) + "...";
   };
-  const suffleArray=blogArray.sort((a,b)=>0.5-Math.random())
+  const suffleArray = blogArray.sort((a, b) => 0.5 - Math.random());
 
   return (
     <div className="blog-list-random-blog">

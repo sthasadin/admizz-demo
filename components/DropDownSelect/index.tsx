@@ -10,8 +10,6 @@ interface DropDownSelect {
   error?: any;
   name?: any;
   icon?: any;
-
-
 }
 const DropDownSelect = ({
   title,
@@ -21,7 +19,7 @@ const DropDownSelect = ({
   errorMessage,
   error,
   name,
-  icon
+  icon,
 }: DropDownSelect) => {
   const customStyles = {
     menu: (provided) => ({
@@ -91,7 +89,6 @@ const DropDownSelect = ({
         </span>
       )}
     </div>
-    
   );
 };
 

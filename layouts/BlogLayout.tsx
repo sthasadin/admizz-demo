@@ -15,7 +15,6 @@ const BlogLayout = ({ children, title }) => {
 
   React.useEffect(() => {
     dispatch(getBlogs(blogCategory));
-
   }, [blogCategory]);
 
   return (
@@ -35,8 +34,7 @@ const BlogLayout = ({ children, title }) => {
         <div className="section-wrapper">
           <ul className="blog-subnavbarcontainer ">
             <li
-              onClick={() => 
-                ("All")}
+              onClick={() => "All"}
               className={`blog-subnavbar ${
                 blogCategory == "All" ? "active-blognav" : ""
               }`}
@@ -61,14 +59,16 @@ const BlogLayout = ({ children, title }) => {
             >
               <Link href={`/blogs/category/engineering`}>Engineering</Link>
             </li>
-            
+
             <li
               onClick={() => setBlogCategory("Software-Developer")}
               className={`blog-subnavbar ${
                 blogCategory == "Software-Developer" ? "active-blognav" : ""
               }`}
             >
-              <Link href={`/blogs/category/software dev`}>Software Development</Link>
+              <Link href={`/blogs/category/software dev`}>
+                Software Development
+              </Link>
             </li>
             <li
               onClick={() => setBlogCategory("Science")}
@@ -86,7 +86,7 @@ const BlogLayout = ({ children, title }) => {
             >
               <Link href={`/blogs/category/medical`}>Medical</Link>
             </li>
-           <li
+            <li
               onClick={() => setBlogCategory("Other")}
               className={`blog-subnavbar ${
                 blogCategory == "Others" ? "active-blognav" : ""

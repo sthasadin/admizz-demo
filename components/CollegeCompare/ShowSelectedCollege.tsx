@@ -3,15 +3,8 @@ import locationMark from "../../public/locationMark.png";
 import checked from "../../public/checked.png";
 
 const ShowSelectedCollege = (props: any) => {
-  const {
-    name,
-    logo,
-    image,
-    address,
-    id,
-    removeCollegeFromCard,
-    hostId,
-  } = props;
+  const { name, logo, image, address, id, removeCollegeFromCard, hostId } =
+    props;
 
   const [isRemoveIconShown, setIsRemoveIconShown] = React.useState(false);
 
@@ -31,9 +24,9 @@ const ShowSelectedCollege = (props: any) => {
         >
           <img src="/closeIcon.png" alt="close_icon" />{" "}
         </div>
-       )} 
+      )}
       <div className="collegelist__collegeimage">
-        <img src={logo ? logo: '/college-logo.png'} alt="college_profile" />
+        <img src={logo ? logo : "/college-logo.png"} alt="college_profile" />
       </div>
       <div className="collegelist__collegedetails">
         <div className="collegelist_inner">

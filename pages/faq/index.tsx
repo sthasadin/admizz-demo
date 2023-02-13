@@ -24,7 +24,6 @@ export const FAQ = () => {
     dispatch(getSearchFaq(query));
   };
 
-
   return (
     <Layout title="FAQs" stickyBar={true}>
       <div className="faq">
@@ -68,10 +67,8 @@ export const FAQ = () => {
               <QuickHelp />
             </div> */}
             <div className="faq__counseling">
-             
-              
               <div className="faq__cta">
-             <BookCounseling/>
+                <BookCounseling />
               </div>
             </div>
           </div>

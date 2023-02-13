@@ -12,8 +12,8 @@ import {
   getStudentTestimonials,
   getYearList,
 } from "../../store/Action/testimonial.actions";
-const MTModal:any= Modal
-const RTReactPlayer:any=ReactPlayer
+const MTModal: any = Modal;
+const RTReactPlayer: any = ReactPlayer;
 
 const index = () => {
   const [open, setOpen] = React.useState(false);
@@ -76,7 +76,7 @@ const index = () => {
     </Menu>
   );
 
-  let pgData = [];
+  const pgData = [];
 
   for (let x = 0; x < totalDocument; x++) {
     pgData.push(x);
@@ -174,74 +174,77 @@ const index = () => {
                     </div>
                   </div>
                   {data?.video_url && (
-                  <div className="introduction__watch">
-                    <div
-                      className="introduction__watch__icon"
-                      onClick={handleOpen}
-                    >
-                      <svg
-                        width="28"
-                        height="28"
-                        viewBox="0 0 75 75"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
+                    <div className="introduction__watch">
+                      <div
+                        className="introduction__watch__icon"
+                        onClick={handleOpen}
                       >
-                        <circle
-                          opacity="0.05"
-                          cx="37.5"
-                          cy="37.5"
-                          r="37.5"
-                          fill="#5F1802"
-                        />
-                        <circle
-                          opacity="0.3"
-                          cx="37.4999"
-                          cy="37.5"
-                          r="32.197"
-                          fill="#5F1802"
-                        />
-                        <circle
-                          cx="37.5"
-                          cy="37.5"
-                          r="26.1364"
-                          fill="#5F1802"
-                        />
-                        <path
-                          d="M31.3141 30.1399C31.3141 28.6003 32.9808 27.638 34.3141 28.4078L47.3224 35.9182C48.6557 36.688 48.6557 38.6125 47.3224 39.3823L34.3141 46.8926C32.9808 47.6624 31.3141 46.7001 31.3141 45.1605L31.3141 30.1399Z"
-                          fill="#FFA200"
-                        />
-                      </svg>
-                    </div>
-
-                    <MTModal
-                      aria-labelledby="transition-modal-title"
-                      aria-describedby="transition-modal-description"
-                      open={open}
-                      onClose={handleClose}
-                      className="introduction__modalContainer"
-                      closeAfterTransition
-                      BackdropComponent={Backdrop}
-                      BackdropProps={{
-                        timeout: 500,
-                      }}
-                    >
-                      <Fade in={open}>
-                        <div className="react-player-container">
-                        <div className="cross-icon" onClick={handleClose}>
-                        X
+                        <svg
+                          width="28"
+                          height="28"
+                          viewBox="0 0 75 75"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            opacity="0.05"
+                            cx="37.5"
+                            cy="37.5"
+                            r="37.5"
+                            fill="#5F1802"
+                          />
+                          <circle
+                            opacity="0.3"
+                            cx="37.4999"
+                            cy="37.5"
+                            r="32.197"
+                            fill="#5F1802"
+                          />
+                          <circle
+                            cx="37.5"
+                            cy="37.5"
+                            r="26.1364"
+                            fill="#5F1802"
+                          />
+                          <path
+                            d="M31.3141 30.1399C31.3141 28.6003 32.9808 27.638 34.3141 28.4078L47.3224 35.9182C48.6557 36.688 48.6557 38.6125 47.3224 39.3823L34.3141 46.8926C32.9808 47.6624 31.3141 46.7001 31.3141 45.1605L31.3141 30.1399Z"
+                            fill="#FFA200"
+                          />
+                        </svg>
                       </div>
-                          <ReactPlayer url={data?.video_url} className="react-player" />
-                        </div>
-                      </Fade>
-                    </MTModal>
 
-                    <div className="introduction__watch__label">
-                      <a href={data?.video_url} target="_blank">
-                        Watch Video
-                      </a>
+                      <MTModal
+                        aria-labelledby="transition-modal-title"
+                        aria-describedby="transition-modal-description"
+                        open={open}
+                        onClose={handleClose}
+                        className="introduction__modalContainer"
+                        closeAfterTransition
+                        BackdropComponent={Backdrop}
+                        BackdropProps={{
+                          timeout: 500,
+                        }}
+                      >
+                        <Fade in={open}>
+                          <div className="react-player-container">
+                            <div className="cross-icon" onClick={handleClose}>
+                              X
+                            </div>
+                            <ReactPlayer
+                              url={data?.video_url}
+                              className="react-player"
+                            />
+                          </div>
+                        </Fade>
+                      </MTModal>
+
+                      <div className="introduction__watch__label">
+                        <a href={data?.video_url} target="_blank">
+                          Watch Video
+                        </a>
+                      </div>
                     </div>
-                  </div>
-            )}
+                  )}
                   <div className="detail_container_content_box">
                     <div className="detail_container_content-arrow">"</div>
                     <div className="detail_container_content">

@@ -47,7 +47,7 @@
   &__details {
     background: #ffffff;
     border: 1px solid #bdbdbd;
-    
+
     // box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.02);
     // box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08); by solanki
     border-radius: 5px 5px 5px 5px;
@@ -128,7 +128,7 @@
       font-size: 14px;
       color: $primary-color;
       cursor: pointer;
-    }  
+    }
   }
   &__course {
     margin: 0 0px 20px 0px;
@@ -139,7 +139,6 @@
   text-decoration: underline;
 }
 
-
 .college-image {
   width: 100%;
   margin: 0;
@@ -149,12 +148,11 @@
   padding: 28px 0;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-
 }
 .review-rating-container {
   display: none;
 }
-.colleges-card:hover  .review-rating-container {
+.colleges-card:hover .review-rating-container {
   position: absolute;
   right: 15px;
   top: 15px;
@@ -162,12 +160,11 @@
 }
 
 .review-title {
-    color: #fffefe;
-    font-size: 11px;
-    font-weight: 500;
-    line-height: 12px;
-    text-transform: uppercase;
-
+  color: #fffefe;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 12px;
+  text-transform: uppercase;
 }
 
 .rating-container {

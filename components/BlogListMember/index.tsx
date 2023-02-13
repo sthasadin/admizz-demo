@@ -7,7 +7,7 @@ const BlogListMember = ({ blogArray }) => {
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");
   };
-    const suffleArray=blogArray.sort((a,b)=>0.5-Math.random())
+  const suffleArray = blogArray.sort((a, b) => 0.5 - Math.random());
 
   return (
     <div className="blog-list-member">
@@ -18,7 +18,7 @@ const BlogListMember = ({ blogArray }) => {
               return (
                 <div className="blog-list-member__secondaryPost" key="i">
                   <SingleBlogCard
-                  slug={blog?.blog_slug}
+                    slug={blog?.blog_slug}
                     type={blog?.category}
                     auther={blog?.author}
                     time={`${calculateReadingTime(

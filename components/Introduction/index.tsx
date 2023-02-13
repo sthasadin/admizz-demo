@@ -25,30 +25,31 @@ const index = () => {
 
   return (
     <>
-    <div className="wrapper" style={{display:"flex", justifyContent:"center"}}>
-      <div className="introduction__container">
-        <Link href="/free-counseling">
-          <div
-            className={`${
-              active && "active__vertical"
-            } vertical__stickycontainer `}
-          >
-            <div className="text__content">Free Counseling</div>
-         
-          </div>
-        </Link>
+      <div
+        className="wrapper"
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <div className="introduction__container">
+          <Link href="/free-counseling">
+            <div
+              className={`${
+                active && "active__vertical"
+              } vertical__stickycontainer `}
+            >
+              <div className="text__content">Free Counseling</div>
+            </div>
+          </Link>
 
-        <Carousel bulletdot={false}>
-          <Introduction
-            title="hello"
-            imgSrc="/Hero-images.png"
-            videoUrl="https://youtu.be/CDknjC9aFmg"
-          />
-         
-        </Carousel>
+          <Carousel bulletdot={false}>
+            <Introduction
+              title="hello"
+              imgSrc="/Hero-images.png"
+              videoUrl="https://youtu.be/CDknjC9aFmg"
+            />
+          </Carousel>
+        </div>
+        {/* <MessengerCustomerChat /> */}
       </div>
-      {/* <MessengerCustomerChat /> */}
-    </div>
     </>
   );
 };

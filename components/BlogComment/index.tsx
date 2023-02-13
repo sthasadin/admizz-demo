@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Input } from "../Input";
 import { Button } from "../../components";
-import { db } from "../../firebase";
+import { db, auth, firebase } from "../../firebase";
 import * as yup from "yup";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
-import { auth, firebase } from "../../firebase";
-import { getAuthUser } from "@/store/Action/user.action";
-import { getStudentApplication } from "@/store/Action/studentapplication.action";
+import { getAuthUser } from "store/Action/user.action";
+import { getStudentApplication } from "store/Action/studentapplication.action";
 import { useRouter } from "next/router";
 
 function Alert(props: AlertProps) {
@@ -32,13 +31,12 @@ const index = (props: any) => {
   const user = useSelector((state: any) => state.user.authUser);
 
   useEffect(() => {
-    
     if (auth.currentUser) {
       dispatch(getAuthUser(auth.currentUser.uid));
-    }else{
+    } else {
     }
-  }, [blogs_id,auth]);
-  
+  }, [blogs_id, auth]);
+
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
     setFormError(() => ({ ...formError, [e.target.name]: null }));
@@ -63,7 +61,7 @@ const index = (props: any) => {
       err.inner.forEach((item: any) => {
         errors[item.path] = item.errors[0];
       });
-      setFormError({ ...errors,validationSchema });
+      setFormError({ ...errors, validationSchema });
     }
   };
 
@@ -72,18 +70,17 @@ const index = (props: any) => {
     if (auth.currentUser) {
       const Valid = await validate();
       if (Valid) {
-
         db.collection("comment")
           .add({
             comment: formValue.comment,
             createdAt: new Date(),
             blog_id: props?.data?._id,
-            username:auth.currentUser.displayName
+            username: auth.currentUser.displayName,
             // image:application?.basicInformation?.profileImage
           })
           .then(function (docRef) {
             setSnackOpen(true);
-            props.setNewComment(props.newComment+1)
+            props.setNewComment(props.newComment + 1);
             setFormValue({
               ...formValue,
               comment: "",

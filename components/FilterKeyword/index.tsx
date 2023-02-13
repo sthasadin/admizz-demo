@@ -1,6 +1,6 @@
 import React from "react";
 import CheckContainer from "../../public/CheckMark.png";
-import CloseSource from "../../public/KeywordClose.png";
+import CloseSource from "public/KeywordClose.png";
 
 const FilterKeyword = (props: any) => {
   return (

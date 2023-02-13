@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useCallback  } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 
 import { useDispatch } from "react-redux";
@@ -87,43 +87,38 @@ const DashboardBasicInfoPage = () => {
     const user = await dispatch<any>(getAuthUser(id));
     setAuthUser(user);
   };
+  // useEffect(() => {}, [stepTrack]);
+
   useEffect(() => {
-  }, [stepTrack]);
+    const getStdApp = async () => {
+      const snapshot = await db
+        .collection("students-application")
+        .where("student_id", "==", user?.uid)
+        .get();
 
-  useEffect( () => {
-
-    const getStdApp =  async ()=>{
-     
-    const snapshot =  await db.collection("students-application").where("student_id","==",user?.uid).get()
-
-    if(snapshot && !snapshot.empty){
-      const data = snapshot.docs[0].data()
-      console.log({data})
-      if(data?.basicInformation){
-        setBasicInfo(data?.basicInformation)
+      if (snapshot && !snapshot.empty) {
+        const data = snapshot.docs[0].data();
+        console.log({ data });
+        if (data?.basicInformation) {
+          setBasicInfo(data?.basicInformation);
+        }
+        if (data?.academicInformation) {
+          setAcademicInfo(data?.academicInformation);
+        }
+        if (data?.backgroundInformation) {
+          setBackgroundInfo(data?.backgroundInformation);
+        }
+        if (data?.selectedChoice) {
+          setSelectedChoice(data?.selectedChoice);
+        }
       }
-      if(data?.academicInformation){
-        setAcademicInfo(data?.academicInformation)
-      }
-      if(data?.backgroundInformation){
-        setBackgroundInfo(data?.backgroundInformation)
-      }
-      if(data?.selectedChoice){
-        setSelectedChoice(data?.selectedChoice)
-      }
-      
-     }
-       
-    }
-    getStdApp()
-    }, [])
-
+    };
+    getStdApp();
+  }, []);
 
   useEffect(() => {
     if (authenticated) {
       getUser(user?.uid);
-     
-
     }
   }, [authenticated, user]);
 

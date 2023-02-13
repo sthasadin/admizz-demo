@@ -7,7 +7,7 @@ const CompareAttributesList = (props: any) => {
 
   const { selectedCollege, selectedFilters, setSelectedFilters } = props;
 
-  let filters = [
+  const filters = [
     { label: "Highest Package", value: "highest_package" },
     { label: "Min Cost of Living", value: "min_cost_living" },
     { label: "NIRF ranking", value: "nirf" },

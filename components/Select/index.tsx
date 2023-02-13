@@ -22,8 +22,8 @@ interface Props {
   onChange?: (e: any) => void;
   errorMessage?: string;
   useLabel?: boolean;
-  placeholder?:string;
-  names?:string
+  placeholder?: string;
+  names?: string;
 }
 
 const Select = (props: Props) => {
@@ -65,7 +65,6 @@ const Select = (props: Props) => {
       bottom: "-16px",
       left: "4px",
     },
-  
   }));
   const classes = useStyles(props);
 
@@ -79,9 +78,8 @@ const Select = (props: Props) => {
       >
         {props.title}
         {props.names}
-      
       </InputLabel>
-       
+
       <SelectComponent
         labelId="demo-simple-select-label"
         id="demo-simple-select"
@@ -90,9 +88,8 @@ const Select = (props: Props) => {
         className={`${classes.select} ${props.className}`}
         label={props.label}
         placeholder={props.placeholder}
-        defaultValue={props.defaultValue ? props.defaultValue : "a" }
+        defaultValue={props.defaultValue ? props.defaultValue : "a"}
         startAdornment={
-          
           props.icon ? (
             <InputAdornment position="start">
               <Icon />
@@ -104,7 +101,6 @@ const Select = (props: Props) => {
         }
         onChange={props.onChange}
         error={props.error}
-        
         MenuProps={{
           anchorOrigin: {
             vertical: "bottom",
@@ -117,8 +113,8 @@ const Select = (props: Props) => {
           props.options.map((item, key) => {
             return (
               <MenuItem
-                key={key+1}
-                value={props.useLabel ? item.label : item.value  } 
+                key={key + 1}
+                value={props.useLabel ? item.label : item.value}
               >
                 {item.label}
               </MenuItem>

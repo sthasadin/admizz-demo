@@ -62,21 +62,24 @@ const DashboardBasicInfo = (props) => {
   const [snackOpen, setSnackOpen] = useState(false as boolean);
 
   const [formError, setFormError] = useState({} as any);
-  const levelChange = (onChangeLevel)=>{
-    console.log(onChangeLevel)
+  const levelChange = (onChangeLevel) => {
+    console.log(onChangeLevel);
     // localStorage.removeItem('academicInformation')
     if (!localStorage.getItem("academicInformation")) {
-      localStorage.setItem("academicInformation",JSON.stringify(onChangeLevel));
+      localStorage.setItem(
+        "academicInformation",
+        JSON.stringify(onChangeLevel)
+      );
     } else {
       localStorage.removeItem("academicInformation");
     }
-  }
+  };
   const dispatch = useDispatch();
 
   const allLevels = useSelector((state: any) => state.courses.allLevels);
 
   const selectLevelOption = useMemo(() => {
-    let newLabel = [];
+    const newLabel = [];
     allLevels.map((l) => {
       if (l.name == "diploma") {
         newLabel[0] = l;
@@ -89,7 +92,7 @@ const DashboardBasicInfo = (props) => {
       }
     });
     return newLabel.map((level) => {
-      let name =
+      const name =
         level.name === "postgraduate"
           ? "Post Graduate"
           : level.name === "undergraduate"
@@ -106,7 +109,7 @@ const DashboardBasicInfo = (props) => {
     const { authUser } = props;
     if (authUser) {
       setEmail(authUser?.email);
-      let found = countryList.find(
+      const found = countryList.find(
         (country) => country.label == authUser?.country
       );
       setNationality(
@@ -157,8 +160,6 @@ const DashboardBasicInfo = (props) => {
   useEffect(() => {
     dispatch(getLevels());
   }, []);
-
-  
 
   useEffect(() => {
     if (selectedLevel.value) {
@@ -268,8 +269,7 @@ const DashboardBasicInfo = (props) => {
       const isValid = await validate();
 
       if (isValid) {
-      
-        let data = {
+        const data = {
           selectedLevel: {
             label: selectedLevel.label,
             value: selectedLevel.value,
@@ -353,10 +353,9 @@ const DashboardBasicInfo = (props) => {
                 handleChange={(e) => {
                   setSelectedLevel(e);
                   setFormError((prev) => ({ ...prev, selectedLevel: null }));
-                  levelChange(e)
+                  levelChange(e);
                   // props.setShowExitPrompt(true);
                 }}
-             
                 defaultvalue={selectedLevel}
                 name={"selectedLevel"}
                 errorMessage={formError.selectedLevel}

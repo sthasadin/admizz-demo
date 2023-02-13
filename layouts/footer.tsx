@@ -84,7 +84,12 @@ const Footer = () => {
         <div className="footer__top">
           <div className="footer__col logo">
             <div className="footer__logo">
-              <Image width={201} height={80} src="/footer-logo.png" />
+              <Image
+                alt="footer logo"
+                width={201}
+                height={80}
+                src="/footer-logo.png"
+              />
               {/* <img src="./footer-logo.png" alt="" /> */}
             </div>
             <div>

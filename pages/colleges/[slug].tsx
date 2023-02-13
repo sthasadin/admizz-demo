@@ -180,7 +180,6 @@ const Home = () => {
             graduation_percentage={graduation_percentage}
             placement_percentage={placement_percentage}
           />
-      
         </main>
       </Layout>
     </div>

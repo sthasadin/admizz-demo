@@ -8,11 +8,10 @@ const DashboardDetailInfo = ({ application }) => {
   function truncateString(str, num) {
     if (str?.length > num) {
       return str.slice(0, num) + "...";
-    } else {
-      return str;
     }
+    return str;
   }
-    return (
+  return (
     <div className="dashboard-detail-info">
       {/* <Basic Card Info */}
       {basicInformation && (
@@ -77,7 +76,7 @@ const DashboardDetailInfo = ({ application }) => {
                 {basicInformation?.guardianCity}
               </div>
             </div>
-          
+
             <div className="dashboard-detail-info__cardRowButton">
               {/* <div className="dashboard-detail-info__viewText">
               View
@@ -124,7 +123,10 @@ const DashboardDetailInfo = ({ application }) => {
                     Passport Name
                   </div>
                   <div className="dashboard-detail-info__valueText">
-                    {truncateString(backgroundInformation?.passportDetails?.nameOnPassport,15)}
+                    {truncateString(
+                      backgroundInformation?.passportDetails?.nameOnPassport,
+                      15
+                    )}
                   </div>
                 </div>
                 <div className="dashboard-detail-info__cardRow">
@@ -186,23 +188,23 @@ const DashboardDetailInfo = ({ application }) => {
               </div>
             </div>
 
-              <div className="dashboard-detail-info__cardRow">
-                <div className="dashboard-detail-info__keyText">
-                  Download the offer letter
-                </div>
+            <div className="dashboard-detail-info__cardRow">
+              <div className="dashboard-detail-info__keyText">
+                Download the offer letter
+              </div>
 
-                <div
-                  style={{ display: "flex", flexDirection: "column" }}
-                  className="dashboard-detail-info__valueText"
-                >
-                  {/* {rest.offer_letter.map((letter) => (
+              <div
+                style={{ display: "flex", flexDirection: "column" }}
+                className="dashboard-detail-info__valueText"
+              >
+                {/* {rest.offer_letter.map((letter) => (
                     <a href={letter} download target="_blank">
                       Download
                     </a>
                   ))} */}
-                  <a href={rest.offer_letter} download target="_blank"></a>
-                </div>
+                <a href={rest.offer_letter} download target="_blank"></a>
               </div>
+            </div>
             {application && application.length > 0 && (
               <div
                 className="dashboard-detail-info__cardRow"

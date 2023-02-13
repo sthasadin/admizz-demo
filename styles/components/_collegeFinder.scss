@@ -77,10 +77,10 @@
     font-weight: 700;
   }
 }
-.displayNone{
-  @media (max-width:500px) {
-     display: none;
-   // background-color: red;
+.displayNone {
+  @media (max-width: 500px) {
+    display: none;
+    // background-color: red;
   }
 }
 .formobile {

@@ -4,7 +4,7 @@ import { addReview, getReviews } from "../../store/Action/review.action";
 import * as yup from "yup";
 import { ReviewInput } from "./ReviewInput";
 import { auth } from "../../firebase";
-import { getAuthUser } from "@/store/Action/user.action";
+import { getAuthUser } from "store/Action/user.action";
 import RatingModal from "./RatingModal";
 
 interface CommentForm {
@@ -88,14 +88,14 @@ const AddCollegeRatingAndReview = ({
   const onSend = async () => {
     setLoading(true);
     if (user) {
-      let reviewToBeSubmited = {
+      const reviewToBeSubmited = {
         ...review,
         by: {
           ...user,
         },
         college: college_id,
       };
-      let res = await dispatch<any>(addReview(reviewToBeSubmited));
+      const res = await dispatch<any>(addReview(reviewToBeSubmited));
       if (res) {
         _getReviews(college_id);
       }
@@ -131,8 +131,6 @@ const AddCollegeRatingAndReview = ({
         loading={loading}
         formError={formError}
       />
-
-      
     </div>
   );
 };

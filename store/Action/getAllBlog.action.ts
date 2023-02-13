@@ -15,4 +15,3 @@ export const getAllBLog = () => async (dispatch: Dispatch) => {
       console.log(err);
     });
 };
-

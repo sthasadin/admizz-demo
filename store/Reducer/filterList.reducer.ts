@@ -20,7 +20,7 @@ const inititalState = {
   stateList: [],
   cityList: [],
   programName: [],
-  totalCollege:0
+  totalCollege: 0,
 };
 
 const userReducer = (state = inititalState, { type, payload }) => {
@@ -79,15 +79,14 @@ const userReducer = (state = inititalState, { type, payload }) => {
         ...state,
         programName: payload,
       };
-      case TOTAL_COLLEGE:
-        return {
-          ...state,
-          totalCollege:payload,
-        }
+    case TOTAL_COLLEGE:
+      return {
+        ...state,
+        totalCollege: payload,
+      };
     default:
       return state;
   }
 };
 
 export default userReducer;
-

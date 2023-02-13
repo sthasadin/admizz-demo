@@ -1,10 +1,10 @@
 import React from "react";
-import nepalOffice from "../../public/nepalOffice.png";
-import indiaOffice from "../../public/indiaOffice.png";
- import usaOffice from "../../public/usaOffice.png";
-import bangladeshOffice from "../../public/bangladeshoffice.png";
-import location from "../../public/location.png";
-import telephone from "../../public/telephone.png";
+import nepalOffice from "public/nepalOffice.png";
+import indiaOffice from "public/indiaOffice.png";
+import usaOffice from "public/usaOffice.png";
+import bangladeshOffice from "public/bangladeshoffice.png";
+import location from "public/location.png";
+import telephone from "public/telephone.png";
 
 const contact = () => {
   return (
@@ -14,7 +14,7 @@ const contact = () => {
         <div className="contact-countries">
           <div style={{ marginTop: 15 }} className="contact-nepal">
             <div className="contact-form__india-office-container">
-              <img src={indiaOffice} style={{height:64,width:64}}/>
+              <img src={indiaOffice} style={{ height: 64, width: 64 }} />
               <div className="contact-form__office-details">
                 <div className="contact-form__details-header">India Office</div>
                 <div className="contact-form__details-content">
@@ -35,7 +35,10 @@ const contact = () => {
 
           <div className="contact-nepal">
             <div className="contact-form__india-office-container">
-              <img src={nepalOffice}  style={{height:64,width:64,marginBottom:4}}/>
+              <img
+                src={nepalOffice}
+                style={{ height: 64, width: 64, marginBottom: 4 }}
+              />
               <div className="contact-form__office-details">
                 <div className="contact-form__details-header">Nepal Office</div>
                 <div className="contact-form__details-content">
@@ -56,17 +59,16 @@ const contact = () => {
         </div>
 
         <div className="contact-countries">
-          <div className="contact-nepal" style={{marginRight:50}}>
+          <div className="contact-nepal" style={{ marginRight: 50 }}>
             <div className="contact-form__india-office-container">
-              <img src={usaOffice} style={{height:70,width:70}} />
+              <img src={usaOffice} style={{ height: 70, width: 70 }} />
               <div className="contact-form__office-details">
                 <div className="contact-form__details-header">USA Office</div>
                 <div className="contact-form__details-content">
                   <img src={location} />
                   <span style={{ fontSize: 14 }}>
-                    USA 1912 E Hardvard Dr Denver, CO 
-                   
-                    </span>
+                    USA 1912 E Hardvard Dr Denver, CO
+                  </span>
                 </div>
                 <div className="contact-form__details-content">
                   <img src={telephone} />
@@ -75,7 +77,7 @@ const contact = () => {
               </div>
             </div>
           </div>
-          <div className="contact-nepal" >
+          <div className="contact-nepal">
             <div className="contact-form__india-office-container">
               <img src={bangladeshOffice} style={{ height: 64, width: 64 }} />
               <div className="contact-form__office-details">
@@ -85,9 +87,7 @@ const contact = () => {
                 <div className="contact-form__details-content">
                   <img src={location} />
                   <span style={{ fontSize: 14 }}>
-                    Bogra Tole, Bogura 5800,
-                   
-                    Bangladesh
+                    Bogra Tole, Bogura 5800, Bangladesh
                   </span>
                 </div>
                 <div className="contact-form__details-content">

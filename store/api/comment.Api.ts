@@ -1,14 +1,13 @@
 import { postService, getService } from "../commonServices";
 
-
 export class CommentServices {
-    addComment(comment){
-        let body = comment
-        let url = `/createcomment`;
-        let data = postService(url,body);
-        return data;
-    }
-    getComment(comment){
-        let url =''
-    }
+  addComment(comment) {
+    const body = comment;
+    const url = `/createcomment`;
+    const data = postService(url, body);
+    return data;
+  }
+  getComment(comment) {
+    const url = "";
+  }
 }

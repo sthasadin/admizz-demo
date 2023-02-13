@@ -5,8 +5,8 @@ import ReactPlayer from "react-player";
 import Modal from "@material-ui/core/Modal";
 import Link from "next/link";
 import Backdrop from "@material-ui/core/Backdrop";
-const MTModal:any=Modal
-const RTReactPlayer:any=ReactPlayer
+const MTModal: any = Modal;
+const RTReactPlayer: any = ReactPlayer;
 const Merits = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -26,7 +26,8 @@ const Merits = () => {
             Why Study In <span>INDIA?</span>
           </div>
           <div className="merit__desc">
-          We continuously strive towards facilitating universities where the most worth-while career opportunities awaits for you.
+            We continuously strive towards facilitating universities where the
+            most worth-while career opportunities awaits for you.
           </div>
           <div className="list-item-wrap">
             <div className="list-item">
@@ -36,10 +37,13 @@ const Merits = () => {
               </div>
               <div className="list-item__text">
                 <div className="list-item__title">
-                40+ Central Universities, which are controlled by National Department of Higher Education.
+                  40+ Central Universities, which are controlled by National
+                  Department of Higher Education.
                 </div>
                 <div className="list-item__desc">
-                India is the home of the world's largest universities by enrollment, Indira Gandhi National Open University, with 3.5 million students.
+                  India is the home of the world's largest universities by
+                  enrollment, Indira Gandhi National Open University, with 3.5
+                  million students.
                 </div>
               </div>
             </div>
@@ -49,12 +53,11 @@ const Merits = () => {
               </div>
               <div className="list-item__text">
                 <div className="list-item__title">
-                243 state universities, which are run by state governments
+                  243 state universities, which are run by state governments
                 </div>
                 <div className="list-item__desc">
-
-                Admizz helps students choose the best course and university fit for a student.
-
+                  Admizz helps students choose the best course and university
+                  fit for a student.
                 </div>
               </div>
             </div>

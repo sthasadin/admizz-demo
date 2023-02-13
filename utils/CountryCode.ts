@@ -1,5 +1,4 @@
 const CountryCode = [
-
   {
     label: "Afghanistan",
     emoji: "🇦🇫",
@@ -1723,7 +1722,6 @@ const CountryCode = [
     imgSrc:
       "https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/ZW.svg",
   },
-
 ];
 
 export { CountryCode };

@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomizeCheckBox:any = withStyles({
+const CustomizeCheckBox: any = withStyles({
   root: {
     "& .MuiSvgIcon-root": {
       fill: "#828282",

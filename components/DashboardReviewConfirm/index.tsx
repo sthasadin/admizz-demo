@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Snackbar } from "@material-ui/core";
 import Backdrop from "@material-ui/core/Backdrop";
-import ClipLoader from "react-spinners/ClipLoader";
-import { storage, db, auth } from "../../firebase";
-import { useRouter } from "next/router";
-import * as yup from "yup";
 import Checkbox from "@material-ui/core/Checkbox";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import CameraAltIcon from "@material-ui/icons/CameraAlt";
+import Alert from "@material-ui/lab/Alert";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+import * as yup from "yup";
+import { auth, db, storage } from "../../firebase";
+import { Button } from "../Button";
 import { UploadButton } from "../Button/uploadButton";
 import AppliedCollege from "./AppliedCollege";
-import CameraAltIcon from "@material-ui/icons/CameraAlt";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { Snackbar } from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
-import { Button } from "../Button";
 
 const useStyles = makeStyles((theme) => ({
   backdrop: {
@@ -77,7 +76,6 @@ const DashboardReviewConfirm = (props) => {
   const [formError, setFormError] = useState({} as any);
   const [msgType, setMsgType] = useState({} as any);
 
-  
   const handleClose = () => {
     setOpen(false);
   };
@@ -92,9 +90,7 @@ const DashboardReviewConfirm = (props) => {
   const handleCloseSnackbar = () => {
     setSnackOpen(false);
   };
-  useEffect(()=>{
-   
-  },[])
+  useEffect(() => {}, []);
   // useEffect(() => {
   //   props.setShowExitPrompt(true); //to prevent from refreshing the page
   // }, []);
@@ -278,7 +274,6 @@ const DashboardReviewConfirm = (props) => {
           status,
           student_id: auth.currentUser.uid,
           createdAt: new Date(),
-
         };
 
         await db
@@ -286,7 +281,6 @@ const DashboardReviewConfirm = (props) => {
           .doc()
           .set(appdata)
           .then(() => {
-            
             setMsgType("success");
 
             setFormError({
@@ -850,7 +844,7 @@ const DashboardReviewConfirm = (props) => {
                         Phone Number :
                       </h4>
                       <p
-                         className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{ height: 30 }}
                       >
                         {" "}
@@ -969,38 +963,38 @@ const DashboardReviewConfirm = (props) => {
 
                     {/* UnderGraduate Marks */}
 
-                      <div
+                    <div
+                      style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginRight: 40,
+                        width: "28%",
+                        minWidth: 250,
+                        height: 40,
+                      }}
+                    >
+                      <h4
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
                         style={{
-                          display: "flex",
-                          flexWrap: "wrap",
-                          marginRight: 40,
-                          width: "28%",
-                          minWidth: 250,
-                          height: 40,
+                          height: 30,
+                          fontWeight: 700,
+                          marginRight: 10,
                         }}
                       >
-                        <h4
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{
-                            height: 30,
-                            fontWeight: 700,
-                            marginRight: 10,
-                          }}
-                        >
-                          {academicInfo?.underGraduate?.underGraduate
-                            ? "Undergraduate"
-                            : "Semester"}{" "}
-                          Score :
-                        </h4>
-                        <p
-                          className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
-                          style={{ height: 30 }}
-                        >
-                          {academicInfo?.underGraduate?.underGraduate
-                            ? academicInfo?.underGraduate?.underGraduate
-                            : academicInfo?.semesterMarks}
-                        </p>
-                      </div>
+                        {academicInfo?.underGraduate?.underGraduate
+                          ? "Undergraduate"
+                          : "Semester"}{" "}
+                        Score :
+                      </h4>
+                      <p
+                        className="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                        style={{ height: 30 }}
+                      >
+                        {academicInfo?.underGraduate?.underGraduate
+                          ? academicInfo?.underGraduate?.underGraduate
+                          : academicInfo?.semesterMarks}
+                      </p>
+                    </div>
 
                     {/* Post graduate Marks */}
                     {academicInfo?.postGraduteScore.postGraduteScore && (

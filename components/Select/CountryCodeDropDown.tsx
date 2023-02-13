@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import { Select as SelectComponent } from "@material-ui/core";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import PhoneInput from 'react-phone-number-input';
+import PhoneInput from "react-phone-number-input";
 interface Props {
   title?: string;
   options: any[];
@@ -93,7 +93,7 @@ const CountryCodeDropDown = (props: Props) => {
       >
         {props.title}
       </InputLabel>
-   
+
       <SelectComponent
         labelId="demo-simple-select-label"
         id="demo-simple-select"
@@ -137,7 +137,7 @@ const CountryCodeDropDown = (props: Props) => {
                       src={item.imgSrc}
                       alt=".."
                       className={classes.flagImage}
-                      style={{height:14,width:14}}
+                      style={{ height: 14, width: 14 }}
                     />
                   </div>{" "}
                   <div>{item.label}</div>

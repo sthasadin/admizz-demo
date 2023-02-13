@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { SingleBlogCard } from "../../../components/SingleBlogCard";
 import { useDispatch, useSelector } from "react-redux";
 import { BlogLayout } from "../../../layouts/BlogLayout";
@@ -10,27 +10,27 @@ import { getBlogs } from "../../../store/Action/blog.action";
 const BlogCategory = () => {
   const blogArray = useSelector((state: any) => state.blog.blogs);
   const multiLoading = useSelector((state: any) => state.blog.multiLoading);
-  const [msg,setMsg] = useState("No Blogs in this category")
+  const [msg, setMsg] = useState("No Blogs in this category");
   const router = useRouter();
   const { category } = router.query;
-  const dispatch = useDispatch()
-  React.useEffect(()=>{
-    if(category){
-     dispatch(getBlogs(category));
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    if (category) {
+      dispatch(getBlogs(category));
     }
-    if(blogArray){
-      setMsg("")
+    if (blogArray) {
+      setMsg("");
     }
-  },[])
+  }, []);
 
-  React.useEffect(()=>{
-    if(category){
-     dispatch(getBlogs(category));
+  React.useEffect(() => {
+    if (category) {
+      dispatch(getBlogs(category));
     }
-    if(blogArray){
-      setMsg("")
+    if (blogArray) {
+      setMsg("");
     }
-  },[category])
+  }, [category]);
 
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");
@@ -44,7 +44,7 @@ const BlogCategory = () => {
         <div className="blog-list-random-blog" style={{ margin: "30px 0" }}>
           <div className="blog-list-random-blog__highlightPost">
             <div className="blog-list-random-blog__secondaryPostContainer">
-              {blogArray?.length>0?
+              {blogArray?.length > 0 ? (
                 blogArray?.map((blog, i) => {
                   return (
                     <div className="blog-list-member__secondaryPost" key={i}>
@@ -62,8 +62,9 @@ const BlogCategory = () => {
                     </div>
                   );
                 })
-              :<div>No blogs in this category </div> }
-               
+              ) : (
+                <div>No blogs in this category </div>
+              )}
             </div>
           </div>
         </div>

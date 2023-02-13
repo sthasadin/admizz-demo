@@ -28,7 +28,9 @@ const CollegeListResult: FC<CollegeProps> = ({
   loadMoreCollege,
 }) => {
   const [showFinishMsg, setShowFinishMsg] = React.useState(false as boolean);
-    const { collegesByLimit,totalCollegeCount } = useSelector((state: any) => state.college);
+  const { collegesByLimit, totalCollegeCount } = useSelector(
+    (state: any) => state.college
+  );
 
   const handleCloseSnackbar = () => {
     setShowFinishMsg(false);
@@ -43,16 +45,13 @@ const CollegeListResult: FC<CollegeProps> = ({
           </p>{" "}
           Colleges
         </div>
-      
       </div>
 
       {loader ? (
         <div className="college-list-result-loader-container">
-          <CollegeCardLoader
-            count={9} 
-           />
+          <CollegeCardLoader count={9} />
         </div>
-      ):(
+      ) : (
         <div className="college-list-result__resultContainer">
           {collegeList &&
             collegeList.map((college, i) => {

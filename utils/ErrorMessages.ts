@@ -8,4 +8,3 @@ export const ErrorMessages: { [key: string]: string } = {
   TOO_MANY_ATTEMPTS_TRY_LATER:
     "試行回数が多すぎます。 あとでもう一度試してみてください。",
 };
-

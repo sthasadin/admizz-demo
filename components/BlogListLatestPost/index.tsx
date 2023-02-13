@@ -6,11 +6,11 @@ import { SingleListPostWithImage } from "../SingleListPostWithImage";
 import { useSelector } from "react-redux";
 import calculateReadingTime from "../../utils/calculateReadingTime";
 // import { truncate } from "fs";
-import {RootState} from "../../store/store";
+import { RootState } from "../../store/store";
 
 const BlogListLatestPost = ({ blogArray }) => {
   // const blogs = useSelector(state => state.allBlog.allBlog)
-  let blogs = useSelector((state:any) =>
+  const blogs = useSelector((state: any) =>
     state.blog.blogs.sort((a, b) =>
       moment(a.createdAt).diff(moment(b.createdAt))
     )
@@ -38,7 +38,6 @@ const BlogListLatestPost = ({ blogArray }) => {
                   <div className="blog-list-member__secondaryPost" key={i}>
                     <SingleBlogCard
                       slug={blog?.blog_slug}
-                      
                       type={blog?.category}
                       auther={blog?.author}
                       time={`${calculateReadingTime(

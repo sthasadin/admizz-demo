@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
 
 import Layout from "../../layouts";
 // import { useRouter } from "next/router";
@@ -13,7 +13,7 @@ import StudyDetail from "./StudyDetail";
 // import { CollegesBlock } from "@/components/collegesBlock";
 // import collegeList from "pages/colleges";
 import { useDispatch } from "react-redux";
-import { getAllCollegeList } from "@/store/Action/allCollage.action";
+import { getAllCollegeList } from "store/Action/allCollage.action";
 import IndiaBlogArticles from "./IndiaBlogArticles";
 
 const index = () => {
@@ -115,7 +115,7 @@ const index = () => {
             </div>
           </div>
           <img className="imageone image" src="./icon/Image1.svg" />
-          <img className="imagetwo image" src="./icon/Image2.svg"/>
+          <img className="imagetwo image" src="./icon/Image2.svg" />
           <img className="imagethree image" src="./icon/Imagethree.svg" />
           <img className="imagefour image" src="./icon/Image4.svg" />
           <img className="imagefive image" src="./icon/Image5.svg" />
@@ -125,7 +125,7 @@ const index = () => {
           <img className="imageten image" src="./icon/Imageten.svg" />
         </div>
         <StudyDetail />
-     {/* <TopUniversities collegeList={collegeList} /> */}
+        {/* <TopUniversities collegeList={collegeList} /> */}
         <div className="quotes-container">
           <div className="quotes-container-content">
             <div

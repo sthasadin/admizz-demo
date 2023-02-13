@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
 import { Grid } from "@material-ui/core";
-import { Input } from "../Input";
-import PersonIcon from "@material-ui/icons/Person";
-import MailIcon from "@material-ui/icons/Mail";
 import CallIcon from "@material-ui/icons/Call";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
-import HeadsetMicIcon from "@material-ui/icons/HeadsetMic";
+import MailIcon from "@material-ui/icons/Mail";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
-import CommentIcon from "@material-ui/icons/Comment";
-import messenger from "../../public/messenger.png";
+import PersonIcon from "@material-ui/icons/Person";
+import React, { useEffect, useState } from "react";
 import whatsapp from "../../public/whatsapp.png";
-import zoom from "../../public/zoom.png";
-import { Button } from "../Button";
-import { Select } from "../Select";
-import { countryList } from "../../utils/CountryLists";
 import { CountryCode } from "../../utils/CountryCode";
+import { countryList } from "../../utils/CountryLists";
+import { Button } from "../Button";
+import { Input } from "../Input";
+import { Select } from "../Select";
 import { CountryCodeDropDown } from "../Select/CountryCodeDropDown";
 interface FormError {
   [key: string]: string;
@@ -66,8 +62,7 @@ const StudentInfo: React.FC<Props> = ({
               className={"student-info__input"}
               fullWidth
               icon={PersonIcon}
-               label="Full Name"
-             // placeholder="Full Name"
+              label="Full Name"
             />
           </Grid>
           <Grid className={"student-info__grid"} item md={6}>
@@ -80,8 +75,7 @@ const StudentInfo: React.FC<Props> = ({
               className={"student-info__input"}
               fullWidth
               icon={MailIcon}
-               label="Email"
-              //placeholder="Email"
+              label="Email"
             />
           </Grid>
         </Grid>
@@ -91,7 +85,6 @@ const StudentInfo: React.FC<Props> = ({
           justify="space-around"
           direction="row"
         >
-         
           <Grid className={"student-info__grid"} item md={6}>
             <Select
               name={"home_country"}
@@ -103,7 +96,6 @@ const StudentInfo: React.FC<Props> = ({
               error={!!formError.home_country}
               className={"student-info__input"}
               icon={LocationOnIcon}
-              // title={"Home Country"}
               defaultValue="Nationality"
             />
           </Grid>
@@ -131,7 +123,6 @@ const StudentInfo: React.FC<Props> = ({
                 value={formValue.phone}
                 icon={CallIcon}
                 label="Phone Number"
-               // placeholder="Phone Number"
               />
             </div>
           </Grid>
@@ -202,7 +193,7 @@ const StudentInfo: React.FC<Props> = ({
                 value={formValue.contact_id}
               />
             )}
-             {selectedMedium === "zoom" && (
+            {selectedMedium === "zoom" && (
               <Input
                 name={"contact_id"}
                 onChange={handleChange}

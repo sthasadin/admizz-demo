@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Carousel from "../TeamCarousel";
 import { db } from "../../firebase";
 
-
-const Teams = ({data}) => {
+const Teams = ({ data }) => {
   const [teamMemberArray, setTeamMemberArray] = React.useState([]);
 
   React.useEffect(() => {
@@ -52,4 +51,4 @@ const Teams = ({data}) => {
   );
 };
 
-export {Teams};
+export { Teams };

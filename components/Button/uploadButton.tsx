@@ -3,10 +3,14 @@ import Button from "@material-ui/core/Button";
 
 const UploadButton = ({ children, startIcon, className }) => {
   return (
-    <Button className={`uploadButton ${ className}`} variant="contained" component="span" >
+    <Button
+      className={`uploadButton ${className}`}
+      variant="contained"
+      component="span"
+    >
       {/* {startIcon ? <>  {startIcon}&nbsp;{children}  </> : {children}} */}
       {startIcon}&nbsp;{children}
-     {/* {startIcon}&nbsp; */}
+      {/* {startIcon}&nbsp; */}
     </Button>
   );
 };

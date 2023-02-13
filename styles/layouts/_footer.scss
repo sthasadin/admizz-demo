@@ -33,13 +33,13 @@
     flex: 3;
     padding-left: 20px;
     gap: 30px;
-    justify-content: space-between;    
+    justify-content: space-between;
     @media (max-width: 414px) {
       margin-top: 25px;
       flex-direction: column;
     }
     // @media screen and (max-width:) {
-      
+
     // }
   }
   &__col {
@@ -62,7 +62,6 @@
         width: 38px;
         background-color: $secondary-color;
         display: block;
-        
       }
     }
     &__item {
@@ -92,10 +91,9 @@
       height: auto;
       width: 180px;
     }
-  
   }
   &__title {
-    color:  #F6F6F6 !important;
+    color: #f6f6f6 !important;
     margin-bottom: 35px !important;
     font-size: 13px;
     line-height: 21px;
@@ -139,10 +137,7 @@
     &:not(:last-child) {
       margin-right: 45px;
     }
-  
-   
   }
-
 
   &__study {
     color: #fff;
@@ -153,7 +148,6 @@
       width: 38px;
       background-color: $secondary-color;
       display: block;
-      
     }
   }
   &__bottom {
@@ -200,7 +194,7 @@
 .social-icons {
   display: flex;
   gap: 2.4rem;
-  .fa-brands{
+  .fa-brands {
     color: #fff !important;
   }
 }

@@ -8,4 +8,3 @@ export const stage1 = (data) => async (dispatch: Dispatch) => {
     console.log(err);
   }
 };
-

@@ -157,15 +157,15 @@ const CounselingStepper = () => {
 
   const dateTimeValidate = async () => {
     try {
-      let docs = [];
-      
+      const docs = [];
+
       let query = db
         .collection("appointment")
         .where("counsellor", "==", formValue.counsellor);
       query = query.where("time", "==", formValue.time);
       await query.get().then((querySnapshot) => {
         querySnapshot?.forEach((element) => {
-          var data = element.data();
+          const data = element.data();
           if (
             moment(data.date.seconds * 1000).format("DD-MM-YYYY") ===
             moment(formValue.date).format("DD-MM-YYYY")
@@ -174,21 +174,19 @@ const CounselingStepper = () => {
           }
         });
       });
-      console.log({selectedDate:formValue.date})
-      if(formValue.date &&moment(formValue.date).isSameOrBefore(moment()) ){
-        setBookingError(
-          "Please select Date"
-        );
+      console.log({ selectedDate: formValue.date });
+      if (formValue.date && moment(formValue.date).isSameOrBefore(moment())) {
+        setBookingError("Please select Date");
         return;
       }
-      console.log('moment',moment().toDate)
+      console.log("moment", moment().toDate);
       if (docs?.length > 0) {
         setBookingError(
           "Sorry! There is already a booking on chosen date and time, Please try changing date and time"
         );
         return;
       }
-     
+
       setBookingError("");
       await dateTimeValidateSchema.validate(
         {
@@ -248,7 +246,7 @@ const CounselingStepper = () => {
       const selectedCouns =
         counsellorArray?.filter((item) => item.id === formValue.counsellor) ||
         [];
-      let emaiData = {
+      const emaiData = {
         user: {
           fullname: formValue.name,
           email: formValue.email,
@@ -256,7 +254,10 @@ const CounselingStepper = () => {
           contact_id: formValue.contact_id,
           contact_code: formValue.countryCode,
           course: formValue.course,
-          appointment_date: moment(formValue.date).format("MMM DD YYYY") + " - " + formValue.time,
+          appointment_date:
+            moment(formValue.date).format("MMM DD YYYY") +
+            " - " +
+            formValue.time,
           country: formValue.home_country,
         },
         message: formValue.description || "",

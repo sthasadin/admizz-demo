@@ -108,8 +108,8 @@
     }
   }
   &__feature__left {
-     width: 75%;
-     padding-top: 55px;
+    width: 75%;
+    padding-top: 55px;
 
     .list-item-wrap {
       .list-item__icon {
@@ -118,16 +118,15 @@
     }
   }
 
-
   &__feature__right {
     align-self: center;
-    justify-self:center;
+    justify-self: center;
     position: relative;
     width: 75%;
   }
 
   &__right {
-     align-self: center;
+    align-self: center;
     justify-self: flex-start;
     position: relative;
   }
@@ -185,7 +184,6 @@
 
       @media (max-width: 420px) {
         font-size: 16px;
-
       }
     }
     &__cta {
@@ -349,7 +347,7 @@
 }
 
 .hideofmobile {
-  .a{
+  .a {
     color: #5f1802;
   }
   @media (max-width: 450px) {

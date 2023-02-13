@@ -1,53 +1,53 @@
 import { postService, getService } from "../commonServices";
 export class CollegeService {
   getColleges() {
-    let url = `/college`;
-    let data = getService(url);
+    const url = `/college`;
+    const data = getService(url);
     return data;
   }
 
   getCollegesByStream(stream) {
-    let url = `/college/byStream?stream=${stream}`;
-    let data = getService(url);
+    const url = `/college/byStream?stream=${stream}`;
+    const data = getService(url);
     return data;
   }
 
   getCollegesByCity(city) {
-    let body = city;
-    let url = `/college/filter`;
-    let data = postService(url, body);
+    const body = city;
+    const url = `/college/filter`;
+    const data = postService(url, body);
     return data;
   }
 
   getCollege(college_slug) {
-    let url = `/college/getOneCollege/${college_slug}`; //temporarly slug is id
-    console.log('slug',college_slug)
-    let data = getService(url);
+    const url = `/college/getOneCollege/${college_slug}`; //temporarly slug is id
+    console.log("slug", college_slug);
+    const data = getService(url);
     return data;
   }
-  
+
   getCollegeByLimit() {
-     let url = `/college`;
-    let data = getService(url);
+    const url = `/college`;
+    const data = getService(url);
     return data;
   }
 
   getCollegeByFilter(filter) {
-    let body = filter;
-    let url = "/college/filter";
-    let data = postService(url, body);
+    const body = filter;
+    const url = "/college/filter";
+    const data = postService(url, body);
     return data;
   }
 
   getFilterList(listBy) {
-    let body = listBy;
-    let url = "/college/list";
-    let data = postService(url, body);
+    const body = listBy;
+    const url = "/college/list";
+    const data = postService(url, body);
     return data;
   }
   getCollegeBySearch(query) {
-    let url = `/college/results?query=${query}`;
-    let data = getService(url);
+    const url = `/college/results?query=${query}`;
+    const data = getService(url);
     return data;
   }
 }

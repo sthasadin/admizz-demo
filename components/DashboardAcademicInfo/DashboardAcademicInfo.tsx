@@ -278,12 +278,22 @@ export const DashboardAcademicInfo = (props) => {
       },
       certificatesImage,
     };
-    if(selectedLevel === "diploma") 
-      data={...data,level1Score:"",level2Score:{level2Score:""},underGraduate:{underGraduate:""},postGraduteScore:{postGraduteScore:""}}
-    else if(selectedLevel === "undergraduate") 
-      data={...data, underGraduate:{underGraduate:''}, postGraduteScore:{postGraduteScore:""}}
-    else if(selectedLevel === "postgraduate") 
-      data={...data,postGraduteScore:{postGraduteScore:""}}
+    if (selectedLevel === "diploma")
+      data = {
+        ...data,
+        level1Score: "",
+        level2Score: { level2Score: "" },
+        underGraduate: { underGraduate: "" },
+        postGraduteScore: { postGraduteScore: "" },
+      };
+    else if (selectedLevel === "undergraduate")
+      data = {
+        ...data,
+        underGraduate: { underGraduate: "" },
+        postGraduteScore: { postGraduteScore: "" },
+      };
+    else if (selectedLevel === "postgraduate")
+      data = { ...data, postGraduteScore: { postGraduteScore: "" } };
 
     window.localStorage.setItem("academicInformation", JSON.stringify(data));
 
@@ -334,9 +344,8 @@ export const DashboardAcademicInfo = (props) => {
   const truncateString = (str, num) => {
     if (str?.length > num) {
       return str.slice(0, num) + "...";
-    } else {
-      return str;
     }
+    return str;
   };
 
   return (
@@ -1305,7 +1314,7 @@ export const DashboardAcademicInfo = (props) => {
                           placeholder="Enter your marks"
                           value={ielts.subMars.listining}
                           onChange={(e) => {
-                            let _itels = {
+                            const _itels = {
                               ...ielts,
                               subMars: {
                                 ...ielts.subMars,
@@ -1326,7 +1335,7 @@ export const DashboardAcademicInfo = (props) => {
                           placeholder="Enter your marks"
                           value={ielts.subMars.writing}
                           onChange={(e) => {
-                            let _itels = {
+                            const _itels = {
                               ...ielts,
                               subMars: {
                                 ...ielts.subMars,
@@ -1348,7 +1357,7 @@ export const DashboardAcademicInfo = (props) => {
                           placeholder="Enter your marks"
                           value={ielts.subMars.reading}
                           onChange={(e) => {
-                            let _itels = {
+                            const _itels = {
                               ...ielts,
                               subMars: {
                                 ...ielts.subMars,
@@ -1370,7 +1379,7 @@ export const DashboardAcademicInfo = (props) => {
                           placeholder="Enter your marks"
                           value={ielts.subMars.speaking}
                           onChange={(e) => {
-                            let _itels = {
+                            const _itels = {
                               ...ielts,
                               subMars: {
                                 ...ielts.subMars,

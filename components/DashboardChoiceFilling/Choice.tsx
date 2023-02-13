@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Grid } from "@material-ui/core";
 import { DropDownSelect } from "../DropDownSelect";
-import { CoursesService } from "@/store/api/coursesApi";
+import { CoursesService } from "store/api/coursesApi";
 
 const preObj = { label: "", value: "" };
 const preArr = [];
@@ -18,16 +18,19 @@ const selectCollege = ({
   const [allColleges, setallColleges] = useState([]);
   const [rawColleges, setRawColleges] = useState([]);
 
-  let i = choiceNumber - 1;
-  let { selectedStream, selectedProgram, selectedCollege } = choices[i];
+  const i = choiceNumber - 1;
+  const { selectedStream, selectedProgram, selectedCollege } = choices[i];
   const coursesService = new CoursesService();
 
-  const selectedLevel = useSelector((state:any) => state.courses.selectedLevel);
-  const _appliedColleges = useSelector((state:any) => state.courses.appliedColleges
+  const selectedLevel = useSelector(
+    (state: any) => state.courses.selectedLevel
+  );
+  const _appliedColleges = useSelector(
+    (state: any) => state.courses.appliedColleges
   );
 
   const _getPrograms = async (level, stream) => {
-    let response = await coursesService.getAllPrograms(level, stream);
+    const response = await coursesService.getAllPrograms(level, stream);
     if (response.isSuccess) {
       set_allPrograms(
         response?.data?.map(({ name: label, _id: value }) => ({ label, value }))
@@ -36,7 +39,7 @@ const selectCollege = ({
   };
 
   const _getColleges = async (level, stream, program) => {
-    let response = await coursesService.getCollegesByCourses(
+    const response = await coursesService.getCollegesByCourses(
       level,
       stream,
       program
@@ -44,22 +47,22 @@ const selectCollege = ({
 
     if (response.isSuccess) {
       setRawColleges(response.data);
-      var collegelist =  response?.data?.map((item) => {
-        if(!item.college){
-        }else {
+      let collegelist = response?.data?.map((item) => {
+        if (!item.college) {
+        } else {
           return {
             label: item.college.name,
             value: item.college.college_slug,
           };
         }
-      })
-      collegelist = collegelist.filter(item => item);
+      });
+      collegelist = collegelist.filter((item) => item);
       setallColleges(collegelist);
     }
   };
 
   React.useEffect(() => {
-    let appliedCollege = _appliedColleges.find((a) => a.id === choiceNumber);
+    const appliedCollege = _appliedColleges.find((a) => a.id === choiceNumber);
     if (appliedCollege) {
       setSelectedStream({
         label: appliedCollege?.collegeStream,
@@ -70,7 +73,7 @@ const selectCollege = ({
   }, [_appliedColleges]);
 
   React.useEffect(() => {
-    let appliedCollege = _appliedColleges.find((a) => a.id === choiceNumber);
+    const appliedCollege = _appliedColleges.find((a) => a.id === choiceNumber);
     if (appliedCollege && selectedStream?.label) {
       setSelectedProgram({
         label: appliedCollege?.collegeProgram,
@@ -99,7 +102,7 @@ const selectCollege = ({
   }, [selectedProgram]);
 
   const setSelectedStream = (e) => {
-    let data = [...choices];
+    const data = [...choices];
     data[i].selectedStream = e;
     data[i].selectedProgram = preObj;
     data[i].selectedCollege = preObj;
@@ -107,16 +110,16 @@ const selectCollege = ({
   };
 
   const setSelectedProgram = (e) => {
-    let data = [...choices];
+    const data = [...choices];
     data[i].selectedProgram = e;
     data[i].selectedCollege = preObj;
     setChoices(data);
   };
 
   const setSelectedCollege = (e) => {
-    let data = [...choices];
+    const data = [...choices];
 
-    let thisCollege = rawColleges.find(
+    const thisCollege = rawColleges.find(
       (clg) => clg?.college?.college_slug === e.value
     );
     if (

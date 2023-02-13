@@ -48,7 +48,6 @@ const ConfirmDateTime: React.FC<Props> = ({
     }
   }, []);
 
-
   useEffect(() => {
     handleChange({
       target: {

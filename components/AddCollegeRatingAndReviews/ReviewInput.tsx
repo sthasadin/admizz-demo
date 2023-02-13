@@ -19,7 +19,6 @@ const ReviewInput = ({ handleChange, onSubmit, loading, formError }: any) => {
           margin={"0px 0px 16px 0px"}
           fullWidth
         />
-       
       </div>
       <div>
         <Button

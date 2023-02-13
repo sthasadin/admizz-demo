@@ -1,7 +1,7 @@
 import React from "react";
 import { Feature } from "../feature";
 import Link from "next/link";
-import { getAllTieUp } from "@/store/Action/tieup.action";
+import { getAllTieUp } from "store/Action/tieup.action";
 import { CallToAction } from "../Button/callToAction";
 import { useDispatch } from "react-redux";
 

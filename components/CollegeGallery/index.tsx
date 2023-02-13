@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ReactPlayer from "react-player";
-import gallery0 from "../../public/gallery8.png";
+import gallery0 from "../../public/gallery.png";
 import gallery1 from "../../public/gallery1.png";
 import gallery2 from "../../public/gallery2.png";
 import gallery3 from "../../public/gallery3.png";
@@ -12,7 +12,7 @@ import gallery6 from "../../public/gallery6.png";
 import gallery7 from "../../public/gallery7.png";
 import gallery8 from "../../public/gallery8.png";
 import viewmore from "../../public/viewMore.png";
-import { getGallery } from "@/store/Action/gallery.action";
+import { getGallery } from "store/Action/gallery.action";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 

@@ -1,5 +1,14 @@
 import { Dispatch } from "redux";
-import { COLLEGE_TYPES, SUCCESS, COLLEGES_TYPES, COLLEGE_BY_LIMIT_BEGIN, COLLEGE_BY_FILTER, COLLEGE_BY_LIMIT, COLLEGE_BY_SEARCH, COLLEGE_BY_LIMIT_FAILED } from "../const";
+import {
+  COLLEGE_TYPES,
+  SUCCESS,
+  COLLEGES_TYPES,
+  COLLEGE_BY_LIMIT_BEGIN,
+  COLLEGE_BY_FILTER,
+  COLLEGE_BY_LIMIT,
+  COLLEGE_BY_SEARCH,
+  COLLEGE_BY_LIMIT_FAILED,
+} from "../const";
 import { finish, init, success, error } from "../commonActions";
 import { CollegeService } from "../api/collegeApi";
 
@@ -21,7 +30,6 @@ export const getCollege = (college_slug) => async (dispatch: Dispatch) => {
 
   const response: any = await collegeService.getCollege(college_slug);
 
-
   dispatch(finish(COLLEGE_TYPES.GET_COLLEGE));
 
   if (response.isSuccess) {
@@ -31,16 +39,15 @@ export const getCollege = (college_slug) => async (dispatch: Dispatch) => {
   }
 };
 
-export const getCompareList = (college_slug) => async (dispatch:Dispatch) => {
+export const getCompareList = (college_slug) => async (dispatch: Dispatch) => {
   dispatch(init(COLLEGES_TYPES.GET_COMPARE_LIST));
-  
+
   dispatch(success(COLLEGES_TYPES.GET_COMPARE_LIST, college_slug));
 
-  
-console.log('college_slug',college_slug);
+  console.log("college_slug", college_slug);
 
   dispatch(finish(COLLEGES_TYPES.GET_COMPARE_LIST));
-}
+};
 
 export const getCollegesByStream = (stream) => async (dispatch: Dispatch) => {
   dispatch(init(COLLEGES_TYPES.GET_COLLEGES));
@@ -76,59 +83,54 @@ export const getCollegeFilter = (filterType) => async (dispatch: Dispatch) => {
   } else if (!response.isSuccess) {
     dispatch(error(response.errorMessage));
   }
-}
+};
 
 export const getCollegeByLimit = () => async (dispatch: Dispatch) => {
   try {
     dispatch({
-      type: COLLEGE_BY_LIMIT_BEGIN
-    })
-    const res = await collegeService.getCollegeByLimit()
-    console.log('res',res.data);
+      type: COLLEGE_BY_LIMIT_BEGIN,
+    });
+    const res = await collegeService.getCollegeByLimit();
+    console.log("res", res.data);
     dispatch({
       type: COLLEGE_BY_LIMIT,
-      payload: res.data
-    })
+      payload: res.data,
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 export const getCollegeByFilter = (filter) => async (dispatch: Dispatch) => {
   try {
     dispatch({
-      type: COLLEGE_BY_LIMIT_BEGIN
-    })
-    const res = await collegeService.getCollegeByFilter(filter)
-    console.log('done', res)
+      type: COLLEGE_BY_LIMIT_BEGIN,
+    });
+    const res = await collegeService.getCollegeByFilter(filter);
+    console.log("done", res);
     dispatch({
       type: COLLEGE_BY_FILTER,
-      payload: res.data
-    })
-        
-
+      payload: res.data,
+    });
   } catch (error) {
     // dispatch({
     //   type:COLLEGE_BY_LIMIT_FAILED
     // })
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 export const getCollegeBySearch = (text) => async (dispatch) => {
   try {
     dispatch({
-      type: COLLEGE_BY_LIMIT_BEGIN
-    })
+      type: COLLEGE_BY_LIMIT_BEGIN,
+    });
     const res = await collegeService.getCollegeBySearch(text);
     dispatch({
       type: COLLEGE_BY_SEARCH,
-      payload: res.data
-    })
+      payload: res.data,
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
-
-
-
+};

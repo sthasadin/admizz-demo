@@ -14,18 +14,17 @@ const Program = () => {
   const [program, setProgram] = React.useState({} as any);
   const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
   const [loader, setLoader] = React.useState(true);
-  const getProgram =  async() => {
+  const getProgram = async () => {
     // setLoader(true);
-    await axios.get(
-      `${API_BASE_URL}/courses/get-program/${query.slug}`
-    ).then((res)=>{
-      setProgram(res.data)
-      console.log('data',res.data)
-
-   
-    }).catch((err)=>{
-      console.log(err)
-    })
+    await axios
+      .get(`${API_BASE_URL}/courses/get-program/${query.slug}`)
+      .then((res) => {
+        setProgram(res.data);
+        console.log("data", res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     setLoader(false);
   };
 
@@ -52,18 +51,18 @@ const Program = () => {
         <CircularProgress />
       </div>
     );
-  return (<>
-    
-       <Layout title={program.name} stickyBar={false}>
-      <ProgramHeader data={program} />
-      <ProgramSubMenu data={program} collegeBarSticky={collegeBarSticky} />
-      <ProgramDetailsContainer
-        data={program}
-        collegeBarSticky={collegeBarSticky}
-      />
-    </Layout>:"Null"
+  return (
+    <>
+      <Layout title={program.name} stickyBar={false}>
+        <ProgramHeader data={program} />
+        <ProgramSubMenu data={program} collegeBarSticky={collegeBarSticky} />
+        <ProgramDetailsContainer
+          data={program}
+          collegeBarSticky={collegeBarSticky}
+        />
+      </Layout>
+      :"Null"
     </>
-   
   );
 };
 

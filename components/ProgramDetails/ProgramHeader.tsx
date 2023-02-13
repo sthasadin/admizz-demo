@@ -1,10 +1,9 @@
-import React, {useContext} from "react";
-import { useSelector } from "react-redux";
+import React, { useContext } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Snackbar from "@material-ui/core/Snackbar";
 import bgImage from "../../public/course-bgimage.png";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
-import { useDispatch } from "react-redux";
-import { addToFavourites } from "@/store/Action/collegefavourite.action";
+import { addToFavourites } from "store/Action/collegefavourite.action";
 import { AuthContext } from "pages/AuthContext";
 import moment from "moment";
 
@@ -16,16 +15,16 @@ const ProgramHeader = ({ data }) => {
   const [click, setClick] = React.useState(false);
   const [snackOpen, setSnackOpen] = React.useState(false as boolean);
   const dispatch = useDispatch();
-  const college = useSelector((state:any) => state.college.college);
+  const college = useSelector((state: any) => state.college.college);
 
   const { user } = useContext(AuthContext);
 
   const handleClick = () => {
-    let data = {"college":college._id,"user":user.uid}
-    dispatch(addToFavourites(data))
+    const data = { college: college._id, user: user.uid };
+    dispatch(addToFavourites(data));
     setClick((click) => !click);
     setSnackOpen(true);
-  }
+  };
 
   return (
     <div
@@ -39,7 +38,9 @@ const ProgramHeader = ({ data }) => {
             <div className="detail-container">
               <div className="course-update-container">
                 <div className="course-text">Last updated:</div>
-                <div className="course-date">{moment(college?.createdAt).format("YYYY MMM DD")}</div>
+                <div className="course-date">
+                  {moment(college?.createdAt).format("YYYY MMM DD")}
+                </div>
               </div>
               <div className="course-update-container">
                 <div className="course-text">Level:</div>

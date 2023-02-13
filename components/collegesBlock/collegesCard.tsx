@@ -16,25 +16,23 @@ const CollegesCard = (college) => {
   function truncateString(str, num) {
     if (str?.toString()?.length > num) {
       return str?.toString().slice(0, num) + "K+";
-    } else {
-      return str;
     }
+    return str;
   }
 
   const truncateCourse = (str, num) => {
     if (str?.toString()?.length > num) {
       return str?.toString().slice(0, num) + "+";
-    } else {
-      return str;
     }
+    return str;
   };
 
   const _getReviews = async (college_id) => {
-    let res = await dispatch<any>(getReviews(college_id));
+    const res = await dispatch<any>(getReviews(college_id));
     setOriginalReviews(res);
 
     //make proper datastructure
-    let collegeReviews: any = {
+    const collegeReviews: any = {
       length: res?.length,
       ratings: {
         academics: Math.ceil(
@@ -88,7 +86,7 @@ const CollegesCard = (college) => {
         };
       }),
     };
-    let averageRating =
+    const averageRating =
       (collegeReviews?.ratings?.academics +
         collegeReviews?.ratings?.accomodation +
         collegeReviews?.ratings?.faculty +
@@ -184,10 +182,15 @@ const CollegesCard = (college) => {
               </div>
               {college?.courses && (
                 <div className="colleges-card__course">
-                  <CollegeCourse Courses={college?._courseArray ? college._courseArray: college.courses} />
+                  <CollegeCourse
+                    Courses={
+                      college?._courseArray
+                        ? college._courseArray
+                        : college.courses
+                    }
+                  />
                 </div>
               )}
-              
             </div>
           </div>
         </div>

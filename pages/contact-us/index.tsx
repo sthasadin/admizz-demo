@@ -12,9 +12,7 @@ const ContactUs = () => {
         <div className="contact-container">
           <div className="banner section-wrapper">
             {/* <div className="banner-head">Get In Touch</div> */}
-            <div className="banner-content">
-             Get In Touch
-            </div>
+            <div className="banner-content">Get In Touch</div>
             <div className="banner-opacity">
               <div className="banner-image">
                 <img className="banner-imageValue" src={marker} />

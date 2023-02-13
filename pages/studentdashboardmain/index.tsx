@@ -17,16 +17,17 @@ const index = () => {
   const dispatch = useDispatch();
   // const { authenticated, user } = useContext(AuthContext);
   useEffect(() => {
-    if(firebase.auth().currentUser.uid){}
+    if (firebase.auth().currentUser.uid) {
+    }
 
     if (auth.currentUser && !collegeList.length) {
       dispatch(getColleges());
       dispatch(getStudentApplication(auth.currentUser.uid));
-    }else{
+    } else {
     }
   }, [auth]);
 
-  const {authUser} = useSelector((state:any)=> state.user)
+  const { authUser } = useSelector((state: any) => state.user);
   const collegeList = useSelector((state: any) => state.college.colleges);
   const { application } = useSelector(
     (state: any) => state.student_application

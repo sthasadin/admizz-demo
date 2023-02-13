@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addSubscriber } from "../../store/Action/subscriber.action";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 import Snackbar from "@material-ui/core/Snackbar";
-import {suscriberMail} from "../../store/Action/sendMail.action";
+import { suscriberMail } from "../../store/Action/sendMail.action";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -61,12 +61,11 @@ const Newsletter = (props: any) => {
         await dispatch<any>(addSubscriber(subscriber));
         setSubscriber("");
       }
-      let res = await dispatch<any>(suscriberMail(subscriber));
-      if(res.isSuccess){
-        console.log('sucess')
-      }
-      else{
-        console.log('error')
+      const res = await dispatch<any>(suscriberMail(subscriber));
+      if (res.isSuccess) {
+        console.log("sucess");
+      } else {
+        console.log("error");
       }
     } catch (error) {}
     setLoading(false);

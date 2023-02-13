@@ -32,7 +32,7 @@ const TeamCard = ({ selectedTeam }: any) => {
           <div className="team-social-icons-box">
             {selectedTeam?.twitter && selectedTeam?.twitter?.length > 0 && (
               <div className="teams-social-icons">
-                < a href={selectedTeam?.twitter}>
+                <a href={selectedTeam?.twitter}>
                   <Twitter theme="outline" size="20" fill="#828282" />
                 </a>
               </div>

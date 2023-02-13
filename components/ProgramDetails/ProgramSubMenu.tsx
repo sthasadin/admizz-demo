@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-scroll";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
-import { useDispatch } from "react-redux";
-import { addToFavourites } from "@/store/Action/collegefavourite.action";
+import { addToFavourites } from "store/Action/collegefavourite.action";
 import { AuthContext } from "pages/AuthContext";
 
 function Alert(props: AlertProps) {
@@ -20,7 +19,7 @@ const ProgramSubMenu = ({ data, collegeBarSticky }) => {
   const { user } = useContext(AuthContext);
 
   const handleClick = () => {
-    let data = { college: college._id, user: user.uid };
+    const data = { college: college._id, user: user.uid };
     dispatch(addToFavourites(data));
     setClick((click) => !click);
     setSnackOpen(true);

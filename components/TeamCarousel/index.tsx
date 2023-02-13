@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { TeamCard } from "./TeamCard";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import {
+  MdOutlineKeyboardArrowRight,
+  MdOutlineKeyboardArrowLeft,
+} from "react-icons/md";
 import TeamsMember from "./TeamsMember";
 import { db } from "../../firebase";
 
-const index = ({data}) => {
-  const [selectedTeam, setSelectedTeam] = useState({index: 0});
+const index = ({ data }) => {
+  const [selectedTeam, setSelectedTeam] = useState({ index: 0 });
   const [teamsArray, setTeamsArray] = useState([]);
 
   useEffect(() => {
@@ -49,8 +51,8 @@ const index = ({data}) => {
             medium: data.medium_link,
             instagram: data.insta_link,
             twitter: data.twitter_link,
-            linkedIn:data.linkedin_link,
-            youtube:data.youtube_link,
+            linkedIn: data.linkedin_link,
+            youtube: data.youtube_link,
             type: data.type,
           });
         });
@@ -91,9 +93,13 @@ const index = ({data}) => {
         />
         <MdOutlineKeyboardArrowRight
           className={
-            selectedTeam?.index == (teamsArray.length-1) ? "arrow-icon icon-disable" : "arrow-icon"
+            selectedTeam?.index == teamsArray.length - 1
+              ? "arrow-icon icon-disable"
+              : "arrow-icon"
           }
-          onClick={() => selectedTeam?.index < (teamsArray.length) && changedClick("next")}
+          onClick={() =>
+            selectedTeam?.index < teamsArray.length && changedClick("next")
+          }
         />
       </div>
     </div>

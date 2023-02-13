@@ -12,8 +12,8 @@ import {
   GET_CITY_LIST,
   TOTAL_COLLEGE,
   GET_COURSE_LEVEL,
+  API_BASE_URL,
 } from "../const";
-import { API_BASE_URL } from "../const";
 
 export const getCountryList = (country: any) => async (dispatch: Dispatch) => {
   try {
@@ -31,7 +31,7 @@ export const getCountryList = (country: any) => async (dispatch: Dispatch) => {
   }
 };
 
-export const getStateList = (state:any) => async (dispatch: Dispatch) => {
+export const getStateList = (state: any) => async (dispatch: Dispatch) => {
   try {
     dispatch({
       type: GET_STATE_LIST_BEGIN,

@@ -65,7 +65,9 @@ const SideBarNewsLetter = () => {
         await dispatch<any>(addSubscriber(subscriber));
         setSubscriber("");
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
     setLoading(false);
   };
 

@@ -13,7 +13,7 @@ import { RatingItem } from "./ratingItem";
 import { useRouter } from "next/router";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { getAuthUser } from "@/store/Action/user.action";
+import { getAuthUser } from "store/Action/user.action";
 
 const RatingAndReview = (props: any) => {
   const [isAddReviewOpen, setIsAddReviewOpen] = useState(false);
@@ -22,14 +22,14 @@ const RatingAndReview = (props: any) => {
   const [snackOpenLogin, setSnackOpenLogin] = React.useState(false as boolean);
   const dispatch = useDispatch();
   const router = useRouter();
-  const user = useSelector((state:any) => state.user.authUser);
-  const college_id = useSelector((state:any) => state.college.college._id);
+  const user = useSelector((state: any) => state.user.authUser);
+  const college_id = useSelector((state: any) => state.college.college._id);
   const _getReviews = async (college_id) => {
-    let res = await dispatch<any>(getReviews(college_id));
+    const res = await dispatch<any>(getReviews(college_id));
     setOriginalReviews(res);
-    
+
     //make proper datastructure
-    let collegeReviews: any = {
+    const collegeReviews: any = {
       length: res.length,
       ratings: {
         academics: Math.ceil(
@@ -83,7 +83,7 @@ const RatingAndReview = (props: any) => {
         };
       }),
     };
-    let averageRating =
+    const averageRating =
       (collegeReviews?.ratings?.academics +
         collegeReviews?.ratings?.accomodation +
         collegeReviews?.ratings?.faculty +
@@ -111,10 +111,10 @@ const RatingAndReview = (props: any) => {
 
   const addLike = async (review) => {
     const user = auth.currentUser?.uid;
-    let _review = originalReviews.find((r) => r.id === review.id);
+    const _review = originalReviews.find((r) => r.id === review.id);
     if (!review.likesArray.includes(user)) {
       _review.noOfLikes = [...review.likesArray, user];
-      let id = _review.id;
+      const id = _review.id;
       const newReview = { ..._review };
 
       if (newReview?.noOfDisLikes?.length > 0) {
@@ -129,10 +129,10 @@ const RatingAndReview = (props: any) => {
   };
   const addDisLike = async (review) => {
     const user = auth.currentUser?.uid;
-    let _review = originalReviews.find((r) => r.id === review.id);
+    const _review = originalReviews.find((r) => r.id === review.id);
     if (!review.disLikesArray.includes(user)) {
       _review.noOfDisLikes = [...review.disLikesArray, user];
-      let id = _review.id;
+      const id = _review.id;
       const newReview = { ..._review };
       newReview.noOfLikes = newReview?.noOfLikes?.filter(
         (likes) => likes !== user
@@ -202,18 +202,14 @@ const RatingAndReview = (props: any) => {
         <div className="rating-review__rating__left">
           <div className="rating-review__rating__title">Student Reviews</div>
           {!reviews?.all_reviews.length && !reviews?.all_reviews.length && (
-             <div >
-           No reviews Yet
-           </div>
+            <div>No reviews Yet</div>
           )}
           {reviews && reviews?.all_reviews && reviews?.all_reviews > 0 && (
-                    <div className="rating-review__rating__subheading">
-                    Showing results for Most relevent reviews
-                  </div>
+            <div className="rating-review__rating__subheading">
+              Showing results for Most relevent reviews
+            </div>
           )}
-    
         </div>
-    
       </div>
 
       {reviews?.all_reviews?.map((review) => (
@@ -230,7 +226,7 @@ const RatingAndReview = (props: any) => {
           _getReviews={_getReviews}
         />
       )}
-        <Snackbar
+      <Snackbar
         open={snackOpenLogin}
         autoHideDuration={4000}
         onClose={() => setSnackOpenLogin(false)}

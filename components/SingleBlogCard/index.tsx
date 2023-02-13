@@ -7,19 +7,18 @@ const SingleBlogCard = (props: any) => {
   function truncateString(str, num) {
     if (str?.length > num) {
       return str.slice(0, num) + "...";
-    } else {
-      return str;
     }
+    return str;
   }
-  {console.log(props.slug,"slug")}
+  {
+    console.log(props.slug, "slug");
+  }
   return (
     <div
       className="single-blog-card"
       onClick={() => router.push(`/blogs/${props.slug}`)}
     >
-
       <div className="single-blog-card__memberPost">
-              
         <div
           className="single-blog-card__inner"
           style={{
@@ -27,9 +26,7 @@ const SingleBlogCard = (props: any) => {
           }}
         >
           <div className="single-blog-card__catagoryContainer">
-            <div className="single-blog-card__category">
-              {props.type}
-              </div>
+            <div className="single-blog-card__category">{props.type}</div>
           </div>
           <div className="single-blog-card__details">
             <div className="blogCard__meta">

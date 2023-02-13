@@ -30,18 +30,15 @@ export const getBlog = (blog_slug) => async (dispatch: Dispatch) => {
   }
 };
 
-
-
-export const getNewsOfCollege = (college_slug) => async (
-  dispatch: Dispatch
-) => {
-  const response: any = await blogService.getNewsOfCollege(college_slug);
-  if (response.isSuccess) {
-    dispatch(success(GET_COLLEGE_NEWS, response.data));
-  } else if (!response.isSuccess) {
-    dispatch(error(response.errorMessage));
-  }
-};
+export const getNewsOfCollege =
+  (college_slug) => async (dispatch: Dispatch) => {
+    const response: any = await blogService.getNewsOfCollege(college_slug);
+    if (response.isSuccess) {
+      dispatch(success(GET_COLLEGE_NEWS, response.data));
+    } else if (!response.isSuccess) {
+      dispatch(error(response.errorMessage));
+    }
+  };
 
 export const addBlogComment = (comments: any) => async (dispatch: Dispatch) => {
   try {
@@ -52,4 +49,3 @@ export const addBlogComment = (comments: any) => async (dispatch: Dispatch) => {
     return false;
   }
 };
-

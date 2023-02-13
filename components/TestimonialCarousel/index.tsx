@@ -80,7 +80,7 @@ const index = ({ data }) => {
           data.map((testimonial, index) => {
             return (
               <div style={{ display: "none" }}>
-                <TestimonialData data= {testimonial} key={index} />
+                <TestimonialData data={testimonial} key={index} />
               </div>
             );
           })}

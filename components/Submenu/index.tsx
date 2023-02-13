@@ -1,11 +1,10 @@
 import React, { useContext, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-scroll";
 import Snackbar from "@material-ui/core/Snackbar";
 import Modal from "@material-ui/core/Modal";
 import Fade from "@material-ui/core/Fade";
-import { useDispatch } from "react-redux";
-import { addToFavourites } from "@/store/Action/collegefavourite.action";
+import { addToFavourites } from "store/Action/collegefavourite.action";
 import { AuthContext } from "pages/AuthContext";
 import videologo from "public/play-btn.png";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -16,8 +15,8 @@ import { useRouter } from "next/router";
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
-const MTModal:any=Modal
-const RTReactPlayer:any=Modal
+const MTModal: any = Modal;
+const RTReactPlayer: any = Modal;
 
 const Submenu = (props: any) => {
   const [collegeBarSticky, setCollegeBarSticky] = React.useState(false);
@@ -39,7 +38,7 @@ const Submenu = (props: any) => {
 
   const handleClick = () => {
     if (auth.currentUser) {
-      let data = { college: college._id, user: user.uid };
+      const data = { college: college._id, user: user.uid };
       dispatch(addToFavourites(data));
       setClick((click) => !click);
       setSnackOpen(true);
@@ -47,15 +46,11 @@ const Submenu = (props: any) => {
       setMsgType("warning");
       setFormError({
         ...formError,
-        otherErrors:(
-          <div>
-            Please Login into your account
-          </div>
-        )
-      })
+        otherErrors: <div>Please Login into your account</div>,
+      });
       handleOpenSnackbar();
 
-     // setSnackOpenLogin(true);
+      // setSnackOpenLogin(true);
       router.push("/login");
     }
   };
@@ -141,8 +136,6 @@ const Submenu = (props: any) => {
                         fill="#4F4F4F"
                       />
                     </svg>
-
-                  
                   </div>
                   <MTModal
                     aria-labelledby="transition-modal-title"
@@ -199,7 +192,7 @@ const Submenu = (props: any) => {
                 Courses & Fee
               </Link>
             </li>
-              <li>
+            <li>
               <Link
                 to="rating_awards"
                 offset={-140}
@@ -249,7 +242,6 @@ const Submenu = (props: any) => {
                 Placements
               </Link>
             </li>
-        
           </ul>
         </div>
       </div>
@@ -271,7 +263,7 @@ const Submenu = (props: any) => {
         onClose={handleCloseSnackbar}
       >
         <Alert onClose={handleCloseSnackbar} severity={msgType}>
-         {formError.otherErrors}
+          {formError.otherErrors}
         </Alert>
       </Snackbar>
     </div>

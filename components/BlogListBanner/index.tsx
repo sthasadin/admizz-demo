@@ -4,13 +4,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import calculateReadingTime from "../../utils/calculateReadingTime";
 import { url } from "inspector";
-import {RootState} from "../../store/store";
-
+import { RootState } from "../../store/store";
 
 const BlogListBanner = ({ blog }) => {
   const router = useRouter();
   // const blogs = useSelector(state => state.allBlog.allBlog)
-  const blogs = useSelector((state:any) => state.blog.blogs);
+  const blogs = useSelector((state: any) => state.blog.blogs);
   const text_truncate = (str) => {
     return str.substring(0, 70 - 3) + "...";
   };

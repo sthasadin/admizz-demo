@@ -8,9 +8,8 @@ export const addTopColleges = (top_colleges) => async (dispatch) => {
   if (res) {
     dispatch(getTopColleges());
     return "succesfully added";
-  } else {
-    return "Server Error";
   }
+  return "Server Error";
 };
 
 export const getTopColleges = () => async (dispatch) => {
@@ -33,9 +32,8 @@ export const addTopCourse = (top_courses) => async (dispatch) => {
   if (res) {
     dispatch(getTopCourses());
     return "succesfully added";
-  } else {
-    return "Server Error";
   }
+  return "Server Error";
 };
 
 export const getTopCourses = () => async (dispatch) => {

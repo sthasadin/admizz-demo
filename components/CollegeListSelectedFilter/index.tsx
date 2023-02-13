@@ -5,7 +5,7 @@ const CollegeListSelectedFilter = ({ setFilterObj, filterObj }) => {
   const [selectedData, setSelectedData] = React.useState([]);
 
   React.useEffect(() => {
-    let selectedArray = [];
+    const selectedArray = [];
     filterObj.city?.length &&
       filterObj.city.map((item) => {
         selectedArray.push(item);
@@ -31,51 +31,41 @@ const CollegeListSelectedFilter = ({ setFilterObj, filterObj }) => {
 
   const handleDeselect = (title) => {
     const removeSelectedCity = filterObj.city.filter((item) => {
-      return item !== title
-    } 
-  );
+      return item !== title;
+    });
 
     if (removeSelectedCity) {
-      filterObj.city =removeSelectedCity 
-      setFilterObj({ ...filterObj});
-    }
-    const removeSelectedCountry = filterObj.country.filter(
-      (item) => {
-        return item !== title
-      } 
-    );
-    if (removeSelectedCountry) {
-      filterObj.country = removeSelectedCountry
-      setFilterObj({ ...filterObj});
-    }
-    const removeSelectedCourse = filterObj.course_level.filter(
-      (item) => {
-        return item !== title
-      } 
-    );
-    if (removeSelectedCourse) {
-      filterObj.course_level = removeSelectedCourse
+      filterObj.city = removeSelectedCity;
       setFilterObj({ ...filterObj });
     }
-    const removeSelectedState = filterObj.state.filter(
-      (item) => {
-        return item !== title
-      } 
-    );
+    const removeSelectedCountry = filterObj.country.filter((item) => {
+      return item !== title;
+    });
+    if (removeSelectedCountry) {
+      filterObj.country = removeSelectedCountry;
+      setFilterObj({ ...filterObj });
+    }
+    const removeSelectedCourse = filterObj.course_level.filter((item) => {
+      return item !== title;
+    });
+    if (removeSelectedCourse) {
+      filterObj.course_level = removeSelectedCourse;
+      setFilterObj({ ...filterObj });
+    }
+    const removeSelectedState = filterObj.state.filter((item) => {
+      return item !== title;
+    });
     if (removeSelectedState) {
-      filterObj.state = removeSelectedState
-      setFilterObj({ ...filterObj});
+      filterObj.state = removeSelectedState;
+      setFilterObj({ ...filterObj });
     }
-    const removeSelectedStream = filterObj.stream.filter(
-      (item) => {
-        return item !== title
-      } 
-    );
+    const removeSelectedStream = filterObj.stream.filter((item) => {
+      return item !== title;
+    });
     if (removeSelectedStream) {
-      filterObj.stream = removeSelectedStream
-      setFilterObj({ ...filterObj});
+      filterObj.stream = removeSelectedStream;
+      setFilterObj({ ...filterObj });
     }
-
   };
   return (
     <div className="college-list-selected-filter">

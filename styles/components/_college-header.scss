@@ -202,15 +202,15 @@
     color: #fff;
     margin-bottom: 25px;
   }
-    &__taskmobile {
-      display: flex;
-      align-items: center;
-      color: #fff;
-      margin-bottom: 25px;
-      @media (min-width: 501px) {
-          display: none;
-        }
+  &__taskmobile {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-bottom: 25px;
+    @media (min-width: 501px) {
+      display: none;
     }
+  }
 }
 .task {
   &__logo {
@@ -253,15 +253,13 @@
     @media (min-width: 501px) {
       display: none;
     }
-   
   }
-   &__titlemobile {
+  &__titlemobile {
     font-size: 16px;
     line-height: 19px;
     font-weight: 700;
     @media (min-width: 501px) {
       display: none;
     }
-}
-
+  }
 }

@@ -4,8 +4,8 @@ import Fade from "@material-ui/core/Fade";
 import ReactPlayer from "react-player";
 import Backdrop from "@material-ui/core/Backdrop";
 
-const MTModal:any=Modal
-const RTReactPlayer:any=Modal
+const MTModal: any = Modal;
+const RTReactPlayer: any = Modal;
 
 const TestimonialCarousel = ({ data }) => {
   const [open, setOpen] = React.useState(false);

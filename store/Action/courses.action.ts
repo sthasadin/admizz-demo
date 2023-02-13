@@ -31,16 +31,15 @@ export const updateCollegeCourse = (course) => async (dispatch: Dispatch) => {
     return false;
   }
 };
-export const deleteCollegeCourse = (course_id) => async (
-  dispatch: Dispatch
-) => {
-  const response = await coursesService.deleteCollegeCourse(course_id);
-  if (response.isSuccess) {
-    return true;
-  } else if (!response.isSuccess) {
-    return false;
-  }
-};
+export const deleteCollegeCourse =
+  (course_id) => async (dispatch: Dispatch) => {
+    const response = await coursesService.deleteCollegeCourse(course_id);
+    if (response.isSuccess) {
+      return true;
+    } else if (!response.isSuccess) {
+      return false;
+    }
+  };
 export const getCourses = () => async (dispatch: Dispatch) => {
   const response = await coursesService.getPrograms();
   if (response.isSuccess) {
@@ -87,21 +86,20 @@ export const getProgram = (id) => async (dispatch: Dispatch) => {
     return null;
   }
 };
-export const getAllPrograms = (course_level, course_stream) => async (
-  dispatch: Dispatch
-) => {
-  const response = await coursesService.getAllPrograms(
-    course_level,
-    course_stream
-  );
-  if (response.isSuccess) {
-    dispatch({ type: GET_PROGRAMS, payload: response.data });
-    // return response.data
-  } else if (!response.isSuccess) {
-    dispatch({ type: GET_PROGRAMS, payload: [] });
-    // return []
-  }
-};
+export const getAllPrograms =
+  (course_level, course_stream) => async (dispatch: Dispatch) => {
+    const response = await coursesService.getAllPrograms(
+      course_level,
+      course_stream
+    );
+    if (response.isSuccess) {
+      dispatch({ type: GET_PROGRAMS, payload: response.data });
+      // return response.data
+    } else if (!response.isSuccess) {
+      dispatch({ type: GET_PROGRAMS, payload: [] });
+      // return []
+    }
+  };
 export const updateProgram = (program) => async (dispatch: Dispatch) => {
   const response = await coursesService.editProgram(program);
   if (response.isSuccess) {
@@ -128,21 +126,18 @@ export const removeProgram = (id) => async (dispatch: Dispatch) => {
 //     }
 // };
 
-export const getCollegesByCourses = (
-  course_level,
-  course_stream,
-  program_id
-) => async (dispatch: Dispatch) => {
-  const response = await coursesService.getCollegesByCourses(
-    course_level,
-    course_stream,
-    program_id
-  );
-  if (response.isSuccess) {
-    dispatch({ type: GET_CHOICE_COLLEGES, payload: response.data });
-    // return response.data
-  } else if (!response.isSuccess) {
-    dispatch({ type: GET_CHOICE_COLLEGES, payload: [] });
-    // return []
-  }
-};
+export const getCollegesByCourses =
+  (course_level, course_stream, program_id) => async (dispatch: Dispatch) => {
+    const response = await coursesService.getCollegesByCourses(
+      course_level,
+      course_stream,
+      program_id
+    );
+    if (response.isSuccess) {
+      dispatch({ type: GET_CHOICE_COLLEGES, payload: response.data });
+      // return response.data
+    } else if (!response.isSuccess) {
+      dispatch({ type: GET_CHOICE_COLLEGES, payload: [] });
+      // return []
+    }
+  };

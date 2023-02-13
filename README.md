@@ -2,10 +2,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First install all the required  dependencies 
-```bash 
-yarn 
-# or 
+First install all the required dependencies
+
+```bash
+yarn
+# or
 npm
 ```
 

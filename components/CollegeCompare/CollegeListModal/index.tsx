@@ -6,7 +6,7 @@ import Fade from "@material-ui/core/Fade";
 import { Button } from "../../Button/index";
 import CollegeList from "./CollegeList";
 
-const MTModal:any=Modal
+const MTModal: any = Modal;
 const index = (props: any) => {
   const {
     handleAddCollegeModal,
@@ -20,7 +20,7 @@ const index = (props: any) => {
   const [searchKeyword, setSearchKeyword] = React.useState("");
 
   const collegeList = useSelector((state: any) => state.college.colleges);
-  const {compareCollege} = useSelector((state:any) => state.college);
+  const { compareCollege } = useSelector((state: any) => state.college);
 
   const dispatch = useDispatch();
   React.useEffect(() => {

@@ -38,23 +38,34 @@ export default function CustomizedTables(props: any) {
               <div className="compare-table-label">
                 <strong>{data.label}</strong>
               </div>
-              <div style={{display:'flex', marginLeft: '12px'}}>
+              <div style={{ display: "flex", marginLeft: "12px" }}>
                 {selectedCollege.map((colegeAttributes: any) => {
                   return (
                     <>
                       <div className="comparetable__data_attributes">
                         <div>
-                          <div style={{display: 'flex'}}>
+                          <div style={{ display: "flex" }}>
                             <div className="comparetable__dataIcon">
-                
                               {getIcon(data.value)}
                             </div>
                             <div className="comparetable__datavalue">
-                              
-                              {data.value === 'QS_ranking' ? <div className="compare__datavalue__forranking"><span>#{colegeAttributes[data.value]}</span> out of <span>100</span></div>:truncate(colegeAttributes[data.value], 16) }
+                              {data.value === "QS_ranking" ? (
+                                <div className="compare__datavalue__forranking">
+                                  <span>#{colegeAttributes[data.value]}</span>{" "}
+                                  out of <span>100</span>
+                                </div>
+                              ) : (
+                                truncate(colegeAttributes[data.value], 16)
+                              )}
                             </div>
                           </div>
-                          <div style={{ fontSize: "12px", color: "#828282", marginTop: '3px' }}>
+                          <div
+                            style={{
+                              fontSize: "12px",
+                              color: "#828282",
+                              marginTop: "3px",
+                            }}
+                          >
                             {data.value === "QS_ranking" ? null : data.label}
                           </div>
                         </div>

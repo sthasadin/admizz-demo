@@ -1,21 +1,19 @@
 import React, { useState } from "react";
 
-const BlockSearch = ({searchHandler}) => {
+const BlockSearch = ({ searchHandler }) => {
+  const [query, setQuery] = useState("");
 
-  const [query,setQuery] = useState("");
-
-  const OnClickHandler = (e)=>{
-    searchHandler(query)
-  }
+  const OnClickHandler = (e) => {
+    searchHandler(query);
+  };
 
   const handleChange = (event) => {
     setQuery(event.target.value);
-  }
+  };
 
-  const checknull =(event) => {
-    if(!event.target.value) searchHandler(query)
-
-  }
+  const checknull = (event) => {
+    if (!event.target.value) searchHandler(query);
+  };
 
   return (
     <div className="block-search">
@@ -36,8 +34,15 @@ const BlockSearch = ({searchHandler}) => {
             />
           </svg>
         </div>
-        <input type="text" placeholder="Enter Your Issue here" onChange={handleChange} onKeyUp={checknull}/>
-        <div className="block-search__btn" onClick={OnClickHandler}>Search</div>
+        <input
+          type="text"
+          placeholder="Enter Your Issue here"
+          onChange={handleChange}
+          onKeyUp={checknull}
+        />
+        <div className="block-search__btn" onClick={OnClickHandler}>
+          Search
+        </div>
       </div>
     </div>
   );

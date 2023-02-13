@@ -54,8 +54,7 @@ const Index = ({
                 <img
                   src={icon}
                   alt="..."
-                  onClick={() => setSearchField(true)
-                  }
+                  onClick={() => setSearchField(true)}
                   style={{ cursor: "pointer" }}
                 />
               </InputAdornment>

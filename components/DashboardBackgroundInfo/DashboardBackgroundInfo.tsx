@@ -85,7 +85,7 @@ const DashboardBackgroundInfo = (props) => {
   }, [localStorage.getItem("backgroundInformation")]);
 
   const saveDate = () => {
-    let data = {
+    const data = {
       havePassport,
       passportDetails: havePassport
         ? {
@@ -129,9 +129,8 @@ const DashboardBackgroundInfo = (props) => {
   const truncateString = (str, num) => {
     if (str?.length > num) {
       return str?.slice(0, num) + "...";
-    } else {
-      return str;
     }
+    return str;
   };
 
   const validationSchema = yup.object().shape<BackgroundInfo>({

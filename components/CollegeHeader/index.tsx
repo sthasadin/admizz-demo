@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToFavourites,
   getFavourites,
-} from "@/store/Action/collegefavourite.action";
+} from "store/Action/collegefavourite.action";
 import { AuthContext } from "pages/AuthContext";
 import { auth } from "../../firebase";
 import { useRouter } from "next/router";
@@ -66,7 +66,7 @@ const CollegeHeader = ({
 
   const handleClick = () => {
     if (auth.currentUser) {
-      let data = { college: college._id, user: user.uid };
+      const data = { college: college._id, user: user.uid };
       dispatch(addToFavourites(data));
       setClick((click) => !click);
       setSnackOpen(true);

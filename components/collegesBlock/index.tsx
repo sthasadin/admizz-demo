@@ -16,7 +16,7 @@ const CollegesBlock: FC<CollegeProps> = ({ collegeList }) => {
           featured institutions
         </div>
         <div className="collegesBlock__title block-title">
-          Find The Best Institution in <span>INDIA</span> 
+          Find The Best Institution in <span>INDIA</span>
         </div>
         <div className="collegeBlock_list">
           <Carousel data={collegeList} />

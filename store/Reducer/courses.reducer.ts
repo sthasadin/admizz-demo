@@ -1,46 +1,51 @@
-import { GET_LEVELS, GET_STREAMS, GET_PROGRAMS, GET_CHOICE_COLLEGES, } from "../const";
+import {
+  GET_LEVELS,
+  GET_STREAMS,
+  GET_PROGRAMS,
+  GET_CHOICE_COLLEGES,
+} from "../const";
 
 const inititalState = {
   allLevels: [],
-  selectedLevel:{},
+  selectedLevel: {},
   allStreams: [],
-  allPrograms:[],
-  allColleges:[],
-  appliedColleges:[]
+  allPrograms: [],
+  allColleges: [],
+  appliedColleges: [],
 };
 
-const userReducer = (state = inititalState,{ type, payload }) => {
-    switch (type) {
-        case GET_LEVELS:
-            return {
-                ...state,
-                allLevels: payload,
-            };
-        case GET_STREAMS:
+const userReducer = (state = inititalState, { type, payload }) => {
+  switch (type) {
+    case GET_LEVELS:
       return {
-          ...state,
+        ...state,
+        allLevels: payload,
+      };
+    case GET_STREAMS:
+      return {
+        ...state,
         allStreams: payload,
       };
-      case GET_PROGRAMS:
+    case GET_PROGRAMS:
       return {
-          ...state,
+        ...state,
         allPrograms: payload,
       };
-      case GET_CHOICE_COLLEGES:
+    case GET_CHOICE_COLLEGES:
       return {
-          ...state,
+        ...state,
         allColleges: payload,
       };
-      case 'SELECTED_LEVEL':
+    case "SELECTED_LEVEL":
       return {
-          ...state,
+        ...state,
         selectedLevel: payload,
       };
-      case 'SAVE_APPLIED_COLLEGES':
-          return {
-              ...state,
-              appliedColleges:payload
-          }
+    case "SAVE_APPLIED_COLLEGES":
+      return {
+        ...state,
+        appliedColleges: payload,
+      };
     default:
       return state;
   }

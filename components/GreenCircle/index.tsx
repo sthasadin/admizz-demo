@@ -3,14 +3,10 @@ import React from "react";
 const index = () => {
   const [state, setState] = React.useState(false);
 
- 
-    
-    setTimeout(() => {
-        setState(true);
-      }, 1000);
-  
-   
-  
+  setTimeout(() => {
+    setState(true);
+  }, 1000);
+
   return (
     <>
       {state && (

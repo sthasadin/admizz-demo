@@ -11,9 +11,9 @@ const Topbar = (props: any) => {
           <div className="contact">
             <div className="contact__icon">
               <img src="/email-icon.png" alt="contact-us" />
-              </div>
-                <span className="contact__info"> support@admizz.com </span>
-            
+            </div>
+            <span className="contact__info"> support@admizz.com </span>
+
             <div className="contact__item"></div>
             {/* <div className="contact__item">
               <span className="contact__title">Nepal:</span>

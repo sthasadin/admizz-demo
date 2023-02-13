@@ -32,15 +32,15 @@
 //   color: #333333;
 //   width: fit-content;
 // }
- .banner-content {
+.banner-content {
   font-weight: 800;
   line-height: 53px;
   font-size: 36px;
   color: #333333;
   width: fit-content;
-   @media (max-width: 600px) {
-     width: 100%;
-   }
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 }
 .banner-image {
   background: radial-gradient(

@@ -11,10 +11,10 @@ import { withStyles } from "@material-ui/core/styles";
 interface Props {
   handleBack: () => void;
   handleBook: () => void;
-  isTermChecked:any;
-  setIstermChecked:React.Dispatch<any>
-  checkValidation:any
-  setCheckValidation:React.Dispatch<any>
+  isTermChecked: any;
+  setIstermChecked: React.Dispatch<any>;
+  checkValidation: any;
+  setCheckValidation: React.Dispatch<any>;
   formValue: any;
   loading: boolean;
 }
@@ -52,7 +52,7 @@ const CustomizeCheckBox: any = withStyles({
 const ConfirmBook: React.FC<Props> = ({
   handleBack,
   handleBook,
-   isTermChecked,
+  isTermChecked,
   setIstermChecked,
   checkValidation,
   setCheckValidation,
@@ -82,7 +82,6 @@ const ConfirmBook: React.FC<Props> = ({
           <div className={"confirm-section__details-head"}>Applying Course</div>
           <div className={"confirm-section_detail-info"}>
             {formValue.course}
-            
           </div>
         </div>
         <div className={"confirm-section__row"}>
@@ -106,28 +105,28 @@ const ConfirmBook: React.FC<Props> = ({
       </div>
       <img src={confirmBookBg} className={"confirm-section__background"} />
       <div className={"confirm-section__agreement"}>
-       <CustomizeCheckBox
-                  checked={isTermChecked}
-                  onChange={() => {
-                    setIstermChecked((isTermChecked) => !isTermChecked);
-                    setCheckValidation(false)
-                  }}
-                  style={{ paddingLeft: "0" }}
-                />
-                By submitting this form, you accept and agree to our
-                <span>Terms & Conditions.</span>
-                 {checkValidation && (
-                <p
-                  style={{
-                    color: "red",
-                    fontSize: 13,
-                    marginLeft: 12,
-                    marginTop: -10,
-                  }}
-                >
-                  Please accept terms and policy
-                </p>
-              )}
+        <CustomizeCheckBox
+          checked={isTermChecked}
+          onChange={() => {
+            setIstermChecked((isTermChecked) => !isTermChecked);
+            setCheckValidation(false);
+          }}
+          style={{ paddingLeft: "0" }}
+        />
+        By submitting this form, you accept and agree to our
+        <span>Terms & Conditions.</span>
+        {checkValidation && (
+          <p
+            style={{
+              color: "red",
+              fontSize: 13,
+              marginLeft: 12,
+              marginTop: -10,
+            }}
+          >
+            Please accept terms and policy
+          </p>
+        )}
       </div>
       <div className={"confirm-section__action-buttons"}>
         <div onClick={handleBack}>Back</div>

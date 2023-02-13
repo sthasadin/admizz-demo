@@ -19,4 +19,3 @@ export const getCollageDetail = (id: string) => async (dispatch: Dispatch) => {
       console.log(err);
     });
 };
-

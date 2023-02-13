@@ -190,11 +190,16 @@ const Navbar = (props: any) => {
             </div>
             <div className="navbar__contact2">
               {/* <div className="navbar__countryname">India:</div> */}
-              <div className="navbar__contactnumber">1912 E Hardvard Dr Denver, CO</div>
+              <div className="navbar__contactnumber">
+                1912 E Hardvard Dr Denver, CO
+              </div>
             </div>
             <div className="navbar__contact2">
               {/* <div className="navbar__countryname">India:</div> */}
-              <div className="navbar__contactnumber">  Bogra Tole, Bogura 5800</div>
+              <div className="navbar__contactnumber">
+                {" "}
+                Bogra Tole, Bogura 5800
+              </div>
             </div>
           </div>
         </div>
@@ -240,9 +245,8 @@ const Navbar = (props: any) => {
   function truncateString(str, num) {
     if (str?.length > num) {
       return str.slice(0, num) + "...";
-    } else {
-      return str;
     }
+    return str;
   }
 
   const cleanText = (text) => {
@@ -262,10 +266,10 @@ const Navbar = (props: any) => {
               <img src="/mobileVersionLogo.png" alt="Admizz_logo" />
             </div>
           ) : ( */}
-            <div className="logo " onClick={() => router.push("/")}>
-              <img src="/logo.png" alt="Admizz_logo" />
-            </div>
-           {/* )} */}
+          <div className="logo " onClick={() => router.push("/")}>
+            <img src="/logo.png" alt="Admizz_logo" />
+          </div>
+          {/* )} */}
         </div>
 
         <div className="navbar__hamburger">

@@ -9,18 +9,18 @@ import { TrendingCourses } from "../TrendingCourses";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { getCompareList } from "@/store/Action/college.action";
+import { getCompareList } from "store/Action/college.action";
 
 const Sidebar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const {college} = useSelector((state:any) => state.college);
-  const handleClick=()=>{
-  let clgSlug=college.college_slug
-    localStorage.setItem('clgs',JSON.stringify([college]))
-    router.push(`/comparecollege`)
-  }
-  let len = useMemo(() => {
+  const { college } = useSelector((state: any) => state.college);
+  const handleClick = () => {
+    const clgSlug = college.college_slug;
+    localStorage.setItem("clgs", JSON.stringify([college]));
+    router.push(`/comparecollege`);
+  };
+  const len = useMemo(() => {
     return Object.keys(college)?.length;
   }, [college]);
 
@@ -30,16 +30,13 @@ const Sidebar = () => {
         <CallToAction className="filled full-width">Apply Now</CallToAction>
       </Link>
       <div className="sidebar__cta">
-        <CallToAction
-          className="full-width"
-          onClick={() =>handleClick() }
-        >
+        <CallToAction className="full-width" onClick={() => handleClick()}>
           Add to Compare
         </CallToAction>
       </div>
       <FacultyInformation />
       <TrendingCourses />
-      <NewsOnCollege  />
+      <NewsOnCollege />
       <CollegeFacility />
       <InternationalCollaboration />
     </aside>

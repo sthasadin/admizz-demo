@@ -42,7 +42,7 @@ const DashboardChoiceFilling = ({
     setSnackOpen(false);
   };
   function dynamicSort(property) {
-    var sortOrder = 1;
+    let sortOrder = 1;
     if (property[0] === "-") {
       sortOrder = -1;
       property = property.substr(1);
@@ -51,7 +51,7 @@ const DashboardChoiceFilling = ({
       /* next line works with strings and numbers,
        * and you may want to customize it to your needs
        */
-      var result =
+      const result =
         a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
       return result * sortOrder;
     };
@@ -91,10 +91,10 @@ const DashboardChoiceFilling = ({
   }
 
   const removeChoice = (i) => {
-    let arr = [...choices];
+    const arr = [...choices];
     arr.splice(i, 1);
     setChoices(arr);
-    let colleges = [..._appliedColleges];
+    const colleges = [..._appliedColleges];
     colleges.splice(i, 1);
     setAppliedColleges(colleges);
   };
@@ -135,22 +135,21 @@ const DashboardChoiceFilling = ({
     const results = colleges.filter((element) => {
       return element !== undefined;
     });
-    
 
     setAppliedColleges(results);
 
-    if(results?.length){
-         setMsgType("success");
-        setFormError({
-          ...formError,
-          otherErrors: (
-            <div>
-              <span>College is added</span>
-            </div>
-          ),
-        });
-        handleOpenSnackbar();
-      }
+    if (results?.length) {
+      setMsgType("success");
+      setFormError({
+        ...formError,
+        otherErrors: (
+          <div>
+            <span>College is added</span>
+          </div>
+        ),
+      });
+      handleOpenSnackbar();
+    }
 
     setLoader(false);
   };

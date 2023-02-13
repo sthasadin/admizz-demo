@@ -28,13 +28,12 @@ const index = () => {
     return money;
     if (money < 100000) {
       return `${Number(money / 1000)}K`;
-    } else {
-      return `${
-        Number(money % 100000) === 0
-          ? Number(money / 100000)
-          : Number(money / 100000).toFixed(1)
-      }L`;
     }
+    return `${
+      Number(money % 100000) === 0
+        ? Number(money / 100000)
+        : Number(money / 100000).toFixed(1)
+    }L`;
   };
   return statistics || recruiting?.length || alumnis?.length ? (
     <div>

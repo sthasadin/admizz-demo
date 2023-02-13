@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 // import { BlogDetailHeader } from "../../components/BlogDetailHeader";
 // import { BlogDetailContent } from "../../components/BlogDetailContent";
-import BlogImage from "../../public/blog.png";
+import BlogImage from "public/blog.png";
 import { Button } from "../../components";
 import Avatar from "@material-ui/core/Avatar";
 import List from "@material-ui/core/List";
@@ -96,8 +96,6 @@ const blogDetail = () => {
                             <FacebookIcon />
                           </Avatar>
                         </ListItemAvatar> */}
-
-                        
 
                         <ListItemText primary={"Facebook"} />
                       </ListItem>

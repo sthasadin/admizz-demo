@@ -24,7 +24,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout title="Home" stickyBar={true}>
+    <Layout title="Admission With Ease" stickyBar={true}>
       <Introduction />
       <About />
       <Merits />

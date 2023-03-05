@@ -7,6 +7,13 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          {/* preview links */}
+          <meta name="description" content="Admission With Ease" />
+          <meta property="og:title" content="Admizz" />
+          <meta property="og:description" content="Admission With Ease" />
+          <meta property="og:image" content="https://admizz.com/Hero-images.png" />
+          <meta property="og:url" content="https://admizz.com" />
+          {/* preview links */}
           <link
             rel="shortcut icon"
             type="image/png"
@@ -18,6 +25,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
+          
         </Head>
         <body>
           <Main />

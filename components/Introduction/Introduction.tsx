@@ -42,11 +42,11 @@ const Introduction = (props) => {
         <div className="introduction__left">
           <div className="introduction__header">{`Your vision, Our fulfillment `}</div>
           <div className="introduction__title">
-            We help you achieve your dream
+            We help you achieve your dream.
           </div>
           <div className="introduction__desc">
-            Start early with Admizz! <br/>
-            We help you find the perfect course at the right university.
+            <b>Start early with Admizz! <br/>
+            We help you find the perfect course at the right university.</b>
           </div>
           <div className="u-align-center">
             <CallToAction className="filled" onClick={() => openCounselling()}>

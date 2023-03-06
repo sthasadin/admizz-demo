@@ -36,7 +36,7 @@ export default function Home() {
       <CollegeFinder />
       <Testimonial />
       {/* <BlogList /> */}
-      <Teams data="" />
+      {/* <Teams data="" /> */}
     </Layout>
   );
 }

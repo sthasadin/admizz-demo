@@ -120,7 +120,7 @@ const Introduction = (props) => {
               <span>Explore and find latest data on admizz</span>
             </div>
             <div className="u-align-center-meta">
-              <div className="introduction__meta__item">
+              {/* <div className="introduction__meta__item">
                 <div className="introduction__meta__item__icon">
                   <svg
                     width="46"
@@ -160,7 +160,7 @@ const Introduction = (props) => {
                     COVID-19 RESPONSE
                   </a>
                 </div>
-              </div>
+              </div> */}
               <div className="introduction__meta__item">
                 <div className="introduction__meta__item__icon">
                   <svg

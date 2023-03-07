@@ -22,10 +22,17 @@
 
 .cta-button.filled {
   color: #f2f2f2;
-  background-color: $primary-color;
+  background-color: #ffa200;
   // border: none;
   border-radius: 10px;
   border: 1px solid $primary-color;
+  &:hover {
+    background-color: #ffa200 !important;
+    border: 1px solid #ffa200;
+    color: $primary-color;
+    transition: all 0.2s ease-in-out;
+  }
+  
 }
 .cta-button.white-border {
   color: #f2f2f2;
@@ -42,14 +49,15 @@
 }
 .cta-button.white-outline {
   color: #f2f2f2;
-  background-color: transparent;
+  background-color: #ffa200;
   // border: none;
   border-radius: 10px;
-  border: 1px solid white;
+  
 
   &:hover {
     background-color: #ffa200 !important;
     border: 1px solid #ffa200;
+    
     transition: all 0.2s ease-in-out;
   }
 }

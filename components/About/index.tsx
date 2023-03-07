@@ -49,7 +49,7 @@ const About = () => {
           <Card1
             href="#"
             // href="blogs/learn-about-indian-culture"
-            bgImage="card-4"
+            bgImage="India-new-1.png"
             title="UK"
             subText="Culture of Indian"
           />

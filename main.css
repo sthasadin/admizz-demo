@@ -1091,6 +1091,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 .feature {
   margin-top: 57px;
   font-family: "M Plus 1p", sans-serif;
+  
 }
 
 .feature .feature__heading {
@@ -7424,7 +7425,7 @@ nav.navigation ul.menu li.menu-item a:hover::after {
 }
 
 .introduction__desc {
-  font-size: 14px;
+  font-size: 20px;
   line-height: 21px;
   color: #333333;
   margin-bottom: 14px;

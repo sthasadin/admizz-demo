@@ -17,10 +17,9 @@ const FiveSteps = (props: any) => {
               <div className="five-steps__mobileitem__text">
                 <div className="five-steps__mobileitem__title">
                   Research Your Options
-                </div>
+                </div>                                            
                 <div className="five-steps__mobileitem__desc">
-                  Admizz provides you a wide range of courses from various
-                  universities.
+                Choose from  a wide range of courses from various universities.
                 </div>
               </div>
               <div className="five-steps__mobileitem__icon active">
@@ -45,8 +44,7 @@ const FiveSteps = (props: any) => {
                   Register Yourself - Online/Offline
                 </div>
                 <div className="five-steps__mobileitem__desc">
-                  Admizz provides the online form or you can contact us via
-                  telephone.
+                Register by downloading the form online or you can contact us via telephone.
                 </div>
               </div>
               <div className="five-steps__mobileitem__icon">

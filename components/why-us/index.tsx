@@ -21,7 +21,7 @@ const Us = ({ college }) => {
     {
       title: "One on One Counseling",
       description:
-        "Admizz provides one on one counseling sessions with each of the students who are applying for further studies and helps you in your journey to study in india.",
+        "Personalized counseling for students applying to study in India to help you on your journey",
       icon: (
         <svg
           width="60"
@@ -52,7 +52,7 @@ const Us = ({ college }) => {
     {
       title: "End to End Assistance",
       description:
-        "Admizz helps from beginning to the end in admission process and ensures that you get admitted in our favourite university or colleges that you choose.",
+        "Avail top notch assistance from start to finish, ensuring admission to your dream university or college!",
       icon: (
         <svg
           width="60"
@@ -74,7 +74,7 @@ const Us = ({ college }) => {
     {
       title: "Get Best Scholarship",
       description:
-        "You can also apply for a scholarship from Admizz. It helps to choose a scholarship according to your course of choices and provides guidance to prepare for it.",
+        "Apply for scholarships, tailored to your course of choice. Get guidance and preparation support today.",
       icon: (
         <svg
           width="71"
@@ -96,7 +96,7 @@ const Us = ({ college }) => {
     {
       title: " Admission with Ease",
       description:
-        "Admizz aims to simplify your admission process to your dream university for to study in India. It provides a wide range of courses for 10+2, under-graduate, graduate and doctorate students.",
+        "Simplify the admission process with access to a wide range of courses for 10+2, under-graduate, graduate, and doctorate students.",
       icon: (
         <svg
           width="54"
@@ -149,7 +149,7 @@ const Us = ({ college }) => {
             </div>
             <div className="us__rightcontent">
               <Link href="/aboutus">
-                <CallToAction className="white-outline">
+                <CallToAction className="white-outline" style="background-color:yellow">
                   Know Admizz Better
                 </CallToAction>
               </Link>

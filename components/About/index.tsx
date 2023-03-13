@@ -5,9 +5,9 @@ const About = () => {
   return (
     <div className="about-country" id="about-us">
       <div className="inner__about section-wrapper">
-        <div className="about-country__heading block-heading">Top Study Destinations</div>
+        <div className="about-country__heading block-heading"></div>
         <div className="about-country__title block-title">
-          Expand your horizons: Where to study?
+        Why Study Abroad?
         </div>
         <div className="about-country__desc">
           {/* <p>
@@ -18,59 +18,59 @@ const About = () => {
           </p> */}
           <br/>
         </div>
-        <div className="about-country__info">
+        {/* <div className="about-country__info">
           India has over
           <span> 45,000 Degree </span>
           Colleges, and around 1018 Universities,
           <span>1500 top Institution.</span>
-        </div>
+        </div> */}
         <div className="about-country__thumbnail-wrap">
           <Card1
-            bgImage="card-4"
-            title="INDIA"
-            subText="All About India"
+            bgImage="card-india"
+            title="Cultural Immersion"
+            subText="Immerse yourself in a new culture and broaden your perspective."
             href="#"
             // href="blogs/learn-about-geography"
           />
           <Card1
-            bgImage="card-3"
-            title="USA"
-            subText="History of India"
+            bgImage="card-usa"
+            title=" Language Mastery"
+            subText="Enhance your fluency with immersive, real-world language practice."
             href="#"
             // href="blogs/history-of-india-in-a-minute"
           />
           <Card1
             href="#"
             // href="blogs/education-system-in-india"
-            bgImage="card-3"
-            title="AUSTRILIA"
-            subText="Efficient Education"
+            bgImage="card-aus"
+            title="Career Advancement"
+            subText="Learn valuable skills such as adaptability, independence, and navigating situations."
           />
           <Card1
             href="#"
             // href="blogs/learn-about-indian-culture"
-            bgImage="India-new-1.png"
+            bgImage="card-uk"
             title="UK"
-            subText="Culture of Indian"
+            subText="Explore colleges in UK"
           />
           <Card1
-            href="blogs/life-style-of-indian-people"
-            bgImage="card-5"
-            title="CANADA"
-            subText="Daily Lifestyle"
+            href="#"
+            bgImage="card-canada"
+            title="Global Connections"
+            subText="Meet people from all over the world and build a global network of friends and colleagues."
           />
-          <Card1
+          {/* <Card1
             href="blogs/life-style-of-indian-people"
-            bgImage="card-5"
-            title="FRANCE"
-            subText="Daily Lifestyle"
-          />
-          <Card1
+            bgImage="card-france"
+            title="Personal Growth and Development"
+            subText="Learn to operate out of your comfort zone and develop self-confidence through new experiences."
+          /> */}
+          {/* <Card1
             href="blogs/life-style-of-indian-people"
-            bgImage="card-5"
+            bgImage="card-dubai"
             title="DUBAI"
-            subText="Daily Lifestyle"
-          />
+            subText="Explore colleges in Dubai"
+          /> */}
         </div>
        
       </div>

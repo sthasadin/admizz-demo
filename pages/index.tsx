@@ -12,7 +12,11 @@ import { Teams } from "../components/Teams";
 
 import { Testimonial } from "../components/Testimonial";
 
+
 import { Us } from "../components/why-us";
+import { HowAdmizz } from "../components/HowAdmizzHelp";
+import { WhyStudyAbroad } from "../components/whyAbroad";
+
 import Layout from "../layouts/index";
 
 export default function Home() {
@@ -26,10 +30,15 @@ export default function Home() {
   return (
     <Layout title="Admission With Ease" stickyBar={true}>
       <Introduction />
+      <HowAdmizz college={collegeList.slice(0, 6)} />
       <About />
-      <Merits />
+      {/* now location */}
+      <WhyStudyAbroad />
+       {/* now location */}
+      
+      {/* <Merits /> */}
       <Us college={collegeList.slice(0, 6)} />
-
+      
       <Statistics />
       <FiveSteps />
       <CollegesBlock collegeList={collegeList.slice(0, 6)} />

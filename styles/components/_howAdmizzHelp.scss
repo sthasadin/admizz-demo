@@ -1,0 +1,610 @@
+.howAhelp{
+  // position: relative;
+  font-size: 14px;
+
+  @media (max-width: 700px) {
+    margin-top: 50px;
+  }
+
+  &__backgroundimage {
+    background-image: linear-gradient(
+        0deg,
+        rgba(95, 24, 2, 0.7),
+        rgba(95, 24, 2, 0.7)
+      ),
+      url("/why-us-bg-image.png");
+    background-size: cover;
+    background-position: center;
+    height: 341px;
+    padding-top: 40px;
+    background-repeat: no-repeat;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 700px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__rightcontent {
+    display: flex;
+    align-items: center;
+  }
+
+  &__leftcontent {
+    width: 50%;
+
+    @media (max-width: 700px) {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-weight: 800;
+    color: #000;
+    font-size: 36px;
+    font-style: normal;
+  }
+  &__about_title{
+    font-weight: 800;
+    color: #5f1802;
+    font-size: 16px;
+    font-style: normal;
+  }
+
+  &__helpertext {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: #4f4f4f;
+    width: 70%;
+    margin: 32px auto 0;
+  }
+
+  &__feature {
+    background-image: url("/tieups-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f3f3f2;
+    // position: relative;
+    padding-bottom: 50px;
+    border-radius: 0;
+  }
+
+  &__feature_container {
+    // position: absolute;
+    top: 10px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    border-radius: 0;
+
+    // @media (max-width: 912px) {
+    //   position: unset;
+    //   grid-template-columns: repeat(2, 1fr);
+    //   padding-top: 20px;
+    // }
+    @media (max-width: 1024px) {
+      // position: unset;
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+.our-exclusive-container {
+  .our-exclusive-content {
+    padding-top: 250px; //increased by solanki
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @media (max-width: 1024px) {
+      padding-top: 50px;
+    }
+  }
+
+  .aboutus-exclusive-content {
+    padding: 70px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @media (max-width: 1024px) {
+      padding-top: 50px;
+    }
+  }
+
+  .aboutus-exclusive-contents {
+    padding: 40px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @media (max-width: 1024px) {
+      padding-top: 20px;
+    }
+  }
+
+  .our-trusted-text {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 900;
+    line-height: 33px;
+    color: #5f1802;
+    padding-bottom: 30px;
+  }
+
+  .our-trusted-texts {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 900;
+    line-height: 33px;
+    color: #5f1802;
+    margin-top: 40px;
+  }
+
+  .our-exclusive-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #333;
+  }
+
+  .aboutus-exclusive-title {
+    padding-top: 16px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #333;
+    width: 50%;
+    margin: auto;
+  }
+
+  .aboutus-testimonial-wrapper {
+    width: 100%;
+    margin: auto;
+    padding: 56px 180px 163px 180px;
+
+    .slick-arrow {
+      align-items: center;
+      height: 40px;
+      width: 40px;
+      border-radius: 10px;
+      z-index: 100;
+    }
+
+    .about-us__card {
+      background-color: #fffef7;
+      padding: 10px;
+
+      @media screen and (min-width: 768px) {
+        padding: 30px;
+      }
+
+      p {
+        font-family: Mplus 1p, sans-serif;
+        color: #000;
+        padding: 10px;
+
+        @media screen and (min-width: 768px) {
+          padding: 30px;
+        }
+      }
+    }
+
+    .about-us__cardImage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: -35px;
+    }
+
+    blockquote {
+      font-family: Georgia, serif;
+      position: relative;
+      margin: 0.5em;
+      padding: 0.5em 2em 0.5em 3em;
+      // color:#7C7C7C;
+    }
+
+    blockquote:before {
+      font-family: Georgia, serif;
+      position: absolute;
+      font-size: 6em;
+      line-height: 1;
+      top: 0;
+      left: 0;
+      content: "\201C";
+    }
+
+    blockquote:after {
+      font-family: Georgia, serif;
+      position: absolute;
+      /* display: block; don't use this, it raised the quote too high from the bottom - defeated line-height? */
+      float: right;
+      font-size: 6em;
+      line-height: 1;
+      right: 0;
+      bottom: -0.5em;
+      content: "\201D";
+    }
+
+    blockquote footer {
+      padding: 0 2em 0 0;
+      text-align: right;
+    }
+
+    blockquote cite:before {
+      content: "\2013";
+    }
+  }
+
+  .about-us {
+    max-width: fit-content;
+  }
+
+  .about-us_Container {
+    background-color: #fffef7;
+    height: 370px;
+    margin: 56px 180px 163px 180px;
+    padding: 157px;
+    display: block;
+  }
+
+  .about-us__Slider {
+    width: 100%;
+  }
+
+  .contact-countries {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 20px;
+    padding-left: 60px;
+
+    @media (max-width: 660px) {
+      grid-template-columns: repeat(1, 1fr);
+      justify-content: center;
+    }
+  }
+
+  .contact-india {
+    align-self: center;
+    justify-self: center;
+
+    span {
+      @media (max-width: 600px) {
+        max-width: 200px;
+      }
+    }
+  }
+
+  .contact-bangladesh {
+    align-self: center;
+    justify-self: center;
+
+    @media (max-width: 660px) {
+    }
+  }
+
+  .contact-nepal {
+    align-self: center;
+    justify-self: center;
+  }
+
+  .contact-title {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-weight: 500;
+      color: $gray-3;
+      font-size: 16px;
+      line-height: 18.8px;
+      margin-left: 22px;
+    }
+  }
+
+  .aboutus-testimonial-content {
+    width: 60%;
+    margin: auto;
+    font-size: 14px;
+    color: #000000;
+    text-align: center;
+  }
+
+  .international-map {
+    margin: 99px auto 20px auto;
+    width: 80%;
+    // height: 400px !important;
+
+    img {
+      width: 100%;
+    }
+    // @media  (min-width:320px) {
+    @media only screen and (min-width: 1280px) {
+      margin: 99px auto 20px auto;
+      width: 80%;
+      height: 613px;
+    }
+  }
+}
+
+.contact-us-office {
+  background-color: #f9f9f9;
+}
+
+.contact-test {
+  align-items: center;
+}
+
+.university-list {
+  // border: 1px solid black;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 8%;
+  // display: flex;
+  // flex-wrap: wrap;
+  gap: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .university-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .university-name {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+      text-decoration: underline;
+    }
+    @media (min-width: 320px) {
+      font-weight: 700;
+      font-size: 14px;
+    }
+  }
+}
+
+.aboutus-university-list {
+  // border: 1px solid black;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 8%;
+  // display: flex;
+  // flex-wrap: wrap;
+  gap: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .university-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .university-name {
+    margin-top: 10px;
+    color: #333;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+$color_1: #FFF;
+$color_2: #f9b234;
+$background-color_1: #000;
+$background-color_2: #121212;
+$background-color_3: #f9b234;
+$background-color_4: #3ecd5e;
+$background-color_5: #e44002;
+$background-color_6: #952aff;
+$background-color_7: #cd3e94;
+$background-color_8: #4c49ea;
+
+.ag-format-container {
+	width: 1142px;
+	margin: 0 auto;
+}
+
+.ag-courses_box {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 50px 0;
+  
+}
+.ag-courses_item {
+	-ms-flex-preferred-size: calc(25% - 30px);
+	flex-basis: calc(25% - 30px);
+	margin: 0 15px 30px;
+	overflow: hidden;
+	border-radius: 10px;
+  
+	&:nth-child(2n) {
+		.ag-courses-item_bg {
+			background-color: $background-color_4;
+      
+      
+		}
+	}
+	&:nth-child(3n) {
+		.ag-courses-item_bg {
+			background-color: $background-color_5;
+		}
+	}
+	&:nth-child(4n) {
+		.ag-courses-item_bg {
+			background-color: $background-color_6;
+		}
+	}
+	&:nth-child(5n) {
+		.ag-courses-item_bg {
+			background-color: $background-color_7;
+		}
+	}
+	&:nth-child(6n) {
+		.ag-courses-item_bg {
+			background-color: $background-color_8;
+		}
+	}
+}
+.ag-courses-item_link {
+	display: block;
+	padding: 30px 20px;
+	background-color: #ffff;
+  
+	overflow: hidden;
+	position: relative;
+  color: $background-color_2;
+	&:hover {
+		text-decoration: none;
+		color: $color_1;
+		.ag-courses-item_date {
+			text-decoration: none;
+			color: $color_1;
+		}
+		.ag-courses-item_bg {
+			-webkit-transform: scale(10);
+			-ms-transform: scale(10);
+			transform: scale(10);
+		}
+	}
+}
+.ag-courses-item_title {
+	// min-height: 87px;
+	margin: 0 0 10px;
+	overflow: hidden;
+	font-weight: bold;
+	font-size: 20px;
+	
+	z-index: 2;
+	position: relative;
+  
+}
+.ag-courses-item_date-box {
+	font-size: 18px;
+	color: $color_1;
+	z-index: 2;
+	position: relative;
+}
+.ag-courses-item_date {
+	font-weight: bold;
+	color: $color_2;
+	-webkit-transition: color .5s ease;
+	-o-transition: color .5s ease;
+	transition: color .5s ease;
+}
+.ag-courses-item_bg {
+	height: 128px;
+	width: 128px;
+	background-color: $background-color_3;
+	z-index: 1;
+	position: absolute;
+	top: -75px;
+	right: -75px;
+	border-radius: 50%;
+	-webkit-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+@media only screen and (max-width: 979px) {
+	.ag-courses_item {
+		-ms-flex-preferred-size: calc(50% - 30px);
+		flex-basis: calc(50% - 30px);
+	}
+	.ag-courses-item_title {
+		font-size: 24px;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.ag-format-container {
+		width: 96%;
+	}
+}
+@media only screen and (max-width: 639px) {
+	.ag-courses_item {
+		-ms-flex-preferred-size: 100%;
+		flex-basis: 100%;
+	}
+	.ag-courses-item_title {
+		min-height: 72px;
+		line-height: 1;
+		font-size: 24px;
+	}
+	.ag-courses-item_link {
+		padding: 22px 40px;
+	}
+	.ag-courses-item_date-box {
+		font-size: 16px;
+	}
+}

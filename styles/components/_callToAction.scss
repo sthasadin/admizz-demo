@@ -7,7 +7,7 @@
   color: #5f1802;
   border: 1px solid #5f1802;
   // border: 0;
-  background-color: #fff;
+  background-color: #ffa200;
   outline: none;
   cursor: pointer;
   white-space: nowrap;
@@ -36,13 +36,16 @@
 }
 .cta-button.white-border {
   color: #f2f2f2;
-  background-color: $primary-color;
+  background-color: #ffa200;
+  
   // border: none;
   border-radius: 10px;
   border: 1px solid white;
 
   &:hover {
+    color: #5f1802;
     background-color: #ffa200 !important;
+    
     border: 1px solid #ffa200;
     transition: all 0.2s ease-in-out;
   }

@@ -94,12 +94,12 @@ const Testimonial = (props: any) => {
               Testimonials
             </div>
             <div className="collegeFinder__title block-title">
-              Explore and Read Testimonials
+            Read about our Student Success Stories 
             </div>
           </div>
           <div className="collegeFinder__right mobiletestimonial">
             <CallToAction onClick={() => router.push("/testimonialDetailPage")}>
-              Explore all testimonials
+              Explore all Stories
             </CallToAction>
           </div>
         </div>

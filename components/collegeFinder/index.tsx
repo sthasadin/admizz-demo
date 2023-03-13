@@ -16,7 +16,7 @@ const CollegeFinder = () => {
               college finder
             </div>
             <div className="collegeFinder__title block-title">
-              Explore and Find College By Courses
+              Explore College By Courses
             </div>
           </div>
 

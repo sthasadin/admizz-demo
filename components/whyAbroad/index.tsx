@@ -8,7 +8,7 @@ const WhyStudyAbroad =()=>{
                               <div >
                                   {/* <div className="howAhelp__about_title" >About Admizz</div> */}
                                   <div className="howAhelp__title_sub"  >Top Study Destinations</div>
-                                  <div className="howAhelp__title"  >Expand your horizons: Where to study?</div>
+                                  <div className="howAhelp__title"  >Expand your horizons: <span style={{color:"#ffa200"}}> Where to study?</span> </div>
                                   {/* <div className="howAhelp__helpertext" >
                                   Whether you're selecting a college, pursuing new career opportunities, or looking to broaden your horizons, our expert team is here to empower your journey. 
                                   </div> */}
@@ -37,7 +37,7 @@ const WhyStudyAbroad =()=>{
       
       <div className="news-card__details-wrapper">
         <p className="news-card__excerpt">
-        Explore college in India
+        Experience the hustle and bustle of a unique culture and emerging tech industry.
 
         </p>
         <a href="#" className="news-card__read-more">
@@ -60,7 +60,7 @@ const WhyStudyAbroad =()=>{
       
       <div className="news-card__details-wrapper">
         <p className="news-card__excerpt">
-         Explore college in USA
+        Choose from world-class education and diverse job opportunities.
         </p>
         <a href="#" className="news-card__read-more">
           Explore <i className="fas fa-long-arrow-alt-right" />
@@ -80,7 +80,7 @@ const WhyStudyAbroad =()=>{
      
       <div className="news-card__details-wrapper">
         <p className="news-card__excerpt">
-        Explore colleges in Australia
+        Experience a high quality of life supported by a strong job market.
         </p>
         <a href="#" className="news-card__read-more">
           Explore<i className="fas fa-long-arrow-alt-right" />
@@ -101,7 +101,7 @@ const WhyStudyAbroad =()=>{
       </h2>
       
       <div className="news-card__details-wrapper">
-        <p className="news-card__excerpt">Explore colleges in UK</p>
+        <p className="news-card__excerpt">Grow at prestigious universities surrounded by rich cultural heritage.</p>
         <a href="#" className="news-card__read-more">
           Explore<i className="fas fa-long-arrow-alt-right" />
         </a>
@@ -120,7 +120,7 @@ const WhyStudyAbroad =()=>{
      
       <div className="news-card__details-wrapper">
         <p className="news-card__excerpt">
-        Explore colleges in Canada
+        Enlist at world-renowned universities with growing job demand.
         </p>
         <a href="#" className="news-card__read-more">
           Explore <i className="fas fa-long-arrow-alt-right" />
@@ -140,9 +140,9 @@ const WhyStudyAbroad =()=>{
         FRANCE
       </h2>
       
-      <div className="news-card__details-wrapper">
+      <div className="news-card__details-wrapper" >
         <p className="news-card__excerpt">
-          Explore colleges in France
+        Explore France's rich culture and study the city of lights.
         </p>
         <a href="#" className="news-card__read-more">
           Explore <i className="fas fa-long-arrow-alt-right" />

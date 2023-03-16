@@ -63,21 +63,20 @@ const HowAdmizz = ({ college }) => {
   ];
 
   return (
-    <div className="howAhelp" style={{backgroundColor:"#f3f3f2",paddingTop:"30px"}}>
+    <div className="howAhelp" style={{backgroundColor:"#f3f3f2",paddingTop:"30px", textAlign:"center", }}>
       <div className="howAhelp_backgroundimage" >
                 {/* content wrapper */}
                 <div className="section-wrapper">
                       <div className="howAhelp__content" style={{textAlign:"center",color:"#5f1802"}} >
                               <div >
-                                  <div className="howAhelp__about_title" >About Admizz</div>
-                                  <div className="howAhelp__title"  >How can Admizz help you?</div>
-                                  <div className="howAhelp__helpertext" >
-                                  Whether you're selecting a college, pursuing new career opportunities, or looking to broaden your horizons, our expert team is here to empower your journey. 
+                                  <div className="howAhelp__about_title" style={{margin:"10px 0"}} >About Admizz</div>
+                                  <div className="howAhelp__title" >Learn what we do at Admizz Education!</div>
+                                  <div className="howAhelp__helpertext" style={{textAlign:"center"}} >
+                                  Whether you're selecting a college, pursuing new career opportunities, or looking to broaden your horizons, our expert team is here to empower your journey. We help find the perfect designation for your academic journey. Study at a prestigious institution in Europe. Explore diverse cultural landscapes in Asia or widen our opportunity in the Americas.
                                   </div>
-                                  <div className="howAhelp__helpertext" style={{marginTop:"5px"}}>
-                                  Let us help you find the perfect destination for your academic journey, whether it's studying at prestigious institutions in Europe, exploring diverse cultural landscapes in Asia, or unlocking emerging opportunities in the Americas. 
-
-                                  </div>
+                                  {/* <div className="howAhelp__helpertext" style={{marginTop:"5px",textAlign:"center"}}>
+                                  
+                                  </div> */}
                               </div>
                               {/* <div className="us__rightcontent">
                                 <Link href="/aboutus">
@@ -90,31 +89,33 @@ const HowAdmizz = ({ college }) => {
                 </div>
                 {/* content wrapper */}
           </div>
-        {/* <div className="howAhelp__feature" style={{marginTop:"50px"}}>
-          <div className="section-wrapper"> */}
+        <div className="howAhelp__feature" style={{marginTop:"50px",}}>
+          <div className="section-wrapper">
             {/* feature container */}
-            
-              {/* <div className="howAhelp__feature_container" style={{fontWeight:"100"}}>
+              <div className="howAhelp__feature_container" style={{fontWeight:"500"}}>
                 {data.map((data) => {
                   return <FeatureHowAdmizz data={data}  />;
                 })}
-           
-            </div> */}
+            </div>
           {/* XX-feature container-XX*/}
-          {/* </div>
+          </div>
                
-        </div> */}
+        </div>
         {/* demo */}
-        ;<div className="ag-format-container">
-  <div className="ag-courses_box">
+
+        {/* -----------------V2-CONTENT BOX -----------------*/}
+        {/* ;<div className="ag-format-container">
+  <div className="ag-courses_box"> */}
 
     {/* item */}
-    <div className="ag-courses_item" style={{border:"2px solid #f9b234"}}>
+    {/* <div className="ag-courses_item" style={{border:"2px solid #f9b234"}}>
       <div  className="ag-courses-item_link">
         <div className="ag-courses-item_bg" />
         <div className="ag-courses-item_title " >
         Affordable learning 
-        </div>
+        </div> */}
+
+
         {/* <div className="ag-courses-item_descp">
           descrioption
         </div> */}
@@ -122,11 +123,17 @@ const HowAdmizz = ({ college }) => {
           Start:
           <span className="ag-courses-item_date">04.11.2022</span>
         </div> */}
-      </div>
-    </div>
+
+
+      {/* </div>
+    </div> */}
+
+
     {/* X-item-X */}
+
+
      {/* item */}
-     <div className="ag-courses_item" style={{border:"2px solid #3ecd5e"}}>
+     {/* <div className="ag-courses_item" style={{border:"2px solid #3ecd5e"}}>
       <div className="ag-courses-item_link">
         <div className="ag-courses-item_bg" />
         <div className="ag-courses-item_title">
@@ -134,10 +141,10 @@ const HowAdmizz = ({ college }) => {
         </div>
        
       </div>
-    </div>
+    </div> */}
     {/* X-item-X */}
       {/* item */}
-      <div className="ag-courses_item" style={{border:"2px solid #e44002"}}>
+      {/* <div className="ag-courses_item" style={{border:"2px solid #e44002"}}>
       <div className="ag-courses-item_link">
         <div className="ag-courses-item_bg" />
         <div className="ag-courses-item_title">
@@ -145,10 +152,10 @@ const HowAdmizz = ({ college }) => {
         </div>
        
       </div>
-    </div>
+    </div> */}
     {/* X-item-X */}
       {/* item */}
-      <div className="ag-courses_item" style={{border:"2px solid #952aff"}}>
+      {/* <div className="ag-courses_item" style={{border:"2px solid #952aff"}}>
       <div className="ag-courses-item_link">
         <div className="ag-courses-item_bg" />
         <div className="ag-courses-item_title">
@@ -156,10 +163,10 @@ const HowAdmizz = ({ college }) => {
         </div>
        
       </div>
-    </div>
+    </div> */}
     {/* X-item-X */}
       {/* item */}
-      <div className="ag-courses_item" style={{border:"2px solid #cd3e94"}}>
+      {/* <div className="ag-courses_item" style={{border:"2px solid #cd3e94"}}>
       <div className="ag-courses-item_link">
         <div className="ag-courses-item_bg" />
         <div className="ag-courses-item_title">
@@ -167,10 +174,10 @@ const HowAdmizz = ({ college }) => {
         </div>
        
       </div>
-    </div>
+    </div> */}
     {/* X-item-X */}
       {/* item */}
-      <div className="ag-courses_item" style={{border:"2px solid #4c49ea"}}>
+      {/* <div className="ag-courses_item" style={{border:"2px solid #4c49ea"}}>
       <div className="ag-courses-item_link">
         <div className="ag-courses-item_bg" />
         <div className="ag-courses-item_title">
@@ -179,10 +186,10 @@ const HowAdmizz = ({ college }) => {
         </div>
        
       </div>
-    </div>
+    </div> */}
     {/* X-item-X */}
       {/* item */}
-      <div className="ag-courses_item" style={{border:"2px solid #f9b234"}}>
+      {/* <div className="ag-courses_item" style={{border:"2px solid #f9b234"}}>
       <div className="ag-courses-item_link">
         <div className="ag-courses-item_bg" />
         <div className="ag-courses-item_title">
@@ -190,10 +197,10 @@ const HowAdmizz = ({ college }) => {
         </div>
        
       </div>
-    </div>
+    </div> */}
     {/* X-item-X */}
      {/* item */}
-     <div className="ag-courses_item" style={{border:"2px solid #952aff"}}>
+     {/* <div className="ag-courses_item" style={{border:"2px solid #952aff"}}>
       <div className="ag-courses-item_link">
         <div className="ag-courses-item_bg" />
         <div className="ag-courses-item_title">
@@ -201,10 +208,10 @@ const HowAdmizz = ({ college }) => {
         </div>
        
       </div>
-    </div>
+    </div> */}
     {/* X-item-X */}
-  </div>
-</div>
+  {/* </div>
+</div> */}
 
         {/* demo */}
                 

@@ -5,18 +5,16 @@ const About = () => {
   return (
     <div className="about-country" id="about-us">
       <div className="inner__about section-wrapper">
-        <div className="about-country__heading block-heading"></div>
+        <div className="about-country__heading block-heading">Study Abroad</div>
         <div className="about-country__title block-title">
         Why Study Abroad?
         </div>
         <div className="about-country__desc">
-          {/* <p>
-            India has traditionally been seen as a country that sends rather
-            than receives international students, but a large number of students
-            from elsewhere are now choosing to study in India, with the country
-            welcoming more than 30,000 international students every year.
-          </p> */}
+          <p>
+          Enhance your education, broaden your worldview, and develop valuable skills for the future by studying abroad with our expert guidance. Let our experienced consultants help you navigate the process and find the perfect program to meet your academic and personal goals.
+          </p>
           <br/>
+         
         </div>
         {/* <div className="about-country__info">
           India has over
@@ -50,8 +48,8 @@ const About = () => {
             href="#"
             // href="blogs/learn-about-indian-culture"
             bgImage="card-uk"
-            title="UK"
-            subText="Explore colleges in UK"
+            title="Personal Growth and Development"
+            subText="Learn to operate out of your comfort zone and develop self-confidence through new experiences."
           />
           <Card1
             href="#"
@@ -59,18 +57,7 @@ const About = () => {
             title="Global Connections"
             subText="Meet people from all over the world and build a global network of friends and colleagues."
           />
-          {/* <Card1
-            href="blogs/life-style-of-indian-people"
-            bgImage="card-france"
-            title="Personal Growth and Development"
-            subText="Learn to operate out of your comfort zone and develop self-confidence through new experiences."
-          /> */}
-          {/* <Card1
-            href="blogs/life-style-of-indian-people"
-            bgImage="card-dubai"
-            title="DUBAI"
-            subText="Explore colleges in Dubai"
-          /> */}
+         
         </div>
        
       </div>

@@ -7,7 +7,7 @@ const withRestrictedRoute = (AuthComponent) => {
 
     useEffect(() => {
       if (authenticated == null) {
-        return null;
+        return () => {};
       }
     }, [authenticated, user]);
 

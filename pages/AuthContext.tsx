@@ -13,10 +13,12 @@ const AuthProvider = (props: any) => {
   const [authChanging, setAuthChanging] = useState(false);
 
   useEffect(() => {
-    initialLoad();
+    (async () => {
+      initialLoad();
+    })();
   }, []);
 
-  const initialLoad = () => {
+  const initialLoad = async () => {
     firebase.auth().onAuthStateChanged((user) => {
       setUser(user);
       if (user !== null) {

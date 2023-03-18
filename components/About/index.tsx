@@ -7,14 +7,16 @@ const About = () => {
       <div className="inner__about section-wrapper">
         <div className="about-country__heading block-heading">Study Abroad</div>
         <div className="about-country__title block-title">
-        Why Study Abroad?
+          Why Study Abroad?
         </div>
         <div className="about-country__desc">
           <p>
-          Enhance your education, broaden your worldview, and develop valuable skills for the future by studying abroad with our expert guidance. Let our experienced consultants help you navigate the process and find the perfect program to meet your academic and personal goals.
+            Enhance your education, broaden your worldview, and develop valuable
+            skills for the future by studying abroad with our expert guidance.
+            Let our experienced consultants help you navigate the process and
+            find the perfect program to meet your academic and personal goals.
           </p>
-          <br/>
-         
+          <br />
         </div>
         {/* <div className="about-country__info">
           India has over
@@ -57,9 +59,7 @@ const About = () => {
             title="Global Connections"
             subText="Meet people from all over the world and build a global network of friends and colleagues."
           />
-         
         </div>
-       
       </div>
     </div>
   );

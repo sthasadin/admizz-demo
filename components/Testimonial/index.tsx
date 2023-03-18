@@ -94,7 +94,7 @@ const Testimonial = (props: any) => {
               Testimonials
             </div>
             <div className="collegeFinder__title block-title">
-            Read about our Student Success Stories 
+              Read about our Student Success Stories
             </div>
           </div>
           <div className="collegeFinder__right mobiletestimonial">

@@ -17,9 +17,9 @@ const FiveSteps = (props: any) => {
               <div className="five-steps__mobileitem__text">
                 <div className="five-steps__mobileitem__title">
                   Research Your Options
-                </div>                                            
+                </div>
                 <div className="five-steps__mobileitem__desc">
-                Choose from  a wide range of courses from various universities.
+                  Choose from a wide range of courses from various universities.
                 </div>
               </div>
               <div className="five-steps__mobileitem__icon active">
@@ -44,7 +44,8 @@ const FiveSteps = (props: any) => {
                   Register Yourself - Online/Offline
                 </div>
                 <div className="five-steps__mobileitem__desc">
-                Register by downloading the form online or you can contact us via telephone.
+                  Register by downloading the form online or you can contact us
+                  via telephone.
                 </div>
               </div>
               <div className="five-steps__mobileitem__icon">
@@ -88,7 +89,7 @@ const FiveSteps = (props: any) => {
                   Submit Your Application
                 </div>
                 <div className="five-steps__mobileitem__desc">
-                Submit your Application by filling your right information.
+                  Submit your Application by filling your right information.
                 </div>
               </div>
               <div className="five-steps__mobileitem__icon">
@@ -119,7 +120,8 @@ const FiveSteps = (props: any) => {
                   Download The Offer Letter
                 </div>
                 <div className="five-steps__mobileitem__desc">
-                Download the offer letter to get in your dream college/university.
+                  Download the offer letter to get in your dream
+                  college/university.
                 </div>
               </div>
               <div className="five-steps__mobileitem__icon">
@@ -145,7 +147,7 @@ const FiveSteps = (props: any) => {
                   Prepare To Departure
                 </div>
                 <div className="five-steps__mobileitem__desc">
-                Prepare to start your further studies journey in India.
+                  Prepare to start your further studies journey in India.
                 </div>
               </div>
               <div className="five-steps__mobileitem__icon">
@@ -181,9 +183,9 @@ const FiveSteps = (props: any) => {
                 <div className="five-steps__circle__title">
                   Your 5 Step to Success With Us
                 </div>
-                <div className="five-steps__circle__cta" >
+                <div className="five-steps__circle__cta">
                   <Link href="/colleges">
-                    <CallToAction className="white-border" >
+                    <CallToAction className="white-border">
                       Find Colleges/Universities
                     </CallToAction>
                   </Link>
@@ -208,7 +210,7 @@ const FiveStepsList = () => {
           <div className="five-steps__item__text">
             <div className="five-steps__item__title">Research Your Options</div>
             <div className="five-steps__item__desc">
-            Choose from  a wide range of courses from various universities.
+              Choose from a wide range of courses from various universities.
             </div>
           </div>
           <div className="five-steps__item__icon active">
@@ -233,7 +235,8 @@ const FiveStepsList = () => {
               Register Yourself - Online/Offline
             </div>
             <div className="five-steps__item__desc">
-            Register by downloading the form online or you can contact us via telephone.
+              Register by downloading the form online or you can contact us via
+              telephone.
             </div>
           </div>
           <div className="five-steps__item__icon">
@@ -277,7 +280,7 @@ const FiveStepsList = () => {
               Submit Your Application
             </div>
             <div className="five-steps__item__desc">
-            Submit your Application by filling your right information.
+              Submit your Application by filling your right information.
             </div>
           </div>
           <div className="five-steps__item__icon">
@@ -333,7 +336,7 @@ const FiveStepsList = () => {
           <div className="five-steps__item__text">
             <div className="five-steps__item__title">Prepare To Departure</div>
             <div className="five-steps__item__desc">
-            Prepare to start your further studies journey in India.
+              Prepare to start your further studies journey in India.
             </div>
           </div>
           <div className="five-steps__item__icon">

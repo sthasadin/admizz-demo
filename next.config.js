@@ -41,7 +41,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins(
-  [withImages],
-  nextConfig
-);
+module.exports = withPlugins([withImages], nextConfig);

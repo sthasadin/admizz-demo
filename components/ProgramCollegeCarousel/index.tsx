@@ -46,26 +46,26 @@ const index = ({ data }) => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
 
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-          nextArrow: false,
-          prevArrow: false,
-        },
-      },
-    ],
+    // responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 2,
+    //       initialSlide: 2,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 600,
+    //     settings: {
+    //       slidesToShow: 1,
+    //       slidesToScroll: 1,
+    //       dots: true,
+    //       nextArrow: false,
+    //       prevArrow: false,
+    //     },
+    //   },
+    // ],
   };
   return (
     <div>

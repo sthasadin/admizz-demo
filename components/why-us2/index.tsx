@@ -142,7 +142,7 @@ const Us2 = ({ college }) => {
                           <div className="howAhelp__content" style={{textAlign:"center",color:"#5f1802"}} >
                                   <div >
                                       <div className="howAhelp__about_title" style={{margin:"10px 0",color:"#ffa200"}} >About Admizz</div>
-                                      <div className="howAhelp__title" style={{color:"white"}} >Learn what we do at Admizz Education!</div>
+                                      <div className="howAhelp__title" style={{color:"white"}} >Learn what we do at <span style={{color:"#ffa200"}}>Admizz Education!</span></div>
                                       <div className="howAhelp__helpertext" style={{textAlign:"center",color:"white", marginBottom:"20px" }} >
                                       Whether you're selecting a college, pursuing new career opportunities, or looking to broaden your horizons, our expert team is here to empower your journey. We help find the perfect designation for your academic journey. <br/><span style={{fontWeight:"600"}}>Study at a prestigious institution in <span style={{color:"#ffa200"}}>Asia, Europe & America</span>. Explore diverse cultural landscapes in Asia or widen our opportunity in the Americas.</span>
                                       </div>

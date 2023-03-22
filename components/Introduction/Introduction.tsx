@@ -45,7 +45,7 @@ const Introduction = (props) => {
             We help you achieve your dream.
           </div>
           <div className="introduction__desc">
-            Start early with Admizz! <br/>
+            Start early with Admizz! <br />
             We help you find the perfect course at the right university.
           </div>
           <div className="u-align-center">

@@ -136,68 +136,34 @@ const Us = ({ college }) => {
 
   return (
     <div className="us">
-      {/* <div className="us__backgroundimage"> */}
-                {/* content wrapper */}
-                {/* <div className="section-wrapper">
-                      <div className="us__content">
-                              <div className="us__leftcontent">
-                                  <div className="us__title">Why Choose Admizz?</div>
-                                  <div className="us__helpertext">
-                                    Kickstart your career by starting early. Admizz helps you join
-                                    the right diploma course right after 10th grade so you're always
-                                    a step ahead of others.
-                                  </div>
-                              </div>
-                              <div className="us__rightcontent">
-                                <Link href="/aboutus">
-                                  <CallToAction className="white-outline" style="background-color:yellow">
-                                    Know Admizz Better
-                                  </CallToAction>
-                                </Link>
-                              </div>
-                      </div>
-                </div> */}
-                {/* content wrapper */}
-          {/* </div> */}
-        <div className="us__feature">
-          <div className="section-wrapper">
-            {/* feature container */}
-              {/* <div className="us__feature_container">
-                {data.map((data) => {
-                  return <Feature data={data} />;
-                })}
-              </div> */}
-            {/* XX-feature container-XX */}
+
 
           {/* exclusive parrtner */}
           <div className="our-exclusive-container">
-                <div className="our-exclusive-content">
-                                <div className="our-trusted-text">Our trusted partner</div>
-                                <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
-                                <div className="university-list">
-                                  {tieupList &&
-                                    tieupList?.map((item) => {
-                                      return (
-                                        <div>
-                                          <div className="university-icon">
-                                            <img src={item?.image_url} />
-                                          </div>
-                                          <a href={item?.college_url}>
-                                            <div className="university-name">{item?.name}</div>
-                                          </a>
-                                        </div>
-                                      );
-                                    })}
-                                </div>
-                </div>
-        </div>
-      {/* exclusive parrtner */}
-                
-    </div>
-               
-    </div>
+            <div className="our-exclusive-content">
+              <div className="our-trusted-text">Our trusted partner</div>
+              <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
+              <div className="university-list">
+                {tieupList &&
+                  tieupList?.map((item) => {
+                    return (
+                      <div>
+                        <div className="university-icon">
+                          <img src={item?.image_url} />
+                        </div>
+                        <a href={item?.college_url}>
+                          <div className="university-name">{item?.name}</div>
+                        </a>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          </div>
+          {/* exclusive parrtner */}
         
-    </div>
+      </div>
+    
   );
 };
 

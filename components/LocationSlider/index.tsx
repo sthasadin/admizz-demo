@@ -7,15 +7,19 @@ interface SliderProps {
   description: string;
 }
 
-const SliderCard: React.FC<SliderProps> = ({ bgImage, location, description }) => {
+const SliderCard: React.FC<SliderProps> = ({
+  bgImage,
+  location,
+  description,
+}) => {
   return (
     <Carousel.Item>
       <div
-        style={{ 
-          backgroundImage: `url(${bgImage})`, 
-          height: "500px", 
-          backgroundSize: "cover", 
-          backgroundPosition: "center center" 
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          height: "500px",
+          backgroundSize: "cover",
+          backgroundPosition: "center center",
         }}
       >
         <Carousel.Caption>

@@ -699,7 +699,7 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
 }
 
 .about-country {
-  margin: 70px 0;
+  margin: 100px 0 0;
   border-radius: 5px;
   text-align: center;
   width: 100%;
@@ -721,7 +721,7 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
   font-size: 14px;
   color: #4f4f4f;
   line-height: 1.6;
-  width: 58%;
+  width: 80%;
   margin-bottom: 32px;
 }
 @media (max-width: 580px) {
@@ -1280,6 +1280,7 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
 .us {
   position: relative;
   font-size: 14px;
+  margin-top: 20px;
 }
 @media (max-width: 700px) {
   .us {
@@ -1359,7 +1360,7 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
 }
 
 .our-exclusive-container .our-exclusive-content {
-  padding-top: 250px;
+  padding-top: 20px !important;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -1584,7 +1585,7 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
 .university-list {
   width: 100%;
   margin: 0 auto;
-  margin-top: 8%;
+  margin-top: 25px !important;
   gap: 10px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -1633,7 +1634,7 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
 .aboutus-university-list {
   width: 100%;
   margin: 0 auto;
-  margin-top: 8%;
+  margin-top: 10px;
   gap: 10px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -1728,6 +1729,7 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
 }
 
 .stat {
+  margin: 30px auto;
   background-image: url("../../public/vector3.svg");
   background-repeat: no-repeat;
   background-position: center;

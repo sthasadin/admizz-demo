@@ -1,6 +1,7 @@
 .us {
   position: relative;
   font-size: 14px;
+  margin-top: 20px;
 
   @media (max-width: 700px) {
     margin-top: 50px;
@@ -95,7 +96,7 @@
 
 .our-exclusive-container {
   .our-exclusive-content {
-    padding-top: 250px; //increased by solanki
+    padding-top: 20px !important; //increased by solanki
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -348,7 +349,7 @@
   // border: 1px solid black;
   width: 100%;
   margin: 0 auto;
-  margin-top: 8%;
+  margin-top: 25px!important;
   // display: flex;
   // flex-wrap: wrap;
   gap: 10px;
@@ -400,7 +401,7 @@
   // border: 1px solid black;
   width: 100%;
   margin: 0 auto;
-  margin-top: 8%;
+  margin-top: 10px;
   // display: flex;
   // flex-wrap: wrap;
   gap: 10px;

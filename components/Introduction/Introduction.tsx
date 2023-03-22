@@ -117,7 +117,7 @@ const Introduction = (props) => {
 
           <div className="introduction__meta">
             <div className="introduction__meta__title">
-              <span>Explore and find latest data on admizz</span>
+              {/* <span>Explore and find latest data on admizz</span> */}
             </div>
             <div className="u-align-center-meta">
               {/* <div className="introduction__meta__item">
@@ -161,7 +161,7 @@ const Introduction = (props) => {
                   </a>
                 </div>
               </div> */}
-              <div className="introduction__meta__item">
+              {/* <div className="introduction__meta__item">
                 <div className="introduction__meta__item__icon">
                   <svg
                     width="46"
@@ -179,7 +179,7 @@ const Introduction = (props) => {
                 <div className="introduction__meta__item__title">
                   <a href="/testimonialDetailPage"> STORIES OF ADMIZZ</a>
                 </div>
-              </div>
+              </div> */}
               <div className="introduction__meta__item">
                 {/* <div className="introduction__meta__item__icon">
                   <svg

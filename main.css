@@ -699,13 +699,12 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
 }
 
 .about-country {
-  margin: 36px 0;
+  margin: 70px 0;
   border-radius: 5px;
   text-align: center;
   width: 100%;
 }
 .about-country .inner__about {
-  background-color: #f2f2f2;
   background-image: url("/background-about-india.png");
   padding: 40px 40px 60px;
   background-position: center;
@@ -1335,13 +1334,12 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #f3f3f2;
   position: relative;
   padding-bottom: 50px;
 }
 .us__feature_container {
   position: absolute;
-  top: -120px;
+  top: -90px;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);

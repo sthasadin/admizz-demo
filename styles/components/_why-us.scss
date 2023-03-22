@@ -63,14 +63,14 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #f3f3f2;
+    // background-color: #f3f3f2;
     position: relative;
     padding-bottom: 50px;
   }
 
   &__feature_container {
     position: absolute;
-    top: -120px;
+    top: -90px;
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);

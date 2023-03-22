@@ -5,7 +5,7 @@ import { getAllTieUp } from "store/Action/tieup.action";
 import { CallToAction } from "../Button/callToAction";
 import { useDispatch } from "react-redux";
 
-const Us = ({ college }) => {
+const Us2 = ({ college }) => {
   const dispatch = useDispatch();
   const [tieupList, setTieupList] = React.useState([]);
 
@@ -136,8 +136,21 @@ const Us = ({ college }) => {
 
   return (
     <div className="us">
-      {/* <div className="us__backgroundimage"> */}
+      <div className="us__backgroundimage">
                 {/* content wrapper */}
+                <div className="section-wrapper" style={{marginBottom:"20px"}}>
+                          <div className="howAhelp__content" style={{textAlign:"center",color:"#5f1802"}} >
+                                  <div >
+                                      <div className="howAhelp__about_title" style={{margin:"10px 0",color:"#ffa200"}} >About Admizz</div>
+                                      <div className="howAhelp__title" style={{color:"white"}} >Learn what we do at Admizz Education!</div>
+                                      <div className="howAhelp__helpertext" style={{textAlign:"center",color:"white", marginBottom:"20px" }} >
+                                      Whether you're selecting a college, pursuing new career opportunities, or looking to broaden your horizons, our expert team is here to empower your journey. We help find the perfect designation for your academic journey. <br/><span style={{fontWeight:"600"}}>Study at a prestigious institution in <span style={{color:"#ffa200"}}>Asia, Europe & America</span>. Explore diverse cultural landscapes in Asia or widen our opportunity in the Americas.</span>
+                                      </div>
+                                    
+                                  </div>
+                                
+                          </div>
+                    </div>
                 {/* <div className="section-wrapper">
                       <div className="us__content">
                               <div className="us__leftcontent">
@@ -158,19 +171,19 @@ const Us = ({ college }) => {
                       </div>
                 </div> */}
                 {/* content wrapper */}
-          {/* </div> */}
+          </div>
         <div className="us__feature">
           <div className="section-wrapper">
             {/* feature container */}
-              {/* <div className="us__feature_container">
+              <div className="us__feature_container">
                 {data.map((data) => {
                   return <Feature data={data} />;
                 })}
-              </div> */}
+              </div>
             {/* XX-feature container-XX */}
 
           {/* exclusive parrtner */}
-          <div className="our-exclusive-container">
+          {/* <div className="our-exclusive-container">
                 <div className="our-exclusive-content">
                                 <div className="our-trusted-text">Our trusted partner</div>
                                 <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
@@ -190,7 +203,7 @@ const Us = ({ college }) => {
                                     })}
                                 </div>
                 </div>
-        </div>
+        </div> */}
       {/* exclusive parrtner */}
                 
     </div>
@@ -201,4 +214,4 @@ const Us = ({ college }) => {
   );
 };
 
-export { Us };
+export { Us2 };

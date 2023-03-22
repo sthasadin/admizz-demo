@@ -14,6 +14,7 @@ import { Testimonial } from "../components/Testimonial";
 
 
 import { Us } from "../components/why-us";
+import { Us2 } from "@/components/why-us2";
 import { HowAdmizz } from "../components/HowAdmizzHelp";
 import { HowAdmizzV2 } from "@/components/HowAdmizzHelpV2";
 import { WhyStudyAbroad } from "../components/whyAbroad";
@@ -31,8 +32,8 @@ export default function Home() {
   return (
     <Layout title="Admission With Ease" stickyBar={true}>
       <Introduction />
-      
-      <HowAdmizzV2 college={collegeList.slice(0, 6)}/>
+      <Us2 college={collegeList.slice(0, 6)} />
+      {/* <HowAdmizzV2 college={collegeList.slice(0, 6)}/> */}
       <About />
       {/* now location */}
       <WhyStudyAbroad />

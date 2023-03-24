@@ -3828,6 +3828,13 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
   }
 }
 
+.txtDesMod {
+  background-color: #f7ede2;
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
+}
+
 .contact-form {
   width: 80%;
   background-color: #fff;

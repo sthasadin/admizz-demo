@@ -51,7 +51,7 @@ const Testimonial = (props: any) => {
     }
   }, [testimonialList]);
   const text_truncate = (str) => {
-    return str?.substring(0, 75 - 3) + "...";
+    return str?.substring(0, 100) + "...";
   };
   const removeHtmlChar = (text) => {
     return text?.replace(/<[^>]+>/g, "");
@@ -367,10 +367,11 @@ const Testimonial = (props: any) => {
             </div>
 
             <div className="testimonial__text">
-              <span className="textDescription">
-                {text_truncate(
+              <span className="textDescription txtDesMod">
+                {/* {text_truncate(
                   removeHtmlChar(selectedTestimonial?.description)
-                )}
+                )} */}
+                {removeHtmlChar(selectedTestimonial?.description)}
               </span>
             </div>
             <div className="testimonial__author">

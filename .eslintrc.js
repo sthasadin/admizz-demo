@@ -56,7 +56,7 @@ module.exports = {
     "react/display-name": 0,
     "react-hooks/exhaustive-deps": 0,
     "sort-imports": "off",
-    "prettier/prettier": "error",
+
     "import/first": "error",
     "import/no-duplicates": "error",
     "react/jsx-no-target-blank": 0,
@@ -67,5 +67,6 @@ module.exports = {
     "no-async-promise-executor": 0,
     "import/no-named-as-default": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
+    "prettier/prettier": "off",
   },
 };

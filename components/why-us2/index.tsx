@@ -137,21 +137,48 @@ const Us2 = ({ college }) => {
   return (
     <div className="us">
       <div className="us__backgroundimage">
-                {/* content wrapper */}
-                <div className="section-wrapper" style={{marginBottom:"20px"}}>
-                          <div className="howAhelp__content" style={{textAlign:"center",color:"#5f1802"}} >
-                                  <div >
-                                      <div className="howAhelp__about_title" style={{margin:"10px 0",color:"#ffa200"}} >About Admizz</div>
-                                      <div className="howAhelp__title" style={{color:"white"}} >Learn what we do at <span style={{color:"#ffa200"}}>Admizz Education!</span></div>
-                                      <div className="howAhelp__helpertext" style={{textAlign:"center",color:"white", marginBottom:"20px" }} >
-                                      Whether you're selecting a college, pursuing new career opportunities, or looking to broaden your horizons, our expert team is here to empower your journey. We help find the perfect designation for your academic journey. <br/><span style={{fontWeight:"600"}}>Study at a prestigious institution in <span style={{color:"#ffa200"}}>Asia, Europe & America</span>. Explore diverse cultural landscapes in Asia or widen our opportunity in the Americas.</span>
-                                      </div>
-                                    
-                                  </div>
-                                
-                          </div>
-                    </div>
-                {/* <div className="section-wrapper">
+        {/* content wrapper */}
+        <div className="section-wrapper" style={{ marginBottom: "20px" }}>
+          <div
+            className="howAhelp__content"
+            style={{ textAlign: "center", color: "#5f1802" }}
+          >
+            <div>
+              <div
+                className="howAhelp__about_title"
+                style={{ margin: "10px 0", color: "#ffa200" }}
+              >
+                About Admizz
+              </div>
+              <div className="howAhelp__title" style={{ color: "white" }}>
+                Learn what we do at{" "}
+                <span style={{ color: "#ffa200" }}>Admizz Education!</span>
+              </div>
+              <div
+                className="howAhelp__helpertext"
+                style={{
+                  textAlign: "center",
+                  color: "white",
+                  marginBottom: "20px",
+                }}
+              >
+                Whether you're selecting a college, pursuing new career
+                opportunities, or looking to broaden your horizons, our expert
+                team is here to empower your journey. We help find the perfect
+                designation for your academic journey. <br />
+                <span style={{ fontWeight: "600" }}>
+                  Study at a prestigious institution in{" "}
+                  <span style={{ color: "#ffa200" }}>
+                    Asia, Europe & America
+                  </span>
+                  . Explore diverse cultural landscapes in Asia or widen our
+                  opportunity in the Americas.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className="section-wrapper">
                       <div className="us__content">
                               <div className="us__leftcontent">
                                   <div className="us__title">Why Choose Admizz?</div>
@@ -170,17 +197,17 @@ const Us2 = ({ college }) => {
                               </div>
                       </div>
                 </div> */}
-                {/* content wrapper */}
+        {/* content wrapper */}
+      </div>
+      <div className="us__feature">
+        <div className="section-wrapper">
+          {/* feature container */}
+          <div className="us__feature_container">
+            {data.map((data) => {
+              return <Feature data={data} />;
+            })}
           </div>
-        <div className="us__feature">
-          <div className="section-wrapper">
-            {/* feature container */}
-              <div className="us__feature_container">
-                {data.map((data) => {
-                  return <Feature data={data} />;
-                })}
-              </div>
-            {/* XX-feature container-XX */}
+          {/* XX-feature container-XX */}
 
           {/* exclusive parrtner */}
           {/* <div className="our-exclusive-container">
@@ -204,12 +231,9 @@ const Us2 = ({ college }) => {
                                 </div>
                 </div>
         </div> */}
-      {/* exclusive parrtner */}
-                
-    </div>
-               
-    </div>
-        
+          {/* exclusive parrtner */}
+        </div>
+      </div>
     </div>
   );
 };

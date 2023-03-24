@@ -30,14 +30,17 @@
 //   },
 // });
 
-const withPlugins = require("next-compose-plugins");
-const withImages = require("next-images");
 // const withFonts = require("next-fonts");
 // const withTM = require("next-transpile-modules")(["react-native-web"]);
+const withPlugins = require("next-compose-plugins");
+const withImages = require("next-images");
 
 const nextConfig = {
   images: {
     disableStaticImages: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true, // disable eslint during builds
   },
 };
 

@@ -421,6 +421,7 @@
   &__text {
     display: flex;
     // justify-content: center;
+    // margin-left: 50px;
     margin-left: 150px;
     @media (max-width: 552px) {
       margin-left: 10px;
@@ -438,6 +439,7 @@
   &__textDescription {
     color: #30233d;
     text-decoration: line-through;
+   
   }
   // &__textDescription {
   //   text-align: center;
@@ -478,4 +480,11 @@
       display: none !important;
     }
   }
+}
+
+.txtDesMod{
+  background-color: #f7ede2;
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
 }

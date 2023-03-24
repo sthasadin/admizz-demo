@@ -3304,6 +3304,7 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
 .testimonial__inner {
   display: grid;
   place-items: center;
+  padding: 80px 0;
   overflow: auto;
   position: relative;
 }
@@ -3832,7 +3833,7 @@ nav.navigation ul.menu .search-bar-active .search-result-container .search-item-
   background-color: #f7ede2;
   padding: 20px;
   border-radius: 20px;
-  width: 60%;
+  width: 100%;
 }
 
 .contact-form {

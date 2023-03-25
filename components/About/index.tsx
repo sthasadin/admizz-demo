@@ -7,7 +7,10 @@ const About = () => {
       <div className="inner__about section-wrapper">
         <div className="about-country__heading block-heading">Study Abroad</div>
         <div className="about-country__title block-title">
-          Why Study Abroad?
+          Globalize Your Education:{" "}
+          <span style={{ color: "#ffa200" }}>
+            Explore Opportunities Beyond Borders
+          </span>
         </div>
         <div className="about-country__desc">
           <p>

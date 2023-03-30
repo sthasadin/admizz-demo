@@ -141,11 +141,14 @@ const Us = ({ college }) => {
         <div className="our-exclusive-content">
           <div className="our-trusted-text">Our trusted partner</div>
           <div className="our-exclusive-title">Our Exclusive Tie-Ups</div>
-          <div className="university-list">
+          <div
+            className="university-list"
+            style={{ display: "flex", justifyContent: "center" }}
+          >
             {tieupList &&
               tieupList?.map((item) => {
                 return (
-                  <div>
+                  <div className="university">
                     <div className="university-icon">
                       <img src={item?.image_url} />
                     </div>
@@ -158,6 +161,7 @@ const Us = ({ college }) => {
           </div>
         </div>
       </div>
+      <br />
       {/* exclusive parrtner */}
     </div>
   );

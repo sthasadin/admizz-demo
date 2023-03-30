@@ -22,7 +22,7 @@ const index = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+  
   return (
     <>
       <div

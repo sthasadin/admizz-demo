@@ -708,28 +708,33 @@
       }
     }
 
-    .u-align-center {
+    .u-align-center-meta {
+
+      // background-color: red;
       width: 100%;
       display: flex;
-      justify-content: space-between;
-      flex-wrap: nowrap !important;
+      justify-content: flex-start;
+      // flex-wrap: nowrap !important;
       @media (max-width: 500px) {
         margin-top: 30px;
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
       }
     }
 
     &__item {
+      // background-color: red;
       display: flex;
       justify-content: flex-start;
-
+      // align-items: center;
+      
       @media (max-width: 760px) {
-        flex-direction: column;
+        flex-direction: row;
         width: 80px;
       }
       &__icon {
+        // background-color: yellow;
         width: 46px;
         height: 46px;
         margin-right: 16px;

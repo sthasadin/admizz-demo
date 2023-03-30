@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className="about-country" id="about-us">
       <div className="inner__about section-wrapper">
-        <div className="about-country__heading block-heading">Study Abroad</div>
+        <div className="about-country__heading block-heading">Why Study Abroad?</div>
         <div className="about-country__title block-title">
           Globalize Your Education:{" "}
           <span style={{ color: "#ffa200" }}>
@@ -23,7 +23,7 @@ const About = () => {
         </div>
         {/* <div className="about-country__info">
           India has over
-          <span> 45,000 Degree </span>
+          <span> 45,000 Degree </span>2
           Colleges, and around 1018 Universities,
           <span>1500 top Institution.</span>
         </div> */}
@@ -68,4 +68,4 @@ const About = () => {
   );
 };
 
-export { About };
+export { About }; 

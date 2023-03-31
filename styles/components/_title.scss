@@ -4,7 +4,12 @@
   line-height: 53px;
   text-align: center;
   @media (max-width:500px) {
+    line-height: 40px;
     font-size: 26px;
+    span{
+      font-size: 17px;
+      
+    }
   }
   // text-transform: capitalize;
 }

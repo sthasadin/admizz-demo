@@ -7,7 +7,7 @@ const About = () => {
       <div className="inner__about section-wrapper">
         <div className="about-country__heading block-heading">Why Study Abroad?</div>
         <div className="about-country__title block-title">
-          Globalize Your Education:{" "}
+          Globalize Your Education:{<br/>}
           <span style={{ color: "#ffa200" }}>
             Explore Opportunities Beyond Borders
           </span>

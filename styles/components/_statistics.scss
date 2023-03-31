@@ -1,17 +1,19 @@
 .stat {
-  margin: 30px auto;
+  margin: 50px auto;
   background-image: url("../../public/vector3.svg");
   background-color:  rgba(144, 144, 144, 0.083);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   @media (max-width: 450px) {
-    margin-bottom: 0;
+    // margin-bottom: 0;
+    // background-color:  rgba(144, 144, 144, 0.083);
+    // background-color: transparent;
   }
   &__inner {
     padding: 20px;
     @media (max-width: 500px) {
-      padding: 20px 10px;
+      padding: 20px 10px 0px 10px;
     }
   }
   &__heading {

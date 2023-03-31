@@ -39,7 +39,10 @@
     .five-steps__mobilelist {
       .five-steps__mobilelist__inner {
         .five-steps__mobileitem {
+          // background-color: red;
+          // margin: 0;
           .five-steps__mobileitem__text {
+            // margin-left: 10px;
             .five-steps__mobileitem__title {
               font-style: normal;
               font-weight: 800;
@@ -60,22 +63,40 @@
       }
       .five-steps__mobileitem {
         display: flex;
-        align-items: center;
+        // align-items: center;
         flex-direction: row-reverse;
         margin-bottom: 25px;
+        // background-color: yellow;
       }
       .five-steps__mobileitem {
-        display: flex;
         align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        // direction: rtl;
+        // background-color: yellow;
         gap: 10px;
         .five-steps__mobileitem__icon {
-          height: 50px;
-          width: 79px;
+          // background-color: yellow;
+          height: 60px;
+          width: 60px;
+          padding: 10px;
           color: $secondary-color;
+          // background-size:contain;
           background-color: #f6f6f6;
           border-radius: 50%;
-          display: grid;
-          place-items: center;
+          display: block;
+          margin:  auto;
+          // display: grid;
+          // place-items: center;
+
+          svg{
+            width: 90%;
+            height:90%;
+            // position: absolute;
+            display: block;
+            margin: auto;
+          }
+          // place-items: center;
           path {
             fill: $secondary-color;
           }
@@ -275,6 +296,7 @@
     align-items: flex-start;
     text-align: right;
     margin-bottom: 74px;
+    // background-color: yellow;
     @media (max-width: 450px) {
       flex-direction: row-reverse;
       text-align: left;

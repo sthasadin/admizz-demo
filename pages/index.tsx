@@ -46,7 +46,8 @@ export default function Home() {
       <Us college={collegeList.slice(0, 6)} />
 
       <Statistics />
-      <FiveSteps />
+      <FiveSteps/>
+      {/* {window.innerWidth<"500px"?<FiveSteps />:<FiveStepsList/>} */}
       <CollegesBlock collegeList={collegeList.slice(0, 6)} />
       <CollegeFinder />
       <Testimonial />

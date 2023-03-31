@@ -95,7 +95,7 @@ const Footer = () => {
             <div>
               <div className="footer__title">
                 It’s a unique platform for direct admissions of International
-                Students <br /> at reputed colleges/universities in India.
+                Students at reputed colleges/universities in India.
               </div>
             </div>
             <div className="footer__newsletter">

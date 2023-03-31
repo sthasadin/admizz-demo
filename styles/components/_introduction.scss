@@ -57,8 +57,9 @@
   position: relative;
   overflow: hidden;
   margin: 0 auto;
-
+  
   @media (max-width: 550px) {
+    height:560px;
     padding-left: 0;
     //background-color: red;
     display: flex;
@@ -726,11 +727,12 @@
     &__item {
       // background-color: red;
       display: flex;
+      flex-direction: column;
       justify-content: flex-start;
       // align-items: center;
       
       @media (max-width: 760px) {
-        flex-direction: row;
+        flex-direction: column;
         width: 80px;
       }
       &__icon {
@@ -754,8 +756,9 @@
         font-weight: 600;
         width: 80px;
         margin-top: 10px;
+        
         @media (max-width: 500px) {
-          text-align: center;
+          // text-align: center;
         }
       }
     }

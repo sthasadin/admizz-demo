@@ -24,8 +24,8 @@ const Us2 = ({ college }) => {
         "Personalized counseling for students applying to study in India to help you on your journey",
       icon: (
         <svg
-          width="60"
-          height="61"
+          // width="60"
+          // height="61"
           viewBox="0 0 70 73"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -55,8 +55,8 @@ const Us2 = ({ college }) => {
         "Avail top notch assistance from start to finish, ensuring admission to your dream university or college!",
       icon: (
         <svg
-          width="60"
-          height="61"
+          // width="60"
+          // height="61"
           viewBox="0 0 60 61"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -77,8 +77,8 @@ const Us2 = ({ college }) => {
         "Apply for scholarships, tailored to your course of choice. Get guidance and preparation support today.",
       icon: (
         <svg
-          width="71"
-          height="63"
+          // width="71"
+          // height="63"
           viewBox="0 0 71 63"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -99,8 +99,8 @@ const Us2 = ({ college }) => {
         "Simplify the admission process with access to a wide range of courses for 10+2, under-graduate, graduate, and doctorate students.",
       icon: (
         <svg
-          width="54"
-          height="57"
+          // width="54"
+          // height="57"
           viewBox="0 0 54 57"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -178,6 +178,7 @@ const Us2 = ({ college }) => {
             </div>
           </div>
         </div>
+        
         {/* <div className="section-wrapper">
                       <div className="us__content">
                               <div className="us__leftcontent">

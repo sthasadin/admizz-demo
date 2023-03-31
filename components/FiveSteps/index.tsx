@@ -14,19 +14,12 @@ const FiveSteps = (props: any) => {
         <div className="five-steps__mobilelist">
           <div className="five-steps__mobilelist__inner">
             <div className="five-steps__mobileitem active">
-              <div className="five-steps__mobileitem__text">
-                <div className="five-steps__mobileitem__title">
-                  Research Your Options
-                </div>
-                <div className="five-steps__mobileitem__desc">
-                  Choose from a wide range of courses from various universities.
-                </div>
-              </div>
+            
               <div className="five-steps__mobileitem__icon active">
                 <svg
-                  width="18"
-                  height="22"
-                  viewBox="0 0 18 22"
+                  // width="18"
+                  // height="22"
+                  viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -36,22 +29,22 @@ const FiveSteps = (props: any) => {
                   />
                 </svg>
               </div>
+              <div className="five-steps__mobileitem__text">
+                <div className="five-steps__mobileitem__title">
+                  Research Your Options
+                </div>
+                <div className="five-steps__mobileitem__desc">
+                  Choose from a wide range of courses from various universities.
+                </div>
+              </div>
             </div>
 
             <div className="five-steps__mobileitem ">
-              <div className="five-steps__mobileitem__text">
-                <div className="five-steps__mobileitem__title">
-                  Register Yourself - Online/Offline
-                </div>
-                <div className="five-steps__mobileitem__desc">
-                  Register by downloading the form online or you can contact us
-                  via telephone.
-                </div>
-              </div>
+              
               <div className="five-steps__mobileitem__icon">
                 <svg
-                  width="24"
-                  height="24"
+                  // width="24"
+                  // height="24"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -82,20 +75,22 @@ const FiveSteps = (props: any) => {
                   />
                 </svg>
               </div>
-            </div>
-            <div className="five-steps__mobileitem">
               <div className="five-steps__mobileitem__text">
                 <div className="five-steps__mobileitem__title">
-                  Submit Your Application
+                  Register Yourself - Online/Offline
                 </div>
                 <div className="five-steps__mobileitem__desc">
-                  Submit your Application by filling your right information.
+                  Register by downloading the form online or you can contact us
+                  via telephone.
                 </div>
               </div>
+            </div>
+            <div className="five-steps__mobileitem">
+              
               <div className="five-steps__mobileitem__icon">
                 <svg
-                  width="24"
-                  height="24"
+                  // width="24"
+                  // height="24"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -113,21 +108,21 @@ const FiveSteps = (props: any) => {
                   </defs>
                 </svg>
               </div>
-            </div>
-            <div className="five-steps__mobileitem">
               <div className="five-steps__mobileitem__text">
                 <div className="five-steps__mobileitem__title">
-                  Download The Offer Letter
+                  Submit Your Application
                 </div>
                 <div className="five-steps__mobileitem__desc">
-                  Download the offer letter to get in your dream
-                  college/university.
+                  Submit your Application by filling your right information.
                 </div>
               </div>
+            </div>
+            <div className="five-steps__mobileitem">
+              
               <div className="five-steps__mobileitem__icon">
                 <svg
-                  width="24"
-                  height="24"
+                  // width="24"
+                  // height="24"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -140,20 +135,22 @@ const FiveSteps = (props: any) => {
                   />
                 </svg>
               </div>
-            </div>
-            <div className="five-steps__mobileitem">
               <div className="five-steps__mobileitem__text">
                 <div className="five-steps__mobileitem__title">
-                  Prepare To Departure
+                  Download The Offer Letter
                 </div>
                 <div className="five-steps__mobileitem__desc">
-                  Prepare to start your further studies journey in India.
+                  Download the offer letter to get in your dream
+                  college/university.
                 </div>
               </div>
+            </div>
+            <div className="five-steps__mobileitem">
+             
               <div className="five-steps__mobileitem__icon">
                 <svg
-                  width="24"
-                  height="24"
+                  // width="24"
+                  // height="24"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -167,6 +164,14 @@ const FiveSteps = (props: any) => {
                     fill="#FFA200"
                   />
                 </svg>
+              </div>
+              <div className="five-steps__mobileitem__text">
+                <div className="five-steps__mobileitem__title">
+                  Prepare To Departure
+                </div>
+                <div className="five-steps__mobileitem__desc">
+                  Prepare to start your further studies journey in India.
+                </div>
               </div>
             </div>
           </div>

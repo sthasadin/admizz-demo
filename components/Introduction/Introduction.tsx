@@ -159,7 +159,9 @@ const Introduction = (props) => {
                       fill="#ac6e00"
                     />
                   </svg>
-                  {/* <svg
+                </div>
+                <div className="introduction__meta__item__title">Students</div>
+                {/* <svg
                     width="46"
                     height="46"
                     viewBox="0 0 46 46"
@@ -191,7 +193,59 @@ const Introduction = (props) => {
                       fill="#FFA200"
                     />
                   </svg> */}
+              </div>
+              <div className="introduction__meta__item">
+                <div className="introduction__meta__item__icon">
+                  <svg
+                    width="44"
+                    height="46"
+                    viewBox="0 0 16 16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#FFA200"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M3.75 4.48h-.71L2 3.43l.71-.7.69.68L4.81 2l.71.71-1.77 1.77zM6.99 3h8v1h-8V3zm0 3h8v1h-8V6zm8 3h-8v1h8V9zm-8 3h8v1h-8v-1zM3.04 7.48h.71l1.77-1.77-.71-.7L3.4 6.42l-.69-.69-.71.71 1.04 1.04zm.71 3.01h-.71L2 9.45l.71-.71.69.69 1.41-1.42.71.71-1.77 1.77zm-.71 3.01h.71l1.77-1.77-.71-.71-1.41 1.42-.69-.69-.71.7 1.04 1.05z"
+                    />
+                  </svg>
                 </div>
+                <div className="introduction__meta__item__title">Courses</div>
+              </div>
+              <div className="introduction__meta__item">
+                <div className="introduction__meta__item__icon">
+                  <svg
+                    width="46"
+                    height="46"
+                    viewBox="0 0 48 48"
+                    version="1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    enable-background="new 0 0 48 48"
+                  >
+                    <g fill="#FFA200">
+                      <rect x="1" y="38" width="46" height="2" />
+                      <rect x="25" y="18" width="4" height="16" />
+                      <rect x="31" y="18" width="4" height="16" />
+                      <rect x="37" y="18" width="4" height="16" />
+                      <rect x="19" y="18" width="4" height="16" />
+                      <rect x="13" y="18" width="4" height="16" />
+                      <rect x="7" y="18" width="4" height="16" />
+                      <polygon points="43,16 5,16 5,13 24,4 43,13" />
+                      <rect x="5" y="34" width="38" height="2" />
+                    </g>
+                    <g fill="#ac6e00">
+                      <rect x="25" y="16" width="4" height="2" />
+                      <rect x="31" y="16" width="4" height="2" />
+                      <rect x="37" y="16" width="4" height="2" />
+                      <rect x="19" y="16" width="4" height="2" />
+                      <rect x="13" y="16" width="4" height="2" />
+                      <rect x="7" y="16" width="4" height="2" />
+                      <rect x="3" y="36" width="42" height="2" />
+                      <circle cx="24" cy="11" r="2" />
+                    </g>
+                  </svg>
+                </div>
+                <div className="introduction__meta__item__title">Schools</div>
               </div>
               <div className="introduction__meta__item">
                 <div className="introduction__meta__item__icon">
@@ -228,57 +282,7 @@ const Introduction = (props) => {
                     />
                   </svg>
                 </div>
-              </div>
-              <div className="introduction__meta__item">
-                <div className="introduction__meta__item__icon">
-                  <svg
-                    width="44"
-                    height="46"
-                    viewBox="0 0 16 16"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="#FFA200"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M3.75 4.48h-.71L2 3.43l.71-.7.69.68L4.81 2l.71.71-1.77 1.77zM6.99 3h8v1h-8V3zm0 3h8v1h-8V6zm8 3h-8v1h8V9zm-8 3h8v1h-8v-1zM3.04 7.48h.71l1.77-1.77-.71-.7L3.4 6.42l-.69-.69-.71.71 1.04 1.04zm.71 3.01h-.71L2 9.45l.71-.71.69.69 1.41-1.42.71.71-1.77 1.77zm-.71 3.01h.71l1.77-1.77-.71-.71-1.41 1.42-.69-.69-.71.7 1.04 1.05z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div className="introduction__meta__item">
-                <div className="introduction__meta__item__icon">
-                  <svg
-                    width="46"
-                    height="46"
-                    viewBox="0 0 48 48"
-                    version="1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    enable-background="new 0 0 48 48"
-                  >
-                    <g fill="#FFA200">
-                      <rect x="1" y="38" width="46" height="2" />
-                      <rect x="25" y="18" width="4" height="16" />
-                      <rect x="31" y="18" width="4" height="16" />
-                      <rect x="37" y="18" width="4" height="16" />
-                      <rect x="19" y="18" width="4" height="16" />
-                      <rect x="13" y="18" width="4" height="16" />
-                      <rect x="7" y="18" width="4" height="16" />
-                      <polygon points="43,16 5,16 5,13 24,4 43,13" />
-                      <rect x="5" y="34" width="38" height="2" />
-                    </g>
-                    <g fill="#ac6e00">
-                      <rect x="25" y="16" width="4" height="2" />
-                      <rect x="31" y="16" width="4" height="2" />
-                      <rect x="37" y="16" width="4" height="2" />
-                      <rect x="19" y="16" width="4" height="2" />
-                      <rect x="13" y="16" width="4" height="2" />
-                      <rect x="7" y="16" width="4" height="2" />
-                      <rect x="3" y="36" width="42" height="2" />
-                      <circle cx="24" cy="11" r="2" />
-                    </g>
-                  </svg>
-                </div>
+                <div className="introduction__meta__item__title">Services</div>
               </div>
               <div className="introduction__meta__item">
                 <div className="introduction__meta__item__icon">
@@ -296,6 +300,7 @@ const Introduction = (props) => {
                     />
                   </svg>
                 </div>
+                <div className="introduction__meta__item__title">Connect</div>
               </div>
             </div>
             {/* <div className="introduction__meta__item"> */}

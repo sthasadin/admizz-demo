@@ -57,9 +57,10 @@
   position: relative;
   overflow: hidden;
   margin: 0 auto;
+  margin-bottom: 0;
   
   @media (max-width: 550px) {
-    height:560px;
+    height:535px;
     padding-left: 0;
     //background-color: red;
     display: flex;

@@ -41,7 +41,7 @@ const Topbar = (props: any) => {
                   <div className="signup__icon">
                     <img src="/user-icon.png" alt="contact-us" />
                   </div>
-                  <Link href="/register">Sign Up</Link>
+                  <Link href="/apply">Sign Up</Link>
                 </div>
               </div>
             ) : (

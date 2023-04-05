@@ -21,6 +21,6 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "pages/apply/data.jsx", "pages/apply/personal-details.tsx", "pages/apply/payment-details.tsx", "pages/apply/card-selector.tsx", "pages/apply/validators.tsx", "pages/apply/tree-data-operations.ts", "pages/apply/Apply.tsx", "pages/apply/form-components.tsx", "pages/apply/account-details.tsx"],
   "exclude": ["node_modules"]
 }

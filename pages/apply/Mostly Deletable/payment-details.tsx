@@ -4,12 +4,12 @@ import { Field } from '@progress/kendo-react-form';
 import { CardSelector } from './card-selector'
 import '@progress/kendo-theme-default/dist/all.css';
 import {
-    FormInput, FormMaskedTextBox, FormDateInput
-} from './form-components';
+  FormInput, FormMaskedTextBox, FormDateInput
+} from '../Shared/form-components';
 
 import {
-    requiredValidator, cardValidator, cvcValidator
-} from './validators'
+  requiredValidator, cardValidator, cvcValidator
+} from '../Shared/validators'
 
 export const PaymentDetails = (
   <div>
@@ -18,9 +18,9 @@ export const PaymentDetails = (
       name={'cardType'}
       component={CardSelector}
       validator={requiredValidator}
-        />
-    <div style={{display: 'flex', justifyContent: 'space-between'}}>
-      <div style={{ width: '75%', marginRight: '25px'}}>
+    />
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ width: '75%', marginRight: '25px' }}>
         <Field
           key={'cardNumber'}
           id={'cardNumber'}
@@ -30,7 +30,7 @@ export const PaymentDetails = (
           mask={'0000-0000-0000-0000'}
           component={FormMaskedTextBox}
           validator={cardValidator}
-                />
+        />
       </div>
       <Field
         key={'cvc'}
@@ -41,7 +41,7 @@ export const PaymentDetails = (
         mask={'000'}
         component={FormMaskedTextBox}
         validator={cvcValidator}
-            />
+      />
     </div>
     <Field
       key={'expireDate'}
@@ -50,7 +50,7 @@ export const PaymentDetails = (
       label={'Expiration Date'}
       component={FormDateInput}
       validator={requiredValidator}
-        />
+    />
     <Field
       key={'cardHolder'}
       id={'cardHolder'}
@@ -58,6 +58,6 @@ export const PaymentDetails = (
       label={'Card Holder Name'}
       component={FormInput}
       validator={requiredValidator}
-        />
+    />
   </div>
 );

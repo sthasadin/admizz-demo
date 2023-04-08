@@ -5,38 +5,53 @@ import '@progress/kendo-theme-default/dist/all.css';
 import {
   FormInput, FormAutoComplete, FormRadioGroup,
   FormTextArea,
-  FormNumericTextBox
-} from './form-components';
+  FormNumericTextBox,
+  FormNumberInput,
+  FormDropDownList
+} from '../Shared/form-components';
 
 import {
   nameValidator, requiredValidator
-} from './validators'
+} from '../Shared/validators'
 
 import {
   countries, genders
-} from './data'
+} from '../Shared/data'
+import PersonIcon from "@material-ui/icons/Person";
+import PublicIcon from "@material-ui/icons/Public";
+import Phone from "@material-ui/icons/Phone";
+
+
+// import PersonIcon from '@mui/icons-material/Person';
 
 export const PersonalDetails = (
   <div>
     <Field
+      icon={<PersonIcon />}
       key={'fullName'}
       id={'fullName'}
       name={'fullName'}
       label={'Full Name'}
+      placeholder={'Full Name*'}
+
+      required={true}
       component={FormInput}
       validator={nameValidator}
     />
     <Field
+      icon={<PublicIcon />}
       key={'countryselected'}
       id={'countryselected'}
       name={'countryselected'}
-      label={'Country'}
+      label={'Nationality'}
+      placeholder={'Nationality*'}
       // hint={'Hint: Only European countries'}
-      component={FormAutoComplete}
+      required={true}
+      component={FormDropDownList}
       data={countries}
       validator={requiredValidator}
     />
-    <Field
+    {/* <Field
       key={'gender'}
       id={'gender'}
       name={'gender'}
@@ -45,15 +60,18 @@ export const PersonalDetails = (
       component={FormRadioGroup}
       data={genders}
       validator={requiredValidator}
-    />
+    /> */}
     <Field
-      key={'phont'}
-      id={'phonr'}
+      icon={<Phone />}
+      key={'phone'}
+      id={'phone'}
       name={'phone'}
       label={'Phone Number'}
+      placeholder={'Phone Number*'}
       layout={'horizontal'}
-      component={FormInput}
+      component={FormNumberInput}
       validator={requiredValidator}
+      required={true}
     />
     {/* <Field
       key={'about'}

@@ -1,14 +1,15 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "@progress/kendo-theme-default/dist/all.css";
+
 import { Form, FormElement } from "@progress/kendo-react-form";
 import { Button } from "@progress/kendo-react-buttons";
 import { Stepper } from "@progress/kendo-react-layout";
 
-import { AccountDetails } from "./account-details";
-import { PersonalDetails } from "./personal-details";
+import { AccountDetails } from "./Enquiry/account-details";
+import { PersonalDetails } from "./Enquiry/personal-details";
 // import { PaymentDetails } from './payment-details';
-import { ProgramDetails } from "./program-details";
+import { ProgramDetails } from "./Enquiry/program-details";
 import { useRef } from "react"
 import axios from "axios"
 
@@ -16,6 +17,8 @@ import {
   FormRenderProps,
   FormSubmitClickEvent,
 } from "@progress/kendo-react-form";
+import ThankYou from "./Shared/ThankYou";
+import { ContinueRegistration } from "./Registration/ContinueRegistration";
 
 const stepPages = [AccountDetails, PersonalDetails, ProgramDetails];
 
@@ -24,16 +27,19 @@ interface stepsInterface {
   label: string;
 }
 
-export const Apply = () => {
+export const Apply = (props) => {
   const formRef = useRef(null)
+
   const scriptUrl = "https://script.google.com/macros/s/AKfycbxk1uH3Rp2IisQak6sqk0BnCBkGKOKvR9Ght7SGdEBe8Cqi__j6TLw3oDtUsAAiG-2SpQ/exec"
+  const sheetbesturl = "https://sheet.best/api/sheets/f9fb9352-97e0-4749-a2ef-90536313b15a"
   const [loading, setLoading] = React.useState(false)
   const [step, setStep] = React.useState<number>(0);
   const [formState, setFormState] = React.useState<Object>({});
+  const [showThankYou, setShowThankYou] = React.useState(false);
   const [steps, setSteps] = React.useState<Array<stepsInterface>>([
-    { label: "Account Details", isValid: undefined },
-    { label: "Personal Details", isValid: undefined },
-    { label: "Program Details", isValid: undefined },
+    { label: "Account", isValid: undefined },
+    { label: "Basic Info", isValid: undefined },
+    { label: "Education Interest", isValid: undefined },
   ]);
 
   const lastStepIndex = steps.length - 1;
@@ -60,34 +66,19 @@ export const Apply = () => {
       setFormState(values);
 
       if (isLastStep) {
-        console.log(typeof (formRef))
-        console.log(JSON.stringify(values));
-        // alert(JSON.stringify(values));
+        // console.log(JSON.stringify(values));
         setLoading(true)
-        // const data={
-        //   email: 
-        // }
-        axios.post("https://sheet.best/api/sheets/f9fb9352-97e0-4749-a2ef-90536313b15a", values).then((res) => {
+        axios.post("https://sheetdb.io/api/v1/wm64j1k4vi9w7", values).then((res) => {
           console.log("Success")
           console.log(res)
           setLoading(false)
         }).catch((err) => {
           console.log(err)
         })
-        // console.log(formRef)
-        // setStep(0)
-        // formRef.current._values = ""
-        // console.log(formRef)
-
-        // fetch(scriptUrl, {
-        //   method: 'POST',
-        //   body: new FormData(formRef.current),
-
-        // }).then(res => {
-        //   console.log("SUCCESSFULLY SUBMITTED")
-        //   setLoading(false)
-        // })
-        //   .catch(err => console.log(err))
+        setShowThankYou(true);
+        setTimeout(() => {
+          setShowThankYou(false)
+        }, 3000);
       }
     },
     [steps, isLastStep, step, lastStepIndex]
@@ -100,6 +91,13 @@ export const Apply = () => {
     },
     [step, setStep]
   );
+
+  const onRegisterClickHandler = (e) => {
+    e.preventDefault();
+    console.log("first");
+    props.onRegister(true)
+    // setShowRegister(true)
+  }
 
   return (
     <div className="signin">
@@ -181,6 +179,7 @@ export const Apply = () => {
                 <div style={{ alignSelf: "center" }}>
                   <FormElement style={{ width: 480 }}>
                     {stepPages[step]}
+                    {/* {console.log("formRenderProps",formRenderProps)} */}
                     <span
                       style={{ marginTop: "40px" }}
                       className={"k-form-separator"}
@@ -206,12 +205,21 @@ export const Apply = () => {
                             Previous
                           </Button>
                         ) : undefined}
+                        {step == 1 ? (
+                          <Button
+                            themeColor={"primary"}
+                            style={{ marginRight: "16px" }}
+                            onClick={onRegisterClickHandler}
+                          >
+                            Continue Registration
+                          </Button>
+                        ) : undefined}
                         <Button
                           themeColor={"primary"}
                           disabled={!formRenderProps.allowSubmit}
                           onClick={formRenderProps.onSubmit}
                         >
-                          {isLastStep ? "Submit" : "Next"}
+                          {isLastStep ? "Submit" : "Book a Counselling"}
                         </Button>
                       </div>
                     </div>
@@ -219,6 +227,8 @@ export const Apply = () => {
                 </div>
               )}
             />
+            {/* {showRegister && <ContinueRegistration />} */}
+            {showThankYou && <ThankYou />}
           </div>
         </div>
       </div>

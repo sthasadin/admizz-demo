@@ -15,6 +15,7 @@ interface Props {
   useValue?: boolean;
   className?: any;
   minWidth?: string;
+  maxHeight?: string;
   width?: string;
   defaultValue?: string;
   name?: string;
@@ -22,14 +23,23 @@ interface Props {
   onChange?: (e: any) => void;
   errorMessage?: string;
   useLabel?: boolean;
+  height?: string;
+  where?: string
 }
 
 const CountryCodeDropDown = (props: Props) => {
   const useStyles = makeStyles((theme) => ({
     formControl: {
       display: "relative",
+      padding: 0,
       width: (props: Props) => {
         return props.width ? props.width : "100%";
+      },
+      height: (props: Props) => {
+        return props.height ? props.height : "100%";
+      },
+      maxHeight: (props: Props) => {
+        return props.maxHeight ? props.maxHeight : "100%";
       },
       minWidth: (props: Props) => {
         return props.minWidth ? props.minWidth : 120;
@@ -95,6 +105,7 @@ const CountryCodeDropDown = (props: Props) => {
       </InputLabel>
 
       <SelectComponent
+        style={{ height: props.where == "apply" && "40px" }}
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         name={props.name}

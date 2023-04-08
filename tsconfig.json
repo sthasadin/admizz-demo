@@ -21,6 +21,6 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "pages/apply/data.jsx", "pages/apply/personal-details.tsx", "pages/apply/payment-details.tsx", "pages/apply/card-selector.tsx", "pages/apply/validators.tsx", "pages/apply/tree-data-operations.ts", "pages/apply/Apply.tsx", "pages/apply/form-components.tsx", "pages/apply/account-details.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "pages/apply/Shared/data.jsx", "pages/apply/Enquiry/personal-details.tsx", "pages/apply/Mostly Deletable/payment-details.tsx", "pages/apply/Mostly Deletable/card-selector.tsx", "pages/apply/Shared/validators.tsx", "pages/apply/Shared/tree-data-operations.ts", "pages/apply/Apply.tsx", "pages/apply/Shared/form-components.tsx", "pages/apply/Enquiry/account-details.tsx"],
   "exclude": ["node_modules"]
 }

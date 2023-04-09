@@ -109,7 +109,7 @@ export const FormInput = (fieldRenderProps: FieldRenderProps) => {
 
 export const FormNumberInput = (fieldRenderProps: FieldRenderProps) => {
   const [formValue, setFormValue] = React.useState({
-    countryCode: "+977",
+    countryCode: "Country Code",
   } as signUpFormValue);
   const [formError, setFormError] = React.useState({} as any);
   const { validationMessage, touched, label, id, valid, disabled, hint, type, optional, required, ...others } = fieldRenderProps;
@@ -165,7 +165,14 @@ export const FormNumberInput = (fieldRenderProps: FieldRenderProps) => {
             style={{
               paddingLeft: 20,
               // width:"60%",
-              height: "40px"
+              height: "40px",
+
+              borderColor: "black",
+              // paddingLeft: 35,
+              // width:"60%",
+              // height: "40px"
+
+
             }}
           />
 
@@ -386,21 +393,39 @@ export const FormTextArea = (fieldRenderProps: FieldRenderProps) => {
   return (
     <FieldWrapper>
       <Label editorId={id} editorValid={valid} optional={optional}>{label}</Label>
-      <TextArea
-        valid={valid}
-        id={id}
-        disabled={disabled}
-        ariaDescribedBy={`${hintId} ${errorId}`}
-        {...others}
-      />
-      {
-        showHint &&
-        <Hint id={hintId}>{hint}</Hint>
-      }
-      {
-        showValidationMessage &&
-        <Error id={errorId}>{validationMessage}</Error>
-      }
+      <div className={'k-form-field-wrap'} style={{
+        position: 'relative',
+      }}>
+        <TextArea
+          valid={valid}
+          id={id}
+          disabled={disabled}
+          ariaDescribedBy={`${hintId} ${errorId}`}
+          {...others}
+          style={{
+            borderColor: "black",
+            paddingLeft: 35,
+          }}
+        />
+        <div style={{
+          position: "absolute",
+          left: 5,
+          top: 8,
+          width: "2em"
+        }}>
+          {
+            fieldRenderProps.icon
+          }
+        </div>
+        {
+          showHint &&
+          <Hint id={hintId}>{hint}</Hint>
+        }
+        {
+          showValidationMessage &&
+          <Error id={errorId}>{validationMessage}</Error>
+        }
+      </div>
     </FieldWrapper>
   );
 };

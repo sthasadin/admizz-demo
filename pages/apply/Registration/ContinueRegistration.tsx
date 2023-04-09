@@ -8,6 +8,7 @@ import "@progress/kendo-theme-default/dist/all.css";
 import { BackgroundInformation } from "./Sections/BackgroundInformation";
 import { ParentsInformation } from "./Sections/ParentsInformation";
 import { AcademicInformation } from "./Sections/AcademicInformation";
+import { ChoiceFilling } from "./Sections/ChoiceFilling";
 
 export const ContinueRegistration = () => {
 
@@ -36,6 +37,8 @@ export const ContinueRegistration = () => {
           <ParentsInformation />
           <Divider sx={{ my: 2 }} />
           <AcademicInformation />
+          <Divider sx={{ my: 2 }} />
+          <ChoiceFilling />
           <Divider sx={{ my: 2 }} />
 
         </div>

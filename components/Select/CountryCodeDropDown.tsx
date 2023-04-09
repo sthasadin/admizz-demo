@@ -95,7 +95,7 @@ const CountryCodeDropDown = (props: Props) => {
 
   const Icon = props.icon;
   return (
-    <FormControl className={classes.formControl} variant="outlined">
+    <FormControl className={classes.formControl} variant="outlined" style={{width:"50%",  borderColor:"black"}}>
       <InputLabel
         id="demo-simple-select-label"
         className={classes.label}
@@ -105,7 +105,7 @@ const CountryCodeDropDown = (props: Props) => {
       </InputLabel>
 
       <SelectComponent
-        style={{ height: props.where == "apply" && "40px" }}
+        style={{ height: props.where == "apply" && "40px", borderColor:"black" }}
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         name={props.name}

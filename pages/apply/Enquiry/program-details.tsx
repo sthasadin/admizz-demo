@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Field } from '@progress/kendo-react-form';
 import '@progress/kendo-theme-default/dist/all.css';
 import {
-  FormInput, FormMaskedTextBox, FormDateInput, FormAutoComplete, FormDropDownList
+  FormInput, FormMaskedTextBox, FormDateInput, FormAutoComplete, FormDropDownList, FormTextArea
 } from '../Shared/form-components';
 
 import {
@@ -24,7 +24,7 @@ export const ProgramDetails = (
       id={'interestedcountry'}
       name={'interestedcountry'}
       label={'Interested Country for Study'}
-      placeholder={'Interested Country for Study*'}
+      placeholder={'Enter your Interested Country for Study*'}
       // hint={'Hint: Only European countries'}
       component={FormDropDownList}
       data={interestedCountries}
@@ -37,7 +37,7 @@ export const ProgramDetails = (
       id={'levelofstudy'}
       name={'levelofstudy'}
       label={'Interested Program Level of Study'}
-      placeholder={'Interested Program Level of Study*'}
+      placeholder={'Enter your Interested Program Level of Study*'}
       // hint={'Hint: Only European countries'}
       required={true}
       component={FormDropDownList}
@@ -50,7 +50,7 @@ export const ProgramDetails = (
       id={'studyprogram'}
       name={'studyprogram'}
       label={'Program You want to Study'}
-      placeholder={'Program You want to Study*'}
+      placeholder={'Enter the Program You want to Study*'}
       // hint={'Hint: Enter your personal email address.'}
       // type={'email'}
       required={true}
@@ -63,7 +63,7 @@ export const ProgramDetails = (
       id={'university'}
       name={'university'}
       label={'University/College Preference, If any'}
-      placeholder={'University/College Preference, If any*'}
+      placeholder={'Enter your University/College Preference, If any*'}
       // hint={'Hint: Enter your personal email address.'}
       // type={'email'}
       required={true}
@@ -76,10 +76,10 @@ export const ProgramDetails = (
       id={'question'}
       name={'question'}
       label={'Do you have any questions for your counselor?'}
-      placeholder={'Do you have any questions for your counselor?'}
+      placeholder={'Enter your queries'}
       hint={'This will help our counselor prepare for the session.'}
       // type={'email'}
-      component={FormInput}
+      component={FormTextArea}
     // validator={requiredValidator}
     />
   </div>

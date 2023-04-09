@@ -1,30 +1,31 @@
 import * as React from "react";
 import "@progress/kendo-theme-default/dist/all.css";
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { interestedProgramLevel } from "../../Shared/data";
 import { Typography } from "@material-ui/core";
-import 'react-phone-number-input/style.css';
+import "react-phone-number-input/style.css";
 import { Grid } from "@mui/material";
-
+import { FormContext } from "context/FormContextProvider";
 
 export const ApplyingFor = () => {
-  const [level, setLevel] = React.useState('');
-
-  const handleLevelChange = (event: SelectChangeEvent) => {
-    setLevel(event.target.value as string);
-  };
+  const { level, handleLevelChange } = React.useContext(FormContext);
 
   return (
     <Box
       component="form"
-      sx={{ '& > :not(style)': { m: 1, width: '100%' }, }}
+      sx={{ "& > :not(style)": { m: 1, width: "100%" } }}
       noValidate
       autoComplete="off"
-      style={{ backgroundColor: "white", borderRadius:"5px", padding:"20px" }}
+      style={{
+        backgroundColor: "white",
+        borderRadius: "10px",
+        padding: "20px",
+        marginBottom: "20px",
+      }}
     >
       <Typography variant="h5" gutterBottom>
         Applying For
@@ -41,14 +42,16 @@ export const ApplyingFor = () => {
               onChange={handleLevelChange}
             >
               {interestedProgramLevel.map((level) => {
-                return (<MenuItem value={level} key={level}>{level}</MenuItem>)
+                return (
+                  <MenuItem value={level} key={level}>
+                    {level}
+                  </MenuItem>
+                );
               })}
             </Select>
           </FormControl>
         </Grid>
       </Grid>
     </Box>
-
-
-  )
-}
+  );
+};

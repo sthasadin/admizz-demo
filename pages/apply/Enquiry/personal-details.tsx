@@ -1,85 +1,109 @@
-import * as React from 'react';
-
-import { Field } from '@progress/kendo-react-form';
-import '@progress/kendo-theme-default/dist/all.css';
+import * as React from "react";
+import { Field } from "@progress/kendo-react-form";
+import "@progress/kendo-theme-default/dist/all.css";
 import {
-  FormInput, FormAutoComplete, FormRadioGroup,
-  FormTextArea,
-  FormNumericTextBox,
+  FormInput,
   FormNumberInput,
-  FormDropDownList
-} from '../Shared/form-components';
-
-import {
-  nameValidator, requiredValidator
-} from '../Shared/validators'
-
-import {
-  countries, genders
-} from '../Shared/data'
+  FormDropDownList,
+} from "../Shared/form-components";
+import { nameValidator, requiredValidator } from "../Shared/validators";
+import { countries } from "../Shared/data";
 import PersonIcon from "@material-ui/icons/Person";
 import PublicIcon from "@material-ui/icons/Public";
 import Phone from "@material-ui/icons/Phone";
+import { AskConfirmation } from "./ask-confirmation";
+import { FormContext } from "context/FormContextProvider";
+import { Button } from "@progress/kendo-react-buttons";
 
+export const PersonalDetails = (props) => {
+  const { confirmation } = React.useContext(FormContext);
+  const [showCounselling, setShowCountelling] = React.useState(false);
 
-// import PersonIcon from '@mui/icons-material/Person';
+  const showCounsellingHandler = () => {
+    setShowCountelling((prev) => !prev);
+  };
 
-export const PersonalDetails = (
-  <div>
-    <Field
-      icon={<PersonIcon />}
-      key={'fullName'}
-      id={'fullName'}
-      name={'fullName'}
-      label={'Full Name'}
-      placeholder={'Enter your Full Name*'}
+  // const onRegisterClickHandler = (e) => {
+  //   e.preventDefault();
+  //   console.log("first");
+  //   props.onRegister(true);
+  // };
 
-      required={true}
-      component={FormInput}
-      validator={nameValidator}
-    />
-    <Field
-      icon={<PublicIcon />}
-      key={'countryselected'}
-      id={'countryselected'}
-      name={'countryselected'}
-      label={'Nationality'}
-      placeholder={'Select your Nationality*'}
-      // hint={'Hint: Only European countries'}
-      required={true}
-      component={FormDropDownList}
-      data={countries}
-      validator={requiredValidator}
-    />
-    {/* <Field
-      key={'gender'}
-      id={'gender'}
-      name={'gender'}
-      label={'Gender'}
-      layout={'horizontal'}
-      component={FormRadioGroup}
-      data={genders}
-      validator={requiredValidator}
-    /> */}
-    <Field
-      icon={<Phone />}
-      key={'phone'}
-      id={'phone'}
-      name={'phone'}
-      label={'Phone Number'}
-      placeholder={'Enter your Phone Number*'}
-      layout={'horizontal'}
-      component={FormNumberInput}
-      validator={requiredValidator}
-      required={true}
-    />
-    {/* <Field
-      key={'about'}
-      id={'about'}
-      name={'about'}
-      label={'About'}
-      optional={true}
-      component={FormTextArea}
-    /> */}
-  </div>
-);
+  return (
+    <div style={{ position: "relative", height: "80%" }}>
+      {/* {confirmation == 1 ? ( */}
+      {!showCounselling && (
+        <>
+          <div>
+            <Field
+              icon={<PersonIcon />}
+              key={"fullName"}
+              id={"fullName"}
+              name={"fullName"}
+              label={"Full Name"}
+              placeholder={"Enter your Full Name*"}
+              required={true}
+              component={FormInput}
+              validator={nameValidator}
+            />
+            <Field
+              icon={<PublicIcon />}
+              key={"countryselected"}
+              id={"countryselected"}
+              name={"countryselected"}
+              label={"Nationality"}
+              placeholder={"Select your Nationality*"}
+              required={true}
+              component={FormDropDownList}
+              data={countries}
+              validator={requiredValidator}
+            />
+
+            <Field
+              icon={<Phone />}
+              key={"phone"}
+              id={"phone"}
+              name={"phone"}
+              label={"Phone Number"}
+              placeholder={"Enter your Phone Number*"}
+              layout={"horizontal"}
+              component={FormNumberInput}
+              validator={requiredValidator}
+              required={true}
+            />
+          </div>
+          <div style={{ margin: "20px", position: "absolute", right: "0" }}>
+            <Button
+              style={{
+                marginRight: "16px",
+              }}
+              onClick={props.onPrevClick}
+            >
+              Previous
+            </Button>
+            <Button
+              style={{
+                marginRight: "16px",
+                backgroundColor: "#ffa200",
+                color: "white",
+              }}
+              disabled={props.disable}
+              onClick={showCounsellingHandler}
+            >
+              Next
+            </Button>
+          </div>
+        </>
+      )}
+      {showCounselling && (
+        <AskConfirmation
+          showCounsellingHandler={showCounsellingHandler}
+          onRegisterClickHandler={props.onRegisterClickHandler}
+        />
+      )}
+      {/* ) : (
+        <AskConfirmation />
+      )} */}
+    </div>
+  );
+};

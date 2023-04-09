@@ -1,58 +1,49 @@
-import * as React from 'react';
-import '@progress/kendo-theme-default/dist/all.css';
-import { Field, FieldRenderProps, FieldWrapper } from '@progress/kendo-react-form';
-import { Input } from '@progress/kendo-react-inputs';
-import {
-  FormInput, FormUpload
-} from '../Shared/form-components';
+import * as React from "react";
+import "@progress/kendo-theme-default/dist/all.css";
+import { Field } from "@progress/kendo-react-form";
+import { FormInput } from "../Shared/form-components";
 import MailIcon from "@material-ui/icons/Mail";
-import {
-  userNameValidator, emailValidator, passwordValidator
-} from '../Shared/validators'
+import { emailValidator } from "../Shared/validators";
+import { FormContext } from "context/FormContextProvider";
+import { Button } from "@progress/kendo-react-buttons";
 
+export const AccountDetails = (props) => {
+  const { email } = React.useContext(FormContext);
 
-export const AccountDetails = (
-  <div>
-    {/* <Field
-      key={'userName'}
-      id={'userName'}
-      name={'userName'}
-      label={'Username'}
-      component={FormInput}
-      validator={userNameValidator}
-        /> */}
+  const customOnChange = (event) => {
+    console.log(event);
+  };
 
-    <Field
-      icon={<MailIcon />}
-      key={'email'}
-      id={'email'}
-      name={'email'}
-      label={'Email Address'}
-      placeholder={'Enter your Email Address*'}
-      hint={'Hint: Enter your personal email address.'}
-      type={'email'}
-      component={FormInput}
-      required={true}
-      validator={emailValidator}
-    />
-
-    {/* <Field
-      key={'password'}
-      id={'password'}
-      name={'password'}
-      label={'Password'}
-      type={'password'}
-      component={FormInput}
-      validator={passwordValidator}
-        />
-    <Field
-      key={'avatar'}
-      id={'avatar'}
-      name={'avatar'}
-      label={'Avatar'}
-      optional={true}
-      hint={'Hint: Upload your avatar picture'}
-      component={FormUpload}
-        /> */}
-  </div>
-);
+  return (
+    <div style={{ position: "relative", height: "80%" }}>
+      <Field
+        icon={<MailIcon />}
+        key={"email"}
+        id={"email"}
+        name={"email"}
+        label={"Email Address"}
+        placeholder={"Enter your Email Address*"}
+        hint={"Hint: Enter your personal email address."}
+        type={"email"}
+        component={FormInput}
+        required={true}
+        validator={emailValidator}
+        parentChange={customOnChange}
+      />
+      <Button
+        style={{
+          backgroundColor: "#ffa200",
+          color: "white",
+          position: "absolute",
+          // bottom: 0,
+          right: 0,
+          margin: "20px",
+        }}
+        disabled={props.disable}
+        onClick={props.submit}
+      >
+        Next
+      </Button>
+    </div>
+  );
+};

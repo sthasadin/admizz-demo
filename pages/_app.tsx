@@ -9,6 +9,8 @@ import { Provider } from "react-redux";
 // import { createWrapper } from "next-redux-wrapper";
 import store from "../store/store";
 import Head from "next/head";
+import FormContextProvider from "context/FormContextProvider";
+
 if (typeof window !== "undefined") {
   NProgress.configure({ showSpinner: false });
 
@@ -53,9 +55,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <AuthProvider>
-        <PProvider store={store}>
-          <Component {...pageProps} />
-        </PProvider>
+        <FormContextProvider>
+          <PProvider store={store}>
+            <Component {...pageProps} />
+          </PProvider>
+        </FormContextProvider>
       </AuthProvider>
     </>
   );

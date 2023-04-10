@@ -70,34 +70,36 @@ export const ContinueRegistration = () => {
             // width: "16%",
           }}
         >
-          <Stepper
-            activeStep={activeStep}
-            orientation="vertical"
-            style={{ borderRadius: "10px", position: "sticky" }}
-            // StepIconProps={{active: {color: '#'}}}
-          >
-            <Step completed={activeStep > 0}>
-              <StepLabel>Applying For</StepLabel>
-            </Step>
-            <Step completed={activeStep > 1}>
-              <StepLabel>Personal Detail</StepLabel>
-            </Step>
-            <Step completed={activeStep > 2}>
-              <StepLabel>Address Detail</StepLabel>
-            </Step>
-            <Step completed={activeStep > 3}>
-              <StepLabel>Background Information</StepLabel>
-            </Step>
-            <Step completed={activeStep > 4}>
-              <StepLabel>Parents Information</StepLabel>
-            </Step>
-            <Step completed={activeStep > 5}>
-              <StepLabel>Academic Information</StepLabel>
-            </Step>
-            <Step completed={activeStep > 6}>
-              <StepLabel>Choice Filling</StepLabel>
-            </Step>
-          </Stepper>
+          {!showReview && (
+            <Stepper
+              activeStep={activeStep}
+              orientation="vertical"
+              style={{ borderRadius: "10px", position: "sticky" }}
+              // StepIconProps={{active: {color: '#'}}}
+            >
+              <Step completed={activeStep > 0}>
+                <StepLabel>Applying For</StepLabel>
+              </Step>
+              <Step completed={activeStep > 1}>
+                <StepLabel>Personal Detail</StepLabel>
+              </Step>
+              <Step completed={activeStep > 2}>
+                <StepLabel>Address Detail</StepLabel>
+              </Step>
+              <Step completed={activeStep > 3}>
+                <StepLabel>Background Information</StepLabel>
+              </Step>
+              <Step completed={activeStep > 4}>
+                <StepLabel>Parents Information</StepLabel>
+              </Step>
+              <Step completed={activeStep > 5}>
+                <StepLabel>Academic Information</StepLabel>
+              </Step>
+              <Step completed={activeStep > 6}>
+                <StepLabel>Choice Filling</StepLabel>
+              </Step>
+            </Stepper>
+          )}
         </div>
       </div>
       <div className="signin__inner" style={{ flex: "1 1 80%" }}>
@@ -135,36 +137,71 @@ export const ContinueRegistration = () => {
             </>
           )}
           {showReview && <Review />}
-          {showReview && (
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+
+              justifyContent: "space-between",
+              flexDirection: "row-reverse",
+            }}
+          >
+            {showReview && (
+              <Button
+                className="form-left-subtree-button filled"
+                variant="contained"
+                color="primary"
+                onClick={handleLeftFormSubmit}
+                style={{
+                  backgroundColor: "#ffa200",
+                  margin: "5px",
+                  padding: "10px 20px",
+                  fontSize: "16px",
+
+                  color: "white",
+                  width: "50%",
+                }}
+              >
+                {!showRegister ? "Review" : "Submit"}
+              </Button>
+            )}
             <Button
+              className="form-left-subtree-button filled"
               variant="contained"
               color="primary"
-              onClick={handleLeftFormSubmit}
-              style={{ backgroundColor: "#ffa200", marginTop: "5px" }}
+              onClick={handleShowReview}
+              style={{
+                backgroundColor: "#ffa200",
+                margin: "5px",
+                padding: "10px 20px",
+                fontSize: "16px",
+
+                color: "white",
+                width: "50%",
+              }}
             >
-              {!showRegister ? "Review" : "Submit"}
+              {!showReview ? "Review" : "Go Back"}
             </Button>
-          )}
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleShowReview}
-            style={{ backgroundColor: "#ffa200", marginTop: "5px" }}
-          >
-            {!showReview ? "Review" : "Go Back"}
-          </Button>
-          {showRegister && !showReview && (
-            <>
+            {showRegister && !showReview && (
               <Button
+                className="form-left-subtree-button filled"
                 variant="contained"
                 color="primary"
                 onClick={onRegisterClick}
-                style={{ backgroundColor: "#ffa200", marginTop: "5px" }}
+                style={{
+                  backgroundColor: "#ffa200",
+                  margin: "5px",
+                  padding: "10px 20px",
+                  fontSize: "16px",
+
+                  color: "white",
+                  width: "50%",
+                }}
               >
                 {!showRegister ? "Review" : "Go Back"}
               </Button>
-            </>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

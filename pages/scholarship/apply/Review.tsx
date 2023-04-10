@@ -42,6 +42,16 @@ const Review = () => {
 
   return (
     <>
+      {/* <div className="signin">
+        <div className="signin__inner">
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          > */}
       <Box
         component="form"
         sx={{ "& > :not(style)": { m: 1, width: "100%" } }}
@@ -157,6 +167,9 @@ const Review = () => {
         </TableContainer>
         <br />
       </Box>
+      {/* </div>
+        </div>
+      </div> */}
     </>
   );
 };

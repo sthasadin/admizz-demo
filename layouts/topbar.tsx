@@ -57,6 +57,7 @@ const Topbar = (props: any) => {
                 </div>
               </div>
             )}
+            {<Link href="/scholarship"></Link>}
           </div>
         </div>
       </div>

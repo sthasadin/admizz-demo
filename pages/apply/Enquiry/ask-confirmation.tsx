@@ -16,12 +16,21 @@ export const AskConfirmation = (props) => {
           alignItems: "center",
         }}
       >
-        <div style={{ marginBottom: "200px", marginTop: "20px" }}>
+        <div
+          style={{
+            marginBottom: "200px",
+            marginTop: "20px",
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
           <Button
+            className="form-left-subtree-button filled"
             themeColor={"primary"}
             style={{
-              marginRight: "16px",
-              height: "40px",
+              margin: "10px",
+              // marginRight: "16px",
+              // height: "40px",
               width: "200px",
               fontSize: "16px",
               backgroundColor: "#ffa200",
@@ -32,10 +41,12 @@ export const AskConfirmation = (props) => {
             Register on Portal
           </Button>
           <Button
+            className="form-left-subtree-button filled"
             themeColor={"primary"}
             style={{
-              marginRight: "16px",
-              height: "40px",
+              // marginRight: "16px",
+              // height: "40px",
+              margin: "10px",
               width: "200px",
               fontSize: "16px",
               backgroundColor: "#ffa200",

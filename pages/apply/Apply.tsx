@@ -81,6 +81,7 @@ export const Apply = (props) => {
 
       if (isLastStep) {
         setLoading(true);
+        // console.log(values);
         axios
           .post("https://sheetdb.io/api/v1/wm64j1k4vi9w7", values)
           .then((res) => {
@@ -314,30 +315,12 @@ export const Apply = (props) => {
                             <span style={{ alignSelf: "center" }}>
                               Step {step + 1} of 3
                             </span>
-                            <div>
-                              {/* {step !== 0 ? (
-                          <Button
-                            style={{ marginRight: "16px" }}
-                            onClick={onPrevClick}
-                          >
-                            Previous
-                          </Button>
-                        ) : undefined} */}
-                              {/* <Button
-                          themeColor={"primary"}
-                          disabled={!formRenderProps.allowSubmit}
-                          onClick={formRenderProps.onSubmit}
-                        >
-                          {isLastStep ? "Submit" : "Next"}
-                        </Button> */}
-                            </div>
                           </div>
                         </FormElement>
                       </div>
                     )}
                   />
                 </div>
-                {/* {showThankYou && <ThankYou />} */}
               </div>
             </div>
           </div>

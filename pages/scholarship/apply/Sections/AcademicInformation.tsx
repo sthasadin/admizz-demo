@@ -17,8 +17,15 @@ import { FormContext } from "context/FormContextProvider";
 
 export const AcademicInformation = () => {
   const {
+    level,
     schoolmarks,
     HighSchoolMarks,
+    schoolLink,
+    highSchoolLink,
+    otherLink,
+    handleSchoolLink,
+    handleHighSchoolLink,
+    handleOtherLink,
     handleSchoolMarksChange,
     handleHighSchoolMarksChange,
   } = React.useContext(FormContext);
@@ -58,17 +65,19 @@ export const AcademicInformation = () => {
             />
           </Grid>
 
-          <Grid item xs={12} sm={6}>
-            {/* <InputLabel id="demo-simple-select-label">High School Marks/ Class 12/ Level A Marks/ Diploma</InputLabel> */}
-            <TextField
-              id="outlined-basic-highscholmarks"
-              label="High School Marks/ Class 12/ Level A Marks/ Diploma"
-              variant="outlined"
-              fullWidth
-              value={HighSchoolMarks}
-              onChange={handleHighSchoolMarksChange}
-            />
-          </Grid>
+          {level != "Diploma (After your 10th or 'O' Level)" && (
+            <Grid item xs={12} sm={6}>
+              {/* <InputLabel id="demo-simple-select-label">High School Marks/ Class 12/ Level A Marks/ Diploma</InputLabel> */}
+              <TextField
+                id="outlined-basic-highscholmarks"
+                label="High School Marks/ Class 12/ Level A Marks/ Diploma"
+                variant="outlined"
+                fullWidth
+                value={HighSchoolMarks}
+                onChange={handleHighSchoolMarksChange}
+              />
+            </Grid>
+          )}
         </Grid>
 
         <Typography variant="h6" gutterBottom>
@@ -78,17 +87,42 @@ export const AcademicInformation = () => {
 
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
-            <FileUpload id="school" label="School Certificate" />
+            <TextField
+              id="school"
+              label="Drive Link for School Certificate"
+              variant="outlined"
+              fullWidth
+              value={schoolLink}
+              onChange={handleSchoolLink}
+            />
+
+            {/* <FileUpload id="school" label="School Certificate" /> */}
           </Grid>
         </Grid>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
-            <FileUpload id="highschool" label="High School Certificate" />
+            <TextField
+              id="highschool"
+              label="Drive Link for High School Certificate"
+              variant="outlined"
+              fullWidth
+              value={highSchoolLink}
+              onChange={handleHighSchoolLink}
+            />
+            {/* <FileUpload id="highschool" label="High School Certificate" /> */}
           </Grid>
         </Grid>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
-            <FileUpload id="other" label="Other Certificate" />
+            <TextField
+              id="other"
+              label="Drive Link for Other Certificate"
+              variant="outlined"
+              fullWidth
+              value={otherLink}
+              onChange={handleOtherLink}
+            />
+            {/* <FileUpload id="other" label="Other Certificate" /> */}
           </Grid>
         </Grid>
 

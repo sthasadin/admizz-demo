@@ -15,6 +15,9 @@ import { MuiTelInput } from "mui-tel-input";
 import dayjs, { Dayjs } from "dayjs";
 import { Grid } from "@mui/material";
 import { FormContext } from "context/FormContextProvider";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
+import PhoneInputWithCountryCode from "../../Shared/PhoneInputWithCountryCode";
 
 export const PersonalDetail = () => {
   const {
@@ -32,6 +35,12 @@ export const PersonalDetail = () => {
     handleFullName,
     handlleEmailChange,
   } = React.useContext(FormContext);
+  const [phonehere, setPhonehere] = React.useState<string>("");
+
+  const handle = (e) => {
+    console.log(e.target.value);
+    setPhonehere(e.target.value);
+  };
 
   return (
     <Box
@@ -98,7 +107,9 @@ export const PersonalDetail = () => {
       </Grid>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
+          {/* <PhoneInputWithCountryCode value={phonehere} onChange={handle} /> */}
           <MuiTelInput
+            defaultCountry="NP"
             value={phone}
             placeholder="Phone Number"
             onChange={handlePhoneChange}

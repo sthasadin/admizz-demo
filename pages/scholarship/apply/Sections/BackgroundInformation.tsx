@@ -21,6 +21,9 @@ export const BackgroundInformation = () => {
     handleIdentificationChange,
     handlePassportChange,
     handleNoPassportChange,
+
+    passportLink,
+    handlePassportLink,
   } = React.useContext(FormContext);
 
   const controlProps = (item: string) => ({
@@ -160,7 +163,10 @@ export const BackgroundInformation = () => {
         <br />
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12}>
-            <InputLabel id="demo-simple-select-label">
+            <InputLabel
+              id="demo-simple-select-label"
+              style={{ marginBottom: "14px" }}
+            >
               Citizenship ID/ National ID
             </InputLabel>
             <TextField
@@ -180,10 +186,20 @@ export const BackgroundInformation = () => {
               Personal Identification
             </Typography>
             <Divider sx={{ my: 1 }} />
-            <FileUpload
+
+            <TextField
+              id="passport"
+              label="Drive Link for Passport/ Citizenship/ National ID"
+              variant="outlined"
+              fullWidth
+              value={passportLink}
+              onChange={handlePassportLink}
+            />
+
+            {/* <FileUpload
               id="passport"
               label="Passport/ Citizenship/ National ID"
-            />
+            /> */}
           </Grid>
         </Grid>
       </Box>

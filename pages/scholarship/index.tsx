@@ -7,7 +7,8 @@ import "@progress/kendo-theme-default/dist/all.css";
 // import { ContinueRegistration } from "./Registration/ContinueRegistration";
 // import Review from "./Registration/Review";
 import { FormContext } from "context/FormContextProvider";
-import bannerImage from "../../public/scholarship/bannerImg.jpg";
+import bannerImage from "../../public/scholarship/bannerImg.png";
+import bannerImage2 from "../../public/scholarship/bannerImg2.png";
 import { Button } from "@progress/kendo-react-buttons";
 import { useRouter } from "next/router";
 
@@ -24,7 +25,8 @@ const Scholarship = () => {
               justifyContent: "center",
               textAlign: "center",
               flexDirection: "column",
-              height: "50%",
+
+              // height: "70%",
               // backgroundColor: "red",
             }}
           >
@@ -32,7 +34,7 @@ const Scholarship = () => {
               src={bannerImage}
               alt="Banner"
               style={{
-                width: "60%",
+                width: "90%",
                 // height: "50%",
                 objectFit: "cover",
                 display: "block",

@@ -35,6 +35,10 @@ export const FormContext = React.createContext({
   fourthStep: false,
   showRegister: false,
   confirmation: 0,
+  passportLink: "",
+  schoolLink: "",
+  highSchoolLink: "",
+  otherLink: "",
 
   handleNationalityChange: (e) => {},
   handleCountryChange: (e) => {},
@@ -74,6 +78,11 @@ export const FormContext = React.createContext({
   handleSecondStep: () => {},
   handleThirdStep: () => {},
   handleFourthStep: () => {},
+
+  handlePassportLink: (e) => {},
+  handleSchoolLink: (e) => {},
+  handleHighSchoolLink: (e) => {},
+  handleOtherLink: (e) => {},
 });
 
 const FormContextProvider = ({ children }) => {
@@ -100,6 +109,11 @@ const FormContextProvider = ({ children }) => {
   const [city, setCity] = React.useState("");
   const [state, setState] = React.useState("");
   const [identification, setIdentification] = React.useState("");
+  const [passportLink, setPassportLink] = React.useState("");
+  const [schoolLink, setSchoolLink] = React.useState("");
+  const [highSchoolLink, setHighSchoolLink] = React.useState("");
+  const [otherLink, setOtherLink] = React.useState("");
+
   const [selectedFile, setSelectedFile] = React.useState({
     "passport-file-upload": null,
     "school-file-upload": null,
@@ -124,6 +138,8 @@ const FormContextProvider = ({ children }) => {
   const [secondStep, setSecondStep] = React.useState(false);
   const [thirdStep, setThirdStep] = React.useState(false);
   const [fourthStep, setFourthStep] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+  const [showThankYou, setShowThankYou] = React.useState(false);
 
   const handleLeftFormSubmit = () => {
     setNationalitySelected("");
@@ -238,10 +254,11 @@ const FormContextProvider = ({ children }) => {
   };
 
   const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // console.log("event.target", event.target);
     if (event.target.files && event.target.files.length > 0) {
       setSelectedFile({
         ...selectedFile,
-        [event.target.id]: event.target.files[0],
+        [event.target.id]: event.target.value,
       });
       console.log("selectedFile", selectedFile);
       // console.log("event.target", event.target);
@@ -271,7 +288,7 @@ const FormContextProvider = ({ children }) => {
       ...radioGroup,
       [event.target.name]: event.target.value,
     });
-    console.log("radioGroup", radioGroup);
+    // console.log("radioGroup", radioGroup);
   };
 
   const handleSchoolMarksChange = (e) => {
@@ -314,6 +331,27 @@ const FormContextProvider = ({ children }) => {
   const handleFourthStep = () => {
     setFourthStep((prev) => !prev);
   };
+
+  const handleShowThankYou = () => {
+    setShowThankYou((prev) => !prev);
+  };
+
+  const handlePassportLink = (e) => {
+    setPassportLink(e.target.value);
+  };
+
+  const handleSchoolLink = (e) => {
+    setSchoolLink(e.target.value);
+  };
+
+  const handleHighSchoolLink = (e) => {
+    setHighSchoolLink(e.target.value);
+  };
+
+  const handleOtherLink = (e) => {
+    setOtherLink(e.target.value);
+  };
+
   return (
     <FormContext.Provider
       value={{
@@ -350,6 +388,11 @@ const FormContextProvider = ({ children }) => {
         thirdStep,
         fourthStep,
 
+        passportLink,
+        schoolLink,
+        highSchoolLink,
+        otherLink,
+
         handleParentNameChange,
         handleParentEmailChange,
         handleParentAddressChange,
@@ -385,6 +428,11 @@ const FormContextProvider = ({ children }) => {
         handleSecondStep,
         handleThirdStep,
         handleFourthStep,
+
+        handlePassportLink,
+        handleSchoolLink,
+        handleHighSchoolLink,
+        handleOtherLink,
       }}
     >
       {children}

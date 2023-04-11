@@ -87,7 +87,7 @@ const ScholarshipApply = () => {
     const values = {
       "Full Name": fullname,
       "Personal Email": email,
-      "Personal Phone Number": phone,
+      "Personal Phone Number": "'" + phone,
       "Date of Birth": selectedDate,
       Nationality: nationalityselected,
       Gender: gender,
@@ -100,7 +100,7 @@ const ScholarshipApply = () => {
       "Citizenship No./ Identification No.": identification,
       "Parent Name": parentName,
       "Parent Email": parentEmail,
-      "Parent Phone Number": parentPhone,
+      "Parent Phone Number": "'" + parentPhone,
       "Parent Address": parentAddress,
       Level: level,
       GRE: radioGroup["GRE"],

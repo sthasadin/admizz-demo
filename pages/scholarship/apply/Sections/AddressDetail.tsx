@@ -43,10 +43,6 @@ export const AddressDetail = () => {
         <Typography variant="h5" gutterBottom>
           Address Details
         </Typography>
-        <Typography variant="h6" gutterBottom>
-          Personal Address
-        </Typography>
-        <Divider sx={{ my: 1 }} />
 
         <Grid container spacing={2}>
           <Grid item xs={12} sm={12} style={{ width: "100%" }}>

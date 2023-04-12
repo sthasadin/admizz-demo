@@ -89,14 +89,14 @@ const Review = () => {
           <Table className={classes.table}>
             <TableBody>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Full Name
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {fullname} */}
 
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={fullname}
                     InputProps={{
@@ -106,13 +106,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Email Address
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {" "} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={email}
                     InputProps={{
@@ -123,13 +123,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Phone Number
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {" "} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={phone}
                     InputProps={{
@@ -140,13 +140,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Date of Birth
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {" "} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={selectedDate.toISOString().slice(0, 10)}
                     InputProps={{
@@ -157,13 +157,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Gender
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {" "} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={gender}
                     InputProps={{
@@ -174,13 +174,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Nationality
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {" "} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={nationalityselected}
                     InputProps={{
@@ -191,13 +191,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Address
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {" "} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={address}
                     InputProps={{
@@ -208,13 +208,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   City
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {" "} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={city}
                     InputProps={{
@@ -225,13 +225,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   State
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {" "} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={state}
                     InputProps={{
@@ -242,13 +242,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Country
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {" "} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={countryselected}
                     InputProps={{
@@ -273,13 +273,13 @@ const Review = () => {
           <Table className={classes.table}>
             <TableBody>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Do you have a Passport?:
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {passport} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={passport}
                     InputProps={{
@@ -290,13 +290,13 @@ const Review = () => {
               </TableRow>
               {passport === "No" && (
                 <TableRow>
-                  <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                  <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                     Applied for Passport?:
                   </TableCell>
-                  <TableCell style={{ width: "70%" }}>
+                  <TableCell style={{ width: "75%" }}>
                     {/* {appliedPassport} */}
                     <TextField
-                      style={{ width: "100%" }}
+                      style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                       id="outlined-read-only-input"
                       defaultValue={appliedPassport}
                       InputProps={{
@@ -307,13 +307,13 @@ const Review = () => {
                 </TableRow>
               )}
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Identification No.:
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {identification} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={identification}
                     InputProps={{
@@ -337,13 +337,13 @@ const Review = () => {
           <Table className={classes.table}>
             <TableBody>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Parent's Name
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {parentName} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={parentName}
                     InputProps={{
@@ -353,13 +353,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Parent's Email
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {parentEmail} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={parentEmail}
                     InputProps={{
@@ -369,13 +369,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Parent's Phone Number
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {parentPhone} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={parentPhone}
                     InputProps={{
@@ -385,13 +385,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   Parent's Address
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {parentAddress} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={parentAddress}
                     InputProps={{
@@ -415,13 +415,13 @@ const Review = () => {
           <Table className={classes.table}>
             <TableBody>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   School Marks
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {schoolmarks} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={schoolmarks}
                     InputProps={{
@@ -432,13 +432,13 @@ const Review = () => {
               </TableRow>
               {level != "Diploma (After your 10th or 'O' Level)" && (
                 <TableRow>
-                  <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                  <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                     High School Marks
                   </TableCell>
-                  <TableCell style={{ width: "70%" }}>
+                  <TableCell style={{ width: "75%" }}>
                     {/* {HighSchoolMarks} */}
                     <TextField
-                      style={{ width: "100%" }}
+                      style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                       id="outlined-read-only-input"
                       defaultValue={HighSchoolMarks}
                       InputProps={{
@@ -449,13 +449,13 @@ const Review = () => {
                 </TableRow>
               )}
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   GRE
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {radioGroup["GRE"]} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={radioGroup["GRE"]}
                     InputProps={{
@@ -465,13 +465,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   SAT
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {radioGroup["SAT"]} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={radioGroup["SAT"]}
                     InputProps={{
@@ -481,13 +481,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   GMAT
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {radioGroup["GMAT"]} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={radioGroup["GMAT"]}
                     InputProps={{
@@ -497,13 +497,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   SAT II
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {radioGroup["SAT II"]} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={radioGroup["SAT II"]}
                     InputProps={{
@@ -513,13 +513,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   TOEFL
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {radioGroup["TOEFL"]} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={radioGroup["TOEFL"]}
                     InputProps={{
@@ -529,13 +529,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   JEE Advance
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {radioGroup["JEE Advance"]} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={radioGroup["JEE Advance"]}
                     InputProps={{
@@ -545,13 +545,13 @@ const Review = () => {
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell style={{ width: "30%", fontWeight: "bold" }}>
+                <TableCell style={{ width: "25%", fontWeight: "bold" }}>
                   IELTS
                 </TableCell>
-                <TableCell style={{ width: "70%" }}>
+                <TableCell style={{ width: "75%" }}>
                   {/* {radioGroup["IELTS"]} */}
                   <TextField
-                    style={{ width: "100%" }}
+                    style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                     id="outlined-read-only-input"
                     defaultValue={radioGroup["IELTS"]}
                     InputProps={{
@@ -590,7 +590,7 @@ const Review = () => {
                   <TableCell>
                     {/* {choice.program} */}
                     <TextField
-                      style={{ width: "100%" }}
+                      style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                       id="outlined-read-only-input"
                       defaultValue={choice.program}
                       InputProps={{
@@ -601,7 +601,7 @@ const Review = () => {
                   <TableCell>
                     {/* {choice.stream} */}
                     <TextField
-                      style={{ width: "100%" }}
+                      style={{ width: "100%", backgroundColor: "#f4f4f4" }}
                       id="outlined-read-only-input"
                       defaultValue={choice.stream}
                       InputProps={{

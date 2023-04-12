@@ -31,7 +31,7 @@ export const ApplyingFor = () => {
         Applying For
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={6}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Select Level</InputLabel>
             <Select
